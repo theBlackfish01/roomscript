@@ -73,3 +73,4 @@ This is a diagnostics tour, to be replaced by the actual gameplay tour after C/D
 - 2026-10-28: A4 commit 143a315. A5 chooses Gemini 2.5 Flash + OpenAI TTS, cache-first chips, validated live free text, rate-limit cooldown, optional Imagen/authored art, simulated-room camera input. Separate medians suggest ~3.96s uncached spoken latency; no combined-latency claim. Stage A complete, m0-probe.
 - Prior disconnect/crash and package incompatibilities are resolved; reproduction details are preserved in docs/mcp-bug-report.md. Wadood relaunched Lens Studio and authorized continuation. No raw HTTP to the Lens MCP, no Cache modifications, no remote/push.
 
+- B3 commit41ed85f. B4 solver verified32 tests including20 broken variants; final integrated Lens compile21:19 succeeds, runtime starts without Lens exceptions.
