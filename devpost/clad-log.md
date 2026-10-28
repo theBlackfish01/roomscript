@@ -74,3 +74,5 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 - 2026-10-29 00:23 PKT — A6 via AI remote-service/inline LEAF procedure: real OpenAI fallback passed fail-fast after simulated Gemini outage, 2327ms. Fresh three-provider tokens, VirtualScene wiring, clean recompile/runtime, tape harvest and offline replay checks. Tokens cleared for commit.
 
 - 2026-10-29 00:24 PKT — A8 scheduler: 24 regression tests, Tooling typecheck, RecompileTypeScriptTool and fresh runtime logs pass. No scene changes.
+
+- 2026-10-29 00:30 PKT — specs-audio + inline LEAF: roomscript-speech-budget passed on real OpenAI TTS (3057ms first audio; 7.8ms sentence gap; coral voice). Verified precache, offline cache, shared deadline and cancellation. Eight pure tests and Tooling typecheck pass; clean MCP compile/runtime. Refreshed all gateway tokens and blanked for commit.

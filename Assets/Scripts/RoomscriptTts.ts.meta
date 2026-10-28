@@ -45,5 +45,5 @@
     -
       {}
   InputLines:
-    - // @input AssignableType_1 client
-    - // @input AssignableType_2 actor
+    - '// @input AssignableType_1 client {"hint":"Gateway transport and shared scheduler"}'
+    - '// @input AssignableType_2 actor {"hint":"Speaker whose authored voice and jaw animation are used"}'

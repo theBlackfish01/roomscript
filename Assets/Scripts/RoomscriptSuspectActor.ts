@@ -28,7 +28,7 @@ import {GameState} from "./Engine/core/Types";
     b.appendVerticesInterleaved([-42.5,0,0,0,0,1,0,0,42.5,0,0,0,0,1,1,0,42.5,170,0,0,0,1,1,1,-42.5,170,0,0,0,1,0,1]);
     b.appendIndices([0,1,2,0,2,3]);this.visual=this.getSceneObject().createComponent("Component.RenderMeshVisual") as RenderMeshVisual;
     this.visual.mesh=b.getMesh();this.visual.mainMaterial=this.surface;b.updateMesh();
-    this.engine.onState.add(state=>this.applyState(state));this.applyState(this.engine.snapshot());
+    this.engine.initialize();this.engine.onState.add(state=>this.applyState(state));this.applyState(this.engine.snapshot());
   }
   applyState(state:GameState):void {
     const s=state.suspects[this.suspect];if(!s||!this.surface)return;
@@ -37,6 +37,7 @@ import {GameState} from "./Engine/core/Types";
     this.surface.mainPass.baseTex=this.pose==="broken"?this.broken:this.pose==="rattled"?this.rattled:this.pose==="listening"?this.listening:this.neutral;
   }
   setListening(active:boolean):void {this.speaking=active;this.applyState(this.engine.snapshot());}
+  voice():string {this.engine.initialize();return this.engine.caseGraph().cast.suspects.find(s=>s.id===this.suspect)?.voice || "onyx";}
   setVoice(track:AudioTrackAsset|null):void {this.track=track;this.setListening(!!track);if(!track)this.amplitude=0;}
   setAudioAmplitude(value:number):void {this.amplitude=Math.max(0,Math.min(1,value));}
   diagnostics():{pose:string;stress:number;jaw:number} {return {pose:this.pose,stress:this.stress,jaw:this.jaw};}

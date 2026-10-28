@@ -1,5 +1,6 @@
 import {OpenAI} from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
 import {Gemini} from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
+import {RemoteServiceGatewayCredentials,AvaliableApiTypes} from "RemoteServiceGateway.lspkg/RemoteServiceGatewayCredentials";
 import {CancellationToken,ClockPort,LlmError,LlmPort,LlmRequest,LlmResponse} from "./Engine/ai/LlmPort";
 import {Scheduler} from "./Engine/ai/Scheduler";
 import {geminiRequest,openAIRequest,providerError} from "./Engine/ai/ProviderRequests";
@@ -14,6 +15,10 @@ import {geminiRequest,openAIRequest,providerError} from "./Engine/ai/ProviderReq
   readonly scheduler=new Scheduler(this.clock,4);
   onAwake():void {this.createEvent("OnDestroyEvent").bind(()=>this.scheduler.dispose());}
   requestCount():number{return this.requests;}
+  hasCredentials(provider:"openai"|"gemini"):boolean {
+    const token=RemoteServiceGatewayCredentials.getApiToken(provider==="openai"?AvaliableApiTypes.OpenAI:AvaliableApiTypes.Google);
+    return !!token && token.length>20 && !token.includes("[INSERT");
+  }
   async complete(request:LlmRequest,cancellation?:CancellationToken):Promise<LlmResponse> {
     cancellation?.throwIfCancelled();if(this.forceOffline)throw new LlmError("unavailable");this.requests++;
     try {

@@ -93,3 +93,6 @@ Use the existing single retry for gpt-4o-mini after Gemini failure; preserve the
 
 ### 2026-10-29 — A8 before audio precaching
 Keep one physical transport slot available for live work; cancelled requests retain slots until settlement. Clamp interactive cooldown to 2500ms; longer outages use the normal answer fallback. Single-slot schedulers retain existing behavior for constrained callers. This prerequisite precedes A7 within the C5/P1 work group.
+
+### 2026-10-29 — A7 parallel audio within question budget
+Prepare all sentences concurrently under the shared scheduler, attach rejection handlers immediately and play in source order. Keep a 60-clip voice-keyed LRU; precache only validated current-account lines and neutral fillers. First audio must begin within 6.5s of the question, while normal playback may finish later. Missing or late audio retains readable subtitles. Authored suspect voice replaces the default onyx. Device listening quality remains a human/device check.

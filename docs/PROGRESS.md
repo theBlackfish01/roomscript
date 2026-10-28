@@ -161,3 +161,6 @@ Complete. Pure provider request shaping and sanitized error mapping; strict sche
 
 ### A8 — scheduler reserve (2026-10-29)
 Complete before A7 because precaching depends on it. With capacity four, background work starts at most three transports; live work can use the fourth without pretending cancellation aborted pending requests. Cooldown is capped at 2500ms. 24 scheduler/pipeline tests and Tooling typecheck pass; Lens compile/start clean.
+
+### A7 — audio preparation and shared deadline (2026-10-29)
+Complete at the adapter level; C5 will invoke current-account precache. Sentences synthesize concurrently and play in order. Titles, initials, decimals and a.m./p.m. stay intact. Voice defaults to the actor's authored suspect voice. Current account chips and neutral fillers have a precache API; offline cached speech works. Audio uses the remaining 6.5s question budget, with subtitle fallback and no late playback. Eight pure speech regressions and Tooling typecheck pass. Live fail-fast LEAF passed: first audio 3057ms, sentence gap 7.8ms, coral voice, precache/offline/deadline/cancellation checks. Lens compile/start clean. Actor initialization now explicitly initializes the engine before reading state.
