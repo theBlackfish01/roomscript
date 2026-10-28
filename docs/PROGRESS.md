@@ -124,3 +124,6 @@ Workers stopped; the generation worker's active test was canceled. Four generate
 The **ten-minute guided tour is in [handoff §9](PAUSE_HANDOFF_2026-10-28.md#9-ten-minute-guided-preview-tour-at-this-checkpoint)**. It covers shell navigation, cues, crate, actor and offline LEAF checks while clearly separating them from unfinished gameplay. Live AI tests will fail without refreshed credentials.
 
 Device keyboard, ASR/microphone, camera permissions, tracking, World Query, physical hand interaction, spatial audio and real-furniture occlusion remain **verify on device**. Human audio quality, live pitch acceptance, a full interrogation rejection-rate study, complete end-to-end latency, the whole-case Lens flow and multiplayer remain unverified or unbuilt.
+
+## E2 — 2026-10-28 23:48 PKT
+Complete: Believe, Object, CallLiar and RevealEvidence reject an absent suspect before any treatment or reward mutation. Four regressions also verify normal acceptance at the return boundary and replay equality. 25/25 game tests pass, Lens compile/start clean. Next E3.

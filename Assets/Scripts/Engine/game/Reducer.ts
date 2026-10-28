@@ -87,6 +87,7 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
     }
     case "Believe": {
       if (!suspectExists(action.suspect)) {reject("unknown_suspect"); break;}
+      if (isLawyered(state.suspects[action.suspect],state.elapsedMinutes)) {reject("lawyered"); break;}
       const s=current(action.suspect,action.statement);
       if (!s || !state.knowledge.statementIds.includes(s.id)) {reject("no_current_claim"); break;}
       // Filing a cover does not promote false assertions into known facts.
@@ -95,6 +96,7 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
     }
     case "Object": case "CallLiar": {
       if (!suspectExists(action.suspect) || !ids(action.evidence)) {reject("invalid_objection"); break;}
+      if (isLawyered(state.suspects[action.suspect],state.elapsedMinutes)) {reject("lawyered"); break;}
       const judged=judgeObjection(graph,state,action.suspect,action.statement,action.evidence);
       const ss=state.suspects[action.suspect];
       ss.memory.push({id:String(action.seq),text:judged.correct ? "The detective proved your account false." : "The detective wrongly accused you.",entities:[],source:"objection"});
@@ -120,6 +122,7 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
     case "RevealEvidence": {
       if (!suspectExists(action.suspect) || !state.knowledge.evidenceIds.includes(action.evidence)) {reject("evidence_not_observed"); break;}
       const ss=state.suspects[action.suspect];
+      if (isLawyered(ss,state.elapsedMinutes)) {reject("lawyered"); break;}
       if (!ss.shownEvidence.includes(action.evidence)) {uniquePush(ss.shownEvidence,action.evidence); newEvidence(ss);}
       emit("revealed",{actor:action.suspect,refs:[action.evidence]}); break;
     }

@@ -86,6 +86,28 @@ describe("deterministic game reducer",()=>{
     s.act({type:"Object",suspect:"S2",statement:"C_S2_BASELINE_LIE",evidence:["E_S2_BASELINE"]});
     expect(s.state.hunches).toBe(2); expect(s.state.pips).toBe(4);
   });
+  it.each<ActionPayload>([
+    {type:"Believe",suspect:"S2",statement:"C_VALE_ALIBI_0"},
+    {type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_KETTLE_COLD"]},
+    {type:"CallLiar",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_KETTLE_COLD"]},
+    {type:"RevealEvidence",suspect:"S2",evidence:"E_KETTLE_COLD"},
+  ])("rejects $type while absent, and permits it upon return",action=>{
+    const s=session(); s.act(ask); s.act({type:"PinchObject",object:"O11"});
+    for(let i=0;i<3;i++) s.act({type:"Press",suspect:"S2"});
+    const before=s.state;
+    s.act(action);
+    expect(s.state.events.at(-1)?.text).toBe("lawyered");
+    expect(s.state.suspects).toEqual(before.suspects);
+    expect(s.state.knowledge).toEqual(before.knowledge);
+    expect(s.state.notebook).toEqual(before.notebook);
+    expect(s.state.elapsedMinutes).toBe(before.elapsedMinutes);
+    expect(s.state.pips).toBe(before.pips); expect(s.state.hunches).toBe(before.hunches);
+    s.act({type:"Ask",suspect:"S1",topic:"baseline:name"});
+    s.act({type:"Ask",suspect:"S1",topic:"baseline:name"});
+    s.act(action);
+    expect(s.state.events.at(-1)?.type).not.toBe("rejected");
+    expect(s.state).toEqual(replayGame(s.graph,s.state.log));
+  });
   it("only new evidence resets empty pressure",()=>{
     const s=session(); s.act(ask); s.act({type:"Press",suspect:"S2"});
     s.act({type:"PinchObject",object:"O11"});
