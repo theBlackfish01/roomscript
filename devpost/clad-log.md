@@ -50,3 +50,5 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 - 2026-10-28 23:47 PKT | router preflight_only, field-notes, specs-project-init, editor-api, scene-construction inline | ListAllPanels/EEC confirmed correct project and sign-in; VirtualScene read and package/Preview checks confirmed existing setup. E1: 25 targeted Vitest passes, RecompileTypeScriptTool succeeded, RunAndCollectLogsTool clean with solver startup, CaptureRuntimeViewTool front render reviewed. VirtualScene blanked all three credential fields; EEC saved before commit.
 
 - 2026-10-28 23:48 PKT | E2 | RecompileTypeScriptTool + RunAndCollectLogsTool | compilation and startup clean; 25/25 game regressions. Pure rule change; E1 scene capture remains visual baseline. VirtualScene blanked credentials and EEC saved before commit.
+
+- 2026-10-28 23:50 PKT | E3 | RecompileTypeScriptTool, RunAndCollectLogsTool, VirtualScene/EEC | compile/start clean; credentials blanked and saved. 86 Vitest tests pass, including 5000-case generation acceptance.

@@ -127,3 +127,6 @@ Device keyboard, ASR/microphone, camera permissions, tracking, World Query, phys
 
 ## E2 — 2026-10-28 23:48 PKT
 Complete: Believe, Object, CallLiar and RevealEvidence reject an absent suspect before any treatment or reward mutation. Four regressions also verify normal acceptance at the return boundary and replay equality. 25/25 game tests pass, Lens compile/start clean. Next E3.
+
+## E3 — 2026-10-28 23:50 PKT
+Complete: voicemail and Okafor's reply each independently break Vale's layer-1 account, replacing the unnecessary cable-plus-reply pair. 86/86 targeted tests passed across six files, including 5000/5000 generated cases. Lens compile/start clean. E1 commit 4f10e6a; E2 09f4786. Next E4 inspection cost/scoring.

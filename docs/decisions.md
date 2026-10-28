@@ -61,3 +61,5 @@ The integrated run completed250 passing tests, including5000 accepted generated 
 - **2026-10-28 23:47 PKT: resume preflight cleared; E1 uses exact breaker sets.** MCP connected to RoomScriptF with sign-in true; the prior unavailable-session blocker is historical. Reconfirmed Wadood's core-case-first scope and November 4 Clue Night gate above. Objections require set equality so evidence dumping cannot advance ladders; multi-card authored proofs remain supported. Alternative: penalize each irrelevant card, rejected because drag-and-prove should have one clear result.
 
 - **2026-10-28 23:48 PKT: E2 absence applies to all suspect treatment actions.** Reject Believe, Object, CallLiar and RevealEvidence while lawyered, without charging pips or changing memory. Keep log/rejected event for replay. Actions become available at the same clock boundary as Ask/Press.
+
+- **2026-10-28 23:50 PKT: E3 independent direct contradictions.** Recording, voicemail and Okafor's reply are each sufficient proof that Harlow answered after Vale arrived. Removed the redundant cable requirement; evidence guessing remains prohibited by E1.

@@ -52,6 +52,17 @@ describe("deterministic game reducer",()=>{
     expect(currentStatement(s.graph,s.state,"S2","baseline:brooch")?.id).toBe("C_S2_BASELINE_TRUE");
     expect(currentStatement(s.graph,s.state,"S2","where@22:30")?.id).toBe("C_VALE_ALIBI_0");
   });
+  it.each(["E_VOICEMAIL","C_OKAFOR_REPLY"])("accepts %s alone against Vale's already-dead account",evidence=>{
+    const s=session(); s.act(ask); s.act({type:"PinchObject",object:"O11"});
+    s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_KETTLE_COLD"]});
+    s.act({type:"Ask",suspect:"S3",topic:"about:V"});
+    while(s.state.elapsedMinutes<75) s.act({type:"Ask",suspect:"S1",topic:"baseline:name"});
+    const pips=s.state.pips;
+    s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_1",evidence:[evidence]});
+    expect(s.state.suspects.S2.layer).toBe(2);
+    expect(s.state.hunches).toBe(2); expect(s.state.pips).toBe(pips);
+    expect(s.state).toEqual(replayGame(s.graph,s.state.log));
+  });
   it("overrules an evidence dump but accepts exactly a listed multi-item breaker",()=>{
     const s=session();
     for(const object of s.graph.room.objects) s.act({type:"PinchObject",object:object.id});
