@@ -61,6 +61,16 @@ describe("deterministic game reducer",()=>{
     s.act({type:"Ask",suspect:"S1",topic:"baseline:name"});
     s.act(ask); expect(s.state.elapsedMinutes).toBe(105); expect(s.state.activeSuspect).toBe("S2");
   });
+  it("cannot repeatedly earn Hunches by breaking an inherited baseline",()=>{
+    const s=session(); s.act(ask); s.act({type:"PinchObject",object:"O6"});
+    s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_VALE_LAMP"]});
+    s.act({type:"Ask",suspect:"S2",topic:"baseline:brooch"});
+    s.act({type:"Object",suspect:"S2",statement:"C_S2_BASELINE_LIE",evidence:["E_S2_BASELINE"]});
+    expect(currentStatement(s.graph,s.state,"S2","baseline:brooch")?.id).toBe("C_S2_BASELINE_TRUE");
+    expect(s.state.suspects.S2.layer).toBe(1); expect(s.state.hunches).toBe(2);
+    s.act({type:"Object",suspect:"S2",statement:"C_S2_BASELINE_LIE",evidence:["E_S2_BASELINE"]});
+    expect(s.state.hunches).toBe(2); expect(s.state.pips).toBe(4);
+  });
   it("only new evidence resets empty pressure",()=>{
     const s=session(); s.act(ask); s.act({type:"Press",suspect:"S2"});
     s.act({type:"PinchObject",object:"O11"});

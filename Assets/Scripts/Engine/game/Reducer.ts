@@ -102,7 +102,8 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
       }
       const target=judged.target;
       const source=state.notebook.find(claim=>claim.statement===action.statement); if(source) source.broken=true;
-      if (target.layer === ss.layer) ss.topicOverrides[target.topic]=target.id;
+      const sourceStatement=graph.statements.find(s=>s.id===action.statement)!;
+      if (target.replacementFor===sourceStatement.id || target.layer===sourceStatement.layer) ss.topicOverrides[target.topic]=target.id;
       else ss.layer=Math.max(ss.layer,target.layer);
       ss.composure=Math.max(0,ss.composure-1); ss.respect++; newEvidence(ss); state.hunches++;
       emit("objectionCorrect",{actor:action.suspect,refs:[action.statement,target.id,...action.evidence]});

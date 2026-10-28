@@ -269,9 +269,12 @@ export function verifyCase(graph: CaseGraph): SolverReport {
   }
   const lieBreakable: Record<Id,number> = {};
   for (const statement of graph.statements.filter(s=>s.stance === "cover")) {
+    // A second alternative must exist before this cover is broken, not only in the
+    // truth it releases. Disable its outgoing edge to rule out circular justification.
+    const beforeBreak = reachableKnowledge({...graph,statements:graph.statements.map(s=>s.id===statement.id ? {...s,onBreak:undefined} : s)});
     const valid = statement.breakers.filter((set,index,sets) => set.length > 0 && sets.findIndex(other=>JSON.stringify(sorted(other))===JSON.stringify(sorted(set)))===index && set.every(ref => {
       const claim=graph.statements.find(s=>s.id===ref);
-      return !!reachable.supports[ref]?.length && (!claim || claim.stance === "truth");
+      return !!beforeBreak.supports[ref]?.length && (!claim || claim.stance === "truth");
     }));
     lieBreakable[statement.id] = valid.length;
     const target = graph.statements.find(s=>s.id === statement.onBreak);

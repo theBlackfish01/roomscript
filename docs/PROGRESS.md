@@ -1,24 +1,23 @@
 ﻿# Progress
 
-Read this first after a context reset. Updated 2026-10-28 21:19 PKT.
+Read this first after a context reset. Updated 2026-10-28 21:25 PKT.
 
 ## Status
 
 | Stage | Status | Milestone | Verification |
 |---|---|---|---|
 | A · Setup and probes | complete | m0-probe | 34 Vitest tests, 2 LEAF scenarios, captures, 20 samples per probe/model |
-| B · Truth engine | B1–B6 verified; checkpoints in progress | m1-terminal pending | 161 tests across core, room, content, solver, game, performance and tooling; Lens compile verified before final integration |
-| C · Interrogation slice | not started | m2-slice pending | |
+| B · Truth engine | complete | m1-terminal | 170 tests; 1000 players /29487 actions; terminal demo; Lens compilation + runtime startup |
+| C · Interrogation slice | C1 bootstrap starting | m2-slice pending | |
 | D · Whole case | not started | m3-case pending | |
 | E · Should tier | not started | m4-should pending | |
 | F · Clue Night | not started; gate pending | m5-cluenight pending | |
 
 ## Current state and next steps
 
-1. A5 commit 194651b and m0-probe tagged. B1 shared Types/Prng/Hash/CanonicalJson now exist and pass tests and Lens compilation.
-   B1 commit 70996d5. B2 room modules reviewed and compiled in Lens; 25 room tests pass. Hero, solver and performance safety workers run in disjoint folders; main owns game reducer. Do not stage other workers' incomplete packages.
-2. Hero has 30 statements and passes all eight solver checks. Solver has 32 tests including 20 broken variants; reducer 13; answer safety 41 including every authored bank entry. B7 terminal and B8 fuzz workers are active. Final integrated Lens compile follows checkpointing.
-3. Continue B7 terminal player, B8 fuzz, then C–F in plan order. FIRST_PASS remains authoritative. No pushes/remotes.
+1. Stage B complete: B3 41ed85f, B4 4b915da, B5 0a1e446, B6 68ebaa7, B7 64df6b0; B8 checkpoint and m1-terminal tag follow. 170 tests pass across11 files; Lens compiles and starts with only the known LEAF editor warning.
+2. C1 inline CLAD specs-experience-builder procedure loaded. Prepare explicit stand-ins, authored anchors/crate, five UIKit shells,10 sound cues and quiet noir music. PreviewRoom uses global.deviceInfoSystem.isEditor() verified in StudioLib.d.ts.
+3. C4 pure AI port/scheduler/tape worker runs independently; main owns all Lens work. Continue C–F; no remote/push. Stage B engine is playable in Tooling via npm.cmd run play or npm.cmd run play -- --demo.
 
 MCP is working. Lens Studio 5.23.2.26081320, signed in; Spectacles target; Perspective camera / World tracking; SIK 2.0.0 and SpectaclesUIKit 2.0.0. RSG 2.0.1, Utilities/SnapDecorators 2.0.0; inspection/interact bridges 2.0.1, Leaf 2.0.0. Compatible packages compile. Never reinstall newest versions blindly; see docs/mcp-bug-report.md.
 
@@ -49,7 +48,7 @@ ProbeLab is now disabled in the authored scene. Its scripts and LEAF tests remai
 
 ## Known limitations / verify on device
 
-- No Roomscript gameplay yet. Stages B–F remain to build; do not call the probe panel the game.
+- Terminal gameplay is complete; Lens gameplay is not yet wired. Stage C–F remain. Do not call the probe panel the game.
 - Imagen rejected both initial options and the package's exact example parameter set. Preserve its live path and use authored art fallback.
 - Fast request sequences trigger gateway rate limits. Use bounded scheduling, cooldown and authored/replay fallback; no retry storm.
 - Audio verification is asset load plus playback state; human listening quality and all physical Specs behavior remain unverified.
@@ -77,3 +76,5 @@ This is a diagnostics tour, to be replaced by the actual gameplay tour after C/D
 - B5 reducer verified13 tests: replay, objections, baseline isolation, timed lawyering, tuple refutation, verdict lock and validated performance admission. B6 dependency checkpoint follows immediately.
 - B6 safety verified41 tests, including all authored lines and rejected-output prompt-memory regression; B1-B6 integrated Lens compilation passes. Terminal and1000-player fuzz remain before m1-terminal.
 - B7 terminal verified4 integration tests plus real interactive session and --demo. Demo reaches3 objections,4 deductions, correct verdict at75/180 case minutes. Use npm.cmd run play in Tooling. B8 uncovered inherited baseline repeat-Hunch bug; fixed and regression added, final fuzz pending.
+
+- B8: 1000 deterministic fair players /29487 actions;250 correct,699 timeout,51 credibility failure; highest layer2; no repeated successful objection per source, no contradictory active accounts, true knowledge preserves actual solution. Fairness charges time after at most7 free/arbitrary actions; free inspection itself does not imply real-time timeout.
