@@ -94,22 +94,22 @@ for(const b of baselines) {
 }
 
 const evidence: Evidence[] = [
-  {id:"E_VICTIM_LAMP",holder:"O6",kind:"object_memory",proves:["F_VICTIM_STUDY_LAMP"],canonical:"The lamp remembers Harlow standing in the Study at 22:30.",entities:["O6","V","Z1","22:30"],costMinutes:0},
-  {id:"E_VICTIM_MUG",holder:"O9",kind:"object_memory",proves:["F_VICTIM_STUDY_MUG"],canonical:"The mug remembers Harlow's sleeve knocking it from the Study desk at 22:30.",entities:["O9","V","Z1","22:30"],costMinutes:0},
-  {id:"E_VALE_LAMP",holder:"O6",kind:"object_memory",proves:["F_VALE_STUDY"],canonical:"The lamp remembers Vale beside the Study desk at 22:30.",entities:["O6","S2","Z1","22:30"],costMinutes:0},
-  {id:"E_KETTLE_COLD",holder:"O11",kind:"object_memory",proves:["F_KETTLE_COLD"],canonical:"The kettle remembers no heat during the murder window. There was no boiling tea.",entities:["O11"],costMinutes:0},
-  {id:"E_CABLE",holder:"O1",kind:"object_memory",proves:["F_VALE_CABLE","F_CABLE_CONTACT"],canonical:"The cable remembers Vale's hands. Harlow's collar fibres remain caught in it.",entities:["O1","S2","V"],costMinutes:0},
-  {id:"E_RECORDING",holder:"O12",kind:"object_memory",proves:["F_RECORDER_ORDER"],canonical:"The recorder preserves Harlow answering Vale after she entered. He was alive when she arrived.",entities:["O12","V","S2"],costMinutes:0},
-  {id:"E_CLOCK_FOUND",holder:"O7",kind:"object_memory",proves:["F_BODY_FOUND"],canonical:"The clock remembers the alarm raised at 22:41.",entities:["O7","22:41"],costMinutes:0},
-  {id:"E_TRUST_NOTE",holder:"O13",kind:"object_memory",proves:["F_VALE_MOTIVE"],canonical:"A carbon impression in the bed cover reads: Harlow will expose Vale's forged trust accounts.",entities:["O13","V","S2"],costMinutes:0},
+  {id:"E_VICTIM_LAMP",holder:"O6",kind:"object_memory",proves:["F_VICTIM_STUDY_LAMP"],canonical:"The lamp remembers Harlow standing in the Study at 22:30.",entities:["O6","V","Z1","22:30"],costMinutes:10},
+  {id:"E_VICTIM_MUG",holder:"O9",kind:"object_memory",proves:["F_VICTIM_STUDY_MUG"],canonical:"The mug remembers Harlow's sleeve knocking it from the Study desk at 22:30.",entities:["O9","V","Z1","22:30"],costMinutes:10},
+  {id:"E_VALE_LAMP",holder:"O6",kind:"object_memory",proves:["F_VALE_STUDY"],canonical:"The lamp remembers Vale beside the Study desk at 22:30.",entities:["O6","S2","Z1","22:30"],costMinutes:10},
+  {id:"E_KETTLE_COLD",holder:"O11",kind:"object_memory",proves:["F_KETTLE_COLD"],canonical:"The kettle remembers no heat during the murder window. There was no boiling tea.",entities:["O11"],costMinutes:10},
+  {id:"E_CABLE",holder:"O1",kind:"object_memory",proves:["F_VALE_CABLE","F_CABLE_CONTACT"],canonical:"The cable remembers Vale's hands. Harlow's collar fibres remain caught in it.",entities:["O1","S2","V"],costMinutes:10},
+  {id:"E_RECORDING",holder:"O12",kind:"object_memory",proves:["F_RECORDER_ORDER"],canonical:"The recorder preserves Harlow answering Vale after she entered. He was alive when she arrived.",entities:["O12","V","S2"],costMinutes:10},
+  {id:"E_CLOCK_FOUND",holder:"O7",kind:"object_memory",proves:["F_BODY_FOUND"],canonical:"The clock remembers the alarm raised at 22:41.",entities:["O7","22:41"],costMinutes:10},
+  {id:"E_TRUST_NOTE",holder:"O13",kind:"object_memory",proves:["F_VALE_MOTIVE"],canonical:"A carbon impression in the bed cover reads: Harlow will expose Vale's forged trust accounts.",entities:["O13","V","S2"],costMinutes:10},
   {id:"E_LETTER",holder:"Z2",kind:"letter",proves:["F_VALE_MOTIVE"],canonical:"Harlow's sealed letter names Vale's forged trust accounts and his intended report to the police.",entities:["V","S2"],latent:true,beat:"B_LETTER",costMinutes:0},
   {id:"E_VOICEMAIL",holder:"O12",kind:"voicemail",proves:["F_REPLY_AFTER_ARRIVAL"],canonical:"A delayed voicemail preserves Harlow answering Vale in the Study.",entities:["O12","V","S2","Z1"],latent:true,beat:"B_VOICEMAIL",costMinutes:0},
   {id:"E_UV_DRAG",holder:"Z1",kind:"photo",proves:["F_BODY_MOVED"],canonical:"The UV trace shows Harlow was moved from the Study chair to the floor.",entities:["V","Z1"],latent:true,beat:"B_BLACKOUT",costMinutes:0}
 ];
-for(const a of alibis) evidence.push({id:"E_"+a.id+"_ALIBI",holder:a.holder,kind:"object_memory",proves:["F_"+a.id+"_ALIBI_OBJECT"],canonical:a.name+" remained in the "+a.place+" at 22:30.",entities:[a.id,a.zone,"22:30"],costMinutes:0});
-for(const w of weaponLocations) evidence.push({id:"E_"+w.id+"_LOCATION",holder:w.id,kind:"object_memory",proves:["F_"+w.id+"_LOCATION_OBJECT"],canonical:"The "+w.name+" remembers remaining in the "+w.place+" at 22:30.",entities:[w.id,w.zone,"22:30"],costMinutes:0});
-for(const b of baselines) evidence.push({id:"E_"+b.speaker+"_BASELINE",holder:b.holder,kind:"object_memory",proves:["F_"+b.speaker+"_BASELINE"],canonical:b.observed,entities:[b.speaker,b.holder],costMinutes:0});
-evidence.push({id:"E_S2_BASELINE_MUG",holder:"O9",kind:"object_memory",proves:["F_S2_BASELINE"],canonical:"The mug remembers Vale leaning close: the brooch clasp hung open.",entities:["O9","S2"],costMinutes:0});
+for(const a of alibis) evidence.push({id:"E_"+a.id+"_ALIBI",holder:a.holder,kind:"object_memory",proves:["F_"+a.id+"_ALIBI_OBJECT"],canonical:a.name+" remained in the "+a.place+" at 22:30.",entities:[a.id,a.zone,"22:30"],costMinutes:10});
+for(const w of weaponLocations) evidence.push({id:"E_"+w.id+"_LOCATION",holder:w.id,kind:"object_memory",proves:["F_"+w.id+"_LOCATION_OBJECT"],canonical:"The "+w.name+" remembers remaining in the "+w.place+" at 22:30.",entities:[w.id,w.zone,"22:30"],costMinutes:10});
+for(const b of baselines) evidence.push({id:"E_"+b.speaker+"_BASELINE",holder:b.holder,kind:"object_memory",proves:["F_"+b.speaker+"_BASELINE"],canonical:b.observed,entities:[b.speaker,b.holder],costMinutes:10});
+evidence.push({id:"E_S2_BASELINE_MUG",holder:"O9",kind:"object_memory",proves:["F_S2_BASELINE"],canonical:"The mug remembers Vale leaning close: the brooch clasp hung open.",entities:["O9","S2"],costMinutes:10});
 
 const statements: Statement[] = [
   {id:"C_VALE_ALIBI_0",speaker:"S2",topic:"where@22:30",asserts:["X_VALE_KITCHEN","X_KETTLE_BOILING"],stance:"cover",layer:0,canonical:"I was in the Kitchen making tea at 22:30.",entities:["S2","Z4","O11","22:30"],about:"O11",breakers:[["E_KETTLE_COLD"],["E_VALE_LAMP"]],onBreak:"C_VALE_ALIBI_1",pressed:{canonical:"The kettle was boiling. I stayed beside it at 22:30.",entities:["O11","Z4","22:30"]},costMinutes:15},

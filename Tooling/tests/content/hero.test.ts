@@ -78,7 +78,7 @@ describe("HARLOW-1041 authored content",()=>{
     const reveals=heroCase.beats.flatMap(b=>b.reveals);
     for(const e of heroCase.evidence) {
       if(e.latent) expect(reveals).toContain(e.id);
-      else expect(e.costMinutes).toBe(0);
+      else expect(e.costMinutes).toBe(10);
     }
     expect(heroCase.beats.map(b=>b.minute)).toEqual([45,75,105,120]);
     expect(heroCase.beats.every(b=>b.guaranteed&&b.validated)).toBe(true);

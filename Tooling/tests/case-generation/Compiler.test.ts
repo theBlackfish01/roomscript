@@ -35,6 +35,7 @@ describe("deterministic case generation",()=>{
     const result=compileCase(17,getRoomFixture("minimal"),getPitch(17));expect(result.ok).toBe(true);
     const graph=result.graph!;
     for(const evidence of graph.evidence.filter(e=>!e.latent)) {
+      expect(evidence.costMinutes).toBe(10);
       const fact=graph.facts.find(f=>f.id===evidence.proves[0])!;
       const holder=graph.room.objects.find(o=>o.id===evidence.holder)!;expect(holder).toBeDefined();
       if(fact.pred==="at"||fact.pred==="in")expect(holder.zone).toBe(fact.args.zone);

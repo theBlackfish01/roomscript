@@ -8,7 +8,9 @@ it("accepts at least 90 percent of 1000 seeds independently on each of five fixt
   expect(report.distinctEnvelopes).toBeGreaterThan(30);
   expect(report.livePitchAcceptance).toBe("not_measured");
   console.info("Case compiler acceptance",report);
-},120000);
+// Weighted routes do more search than the former zero-cost shortcut. Preserve all
+// 5000 seeds and performance measurements; allow the full batch four minutes.
+},240000);
 it("batch yielding preserves all deterministic results",async()=>{
   const sync=fuzzCases(4),asyncResult=await fuzzCasesAsync(4,2);
   const logical=({maxMs,p95Ms,over300ms,...rest}:typeof sync)=>rest;

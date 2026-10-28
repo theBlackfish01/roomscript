@@ -13,7 +13,7 @@ export function dealEvidence(sim:Simulation):void {
     const holders=sim.witnesses[zone||g.envelope.where];
     const chosen=rng.fork(f.id).shuffle(holders).slice(0,2);
     chosen.forEach((holder,i)=>{
-      const e:Evidence={id:evidenceForFact(f.id,i),holder,kind:"object_memory",proves:[f.id],canonical:f.canonical||f.id,entities:f.entities?.slice()||[],costMinutes:0};
+      const e:Evidence={id:evidenceForFact(f.id,i),holder,kind:"object_memory",proves:[f.id],canonical:f.canonical||f.id,entities:f.entities?.slice()||[],costMinutes:10};
       g.evidence.push(e);g.witnessing.push({witness:holder,fact:f.id,channel:"record"});
     });
   }

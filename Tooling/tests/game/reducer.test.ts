@@ -37,7 +37,7 @@ describe("deterministic game reducer",()=>{
     s.act({type:"PinchObject",object:"O11"});
     s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_KETTLE_COLD"]});
     expect(s.state.suspects.S2.layer).toBe(1); expect(s.state.hunches).toBe(1);
-    expect(s.state.elapsedMinutes).toBe(15); expect(s.state.activeStatement).toBe("C_VALE_ALIBI_1");
+    expect(s.state.elapsedMinutes).toBe(25); expect(s.state.activeStatement).toBe("C_VALE_ALIBI_1");
     expect(s.state.notebook.find(c=>c.statement==="C_VALE_ALIBI_0")?.broken).toBe(true);
     s.act({type:"PinchObject",object:"O12"});
     s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_1",evidence:["E_RECORDING"]});

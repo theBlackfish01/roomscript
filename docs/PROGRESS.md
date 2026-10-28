@@ -130,3 +130,6 @@ Complete: Believe, Object, CallLiar and RevealEvidence reject an absent suspect 
 
 ## E3 — 2026-10-28 23:50 PKT
 Complete: voicemail and Okafor's reply each independently break Vale's layer-1 account, replacing the unnecessary cable-plus-reply pair. 86/86 targeted tests passed across six files, including 5000/5000 generated cases. Lens compile/start clean. E1 commit 4f10e6a; E2 09f4786. Next E4 inspection cost/scoring.
+
+## E4 — 2026-10-28 23:56 PKT
+Complete: hero/generated object memories cost 10 minutes per newly inspected holder bundle; replay viewing is free. Solver hero minimum is 80/180, exhaustive inspection 130, efficient supported route 90, demo 175. Score recomputes actual minimum and requires all deductions for the efficiency star; blind correct guess earns 1. Full run: 262 passed, one 5000-case batch timed out at 120s. Raised batch timeout to 240s without reducing coverage; targeted rerun 2/2 passed (5000/5000 accepted, max 83.2ms, p95 44.6ms, 122s batch). Compiler regression 13/13 passed. All tests verified across these runs; no claim of a new single full-suite exit-zero run. Lens compile/start clean; engine bridge LEAF passed fail-fast in 1.539s. Capture: captures/2026-10-28-e4-engine-bridge.png. Next A1 prompt stance leakage.

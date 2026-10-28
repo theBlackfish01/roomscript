@@ -128,8 +128,8 @@ export const HERO_DEMO_COMMANDS=[
   "object S2 C_S2_BASELINE_LIE E_S2_BASELINE","ask S2 where were you at 22:30?",
   "press S2 C_VALE_ALIBI_0","pinch O11","object S2 C_VALE_ALIBI_0 E_KETTLE_COLD",
   "pinch O12","object S2 C_VALE_ALIBI_1 E_RECORDING","pinch O1","pinch O8","pinch O10",
-  "pinch O2","pinch O3","pinch O4","pinch O5","pinch O13","suggest S1 Z1 O1","grid",
-  "arg D_OPPORTUNITY E_VALE_LAMP","arg D_MEANS E_CABLE","arg D_ALIBI E_KETTLE_COLD","arg D_MOTIVE E_TRUST_NOTE",
+  "pinch O2","pinch O3","pinch O4","pinch O5","suggest S1 Z1 O1","grid",
+  "arg D_OPPORTUNITY E_VALE_LAMP","arg D_MEANS E_CABLE","arg D_ALIBI E_KETTLE_COLD","arg D_MOTIVE E_LETTER",
   "arguments","accuse S2 Z1 O1"
 ];
 

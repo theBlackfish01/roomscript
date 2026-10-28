@@ -52,3 +52,5 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 - 2026-10-28 23:48 PKT | E2 | RecompileTypeScriptTool + RunAndCollectLogsTool | compilation and startup clean; 25/25 game regressions. Pure rule change; E1 scene capture remains visual baseline. VirtualScene blanked credentials and EEC saved before commit.
 
 - 2026-10-28 23:50 PKT | E3 | RecompileTypeScriptTool, RunAndCollectLogsTool, VirtualScene/EEC | compile/start clean; credentials blanked and saved. 86 Vitest tests pass, including 5000-case generation acceptance.
+
+- 2026-10-28 23:56 PKT | E4 | RecompileTypeScriptTool/RunAndCollectLogsTool + inline live-lens-tester and specs-leaf-run-in-preview | engine minRoute=80, clean runtime, roomscript-engine-bridge passed fail-fast 1.539s. PreviewPanelTool capture saved and reviewed at docs/captures/2026-10-28-e4-engine-bridge.png. 262 full-suite passes plus successful rerun of the timed-out 5000-case batch (2/2), all 5000 generated cases accepted. Credentials blanked with VirtualScene, EEC saved.
