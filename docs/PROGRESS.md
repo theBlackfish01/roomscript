@@ -1,88 +1,111 @@
-﻿# Progress
+# Roomscript progress — PAUSED
 
-Read this first after a context reset. Updated 2026-10-28 21:58 PKT.
+Updated 2026-10-28 at Wadood's explicit request to pause development. **Do not continue implementation until Wadood resumes it.**
 
-## Status
+The detailed handoff is [PAUSE_HANDOFF_2026-10-28.md](PAUSE_HANDOFF_2026-10-28.md). It contains the implementation inventory, evidence, unfinished interfaces, known issues, remaining A–F work, restart commands and a ten-minute Preview tour.
 
-| Stage | Status | Milestone | Verification |
-|---|---|---|---|
-| A · Setup and probes | complete | m0-probe | 34 Vitest tests, 2 LEAF scenarios, captures, 20 samples per probe/model |
-| B · Truth engine | complete | m1-terminal | 170 tests; 1000 players /29487 actions; terminal demo; Lens compilation + runtime startup |
-| C · Interrogation slice | C1–C3 complete; C4 next | m2-slice pending | |
-| D · Whole case | not started | m3-case pending | |
-| E · Should tier | not started | m4-should pending | |
-| F · Clue Night | not started; gate pending | m5-cluenight pending | |
+## Status by stage
 
-## Current state and next steps
-
-1. Stage B complete: B3 41ed85f, B4 4b915da, B5 0a1e446, B6 68ebaa7, B7 64df6b0; B8 checkpoint and m1-terminal tag follow. 170 tests pass across11 files; Lens compiles and starts with only the known LEAF editor warning.
-2. C1 complete:55 authored objects,7 materials,5 UIKit shells plus plaques,10 sound cues and music. Two LEAF scenarios pass fail-fast. docs/c1-build-manifest.md records layout, capture paths, audits and fixes. Main remains wiring-only; no Lens game logic yet. C2 engine bridge verified; C3 actor is next.
-3. C4 pure AI port/scheduler/tape worker runs independently; main owns all Lens work. Continue C–F; no remote/push. Stage B engine is playable in Tooling via npm.cmd run play or npm.cmd run play -- --demo.
-
-MCP is working. Lens Studio 5.23.2.26081320, signed in; Spectacles target; Perspective camera / World tracking; SIK 2.0.0 and SpectaclesUIKit 2.0.0. RSG 2.0.1, Utilities/SnapDecorators 2.0.0; inspection/interact bridges 2.0.1, Leaf 2.0.0. Compatible packages compile. Never reinstall newest versions blindly; see docs/mcp-bug-report.md.
-
-ProbeLab is now disabled in the authored scene. Its scripts and LEAF tests remain for regressions. Credentials were generated and successfully used for real provider calls, then blanked through VirtualScene before committing. Regenerate all three via the authorized Editor Network flow before live calls; tokens expire in roughly one hour. Never log/stage them. The LEAF probe scenarios currently require ProbeLab enabled before running.
-
-## Verification
-
-- **Vitest:** 34/34 across 3 files: secret guard (21), probe aggregation (11), settled concurrency batches (2). `npm.cmd test` in Tooling. Pure helper tests only; Lens components compile solely with RecompileTypeScriptTool.
-- **LEAF:** `roomscript-probe-layout-and-button` passed, including layout count, spacing, button state change and display-material regression. `roomscript-probe-ik-reach` passed; the originally requested diagnostic policy `fail` was unrecognized and fell back to default (correct strict value is `fail-fast`). Opening LEAF resets Preview; don't do it during measurements.
-- **Lens:** MCP TypeScript compilation succeeds. No Lens runtime exceptions after fixes. The LEAF editor plugin emits a warning on reset: `Skipping plugin state save: instance was destroyed before its state finished loading.` Scenario registration and execution still work; this is an upstream plugin warning, not a clean-zero-warning claim.
-- **Captures reviewed:** docs/captures/2026-10-28-a1-baseline.png; 2026-10-28-a4-probelab-running.png; 2026-10-28-a4-speech.png; 2026-10-28-a4-camera-fixed.png; 2026-10-28-a4-camera-frame2.png. Camera captures show the simulated Evening Room in the texture panel. Earlier imagen/camera captures document failed/empty display states.
-- **Probe evidence:** docs/probe-measurements-initial.md contains A–D authoritative samples and diagnostic-only initial E/F. docs/probe-measurements-corrected.md supersedes E/F and supplies G. Source log LensStudioLog-2026-10-28-20-04-09-576-866b8.txt: initial baseline byte 1623625, corrected baseline 1809777. Do not merge repeated diagnostic batches into latency counts.
-
-## Probe results
-
-| Probe | Result | Successful p50 / p95 |
+| Stage | State | Milestone |
 |---|---|---|
-| OpenAI gpt-4.1-nano strict JSON | 0/20, not found | unavailable |
-| OpenAI gpt-4o-mini strict JSON | 8/20 valid, 12 rate limited | 1766 / 2051 ms |
-| Gemini 2.5 Flash responseSchema | 20/20 valid | 1743 / 2361 ms |
-| Gemini 2.0 Flash responseSchema | 0/20, unavailable or no access | unavailable |
-| OpenAI gpt-4o-mini-tts / onyx | 20/20 assets loaded and AudioComponent playing | 2217 / 3205 ms |
-| Built-in TTS | unsupported in this editor's API; 20 capability checks | not latency measurements |
-| Imagen 3 | 0/20 corrected attempts; 5 unsupported configuration, 15 rate limited | unavailable |
-| Four concurrent mini calls | 13/20 complete batches; 7 rate limited | 3043 / 5294 ms |
-| Camera Default_Color | 20/20, simulated room shown | 273 / 284 ms including intentional 250ms sampling window |
-| Sync | deferred to F as authorized | not measured |
+| A — setup and probes | Complete | `m0-probe` |
+| B — deterministic truth engine and terminal | Complete | `m1-terminal` |
+| C — interrogation slice | Partial: C1–C3 complete; C4 partial; C5 pure pipeline prepared; C6–C7 pending | `m2-slice` not created |
+| D — whole case | Not delivered; D5 engine preparation preserved | `m3-case` not created |
+| E — should tier | Not started as Lens experiences | `m4-should` not created |
+| F — Clue Night | Not started; gate and Sync probe pending | `m5-cluenight` not created |
 
-## Known limitations / verify on device
+**What is playable:** the terminal investigation, including the scripted solve demo. **What Preview currently contains:** room/crate/audio, navigable UIKit shells, a verified engine bridge, Vale's actor and testable AI adapters. The production buttons are not yet wired to a complete Lens interrogation. Do not describe the current Preview as the finished game.
 
-- Terminal gameplay is complete; Lens gameplay is not yet wired. Stage C–F remain. Do not call the probe panel the game.
-- Imagen rejected both initial options and the package's exact example parameter set. Preserve its live path and use authored art fallback.
-- Fast request sequences trigger gateway rate limits. Use bounded scheduling, cooldown and authored/replay fallback; no retry storm.
-- Audio verification is asset load plus playback state; human listening quality and all physical Specs behavior remain unverified.
-- ASR/microphone, AR keyboard, camera permissions, tracking and spatial audio need physical Specs. No device actions performed.
+## Local checkpoints
 
-## Preview tour at this checkpoint (10 minutes)
+| Commit | Work |
+|---|---|
+| `c71ff8c` | A2 tooling and secret guard |
+| `da5484d` | Compatible gateway/dependencies, credentials and A1 baseline |
+| `143a315` | A4 probes and measurements |
+| `194651b` | A5 decisions; `m0-probe` |
+| `70996d5` | B1 shared deterministic core |
+| `47ca224` | B2 room binding/substitution |
+| `41ed85f` | B3 hero case and line bank |
+| `4b915da` | B4 solver |
+| `0a1e446` | B5 reducer |
+| `68ebaa7` | B6 performance safety |
+| `64df6b0` | B7 terminal player |
+| `c747018` | B8 fuzz; `m1-terminal` |
+| `40f0da9` | C1 scene/UI/audio bootstrap |
+| `8d11fe4` | C2 engine bridge |
+| `0b1a657` | C3 paper-theatre actor |
+| `260d801` | **WIP preservation at pause:** AI plumbing, pure answer pipeline, raw-output audit, harvested tape and D5 case compiler preparation |
 
-This is a diagnostics tour, to be replaced by the actual gameplay tour after C/D.
+The WIP commit is intentionally not a package-completion claim. The final documentation commit follows it. No remote, push, publication or physical Specs action was performed.
 
-- 0–2 min: enable RoomscriptProbeLab in the scene, reset Preview and confirm the seven-button panel in SPECS 27 / Evening Room.
-- 2–4 min: pinch G and inspect the live simulated-room texture. This probe needs no provider tokens.
-- 4–6 min: inspect Logger's PROBE lines and docs/probe-results.md; B/C can be retried after refreshing gateway credentials, subject to rate limits.
-- 6–8 min: open LEAF, choose Preview execution and run roomscript-probe-layout-and-button. Opening/running LEAF resets the scene.
-- 8–10 min: inspect captures and the bug-report draft, then disable ProbeLab again before normal game work.
+## Verification summary
 
-## Checkpoint log
+- Completed Stage B baseline: **170 tests passed across 11 files**.
+- Latest integrated run: **250 tests passed across 21 files, but the process exited 1** because a long synchronous case-fuzz test caused a Vitest worker RPC `onTaskUpdate` timeout. This is not a clean full-suite pass.
+- Before pause, the worker wrote `fuzzCasesAsync`, yielding every 25 cases, and an equivalence regression. The subsequent verification run was interrupted on request. **Fix verification is pending.** Thirteen targeted compiler tests had passed.
+- Generated-case measurements before that harness change: **5000/5000** cases accepted, 1000 on each of five fixtures, sixty distinct room/envelope combinations. Live pitch acceptance is **not measured**.
+- Player fuzz: **1000 players / 29487 actions**; 250 correct, 699 timeout, 51 credibility failure; highest layer 2; no repeated successful objection reward, contradictory active account or loss of the true solution from true knowledge. Fairness forces a charged action after at most seven free/arbitrary actions.
+- Strict LEAF passes: `roomscript-shell-navigation`, `roomscript-shell-ik-reach`, `roomscript-engine-bridge`, `roomscript-suspect-actor`, and `roomscript-ai-record-replay`.
+- The AI test passed in **23.170 s**, including real Gemini output, validation, recording, equal offline replay with no live transport, speech, real jaw amplitude (max ~0.502), offline cached speech and uncached subtitle fallback.
+- Its single recorded text request took **8972 ms** under a 12-second diagnostic deadline. Production C5 retains a **6.5-second hard fallback**; its latency/rejection acceptance is not established.
+- Last checked C4 Lens components compiled and started. Final harvested-tape import and final worker edits have not received a post-pause compilation/startup check.
 
-- 2026-10-28: A2 commit c71ff8c, secret guard/tooling, 21 tests; no remote.
-- 2026-10-28: A1/A3 commit da5484d, compatible gateway/dependencies, all three credentials generated and baseline capture.
-- 2026-10-28: A4 completed with 34 tests, two LEAF scenarios and real provider/camera batches. Fixed FlexLayout startup, backing ancestry, missing Image material and early-rejection concurrency accounting. Bug regressions added.
-- 2026-10-28: A4 commit 143a315. A5 chooses Gemini 2.5 Flash + OpenAI TTS, cache-first chips, validated live free text, rate-limit cooldown, optional Imagen/authored art, simulated-room camera input. Separate medians suggest ~3.96s uncached spoken latency; no combined-latency claim. Stage A complete, m0-probe.
-- Prior disconnect/crash and package incompatibilities are resolved; reproduction details are preserved in docs/mcp-bug-report.md. Wadood relaunched Lens Studio and authorized continuation. No raw HTTP to the Lens MCP, no Cache modifications, no remote/push.
+LEAF strict policy is **`fail-fast`**. Stage A's two probe scenarios passed using the fallback/default policy because the earlier requested `fail` value was unrecognized. Do not claim strict verification for those earlier runs.
 
-- B3 commit41ed85f. B4 solver verified32 tests including20 broken variants; final integrated Lens compile21:19 succeeds, runtime starts without Lens exceptions.
-- B5 reducer verified13 tests: replay, objections, baseline isolation, timed lawyering, tuple refutation, verdict lock and validated performance admission. B6 dependency checkpoint follows immediately.
-- B6 safety verified41 tests, including all authored lines and rejected-output prompt-memory regression; B1-B6 integrated Lens compilation passes. Terminal and1000-player fuzz remain before m1-terminal.
-- B7 terminal verified4 integration tests plus real interactive session and --demo. Demo reaches3 objections,4 deductions, correct verdict at75/180 case minutes. Use npm.cmd run play in Tooling. B8 uncovered inherited baseline repeat-Hunch bug; fixed and regression added, final fuzz pending.
+Known editor warnings include LEAF instance/settings teardown on reset and transient pending-message/compile-data warnings during rapid worker edits. Collect a clean startup after compilation when resuming; don't equate a compile pass with a runtime pass.
 
-- B8: 1000 deterministic fair players /29487 actions;250 correct,699 timeout,51 credibility failure; highest layer2; no repeated successful objection per source, no contradictory active accounts, true knowledge preserves actual solution. Fairness charges time after at most7 free/arbitrary actions; free inspection itself does not imply real-time timeout.
+## Captures and evidence
 
-- C1 complete21:43: shells navigate; cues/music play; crate opens; PreviewRoom editor gate verified. LEAF shell-navigation and shell-ik-reach pass fail-fast, captures reviewed. C4/C5 pure AI modules are ready in working tree (33+15 worker tests) but not yet committed or Lens-adapted; preserve them.
+- [C1 manifest](c1-build-manifest.md): original scene inventory and audit.
+- [Fixed shell layout](captures/2026-10-28-c1-shells-fixed.png), [notebook](captures/2026-10-28-c1-notebook.png).
+- [Crate front](captures/2026-10-28-c1-crate-front.png), [crate isometric](captures/2026-10-28-c1-crate-isometric.png).
+- [C2 engine/HUD](captures/2026-10-28-c2-engine-bridge.png).
+- [C3 neutral actor](captures/2026-10-28-c3-neutral.png), [rattled actor and console](captures/2026-10-28-c3-rattled-console.png).
+- [C4 integration pass](captures/2026-10-28-c4-record-replay.png). This is a test pass capture, not evidence of completed production UI wiring.
+- [Harvested tape](../Assets/Scripts/Content/Tapes/C4Gateway.ts): one validated, credential-free live answer.
+- [MCP bug report](mcp-bug-report.md): earlier package/runtime mismatch and recovery details.
 
+The C4 source log is `C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-10-28-20-04-09-576-866b8.txt`; harvest byte baseline **3442262**.
 
-- C2 complete21:51: solver unique, eight checks, one hypothesis; roomscript-engine-bridge LEAF passes fail-fast (real Ask +15 minutes, replay equality and snapshot isolation). Recompile and fresh runtime show no Lens exception; known LEAF editor warning remains. Capture docs/captures/2026-10-28-c2-engine-bridge.png reviewed:165-minute HUD.
+## Probe decisions retained
 
-- C3 complete21:58: four authored ivory line-art pose textures, billboard puppet, custom alpha-edge stress rim and amplitude-driven jaw. CLAD shader-graph used; actor LEAF passes fail-fast for pose transitions, correct-objection stress and amplitude smoothing. Neutral/rattled-console captures reviewed. Speech-track integration follows in C4; no human listening claim. Vale is at the kitchen mark to the right of initial view, floorY=-160, console hides lower body.
+See [probe-results.md](probe-results.md) and the measurement files for individual samples.
 
+| Probe | Result | Successful p50 / p95 ms |
+|---|---|---|
+| GPT-4.1 nano strict JSON | 0/20, not found | — |
+| GPT-4o mini strict JSON | 8/20; 12 rate limits | 1766 / 2051 |
+| Gemini 2.5 Flash | 20/20 schema-valid | 1743 / 2361 |
+| Gemini 2.0 Flash | 0/20, unavailable/no access | — |
+| Mini TTS / onyx | 20/20 assets loaded and playing | 2217 / 3205 |
+| Built-in TTS | Unsupported synthesis API in LS 5.23 | not a latency test |
+| Imagen 3 | 0/20 corrected calls | — |
+| Four mini calls concurrently | 13/20 complete batches | 3043 / 5294 |
+| Camera | 20/20 simulated Evening Room | 273 / 284, includes 250 ms sampling |
+| Sync | Deferred | not measured |
+
+Use Gemini 2.5 primary, mini secondary, cache/authored-first chips, validated live free text, max-four transport scheduling/cooldown, OpenAI TTS/subtitles and optional Imagen/authored art. The ~3.96 s sum of separate chat and TTS medians was an estimate, not a measured combined response time.
+
+## Environment and secrets
+
+Lens Studio **5.23.2.26081320**, signed in at last check; Spectacles target, Perspective camera / World tracking; Preview **SPECS 27 / Interactive / Evening Room**. Compatible packages are recorded in the handoff. Do not upgrade blindly or edit Cache.
+
+At pause, all SNAP/OPENAI/GOOGLE credential fields were blanked through VirtualScene and the project was saved. Refresh all three through the CLAD authorized Editor Network flow before live tests; tokens expire in roughly an hour. The pre-commit secret hook remains on. ProbeLab stays disabled.
+
+Workers stopped; the generation worker's active test was canceled. Four generated Git LFS hook files are intentionally untracked. No further development is authorized until Wadood resumes.
+
+## First work after resume
+
+1. Read the handoff and project instructions; inspect git status and check Lens MCP/preflight.
+2. Finish verification of the async generation-test fix: `npm.cmd test -- tests/case-generation`, then `npm.cmd test` from Tooling. Avoid concurrent large fuzz jobs while measuring live latency.
+3. Compile through Lens MCP and collect fresh startup logs. Resolve final-tree issues before declaring C4 complete.
+4. Refresh credentials only when ready for live verification; finish C4 review, then wire the C5 production answer/input/subtitle path.
+5. Continue C6–C7, evaluate Gate C, then D1–D7, E in order and F only if its gate passes. Exact remaining features are in handoff §7.
+
+## Preview tour and remaining limits
+
+The **ten-minute guided tour is in [handoff §9](PAUSE_HANDOFF_2026-10-28.md#9-ten-minute-guided-preview-tour-at-this-checkpoint)**. It covers shell navigation, cues, crate, actor and offline LEAF checks while clearly separating them from unfinished gameplay. Live AI tests will fail without refreshed credentials.
+
+Device keyboard, ASR/microphone, camera permissions, tracking, World Query, physical hand interaction, spatial audio and real-furniture occlusion remain **verify on device**. Human audio quality, live pitch acceptance, a full interrogation rejection-rate study, complete end-to-end latency, the whole-case Lens flow and multiplayer remain unverified or unbuilt.

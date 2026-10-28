@@ -42,3 +42,15 @@ RoomscriptEngineBridge owns the deterministic graph/state and publishes copies; 
 
 ## 2026-10-28 C3: theatre placeholder and room role binding
 Use original vector-drawn ivory puppet textures for the four explicitly requested placeholder poses. Custom shader samples the silhouette edge for a stress rim and warps the lower lip from an audio envelope; no model output selects stress. Hero logical Kitchen Z4 binds to the physical kitchen plaque/stand-ins by role, not fixture numeric IDs (fixture kitchen differs). Vale stands at (175,-160,-300), behind an editor-only console. Full speech playback linkage is verified in C4.
+
+## 2026-10-28: explicit development pause and WIP preservation
+Wadood requested a pause and extensive documentation. Stop all implementation and worker tests; preserve unfinished C4/C5 and D5 preparation in local WIP commit260d801, without marking their packages or milestones complete. The active generation acceptance run was canceled. The new async batching fix remains unverified. Blank all three gateway token fields through VirtualScene and save before committing. Resume only on Wadood's instruction; docs/PAUSE_HANDOFF_2026-10-28.md and PROGRESS.md are the restart sources.
+
+## 2026-10-28: provider schema subset and measured integration limits
+Gemini rejected uniqueItems in responseSchema. ProviderSchema projects the supported schema subset, with a regression test; the deterministic line validator continues enforcing omitted constraints. One full-account Gemini answer took8972ms under the diagnostic12s deadline, then passed validation, RECORD/REPLAY and TTS/jaw checks. Preserve the production6.5s fallback and measure a real distribution during C5; do not reuse the simpler Stage A median as end-to-end proof.
+
+## 2026-10-28: raw outputs are audit-only actions
+Every TapeClient output is admitted first as LlmOutput. Reducer handling returns after sequence/log append, including after verdict, without touching knowledge, beats, clock or presentation. Accepted performances remain separate validated LineSpoken actions. The harvester uses the shared safe tape decoder and refuses conflicting occurrences or unsafe output paths.
+
+## 2026-10-28: distinguish fuzz assertions from process success
+The integrated run completed250 passing tests, including5000 accepted generated cases, but exited1 after Vitest worker RPC starvation. A worker added event-loop yielding every25 completed cases without changing compiler inputs. Its final verification was interrupted at pause. Record the run as not clean; do not weaken assertions or silently count it as a passing suite.

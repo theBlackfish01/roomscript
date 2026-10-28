@@ -13,6 +13,7 @@
 | [design/04-ai-gameplay.md](design/04-ai-gameplay.md) | AI systems: case from your room, living suspects, lie ladders, gossip, Wren, director, evidence, closing argument, meta | Gameplay and AI |
 | [design/05-clue-and-la-noire-research.md](design/05-clue-and-la-noire-research.md) | Reference mechanics (Clue, L.A. Noire, AI interrogation games), repos with licences, multiplayer research | Background |
 | [PROGRESS.md](PROGRESS.md) | Live build status | Everyone |
+| [PAUSE_HANDOFF_2026-10-28.md](PAUSE_HANDOFF_2026-10-28.md) | User-requested pause: complete inventory, WIP, verification limits, remaining work and restart/tour instructions | Wadood and the next agent |
 | [decisions.md](decisions.md) | Decisions made during the build, with reasons | Everyone |
 | [probe-results.md](probe-results.md) | Gateway, TTS, camera and Sync Kit probe measurements | Everyone |
 | [later.md](later.md) | Ideas parked for after the hackathon | Everyone |
