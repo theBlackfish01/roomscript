@@ -1,4 +1,4 @@
-import {Action, Beat, CaseGraph, Evidence, GameEvent, GameState, Id, Statement} from "../core/Types";
+import {Action, AnswerMode, Beat, CaseGraph, Evidence, GameEvent, GameState, Id, Statement} from "../core/Types";
 import {solvePlayerKnowledge} from "../case/Solver";
 import {currentStatement, getCurrentStatements, knownRefs, statementFacts} from "./Actions";
 import {advanceClock} from "./Clock";
@@ -14,6 +14,20 @@ import {validateLine} from "../perf/LineValidator";
 function uniquePush(list: Id[], id: Id): void {if (!list.includes(id)) list.push(id);}
 function ids(value: unknown): value is string[] {return Array.isArray(value) && value.every(x => typeof x === "string");}
 function clone<T>(value: T): T {return JSON.parse(JSON.stringify(value)) as T;}
+
+/** Speech permissions come from the latest gameplay cue, never provider/caller metadata. */
+export function performanceMode(graph: CaseGraph, state: GameState, suspect: Id, topic: string): AnswerMode {
+  if (state.verdict === "correct" && suspect === graph.envelope.who) return "confession";
+  const auditOnly = ["LlmOutput", "LineSpoken", "GossipSpoken", "PitchReceived", "ArgumentClaim", "ArgumentExtracted"];
+  const trigger = state.log.slice().reverse().find(action => !auditOnly.includes(action.type));
+  const cue = trigger && state.events.slice().reverse().find(event => event.seq === trigger.seq && event.actor === suspect &&
+    ["claim", "pressed", "lawyered", "deflection"].includes(event.type));
+  if (!cue) return "answer";
+  if (cue.type === "lawyered" || cue.type === "deflection") return cue.type === "lawyered" ? "lawyered" : "deflect";
+  const claim = graph.statements.find(statement => statement.id === cue.refs?.[0]);
+  if (claim?.topic !== topic) return "answer";
+  return cue.type === "pressed" ? "press" : cue.data?.mode === "broken" ? "broken" : "answer";
+}
 
 /** Sequential host actions are the only state input; graph remains immutable. */
 export function reduceGame(graph: CaseGraph, previous: GameState, action: Action): GameState {
@@ -170,8 +184,8 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
     }
     case "LineSpoken": {
       if (!suspectExists(action.suspect)) {reject("unknown_suspect"); break;}
-      const mode=action.mode || "answer";
-      if (mode==="confession" && (state.verdict!=="correct" || action.suspect!==graph.envelope.who)) {reject("confession_before_verdict"); break;}
+      if (action.mode==="confession" && (state.verdict!=="correct" || action.suspect!==graph.envelope.who)) {reject("confession_before_verdict"); break;}
+      const mode=performanceMode(graph,previous,action.suspect,action.answer.topic);
       // A correct verdict can release the final account without silently changing the played ladder.
       const presentation=mode==="confession" ? clone(state) : state;
       if (mode==="confession") presentation.suspects[action.suspect].layer=Math.max(...graph.statements.filter(s=>s.speaker===action.suspect).map(s=>s.layer));

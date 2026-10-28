@@ -60,3 +60,5 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 - 2026-10-29 00:01 PKT | A2 | RecompileTypeScriptTool exposed a normalized-object type annotation error; fixed and recompiled. RunAndCollectLogsTool clean. 130/130 targeted Vitest tests pass; AI LEAF now speaks the admitted normalized line. Live test remains for C5. VirtualScene credential blank + EEC save.
 
 - 2026-10-29 00:05 PKT — A3: RecompileTypeScriptTool and RunAndCollectLogsTool verified polarity/person/condition guards; no compile or runtime errors. 140 targeted Vitest tests passed.
+
+- 2026-10-29 00:09 PKT — A4: RecompileTypeScriptTool and RunAndCollectLogsTool clean; 142 targeted tests passed for engine-derived performance permissions.

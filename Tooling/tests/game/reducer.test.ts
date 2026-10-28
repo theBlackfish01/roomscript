@@ -186,6 +186,31 @@ describe("deterministic game reducer",()=>{
     expect(s.state.events.at(-1)?.type).toBe("lineSpoken");
     expect(s.state.suspects.S2.layer).toBe(0); expect(s.state.verdict).toBe("correct");
   });
+  it("derives break permission from the latest engine cue, including same-layer corrections",()=>{
+    const s=session(); s.act({type:"Ask",suspect:"S2",topic:"baseline:brooch"});
+    const cover=s.graph.statements.find(c=>c.id==="C_S2_BASELINE_LIE")!;
+    s.act({type:"LineSpoken",suspect:"S2",key:"spoof",mode:"broken",answer:{topic:cover.topic,cites:[performanceRef("a",cover.id)],line:cover.canonical+" I lied.",emotion:"rattled"}});
+    expect(s.state.events.at(-1)?.type).toBe("rejected");
+    expect(s.state.suspects.S2.recentLines).toEqual([]);
+    s.act({type:"PinchObject",object:"O6"});
+    s.act({type:"Object",suspect:"S2",statement:cover.id,evidence:["E_S2_BASELINE"]});
+    const correction=s.graph.statements.find(c=>c.id==="C_S2_BASELINE_TRUE")!;
+    const answer={topic:correction.topic,cites:[performanceRef("a",correction.id)],line:correction.canonical+" I lied.",emotion:"rattled" as const};
+    s.act({type:"LlmOutput",key:"audit",occurrence:0,source:"live",response:{content:"{}"},latencyMs:1,at:1});
+    s.act({type:"LineSpoken",suspect:"S2",key:"genuine",answer});
+    expect(s.state.events.at(-1)?.type).toBe("lineSpoken");
+    expect(s.state.suspects.S2.layer).toBe(0);
+    s.act({type:"Ask",suspect:"S2",topic:correction.topic});
+    s.act({type:"LineSpoken",suspect:"S2",key:"stale",mode:"broken",answer});
+    expect(s.state.events.at(-1)?.type).toBe("rejected");
+    expect(s.state).toEqual(replayGame(s.graph,s.state.log));
+  });
+  it("derives press permission without trusting caller mode",()=>{
+    const s=session(); s.act(ask); s.act({type:"Press",suspect:"S2"});
+    const statement=s.graph.statements.find(c=>c.id==="C_VALE_ALIBI_0")!;
+    s.act({type:"LineSpoken",suspect:"S2",key:"press",mode:"answer",answer:{topic:statement.topic,cites:[performanceRef("p",statement.id)],line:statement.pressed!.canonical,emotion:"irritated"}});
+    expect(s.state.events.at(-1)?.type).toBe("lineSpoken");
+  });
   it("does not expose higher-layer suspect refutations",()=>{
     const s=session();
     s.graph.refutation.order=["S1"];

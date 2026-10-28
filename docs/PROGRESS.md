@@ -142,3 +142,6 @@ Complete: NFKC and invisible-character cleanup before validation; expanded contr
 
 ### A3 — claim polarity and unsupported people (2026-10-29)
 Complete. Required-claim polarity is checked; unsupported relationships, locations and victim conditions are rejected. 140 targeted tests passed, including 49 review safety cases. Lens compile and refreshed runtime are clean. These are conservative lexical checks, not a claim of general language entailment.
+
+### A4 — engine-owned performance permissions (2026-10-29)
+Complete. The reducer derives answer/press/broken/lawyered/confession permissions from the latest gameplay cue or correct culprit verdict, ignoring caller privileges. A baseline correction can authorize a break at layer zero; an old break cannot authorize later questions. Raw output audit events preserve the cue. 142 targeted tests passed; Lens compile/runtime clean.

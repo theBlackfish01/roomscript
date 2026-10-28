@@ -72,3 +72,6 @@ The integrated run completed250 passing tests, including5000 accepted generated 
 
 ### 2026-10-29 — A3 conservative performance checks
 Compare negation polarity with the required cited claim and reject uncited person/location words and victim conditions. Remove the victim from universally safe entities. Preserve harmless paraphrases; canonical engine cards remain the source of truth. Verified 140 targeted tests and clean Lens runtime.
+
+### 2026-10-29 — A4 performance authority
+Use the latest gameplay action and its engine-emitted cue, matched to suspect/topic, to authorize exceptional speech. Layer alone is insufficient because baseline corrections occur at layer zero. Audit-only actions do not invalidate a cue. Caller mode cannot upgrade permissions. Added spoof, same-layer legitimate break, stale cue, press and replay regressions.
