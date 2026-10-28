@@ -1,19 +1,20 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-28 23:47 PKT. Lens Studio MCP is restored: correct project, signed in, LS 5.23.2, Perspective/World camera, SIK/UIKit 2.0.0 and SPECS 27 Interactive Evening Room verified. Node 22.14.0 available; Blender CLI absent (not needed for current pure-engine fixes).
+Updated 2026-10-29 00:11 PKT. Lens Studio MCP, sign-in, project, camera, packages and Preview verified. P0 implementation fixes E1–E4 and A1–A4 are complete with regressions. Tooling typecheck passes; all four Git LFS hooks are tracked and the secret guard remains active.
 
-## Current review fixes
+## Current work
 
-- E1 complete: objection evidence must equal a listed breaker set. Evidence dumping and partial multi-item evidence are rejected; exact multi-item routes remain valid. Targeted game/player suite: 25/25 passed. Lens compile and runtime clean; runtime front capture reviewed (existing shell, staging still pending).
-- Next: E2 absent-suspect action guards, then E3/E4 and A1–A4, P0 hygiene; C5 with L1 and A5–A8 afterwards.
-- Tests need elevated local execution because sandboxed esbuild cannot resolve the workspace config through the user directory. Approved retry passed; no test assertions weakened.
+- C5 with L1 and A5–A8 is next: room binding, production interrogation, live transports and audio budgets.
+- Latest targeted engine/performance run: 142/142 passed. Hook checks: 5/5. Lens compile and fresh runtime clean. The E4 full-suite timeout and successful full-fuzz rerun are detailed below; a new integrated suite is running.
+- Current Preview is still the existing shell; the complete case is not delivered. Credentials are blank and will be refreshed for live tests.
+- Tests require elevated local execution because sandboxed esbuild cannot resolve workspace configuration through the user directory.
 ## Resume scope and review corrections
 
 Approved scope: one complete case first (live AI interrogation and tells, Spatial Objection, suggestion sweep, accusation/reenactment, opening), then should tier in plan order. Clue Night only if the core case is done and green by November 4. See [decisions.md](decisions.md).
 
-Order: every review P0 with regression coverage; C5 with L1 and A5–A8; staging; C6; C7; D1; D3; D2; D6/D7; should tier; conditional Clue Night. All implementation findings remain open. Restore MCP and pass preflight first. Refresh credentials at live AI tests and blank them before every commit.
+Order: every review P0 with regression coverage; C5 with L1 and A5–A8; staging; C6; C7; D1; D3; D2; D6/D7; should tier; conditional Clue Night. P0 implementation findings are closed; P1 and later work remains. MCP preflight passed. Refresh credentials at live AI tests and blank them before every commit.
 
-**Review corrections supersede the historical pause-time verification statements below.** The [test review](reviews/2026-10-28-tests.md) records **252/252 tests across 21 files, exit 0 (69.5 s)** and verifies async case-fuzz batching against a failing synchronous counterfactual. The [Lens review](reviews/2026-10-28-lens-and-repo.md) found final-tree compilation at **22:06:08** and four subsequent clean Preview starts. These are review evidence, not checks rerun in this session. Two Tooling test type errors remain at `tests/ai/pipeline.test.ts:38`; passing Vitest does not establish typecheck success.
+**Review corrections supersede the historical pause-time verification statements below.** The [test review](reviews/2026-10-28-tests.md) records **252/252 tests across 21 files, exit 0 (69.5 s)** and verifies async case-fuzz batching against a failing synchronous counterfactual. The [Lens review](reviews/2026-10-28-lens-and-repo.md) found final-tree compilation at **22:06:08** and four subsequent clean Preview starts. These are review evidence, not checks rerun in this session. At review time two Tooling test type errors were reported at `tests/ai/pipeline.test.ts:38`; passing Vitest does not establish typecheck success.
 
 The remaining sections preserve the historical pause checkpoint and its captures; the old pause instruction and pending-verification claims are superseded by this update.
 
@@ -109,9 +110,9 @@ Lens Studio **5.23.2.26081320**, signed in at last check; Spectacles target, Per
 
 At pause, all SNAP/OPENAI/GOOGLE credential fields were blanked through VirtualScene and the project was saved. Refresh all three through the CLAD authorized Editor Network flow before live tests; tokens expire in roughly an hour. The pre-commit secret hook remains on. ProbeLab stays disabled.
 
-Workers stopped; the generation worker's active test was canceled. Four generated Git LFS hook files are intentionally untracked. No further development is authorized until Wadood resumes.
+Historical pause state: workers stopped and generated hooks were untracked. The current run is authorized; the hooks are now tracked.
 
-## First work after resume
+## Historical restart list (superseded by Current work above)
 
 1. Read the handoff and project instructions; inspect git status and check Lens MCP/preflight.
 2. Finish verification of the async generation-test fix: `npm.cmd test -- tests/case-generation`, then `npm.cmd test` from Tooling. Avoid concurrent large fuzz jobs while measuring live latency.

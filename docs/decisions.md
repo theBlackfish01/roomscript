@@ -81,3 +81,6 @@ Added npm run typecheck using the existing Tooling-only configuration and typed 
 
 ### 2026-10-29 — retain LFS lifecycle hooks
 Track the four existing generated hooks unchanged. Keep the pre-commit secret check and pre-push LFS forwarding. Hook contracts are covered by five tests.
+
+### 2026-10-29 — P0 handoff reconciliation
+Current progress now leads with the closed P0 fixes and pending C5/P1 work. Historical pause evidence remains labelled as historical; the independent review corrections and subsequent fresh verification are distinct.

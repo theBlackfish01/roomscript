@@ -2,7 +2,9 @@
 
 Historical pause checkpoint; **Wadood resumed development on 2026-10-28**. The earlier MCP-unavailable attempt is superseded: the current Codex session connected successfully, verified sign-in and the project, and started P0 fixes. See PROGRESS.md for current implementation and verification.
 
-**Review corrections supersede pause-time verification claims below:** 252/252 tests across 21 files passed, exit 0 in 69.5 s; the async fuzz fix was verified against a failing synchronous counterfactual. Final-tree compilation occurred at 22:06:08 with four clean Preview starts afterwards. Two Tooling type errors remain at `tests/ai/pipeline.test.ts:38`. These are independent review results, not fresh checks in the resume attempt. Evidence: `reviews/2026-10-28-tests.md` and `reviews/2026-10-28-lens-and-repo.md`.
+**Review corrections supersede pause-time verification claims below:** 252/252 tests across 21 files passed, exit 0 in 69.5 s; the async fuzz fix was verified against a failing synchronous counterfactual. Final-tree compilation occurred at 22:06:08 with four clean Preview starts afterwards. At review time two Tooling type errors were reported at `tests/ai/pipeline.test.ts:38`. These are independent review results, not fresh checks in the resume attempt. Evidence: `reviews/2026-10-28-tests.md` and `reviews/2026-10-28-lens-and-repo.md`.
+
+**Resume update 2026-10-29:** E1–E4 and A1–A4 are fixed with regressions; Tooling typecheck passes and all four LFS hooks are tracked. Production C5/P1 work is next. Latest current evidence lives in PROGRESS.md; the inventory below remains a historical checkpoint.
 
 Read this document and [PROGRESS.md](PROGRESS.md) before resuming. [FIRST_PASS.md](FIRST_PASS.md) remains the mission brief and [IMPLEMENTATION_PLAN.md](plan/IMPLEMENTATION_PLAN.md) remains the authority for scope and acceptance.
 
