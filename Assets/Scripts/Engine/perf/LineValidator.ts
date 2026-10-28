@@ -1,7 +1,7 @@
 import {Answer, AnswerMode, CaseGraph, FactSheet, SheetRef} from "../core/Types";
 import {ANSWER_EMOTIONS, answerTopics} from "./AnswerSchema";
 import {allSheetRefs} from "./FactSheetBuilder";
-import {buildGazetteer, findEntities, findNumbersAndDays, findTimes, normalizedWords} from "./Gazetteer";
+import {buildGazetteer, findEntities, findNumbersAndDays, findTimes, normalizedWords, normalizedText} from "./Gazetteer";
 
 export type ValidationCode = "JSON" | "SCHEMA" | "CITATION_REQUIRED" | "UNKNOWN_CITE" | "ENTITY" | "TIME" | "FORBIDDEN" | "MEMORY";
 export interface ValidationIssue {gate: number; code: ValidationCode; message: string;}
@@ -26,17 +26,20 @@ export function validateLine(input: unknown, sheet: FactSheet, graph: CaseGraph,
     try {value = JSON.parse(value);} catch {return {ok: false, errors: [{gate: 1, code: "JSON", message: "Answer is not valid JSON"}]};}
   }
   if (!value || typeof value !== "object" || Array.isArray(value)) return {ok: false, errors: [{gate: 1, code: "SCHEMA", message: "Answer must be an object"}]};
-  const record = value as Record<string, unknown>;
+  const original = value as Record<string, unknown>;
+  const record: Record<string,unknown> = {...original,line:typeof original.line==="string"?normalizedText(original.line):original.line};
   const keys = Object.keys(record).sort();
   if (keys.join(",") !== "cites,emotion,line,topic" || typeof record.topic !== "string"
     || !answerTopics(sheet).includes(record.topic) || typeof record.line !== "string" || !record.line.trim()
-    || record.line.length > 220 || /[\[\]{}<>\u0000-\u001f]/.test(record.line)
+    || record.line.length > 220 || /[\[\]{}<>\u0000-\u001f]/.test(String(original.line))
     || !Array.isArray(record.cites) || record.cites.length < 1 || record.cites.length > 2
     || !record.cites.every(cite => typeof cite === "string") || new Set(record.cites).size !== record.cites.length
     || !ANSWER_EMOTIONS.includes(record.emotion as Answer["emotion"]) || !modes.includes(mode)) {
     return {ok: false, errors: [{gate: 1, code: "SCHEMA", message: "Answer fields, enums, length or stage directions are invalid"}]};
   }
   const answer = record as unknown as Answer;
+  if(Array.from(answer.line).some(char => /\p{L}/u.test(char) && !/\p{Script=Latin}/u.test(char) || /\p{Nd}/u.test(char) && !/[0-9]/.test(char)))
+    reject(4,"ENTITY","Unsupported script or digit in English performance");
   const refs = new Map(allSheetRefs(sheet).map(ref => [ref.ref, ref]));
   const cited: SheetRef[] = [];
   for (const ref of answer.cites) {
@@ -73,7 +76,11 @@ export function validateLine(input: unknown, sheet: FactSheet, graph: CaseGraph,
   if (findNumbersAndDays(answer.line).some(number => !allowedNumbers.has(number))) reject(4, "ENTITY", "Line introduces a number or day absent from its cited references");
 
   const line = normalizedWords(answer.line);
-  if (/\b(as an ai|language model|system prompt|ignore (?:all |your |previous )?instructions|openai|chatgpt)\b/.test(line)) reject(6, "FORBIDDEN", "Meta or instruction-breaking language is forbidden");
+  if (/\b(ai|bot|model|prompt|instructions|script|character|game|player|gemini|google|openai|chatgpt)\b/.test(line)
+    || /\b(?:[aphm]:[a-z0-9_]+|r[0-9a-f]{16}|[cfex]_[a-z0-9_]+)\b/i.test(line)) reject(6, "FORBIDDEN", "Meta or reference language is forbidden");
+  if(mode!=="confession" && (/\b(killer|murderer|culprit|guilty|choked|smothered|stabbed|struck|bludgeoned)\b/.test(line)
+    || /\b(?:because of me|responsible for (?:his|her|their|the) death|(?:he|she|they) did it|i am the one who did it|i wrapped .{0,35}around (?:his|her|their) neck)\b/.test(line)))
+    reject(6,"FORBIDDEN","Confession or culprit identification is reserved for the verdict performance");
   if (mode !== "confession" && (/\b(?:i|we)\s+(?:(?:am|was|were)\s+the\s+(?:killer|murderer|culprit)|(?:(?:have|had)\s+)?(?:killed|murdered|strangled|poisoned)\b|did it\b|(?:took|ended) (?:his|her|their) life\b)/.test(line)
     || /\bit was (?:me|i)\b|\b(?:the )?(?:killer|murderer|culprit)\s+(?:is|was)\b|\b(?:he|she|they)\s+(?:killed|murdered|strangled|poisoned)\b/.test(line))) {
     reject(6, "FORBIDDEN", "Confession or culprit identification is reserved for the verdict performance");
@@ -87,7 +94,7 @@ export function validateLine(input: unknown, sheet: FactSheet, graph: CaseGraph,
       }
     }
   }
-  if (mode !== "broken" && mode !== "confession" && /\bi (?:lied|was lying|made it up)\b/.test(line)) reject(6, "FORBIDDEN", "Admitting a lie requires an engine-approved break");
+  if (mode !== "broken" && mode !== "confession" && /\b(?:lie|lies|lying|lied|false|untrue|dishonest|not true|not honest|made it up)\b/.test(line)) reject(6, "FORBIDDEN", "Admitting a lie requires an engine-approved break");
   const pastInteraction = /\b(?:you (?:accused|asked|questioned|showed|told|pressed|believed|trusted|threatened)|you've (?:accused|asked|shown|told|pressed)|as i told you|last time|earlier you|you said|your earlier|your previous)\b/.test(line);
   if (pastInteraction && !cited.some(ref => sheet.memory.some(memory => memory.ref === ref.ref))) reject(7, "MEMORY", "Past interaction language requires a memory citation");
   const hearsay = cited.some(ref => sheet.heard.some(heard => heard.ref === ref.ref));

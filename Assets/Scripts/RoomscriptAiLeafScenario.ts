@@ -29,7 +29,7 @@ import {withDeadline} from "./Engine/ai/Deadlines";
     const replay=new TapeClient({mode:"REPLAY",clock:client.clock,entries:record.snapshot(),emit:event=>engine.dispatch(event),replayLatency:0});
     const repeated=await replay.complete(request);expect(repeated.content).toBe(response.content);expect(client.requestCount()).toBe(before);client.forceOffline=false;
     let maxJaw=0;const monitor=this.createEvent("UpdateEvent");monitor.bind(()=>maxJaw=Math.max(maxJaw,actor.diagnostics().jaw));
-    const line=JSON.parse(response.content).line as string;
+    const line=validated.answer!.line;
     await tts.speak(line);this.removeEvent(monitor);
     expect(tts.diagnostics().played).toBeGreaterThan(0);expect(maxJaw).toBeGreaterThan(0.01);
     client.forceOffline=true;await tts.speak(line);expect(tts.diagnostics().hits).toBeGreaterThan(0);

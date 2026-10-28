@@ -13,7 +13,14 @@ const ones = ["zero", "one", "two", "three", "four", "five", "six", "seven", "ei
 const tens = ["", "", "twenty", "thirty", "forty", "fifty"];
 const weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "today", "yesterday", "tomorrow"];
 export function normalizedWords(text: string): string {
-  return text.toLowerCase().replace(/[’‘]/g, "'").replace(/[‐‑–—]/g, "-").replace(/\s+/g, " ").trim();
+  return normalizedText(text).toLowerCase()
+    .replace(/\b(i|you|we|they)'ve\b/g,"$1 have").replace(/\bi'm\b/g,"i am")
+    .replace(/\b(he|she|it|that|there)'s\b/g,"$1 is").replace(/\b(you|we|they)'re\b/g,"$1 are")
+    .replace(/\bwon't\b/g,"will not").replace(/\bcan't\b/g,"can not").replace(/n't\b/g," not");
+}
+/** Validate and speak this same display form; never pass the unnormalized input to audio. */
+export function normalizedText(text: string): string {
+  return text.normalize("NFKC").replace(/\p{Cf}/gu, "").replace(/[’‘]/g,"'").replace(/[‐‑–—]/g,"-").replace(/\s+/g," ").trim();
 }
 function numberWords(n: number): string {return n < 20 ? ones[n] : tens[Math.floor(n / 10)] + (n % 10 ? " " + ones[n % 10] : "");}
 function escaped(text: string): string {return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");}
@@ -69,7 +76,7 @@ export function findTimes(text: string): TimeMention[] {
   const add = (value: string, start: number, end: number) => {
     if (boundary(normalized, start, end) && !result.some(hit => start < hit.end && end > hit.start)) result.push({value, start, end});
   };
-  const numeric = /\b(\d{1,2})[:.](\d{2})(?:\s*(a\.?m\.?|p\.?m\.?))?/g;
+  const numeric = /\b(\d{1,2})[:.h](\d{2})(?:\s*(a\.?m\.?|p\.?m\.?))?/g;
   let match: RegExpExecArray | null;
   while ((match = numeric.exec(normalized))) add(timeValue(Number(match[1]), Number(match[2]), match[3]), match.index, numeric.lastIndex);
   const hourOnly = /\b(\d{1,2})\s*(a\.?m\.?|p\.?m\.?)\b/g;
@@ -78,6 +85,7 @@ export function findTimes(text: string): TimeMention[] {
   for (let hour = 1; hour <= 12; hour++) {
     const name = ones[hour];
     const patterns: {phrase: string; h: number; m: number}[] = [
+      {phrase: name + "ish", h: hour, m: 0},
       {phrase: name + " o'clock", h: hour, m: 0},
       {phrase: "half past " + name, h: hour, m: 30}, {phrase: "quarter past " + name, h: hour, m: 15},
       {phrase: "quarter to " + name, h: hour === 1 ? 12 : hour - 1, m: 45},

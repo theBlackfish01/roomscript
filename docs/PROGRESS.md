@@ -136,3 +136,6 @@ Complete: hero/generated object memories cost 10 minutes per newly inspected hol
 
 ## A1 — 2026-10-28 23:59 PKT
 Complete: performer refs are stable opaque 16-hex aliases with a duplicate guard; authored lines, memory, schema and replay tests use the same mapping. Generated topics are background/borrowed_item/visit; cover text is first-person and never names the hidden category. Prompt v2 invalidates old request keys; C4Gateway v1 is preserved unmodified as historical evidence and will miss safely in production. New regression checks every initial suspect sheet/request in hero and generated case for stance leakage. 149/150 first targeted run (test harness still decoded old IDs), then corrected private lookup and 41/41 performance tests passed; all 150 covered tests now verified. Lens compile/start clean. Next A2 validator hardening.
+
+## A2 — 2026-10-29 00:01 PKT
+Complete: NFKC and invisible-character cleanup before validation; expanded contractions for checks, unsupported scripts/digits rejected, added h-format and approximate spoken hours. Broader confession/culprit/lie/meta/ref patterns cover every A2 review probe. Only normalized admitted text reaches speech (including AI LEAF). 130/130 targeted tests passed, including 39 new review regressions and all authored performances. Lens compile/start clean. Next A3 semantic guards.
