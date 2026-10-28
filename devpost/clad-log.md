@@ -29,3 +29,6 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 - 2026-10-26 · project created from the Specs Base Template · Lens Studio 5.24.1 · `Roomscript.esproj`, with Lens Studio's generated AGENTS.md and `.mcp.json`
 - 2026-10-28 · project recreated in Lens Studio 5.23.2 because of the SPECS sign-in issue on 5.24 · Specs Base Template · `RoomScriptF.esproj`
 - 2026-10-27 · CLAD plugin installed at project scope · `claude plugin install ls-clad@ls-extensions --scope project` · `.claude/settings.json`
+
+- 2026-10-28 21:19 PKT — B3/B4 parallel pure-engine workers authored HARLOW-1041, fallback lines and human STORY, plus eight-check solver. Hero passes; 20 broken variants produce expected codes. Main integrated tuple-aware refutation.
+- 2026-10-28 21:19 PKT — B5/B6 main reducer plus parallel safety worker: 13 reducer and41 safety tests, all authored lines admitted and adversarial samples rejected. CLAD RecompileTypeScriptTool succeeded; RunAndCollectLogsTool confirmed startup without Lens exceptions (known LEAF editor reset warning remains). No scene changes in these packages, so visual/LEAF checks remain the Stage A baseline until C1.

@@ -32,6 +32,8 @@ export interface Statement {
   id: Id; speaker: Id; topic: string; asserts: Id | Id[]; stance: Stance; layer: number;
   canonical: string; entities: Id[]; about?: Id; breakers: Id[][]; onBreak?: Id;
   pressed?: {canonical: string; entities: Id[]}; costMinutes?: number;
+  /** Same-layer topic replacement (e.g. a harmless baseline lie); inactive until broken. */
+  replacementFor?: Id;
 }
 export interface RefutationCard { eliminates: Id; via: Id; }
 export type BeatType = "latent_letter" | "voicemail" | "suspect_wants_to_leave" | "blackout" | "body_moved" | "object_moved";
@@ -75,6 +77,7 @@ export interface FactSheet {
 export interface LineBankEntry { suspect: Id; topic: string; layer: number; mode: AnswerMode; answer: Answer; }
 export interface MemoryRef { id: Id; text: string; entities: Id[]; source: string; }
 export interface SuspectState {
+  topicOverrides: Record<string, Id>;
   layer: number; composure: number; composureMax: number; rapport: number; respect: number;
   emptyPresses: number; lawyeredUntil: number; shownEvidence: Id[];
   heard: MemoryRef[]; memory: MemoryRef[]; saidSoFar: string[]; recentLines: string[];
@@ -93,7 +96,7 @@ export type ActionPayload =
   | {type: "UseHunch"}
   | {type: "ArgumentClaim"; deduction: Id; refs: Id[]}
   | {type: "PitchReceived"; pitch: unknown}
-  | {type: "LineSpoken"; suspect: Id; key: string; answer: Answer}
+  | {type: "LineSpoken"; suspect: Id; key: string; answer: Answer; mode?: AnswerMode}
   | {type: "GossipSpoken"; from: Id; to: Id; packet: Id; answer: Answer}
   | {type: "BeatChosen"; beat: Id}
   | {type: "ArgumentExtracted"; claims: ArgumentClaim[]};
