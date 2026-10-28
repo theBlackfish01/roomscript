@@ -42,11 +42,11 @@ export class Scheduler {
     this.pump(); return handle;
   }
 
-  /** Drop speculative work first and honor provider Retry-After, otherwise use bounded exponential cooldown. */
+  /** Keep retry delays within the interactive budget; long outages fall through to authored answers. */
   reportRateLimit(retryAfterMs?: number): void {
     if (retryAfterMs !== undefined && (!Number.isFinite(retryAfterMs) || retryAfterMs < 0)) throw new Error("Invalid rate-limit cooldown");
     this.rateFailures++;
-    const wait = retryAfterMs ?? Math.min(30000, 1000 * Math.pow(2, Math.min(5, this.rateFailures - 1)));
+    const wait = Math.min(2500,retryAfterMs ?? 1000 * Math.pow(2, Math.min(5, this.rateFailures - 1)));
     this.cooldownUntil = Math.max(this.cooldownUntil, this.clock.nowMs() + wait);
     for (const item of this.queue.slice()) if (item.priority === "speculative") this.cancel(item);
     for (const item of this.running.values()) if (item.priority === "speculative") this.cancel(item);
@@ -74,6 +74,9 @@ export class Scheduler {
     }
     this.queue.sort((a, b) => priority[a.priority] - priority[b.priority] || a.id - b.id);
     while (this.running.size < this.capacity && this.queue.length) {
+      // With multiple slots, leave one genuinely idle for live work. Cancelling
+      // an unabortable background request cannot create physical capacity.
+      if(this.capacity>1 && this.queue[0].priority!=="live" && this.running.size>=this.capacity-1)break;
       const item = this.queue.shift()!;
       if (item.settled) continue;
       item.started = true; this.running.set(item.id, item);

@@ -158,3 +158,6 @@ Full P0 suite: 320/320 tests across 24 files, exit 0 in 130.36s. 5000/5000 gener
 
 ### A6 — OpenAI fallback (2026-10-29)
 Complete. Pure provider request shaping and sanitized error mapping; strict schema projection removes unsupported constraints while local validation retains them. Gemini failure uses the one permitted retry on gpt-4o-mini when time remains; unauthenticated does not retry. 60 AI tests and Tooling typecheck pass. Live fail-fast LEAF simulated primary outage then obtained/admitted a real OpenAI answer in 2327ms, two attempts, zero validation rejections. Actual fallback tape harvested and both Gemini/OpenAI offline replay tests pass. Lens compile/start clean.
+
+### A8 — scheduler reserve (2026-10-29)
+Complete before A7 because precaching depends on it. With capacity four, background work starts at most three transports; live work can use the fourth without pretending cancellation aborted pending requests. Cooldown is capped at 2500ms. 24 scheduler/pipeline tests and Tooling typecheck pass; Lens compile/start clean.

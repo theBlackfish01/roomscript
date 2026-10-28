@@ -72,3 +72,5 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 - 2026-10-29 00:20 PKT — specs-ai-remote-service, lens-api and inline script-author/LEAF authoring: pure Gemini payload shaping; fresh SNAP/OPENAI/GOOGLE tokens generated through authorized Editor Network and wired with VirtualScene. LEAF roomscript-live-latency passed, 20/20 valid (1661/2057ms p50/p95). Twenty outputs harvested and replay tested; MCP compile/runtime clean; runtime shell capture reviewed. Tokens blanked before commit. One approval-review timeout on the harvest command was resolved by the permitted retry using the installed local CLI.
 
 - 2026-10-29 00:23 PKT — A6 via AI remote-service/inline LEAF procedure: real OpenAI fallback passed fail-fast after simulated Gemini outage, 2327ms. Fresh three-provider tokens, VirtualScene wiring, clean recompile/runtime, tape harvest and offline replay checks. Tokens cleared for commit.
+
+- 2026-10-29 00:24 PKT — A8 scheduler: 24 regression tests, Tooling typecheck, RecompileTypeScriptTool and fresh runtime logs pass. No scene changes.

@@ -90,3 +90,6 @@ Separate system instructions from user turns, preserve conversation roles, disab
 
 ### 2026-10-29 — A6 fallback and schema projection
 Use the existing single retry for gpt-4o-mini after Gemini failure; preserve the same fact sheet/schema and absolute answer deadline. Map gateway diagnostics to stable codes without retaining secret-bearing text. Strict OpenAI schema uses required properties and no additional properties; local validator still enforces lengths, counts and uniqueness. Real fallback call passed in 2.33s.
+
+### 2026-10-29 — A8 before audio precaching
+Keep one physical transport slot available for live work; cancelled requests retain slots until settlement. Clamp interactive cooldown to 2500ms; longer outages use the normal answer fallback. Single-slot schedulers retain existing behavior for constrained callers. This prerequisite precedes A7 within the C5/P1 work group.

@@ -9,11 +9,12 @@ describe("bounded provider scheduler", () => {
     const pending = Array.from({length: 8}, () => deferred<number>()); const started: number[] = [];
     const levels: RequestPriority[] = ["case-load", "case-load", "case-load", "case-load", "speculative", "live", "case-load", "live"];
     const tasks = levels.map((level, i) => scheduler.submit(level, () => {started.push(i); return pending[i].promise;}));
-    expect(started).toEqual([0, 1, 2, 3]); expect(scheduler.activeCount).toBe(4);
-    pending[0].resolve(0); await flush(); expect(started).toEqual([0, 1, 2, 3, 5]);
-    pending[1].resolve(1); await flush(); expect(started.at(-1)).toBe(7);
-    pending[2].resolve(2); await flush(); expect(started.at(-1)).toBe(6);
-    pending[3].resolve(3); await flush(); expect(started.at(-1)).toBe(4);
+    expect(started).toEqual([0, 1, 2, 5]); expect(scheduler.activeCount).toBe(4);
+    pending[0].resolve(0); await flush(); expect(started).toEqual([0, 1, 2, 5, 7]);
+    pending[1].resolve(1); await flush(); expect(started.at(-1)).toBe(7); // Keep reserve idle.
+    pending[2].resolve(2); await flush(); expect(started.at(-1)).toBe(3);
+    pending[3].resolve(3); await flush(); expect(started.at(-1)).toBe(6);
+    pending[5].resolve(5); await flush(); expect(started.at(-1)).toBe(4);
     for (let i = 4; i < 8; i++) pending[i].resolve(i);
     expect(await Promise.all(tasks.map(task => task.promise))).toEqual([0, 1, 2, 3, 4, 5, 6, 7]);
     expect(scheduler.activeCount).toBe(0);
@@ -45,8 +46,8 @@ describe("bounded provider scheduler", () => {
     clock.advance(1); await flush(); expect(await live.promise).toBe(3);
     scheduler.reportRateLimit(); expect(scheduler.rateLimitUntil).toBe(3000); // Success reset the backoff.
     for (let i = 0; i < 10; i++) scheduler.reportRateLimit();
-    expect(scheduler.rateLimitUntil).toBe(32000);
-    scheduler.reportRateLimit(45000); expect(scheduler.rateLimitUntil).toBe(47000);
+    expect(scheduler.rateLimitUntil).toBe(4500);
+    scheduler.reportRateLimit(45000); expect(scheduler.rateLimitUntil).toBe(4500);
     scheduler.dispose(); expect(clock.pending).toBe(0);
   });
   it("honors a rate limit even from a cancelled speculative transport", async () => {
@@ -55,6 +56,14 @@ describe("bounded provider scheduler", () => {
     const run = vi.fn(async () => true); const live = scheduler.submit("live", run);
     await rejected; pending.reject(new LlmError("rate_limit", 1200)); await flush();
     expect(run).not.toHaveBeenCalled(); clock.advance(1200); await flush(); expect(await live.promise).toBe(true);
+  });
+  it.each(["case-load","speculative"] as const)("leaves a physical live slot despite unabortable %s work",async level=>{
+    const scheduler=new Scheduler(new FakeClock());const pending=Array.from({length:4},()=>deferred<void>());
+    const background=pending.map(item=>scheduler.submit(level,()=>item.promise));
+    expect(scheduler.activeCount).toBe(3);expect(scheduler.queuedCount).toBe(1);
+    const live=scheduler.submit("live",async()=>"immediate");
+    expect(scheduler.activeCount).toBe(4);expect(await live.promise).toBe("immediate");
+    for(const item of pending)item.resolve();await Promise.all(background.map(task=>task.promise));
   });
   it("releases slots on sync throws and preserves rejection with undefined", async () => {
     const scheduler = new Scheduler(new FakeClock(), 1);
