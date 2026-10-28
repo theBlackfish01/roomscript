@@ -76,3 +76,4 @@ This is a diagnostics tour, to be replaced by the actual gameplay tour after C/D
 - B3 commit41ed85f. B4 solver verified32 tests including20 broken variants; final integrated Lens compile21:19 succeeds, runtime starts without Lens exceptions.
 - B5 reducer verified13 tests: replay, objections, baseline isolation, timed lawyering, tuple refutation, verdict lock and validated performance admission. B6 dependency checkpoint follows immediately.
 - B6 safety verified41 tests, including all authored lines and rejected-output prompt-memory regression; B1-B6 integrated Lens compilation passes. Terminal and1000-player fuzz remain before m1-terminal.
+- B7 terminal verified4 integration tests plus real interactive session and --demo. Demo reaches3 objections,4 deductions, correct verdict at75/180 case minutes. Use npm.cmd run play in Tooling. B8 uncovered inherited baseline repeat-Hunch bug; fixed and regression added, final fuzz pending.

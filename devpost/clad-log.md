@@ -32,3 +32,4 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 
 - 2026-10-28 21:19 PKT — B3/B4 parallel pure-engine workers authored HARLOW-1041, fallback lines and human STORY, plus eight-check solver. Hero passes; 20 broken variants produce expected codes. Main integrated tuple-aware refutation.
 - 2026-10-28 21:19 PKT — B5/B6 main reducer plus parallel safety worker: 13 reducer and41 safety tests, all authored lines admitted and adversarial samples rejected. CLAD RecompileTypeScriptTool succeeded; RunAndCollectLogsTool confirmed startup without Lens exceptions (known LEAF editor reset warning remains). No scene changes in these packages, so visual/LEAF checks remain the Stage A baseline until C1.
+- 2026-10-28 21:24 PKT � B7 parallel engine worker built and verified terminal player; main integrated four tests and documented honest case-clock timing. B8 fuzz caught repeat-Hunch baseline bug, fixed with reducer regression.

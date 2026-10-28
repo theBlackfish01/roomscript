@@ -6,6 +6,8 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
+    "play": "tsx scripts/play.ts",
+    "fuzz": "tsx scripts/fuzz-players.ts",
     "check-secrets": "node scripts/check-secrets.mjs",
     "strip-scene-tokens": "node scripts/strip-scene-tokens.mjs"
   },
