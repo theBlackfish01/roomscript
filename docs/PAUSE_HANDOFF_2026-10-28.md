@@ -1,6 +1,8 @@
 # Roomscript implementation pause — 28 October 2026
 
-Development is paused at Wadood's explicit request. This is a handoff, not a completed-build report. No new development or test runs should start until Wadood resumes the work.
+Historical pause checkpoint; **Wadood resumed development on 2026-10-28**. The earlier MCP-unavailable attempt is superseded: the current Codex session connected successfully, verified sign-in and the project, and started P0 fixes. See PROGRESS.md for current implementation and verification.
+
+**Review corrections supersede pause-time verification claims below:** 252/252 tests across 21 files passed, exit 0 in 69.5 s; the async fuzz fix was verified against a failing synchronous counterfactual. Final-tree compilation occurred at 22:06:08 with four clean Preview starts afterwards. Two Tooling type errors remain at `tests/ai/pipeline.test.ts:38`. These are independent review results, not fresh checks in the resume attempt. Evidence: `reviews/2026-10-28-tests.md` and `reviews/2026-10-28-lens-and-repo.md`.
 
 Read this document and [PROGRESS.md](PROGRESS.md) before resuming. [FIRST_PASS.md](FIRST_PASS.md) remains the mission brief and [IMPLEMENTATION_PLAN.md](plan/IMPLEMENTATION_PLAN.md) remains the authority for scope and acceptance.
 

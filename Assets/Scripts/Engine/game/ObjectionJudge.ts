@@ -8,7 +8,7 @@ export function judgeObjection(graph: CaseGraph, state: GameState, suspect: Id, 
   if (statement.stance !== "cover") return {correct:false,reason:"claim_is_truthful"};
   const known = knownRefs(state), offered = new Set(evidence);
   if (!evidence.length || evidence.some(id => !known.has(id))) return {correct:false,reason:"evidence_not_observed"};
-  if (!statement.breakers.some(set => set.length > 0 && set.every(id => offered.has(id)))) return {correct:false,reason:"does_not_refute"};
+  if (!statement.breakers.some(set => set.length > 0 && new Set(set).size === offered.size && set.every(id => offered.has(id)))) return {correct:false,reason:"does_not_refute"};
   const target = graph.statements.find(s => s.id === statement.onBreak && s.speaker === suspect && s.topic === statement.topic);
   if (!target || target.layer < statement.layer) return {correct:false,reason:"invalid_ladder"};
   return {correct:true,reason:"proven",target};

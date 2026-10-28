@@ -52,6 +52,21 @@ describe("deterministic game reducer",()=>{
     expect(currentStatement(s.graph,s.state,"S2","baseline:brooch")?.id).toBe("C_S2_BASELINE_TRUE");
     expect(currentStatement(s.graph,s.state,"S2","where@22:30")?.id).toBe("C_VALE_ALIBI_0");
   });
+  it("overrules an evidence dump but accepts exactly a listed multi-item breaker",()=>{
+    const s=session();
+    for(const object of s.graph.room.objects) s.act({type:"PinchObject",object:object.id});
+    s.act(ask);
+    s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:[...s.state.knowledge.evidenceIds,...s.state.knowledge.statementIds]});
+    expect(s.state.pips).toBe(4);
+    expect(s.state.suspects.S2.layer).toBe(0);
+    expect(s.state.hunches).toBe(0);
+    s.graph.statements.find(c=>c.id==="C_VALE_ALIBI_0")!.breakers=[["E_KETTLE_COLD","E_VALE_LAMP"]];
+    s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_VALE_LAMP"]});
+    expect(s.state.suspects.S2.layer).toBe(0);
+    s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_VALE_LAMP","E_KETTLE_COLD"]});
+    expect(s.state.suspects.S2.layer).toBe(1);
+    expect(s.state.hunches).toBe(1);
+  });
   it("three empty presses produce a timed lawyered state",()=>{
     const s=session(); s.act(ask);
     for(let i=0;i<3;i++) s.act({type:"Press",suspect:"S2"});

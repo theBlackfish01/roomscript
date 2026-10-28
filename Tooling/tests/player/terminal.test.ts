@@ -35,6 +35,9 @@ describe("terminal player",()=>{
     expect(player.state.elapsedMinutes).toBe(5);
     player.execute("chip S2 where@22:30");player.execute("pinch O6");player.execute("pinch O11");
     player.execute("object S2 C_VALE_ALIBI_0 E_VALE_LAMP,E_KETTLE_COLD");
+    expect(player.state.suspects.S2.layer).toBe(0);
+    expect(player.state.pips).toBe(4);
+    player.execute("object S2 C_VALE_ALIBI_0 E_KETTLE_COLD");
     expect(player.state.suspects.S2.layer).toBe(1);
   });
   it("prints truthful tells only from reducer events and never confesses after a wrong verdict",()=>{
