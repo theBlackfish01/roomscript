@@ -1,5 +1,7 @@
 # CLAD and Lens Studio MCP log
 
+- 2026-10-28 20:53 PKT · B1 pure engine contracts/core · Codex main + RecompileTypeScriptTool/RunAndCollectLogsTool · 39 Vitest tests pass, pure engine compiles in Lens; no runtime exceptions, known LEAF editor reset warning remains.
+
 - 2026-10-28 20:49 PKT · A5 · CLAD-guided probe decision table · Gemini 2.5 Flash primary, OpenAI TTS, cache/LineBank/tape fallback and rate-limit cooldown; camera simulation verified, Imagen optional. A4 commit 143a315; m0-probe checkpoint.
 
 - 2026-10-28 20:33–20:46 PKT · provider probes · PreviewInteractTool, RunAndCollectLogsTool, specs-ai-remote-service and specs-camera · complete chat/TTS batches; generated audio assets report playback; live camera shows Evening Room after image-material repair. No tokens logged. Initial concurrency/Imagen diagnostics retained separately from corrected runs.

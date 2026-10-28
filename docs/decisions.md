@@ -2,6 +2,8 @@
 
 One entry per decision: date, decision, why, alternatives considered. Newest at the top.
 
+- **2026-10-28: shared engine contracts and units.** B1 establishes platform-free Types, UTF-8 FNV-1a, sorted canonical JSON and named sfc32 substreams. Room coordinates use centimeters end to end to match Lens Studio; the design's illustrative meter values must be converted on ingestion. Model prose actions have no truth/verdict/tell fields; reducers must validate all externally supplied IDs and keep truth in CaseGraph. Canonical serialization rejects unsupported/lossy data rather than silently dropping it.
+
 - **2026-10-28: A5 model/fallback decision.** Gemini 2.5 Flash is primary structured chat (20/20 valid); gpt-4o-mini secondary (8/20, 12 rate limits). OpenAI gpt-4o-mini-tts works (20/20). Use cache-first chips, validated live free text and 6.5s hard LineBank fallback: separate chat+TTS medians sum to ~3.96s, not a measured end-to-end median. Keep cap 4 but add cooldown/suppress speculation on rate limit. Built-in TTS is unavailable here, so subtitles are the final audio fallback. Imagen stays optional with authored art because its exact example request is rejected. Preview camera shows Evening Room, so use its stream for vision rather than a bundled photo. Sync gate remains deferred. Full measurements/decisions: docs/probe-results.md.
 
 - **2026-10-28: measure completed concurrency batches.** The first P-f implementation rejected on the first failed sibling, potentially overlapping subsequent batches. It is diagnostic-only and excluded from the authoritative concurrency result. `settleProbeBatch` now awaits all siblings; two Vitest regressions cover early asynchronous and synchronous rejection. The rerun uses two seconds between batches.

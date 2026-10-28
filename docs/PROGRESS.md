@@ -7,7 +7,7 @@ Read this first after a context reset. Updated 2026-10-28 20:47 PKT.
 | Stage | Status | Milestone | Verification |
 |---|---|---|---|
 | A · Setup and probes | complete | m0-probe | 34 Vitest tests, 2 LEAF scenarios, captures, 20 samples per probe/model |
-| B · Truth engine | next | m1-terminal pending | |
+| B · Truth engine | B1 complete; B2–B4 parallel next | m1-terminal pending | 39 Vitest tests total; Lens compile succeeds |
 | C · Interrogation slice | not started | m2-slice pending | |
 | D · Whole case | not started | m3-case pending | |
 | E · Should tier | not started | m4-should pending | |
@@ -15,7 +15,7 @@ Read this first after a context reset. Updated 2026-10-28 20:47 PKT.
 
 ## Current state and next steps
 
-1. A5 decisions recorded and m0-probe tagged. Begin B1 shared Types/Prng/Hash/CanonicalJson.
+1. A5 commit 194651b and m0-probe tagged. B1 shared Types/Prng/Hash/CanonicalJson now exist and pass tests and Lens compilation.
 2. Fan out disjoint B2 room, B3 hero content, B4 solver workers after shared Types exist; B5 reducer and B6 performance safety follow as slots become available. Main integrates and commits each package.
 3. Continue B7 terminal player, B8 fuzz, then C–F in plan order. FIRST_PASS remains authoritative. No pushes/remotes.
 
