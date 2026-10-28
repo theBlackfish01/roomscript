@@ -2,6 +2,9 @@
 
 One entry per decision: date, decision, why, alternatives considered. Newest at the top.
 
+- **2026-10-28: pin the inspection bridge to 2.0.1.** MCP auto-install selected a package with newer UIKit/InteractionKit imports. Its version switch failed because the archive was not registered in the Asset Library. Installed explicit 2.0.1, rewired via VirtualScene, removed the incompatible archive via AssetManager and renamed the replacement. Compilation, logs and runtime queries pass. Check compatibility before other testing-package imports.
+- **2026-10-28: store native package archives directly in this local repository.** Override generated LFS filtering for `.lspkg` outside the managed block; no LFS remote exists and recoverable local snapshots are required. Preserve generated text/scene rules and the secret hook.
+
 - **2026-10-28: strict staged-secret scanning, including documentation.** The pre-commit hook rejects authorization scheme prefixes, PEM blocks and populated gateway scene fields. The plan spells the prefix's trailing space as `\x20` so the requirement remains documented without creating a false positive. Lens boolean ScriptInputsDefault metadata is distinguished from actual ScriptInputs values. No hook bypass is used.
 
 - **2026-10-28: pin packages to the installed Lens Studio release.** RSG 4.0.0 targets LS 5.25.0 and its renamed UIKit/InteractionKit imports break this LS 5.23.2 template. Select RSG 2.0.1 (Asset Library target 5.23.0), Utilities/SnapDecorators 2.0.0; verify before proceeding. Alternative: migrate all libraries/editor to the newest generation, rejected because sign-in on newer Lens Studio already blocked this project and the current build should stay on 5.23.2. Never patch Cache sources.

@@ -6,7 +6,7 @@ Agents: keep this current. After a context reset, read this first. Newest entrie
 
 | Stage | Status | Milestone | Verified by |
 |---|---|---|---|
-| A · Setup and probes | partial; MCP disconnected during package repair | not tagged | Preflight, template compile and runtime logs passed; see log |
+| A · Setup and probes | active; A1–A3 verified, A4 next | not tagged | Clean compilation/runtime; credential generation and baseline capture |
 | B · Truth engine | not started | `m1-terminal` | |
 | C · Interrogation slice | not started | `m2-slice` | |
 | D · Whole case | not started | `m3-case` | |
@@ -14,6 +14,8 @@ Agents: keep this current. After a context reset, read this first. Newest entrie
 | F · Clue Night | not started | `m5-cluenight` | |
 
 ## Open issues / blockers
+
+- **2026-10-28 20:20 PKT — MCP recovery confirmed.** The historical disconnect below is resolved. RSG 2.0.1, Utilities 2.0.0 and SnapDecorators 2.0.0 compile with SIK/UIKit 2.0.0. All three provider tokens generated and wired without printing values (expire in roughly one hour; regenerate on Unauthenticated). No provider calls measured yet. AiPreviewAgentInspect's auto-installed version imported newer UIKit/InteractionKit names; replaced through package tools with 2.0.1, rewired via VirtualScene, and verified runtime queries. No Cache edits. A1 capture: `docs/captures/2026-10-28-a1-baseline.png`; empty AR overlay is expected before Roomscript UI.
 
 - **2026-10-28 19:51 PKT — active: Lens Studio MCP disconnected during dependency version selection.** Transport error: `error sending request for url (http://localhost:50040/mcp)`. Last confirmed: RSG 2.0.1 installed; SIK/UIKit 2.0.0; Utilities/SnapDecorators/Motion/Icons 4.0.0. Utilities and SnapDecorators downgrade to 2.0.0 was attempted but its completion is unknown. Package rename to `RemoteServiceGateway` was not confirmed. No Lens process appeared in a subsequent local process check. Reopen the project and inspect current packages before retrying; never assume the failed request made no changes.
 - RSG 4.0.0 was initially offered by the newest-version Asset Library search. Installation unpacked dependencies but returned `Invalid transition from Immutable to Mutable. You cannot change model in Observers. Use Validators instead.` Wadood granted MCP permissions and authorized rechecking. Read calls recovered; RSG 4.0.0 was installed but did not compile against the template: it expects `UIKit.lspkg` and `InteractionKit.lspkg`. Asset Library resource metadata identifies it as Lens Studio **5.25.0**, while RSG **2.0.1** targets **5.23.0**. Pin compatible versions rather than editing generated Cache sources.
@@ -25,14 +27,16 @@ Agents: keep this current. After a context reset, read this first. Newest entrie
 - [x] Router `preflight_only`: correct project, Lens Studio 5.23.2.26081320, `isAuthorized: true`, MCP reachable.
 - [x] Specs setup inspected: Camera Object = Perspective + DeviceTracking World; SIK root present; SIK/UIKit installed. Project target equals Spectacles.
 - [x] Preview configured and read back as SPECS 27 / Interactive / Evening Room.
-- [ ] A1 final capture and commit checkpoint (interrupted by package work).
+- [x] A1 final capture reviewed; setup checkpoint committed with A3.
 - [x] A2 tooling scaffold: 21 Vitest tests passed (one file); git initialized, no remote. Tracked secret hook enabled; staged-content scan passed. Commit checkpoint recorded below.
-- [ ] A3 compatible gateway dependency set, credentials scene wiring, all three tokens, clean compile/runtime.
+- [x] A3 compatible gateway dependencies, credentials scene wiring, all three tokens, clean compile/runtime. Credentials blanked before commit; regenerate before probes.
 - [ ] A4 ProbeLab P-a through P-g; P-h may wait until F.
 - [ ] A5 model/fallback decisions from measured results, tag `m0-probe`.
 - [ ] B truth engine → C interrogation → D whole case → E should tier → F gated Clue Night.
 
 ## Recovery / next run
+
+**Current next step:** A4 ProbeLab. Historical recovery steps below are complete. A2 commit is `c71ff8c`. Do not repeat package installation or the router baseline unnecessarily.
 
 1. Reconnect Lens Studio MCP after Wadood reopens `RoomScriptF.esproj`; inspect loaded project, packages, scene and compiler state.
 2. Verify RSG 2.0.1, Utilities 2.0.0 and SnapDecorators 2.0.0 are installed. RSG archive currently has a spaced filename; resolve package self-imports using Lens asset tools, not filesystem/Cache edits. Check whether unused Motion/Icons 4.0.0 dependencies should be removed through package tools.

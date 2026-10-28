@@ -1,5 +1,8 @@
 # CLAD and Lens Studio MCP log
 
+- 2026-10-28 20:10–20:20 PKT · recovery/A3 · editor-api-specialist inline, package-toolkit, specs-ai-remote-service, VirtualScene, ExecuteEditorCode · compatible RSG/dependencies restored, all three tokens generated and wired; TypeScript and refreshed runtime logs clean.
+- 2026-10-28 20:17–20:20 PKT · baseline QA · verify-preview, preview-inspection, QueryRuntimeSceneTool, CaptureRuntimeViewTool, PreviewPanelTool · repaired auto-installed inspection package using 2.0.1; runtime query successful, expected empty overlay captured at docs/captures/2026-10-28-a1-baseline.png.
+
 Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One line per significant use:
 `YYYY-MM-DD HH:MM · what · skill / agent / MCP tool · result (files, captures)`.
 
