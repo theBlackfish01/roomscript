@@ -2,7 +2,7 @@ import {OpenAI} from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
 import {Gemini} from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
 import {CancellationToken,ClockPort,LlmError,LlmPort,LlmRequest,LlmResponse} from "./Engine/ai/LlmPort";
 import {Scheduler} from "./Engine/ai/Scheduler";
-import {geminiRequest} from "./Engine/ai/ProviderRequests";
+import {geminiRequest,openAIRequest,providerError} from "./Engine/ai/ProviderRequests";
 /** Gateway-only transport. Authentication stays in RSG; deadlines never release pending transport slots. */
 @component export class RoomscriptLlmClient extends BaseScriptComponent implements LlmPort {
   forceOffline=false;private requests=0;
@@ -19,8 +19,7 @@ import {geminiRequest} from "./Engine/ai/ProviderRequests";
     try {
       let content:string;
       if(request.provider==="openai") {
-        const response=await OpenAI.chatCompletions({model:request.model,temperature:request.temperature??0,messages:request.messages,
-          ...(request.schema?{response_format:{type:"json_schema" as const,json_schema:{name:"roomscript",strict:true,schema:request.schema}}}:{})});
+        const response=await OpenAI.chatCompletions(openAIRequest(request));
         content=response.choices[0]?.message.content as string;
       } else {
         const response=await Gemini.models(geminiRequest(request));
@@ -29,10 +28,7 @@ import {geminiRequest} from "./Engine/ai/ProviderRequests";
       cancellation?.throwIfCancelled();if(typeof content!=="string"||!content.trim())throw new LlmError("invalid_response");
       return {content,model:request.model};
     } catch(error) {
-      if(error instanceof LlmError)throw error;const message=String(error);
-      if(/429|quota|rate.limit/i.test(message))throw new LlmError("rate_limit");
-      if(/unauthenticated|unauthorized|401/i.test(message))throw new LlmError("unauthenticated");
-      throw new LlmError("unavailable");
+      throw providerError(error);
     }
   }
 }

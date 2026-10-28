@@ -8,3 +8,16 @@ export function geminiResponseSchema(schema:Record<string,unknown>):Record<strin
   if(schema.properties){const properties:Record<string,unknown>={};for(const key of Object.keys(schema.properties as object))properties[key]=geminiResponseSchema((schema.properties as Record<string,Record<string,unknown>>)[key]);out.properties=properties;}
   return out;
 }
+
+/** Small strict-mode subset; every omitted constraint is still checked after generation. */
+export function openAIResponseSchema(schema:Record<string,unknown>):Record<string,unknown> {
+  const out:Record<string,unknown>={};
+  for(const key of ["type","description","enum"])if(schema[key]!==undefined)out[key]=schema[key];
+  if(schema.items)out.items=openAIResponseSchema(schema.items as Record<string,unknown>);
+  if(schema.properties) {
+    const properties:Record<string,unknown>={};
+    for(const [key,value] of Object.entries(schema.properties as Record<string,Record<string,unknown>>))properties[key]=openAIResponseSchema(value);
+    out.properties=properties;out.required=Object.keys(properties);out.additionalProperties=false;
+  }
+  return out;
+}

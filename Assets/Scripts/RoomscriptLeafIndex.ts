@@ -8,6 +8,7 @@ import {RoomscriptEngineLeafScenario} from "./RoomscriptEngineLeafScenario";
 import {RoomscriptActorLeafScenario} from "./RoomscriptActorLeafScenario";
 import {RoomscriptAiLeafScenario} from "./RoomscriptAiLeafScenario";
 import {RoomscriptLatencyLeafScenario} from "./RoomscriptLatencyLeafScenario";
+import {RoomscriptFallbackLeafScenario} from "./RoomscriptFallbackLeafScenario";
 
 @component
 export class RoomscriptLeafIndex extends BaseScriptComponent {
@@ -20,6 +21,7 @@ export class RoomscriptLeafIndex extends BaseScriptComponent {
     {id: "roomscript-engine-bridge", typename: RoomscriptEngineLeafScenario.getTypeName()},
     {id: "roomscript-suspect-actor", typename: RoomscriptActorLeafScenario.getTypeName()},
     {id: "roomscript-ai-record-replay", typename: RoomscriptAiLeafScenario.getTypeName()},
-    {id: "roomscript-live-latency", typename: RoomscriptLatencyLeafScenario.getTypeName()}
+    {id: "roomscript-live-latency", typename: RoomscriptLatencyLeafScenario.getTypeName()},
+    {id: "roomscript-openai-fallback", typename: RoomscriptFallbackLeafScenario.getTypeName()}
   ];
 }

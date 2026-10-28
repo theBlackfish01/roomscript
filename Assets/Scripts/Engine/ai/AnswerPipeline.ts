@@ -34,6 +34,7 @@ export interface AnswerTask {
 }
 export interface AnswerPipelineOptions {
   clock: ClockPort; scheduler: Scheduler; llm: LlmPort; model: ModelConfig;
+  fallbackModel?: ModelConfig;
   lineBank: readonly LineBankEntry[];
 }
 
@@ -117,8 +118,10 @@ export class AnswerPipeline {
         try {
           const remaining = remainingMs(started, DEADLINES.answerMs, this.options.clock.nowMs());
           // Deadline wraps the scheduler handle: the scheduler still holds any unabortable transport slot.
+          const secondary=this.options.fallbackModel ?? (this.options.model.provider==="gemini" ? {provider:"openai" as const,model:"gpt-4o-mini"} : undefined);
+          const attemptRequest=attempts>1 && secondary ? {...request,...secondary} : request;
           const response = await withDeadline(token => this.options.scheduler.submit("live",
-            transportToken => this.options.llm.complete(request, transportToken), token).promise,
+            transportToken => this.options.llm.complete(attemptRequest, transportToken), token).promise,
           Math.min(DEADLINES.generationMs, remaining), this.options.clock, network.token);
           if (!active()) return;
           const validated = validateLine(response.content, sheet, graph, mode);

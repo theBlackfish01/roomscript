@@ -155,3 +155,6 @@ Tracking all four generated LFS hooks. Verified hook configuration is .githooks,
 
 ### P0 integrated gate and A5 — 2026-10-29
 Full P0 suite: 320/320 tests across 24 files, exit 0 in 130.36s. 5000/5000 generated cases accepted, maximum 227.7ms, p95 48.9ms. A5 complete: Gemini uses a separate systemInstruction, thinkingBudget 0 and maxOutputTokens 384. Live LEAF measured 20/20 valid responses, median 1661ms, p95 2057ms, max 2126ms. Text only; combined audio budget awaits A7/C5. Table: c5-gemini-latency-2026-10-29.json. Twenty real outputs harvested as C5GeminiLatency and replay-validated offline; 3 request/replay tests pass, Tooling typecheck and Lens compile/start clean. Next A6 fallback.
+
+### A6 — OpenAI fallback (2026-10-29)
+Complete. Pure provider request shaping and sanitized error mapping; strict schema projection removes unsupported constraints while local validation retains them. Gemini failure uses the one permitted retry on gpt-4o-mini when time remains; unauthenticated does not retry. 60 AI tests and Tooling typecheck pass. Live fail-fast LEAF simulated primary outage then obtained/admitted a real OpenAI answer in 2327ms, two attempts, zero validation rejections. Actual fallback tape harvested and both Gemini/OpenAI offline replay tests pass. Lens compile/start clean.

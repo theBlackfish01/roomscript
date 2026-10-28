@@ -58,6 +58,8 @@ describe("validated live answer pipeline", () => {
     expect(complete).toHaveBeenCalledTimes(2); expect(result).toMatchObject({attempts: 2, rejectionCount: 1, origin: "model"});
     expect(chosen).toHaveBeenCalledOnce(); expect(chosen.mock.calls[0][0].answer).toEqual(answer); expect(rejected).toHaveBeenCalledOnce();
     expect(JSON.stringify(rejected.mock.calls)).not.toContain("I killed");
+    expect(complete.mock.calls.map(([request])=>request.provider)).toEqual(["gemini","openai"]);
+    expect(complete.mock.calls[1][0].model).toBe("gpt-4o-mini");
   });
   it("allows the retry at exactly 2500ms remaining, then hard-falls back by 6500ms", async () => {
     const first = deferred<LlmResponse>(); const second = deferred<LlmResponse>();

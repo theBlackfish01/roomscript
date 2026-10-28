@@ -87,3 +87,6 @@ Current progress now leads with the closed P0 fixes and pending C5/P1 work. Hist
 
 ### 2026-10-29 — A5 live Gemini configuration
 Separate system instructions from user turns, preserve conversation roles, disable thinking and cap output at 384 tokens. Twenty samples all validated at 1.66s median / 2.06s p95. Keep cache-first chips and live free questions per the design; audio still needs a shared deadline. Retain all raw outputs as replay events and a credential-free harvested tape.
+
+### 2026-10-29 — A6 fallback and schema projection
+Use the existing single retry for gpt-4o-mini after Gemini failure; preserve the same fact sheet/schema and absolute answer deadline. Map gateway diagnostics to stable codes without retaining secret-bearing text. Strict OpenAI schema uses required properties and no additional properties; local validator still enforces lengths, counts and uniqueness. Real fallback call passed in 2.33s.
