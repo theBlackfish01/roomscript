@@ -5,11 +5,11 @@
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> f5d74682-203a-4970-81ea-9fa7b88c96bb
     - !<own> f5605615-5ceb-4576-88ee-51ad91024194
-    - !<own> 018ea9ed-b98d-4796-b226-27315218e4ac
     - !<own> 72bb1af8-071f-4c85-b8e6-8666fa47ca91
     - !<own> f4c9b245-1047-44e6-8a62-ce896ee13921
     - !<own> 839c75e7-5954-4567-ab2e-b100a0ca45d8
     - !<own> 14958500-4bc3-429d-8691-923c6791ba6b
+    - !<own> 9be0291d-22b6-4e63-8a83-bdfced0bbb0a
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -195,22 +195,6 @@
     - !<own> 276368e3-f687-4cc6-947d-24de3a78c9af
   Components:
     []
-- !<SceneObject/018ea9ed-b98d-4796-b226-27315218e4ac>
-  PrefabRemaps:
-    []
-  Name: AiPreviewAgent Handler
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 6777291d-fcc1-4da4-8084-a2155fa0c6f7
-    - !<own> 3197fe14-2131-44da-923b-2ed60c1cd888
 - !<ScriptComponent/03b68dc8-22bb-491c-a885-d3103651a168>
   PrefabRemaps:
     []
@@ -236,6 +220,7 @@
   Enabled: true
   ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
   ScriptInputsDefault:
+    angularSizing: true
     ink: true
   ScriptTypesDefault:
     {}
@@ -243,6 +228,8 @@
     "":
       label: WHAT
       width: !<float> 13.000000
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      angularSizing: false
       ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
     "":
@@ -299,14 +286,13 @@
   Enabled: true
   ScriptAsset: !<reference> c7835442-ec2c-499c-9f73-47e9b25b617d
   ScriptInputsDefault:
-    width: true
     fontScale: true
     ink: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      width: !<float> 46.000000
+      width: !<float> 40.000000
       fontScale: 1.600000
       ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
@@ -569,8 +555,8 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 26.000000, z: -110.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Position: {x: 0.000000, y: -1.500000, z: 0.000000}
+    Rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
@@ -799,7 +785,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -29.000000, z: -110.000000}
+    Position: {x: -15.000000, y: -16.000000, z: -110.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -829,7 +815,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 175.000000, y: -160.000000, z: -300.000000}
+    Position: {x: 20.000000, y: -160.000000, z: -180.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -921,9 +907,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: -65.000000, y: -49.000000, z: -140.000000}
+    Position: {x: -25.000000, y: -55.000000, z: -145.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
     HasSegmentScaleCompensation: false
   Children:
     - !<own> 3f4b48b9-fbea-44f9-b8b4-5d3863158c7b
@@ -1253,6 +1239,7 @@
   Enabled: true
   ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
   ScriptInputsDefault:
+    angularSizing: true
     ink: true
   ScriptTypesDefault:
     {}
@@ -1260,6 +1247,8 @@
     "":
       label: WHERE
       width: !<float> 13.000000
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      angularSizing: false
       ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
     "":
@@ -1281,22 +1270,6 @@
       width: !<float> 90.000000
       height: !<float> 210.000000
       depth: !<float> 4.000000
-  ScriptTypes:
-    "":
-      {}
-- !<ScriptComponent/3197fe14-2131-44da-923b-2ed60c1cd888>
-  PrefabRemaps:
-    []
-  Name: AgentInteractScript
-  Enabled: true
-  ScriptAsset: !<reference> 29091811-e792-46be-bfa4-28ddec5f11be
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
   ScriptTypes:
     "":
       {}
@@ -1342,15 +1315,13 @@
   Enabled: true
   ScriptAsset: !<reference> 28a25245-8662-4eb9-8c66-e0edbe4ce520
   ScriptInputsDefault:
-    width: true
-    fontScale: true
     ink: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      width: !<float> 46.000000
-      fontScale: 1.600000
+      width: !<float> 30.000000
+      fontScale: 1.300000
       ink: !<Vec4> {x: 1.000000, y: 0.940000, z: 0.840000, w: 1.000000}
   ScriptTypes:
     "":
@@ -1518,6 +1489,8 @@
     "":
       label: CONSERVATORY
       width: !<float> 34.000000
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      angularSizing: true
       ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
     "":
@@ -1649,14 +1622,13 @@
   Enabled: true
   ScriptAsset: !<reference> 6fff8d64-3b96-4dd0-8a61-8c3c10b7ae9d
   ScriptInputsDefault:
-    width: true
     fontScale: true
     ink: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      width: !<float> 46.000000
+      width: !<float> 30.000000
       fontScale: 1.600000
       ink: !<Vec4> {x: 0.250000, y: 0.890000, z: 1.000000, w: 1.000000}
   ScriptTypes:
@@ -2329,22 +2301,6 @@
     - !<own> 80574bd1-697b-4bb5-b9ce-13b340146d82
   Components:
     - !<own> ccf4d3bc-d3c2-4580-b9c5-62f164ef7eef
-- !<ScriptComponent/6777291d-fcc1-4da4-8084-a2155fa0c6f7>
-  PrefabRemaps:
-    []
-  Name: AgentInspectScript
-  Enabled: true
-  ScriptAsset: !<reference> 1df9de63-51cf-4831-b470-f3e1955e21d1
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
 - !<ScriptComponent/696fc2cc-84d2-4d73-907e-d56818ee069f>
   PrefabRemaps:
     []
@@ -2359,6 +2315,8 @@
     "":
       label: KITCHEN
       width: !<float> 34.000000
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      angularSizing: true
       ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
     "":
@@ -2738,6 +2696,22 @@
       width: !<float> 1.000000
       height: !<float> 6.000000
       depth: !<float> 1.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/7ccf6e74-934e-45d3-97fe-8ec9c15ddfd3>
+  PrefabRemaps:
+    []
+  Name: AgentInspectScript
+  Enabled: true
+  ScriptAsset: !<reference> 1df9de63-51cf-4831-b470-f3e1955e21d1
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
   ScriptTypes:
     "":
       {}
@@ -3276,7 +3250,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> 0d29988b-7e2b-4c72-aacf-da4832dc4eb7
   Components:
     - !<own> 47f2fe2a-c999-40fa-870a-8caa34b53453
 - !<ScriptComponent/97358725-2738-4a89-b653-699534327619>
@@ -3329,6 +3303,21 @@
     - !<own> a4de4ce7-f468-4966-8a06-e29eea60c023
   Components:
     []
+- !<SceneObject/9be0291d-22b6-4e63-8a83-bdfced0bbb0a>
+  PrefabRemaps:
+    []
+  Name: AiPreviewAgent Handler
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 7ccf6e74-934e-45d3-97fe-8ec9c15ddfd3
 - !<ScriptComponent/9c0d0536-a6ef-4cab-b66e-14fe03c80a3c>
   PrefabRemaps:
     []
@@ -3667,15 +3656,13 @@
   Enabled: true
   ScriptAsset: !<reference> 832ca5c6-5a18-449d-b099-e83a6a53a965
   ScriptInputsDefault:
-    width: true
-    fontScale: true
     ink: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      width: !<float> 62.000000
-      fontScale: 1.500000
+      width: !<float> 50.000000
+      fontScale: !<float> 2.000000
       ink: !<Vec4> {x: 1.000000, y: 0.940000, z: 0.840000, w: 1.000000}
   ScriptTypes:
     "":
@@ -3925,7 +3912,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -7.000000, z: -110.000000}
+    Position: {x: -15.000000, y: 0.000000, z: -110.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -4110,6 +4097,8 @@
     "":
       label: HALL
       width: !<float> 34.000000
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      angularSizing: true
       ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
     "":
@@ -4479,7 +4468,6 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 0d29988b-7e2b-4c72-aacf-da4832dc4eb7
     - !<own> bbb74de4-2534-424d-b245-2e2c924d3724
     - !<own> 14ef3211-0c6a-455e-b19e-6cd06e773699
     - !<own> 8a98966c-4836-4e22-8bee-f6704f14f1d9
@@ -4817,6 +4805,8 @@
     "":
       label: STUDY
       width: !<float> 34.000000
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      angularSizing: true
       ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
     "":
@@ -5029,7 +5019,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 112.000000, z: 3.000000}
+    Position: {x: 0.000000, y: 86.000000, z: 4.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -5059,6 +5049,7 @@
   Enabled: true
   ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
   ScriptInputsDefault:
+    angularSizing: true
     ink: true
   ScriptTypesDefault:
     {}
@@ -5066,6 +5057,8 @@
     "":
       label: WHO
       width: !<float> 13.000000
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      angularSizing: false
       ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
     "":
@@ -5144,6 +5137,8 @@
     "":
       label: LOUNGE
       width: !<float> 34.000000
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      angularSizing: true
       ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
     "":

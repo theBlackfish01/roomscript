@@ -58,12 +58,12 @@
       {}
   InputLines:
     - '// @ui {"widget":"group_start", "label":"References"}'
-    - // @input Asset.Material material
-    - // @input Asset.Texture neutral
-    - // @input Asset.Texture listening
-    - // @input Asset.Texture rattled
-    - // @input Asset.Texture broken
-    - // @input AssignableType_1 engine
-    - // @input SceneObject camera
+    - '// @input Asset.Material material {"hint":"Puppet shader material"}'
+    - '// @input Asset.Texture neutral {"hint":"Neutral portrait"}'
+    - '// @input Asset.Texture listening {"hint":"Speaking portrait"}'
+    - '// @input Asset.Texture rattled {"hint":"Rattled portrait"}'
+    - '// @input Asset.Texture broken {"hint":"Broken portrait"}'
+    - '// @input AssignableType_1 engine {"hint":"Deterministic case owner"}'
+    - '// @input SceneObject camera {"hint":"Player camera for facing"}'
     - '// @ui {"widget":"group_end"}'
-    - '// @input string suspect = "S2"'
+    - '// @input string suspect = "S2" {"hint":"Engine suspect ID"}'

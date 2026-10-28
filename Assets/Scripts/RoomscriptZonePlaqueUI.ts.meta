@@ -28,6 +28,8 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    angularSizing: false
+    camera: false
     ink: false
     label: false
     width: false
@@ -42,6 +44,8 @@
   DefaultScriptInputs:
     - label: STUDY
       width: !<float> 28.000000
+      camera: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      angularSizing: false
       ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
     -
@@ -49,4 +53,6 @@
   InputLines:
     - '// @input string label = "STUDY" {"hint":"Plaque wording"}'
     - '// @input float width = 28 {"hint":"Plaque width cm", "widget":"slider", "min":12, "max":55, "step":1}'
+    - '// @input SceneObject camera {"hint":"Player camera for authored angular cap height"}'
+    - '// @input bool angularSizing {"hint":"Size a room plaque to 1.2 degrees at setup"}'
     - '// @input vec4 ink = "{0.91,0.69,0.29,1}" {"hint":"Brass lettering", "widget":"color"}'

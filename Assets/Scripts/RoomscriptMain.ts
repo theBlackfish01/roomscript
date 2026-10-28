@@ -20,11 +20,11 @@ import {RoomscriptInterrogationController} from "./RoomscriptInterrogationContro
   @ui.group_end
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.start());}
   private start():void {
-    if(!this.caseLid||!this.chips||!this.verbs||!this.notebook||!this.wallet||!this.audio||!this.engine){print("Roomscript: authored references not wired");return;}
+    if(!this.caseLid||!this.chips||!this.verbs||!this.notebook||!this.wallet||!this.audio||!this.engine){console.error("Roomscript: authored references not wired");return;}
     this.caseLid.build();this.chips.build();this.verbs.build();this.notebook.build();this.wallet.build();
     this.engine.onState.add(state=>this.caseLid.setCounters(state.clockMinutes-state.elapsedMinutes,state.pips,state.hunches));
     this.engine.initialize();
-    this.caseLid.onAction.add(action=>{if(action==="Audio cue"){this.caseLid.setStatus("Cue: "+this.audio.previewNext());return;}
+    this.caseLid.onAction.add(action=>{
       this.caseLid.show(false);this.chips.show(false);this.verbs.show(false);this.notebook.show(action==="Notebook");this.wallet.show(action==="Evidence");this.audio.play("ChalkScratch");});
     const close=()=>{this.notebook.show(false);this.wallet.show(false);this.caseLid.show(true);this.chips.show(true);this.verbs.show(true);};
     this.notebook.onClose.add(close);this.wallet.onClose.add(close);

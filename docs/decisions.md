@@ -102,3 +102,6 @@ Preserve hero semantic IDs and move its authored coordinates to the existing roo
 
 ### 2026-10-29 — C5 reviewed topic and production ownership
 Lock the topic before Ask and model generation for both chips and free questions. Corrections are free until submission; model topic changes cannot alter the canonical filed statement. Record raw output before admitting a LineSpoken action. Keep authored cache-first chips, live free questions, current-account audio precache and subtitle fallback. A missing/expired gateway enters offline mode without repeated calls. Three live production samples passed the combined first-audio deadline; this is a small integration sample, separate from the 20-request Gemini text table.
+
+### 2026-10-29 — staging at the actual Preview origin
+Use a 1.81m interrogation mark, 30cm question/verb surfaces and a 75%-scale crate with the HUD on its moving lid. Keep subtitles with the actor and reserve full room plaques for 1.2-degree cap height measured at setup; envelope labels retain their separate fixed sizing. Reset interactive Preview camera before placement audits; authored camera transform alone does not describe its runtime pose. Stop the crate tick at completion.

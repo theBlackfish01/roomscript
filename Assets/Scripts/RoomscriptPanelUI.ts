@@ -16,7 +16,7 @@ function flex(o:SceneObject,width:number,height:number,horizontal=false):FlexLay
   return layout;
 }
 export function applyTextRole(text:Text,role:"title"|"body"|"small",scale:number):void {
-  const roles={title:{size:48,weight:700},body:{size:39,weight:500},small:{size:32,weight:500}};
+  const roles={title:{size:96,weight:700},body:{size:78,weight:500},small:{size:64,weight:500}};
   text.size=roles[role].size*scale;(text as Text&{weight?:number}).weight=roles[role].weight;
 }
 export function wrapText(text:string,columns=42):string {

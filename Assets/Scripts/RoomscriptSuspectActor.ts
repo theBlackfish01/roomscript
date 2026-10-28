@@ -3,15 +3,15 @@ import {GameState} from "./Engine/core/Types";
 /** Paper-theatre presentation. Engine state selects posture; audio amplitude drives the jaw. */
 @component export class RoomscriptSuspectActor extends BaseScriptComponent {
   @ui.group_start("References")
-  @input material:Material;
-  @input neutral:Texture;
-  @input listening:Texture;
-  @input rattled:Texture;
-  @input broken:Texture;
-  @input engine:RoomscriptEngineBridge;
-  @input camera:SceneObject;
+  @input @hint("Puppet shader material") material:Material;
+  @input @hint("Neutral portrait") neutral:Texture;
+  @input @hint("Speaking portrait") listening:Texture;
+  @input @hint("Rattled portrait") rattled:Texture;
+  @input @hint("Broken portrait") broken:Texture;
+  @input @hint("Deterministic case owner") engine:RoomscriptEngineBridge;
+  @input @hint("Player camera for facing") camera:SceneObject;
   @ui.group_end
-  @input suspect:string="S2";
+  @input @hint("Engine suspect ID") suspect:string="S2";
   private surface:Material;private visual:RenderMeshVisual;
   private stress=0;private jaw=0;private amplitude=0;private speaking=false;
   private pose="neutral";private track:AudioTrackAsset;

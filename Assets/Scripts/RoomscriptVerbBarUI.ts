@@ -9,6 +9,6 @@ import {PanelUI,wrapText} from "./RoomscriptPanelUI";
   build():void {if(this.view)return;this.view=new PanelUI(this.getSceneObject(),this.width,14,this.fontScale,this.ink);
     this.claim=this.view.text("Current claim","Ask a question to file a statement.",5,"small");
     this.view.buttons([{id:"Believe",label:"Believe"},{id:"Press",label:"Press"},{id:"Object",label:"Object"}],id=>this.onVerb.invoke(id));}
-  setClaim(line:string):void {this.claim.text=wrapText(line,43);}
+  setClaim(line:string):void {this.claim.text=wrapText(line,Math.floor(this.width-3));}
   show(value:boolean):void {this.view.show(value);}
 }

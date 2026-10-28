@@ -28,8 +28,8 @@ import {RoomscriptCaseCrate} from "./RoomscriptCaseCrate";
     const components=findSceneObjectByName("RoomscriptAudio").getComponents("Component.AudioComponent") as AudioComponent[];
     expect(components.some(a=>a.isPlaying())).toBe(true);
     const crate=findSceneObjectByName("RoomscriptCrate").getComponent(RoomscriptCaseCrate.getTypeName()) as RoomscriptCaseCrate;
-    crate.restart();await sleep(50);const before=crate.hinge.getTransform().getLocalRotation();await sleep(1500);
-    const after=crate.hinge.getTransform().getLocalRotation();expect(Math.abs(after.x-before.x)).toBeGreaterThan(0.1);
+    expect(crate.isAnimating()).toBe(false);crate.restart();expect(crate.isAnimating()).toBe(true);await sleep(50);const before=crate.hinge.getTransform().getLocalRotation();await sleep(1500);
+    const after=crate.hinge.getTransform().getLocalRotation();expect(Math.abs(after.x-before.x)).toBeGreaterThan(0.1);expect(crate.isAnimating()).toBe(false);
     const labelFacing=findSceneObjectByName("Envelope WHO").getTransform().getWorldRotation().multiplyVec3(vec3.forward());
     expect(labelFacing.z).toBeGreaterThan(0.5);
   }

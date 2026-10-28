@@ -14,7 +14,7 @@ import {reduceGame} from "./Engine/game/Reducer";
     this.graph=createHeroCase();const report=verifyCase(this.graph);
     if(!report.ok)throw new Error("Roomscript solver rejected hero: "+report.issues.map(i=>i.code).join(","));
     this.graph.solver=report;this.state=createGameState(this.graph);
-    print("Roomscript solver: unique ✓; checks=8; hypotheses="+report.hypotheses.length+"; minRoute="+report.minRouteMinutes);
+    console.log("Roomscript solver: unique ✓; checks=8; hypotheses="+report.hypotheses.length+"; minRoute="+report.minRouteMinutes);
     this.onState.invoke(this.snapshot());
   }
   caseGraph():CaseGraph {return JSON.parse(JSON.stringify(this.graph)) as CaseGraph;}
