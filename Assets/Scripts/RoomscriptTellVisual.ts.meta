@@ -1,0 +1,61 @@
+- !<AssetImportMetadata/58475dbc-2492-4300-b406-faec1c6a97e8>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f42d871e-c5d1-4734-92ac-fbc7dca4c9cc
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f42d871e-c5d1-4734-92ac-fbc7dca4c9cc
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> f4bd2b92-aaa4-430c-9bde-5fd98f12bf22
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/f4bd2b92-aaa4-430c-9bde-5fd98f12bf22>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 7b65340e-eeb5-470a-9d2f-7a299df86c35
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    audio: false
+    flow: false
+    gazeMaterial: false
+    lightMaterial: false
+    room: false
+    tellDuration: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - flow: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      room: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      audio: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      gazeMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      lightMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      tellDuration: 0.900000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType_1 flow {"hint":"Validated interrogation performance"}'
+    - '// @input AssignableType_2 room {"hint":"Object and zone anchors"}'
+    - '// @input AssignableType_3 audio {"hint":"Deterministic cue sounds"}'
+    - '// @input Asset.Material gazeMaterial {"hint":"Constant-angular gaze shader"}'
+    - '// @input Asset.Material lightMaterial {"hint":"Prop and ring light"}'
+    - '// @input float tellDuration = 0.9 {"hint":"Visible tell duration seconds; production 0.9"}'

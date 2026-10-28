@@ -1,10 +1,10 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-29 01:00 PKT. P0 review fixes and C5 with L1/A5–A8 are complete. Gateway credentials are blank for commit.
+Updated 2026-10-29 01:15 PKT. P0 review fixes and C5 with L1/A5–A8 are complete. Gateway credentials are blank for commit.
 
 ## Current work
 
-- Staging is complete. Next: C6 tells/composure, C7 Spatial Objection, then the review's remaining resume order.
+- Staging and C6 are complete. Next: C7 object memories/Spatial Objection, then D1 suggestion sweep and the remaining resume order.
 - Production interrogation is wired: chips, free-question review/correction, deterministic claim, validated speech/subtitles and offline fallback. Full case remains unfinished.
 - Integrated P0 gate: **320/320 tests, 24 files, exit 0**. Latest C5 targeted run: **195/195 tests, 14 files**, Tooling typecheck clean. Lens MCP compile/start clean.
 - Strict Preview LEAF passes for offline controls and three live production answers. First audio: **1851 / 1744 / 4513 ms**, zero rejected outputs. See [C5 evidence](c5-production-latency-2026-10-29.json).
@@ -174,3 +174,6 @@ Complete. Engine Ask precedes performance; the reviewed topic is locked for chip
 
 ### Staging — 2026-10-29
 HUD parented to the articulated crate lid, cue button removed, chips/verbs narrowed, brighter wood and smaller crate, speaker-local subtitles, Vale at 1.81m. Text roles enlarged and five plaques calibrated from rendered cap bounds to 1.2 degrees at setup. Crate update event disables when open and restarts on demand. Actor inputs have hints; main/bridge use console. Strict staging, shell navigation, IK notebook reach and production interrogation LEAF pass; Lens compile/start clean. Runtime Preview camera had drifted to z=249cm; reset it before measurements. Final capture: captures/2026-10-29-staging-preview.jpg. Physical display luminance/readability remains a device check.
+
+### C6 — tells, verbs, composure (2026-10-29)
+Complete for the active interrogation actor. Engine TellCue selects authored tells, never model text; prop flare and dashed 0.25-degree gaze shader begin 300ms after speech (or admitted subtitle fallback). Covers both Vale layers and all cast baseline lies; truth, deflection, filler and lawyered replies stay quiet. Segmented composure display, claim preview on hover, door exit after three empty presses and knock/return after 30 charged night-minutes. Strict offline tells LEAF and real model/audio/tell integration pass; live tell delay318ms and first audio1742/1966/3999ms, zero rejection. 131 targeted tests and Tooling typecheck pass; Lens compile/start clean. A Preview reset interrupted the first live attempt; clean retry passed. Diagnostic capture extends visibility to8s only for inspection; production duration restored to0.9s.

@@ -47,12 +47,13 @@ export class PanelUI {
   text(name:string,value:string,height:number,role:"title"|"body"|"small"="body"):Text {
     return this.label(this.item(this.column,this.layout,this.width-3,height,name),value,this.width-3,height,role);
   }
-  buttons(items:{id:string;label:string}[],onAction:(id:string)=>void,height=5):Text[] {
+  buttons(items:{id:string;label:string}[],onAction:(id:string)=>void,height=5,onHover?:(id:string|null)=>void):Text[] {
     const row=this.item(this.column,this.layout,this.width-3,height,"Button row"),layout=flex(row,this.width-3,height,true);
     const width=(this.width-3-(items.length-1))/items.length;
     return items.map(spec=>{
       const o=this.item(row,layout,width,height,spec.id),button=o.createComponent(RectangleButton.getTypeName()) as RectangleButton;
       button.onInitialized.add(()=>button.size=new vec3(width,height,1));button.onTriggerUp.add(()=>onAction(spec.id));
+      if(onHover){button.onHoverEnter.add(()=>onHover(spec.id));button.onHoverExit.add(()=>onHover(null));}
       return this.label(o,spec.label,width,height,"small");
     });
   }

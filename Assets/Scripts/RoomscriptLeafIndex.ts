@@ -14,6 +14,7 @@ import {RoomscriptBindingLeafScenario} from "./RoomscriptBindingLeafScenario";
 import {RoomscriptInterrogationLeafScenario} from "./RoomscriptInterrogationLeafScenario";
 import {RoomscriptLiveInterrogationLeafScenario} from "./RoomscriptLiveInterrogationLeafScenario";
 import {RoomscriptStagingLeafScenario} from "./RoomscriptStagingLeafScenario";
+import {RoomscriptTellsLeafScenario} from "./RoomscriptTellsLeafScenario";
 
 @component
 export class RoomscriptLeafIndex extends BaseScriptComponent {
@@ -32,6 +33,7 @@ export class RoomscriptLeafIndex extends BaseScriptComponent {
     {id: "roomscript-room-binding", typename: RoomscriptBindingLeafScenario.getTypeName()},
     {id: "roomscript-interrogation", typename: RoomscriptInterrogationLeafScenario.getTypeName()},
     {id: "roomscript-live-interrogation", typename: RoomscriptLiveInterrogationLeafScenario.getTypeName()},
-    {id: "roomscript-staging", typename: RoomscriptStagingLeafScenario.getTypeName()}
+    {id: "roomscript-staging", typename: RoomscriptStagingLeafScenario.getTypeName()},
+    {id: "roomscript-tells", typename: RoomscriptTellsLeafScenario.getTypeName()}
   ];
 }

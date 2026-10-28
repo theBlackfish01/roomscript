@@ -9,7 +9,7 @@
     - !<own> f4c9b245-1047-44e6-8a62-ce896ee13921
     - !<own> 839c75e7-5954-4567-ab2e-b100a0ca45d8
     - !<own> 14958500-4bc3-429d-8691-923c6791ba6b
-    - !<own> 9be0291d-22b6-4e63-8a83-bdfced0bbb0a
+    - !<own> 77feca0e-0a73-4ea0-adc5-2c4dbb2d30e7
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -195,6 +195,22 @@
     - !<own> 276368e3-f687-4cc6-947d-24de3a78c9af
   Components:
     []
+- !<ScriptComponent/0260c964-2182-4521-9de2-472406446c94>
+  PrefabRemaps:
+    []
+  Name: AgentInteractScript
+  Enabled: true
+  ScriptAsset: !<reference> 29091811-e792-46be-bfa4-28ddec5f11be
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/03b68dc8-22bb-491c-a885-d3103651a168>
   PrefabRemaps:
     []
@@ -808,6 +824,21 @@
     []
   Components:
     - !<own> c1d5c805-1c43-4b01-a32e-57c5e9ca382b
+- !<SceneObject/162db78f-9339-4061-a2ac-895f9d78282a>
+  PrefabRemaps:
+    []
+  Name: RoomscriptTells
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ce99d0ae-da31-49cb-9dbb-7136af16046e
 - !<SceneObject/17264c68-e0dc-43a2-9f44-1b3b91d2d69d>
   PrefabRemaps:
     []
@@ -2450,6 +2481,22 @@
     - !<own> 4c195c04-c397-454e-bd08-3485f37d84fe
   Components:
     []
+- !<ScriptComponent/6fd62c6f-a7ce-4b18-8226-2a691366a45f>
+  PrefabRemaps:
+    []
+  Name: AgentInspectScript
+  Enabled: true
+  ScriptAsset: !<reference> 1df9de63-51cf-4831-b470-f3e1955e21d1
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/7037a633-4899-4f2e-bc97-2e3f35395687>
   PrefabRemaps:
     []
@@ -2615,6 +2662,22 @@
     []
   Components:
     - !<own> c8e031d3-a8a1-468a-a419-427f8556de4c
+- !<SceneObject/77feca0e-0a73-4ea0-adc5-2c4dbb2d30e7>
+  PrefabRemaps:
+    []
+  Name: AiPreviewAgent Handler
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 6fd62c6f-a7ce-4b18-8226-2a691366a45f
+    - !<own> 0260c964-2182-4521-9de2-472406446c94
 - !<SceneObject/7a9e83a3-a31a-474f-b300-b7361bc59a2d>
   PrefabRemaps:
     []
@@ -2696,22 +2759,6 @@
       width: !<float> 1.000000
       height: !<float> 6.000000
       depth: !<float> 1.000000
-  ScriptTypes:
-    "":
-      {}
-- !<ScriptComponent/7ccf6e74-934e-45d3-97fe-8ec9c15ddfd3>
-  PrefabRemaps:
-    []
-  Name: AgentInspectScript
-  Enabled: true
-  ScriptAsset: !<reference> 1df9de63-51cf-4831-b470-f3e1955e21d1
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
   ScriptTypes:
     "":
       {}
@@ -2913,6 +2960,7 @@
     - !<own> 71eab2af-9fe5-4da6-9829-3c312c60f21c
     - !<own> 81d1f969-6861-4eec-8461-158915256342
     - !<own> 12da5e3e-6294-43f5-8a37-0413a80e80e2
+    - !<own> 162db78f-9339-4061-a2ac-895f9d78282a
   Components:
     - !<own> 07faadeb-ecb8-414f-9572-e63020bc35d0
 - !<SceneObject/83ef588c-5040-4344-b15f-0554c739da0b>
@@ -3303,21 +3351,6 @@
     - !<own> a4de4ce7-f468-4966-8a06-e29eea60c023
   Components:
     []
-- !<SceneObject/9be0291d-22b6-4e63-8a83-bdfced0bbb0a>
-  PrefabRemaps:
-    []
-  Name: AiPreviewAgent Handler
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 7ccf6e74-934e-45d3-97fe-8ec9c15ddfd3
 - !<ScriptComponent/9c0d0536-a6ef-4cab-b66e-14fe03c80a3c>
   PrefabRemaps:
     []
@@ -4291,6 +4324,27 @@
     - !<own> 7b49000e-c7d9-48c6-8abb-b6c8abcd4655
   Components:
     []
+- !<ScriptComponent/ce99d0ae-da31-49cb-9dbb-7136af16046e>
+  PrefabRemaps:
+    []
+  Name: RoomscriptTellVisual
+  Enabled: true
+  ScriptAsset: !<reference> f42d871e-c5d1-4734-92ac-fbc7dca4c9cc
+  ScriptInputsDefault:
+    tellDuration: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      flow: !<MappingBased.AssignableType_1> 71c30d98-2788-42e3-a002-f7d39f6070bf
+      room: !<MappingBased.AssignableType_2> 3950dc6b-10f4-481c-863c-c8d7c4b545f4
+      audio: !<MappingBased.AssignableType_3> 03b68dc8-22bb-491c-a885-d3103651a168
+      gazeMaterial: !<reference.Material> 91739fe5-f9ea-4472-a90a-8e1098cf37c7
+      lightMaterial: !<reference.Material> 511c6ab8-adef-4d3b-ba7b-60227e0e010c
+      tellDuration: 0.900000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/cec12eef-3a06-4b4a-b0ba-3de212ca34dc>
   PrefabRemaps:
     []

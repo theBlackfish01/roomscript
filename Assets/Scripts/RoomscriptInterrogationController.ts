@@ -85,7 +85,8 @@ import {heroLineBank} from "./Content/HeroLineBank";
       const chosen=await task.promise;if(!isCurrent())return;
       if(!this.admit(chosen.answer,chosen.mode))return;
       this.last=chosen;this.speaking={suspect,statement:state.activeStatement,mode:chosen.mode,seq:state.lastSeq};
-      await this.tts.speak(chosen.answer.line,undefined,task.token,began);
+      const spoke=await this.tts.speak(chosen.answer.line,undefined,task.token,began);
+      if(!spoke&&isCurrent()&&this.speaking){this.onSpeaking.invoke(this.speaking);this.speaking=null;}
       console.log("INTERROGATION|"+JSON.stringify({origin:chosen.origin,textMs:chosen.latencyMs,audioMs:this.lastAudioMs,rejections:chosen.rejectionCount,mode:chosen.mode}));
     } catch(error) {if(!(error instanceof LlmError)||error.code!=="cancelled")console.log("INTERROGATION|safe_fallback");}
     finally {if(revision===this.revision){this.busy=false;this.speaking=null;}}

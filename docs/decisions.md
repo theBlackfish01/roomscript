@@ -105,3 +105,6 @@ Lock the topic before Ask and model generation for both chips and free questions
 
 ### 2026-10-29 — staging at the actual Preview origin
 Use a 1.81m interrogation mark, 30cm question/verb surfaces and a 75%-scale crate with the HUD on its moving lid. Keep subtitles with the actor and reserve full room plaques for 1.2-degree cap height measured at setup; envelope labels retain their separate fixed sizing. Reset interactive Preview camera before placement audits; authored camera transform alone does not describe its runtime pose. Stop the crate tick at completion.
+
+### 2026-10-29 — engine-authorized performance tells
+Resolve the cue from the latest gameplay action's tell event and active statement, then delay300ms from real audio start. If audio is unavailable, use admitted subtitle performance start so the playable offline path retains the same clues. A deflection suppresses the cue even if the previous Ask filed a cover. Gaze target is the statement's authored about-object; shader width is0.25degrees at each fragment's depth. Returning availability remains determined by night-minutes; presentation plays a knock and returns the actor when the30-minute absence ends.
