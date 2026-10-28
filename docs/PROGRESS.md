@@ -74,3 +74,4 @@ This is a diagnostics tour, to be replaced by the actual gameplay tour after C/D
 - Prior disconnect/crash and package incompatibilities are resolved; reproduction details are preserved in docs/mcp-bug-report.md. Wadood relaunched Lens Studio and authorized continuation. No raw HTTP to the Lens MCP, no Cache modifications, no remote/push.
 
 - B3 commit41ed85f. B4 solver verified32 tests including20 broken variants; final integrated Lens compile21:19 succeeds, runtime starts without Lens exceptions.
+- B5 reducer verified13 tests: replay, objections, baseline isolation, timed lawyering, tuple refutation, verdict lock and validated performance admission. B6 dependency checkpoint follows immediately.
