@@ -6,6 +6,9 @@
     - !<own> f5d74682-203a-4970-81ea-9fa7b88c96bb
     - !<own> f5605615-5ceb-4576-88ee-51ad91024194
     - !<own> 018ea9ed-b98d-4796-b226-27315218e4ac
+    - !<own> 72bb1af8-071f-4c85-b8e6-8666fa47ca91
+    - !<own> 726e3e79-21e3-4248-9d0e-376c9a9341ae
+    - !<own> f4c9b245-1047-44e6-8a62-ce896ee13921
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -206,6 +209,7 @@
     []
   Components:
     - !<own> 6777291d-fcc1-4da4-8084-a2155fa0c6f7
+    - !<own> 3197fe14-2131-44da-923b-2ed60c1cd888
 - !<SceneObject/0451d993-a1f7-464e-9b69-32c0d9af8ed7>
   PrefabRemaps:
     []
@@ -441,6 +445,27 @@
     - !<own> 9e373d68-993f-4c8f-83a0-6644f1d9fefd
   Components:
     []
+- !<ScriptComponent/104276b7-f5d4-4c73-87c6-2a82eec81ecf>
+  PrefabRemaps:
+    []
+  Name: RoomscriptProbeLabUI
+  Enabled: true
+  ScriptAsset: !<reference> 43834d3c-edd4-41ea-a52a-dd341137b0e7
+  ScriptInputsDefault:
+    width: true
+    height: true
+    fontSizeScale: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      imageMaterial: !<reference.Material> 3237e361-6249-434b-8590-16ba0befc178
+      width: !<float> 46.000000
+      height: !<float> 62.000000
+      fontSizeScale: 1.800000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/10f60da2-2196-40ad-9e72-8a6bc7e86f35>
   PrefabRemaps:
     []
@@ -725,6 +750,22 @@
     - !<own> a7da4af4-3d84-4acd-a31e-920a56b4c5c8
   Components:
     []
+- !<ScriptComponent/3197fe14-2131-44da-923b-2ed60c1cd888>
+  PrefabRemaps:
+    []
+  Name: AgentInteractScript
+  Enabled: true
+  ScriptAsset: !<reference> 29091811-e792-46be-bfa4-28ddec5f11be
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/335c5f8b-2917-49e8-8af5-220696e9bc09>
   PrefabRemaps:
     []
@@ -931,6 +972,25 @@
     - !<own> 8fe2a532-9bf3-4cde-b598-04ce5470718d
   Components:
     []
+- !<ScriptComponent/49cf7449-80f0-4161-80bf-65f7b6c7d36d>
+  PrefabRemaps:
+    []
+  Name: RoomscriptProbeLab
+  Enabled: true
+  ScriptAsset: !<reference> a5191012-ff39-430f-8d63-b9d70e837cc5
+  ScriptInputsDefault:
+    samples: true
+    deadlineSeconds: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      ui: !<MappingBased.AssignableType_1> 104276b7-f5d4-4c73-87c6-2a82eec81ecf
+      samples: !<float> 20.000000
+      deadlineSeconds: !<float> 45.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/4c195c04-c397-454e-bd08-3485f37d84fe>
   PrefabRemaps:
     []
@@ -1277,6 +1337,37 @@
     - !<own> 879ce45b-bd5e-40ff-a3fe-d821523427e4
   Components:
     - !<own> 64f27597-c99d-4c59-8a08-05459cc2258d
+- !<SceneObject/726e3e79-21e3-4248-9d0e-376c9a9341ae>
+  PrefabRemaps:
+    []
+  Name: LEAF Plugin Bridge
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a0716df4-3e53-45f1-94bf-f73acf2ae7d8
+- !<SceneObject/72bb1af8-071f-4c85-b8e6-8666fa47ca91>
+  PrefabRemaps:
+    []
+  Name: RoomscriptProbeLab
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 104276b7-f5d4-4c73-87c6-2a82eec81ecf
+    - !<own> 49cf7449-80f0-4161-80bf-65f7b6c7d36d
 - !<SceneObject/74d13517-1dbf-42e6-b536-27afc4909c65>
   PrefabRemaps:
     []
@@ -1690,6 +1781,22 @@
     - !<own> 46ea93d6-d161-4453-9064-6ac11e1d6523
   Components:
     []
+- !<ScriptComponent/a0716df4-3e53-45f1-94bf-f73acf2ae7d8>
+  PrefabRemaps:
+    []
+  Name: MessagingBridge
+  Enabled: true
+  ScriptAsset: !<reference> 9aa407db-2872-4afc-a162-cf7faf2a0f29
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/a4b1ce71-4840-4493-bc52-58f3c13933e1>
   PrefabRemaps:
     []
@@ -2436,6 +2543,21 @@
   Components:
     - !<own> d3e2fbc5-8795-4913-9af6-c8626f8e6d9c
     - !<own> 275aeb4d-77ac-4b1b-811e-907652542110
+- !<SceneObject/f4c9b245-1047-44e6-8a62-ce896ee13921>
+  PrefabRemaps:
+    []
+  Name: LeafIndex
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -15.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ff5b34ba-3b84-4942-95c2-16e7688da585
 - !<SceneObject/f5605615-5ceb-4576-88ee-51ad91024194>
   PrefabRemaps:
     []
@@ -2672,3 +2794,19 @@
     - !<own> bb75b5ea-8baf-4d8d-bcf8-49bd79873881
   Components:
     []
+- !<ScriptComponent/ff5b34ba-3b84-4942-95c2-16e7688da585>
+  PrefabRemaps:
+    []
+  Name: RoomscriptLeafIndex
+  Enabled: true
+  ScriptAsset: !<reference> afc45c77-ffe6-49ae-a451-8796249f8281
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}

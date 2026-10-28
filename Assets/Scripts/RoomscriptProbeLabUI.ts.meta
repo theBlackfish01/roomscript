@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/dccd1f8e-ab15-49b3-a006-e3dc7881e208>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 43834d3c-edd4-41ea-a52a-dd341137b0e7
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 43834d3c-edd4-41ea-a52a-dd341137b0e7
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 8fca7bef-e12d-4c97-bd6d-b4b5f42b376a
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/8fca7bef-e12d-4c97-bd6d-b4b5f42b376a>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 3b91c161-1d98-46e3-a39b-d4afe6eae112
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    fontSizeScale: false
+    height: false
+    imageMaterial: false
+    width: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - imageMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      width: !<float> 46.000000
+      height: !<float> 62.000000
+      fontSizeScale: 1.800000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input Asset.Material imageMaterial {"hint":"ImageMaterial preset cloned for camera and generated texture display"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Layout"}'
+    - '// @input float width = 46 {"hint":"Panel width in centimeters"}'
+    - '// @input float height = 62 {"hint":"Panel height in centimeters"}'
+    - '// @input float fontSizeScale = 1.8 {"hint":"Typography scale for the diagnostic panel"}'
+    - '// @ui {"widget":"group_end"}'

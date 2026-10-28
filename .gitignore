@@ -38,6 +38,7 @@ spk_debug_key.pem
 Cache/
 Workspaces/
 PluginsUserPreferences/
+leaf_plugin_settings.json
 .virtual-scene.json
 Support/
 # Node tooling
@@ -47,3 +48,6 @@ Tooling/coverage/
 # OS / editor noise
 .DS_Store
 Thumbs.db
+
+# Added by Lens Studio (LEAF plugin)
+leaf_plugin_settings.json

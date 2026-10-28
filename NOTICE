@@ -8,4 +8,8 @@ Tools:
 - CLAD / Lens Studio Agent Extensions (lens-studio-devs/ls-extensions), Apache-2.0: development tooling, not shipped in the lens.
 
 Code (add an entry whenever code is copied or adapted):
-- (none yet)
+- CLAD specs-build-ui layout helpers and specs-camera stream lifecycle patterns,
+  copyright 2026 Specs Inc., Apache-2.0, adapted in RoomscriptProbeLabUI.ts and
+  RoomscriptProbeLab.ts. Source: lens-studio-devs/ls-extensions ls-clad skills.
+- CLAD LEAF scenario templates, copyright 2026 Specs Inc., Apache-2.0,
+  adapted in RoomscriptProbeLeafScenario.ts and RoomscriptLeafIndex.ts.

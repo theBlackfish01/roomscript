@@ -1,70 +1,72 @@
-# Progress
+﻿# Progress
 
-Agents: keep this current. After a context reset, read this first. Newest entries at the top of the log.
+Read this first after a context reset. Updated 2026-10-28 20:47 PKT.
 
 ## Status
 
-| Stage | Status | Milestone | Verified by |
+| Stage | Status | Milestone | Verification |
 |---|---|---|---|
-| A · Setup and probes | active; A1–A3 verified, A4 next | not tagged | Clean compilation/runtime; credential generation and baseline capture |
-| B · Truth engine | not started | `m1-terminal` | |
-| C · Interrogation slice | not started | `m2-slice` | |
-| D · Whole case | not started | `m3-case` | |
-| E · Should tier | not started | `m4-should` | |
-| F · Clue Night | not started | `m5-cluenight` | |
+| A · Setup and probes | A1–A4 complete; A5 decision checkpoint next | not tagged yet | 34 Vitest tests, 2 LEAF scenarios, captures, 20 samples per probe/model |
+| B · Truth engine | next | m1-terminal pending | |
+| C · Interrogation slice | not started | m2-slice pending | |
+| D · Whole case | not started | m3-case pending | |
+| E · Should tier | not started | m4-should pending | |
+| F · Clue Night | not started; gate pending | m5-cluenight pending | |
 
-## Open issues / blockers
+## Current state and next steps
 
-- **2026-10-28 20:20 PKT — MCP recovery confirmed.** The historical disconnect below is resolved. RSG 2.0.1, Utilities 2.0.0 and SnapDecorators 2.0.0 compile with SIK/UIKit 2.0.0. All three provider tokens generated and wired without printing values (expire in roughly one hour; regenerate on Unauthenticated). No provider calls measured yet. AiPreviewAgentInspect's auto-installed version imported newer UIKit/InteractionKit names; replaced through package tools with 2.0.1, rewired via VirtualScene, and verified runtime queries. No Cache edits. A1 capture: `docs/captures/2026-10-28-a1-baseline.png`; empty AR overlay is expected before Roomscript UI.
+1. Finish A5 model/fallback decision commit and tag m0-probe, then B1 shared Types/Prng/Hash/CanonicalJson.
+2. Fan out disjoint B2 room, B3 hero content, B4 solver workers after shared Types exist; B5 reducer and B6 performance safety follow as slots become available. Main integrates and commits each package.
+3. Continue B7 terminal player, B8 fuzz, then C–F in plan order. FIRST_PASS remains authoritative. No pushes/remotes.
 
-- **2026-10-28 19:51 PKT — active: Lens Studio MCP disconnected during dependency version selection.** Transport error: `error sending request for url (http://localhost:50040/mcp)`. Last confirmed: RSG 2.0.1 installed; SIK/UIKit 2.0.0; Utilities/SnapDecorators/Motion/Icons 4.0.0. Utilities and SnapDecorators downgrade to 2.0.0 was attempted but its completion is unknown. Package rename to `RemoteServiceGateway` was not confirmed. No Lens process appeared in a subsequent local process check. Reopen the project and inspect current packages before retrying; never assume the failed request made no changes.
-- RSG 4.0.0 was initially offered by the newest-version Asset Library search. Installation unpacked dependencies but returned `Invalid transition from Immutable to Mutable. You cannot change model in Observers. Use Validators instead.` Wadood granted MCP permissions and authorized rechecking. Read calls recovered; RSG 4.0.0 was installed but did not compile against the template: it expects `UIKit.lspkg` and `InteractionKit.lspkg`. Asset Library resource metadata identifies it as Lens Studio **5.25.0**, while RSG **2.0.1** targets **5.23.0**. Pin compatible versions rather than editing generated Cache sources.
-- No provider tokens generated, no gateway probes run, no Roomscript gameplay implemented yet. Do not interpret unavailable probes as gateway failures or choose the offline ladder from them.
+MCP is working. Lens Studio 5.23.2.26081320, signed in; Spectacles target; Perspective camera / World tracking; SIK 2.0.0 and SpectaclesUIKit 2.0.0. RSG 2.0.1, Utilities/SnapDecorators 2.0.0; inspection/interact bridges 2.0.1, Leaf 2.0.0. Compatible packages compile. Never reinstall newest versions blindly; see docs/mcp-bug-report.md.
 
-## Current work packages
+ProbeLab is now disabled in the authored scene. Its scripts and LEAF tests remain for regressions. Credentials were generated and successfully used for real provider calls, then blanked through VirtualScene before committing. Regenerate all three via the authorized Editor Network flow before live calls; tokens expire in roughly one hour. Never log/stage them. The LEAF probe scenarios currently require ProbeLab enabled before running.
 
-- [x] Read AGENTS, FIRST_PASS, implementation plan, core architecture and staging design.
-- [x] Router `preflight_only`: correct project, Lens Studio 5.23.2.26081320, `isAuthorized: true`, MCP reachable.
-- [x] Specs setup inspected: Camera Object = Perspective + DeviceTracking World; SIK root present; SIK/UIKit installed. Project target equals Spectacles.
-- [x] Preview configured and read back as SPECS 27 / Interactive / Evening Room.
-- [x] A1 final capture reviewed; setup checkpoint committed with A3.
-- [x] A2 tooling scaffold: 21 Vitest tests passed (one file); git initialized, no remote. Tracked secret hook enabled; staged-content scan passed. Commit checkpoint recorded below.
-- [x] A3 compatible gateway dependencies, credentials scene wiring, all three tokens, clean compile/runtime. Credentials blanked before commit; regenerate before probes.
-- [ ] A4 ProbeLab P-a through P-g; P-h may wait until F.
-- [ ] A5 model/fallback decisions from measured results, tag `m0-probe`.
-- [ ] B truth engine → C interrogation → D whole case → E should tier → F gated Clue Night.
+## Verification
 
-## Recovery / next run
+- **Vitest:** 34/34 across 3 files: secret guard (21), probe aggregation (11), settled concurrency batches (2). `npm.cmd test` in Tooling. Pure helper tests only; Lens components compile solely with RecompileTypeScriptTool.
+- **LEAF:** `roomscript-probe-layout-and-button` passed, including layout count, spacing, button state change and display-material regression. `roomscript-probe-ik-reach` passed with diagnostic policy `fail`. Opening LEAF resets Preview; don't do it during measurements.
+- **Lens:** MCP TypeScript compilation succeeds. No Lens runtime exceptions after fixes. The LEAF editor plugin emits a warning on reset: `Skipping plugin state save: instance was destroyed before its state finished loading.` Scenario registration and execution still work; this is an upstream plugin warning, not a clean-zero-warning claim.
+- **Captures reviewed:** docs/captures/2026-10-28-a1-baseline.png; 2026-10-28-a4-probelab-running.png; 2026-10-28-a4-speech.png; 2026-10-28-a4-camera-fixed.png; 2026-10-28-a4-camera-frame2.png. Camera captures show the simulated Evening Room in the texture panel. Earlier imagen/camera captures document failed/empty display states.
+- **Probe evidence:** docs/probe-measurements-initial.md contains A–D authoritative samples and diagnostic-only initial E/F. docs/probe-measurements-corrected.md supersedes E/F and supplies G. Source log LensStudioLog-2026-10-28-20-04-09-576-866b8.txt: initial baseline byte 1623625, corrected baseline 1809777. Do not merge repeated diagnostic batches into latency counts.
 
-**Current next step:** A4 ProbeLab. Historical recovery steps below are complete. A2 commit is `c71ff8c`. Do not repeat package installation or the router baseline unnecessarily.
+## Probe results
 
-1. Reconnect Lens Studio MCP after Wadood reopens `RoomScriptF.esproj`; inspect loaded project, packages, scene and compiler state.
-2. Verify RSG 2.0.1, Utilities 2.0.0 and SnapDecorators 2.0.0 are installed. RSG archive currently has a spaced filename; resolve package self-imports using Lens asset tools, not filesystem/Cache edits. Check whether unused Motion/Icons 4.0.0 dependencies should be removed through package tools.
-3. Finish A2 verification and commit if not already recorded below, then A3 token wiring via VirtualScene and authorized Editor API. Keep secrets out of all tool output and commits.
-4. Build/run ProbeLab, record real measurements, then proceed to B with shared Types first and disjoint engine workers.
+| Probe | Result | Successful p50 / p95 |
+|---|---|---|
+| OpenAI gpt-4.1-nano strict JSON | 0/20, not found | unavailable |
+| OpenAI gpt-4o-mini strict JSON | 8/20 valid, 12 rate limited | 1766 / 2051 ms |
+| Gemini 2.5 Flash responseSchema | 20/20 valid | 1743 / 2361 ms |
+| Gemini 2.0 Flash responseSchema | 0/20, unavailable or no access | unavailable |
+| OpenAI gpt-4o-mini-tts / onyx | 20/20 assets loaded and AudioComponent playing | 2217 / 3205 ms |
+| Built-in TTS | unsupported in this editor's API; 20 capability checks | not latency measurements |
+| Imagen 3 | 0/20 corrected attempts; 5 unsupported configuration, 15 rate limited | unavailable |
+| Four concurrent mini calls | 13/20 complete batches; 7 rate limited | 3043 / 5294 ms |
+| Camera Default_Color | 20/20, simulated room shown | 273 / 284 ms including intentional 250ms sampling window |
+| Sync | deferred to F as authorized | not measured |
 
-## Interim verification report / Preview tour
+## Known limitations / verify on device
 
-- **Stage status:** A partial; B–F not started. No milestone tags.
-- **Lens verification:** template TypeScript compilation succeeded, followed by a refreshed runtime log with zero errors and `SIK Version : 0.18.0`. This is a baseline only; later RSG 4.0.0 installation introduced missing-module compiler errors. Its compatible-version repair is not yet verified.
-- **Probes:** none run; latency, model choice, TTS, camera and sync behavior remain unmeasured.
-- **Captures / LEAF:** no captures or LEAF scenarios completed yet.
-- **Tooling verification:** 21 Vitest tests passed, including real template YAML, JSON/multiline credential stripping, malformed-scene rejection and staged-content regression. npm install and tests required scoped sandbox escalation; no policy changes were made. Use `npm.cmd` on this Windows host because PowerShell blocks `npm.ps1`.
-- **Device:** all device behavior remains unverified. No device actions taken.
-- **10-minute tour at this checkpoint:** there is no Roomscript gameplay to tour yet. After reopening: minutes 0–2, confirm the project and SPECS 27 Preview; 2–4, inspect Camera Object's Perspective / World tracking; 4–6, inspect the SIK hierarchy and installed package versions; 6–8, inspect Logger/compiler results while dependency repair resumes; 8–10, review this checklist and `docs/probe-results.md`. Do not expect suspects, chips, clues or an accusation flow yet. Replace this diagnostic tour with an actual feature tour when C/D are playable.
+- No Roomscript gameplay yet. Stages B–F remain to build; do not call the probe panel the game.
+- Imagen rejected both initial options and the package's exact example parameter set. Preserve its live path and use authored art fallback.
+- Fast request sequences trigger gateway rate limits. Use bounded scheduling, cooldown and authored/replay fallback; no retry storm.
+- Audio verification is asset load plus playback state; human listening quality and all physical Specs behavior remain unverified.
+- ASR/microphone, AR keyboard, camera permissions, tracking and spatial audio need physical Specs. No device actions performed.
 
-- 2026-10-27, late night: setup is blocked by a sign-in error. Wadood was asked to log in and got "Error"; registering a new account also failed. Which login it was (Claude Code CLI or Lens Studio's Snapchat account) isn't recorded yet. The first build run has not started.
-- 2026-10-28: it was Lens Studio. This is a known issue: Lens Studio 5.24 added SPECS developer-account sign-in, and the hackathon's Devpost page advises using **Lens Studio 5.23.2** if you can't sign in on 5.24 (download: https://ar.snap.com/download/v5-23-2). 5.23.2 still meets CLAD's 5.22+ requirement. This project was created in 5.24.1, so if 5.23.2 won't open it, recreate it from the Specs Base Template and move `docs/`, `devpost/`, `NOTICE`, the custom part of `AGENTS.md`, the `.gitignore` additions and `.claude/settings.json` (the CLAD plugin) into the new folder.
+## Preview tour at this checkpoint (10 minutes)
 
-- 2026-10-28: RESOLVED (pending sign-in check): Wadood installed Lens Studio 5.23.2 and created a fresh Specs Base Template project, `RoomScriptF` (5.24.1 had warned the old project may break). Docs, rules, ignores and the CLAD plugin were moved here. The old `Roomscript` folder is no longer used.
+This is a diagnostics tour, to be replaced by the actual gameplay tour after C/D.
 
-## Verify on device
+- 0–2 min: enable RoomscriptProbeLab in the scene, reset Preview and confirm the seven-button panel in SPECS 27 / Evening Room.
+- 2–4 min: pinch G and inspect the live simulated-room texture. This probe needs no provider tokens.
+- 4–6 min: inspect Logger's PROBE lines and docs/probe-results.md; B/C can be retried after refreshing gateway credentials, subject to rate limits.
+- 6–8 min: open LEAF, choose Preview execution and run roomscript-probe-layout-and-button. Opening/running LEAF resets the scene.
+- 8–10 min: inspect captures and the bug-report draft, then disable ProbeLab again before normal game work.
 
-- (none yet)
+## Checkpoint log
 
-## Log
-
-- **2026-10-28:** A2 tooling complete; checkpoint commit `A2: add tested tooling and secret guard; record MCP recovery checkpoint`. All 21 tests passed, hook enabled, staged scan passed. Current Lens files are included as an explicitly unverified package-repair snapshot; no milestone tag or playable-build claim. Git operations use a command-scoped safe-directory setting because sandbox and owner accounts differ; no global Git trust setting changed. No pushes/remotes.
-- **2026-10-28:** First build run started in Codex. CLAD procedures loaded inline; generic worker `tooling_a2` assigned Tooling and tracked hook only. Node v22.14.0 available; `rg` absent, using PowerShell searches. MCP installation and disconnect errors recorded above.
-
-- 2026-10-27: docs, plan and agent rules placed in the repo by Wadood's planning assistant. No code yet.
+- 2026-10-28: A2 commit c71ff8c, secret guard/tooling, 21 tests; no remote.
+- 2026-10-28: A1/A3 commit da5484d, compatible gateway/dependencies, all three credentials generated and baseline capture.
+- 2026-10-28: A4 completed with 34 tests, two LEAF scenarios and real provider/camera batches. Fixed FlexLayout startup, backing ancestry, missing Image material and early-rejection concurrency accounting. Bug regressions added.
+- Prior disconnect/crash and package incompatibilities are resolved; reproduction details are preserved in docs/mcp-bug-report.md. Wadood relaunched Lens Studio and authorized continuation. No raw HTTP to the Lens MCP, no Cache modifications, no remote/push.

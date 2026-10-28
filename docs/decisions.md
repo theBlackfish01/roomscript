@@ -2,6 +2,13 @@
 
 One entry per decision: date, decision, why, alternatives considered. Newest at the top.
 
+- **2026-10-28: measure completed concurrency batches.** The first P-f implementation rejected on the first failed sibling, potentially overlapping subsequent batches. It is diagnostic-only and excluded from the authoritative concurrency result. `settleProbeBatch` now awaits all siblings; two Vitest regressions cover early asynchronous and synchronous rejection. The rerun uses two seconds between batches.
+- **2026-10-28: camera results require a valid display material.** A missing Image material caused local display failures, not camera-service failure. Added an authored ImageMaterial preset, clone per display and a LEAF material assertion. Final P-g passed 20/20 and displayed the simulated Evening Room. Initial failed P-g runs are excluded.
+
+- **2026-10-28: use gpt-4o-mini for the four-call concurrency probe.** Initial gpt-4.1-nano calls returned not-found failures while gpt-4o-mini returned schema-valid text. Concurrency needs a responding endpoint; do not infer throttling from an unavailable model. Final model selection awaits complete batches.
+- **2026-10-28: report built-in TTS as unavailable in this editor API.** LS 5.23.2's TextToSpeechModule is deprecated and declares no synthesis methods. P-d logs 20 capability checks, not pretend network requests. If OpenAI speech fails, subtitles remain the honest Preview fallback; keep device verification explicit.
+- **2026-10-28: UIKit lifecycle and ancestry.** Set FlexLayout.autoDiscoverItemsOnStart=false before manually adding items; parent content beneath its BackPlate so the plane and controls share an interactable ancestor. Both regressions are covered by the LEAF panel scenario, with separate strict IK reach coverage. Opening LEAF resets Preview, so finish testing before measuring provider batches.
+
 - **2026-10-28: pin the inspection bridge to 2.0.1.** MCP auto-install selected a package with newer UIKit/InteractionKit imports. Its version switch failed because the archive was not registered in the Asset Library. Installed explicit 2.0.1, rewired via VirtualScene, removed the incompatible archive via AssetManager and renamed the replacement. Compilation, logs and runtime queries pass. Check compatibility before other testing-package imports.
 - **2026-10-28: store native package archives directly in this local repository.** Override generated LFS filtering for `.lspkg` outside the managed block; no LFS remote exists and recoverable local snapshots are required. Preserve generated text/scene rules and the secret hook.
 

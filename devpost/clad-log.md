@@ -1,5 +1,10 @@
 # CLAD and Lens Studio MCP log
 
+- 2026-10-28 20:33–20:46 PKT · provider probes · PreviewInteractTool, RunAndCollectLogsTool, specs-ai-remote-service and specs-camera · complete chat/TTS batches; generated audio assets report playback; live camera shows Evening Room after image-material repair. No tokens logged. Initial concurrency/Imagen diagnostics retained separately from corrected runs.
+- 2026-10-28 20:43 PKT · regression QA · live-lens-tester / run_leaf_scenario · panel scenario passed again with Image material assertion. Tooling worker added safe log aggregation, main added settled-batch regression; full Vitest suite 34/34.
+
+- 2026-10-28 20:25–20:32 PKT · A4 panel and regression QA · specs-build-ui, script-author inline, specs-camera, specs-preview-interaction, live-lens-tester inline and LEAF skills · seven UIKit buttons, texture display and 20-sample probe controller; compiled with MCP. Fixed FlexLayout discovery/registration race and backing interaction ancestry. Two LEAF scenarios passed, including IK with diagnostic policy fail. Capture: docs/captures/2026-10-28-a4-probelab-running.png.
+
 - 2026-10-28 20:10–20:20 PKT · recovery/A3 · editor-api-specialist inline, package-toolkit, specs-ai-remote-service, VirtualScene, ExecuteEditorCode · compatible RSG/dependencies restored, all three tokens generated and wired; TypeScript and refreshed runtime logs clean.
 - 2026-10-28 20:17–20:20 PKT · baseline QA · verify-preview, preview-inspection, QueryRuntimeSceneTool, CaptureRuntimeViewTool, PreviewPanelTool · repaired auto-installed inspection package using 2.0.1; runtime query successful, expected empty overlay captured at docs/captures/2026-10-28-a1-baseline.png.
 
