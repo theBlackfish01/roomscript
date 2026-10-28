@@ -1,0 +1,14 @@
+# Decisions
+
+One entry per decision: date, decision, why, alternatives considered. Newest at the top.
+
+- **2026-10-28: strict staged-secret scanning, including documentation.** The pre-commit hook rejects authorization scheme prefixes, PEM blocks and populated gateway scene fields. The plan spells the prefix's trailing space as `\x20` so the requirement remains documented without creating a false positive. Lens boolean ScriptInputsDefault metadata is distinguished from actual ScriptInputs values. No hook bypass is used.
+
+- **2026-10-28: pin packages to the installed Lens Studio release.** RSG 4.0.0 targets LS 5.25.0 and its renamed UIKit/InteractionKit imports break this LS 5.23.2 template. Select RSG 2.0.1 (Asset Library target 5.23.0), Utilities/SnapDecorators 2.0.0; verify before proceeding. Alternative: migrate all libraries/editor to the newest generation, rejected because sign-in on newer Lens Studio already blocked this project and the current build should stay on 5.23.2. Never patch Cache sources.
+- **2026-10-28: Evening Room for the initial Preview baseline.** The source was discovered through PreviewPanelTool, configured as Interactive / SPECS 27 and read back. It offers a dim staging environment consistent with additive-light art direction. The authored Roomscript PreviewRoom remains future C1 work.
+- **2026-10-28: use inline CLAD procedures in Codex and generic workers for disjoint pure tooling/engine work.** FIRST_PASS §1b governs the runtime adaptation. Main owns Lens scene writes and verification; the A2 worker owns Tooling and .githooks only. No typed markdown-agent spawn or nested agents.
+
+- **2026-10-28: Lens Studio 5.23.2, project `RoomScriptF`.** SPECS developer-account sign-in fails on 5.24 (a known issue; the hackathon Devpost page advises 5.23.2). The project was recreated from the Specs Base Template in 5.23.2 rather than downgrading the 5.24.1 project. 5.23.2 meets CLAD's 5.22+ requirement. The game is still called Roomscript; only the folder and project name changed.
+- **2026-10-27: repo root = this Lens project folder.** Lens Studio maintains `.mcp.json` here and CLAD is installed at project scope here, so one agent session in this folder gets both. The engine lives in `Assets/Scripts/Engine/` (compiled by Lens, tested by vitest from `Tooling/`). Alternative considered: a parent repo with the Lens project as a subfolder (rejected: MCP and CLAD wouldn't load from the parent).
+- **2026-10-26: scope = must + should + Clue Night** (Wadood). Preview first; a device is expected before Nov 8.
+- **2026-10-25: live answers via chat + validator + TTS, not Realtime.** The validator must run before audio plays, and Realtime mic input is device-only. Realtime is at most a device-only stretch for Wren's banter.

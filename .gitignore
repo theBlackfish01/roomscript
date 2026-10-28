@@ -1,0 +1,30 @@
+# BEGIN Lens Studio managed Agents-Docs block
+.mcp.json
+.cursor/mcp.json
+.vscode/mcp.json
+.codex/config.toml
+.claude/settings.local.json
+# END Lens Studio managed Agents-Docs block
+
+# --- Roomscript additions (outside the Lens-managed block) ---
+# Secrets and per-machine files
+ls-live-instance.json
+ls-live-instance.json.tmp
+*.lock
+*.pem
+spk_debug_key.pem
+.env
+.env.*
+# Lens Studio generated / local state
+Cache/
+Workspaces/
+PluginsUserPreferences/
+.virtual-scene.json
+Support/
+# Node tooling
+node_modules/
+Tooling/node_modules/
+Tooling/coverage/
+# OS / editor noise
+.DS_Store
+Thumbs.db

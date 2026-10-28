@@ -1,0 +1,11 @@
+Roomscript
+Copyright (c) 2026 Wadood
+
+Third-party code and assets used in this project are listed below with their licences.
+Only MIT, Apache-2.0 or BSD-licensed code is copied. Ideas taken from other projects without copying code are credited in docs/design/05-clue-and-la-noire-research.md.
+
+Tools:
+- CLAD / Lens Studio Agent Extensions (lens-studio-devs/ls-extensions), Apache-2.0: development tooling, not shipped in the lens.
+
+Code (add an entry whenever code is copied or adapted):
+- (none yet)
