@@ -6,7 +6,7 @@ Read this first after a context reset. Updated 2026-10-28 20:47 PKT.
 
 | Stage | Status | Milestone | Verification |
 |---|---|---|---|
-| A · Setup and probes | A1–A4 complete; A5 decision checkpoint next | not tagged yet | 34 Vitest tests, 2 LEAF scenarios, captures, 20 samples per probe/model |
+| A · Setup and probes | complete | m0-probe | 34 Vitest tests, 2 LEAF scenarios, captures, 20 samples per probe/model |
 | B · Truth engine | next | m1-terminal pending | |
 | C · Interrogation slice | not started | m2-slice pending | |
 | D · Whole case | not started | m3-case pending | |
@@ -15,7 +15,7 @@ Read this first after a context reset. Updated 2026-10-28 20:47 PKT.
 
 ## Current state and next steps
 
-1. Finish A5 model/fallback decision commit and tag m0-probe, then B1 shared Types/Prng/Hash/CanonicalJson.
+1. A5 decisions recorded and m0-probe tagged. Begin B1 shared Types/Prng/Hash/CanonicalJson.
 2. Fan out disjoint B2 room, B3 hero content, B4 solver workers after shared Types exist; B5 reducer and B6 performance safety follow as slots become available. Main integrates and commits each package.
 3. Continue B7 terminal player, B8 fuzz, then C–F in plan order. FIRST_PASS remains authoritative. No pushes/remotes.
 
@@ -69,4 +69,5 @@ This is a diagnostics tour, to be replaced by the actual gameplay tour after C/D
 - 2026-10-28: A2 commit c71ff8c, secret guard/tooling, 21 tests; no remote.
 - 2026-10-28: A1/A3 commit da5484d, compatible gateway/dependencies, all three credentials generated and baseline capture.
 - 2026-10-28: A4 completed with 34 tests, two LEAF scenarios and real provider/camera batches. Fixed FlexLayout startup, backing ancestry, missing Image material and early-rejection concurrency accounting. Bug regressions added.
+- 2026-10-28: A4 commit 143a315. A5 chooses Gemini 2.5 Flash + OpenAI TTS, cache-first chips, validated live free text, rate-limit cooldown, optional Imagen/authored art, simulated-room camera input. Separate medians suggest ~3.96s uncached spoken latency; no combined-latency claim. Stage A complete, m0-probe.
 - Prior disconnect/crash and package incompatibilities are resolved; reproduction details are preserved in docs/mcp-bug-report.md. Wadood relaunched Lens Studio and authorized continuation. No raw HTTP to the Lens MCP, no Cache modifications, no remote/push.

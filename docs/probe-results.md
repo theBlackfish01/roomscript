@@ -20,3 +20,13 @@ Evidence: [initial measurements](probe-measurements-initial.md), [corrected meas
 Camera capture: [frame 1](captures/2026-10-28-a4-camera-fixed.png), [frame 2](captures/2026-10-28-a4-camera-frame2.png). The stream contains the environment, not the AR UI, suitable for simulated-room vision input. Speech evidence is runtime playback state and audio asset loading, not human listening quality. No image was produced, so Imagen texture quality is unverified.
 
 The simple strict-schema prompt is an API capability probe, not the gameplay validator acceptance test. Stage B/C must separately validate real suspect answers against current-layer fact sheets.
+
+## A5 implementation decisions
+
+- Primary structured chat: **gemini-2.5-flash** (20/20); secondary **gpt-4o-mini** with cooldown on rate limits. Do not use the unavailable nano/2.0-flash paths as defaults.
+- Speech: **gpt-4o-mini-tts**, onyx for the probe; suspect voices remain authored. Cache clips and split sentences. Subtitles remain immediate; when speech is unavailable, retain subtitles rather than calling a nonexistent built-in API.
+- Live answers remain enabled behind deterministic validation, with authored LineBank and tapes always available. Use speculative text/cache for chips and bounded live free-text. The sum of separate chat/TTS medians is about 3.96s (an estimate, not a measured combined median), so do not promise a sub-3.5s uncached spoken answer. Keep the design's 6.5s hard fallback.
+- Scheduler cap stays **4 in flight**, a ceiling rather than a throughput promise. Rate limits trigger cooldown and suppress speculative work; don't immediately retry through the same limit. Live requests outrank background art/packs.
+- Imagen remains optional behind authored art. Its measured failure must not block case setup or gameplay.
+- Preview camera scanning can use **Default_Color** with the simulated environment. Device uses its real camera and remains to verify. No bundled-room-photo fallback is needed for this Preview configuration.
+- Sync P-h stays deferred to Stage F; the gate has not passed or failed yet.
