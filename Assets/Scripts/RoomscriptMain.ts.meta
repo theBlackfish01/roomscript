@@ -31,6 +31,7 @@
     audio: false
     caseLid: false
     chips: false
+    engine: false
     notebook: false
     verbs: false
     wallet: false
@@ -49,6 +50,7 @@
       notebook: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
       wallet: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
       audio: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
+      engine: !<MappingBased.AssignableType_7> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -60,4 +62,5 @@
     - '// @input AssignableType_4 notebook {"hint":"Notebook"}'
     - '// @input AssignableType_5 wallet {"hint":"Evidence wallet"}'
     - '// @input AssignableType_6 audio {"hint":"Audio cues and music"}'
+    - '// @input AssignableType_7 engine {"hint":"Deterministic case owner"}'
     - '// @ui {"widget":"group_end"}'

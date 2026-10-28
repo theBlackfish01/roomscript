@@ -22,6 +22,8 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
   const state = clone(previous);
   state.lastSeq = action.seq;
   state.log.push(clone(action));
+  // Raw model output is auditable even after a verdict. It cannot run beat, clock, grid or performance paths.
+  if (action.type === "LlmOutput") return state;
   const emit = (type: string, fields: Omit<GameEvent,"seq"|"type"> = {}) => {state.events.push({seq:action.seq,type,...fields});};
   const reject = (reason: string) => {emit("rejected",{text:reason});};
   const suspectExists = (id: Id) => graph.cast.suspects.some(s => s.id === id);

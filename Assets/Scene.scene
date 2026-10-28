@@ -778,9 +778,25 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> f3f37f45-6b42-43bf-a191-ad4bf98f2168
   Components:
     - !<own> 6d87ba73-7b02-4bf7-9681-fe1bad9c2007
+- !<ScriptComponent/181a66e2-2eac-4fac-b0e7-3889d01ef298>
+  PrefabRemaps:
+    []
+  Name: RoomscriptLlmClient
+  Enabled: true
+  ScriptAsset: !<reference> a49f946f-eb10-4380-9000-9b9e96e6a9b2
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/181c239f-175e-4912-94fc-d37a2599b2d6>
   PrefabRemaps:
     []
@@ -1328,6 +1344,23 @@
     []
   Components:
     - !<own> d20f0b6d-ef81-4619-8b21-507b7d6756e9
+- !<ScriptComponent/3729038d-1b64-4a3c-acb4-aa5552201238>
+  PrefabRemaps:
+    []
+  Name: RoomscriptTts
+  Enabled: true
+  ScriptAsset: !<reference> cb8b9ec3-80ae-4be6-a7dc-363216d6a9af
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      client: !<MappingBased.AssignableType_1> 181a66e2-2eac-4fac-b0e7-3889d01ef298
+      actor: !<MappingBased.AssignableType_2> 6d87ba73-7b02-4bf7-9681-fe1bad9c2007
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/3769de80-fc65-4f64-9d81-08c0a0b4d67f>
   PrefabRemaps:
     []
@@ -2195,6 +2228,21 @@
     - !<own> 879ce45b-bd5e-40ff-a3fe-d821523427e4
   Components:
     - !<own> 64f27597-c99d-4c59-8a08-05459cc2258d
+- !<SceneObject/71eab2af-9fe5-4da6-9829-3c312c60f21c>
+  PrefabRemaps:
+    []
+  Name: RoomscriptLlmClient
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -15.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 181a66e2-2eac-4fac-b0e7-3889d01ef298
 - !<SceneObject/726e3e79-21e3-4248-9d0e-376c9a9341ae>
   PrefabRemaps:
     []
@@ -2519,6 +2567,7 @@
     - !<own> c8666701-44a4-4881-992d-67e448237df7
     - !<own> 1bc54cfd-c533-40f8-a297-84ae8eed61f0
     - !<own> be2afa74-3b4b-4821-8b37-bc6b2fc98436
+    - !<own> 71eab2af-9fe5-4da6-9829-3c312c60f21c
   Components:
     - !<own> 07faadeb-ecb8-414f-9572-e63020bc35d0
 - !<SceneObject/83ef588c-5040-4344-b15f-0554c739da0b>
@@ -4368,6 +4417,21 @@
   Components:
     - !<own> d3e2fbc5-8795-4913-9af6-c8626f8e6d9c
     - !<own> 275aeb4d-77ac-4b1b-811e-907652542110
+- !<SceneObject/f3f37f45-6b42-43bf-a191-ad4bf98f2168>
+  PrefabRemaps:
+    []
+  Name: RoomscriptTts
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 145.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 3729038d-1b64-4a3c-acb4-aa5552201238
 - !<SceneObject/f4c36617-f1e6-4587-a204-b4698a3ee6c2>
   PrefabRemaps:
     []

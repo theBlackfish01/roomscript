@@ -96,6 +96,9 @@ export type ActionPayload =
   | {type: "UseHunch"}
   | {type: "ArgumentClaim"; deduction: Id; refs: Id[]}
   | {type: "PitchReceived"; pitch: unknown}
+  /** Raw performer output is replay data only. It cannot supply gameplay truth or performed speech. */
+  | {type: "LlmOutput"; key: string; occurrence: number; source: "live" | "replay" | "hero";
+      response: {content: string; model?: string}; latencyMs: number; at: number}
   | {type: "LineSpoken"; suspect: Id; key: string; answer: Answer; mode?: AnswerMode}
   | {type: "GossipSpoken"; from: Id; to: Id; packet: Id; answer: Answer}
   | {type: "BeatChosen"; beat: Id}

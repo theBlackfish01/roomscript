@@ -6,6 +6,7 @@ import {RoomscriptShellLeafScenario} from "./RoomscriptShellLeafScenario";
 import {RoomscriptShellIKScenario} from "./RoomscriptShellIKScenario";
 import {RoomscriptEngineLeafScenario} from "./RoomscriptEngineLeafScenario";
 import {RoomscriptActorLeafScenario} from "./RoomscriptActorLeafScenario";
+import {RoomscriptAiLeafScenario} from "./RoomscriptAiLeafScenario";
 
 @component
 export class RoomscriptLeafIndex extends BaseScriptComponent {
@@ -16,6 +17,7 @@ export class RoomscriptLeafIndex extends BaseScriptComponent {
     {id: "roomscript-shell-navigation", typename: RoomscriptShellLeafScenario.getTypeName()},
     {id: "roomscript-shell-ik-reach", typename: RoomscriptShellIKScenario.getTypeName()},
     {id: "roomscript-engine-bridge", typename: RoomscriptEngineLeafScenario.getTypeName()},
-    {id: "roomscript-suspect-actor", typename: RoomscriptActorLeafScenario.getTypeName()}
+    {id: "roomscript-suspect-actor", typename: RoomscriptActorLeafScenario.getTypeName()},
+    {id: "roomscript-ai-record-replay", typename: RoomscriptAiLeafScenario.getTypeName()}
   ];
 }
