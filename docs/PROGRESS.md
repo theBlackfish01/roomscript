@@ -145,3 +145,6 @@ Complete. Required-claim polarity is checked; unsupported relationships, locatio
 
 ### A4 — engine-owned performance permissions (2026-10-29)
 Complete. The reducer derives answer/press/broken/lawyered/confession permissions from the latest gameplay cue or correct culprit verdict, ignoring caller privileges. A baseline correction can authorize a break at layer zero; an old break cannot authorize later questions. Raw output audit events preserve the cue. 142 targeted tests passed; Lens compile/runtime clean.
+
+### P0 hygiene — Tooling typecheck (2026-10-29)
+The two mock-call type errors are fixed by typing the mock as LlmPort.complete. npm run typecheck now passes for Tooling plus pure Engine/Content; no Lens components enter this configuration. Pipeline regressions pass 15/15.

@@ -32,7 +32,7 @@ describe("validated live answer pipeline", () => {
     clock.advance(7000); expect(filler).not.toHaveBeenCalled(); expect(clock.pending).toBe(0);
   });
   it("sends free text through model despite a cache hit, validates it, and never mutates game state", async () => {
-    const pending = deferred<LlmResponse>(); const complete = vi.fn(() => pending.promise);
+    const pending = deferred<LlmResponse>(); const complete = vi.fn<LlmPort["complete"]>(() => pending.promise);
     const {pipeline, input, state, graph, clock} = context({complete}); const before = JSON.stringify({state, graph});
     const detective = vi.fn(); const filler = vi.fn(); const task = pipeline.start(input, {detective, filler});
     expect(detective).toHaveBeenCalledOnce(); expect(complete).toHaveBeenCalledOnce();

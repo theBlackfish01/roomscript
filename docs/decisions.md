@@ -75,3 +75,6 @@ Compare negation polarity with the required cited claim and reject uncited perso
 
 ### 2026-10-29 — A4 performance authority
 Use the latest gameplay action and its engine-emitted cue, matched to suspect/topic, to authorize exceptional speech. Layer alone is insufficient because baseline corrections occur at layer zero. Audit-only actions do not invalidate a cue. Caller mode cannot upgrade permissions. Added spoof, same-layer legitimate break, stale cue, press and replay regressions.
+
+### 2026-10-29 — repeatable Tooling typecheck
+Added npm run typecheck using the existing Tooling-only configuration and typed the transport mock. This does not replace Lens MCP compilation.

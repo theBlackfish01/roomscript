@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "test:watch": "vitest",
     "play": "tsx scripts/play.ts",
     "fuzz": "tsx scripts/fuzz-players.ts",
