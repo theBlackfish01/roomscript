@@ -30,7 +30,7 @@ export function buildFactSheet(graph: CaseGraph, state: GameState, suspect: Id):
     knows: [], heard, memory,
     guarded: current.lawyeredUntil > state.elapsedMinutes ? account.map(ref => ref.topic!) : [],
     saidSoFar: current.saidSoFar.map(id => refs.has(id) ? id : performanceRef("a",id)).filter(id => refs.has(id)),
-    recentLines, safeEntities: [suspect, graph.cast.victim.id, "detective"], topicToRef,
+    recentLines, safeEntities: [suspect, "detective"], topicToRef,
   };
 }
 

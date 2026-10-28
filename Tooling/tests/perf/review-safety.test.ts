@@ -34,3 +34,21 @@ describe("A2 review probes",()=>{
     expect(result.answer!.line).toBe("I was in the Kitchen making tea at 22:30.");
   });
 });
+describe("A3 claim consistency",()=>{
+  it.each([
+    "I was never in the Kitchen at 22:30.","I wasn't in the Kitchen at 22:30.",
+    "My husband was with me in the Kitchen at 22:30.","My sister was with me in the Kitchen at 22:30.",
+    "I was upstairs in the attic at 22:30.","Edmund was still alive at 22:30.",
+    "Edmund was still alive and shouting at 22:30, I heard him.","He was still breathing at 22:30.",
+  ])("rejects contradiction or invention: %s",line=>expect(validate(line).ok).toBe(false));
+  it("cannot remove a negation from a cited pressed claim",()=>{
+    const state=createGameState(graph);state.suspects.S2.layer=1;
+    const next=buildFactSheet(graph,state,"S2"),ref=next.pressed.find(r=>r.topic==="where@22:30")!;
+    const answer:Answer={topic:"where@22:30",cites:[ref.ref],line:"Harlow spoke after I entered the Study.",emotion:"guarded"};
+    expect(validateLine(answer,next,graph,"press").errors.map(e=>e.code)).toContain("POLARITY");
+    expect(validateLine({...answer,line:ref.text},next,graph,"press").ok).toBe(true);
+  });
+  it("still permits harmless phrasing of a positive account",()=>{
+    expect(validate("Detective, I was making tea in the Kitchen at half past ten.").ok).toBe(true);
+  });
+});

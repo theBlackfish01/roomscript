@@ -139,3 +139,6 @@ Complete: performer refs are stable opaque 16-hex aliases with a duplicate guard
 
 ## A2 — 2026-10-29 00:01 PKT
 Complete: NFKC and invisible-character cleanup before validation; expanded contractions for checks, unsupported scripts/digits rejected, added h-format and approximate spoken hours. Broader confession/culprit/lie/meta/ref patterns cover every A2 review probe. Only normalized admitted text reaches speech (including AI LEAF). 130/130 targeted tests passed, including 39 new review regressions and all authored performances. Lens compile/start clean. Next A3 semantic guards.
+
+### A3 — claim polarity and unsupported people (2026-10-29)
+Complete. Required-claim polarity is checked; unsupported relationships, locations and victim conditions are rejected. 140 targeted tests passed, including 49 review safety cases. Lens compile and refreshed runtime are clean. These are conservative lexical checks, not a claim of general language entailment.

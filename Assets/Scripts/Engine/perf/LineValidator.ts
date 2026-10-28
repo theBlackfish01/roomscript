@@ -3,7 +3,7 @@ import {ANSWER_EMOTIONS, answerTopics} from "./AnswerSchema";
 import {allSheetRefs} from "./FactSheetBuilder";
 import {buildGazetteer, findEntities, findNumbersAndDays, findTimes, normalizedWords, normalizedText} from "./Gazetteer";
 
-export type ValidationCode = "JSON" | "SCHEMA" | "CITATION_REQUIRED" | "UNKNOWN_CITE" | "ENTITY" | "TIME" | "FORBIDDEN" | "MEMORY";
+export type ValidationCode = "JSON" | "SCHEMA" | "CITATION_REQUIRED" | "UNKNOWN_CITE" | "ENTITY" | "TIME" | "FORBIDDEN" | "MEMORY" | "POLARITY";
 export interface ValidationIssue {gate: number; code: ValidationCode; message: string;}
 export interface LineValidation {ok: boolean; answer?: Answer; errors: ValidationIssue[];}
 const modes: readonly AnswerMode[] = ["answer", "press", "deflect", "broken", "lawyered", "filler", "confession"];
@@ -76,6 +76,20 @@ export function validateLine(input: unknown, sheet: FactSheet, graph: CaseGraph,
   if (findNumbersAndDays(answer.line).some(number => !allowedNumbers.has(number))) reject(4, "ENTITY", "Line introduces a number or day absent from its cited references");
 
   const line = normalizedWords(answer.line);
+  // Compare against the mandated claim, not an unrelated extra citation. These
+  // conservative lexical gates do not claim general natural-language entailment.
+  const required = mapped && refs.get(mode==="press" ? sheet.pressed.find(ref=>ref.of===mapped)?.ref || "" : mapped);
+  const negative = (text:string) => /\b(?:not|never|no|neither|nobody|nothing|without)\b/.test(normalizedWords(text));
+  if(!neutral && !deflecting && required && negative(required.text)!==negative(answer.line))
+    reject(4,"POLARITY","Performance changes the polarity of its required claim");
+  const citedWords=normalizedWords(cited.map(ref=>ref.text).join(" "));
+  const additions=line.match(/\b(?:husband|wife|spouse|partner|brother|sister|father|mother|son|daughter|friend|visitor|stranger|man|woman|boy|girl|attic|basement|upstairs|downstairs)\b/g) || [];
+  if(additions.some(word=>!new RegExp("\\b"+word+"\\b").test(citedWords)))
+    reject(4,"ENTITY","Performance introduces an uncited person or location");
+  const victimMention=mentions.some(mention=>mention.ids.includes(graph.cast.victim.id)) || /\b(?:he|him|his|she|her)\b/.test(line);
+  const states=line.match(/\b(?:alive|dead|died|breathing|shouting|unconscious|bleeding)\b/g) || [];
+  if(victimMention && states.some(word=>!new RegExp("\\b"+word+"\\b").test(citedWords)))
+    reject(4,"ENTITY","Performance invents a person's condition");
   if (/\b(ai|bot|model|prompt|instructions|script|character|game|player|gemini|google|openai|chatgpt)\b/.test(line)
     || /\b(?:[aphm]:[a-z0-9_]+|r[0-9a-f]{16}|[cfex]_[a-z0-9_]+)\b/i.test(line)) reject(6, "FORBIDDEN", "Meta or reference language is forbidden");
   if(mode!=="confession" && (/\b(killer|murderer|culprit|guilty|choked|smothered|stabbed|struck|bludgeoned)\b/.test(line)
