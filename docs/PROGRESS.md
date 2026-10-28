@@ -148,3 +148,6 @@ Complete. The reducer derives answer/press/broken/lawyered/confession permission
 
 ### P0 hygiene — Tooling typecheck (2026-10-29)
 The two mock-call type errors are fixed by typing the mock as LlmPort.complete. npm run typecheck now passes for Tooling plus pure Engine/Content; no Lens components enter this configuration. Pipeline regressions pass 15/15.
+
+### P0 hygiene — Git LFS hooks (2026-10-29)
+Tracking all four generated LFS hooks. Verified hook configuration is .githooks, git-lfs 3.6.1 is installed, and five hook/secret-guard contract tests pass. No remote or push.

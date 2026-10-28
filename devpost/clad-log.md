@@ -64,3 +64,5 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 - 2026-10-29 00:09 PKT — A4: RecompileTypeScriptTool and RunAndCollectLogsTool clean; 142 targeted tests passed for engine-derived performance permissions.
 
 - 2026-10-29 00:10 PKT — Tooling hygiene: local TypeScript noEmit check and 15 pipeline tests pass; no Lens source changes.
+
+- 2026-10-29 00:10 PKT — P0 hook hygiene: five regression checks pass, LFS installed, active .githooks confirmed; retained generated files unchanged.

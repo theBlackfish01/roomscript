@@ -78,3 +78,6 @@ Use the latest gameplay action and its engine-emitted cue, matched to suspect/to
 
 ### 2026-10-29 — repeatable Tooling typecheck
 Added npm run typecheck using the existing Tooling-only configuration and typed the transport mock. This does not replace Lens MCP compilation.
+
+### 2026-10-29 — retain LFS lifecycle hooks
+Track the four existing generated hooks unchanged. Keep the pre-commit secret check and pre-push LFS forwarding. Hook contracts are covered by five tests.
