@@ -1,6 +1,6 @@
 ﻿# Progress
 
-Read this first after a context reset. Updated 2026-10-28 21:43 PKT.
+Read this first after a context reset. Updated 2026-10-28 21:51 PKT.
 
 ## Status
 
@@ -8,7 +8,7 @@ Read this first after a context reset. Updated 2026-10-28 21:43 PKT.
 |---|---|---|---|
 | A · Setup and probes | complete | m0-probe | 34 Vitest tests, 2 LEAF scenarios, captures, 20 samples per probe/model |
 | B · Truth engine | complete | m1-terminal | 170 tests; 1000 players /29487 actions; terminal demo; Lens compilation + runtime startup |
-| C · Interrogation slice | C1 complete; C2 next | m2-slice pending | |
+| C · Interrogation slice | C1–C2 complete; C3 next | m2-slice pending | |
 | D · Whole case | not started | m3-case pending | |
 | E · Should tier | not started | m4-should pending | |
 | F · Clue Night | not started; gate pending | m5-cluenight pending | |
@@ -16,7 +16,7 @@ Read this first after a context reset. Updated 2026-10-28 21:43 PKT.
 ## Current state and next steps
 
 1. Stage B complete: B3 41ed85f, B4 4b915da, B5 0a1e446, B6 68ebaa7, B7 64df6b0; B8 checkpoint and m1-terminal tag follow. 170 tests pass across11 files; Lens compiles and starts with only the known LEAF editor warning.
-2. C1 complete:55 authored objects,7 materials,5 UIKit shells plus plaques,10 sound cues and music. Two LEAF scenarios pass fail-fast. docs/c1-build-manifest.md records layout, capture paths, audits and fixes. Main remains wiring-only; no Lens game logic yet. C2 engine bridge is next.
+2. C1 complete:55 authored objects,7 materials,5 UIKit shells plus plaques,10 sound cues and music. Two LEAF scenarios pass fail-fast. docs/c1-build-manifest.md records layout, capture paths, audits and fixes. Main remains wiring-only; no Lens game logic yet. C2 engine bridge verified; C3 actor is next.
 3. C4 pure AI port/scheduler/tape worker runs independently; main owns all Lens work. Continue C–F; no remote/push. Stage B engine is playable in Tooling via npm.cmd run play or npm.cmd run play -- --demo.
 
 MCP is working. Lens Studio 5.23.2.26081320, signed in; Spectacles target; Perspective camera / World tracking; SIK 2.0.0 and SpectaclesUIKit 2.0.0. RSG 2.0.1, Utilities/SnapDecorators 2.0.0; inspection/interact bridges 2.0.1, Leaf 2.0.0. Compatible packages compile. Never reinstall newest versions blindly; see docs/mcp-bug-report.md.
@@ -80,3 +80,6 @@ This is a diagnostics tour, to be replaced by the actual gameplay tour after C/D
 - B8: 1000 deterministic fair players /29487 actions;250 correct,699 timeout,51 credibility failure; highest layer2; no repeated successful objection per source, no contradictory active accounts, true knowledge preserves actual solution. Fairness charges time after at most7 free/arbitrary actions; free inspection itself does not imply real-time timeout.
 
 - C1 complete21:43: shells navigate; cues/music play; crate opens; PreviewRoom editor gate verified. LEAF shell-navigation and shell-ik-reach pass fail-fast, captures reviewed. C4/C5 pure AI modules are ready in working tree (33+15 worker tests) but not yet committed or Lens-adapted; preserve them.
+
+
+- C2 complete21:51: solver unique, eight checks, one hypothesis; roomscript-engine-bridge LEAF passes fail-fast (real Ask +15 minutes, replay equality and snapshot isolation). Recompile and fresh runtime show no Lens exception; known LEAF editor warning remains. Capture docs/captures/2026-10-28-c2-engine-bridge.png reviewed:165-minute HUD.

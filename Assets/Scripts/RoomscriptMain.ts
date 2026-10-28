@@ -4,6 +4,7 @@ import {RoomscriptVerbBarUI} from "./RoomscriptVerbBarUI";
 import {RoomscriptNotepadUI} from "./RoomscriptNotepadUI";
 import {RoomscriptEvidenceWalletUI} from "./RoomscriptEvidenceWalletUI";
 import {RoomscriptAudio} from "./RoomscriptAudio";
+import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 /** Scene wiring only. Engine bridge will own all case state; UI receives values/events. */
 @component export class RoomscriptMain extends BaseScriptComponent {
   @ui.group_start("References")
@@ -13,11 +14,14 @@ import {RoomscriptAudio} from "./RoomscriptAudio";
   @input @hint("Notebook") notebook:RoomscriptNotepadUI;
   @input @hint("Evidence wallet") wallet:RoomscriptEvidenceWalletUI;
   @input @hint("Audio cues and music") audio:RoomscriptAudio;
+  @input @hint("Deterministic case owner") engine:RoomscriptEngineBridge;
   @ui.group_end
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.start());}
   private start():void {
-    if(!this.caseLid||!this.chips||!this.verbs||!this.notebook||!this.wallet||!this.audio){print("Roomscript: authored references not wired");return;}
+    if(!this.caseLid||!this.chips||!this.verbs||!this.notebook||!this.wallet||!this.audio||!this.engine){print("Roomscript: authored references not wired");return;}
     this.caseLid.build();this.chips.build();this.verbs.build();this.notebook.build();this.wallet.build();
+    this.engine.onState.add(state=>this.caseLid.setCounters(state.clockMinutes-state.elapsedMinutes,state.pips,state.hunches));
+    this.engine.initialize();
     this.caseLid.onAction.add(action=>{if(action==="Audio cue"){this.caseLid.setStatus("Cue: "+this.audio.previewNext());return;}
       this.caseLid.show(false);this.chips.show(false);this.verbs.show(false);this.notebook.show(action==="Notebook");this.wallet.show(action==="Evidence");this.audio.play("ChalkScratch");});
     const close=()=>{this.notebook.show(false);this.wallet.show(false);this.caseLid.show(true);this.chips.show(true);this.verbs.show(true);};

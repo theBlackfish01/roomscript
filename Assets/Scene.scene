@@ -330,6 +330,7 @@
       notebook: !<MappingBased.AssignableType_4> e4f54c74-c846-4b55-9764-1552c200d902
       wallet: !<MappingBased.AssignableType_5> 925fa022-10d3-4b8a-9212-ee582496e7a7
       audio: !<MappingBased.AssignableType_6> 03b68dc8-22bb-491c-a885-d3103651a168
+      engine: !<MappingBased.AssignableType_7> 5fb41fee-e1d9-4791-b111-d0fa6fc95300
   ScriptTypes:
     "":
       {}
@@ -1854,6 +1855,22 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/5fb41fee-e1d9-4791-b111-d0fa6fc95300>
+  PrefabRemaps:
+    []
+  Name: RoomscriptEngineBridge
+  Enabled: true
+  ScriptAsset: !<reference> 36b4fef2-a7b1-4e9f-acce-5f97b01867f4
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/613881ff-9a7c-4b20-862f-59e67d0c3d3d>
   PrefabRemaps:
     []
@@ -2477,6 +2494,7 @@
     - !<own> 092f4eea-0369-4596-853a-d8e4eca025ea
     - !<own> c8666701-44a4-4881-992d-67e448237df7
     - !<own> 1bc54cfd-c533-40f8-a297-84ae8eed61f0
+    - !<own> be2afa74-3b4b-4821-8b37-bc6b2fc98436
   Components:
     - !<own> 07faadeb-ecb8-414f-9572-e63020bc35d0
 - !<SceneObject/83ef588c-5040-4344-b15f-0554c739da0b>
@@ -3356,6 +3374,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/be2afa74-3b4b-4821-8b37-bc6b2fc98436>
+  PrefabRemaps:
+    []
+  Name: RoomscriptEngine
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -15.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5fb41fee-e1d9-4791-b111-d0fa6fc95300
 - !<SceneObject/bf2095b6-c6f8-48c8-b840-e0a6cec0dc99>
   PrefabRemaps:
     []

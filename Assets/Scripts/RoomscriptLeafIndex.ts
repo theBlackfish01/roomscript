@@ -4,6 +4,7 @@ import {RoomscriptProbeLeafScenario} from "./RoomscriptProbeLeafScenario";
 import {RoomscriptProbeIKScenario} from "./RoomscriptProbeIKScenario";
 import {RoomscriptShellLeafScenario} from "./RoomscriptShellLeafScenario";
 import {RoomscriptShellIKScenario} from "./RoomscriptShellIKScenario";
+import {RoomscriptEngineLeafScenario} from "./RoomscriptEngineLeafScenario";
 
 @component
 export class RoomscriptLeafIndex extends BaseScriptComponent {
@@ -12,6 +13,7 @@ export class RoomscriptLeafIndex extends BaseScriptComponent {
     {id: "roomscript-probe-layout-and-button", typename: RoomscriptProbeLeafScenario.getTypeName()},
     {id: "roomscript-probe-ik-reach", typename: RoomscriptProbeIKScenario.getTypeName()},
     {id: "roomscript-shell-navigation", typename: RoomscriptShellLeafScenario.getTypeName()},
-    {id: "roomscript-shell-ik-reach", typename: RoomscriptShellIKScenario.getTypeName()}
+    {id: "roomscript-shell-ik-reach", typename: RoomscriptShellIKScenario.getTypeName()},
+    {id: "roomscript-engine-bridge", typename: RoomscriptEngineLeafScenario.getTypeName()}
   ];
 }
