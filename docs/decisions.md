@@ -84,3 +84,6 @@ Track the four existing generated hooks unchanged. Keep the pre-commit secret ch
 
 ### 2026-10-29 — P0 handoff reconciliation
 Current progress now leads with the closed P0 fixes and pending C5/P1 work. Historical pause evidence remains labelled as historical; the independent review corrections and subsequent fresh verification are distinct.
+
+### 2026-10-29 — A5 live Gemini configuration
+Separate system instructions from user turns, preserve conversation roles, disable thinking and cap output at 384 tokens. Twenty samples all validated at 1.66s median / 2.06s p95. Keep cache-first chips and live free questions per the design; audio still needs a shared deadline. Retain all raw outputs as replay events and a credential-free harvested tape.

@@ -1,0 +1,132 @@
+{
+  "provider": "gemini",
+  "rows": [
+    {
+      "sample": 1,
+      "ms": 1635.419099999126,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 2,
+      "ms": 2057.410200010054,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 3,
+      "ms": 2126.4789000269957,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 4,
+      "ms": 1762.9205000121146,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 5,
+      "ms": 1661.2121999787632,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 6,
+      "ms": 1506.6356000024825,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 7,
+      "ms": 1984.8397999885492,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 8,
+      "ms": 1642.6348999957554,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 9,
+      "ms": 1831.58219998586,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 10,
+      "ms": 1854.22110001673,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 11,
+      "ms": 1925.669199990807,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 12,
+      "ms": 1608.2205999991857,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 13,
+      "ms": 1431.2058000068646,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 14,
+      "ms": 1548.484600003576,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 15,
+      "ms": 1887.7570999902673,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 16,
+      "ms": 1873.125499987509,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 17,
+      "ms": 1651.4024999924004,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 18,
+      "ms": 1471.3607000012416,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 19,
+      "ms": 1514.2901000217535,
+      "valid": true,
+      "codes": []
+    },
+    {
+      "sample": 20,
+      "ms": 1677.4013999965973,
+      "valid": true,
+      "codes": []
+    }
+  ],
+  "valid": 20,
+  "p50": 1661.2121999787632,
+  "p95": 2057.410200010054,
+  "scope": "20 text-only diagnostic requests; no audio included",
+  "scenario": "roomscript-live-latency",
+  "thinkingBudget": 0,
+  "maxOutputTokens": 384
+}

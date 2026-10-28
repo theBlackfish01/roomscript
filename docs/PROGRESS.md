@@ -152,3 +152,6 @@ The two mock-call type errors are fixed by typing the mock as LlmPort.complete. 
 
 ### P0 hygiene — Git LFS hooks (2026-10-29)
 Tracking all four generated LFS hooks. Verified hook configuration is .githooks, git-lfs 3.6.1 is installed, and five hook/secret-guard contract tests pass. No remote or push.
+
+### P0 integrated gate and A5 — 2026-10-29
+Full P0 suite: 320/320 tests across 24 files, exit 0 in 130.36s. 5000/5000 generated cases accepted, maximum 227.7ms, p95 48.9ms. A5 complete: Gemini uses a separate systemInstruction, thinkingBudget 0 and maxOutputTokens 384. Live LEAF measured 20/20 valid responses, median 1661ms, p95 2057ms, max 2126ms. Text only; combined audio budget awaits A7/C5. Table: c5-gemini-latency-2026-10-29.json. Twenty real outputs harvested as C5GeminiLatency and replay-validated offline; 3 request/replay tests pass, Tooling typecheck and Lens compile/start clean. Next A6 fallback.
