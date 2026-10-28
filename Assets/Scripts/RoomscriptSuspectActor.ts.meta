@@ -1,0 +1,69 @@
+- !<AssetImportMetadata/afe52230-2cb5-461b-9fc0-f4d6c0dbe572>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 17232007-c516-432c-9158-8a08d04f736f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 17232007-c516-432c-9158-8a08d04f736f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 341c6848-71ff-4930-867e-fe69356fb726
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/341c6848-71ff-4930-867e-fe69356fb726>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: fd82fd37-cc07-4ff5-8142-bb49fd532b61
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    broken: false
+    camera: false
+    engine: false
+    listening: false
+    material: false
+    neutral: false
+    rattled: false
+    suspect: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      neutral: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      listening: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      rattled: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      broken: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      engine: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      camera: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      suspect: S2
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - // @input Asset.Material material
+    - // @input Asset.Texture neutral
+    - // @input Asset.Texture listening
+    - // @input Asset.Texture rattled
+    - // @input Asset.Texture broken
+    - // @input AssignableType_1 engine
+    - // @input SceneObject camera
+    - '// @ui {"widget":"group_end"}'
+    - '// @input string suspect = "S2"'

@@ -39,3 +39,6 @@ One entry per decision: date, decision, why, alternatives considered. Newest at 
 
 ## 2026-10-28 C2: single state owner
 RoomscriptEngineBridge owns the deterministic graph/state and publishes copies; Main only wires UI counters and lifecycle. This prevents presentation adapters from mutating truth. LEAF verifies replay and copy isolation inside Lens.
+
+## 2026-10-28 C3: theatre placeholder and room role binding
+Use original vector-drawn ivory puppet textures for the four explicitly requested placeholder poses. Custom shader samples the silhouette edge for a stress rim and warps the lower lip from an audio envelope; no model output selects stress. Hero logical Kitchen Z4 binds to the physical kitchen plaque/stand-ins by role, not fixture numeric IDs (fixture kitchen differs). Vale stands at (175,-160,-300), behind an editor-only console. Full speech playback linkage is verified in C4.

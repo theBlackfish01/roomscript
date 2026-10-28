@@ -37,3 +37,5 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 - 2026-10-28 21:43 PKT — C1 inline specs-experience-builder + specs-build-ui, mesh-builder-scripting, materials, build-sfx/build-music, specs-audio and live-lens-tester:55 authored objects,7 materials,11 WAVs, five UIKit shells and plaques. AssetManager import verified, two-phase VirtualScene bootstrap, See-and-fix corrected layout/envelope-facing/first-play audio. Both shell LEAF scenarios pass fail-fast; four final captures reviewed. FFmpeg peak -0.4dB all assets; no human listening claim.
 
 - 2026-10-28 21:51 PKT | C2 | CLAD script-author/live-lens-tester inline procedures; VirtualScene component wiring, RecompileTypeScriptTool, RunAndCollectLogsTool, LEAF fail-fast, PreviewPanelTool | engine bridge passes, unique solver report and 165-minute HUD captured; project saved.
+
+- 2026-10-28 21:58 PKT | C3 | shader-graph, script-author/live-lens-tester inline; EEC asset import/material creation, VirtualScene actor/console, recompile+runtime, LEAF actor and two runtime captures | four poses, stress rim, jaw envelope and engine reaction verified.

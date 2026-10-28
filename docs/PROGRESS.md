@@ -1,6 +1,6 @@
 ﻿# Progress
 
-Read this first after a context reset. Updated 2026-10-28 21:51 PKT.
+Read this first after a context reset. Updated 2026-10-28 21:58 PKT.
 
 ## Status
 
@@ -8,7 +8,7 @@ Read this first after a context reset. Updated 2026-10-28 21:51 PKT.
 |---|---|---|---|
 | A · Setup and probes | complete | m0-probe | 34 Vitest tests, 2 LEAF scenarios, captures, 20 samples per probe/model |
 | B · Truth engine | complete | m1-terminal | 170 tests; 1000 players /29487 actions; terminal demo; Lens compilation + runtime startup |
-| C · Interrogation slice | C1–C2 complete; C3 next | m2-slice pending | |
+| C · Interrogation slice | C1–C3 complete; C4 next | m2-slice pending | |
 | D · Whole case | not started | m3-case pending | |
 | E · Should tier | not started | m4-should pending | |
 | F · Clue Night | not started; gate pending | m5-cluenight pending | |
@@ -83,3 +83,6 @@ This is a diagnostics tour, to be replaced by the actual gameplay tour after C/D
 
 
 - C2 complete21:51: solver unique, eight checks, one hypothesis; roomscript-engine-bridge LEAF passes fail-fast (real Ask +15 minutes, replay equality and snapshot isolation). Recompile and fresh runtime show no Lens exception; known LEAF editor warning remains. Capture docs/captures/2026-10-28-c2-engine-bridge.png reviewed:165-minute HUD.
+
+- C3 complete21:58: four authored ivory line-art pose textures, billboard puppet, custom alpha-edge stress rim and amplitude-driven jaw. CLAD shader-graph used; actor LEAF passes fail-fast for pose transitions, correct-objection stress and amplitude smoothing. Neutral/rattled-console captures reviewed. Speech-track integration follows in C4; no human listening claim. Vale is at the kitchen mark to the right of initial view, floorY=-160, console hides lower body.
+
