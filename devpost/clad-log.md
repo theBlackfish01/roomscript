@@ -1,5 +1,7 @@
 # CLAD and Lens Studio MCP log
 
+- 2026-10-28 21:02 PKT · B2 room engine · generic Codex worker tooling_a2, main MCP compilation/log review · 25 room tests pass, five fixtures bind, virtual substitution and deterministic room IDs verified; no Lens runtime exceptions.
+
 - 2026-10-28 20:53 PKT · B1 pure engine contracts/core · Codex main + RecompileTypeScriptTool/RunAndCollectLogsTool · 39 Vitest tests pass, pure engine compiles in Lens; no runtime exceptions, known LEAF editor reset warning remains.
 
 - 2026-10-28 20:49 PKT · A5 · CLAD-guided probe decision table · Gemini 2.5 Flash primary, OpenAI TTS, cache/LineBank/tape fallback and rate-limit cooldown; camera simulation verified, Imagen optional. A4 commit 143a315; m0-probe checkpoint.

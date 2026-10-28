@@ -7,7 +7,7 @@ Read this first after a context reset. Updated 2026-10-28 20:47 PKT.
 | Stage | Status | Milestone | Verification |
 |---|---|---|---|
 | A · Setup and probes | complete | m0-probe | 34 Vitest tests, 2 LEAF scenarios, captures, 20 samples per probe/model |
-| B · Truth engine | B1 complete; B2–B4 parallel next | m1-terminal pending | 39 Vitest tests total; Lens compile succeeds |
+| B · Truth engine | B1–B2 complete; B3–B6 in progress | m1-terminal pending | Core 5 + room 25 + tooling 34 tests; Lens compile succeeds |
 | C · Interrogation slice | not started | m2-slice pending | |
 | D · Whole case | not started | m3-case pending | |
 | E · Should tier | not started | m4-should pending | |
@@ -16,6 +16,7 @@ Read this first after a context reset. Updated 2026-10-28 20:47 PKT.
 ## Current state and next steps
 
 1. A5 commit 194651b and m0-probe tagged. B1 shared Types/Prng/Hash/CanonicalJson now exist and pass tests and Lens compilation.
+   B1 commit 70996d5. B2 room modules reviewed and compiled in Lens; 25 room tests pass. Hero, solver and performance safety workers run in disjoint folders; main owns game reducer. Do not stage other workers' incomplete packages.
 2. Fan out disjoint B2 room, B3 hero content, B4 solver workers after shared Types exist; B5 reducer and B6 performance safety follow as slots become available. Main integrates and commits each package.
 3. Continue B7 terminal player, B8 fuzz, then C–F in plan order. FIRST_PASS remains authoritative. No pushes/remotes.
 
