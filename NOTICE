@@ -13,3 +13,9 @@ Code (add an entry whenever code is copied or adapted):
   RoomscriptProbeLab.ts. Source: lens-studio-devs/ls-extensions ls-clad skills.
 - CLAD LEAF scenario templates, copyright 2026 Specs Inc., Apache-2.0,
   adapted in RoomscriptProbeLeafScenario.ts and RoomscriptLeafIndex.ts.
+- CLAD specs-build-ui composition helpers and mesh-builder-scripting CCW box
+  construction, copyright 2026 Specs Inc., Apache-2.0, adapted in
+  RoomscriptPanelUI.ts and RoomscriptPropMesh.ts. Additional LEAF templates in
+  RoomscriptShellLeafScenario.ts and RoomscriptShellIKScenario.ts.
+- GeneratedSFX contains original sample-free procedural audio rendered by CLAD's
+  Apache-2.0 build-sfx/build-music tools; generator scripts are in tempAssetGen.

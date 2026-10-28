@@ -9,6 +9,7 @@
     - !<own> 72bb1af8-071f-4c85-b8e6-8666fa47ca91
     - !<own> 726e3e79-21e3-4248-9d0e-376c9a9341ae
     - !<own> f4c9b245-1047-44e6-8a62-ce896ee13921
+    - !<own> 839c75e7-5954-4567-ab2e-b100a0ca45d8
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -210,6 +211,42 @@
   Components:
     - !<own> 6777291d-fcc1-4da4-8084-a2155fa0c6f7
     - !<own> 3197fe14-2131-44da-923b-2ed60c1cd888
+- !<ScriptComponent/03b68dc8-22bb-491c-a885-d3103651a168>
+  PrefabRemaps:
+    []
+  Name: RoomscriptAudio
+  Enabled: true
+  ScriptAsset: !<reference> 89502650-b1bf-4a27-b880-0b2a95158259
+  ScriptInputsDefault:
+    sfxVolume: true
+    musicVolume: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      sfxVolume: 0.450000
+      musicVolume: 0.100000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/0451044a-5e06-4512-bd4a-69109477b2ce>
+  PrefabRemaps:
+    []
+  Name: RoomscriptZonePlaqueUI
+  Enabled: true
+  ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
+  ScriptInputsDefault:
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      label: WHAT
+      width: !<float> 13.000000
+      ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/0451d993-a1f7-464e-9b69-32c0d9af8ed7>
   PrefabRemaps:
     []
@@ -255,6 +292,47 @@
     []
   Components:
     []
+- !<ScriptComponent/079ae1c7-0a73-4f7f-b3f3-4540e8811278>
+  PrefabRemaps:
+    []
+  Name: RoomscriptCaseLidUI
+  Enabled: true
+  ScriptAsset: !<reference> c7835442-ec2c-499c-9f73-47e9b25b617d
+  ScriptInputsDefault:
+    width: true
+    fontScale: true
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      width: !<float> 46.000000
+      fontScale: 1.600000
+      ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/07faadeb-ecb8-414f-9572-e63020bc35d0>
+  PrefabRemaps:
+    []
+  Name: RoomscriptMain
+  Enabled: true
+  ScriptAsset: !<reference> 3c9cc744-b059-433a-a25a-da9cf1d4cb42
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      caseLid: !<MappingBased.AssignableType_1> 079ae1c7-0a73-4f7f-b3f3-4540e8811278
+      chips: !<MappingBased.AssignableType_2> 34a533b2-80b7-4434-9883-6f518b375af0
+      verbs: !<MappingBased.AssignableType_3> 4284dddf-16fd-47ea-960d-e7182c702819
+      notebook: !<MappingBased.AssignableType_4> e4f54c74-c846-4b55-9764-1552c200d902
+      wallet: !<MappingBased.AssignableType_5> 925fa022-10d3-4b8a-9212-ee582496e7a7
+      audio: !<MappingBased.AssignableType_6> 03b68dc8-22bb-491c-a885-d3103651a168
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/0847d2bb-a13f-4c4a-a404-169f67308f6f>
   PrefabRemaps:
     []
@@ -370,6 +448,62 @@
     - !<own> 6a99bdcf-c194-46c1-ba16-945f1d48a1dd
   Components:
     []
+- !<SceneObject/092f4eea-0369-4596-853a-d8e4eca025ea>
+  PrefabRemaps:
+    []
+  Name: PreviewRoom
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -160.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 265e8f68-7aa3-4be7-8ab0-cc9eecd23e62
+    - !<own> 0f65c93a-88bd-4e46-941f-a52ba7dc1328
+    - !<own> d5b9086d-5e3e-4019-98fc-de9a04966325
+    - !<own> bb873cd5-b7ce-4adb-be6f-da144111ba7e
+    - !<own> e2eff18a-d353-4494-849e-49a6ad17a7ca
+    - !<own> ed2fd8fc-9b0e-46e2-89c5-7875ccec3104
+    - !<own> f20ce8a3-5414-4872-afd9-9f54617f80f3
+    - !<own> 36eb0969-53f0-472f-aa4e-53555b764a85
+    - !<own> ffe47d5c-2fc9-49ca-9797-87e43abab80f
+    - !<own> 18f1b14c-d55c-4c3b-a973-de05ac900d8f
+    - !<own> 1b7c3993-1150-4ec8-b3a0-d9ec2532cf66
+    - !<own> 5529ac97-5152-4c3c-9709-ce65e755d7b4
+    - !<own> 1b0e2cc5-95ca-4dcc-8b1a-32406d52a0d7
+    - !<own> 25a46c6b-d9bf-49d1-917b-c9be352c1dd8
+    - !<own> c70357ef-8e8f-4f5b-b6fd-ac2bfec9db87
+    - !<own> a661f566-7fa9-4c00-a9c2-252b45dd5e40
+    - !<own> b4749411-528b-4f9f-8330-bf0d3b10648a
+    - !<own> 356f3c3a-a0ee-4704-9301-026f50f0442d
+    - !<own> f07e27a4-a0f7-43c4-9e55-b5e8233535b4
+    - !<own> e39bc86f-d634-4f2c-b50b-e01bcad19066
+    - !<own> c7ceca32-5495-4169-ba13-8c79624a8ba5
+    - !<own> 974267b9-b7c1-4d03-953b-a8e6cb5addc8
+  Components:
+    - !<own> ff8ab6c6-75e4-4e81-80b1-7295cac8c15f
+- !<ScriptComponent/09af3fa3-e5e9-423a-8355-2c95d984c5e6>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> d703a88e-5085-41b5-8ce2-0b00a800ad2e
+      shape: round
+      width: !<float> 23.000000
+      height: !<float> 13.000000
+      depth: !<float> 23.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/0a0e1d78-8246-4f5b-ab1a-fdc51837956d>
   PrefabRemaps:
     []
@@ -415,6 +549,21 @@
     []
   Components:
     []
+- !<SceneObject/0d29988b-7e2b-4c72-aacf-da4832dc4eb7>
+  PrefabRemaps:
+    []
+  Name: RoomscriptCaseLidUI
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 26.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 079ae1c7-0a73-4f7f-b3f3-4540e8811278
 - !<SceneObject/0e778a10-bd57-4a2a-b20a-b6f4326e8058>
   PrefabRemaps:
     []
@@ -428,6 +577,23 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> bbcddeb1-2c47-482e-861a-4f2d74fda27a
+  Components:
+    []
+- !<SceneObject/0f65c93a-88bd-4e46-941f-a52ba7dc1328>
+  PrefabRemaps:
+    []
+  Name: StandinBed
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -160.000000, y: 0.000000, z: -120.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> cd1aedfe-bd31-48dd-b0fd-79d71623cf39
+    - !<own> 3769de80-fc65-4f64-9d81-08c0a0b4d67f
+    - !<own> 9237ef1c-48e7-4dff-9f9f-782df362e084
   Components:
     []
 - !<SceneObject/0f983d21-20bc-4d89-a991-fbb95bacbd64>
@@ -538,6 +704,81 @@
     - !<own> a6af4948-9adc-4052-ae22-db902dd2764e
   Components:
     []
+- !<SceneObject/12be306b-b0a8-4a79-952f-281ca68dc46d>
+  PrefabRemaps:
+    []
+  Name: DeskLeg48_-25
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 48.000000, y: 36.000000, z: -25.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a67ea180-f860-4198-855f-e57da3c558d1
+- !<SceneObject/142e37b8-b899-40dc-b1de-beaf92964cc2>
+  PrefabRemaps:
+    []
+  Name: Envelope WHERE
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -1.200000, z: 14.000000}
+    Rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2df170c8-a434-41c9-8621-efb672e4ec66
+- !<SceneObject/14ef3211-0c6a-455e-b19e-6cd06e773699>
+  PrefabRemaps:
+    []
+  Name: RoomscriptVerbBarUI
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -29.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4284dddf-16fd-47ea-960d-e7182c702819
+- !<SceneObject/152ca32c-a041-40c0-93a3-0c00cb499c2b>
+  PrefabRemaps:
+    []
+  Name: DeskLeg-48_25
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -48.000000, y: 36.000000, z: 25.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c1d5c805-1c43-4b01-a32e-57c5e9ca382b
+- !<SceneObject/17264c68-e0dc-43a2-9f44-1b3b91d2d69d>
+  PrefabRemaps:
+    []
+  Name: RoomscriptSuspectSlot
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 30.000000, y: -160.000000, z: -160.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
 - !<SceneObject/181c239f-175e-4912-94fc-d37a2599b2d6>
   PrefabRemaps:
     []
@@ -553,6 +794,93 @@
     []
   Components:
     []
+- !<SceneObject/18f1b14c-d55c-4c3b-a973-de05ac900d8f>
+  PrefabRemaps:
+    []
+  Name: StandinMug
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 150.000000, y: 84.000000, z: 20.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 9c0d0536-a6ef-4cab-b66e-14fe03c80a3c
+- !<SceneObject/1b0e2cc5-95ca-4dcc-8b1a-32406d52a0d7>
+  PrefabRemaps:
+    []
+  Name: LampBase
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 110.000000, y: 77.000000, z: -210.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5f6061e1-f510-4a50-86a7-85d37181cf62
+- !<SceneObject/1b7c3993-1150-4ec8-b3a0-d9ec2532cf66>
+  PrefabRemaps:
+    []
+  Name: StandinBottle
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 55.000000, y: 84.000000, z: -180.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2be458ff-e122-43b3-8ab4-513eb2e68f05
+- !<SceneObject/1bc54cfd-c533-40f8-a297-84ae8eed61f0>
+  PrefabRemaps:
+    []
+  Name: RoomscriptCrate
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -65.000000, y: -49.000000, z: -140.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 3f4b48b9-fbea-44f9-b8b4-5d3863158c7b
+    - !<own> 49e7602d-3e73-4679-9aef-5ac4923d9c57
+    - !<own> 3f506350-579b-44b0-b5f5-d601f429a145
+    - !<own> f4c36617-f1e6-4587-a204-b4698a3ee6c2
+    - !<own> d170c01f-75d2-40e9-be20-a0733b2468f1
+    - !<own> 7a9e83a3-a31a-474f-b300-b7361bc59a2d
+    - !<own> 7af942d5-caeb-47be-9ef6-13a5e1e82d64
+    - !<own> ba16d39b-ff7b-451c-beb0-933e28012f77
+  Components:
+    - !<own> 2937f0c3-afc2-4c86-88e2-a4b86b31e44a
+- !<ScriptComponent/1c48075e-0a1d-4a09-aa7d-731f51774052>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> d703a88e-5085-41b5-8ce2-0b00a800ad2e
+      shape: box
+      width: !<float> 100.000000
+      height: !<float> 6.000000
+      depth: !<float> 190.000000
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/1f969daa-5809-4500-b314-98d91ccba131>
   PrefabRemaps:
     []
@@ -633,6 +961,21 @@
     []
   Components:
     []
+- !<SceneObject/25a46c6b-d9bf-49d1-917b-c9be352c1dd8>
+  PrefabRemaps:
+    []
+  Name: LampStem
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 110.000000, y: 91.000000, z: -210.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f8161503-cf7d-429c-b9ea-0306c0c70a5a
 - !<SceneObject/264571d0-f879-411b-8deb-ff6d9921317f>
   PrefabRemaps:
     []
@@ -646,6 +989,25 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> d9071294-12e8-425f-98f1-bf308a02639e
+  Components:
+    []
+- !<SceneObject/265e8f68-7aa3-4be7-8ab0-cc9eecd23e62>
+  PrefabRemaps:
+    []
+  Name: StandinDesk
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 80.000000, y: 0.000000, z: -180.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 613881ff-9a7c-4b20-862f-59e67d0c3d3d
+    - !<own> cbaa2f94-cfa3-4b57-9350-d0e57dcd19fe
+    - !<own> 152ca32c-a041-40c0-93a3-0c00cb499c2b
+    - !<own> 12be306b-b0a8-4a79-952f-281ca68dc46d
+    - !<own> de6b50a7-85f0-4b04-b254-bf8821205b47
   Components:
     []
 - !<ScriptComponent/275aeb4d-77ac-4b1b-811e-907652542110>
@@ -735,6 +1097,45 @@
     ring-3_end_end_end: !<reference> b93dfa60-41bd-4999-ac0f-4b2f1df2bdaf
     thumb-3_end_end_end_end: !<reference> 08e3cc22-f2e1-49fb-9ddc-145fe6547ce3
     pinky-3_end_end: !<reference> d08269e3-acd4-4156-b5b9-477ca259611d
+- !<ScriptComponent/2937f0c3-afc2-4c86-88e2-a4b86b31e44a>
+  PrefabRemaps:
+    []
+  Name: RoomscriptCaseCrate
+  Enabled: true
+  ScriptAsset: !<reference> 9e848924-3016-4168-a83c-a99cf9442afb
+  ScriptInputsDefault:
+    duration: true
+    angle: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      hinge: !<reference.SceneObject> ba16d39b-ff7b-451c-beb0-933e28012f77
+      duration: 1.200000
+      angle: !<float> 80.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/2be458ff-e122-43b3-8ab4-513eb2e68f05>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 511c6ab8-adef-4d3b-ba7b-60227e0e010c
+      shape: round
+      width: !<float> 6.000000
+      height: !<float> 18.000000
+      depth: !<float> 6.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/2dae2a27-8ce6-466a-8bff-622195c1b3a8>
   PrefabRemaps:
     []
@@ -750,6 +1151,44 @@
     - !<own> a7da4af4-3d84-4acd-a31e-920a56b4c5c8
   Components:
     []
+- !<ScriptComponent/2df170c8-a434-41c9-8621-efb672e4ec66>
+  PrefabRemaps:
+    []
+  Name: RoomscriptZonePlaqueUI
+  Enabled: true
+  ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
+  ScriptInputsDefault:
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      label: WHERE
+      width: !<float> 13.000000
+      ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/2ff001fa-2a75-44db-8cce-c279ff088dbb>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 588ebdf1-2487-457f-88f8-317ed75c108d
+      shape: box
+      width: !<float> 90.000000
+      height: !<float> 210.000000
+      depth: !<float> 4.000000
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/3197fe14-2131-44da-923b-2ed60c1cd888>
   PrefabRemaps:
     []
@@ -801,6 +1240,26 @@
     - !<own> e42bbb9f-e951-4432-be2e-3cc712b1fc33
   Components:
     []
+- !<ScriptComponent/34a533b2-80b7-4434-9883-6f518b375af0>
+  PrefabRemaps:
+    []
+  Name: RoomscriptChipBarUI
+  Enabled: true
+  ScriptAsset: !<reference> 28a25245-8662-4eb9-8c66-e0edbe4ce520
+  ScriptInputsDefault:
+    width: true
+    fontScale: true
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      width: !<float> 46.000000
+      fontScale: 1.600000
+      ink: !<Vec4> {x: 1.000000, y: 0.940000, z: 0.840000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/35501b69-b651-41e6-9b64-72a252df8105>
   PrefabRemaps:
     []
@@ -821,6 +1280,21 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/356f3c3a-a0ee-4704-9301-026f50f0442d>
+  PrefabRemaps:
+    []
+  Name: Study plaque
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 80.000000, y: 88.000000, z: -145.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e732943e-644a-4f9c-ab6f-f7b6aa84a5e1
 - !<SceneObject/3661a02d-e367-4cf5-af47-407a191f4ce2>
   PrefabRemaps:
     []
@@ -837,6 +1311,36 @@
     - !<own> cec12eef-3a06-4b4a-b0ba-3de212ca34dc
   Components:
     []
+- !<SceneObject/36eb0969-53f0-472f-aa4e-53555b764a85>
+  PrefabRemaps:
+    []
+  Name: StandinCable
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 95.000000, y: 75.500000, z: -190.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d20f0b6d-ef81-4619-8b21-507b7d6756e9
+- !<SceneObject/3769de80-fc65-4f64-9d81-08c0a0b4d67f>
+  PrefabRemaps:
+    []
+  Name: BedCover
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 47.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1c48075e-0a1d-4a09-aa7d-731f51774052
 - !<SceneObject/38562bff-09c5-4232-bff1-7ea62a1e7ec5>
   PrefabRemaps:
     []
@@ -852,6 +1356,24 @@
     - !<own> 4051028a-c608-4a97-b3d5-1a3912a7c007
   Components:
     []
+- !<ScriptComponent/3a4d131d-cbda-4ae0-aca0-8c7fb68fa5cf>
+  PrefabRemaps:
+    []
+  Name: RoomscriptZonePlaqueUI
+  Enabled: true
+  ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
+  ScriptInputsDefault:
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      label: CONSERVATORY
+      width: !<float> 34.000000
+      ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/3a794764-c758-4d72-9d89-bf3ed978113f>
   PrefabRemaps:
     []
@@ -897,6 +1419,36 @@
     - !<own> 988c408a-99dc-47e6-b7c4-efbf4bf8dc3c
   Components:
     []
+- !<SceneObject/3f4b48b9-fbea-44f9-b8b4-5d3863158c7b>
+  PrefabRemaps:
+    []
+  Name: CrateBase
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -5.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e8424614-7eb8-46d8-ac0c-d1217b64a6d7
+- !<SceneObject/3f506350-579b-44b0-b5f5-d601f429a145>
+  PrefabRemaps:
+    []
+  Name: CrateBack
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -13.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> fe704b9d-6f3f-4007-ada3-181d88dc9555
 - !<SceneObject/4051028a-c608-4a97-b3d5-1a3912a7c007>
   PrefabRemaps:
     []
@@ -927,6 +1479,26 @@
     []
   Components:
     - !<own> 1f969daa-5809-4500-b314-98d91ccba131
+- !<ScriptComponent/4284dddf-16fd-47ea-960d-e7182c702819>
+  PrefabRemaps:
+    []
+  Name: RoomscriptVerbBarUI
+  Enabled: true
+  ScriptAsset: !<reference> 6fff8d64-3b96-4dd0-8a61-8c3c10b7ae9d
+  ScriptInputsDefault:
+    width: true
+    fontScale: true
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      width: !<float> 46.000000
+      fontScale: 1.600000
+      ink: !<Vec4> {x: 0.250000, y: 0.890000, z: 1.000000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/44097eaf-01da-45fb-8973-3bd8172618de>
   PrefabRemaps:
     []
@@ -942,6 +1514,47 @@
     []
   Components:
     []
+- !<ScriptComponent/45d02ac3-0bb8-4964-b3fd-8deb34fe3786>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 3a679857-607e-4143-896f-d2f96bce401b
+      shape: round
+      width: !<float> 20.000000
+      height: 0.500000
+      depth: !<float> 20.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/4697205a-233a-4904-a535-ea44863a4e0b>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+    height: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 588ebdf1-2487-457f-88f8-317ed75c108d
+      shape: box
+      width: !<float> 2.000000
+      height: !<float> 10.000000
+      depth: !<float> 26.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/46b79537-a269-46f1-9483-500d7a4170d6>
   PrefabRemaps:
     []
@@ -972,6 +1585,26 @@
     - !<own> 8fe2a532-9bf3-4cde-b598-04ce5470718d
   Components:
     []
+- !<ScriptComponent/47f2fe2a-c999-40fa-870a-8caa34b53453>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 0ca79d75-eddc-49fe-8bbc-4bcb07eb650a
+      shape: box
+      width: !<float> 46.000000
+      height: !<float> 2.000000
+      depth: !<float> 28.000000
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/49cf7449-80f0-4161-80bf-65f7b6c7d36d>
   PrefabRemaps:
     []
@@ -988,6 +1621,41 @@
       ui: !<MappingBased.AssignableType_1> 104276b7-f5d4-4c73-87c6-2a82eec81ecf
       samples: !<float> 20.000000
       deadlineSeconds: !<float> 45.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/49e7602d-3e73-4679-9aef-5ac4923d9c57>
+  PrefabRemaps:
+    []
+  Name: CrateFront
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 13.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 732db546-7dea-47d5-b7c4-f1a188c32f00
+- !<ScriptComponent/4b8ad089-2e4c-4e5b-8f42-e40780de5249>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 588ebdf1-2487-457f-88f8-317ed75c108d
+      shape: box
+      width: !<float> 60.000000
+      height: !<float> 5.000000
+      depth: !<float> 45.000000
   ScriptTypes:
     "":
       {}
@@ -1021,6 +1689,46 @@
     []
   Components:
     - !<own> 5f153ad7-2baa-4fd9-a298-0dcfad86da3b
+- !<ScriptComponent/4d27f854-0cb0-413a-a64d-e9afae5d9b00>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 0ca79d75-eddc-49fe-8bbc-4bcb07eb650a
+      shape: round
+      width: !<float> 19.000000
+      height: !<float> 18.000000
+      depth: !<float> 19.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/51fa6ab0-36d3-46ac-87ed-219df253971c>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 588ebdf1-2487-457f-88f8-317ed75c108d
+      shape: box
+      width: !<float> 38.000000
+      height: !<float> 4.000000
+      depth: !<float> 32.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/52ecefe4-5642-445a-ad16-52ce818076bc>
   PrefabRemaps:
     []
@@ -1036,6 +1744,27 @@
     - !<own> 8363e9a6-cd83-4889-abd4-6521e394f244
   Components:
     []
+- !<ScriptComponent/53f3600e-eb3f-483e-89ad-ed9ab3a77c31>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+    height: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 588ebdf1-2487-457f-88f8-317ed75c108d
+      shape: box
+      width: !<float> 2.000000
+      height: !<float> 10.000000
+      depth: !<float> 26.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/54130007-65c1-48d3-b9df-0866d8112e01>
   PrefabRemaps:
     []
@@ -1051,6 +1780,21 @@
     - !<own> 46b79537-a269-46f1-9483-500d7a4170d6
   Components:
     []
+- !<SceneObject/5529ac97-5152-4c3c-9709-ce65e755d7b4>
+  PrefabRemaps:
+    []
+  Name: BottleNeck
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 55.000000, y: 96.000000, z: -180.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e47d7d48-2b68-4d49-828f-ea03b2791584
 - !<SceneObject/58ef319f-850e-40dd-8295-e6dc36ab4854>
   PrefabRemaps:
     []
@@ -1090,6 +1834,41 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/5f6061e1-f510-4a50-86a7-85d37181cf62>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 0ca79d75-eddc-49fe-8bbc-4bcb07eb650a
+      shape: round
+      width: !<float> 18.000000
+      height: !<float> 3.000000
+      depth: !<float> 18.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/613881ff-9a7c-4b20-862f-59e67d0c3d3d>
+  PrefabRemaps:
+    []
+  Name: DeskTop
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 73.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 97358725-2738-4a89-b653-699534327619
 - !<ScriptComponent/62967490-d66e-4479-8829-e5c9da5b5b57>
   PrefabRemaps:
     []
@@ -1111,6 +1890,26 @@
       initializePositionAndRotationFilter: true
       _touchpadScrollSpeed: !<float> 250.000000
       touchpadDragThreshold: 0.050000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/62c8207e-5097-4cbb-87ee-f9929651f04b>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> d703a88e-5085-41b5-8ce2-0b00a800ad2e
+      shape: box
+      width: !<float> 100.000000
+      height: !<float> 4.000000
+      depth: !<float> 3.000000
   ScriptTypes:
     "":
       {}
@@ -1229,6 +2028,24 @@
   ScriptInputs:
     "":
       {}
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/696fc2cc-84d2-4d73-907e-d56818ee069f>
+  PrefabRemaps:
+    []
+  Name: RoomscriptZonePlaqueUI
+  Enabled: true
+  ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
+  ScriptInputsDefault:
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      label: KITCHEN
+      width: !<float> 34.000000
+      ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
   ScriptTypes:
     "":
       {}
@@ -1368,6 +2185,27 @@
   Components:
     - !<own> 104276b7-f5d4-4c73-87c6-2a82eec81ecf
     - !<own> 49cf7449-80f0-4161-80bf-65f7b6c7d36d
+- !<ScriptComponent/732db546-7dea-47d5-b7c4-f1a188c32f00>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+    height: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 588ebdf1-2487-457f-88f8-317ed75c108d
+      shape: box
+      width: !<float> 46.000000
+      height: !<float> 10.000000
+      depth: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/74d13517-1dbf-42e6-b536-27afc4909c65>
   PrefabRemaps:
     []
@@ -1428,6 +2266,21 @@
     []
   Components:
     - !<own> c8e031d3-a8a1-468a-a419-427f8556de4c
+- !<SceneObject/7a9e83a3-a31a-474f-b300-b7361bc59a2d>
+  PrefabRemaps:
+    []
+  Name: CrateBand-18
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -18.000000, y: 0.000000, z: 14.200000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 81bc8e7c-9d1b-4305-8409-7d983da69e29
 - !<SceneObject/7aa85bd8-d423-42cd-b190-473711e94929>
   PrefabRemaps:
     []
@@ -1443,6 +2296,21 @@
     - !<own> 52ecefe4-5642-445a-ad16-52ce818076bc
   Components:
     []
+- !<SceneObject/7af942d5-caeb-47be-9ef6-13a5e1e82d64>
+  PrefabRemaps:
+    []
+  Name: CrateBand18
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 18.000000, y: 0.000000, z: 14.200000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> be1109f0-292c-4b53-b233-88350274c161
 - !<SceneObject/7b49000e-c7d9-48c6-8abb-b6c8abcd4655>
   PrefabRemaps:
     []
@@ -1522,6 +2390,26 @@
     []
   Components:
     - !<own> 335c5f8b-2917-49e8-8af5-220696e9bc09
+- !<ScriptComponent/81bc8e7c-9d1b-4305-8409-7d983da69e29>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 0ca79d75-eddc-49fe-8bbc-4bcb07eb650a
+      shape: box
+      width: !<float> 3.000000
+      height: !<float> 11.000000
+      depth: 0.500000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/82a4b4e8-283b-441c-8b94-9fdc50c958f2>
   PrefabRemaps:
     []
@@ -1537,6 +2425,26 @@
     []
   Components:
     - !<own> 62967490-d66e-4479-8829-e5c9da5b5b57
+- !<ScriptComponent/82d66ddc-349c-4a15-9cb4-8ef2b9401d07>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 098e719f-3cd3-458b-ba9a-e286a4e164c6
+      shape: box
+      width: !<float> 65.000000
+      height: !<float> 9.000000
+      depth: !<float> 35.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/8363e9a6-cd83-4889-abd4-6521e394f244>
   PrefabRemaps:
     []
@@ -1552,6 +2460,25 @@
     - !<own> dcc36a33-e23d-48f3-8e96-f9c9fd3cd030
   Components:
     []
+- !<SceneObject/839c75e7-5954-4567-ab2e-b100a0ca45d8>
+  PrefabRemaps:
+    []
+  Name: Roomscript
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> d6ad89c4-0a0d-4e19-b1a0-76b6506a0536
+    - !<own> ecbaaecd-d384-4f04-add8-630a54d6e042
+    - !<own> 092f4eea-0369-4596-853a-d8e4eca025ea
+    - !<own> c8666701-44a4-4881-992d-67e448237df7
+    - !<own> 1bc54cfd-c533-40f8-a297-84ae8eed61f0
+  Components:
+    - !<own> 07faadeb-ecb8-414f-9572-e63020bc35d0
 - !<SceneObject/83ef588c-5040-4344-b15f-0554c739da0b>
   PrefabRemaps:
     []
@@ -1621,6 +2548,56 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/895cc2f2-76ad-4013-8240-95b34e8b21d7>
+  PrefabRemaps:
+    []
+  Name: RoomscriptEvidenceWalletUI
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -105.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 925fa022-10d3-4b8a-9212-ee582496e7a7
+- !<ScriptComponent/89e51ef2-56ac-48b1-9163-4c70fe6921c9>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 588ebdf1-2487-457f-88f8-317ed75c108d
+      shape: box
+      width: !<float> 100.000000
+      height: !<float> 44.000000
+      depth: !<float> 190.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/8a98966c-4836-4e22-8bee-f6704f14f1d9>
+  PrefabRemaps:
+    []
+  Name: RoomscriptNotepadUI
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -105.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e4f54c74-c846-4b55-9764-1552c200d902
 - !<SceneObject/8b877074-7eee-4be1-b669-714f8d5a1da3>
   PrefabRemaps:
     []
@@ -1689,6 +2666,41 @@
     - !<own> 8cb3dd13-6ebf-41e6-9a23-94a69dd96f87
   Components:
     []
+- !<SceneObject/9237ef1c-48e7-4dff-9f9f-782df362e084>
+  PrefabRemaps:
+    []
+  Name: BedPillow
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 54.000000, z: -65.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 82d66ddc-349c-4a15-9cb4-8ef2b9401d07
+- !<ScriptComponent/925fa022-10d3-4b8a-9212-ee582496e7a7>
+  PrefabRemaps:
+    []
+  Name: RoomscriptEvidenceWalletUI
+  Enabled: true
+  ScriptAsset: !<reference> 3363285b-55b8-43f6-b56d-247e8bcf3130
+  ScriptInputsDefault:
+    width: true
+    fontScale: true
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      width: !<float> 46.000000
+      fontScale: 1.600000
+      ink: !<Vec4> {x: 1.000000, y: 0.420000, z: 0.350000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/9468c53c-f76f-49b7-8a49-b5ec6af1c5a3>
   PrefabRemaps:
     []
@@ -1705,6 +2717,56 @@
     - !<own> e9454e66-5d09-4a8a-bcd7-dea762326a48
   Components:
     []
+- !<SceneObject/965426c9-789b-49a5-94ff-55fa41210bb7>
+  PrefabRemaps:
+    []
+  Name: CrateLid
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 14.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 47f2fe2a-c999-40fa-870a-8caa34b53453
+- !<ScriptComponent/97358725-2738-4a89-b653-699534327619>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 588ebdf1-2487-457f-88f8-317ed75c108d
+      shape: box
+      width: !<float> 110.000000
+      height: !<float> 4.000000
+      depth: !<float> 65.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/974267b9-b7c1-4d03-953b-a8e6cb5addc8>
+  PrefabRemaps:
+    []
+  Name: Kitchen plaque
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 180.000000, y: 120.000000, z: -245.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 696fc2cc-84d2-4d73-907e-d56818ee069f
 - !<SceneObject/988c408a-99dc-47e6-b7c4-efbf4bf8dc3c>
   PrefabRemaps:
     []
@@ -1720,6 +2782,26 @@
     - !<own> a4de4ce7-f468-4966-8a06-e29eea60c023
   Components:
     []
+- !<ScriptComponent/9c0d0536-a6ef-4cab-b66e-14fe03c80a3c>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> d703a88e-5085-41b5-8ce2-0b00a800ad2e
+      shape: round
+      width: !<float> 9.000000
+      height: !<float> 12.000000
+      depth: !<float> 9.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/9c3a7929-faa9-4369-a85c-c75a6ab4eee7>
   PrefabRemaps:
     []
@@ -1846,6 +2928,41 @@
     - !<own> 126f3577-bc27-4a20-8d6e-a511bc459c49
   Components:
     []
+- !<SceneObject/a661f566-7fa9-4c00-a9c2-252b45dd5e40>
+  PrefabRemaps:
+    []
+  Name: StandinKettle
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 175.000000, y: 96.000000, z: -265.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4d27f854-0cb0-413a-a64d-e9afae5d9b00
+- !<ScriptComponent/a67ea180-f860-4198-855f-e57da3c558d1>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 098e719f-3cd3-458b-ba9a-e286a4e164c6
+      shape: box
+      width: !<float> 5.000000
+      height: !<float> 72.000000
+      depth: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/a6af4948-9adc-4052-ae22-db902dd2764e>
   PrefabRemaps:
     []
@@ -1936,6 +3053,21 @@
     - !<own> f6687ab7-52ac-408d-a892-8a9559125450
   Components:
     []
+- !<SceneObject/af2fad00-6b61-47ca-97ec-233ccf0ad428>
+  PrefabRemaps:
+    []
+  Name: Envelope WHAT
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 15.000000, y: -1.200000, z: 14.000000}
+    Rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 0451044a-5e06-4512-bd4a-69109477b2ce
 - !<SceneObject/b22d97e6-4c06-4135-af29-d26adb2b9d86>
   PrefabRemaps:
     []
@@ -1981,6 +3113,41 @@
     - !<own> 23018601-1041-4785-a20e-9ad5ab722f95
   Components:
     []
+- !<SceneObject/b4749411-528b-4f9f-8330-bf0d3b10648a>
+  PrefabRemaps:
+    []
+  Name: KettleLid
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 175.000000, y: 106.000000, z: -265.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d6d9a751-bf4b-4437-8aab-b3b533b47b48
+- !<ScriptComponent/b517e304-da1e-4886-a6b3-fcd51a6cb72b>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> d703a88e-5085-41b5-8ce2-0b00a800ad2e
+      shape: box
+      width: !<float> 4.000000
+      height: !<float> 70.000000
+      depth: !<float> 3.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/b54dc8b5-dbcf-4fcc-a310-fb436127cc60>
   PrefabRemaps:
     []
@@ -1996,6 +3163,26 @@
     - !<own> fcc185fc-4e88-4e9e-9c71-40bd83b1b0ed
   Components:
     []
+- !<ScriptComponent/b62a080e-e9e1-43bb-8c44-fa268111a8e0>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 098e719f-3cd3-458b-ba9a-e286a4e164c6
+      shape: box
+      width: !<float> 5.000000
+      height: !<float> 72.000000
+      depth: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/b786dabc-29e4-4cfa-8a84-f39604ffcbdd>
   PrefabRemaps:
     []
@@ -2041,6 +3228,24 @@
     - !<own> 11ac73c9-b802-4eb6-abf5-f73054ca7e20
   Components:
     []
+- !<SceneObject/ba16d39b-ff7b-451c-beb0-933e28012f77>
+  PrefabRemaps:
+    []
+  Name: CrateHinge
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 6.000000, z: -14.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 965426c9-789b-49a5-94ff-55fa41210bb7
+    - !<own> f8eff1ab-4e50-46f5-aef8-f84d81de5922
+    - !<own> 142e37b8-b899-40dc-b1de-beaf92964cc2
+    - !<own> af2fad00-6b61-47ca-97ec-233ccf0ad428
+  Components:
+    []
 - !<SceneObject/bb75b5ea-8baf-4d8d-bcf8-49bd79873881>
   PrefabRemaps:
     []
@@ -2056,6 +3261,21 @@
     - !<own> 0911db7e-7b90-4790-bab3-9ac99e936696
   Components:
     []
+- !<SceneObject/bb873cd5-b7ce-4adb-be6f-da144111ba7e>
+  PrefabRemaps:
+    []
+  Name: StandinWindow
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -120.000000, y: 125.000000, z: -280.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e5dbbaf7-4f9b-4c02-82ee-81f7135a3331
 - !<SceneObject/bb9036be-541f-49e7-9554-c297d354da21>
   PrefabRemaps:
     []
@@ -2071,6 +3291,21 @@
     - !<own> b786dabc-29e4-4cfa-8a84-f39604ffcbdd
   Components:
     []
+- !<SceneObject/bbb74de4-2534-424d-b245-2e2c924d3724>
+  PrefabRemaps:
+    []
+  Name: RoomscriptChipBarUI
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -7.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 34a533b2-80b7-4434-9883-6f518b375af0
 - !<SceneObject/bbcbfc17-8d65-4333-bce1-6f7239f690b8>
   PrefabRemaps:
     []
@@ -2101,6 +3336,26 @@
     - !<own> fe93d992-1114-4f1f-8bef-0a0bbd75747d
   Components:
     []
+- !<ScriptComponent/be1109f0-292c-4b53-b233-88350274c161>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 0ca79d75-eddc-49fe-8bbc-4bcb07eb650a
+      shape: box
+      width: !<float> 3.000000
+      height: !<float> 11.000000
+      depth: 0.500000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/bf2095b6-c6f8-48c8-b840-e0a6cec0dc99>
   PrefabRemaps:
     []
@@ -2116,6 +3371,89 @@
     []
   Components:
     []
+- !<ScriptComponent/c1d5c805-1c43-4b01-a32e-57c5e9ca382b>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 098e719f-3cd3-458b-ba9a-e286a4e164c6
+      shape: box
+      width: !<float> 5.000000
+      height: !<float> 72.000000
+      depth: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/c70357ef-8e8f-4f5b-b6fd-ac2bfec9db87>
+  PrefabRemaps:
+    []
+  Name: StandinLamp
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 110.000000, y: 109.000000, z: -210.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 09af3fa3-e5e9-423a-8355-2c95d984c5e6
+- !<ScriptComponent/c7af2f65-832a-41c6-8482-def373dc0206>
+  PrefabRemaps:
+    []
+  Name: RoomscriptZonePlaqueUI
+  Enabled: true
+  ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
+  ScriptInputsDefault:
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      label: HALL
+      width: !<float> 34.000000
+      ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/c7ceca32-5495-4169-ba13-8c79624a8ba5>
+  PrefabRemaps:
+    []
+  Name: Conservatory plaque
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -120.000000, y: 170.000000, z: -275.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 3a4d131d-cbda-4ae0-aca0-8c7fb68fa5cf
+- !<SceneObject/c8666701-44a4-4881-992d-67e448237df7>
+  PrefabRemaps:
+    []
+  Name: RoomscriptAudio
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 03b68dc8-22bb-491c-a885-d3103651a168
 - !<ScriptComponent/c8e031d3-a8a1-468a-a419-427f8556de4c>
   PrefabRemaps:
     []
@@ -2159,6 +3497,21 @@
     - !<own> 0a0e1d78-8246-4f5b-ab1a-fdc51837956d
   Components:
     []
+- !<SceneObject/cbaa2f94-cfa3-4b57-9350-d0e57dcd19fe>
+  PrefabRemaps:
+    []
+  Name: DeskLeg-48_-25
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -48.000000, y: 36.000000, z: -25.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e263bdbc-0a90-45ad-9e14-a6054fa1f3cd
 - !<Skin/ccf4d3bc-d3c2-4580-b9c5-62f164ef7eef>
   PrefabRemaps:
     []
@@ -2214,6 +3567,21 @@
     index-2: !<reference> 2dae2a27-8ce6-466a-8bff-622195c1b3a8
     thumb-3_end_end_end_end: !<reference> bf2095b6-c6f8-48c8-b840-e0a6cec0dc99
     wrist_to_pinky: !<reference> 3b4f5057-b516-4d3b-9c8d-14c81af2f505
+- !<SceneObject/cd1aedfe-bd31-48dd-b0fd-79d71623cf39>
+  PrefabRemaps:
+    []
+  Name: BedBase
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 22.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 89e51ef2-56ac-48b1-9163-4c70fe6921c9
 - !<SceneObject/ce2213a1-7aa1-4201-a3c7-c2aaa06fd4ff>
   PrefabRemaps:
     []
@@ -2259,6 +3627,41 @@
     - !<own> bb9036be-541f-49e7-9554-c297d354da21
   Components:
     []
+- !<SceneObject/d170c01f-75d2-40e9-be20-a0733b2468f1>
+  PrefabRemaps:
+    []
+  Name: CrateRight
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 22.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 53f3600e-eb3f-483e-89ad-ed9ab3a77c31
+- !<ScriptComponent/d20f0b6d-ef81-4619-8b21-507b7d6756e9>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> b9633037-58c7-4b8f-a5ef-f890c36cae2c
+      shape: box
+      width: !<float> 22.000000
+      height: !<float> 1.000000
+      depth: !<float> 1.000000
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/d3e2fbc5-8795-4913-9af6-c8626f8e6d9c>
   PrefabRemaps:
     []
@@ -2294,6 +3697,21 @@
     - !<own> 38562bff-09c5-4232-bff1-7ea62a1e7ec5
   Components:
     []
+- !<SceneObject/d5b9086d-5e3e-4019-98fc-de9a04966325>
+  PrefabRemaps:
+    []
+  Name: StandinDoor
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 190.000000, y: 105.000000, z: 70.000000}
+    Rotation: {x: 0.000000, y: 90.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2ff001fa-2a75-44db-8cce-c279ff088dbb
 - !<SceneObject/d5f63266-b1ce-419f-847b-3c9f347b3ee2>
   PrefabRemaps:
     []
@@ -2309,6 +3727,45 @@
     - !<own> bbcbfc17-8d65-4333-bce1-6f7239f690b8
   Components:
     []
+- !<SceneObject/d6ad89c4-0a0d-4e19-b1a0-76b6506a0536>
+  PrefabRemaps:
+    []
+  Name: RoomscriptUI
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 0d29988b-7e2b-4c72-aacf-da4832dc4eb7
+    - !<own> bbb74de4-2534-424d-b245-2e2c924d3724
+    - !<own> 14ef3211-0c6a-455e-b19e-6cd06e773699
+    - !<own> 8a98966c-4836-4e22-8bee-f6704f14f1d9
+    - !<own> 895cc2f2-76ad-4013-8240-95b34e8b21d7
+  Components:
+    []
+- !<ScriptComponent/d6d9a751-bf4b-4437-8aab-b3b533b47b48>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> d703a88e-5085-41b5-8ce2-0b00a800ad2e
+      shape: round
+      width: !<float> 14.000000
+      height: !<float> 3.000000
+      depth: !<float> 14.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/d9071294-12e8-425f-98f1-bf308a02639e>
   PrefabRemaps:
     []
@@ -2399,6 +3856,21 @@
     - !<own> d4a9c5e3-fe96-4824-9b20-59f5ad39eabd
   Components:
     []
+- !<SceneObject/de6b50a7-85f0-4b04-b254-bf8821205b47>
+  PrefabRemaps:
+    []
+  Name: DeskLeg48_25
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 48.000000, y: 36.000000, z: 25.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b62a080e-e9e1-43bb-8c44-fa268111a8e0
 - !<RenderMeshVisual/e1031f7e-3474-489f-a529-282f7192f812>
   PrefabRemaps:
     []
@@ -2419,6 +3891,26 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<ScriptComponent/e263bdbc-0a90-45ad-9e14-a6054fa1f3cd>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 098e719f-3cd3-458b-ba9a-e286a4e164c6
+      shape: box
+      width: !<float> 5.000000
+      height: !<float> 72.000000
+      depth: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/e2ba526d-75d1-466b-86a5-9cd7c42dca84>
   PrefabRemaps:
     []
@@ -2434,6 +3926,36 @@
     - !<own> 7e2075c6-0882-4275-8365-16a03da73298
   Components:
     []
+- !<SceneObject/e2eff18a-d353-4494-849e-49a6ad17a7ca>
+  PrefabRemaps:
+    []
+  Name: WindowCross
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -120.000000, y: 125.000000, z: -277.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b517e304-da1e-4886-a6b3-fcd51a6cb72b
+- !<SceneObject/e39bc86f-d634-4f2c-b50b-e01bcad19066>
+  PrefabRemaps:
+    []
+  Name: Hall plaque
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 170.000000, y: 145.000000, z: 40.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c7af2f65-832a-41c6-8482-def373dc0206
 - !<SceneObject/e42bbb9f-e951-4432-be2e-3cc712b1fc33>
   PrefabRemaps:
     []
@@ -2449,6 +3971,46 @@
     - !<own> 6a7a67db-5675-49bb-8f31-ba0588e3cffc
   Components:
     []
+- !<ScriptComponent/e47d7d48-2b68-4d49-828f-ea03b2791584>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 511c6ab8-adef-4d3b-ba7b-60227e0e010c
+      shape: round
+      width: !<float> 3.000000
+      height: !<float> 8.000000
+      depth: !<float> 3.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/e4f54c74-c846-4b55-9764-1552c200d902>
+  PrefabRemaps:
+    []
+  Name: RoomscriptNotepadUI
+  Enabled: true
+  ScriptAsset: !<reference> 8c3dca70-a54a-4419-8cff-dee1a042e92f
+  ScriptInputsDefault:
+    width: true
+    fontScale: true
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      width: !<float> 46.000000
+      fontScale: 1.600000
+      ink: !<Vec4> {x: 0.930000, y: 0.960000, z: 1.000000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<DeviceTracking/e5553c8a-0b7e-4ef4-92d9-3e1318fb82c1>
   PrefabRemaps:
     []
@@ -2459,6 +4021,45 @@
     InvertRotation: false
   SurfaceOptions: !<SurfaceOptions>
     EnhanceWithNativeAR: false
+- !<ScriptComponent/e5dbbaf7-4f9b-4c02-82ee-81f7135a3331>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 511c6ab8-adef-4d3b-ba7b-60227e0e010c
+      shape: box
+      width: !<float> 100.000000
+      height: !<float> 70.000000
+      depth: !<float> 4.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/e732943e-644a-4f9c-ab6f-f7b6aa84a5e1>
+  PrefabRemaps:
+    []
+  Name: RoomscriptZonePlaqueUI
+  Enabled: true
+  ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
+  ScriptInputsDefault:
+    label: true
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      label: STUDY
+      width: !<float> 34.000000
+      ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/e76a5053-8f30-4cda-9cd1-def2036e3255>
   PrefabRemaps:
     []
@@ -2474,6 +4075,41 @@
     - !<own> 0f983d21-20bc-4d89-a991-fbb95bacbd64
   Components:
     []
+- !<SceneObject/e788c867-21d5-4486-8fd7-6b42b50f5fe8>
+  PrefabRemaps:
+    []
+  Name: InterrogationMark
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 30.000000, y: -159.500000, z: -160.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 45d02ac3-0bb8-4964-b3fd-8deb34fe3786
+- !<ScriptComponent/e8424614-7eb8-46d8-ac0c-d1217b64a6d7>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 098e719f-3cd3-458b-ba9a-e286a4e164c6
+      shape: box
+      width: !<float> 46.000000
+      height: !<float> 2.000000
+      depth: !<float> 28.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/e9454e66-5d09-4a8a-bcd7-dea762326a48>
   PrefabRemaps:
     []
@@ -2512,6 +4148,55 @@
     Fingers_length: 0.000000
     Thumb_inflate: 0.000000
     Thumb_length: 0.000000
+- !<SceneObject/ecbaaecd-d384-4f04-add8-630a54d6e042>
+  PrefabRemaps:
+    []
+  Name: RoomscriptAnchors
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> e788c867-21d5-4486-8fd7-6b42b50f5fe8
+    - !<own> 17264c68-e0dc-43a2-9f44-1b3b91d2d69d
+  Components:
+    []
+- !<SceneObject/ed2fd8fc-9b0e-46e2-89c5-7875ccec3104>
+  PrefabRemaps:
+    []
+  Name: WindowBar
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -120.000000, y: 125.000000, z: -276.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 62c8207e-5097-4cbb-87ee-f9929651f04b
+- !<ScriptComponent/eff761a5-8bd6-48da-ae0e-c5456060aea7>
+  PrefabRemaps:
+    []
+  Name: RoomscriptZonePlaqueUI
+  Enabled: true
+  ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
+  ScriptInputsDefault:
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      label: WHO
+      width: !<float> 13.000000
+      ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/f0394c5d-4c44-4c65-a77c-e1c7e05ca905>
   PrefabRemaps:
     []
@@ -2527,6 +4212,54 @@
     []
   Components:
     []
+- !<SceneObject/f07e27a4-a0f7-43c4-9e55-b5e8233535b4>
+  PrefabRemaps:
+    []
+  Name: Lounge plaque
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -160.000000, y: 65.000000, z: -20.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f343339c-543f-40a3-ad74-f75c8f4d4702
+- !<SceneObject/f20ce8a3-5414-4872-afd9-9f54617f80f3>
+  PrefabRemaps:
+    []
+  Name: KettleShelf
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 180.000000, y: 85.000000, z: -250.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4b8ad089-2e4c-4e5b-8f42-e40780de5249
+- !<ScriptComponent/f343339c-543f-40a3-ad74-f75c8f4d4702>
+  PrefabRemaps:
+    []
+  Name: RoomscriptZonePlaqueUI
+  Enabled: true
+  ScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
+  ScriptInputsDefault:
+    ink: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      label: LOUNGE
+      width: !<float> 34.000000
+      ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/f36287fd-ed56-442d-ba20-78f9ef6f3502>
   PrefabRemaps:
     []
@@ -2543,6 +4276,21 @@
   Components:
     - !<own> d3e2fbc5-8795-4913-9af6-c8626f8e6d9c
     - !<own> 275aeb4d-77ac-4b1b-811e-907652542110
+- !<SceneObject/f4c36617-f1e6-4587-a204-b4698a3ee6c2>
+  PrefabRemaps:
+    []
+  Name: CrateLeft
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -22.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4697205a-233a-4904-a535-ea44863a4e0b
 - !<SceneObject/f4c9b245-1047-44e6-8a62-ce896ee13921>
   PrefabRemaps:
     []
@@ -2764,6 +4512,41 @@
     - !<own> a7526b33-fca3-4f28-8e32-b0e9aa13c4b4
   Components:
     []
+- !<ScriptComponent/f8161503-cf7d-429c-b9ea-0306c0c70a5a>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 0ca79d75-eddc-49fe-8bbc-4bcb07eb650a
+      shape: round
+      width: !<float> 2.000000
+      height: !<float> 27.000000
+      depth: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/f8eff1ab-4e50-46f5-aef8-f84d81de5922>
+  PrefabRemaps:
+    []
+  Name: Envelope WHO
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -15.000000, y: -1.200000, z: 14.000000}
+    Rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> eff761a5-8bd6-48da-ae0e-c5456060aea7
 - !<SceneObject/fcc185fc-4e88-4e9e-9c71-40bd83b1b0ed>
   PrefabRemaps:
     []
@@ -2779,6 +4562,27 @@
     - !<own> 2dae2a27-8ce6-466a-8bff-622195c1b3a8
   Components:
     []
+- !<ScriptComponent/fe704b9d-6f3f-4007-ada3-181d88dc9555>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPropMesh
+  Enabled: true
+  ScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ScriptInputsDefault:
+    shape: true
+    height: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 588ebdf1-2487-457f-88f8-317ed75c108d
+      shape: box
+      width: !<float> 46.000000
+      height: !<float> 10.000000
+      depth: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/fe93d992-1114-4f1f-8bef-0a0bbd75747d>
   PrefabRemaps:
     []
@@ -2810,3 +4614,34 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/ff8ab6c6-75e4-4e81-80b1-7295cac8c15f>
+  PrefabRemaps:
+    []
+  Name: RoomscriptPreviewRoom
+  Enabled: true
+  ScriptAsset: !<reference> 2dee4d94-b518-46fc-881e-43d4771207f4
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/ffe47d5c-2fc9-49ca-9797-87e43abab80f>
+  PrefabRemaps:
+    []
+  Name: MugShelf
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 150.000000, y: 76.000000, z: 20.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 51fa6ab0-36d3-46ac-87ed-219df253971c

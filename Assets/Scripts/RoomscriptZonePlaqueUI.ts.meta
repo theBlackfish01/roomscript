@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/7bf6590f-62aa-4a06-bed5-f86c17faee6d>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> b1f81573-121d-419e-a91f-6ed513d95df6
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 214c1167-1f0d-49a4-a60a-75372ead16d3
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/214c1167-1f0d-49a4-a60a-75372ead16d3>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 43b433a6-4ea4-44b3-9d26-73fc6b191381
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    ink: false
+    label: false
+    width: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - label: STUDY
+      width: !<float> 28.000000
+      ink: !<Vec4> {x: 0.910000, y: 0.690000, z: 0.290000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input string label = "STUDY" {"hint":"Plaque wording"}'
+    - '// @input float width = 28 {"hint":"Plaque width cm", "widget":"slider", "min":12, "max":55, "step":1}'
+    - '// @input vec4 ink = "{0.91,0.69,0.29,1}" {"hint":"Brass lettering", "widget":"color"}'

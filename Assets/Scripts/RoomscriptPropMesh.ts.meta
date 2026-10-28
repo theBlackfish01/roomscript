@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/6c02e26f-a1b5-4a56-bdbc-cb078837c9f1>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 69f516ec-8025-4971-9615-f979b133bbac
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 6f576100-c1a4-4b11-9f2b-97c154c0eef7
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/6f576100-c1a4-4b11-9f2b-97c154c0eef7>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 08dcd06c-7fb8-4af6-8674-1028c56fa13a
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    depth: false
+    height: false
+    material: false
+    shape: false
+    width: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      shape: box
+      width: !<float> 10.000000
+      height: !<float> 10.000000
+      depth: !<float> 10.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input Asset.Material material {"hint":"Authored unlit surface material"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Shape"}'
+    - '// @input string shape = "box" {"hint":"Stand-in geometry", "widget":"combobox", "values":[{"label":"Box", "value":"box"}, {"label":"Round", "value":"round"}]}'
+    - '// @input float width = 10 {"hint":"Width cm", "widget":"slider", "min":0.2, "max":250, "step":0.1}'
+    - '// @input float height = 10 {"hint":"Height cm", "widget":"slider", "min":0.2, "max":250, "step":0.1}'
+    - '// @input float depth = 10 {"hint":"Depth cm", "widget":"slider", "min":0.2, "max":250, "step":0.1}'
+    - '// @ui {"widget":"group_end"}'

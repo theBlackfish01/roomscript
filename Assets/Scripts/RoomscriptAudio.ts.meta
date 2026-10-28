@@ -1,0 +1,49 @@
+- !<AssetImportMetadata/4b23c659-89e0-45c4-860d-6ebaa2a84d2f>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 89502650-b1bf-4a27-b880-0b2a95158259
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 89502650-b1bf-4a27-b880-0b2a95158259
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 7be96e93-2bcf-4066-8774-209f2c3495dd
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/7be96e93-2bcf-4066-8774-209f2c3495dd>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: f28f1e8e-43a1-46a7-b201-55a83f6197de
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    musicVolume: false
+    sfxVolume: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - sfxVolume: 0.450000
+      musicVolume: 0.100000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input float sfxVolume = 0.45 {"hint":"Interactive sound volume", "widget":"slider", "min":0, "max":1, "step":0.05}'
+    - '// @input float musicVolume = 0.1 {"hint":"Quiet background music volume", "widget":"slider", "min":0, "max":0.5, "step":0.01}'

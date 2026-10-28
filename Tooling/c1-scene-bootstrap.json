@@ -1,0 +1,1448 @@
+﻿{
+    "phaseA":  {
+                   "assets":  [
+                                  {
+                                      "id":  "$temp:matBrass",
+                                      "preset":  "UnlitMaterialPreset",
+                                      "name":  "RoomscriptBrass",
+                                      "destinationPath":  "Materials",
+                                      "properties":  {
+                                                         "passInfos.0.baseColor":  {
+                                                                                       "x":  0.91,
+                                                                                       "y":  0.69,
+                                                                                       "z":  0.29,
+                                                                                       "w":  1
+                                                                                   }
+                                                     }
+                                  },
+                                  {
+                                      "id":  "$temp:matIvory",
+                                      "preset":  "UnlitMaterialPreset",
+                                      "name":  "RoomscriptIvory",
+                                      "destinationPath":  "Materials",
+                                      "properties":  {
+                                                         "passInfos.0.baseColor":  {
+                                                                                       "x":  0.93,
+                                                                                       "y":  0.87,
+                                                                                       "z":  0.73,
+                                                                                       "w":  1
+                                                                                   }
+                                                     }
+                                  },
+                                  {
+                                      "id":  "$temp:matCyan",
+                                      "preset":  "UnlitMaterialPreset",
+                                      "name":  "RoomscriptCyan",
+                                      "destinationPath":  "Materials",
+                                      "properties":  {
+                                                         "passInfos.0.baseColor":  {
+                                                                                       "x":  0.25,
+                                                                                       "y":  0.89,
+                                                                                       "z":  1,
+                                                                                       "w":  1
+                                                                                   }
+                                                     }
+                                  },
+                                  {
+                                      "id":  "$temp:matCoral",
+                                      "preset":  "UnlitMaterialPreset",
+                                      "name":  "RoomscriptCoral",
+                                      "destinationPath":  "Materials",
+                                      "properties":  {
+                                                         "passInfos.0.baseColor":  {
+                                                                                       "x":  1,
+                                                                                       "y":  0.42,
+                                                                                       "z":  0.35,
+                                                                                       "w":  1
+                                                                                   }
+                                                     }
+                                  },
+                                  {
+                                      "id":  "$temp:matSlate",
+                                      "preset":  "UnlitMaterialPreset",
+                                      "name":  "RoomscriptSlate",
+                                      "destinationPath":  "Materials",
+                                      "properties":  {
+                                                         "passInfos.0.baseColor":  {
+                                                                                       "x":  0.12,
+                                                                                       "y":  0.18,
+                                                                                       "z":  0.22,
+                                                                                       "w":  1
+                                                                                   }
+                                                     }
+                                  },
+                                  {
+                                      "id":  "$temp:matWood",
+                                      "preset":  "UnlitMaterialPreset",
+                                      "name":  "RoomscriptWood",
+                                      "destinationPath":  "Materials",
+                                      "properties":  {
+                                                         "passInfos.0.baseColor":  {
+                                                                                       "x":  0.35,
+                                                                                       "y":  0.23,
+                                                                                       "z":  0.14,
+                                                                                       "w":  1
+                                                                                   }
+                                                     }
+                                  },
+                                  {
+                                      "id":  "$temp:matYellow",
+                                      "preset":  "UnlitMaterialPreset",
+                                      "name":  "RoomscriptYellow",
+                                      "destinationPath":  "Materials",
+                                      "properties":  {
+                                                         "passInfos.0.baseColor":  {
+                                                                                       "x":  1,
+                                                                                       "y":  0.84,
+                                                                                       "z":  0.04,
+                                                                                       "w":  1
+                                                                                   }
+                                                     }
+                                  }
+                              ],
+                   "create":  [
+                                  {
+                                      "id":  "$temp:Roomscript",
+                                      "name":  "Roomscript",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         0,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptMain.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:RoomscriptUI",
+                                      "name":  "RoomscriptUI",
+                                      "parentId":  "$temp:Roomscript",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         0,
+                                                                         0
+                                                                     ]
+                                                    }
+                                  },
+                                  {
+                                      "id":  "$temp:RoomscriptAnchors",
+                                      "name":  "RoomscriptAnchors",
+                                      "parentId":  "$temp:Roomscript",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         0,
+                                                                         0
+                                                                     ]
+                                                    }
+                                  },
+                                  {
+                                      "id":  "$temp:PreviewRoom",
+                                      "name":  "PreviewRoom",
+                                      "parentId":  "$temp:Roomscript",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         -160,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPreviewRoom.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:RoomscriptAudio",
+                                      "name":  "RoomscriptAudio",
+                                      "parentId":  "$temp:Roomscript",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         0,
+                                                                         -110
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptAudio.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:RoomscriptCaseLidUI",
+                                      "name":  "RoomscriptCaseLidUI",
+                                      "parentId":  "$temp:RoomscriptUI",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         26,
+                                                                         -110
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptCaseLidUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:RoomscriptChipBarUI",
+                                      "name":  "RoomscriptChipBarUI",
+                                      "parentId":  "$temp:RoomscriptUI",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         -7,
+                                                                         -110
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptChipBarUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:RoomscriptVerbBarUI",
+                                      "name":  "RoomscriptVerbBarUI",
+                                      "parentId":  "$temp:RoomscriptUI",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         -29,
+                                                                         -110
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptVerbBarUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:RoomscriptNotepadUI",
+                                      "name":  "RoomscriptNotepadUI",
+                                      "parentId":  "$temp:RoomscriptUI",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         0,
+                                                                         -105
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptNotepadUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:RoomscriptEvidenceWalletUI",
+                                      "name":  "RoomscriptEvidenceWalletUI",
+                                      "parentId":  "$temp:RoomscriptUI",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         0,
+                                                                         -105
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptEvidenceWalletUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:StandinDesk",
+                                      "name":  "StandinDesk",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         80,
+                                                                         0,
+                                                                         -180
+                                                                     ]
+                                                    }
+                                  },
+                                  {
+                                      "id":  "$temp:DeskTop",
+                                      "name":  "DeskTop",
+                                      "parentId":  "$temp:StandinDesk",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         73,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:DeskLeg-48_-25",
+                                      "name":  "DeskLeg-48_-25",
+                                      "parentId":  "$temp:StandinDesk",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -48,
+                                                                         36,
+                                                                         -25
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:DeskLeg-48_25",
+                                      "name":  "DeskLeg-48_25",
+                                      "parentId":  "$temp:StandinDesk",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -48,
+                                                                         36,
+                                                                         25
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:DeskLeg48_-25",
+                                      "name":  "DeskLeg48_-25",
+                                      "parentId":  "$temp:StandinDesk",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         48,
+                                                                         36,
+                                                                         -25
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:DeskLeg48_25",
+                                      "name":  "DeskLeg48_25",
+                                      "parentId":  "$temp:StandinDesk",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         48,
+                                                                         36,
+                                                                         25
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:StandinBed",
+                                      "name":  "StandinBed",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -160,
+                                                                         0,
+                                                                         -120
+                                                                     ]
+                                                    }
+                                  },
+                                  {
+                                      "id":  "$temp:BedBase",
+                                      "name":  "BedBase",
+                                      "parentId":  "$temp:StandinBed",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         22,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:BedCover",
+                                      "name":  "BedCover",
+                                      "parentId":  "$temp:StandinBed",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         47,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:BedPillow",
+                                      "name":  "BedPillow",
+                                      "parentId":  "$temp:StandinBed",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         54,
+                                                                         -65
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:StandinDoor",
+                                      "name":  "StandinDoor",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         190,
+                                                                         105,
+                                                                         70
+                                                                     ],
+                                                        "rotation":  [
+                                                                         0,
+                                                                         90,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:StandinWindow",
+                                      "name":  "StandinWindow",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -120,
+                                                                         125,
+                                                                         -280
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:WindowCross",
+                                      "name":  "WindowCross",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -120,
+                                                                         125,
+                                                                         -277
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:WindowBar",
+                                      "name":  "WindowBar",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -120,
+                                                                         125,
+                                                                         -276
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:KettleShelf",
+                                      "name":  "KettleShelf",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         180,
+                                                                         85,
+                                                                         -250
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:StandinCable",
+                                      "name":  "StandinCable",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         95,
+                                                                         75.5,
+                                                                         -190
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:MugShelf",
+                                      "name":  "MugShelf",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         150,
+                                                                         76,
+                                                                         20
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:StandinMug",
+                                      "name":  "StandinMug",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         150,
+                                                                         84,
+                                                                         20
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:StandinBottle",
+                                      "name":  "StandinBottle",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         55,
+                                                                         84,
+                                                                         -180
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:BottleNeck",
+                                      "name":  "BottleNeck",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         55,
+                                                                         96,
+                                                                         -180
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:LampBase",
+                                      "name":  "LampBase",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         110,
+                                                                         77,
+                                                                         -210
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:LampStem",
+                                      "name":  "LampStem",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         110,
+                                                                         91,
+                                                                         -210
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:StandinLamp",
+                                      "name":  "StandinLamp",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         110,
+                                                                         109,
+                                                                         -210
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:StandinKettle",
+                                      "name":  "StandinKettle",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         175,
+                                                                         96,
+                                                                         -265
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:KettleLid",
+                                      "name":  "KettleLid",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         175,
+                                                                         106,
+                                                                         -265
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:Study plaque",
+                                      "name":  "Study plaque",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         80,
+                                                                         88,
+                                                                         -145
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptZonePlaqueUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:Lounge plaque",
+                                      "name":  "Lounge plaque",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -160,
+                                                                         65,
+                                                                         -20
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptZonePlaqueUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:Hall plaque",
+                                      "name":  "Hall plaque",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         170,
+                                                                         145,
+                                                                         40
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptZonePlaqueUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:Conservatory plaque",
+                                      "name":  "Conservatory plaque",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -120,
+                                                                         170,
+                                                                         -275
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptZonePlaqueUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:Kitchen plaque",
+                                      "name":  "Kitchen plaque",
+                                      "parentId":  "$temp:PreviewRoom",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         180,
+                                                                         120,
+                                                                         -245
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptZonePlaqueUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:RoomscriptCrate",
+                                      "name":  "RoomscriptCrate",
+                                      "parentId":  "$temp:Roomscript",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -65,
+                                                                         -49,
+                                                                         -140
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptCaseCrate.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:CrateBase",
+                                      "name":  "CrateBase",
+                                      "parentId":  "$temp:RoomscriptCrate",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         -5,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:CrateFront",
+                                      "name":  "CrateFront",
+                                      "parentId":  "$temp:RoomscriptCrate",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         0,
+                                                                         13
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:CrateBack",
+                                      "name":  "CrateBack",
+                                      "parentId":  "$temp:RoomscriptCrate",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         0,
+                                                                         -13
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:CrateLeft",
+                                      "name":  "CrateLeft",
+                                      "parentId":  "$temp:RoomscriptCrate",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -22,
+                                                                         0,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:CrateRight",
+                                      "name":  "CrateRight",
+                                      "parentId":  "$temp:RoomscriptCrate",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         22,
+                                                                         0,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:CrateBand-18",
+                                      "name":  "CrateBand-18",
+                                      "parentId":  "$temp:RoomscriptCrate",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -18,
+                                                                         0,
+                                                                         14.2
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:CrateBand18",
+                                      "name":  "CrateBand18",
+                                      "parentId":  "$temp:RoomscriptCrate",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         18,
+                                                                         0,
+                                                                         14.2
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:CrateHinge",
+                                      "name":  "CrateHinge",
+                                      "parentId":  "$temp:RoomscriptCrate",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         6,
+                                                                         -14
+                                                                     ]
+                                                    }
+                                  },
+                                  {
+                                      "id":  "$temp:CrateLid",
+                                      "name":  "CrateLid",
+                                      "parentId":  "$temp:CrateHinge",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         0,
+                                                                         14
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:Envelope WHO",
+                                      "name":  "Envelope WHO",
+                                      "parentId":  "$temp:CrateHinge",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         -15,
+                                                                         -1.2,
+                                                                         14
+                                                                     ],
+                                                        "rotation":  [
+                                                                         90,
+                                                                         0,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptZonePlaqueUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:Envelope WHERE",
+                                      "name":  "Envelope WHERE",
+                                      "parentId":  "$temp:CrateHinge",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         0,
+                                                                         -1.2,
+                                                                         14
+                                                                     ],
+                                                        "rotation":  [
+                                                                         90,
+                                                                         0,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptZonePlaqueUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:Envelope WHAT",
+                                      "name":  "Envelope WHAT",
+                                      "parentId":  "$temp:CrateHinge",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         15,
+                                                                         -1.2,
+                                                                         14
+                                                                     ],
+                                                        "rotation":  [
+                                                                         90,
+                                                                         0,
+                                                                         0
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptZonePlaqueUI.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:InterrogationMark",
+                                      "name":  "InterrogationMark",
+                                      "parentId":  "$temp:RoomscriptAnchors",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         30,
+                                                                         -159.5,
+                                                                         -160
+                                                                     ]
+                                                    },
+                                      "components":  [
+                                                         {
+                                                             "type":  "ScriptComponent",
+                                                             "properties":  {
+                                                                                "scriptAsset":  "@asset:Assets/Scripts/RoomscriptPropMesh.ts"
+                                                                            }
+                                                         }
+                                                     ]
+                                  },
+                                  {
+                                      "id":  "$temp:RoomscriptSuspectSlot",
+                                      "name":  "RoomscriptSuspectSlot",
+                                      "parentId":  "$temp:RoomscriptAnchors",
+                                      "transform":  {
+                                                        "position":  [
+                                                                         30,
+                                                                         -160,
+                                                                         -160
+                                                                     ]
+                                                    }
+                                  }
+                              ]
+               },
+    "phaseB":  {
+                   "modify":  {
+                                  "@sceneObject:DeskTop":  {
+                                                               "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptWood.mat",
+                                                               "components.ScriptComponent.width":  110,
+                                                               "components.ScriptComponent.height":  4,
+                                                               "components.ScriptComponent.depth":  65,
+                                                               "components.ScriptComponent.shape":  "box"
+                                                           },
+                                  "@sceneObject:DeskLeg-48_-25":  {
+                                                                      "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptSlate.mat",
+                                                                      "components.ScriptComponent.width":  5,
+                                                                      "components.ScriptComponent.height":  72,
+                                                                      "components.ScriptComponent.depth":  5,
+                                                                      "components.ScriptComponent.shape":  "box"
+                                                                  },
+                                  "@sceneObject:DeskLeg-48_25":  {
+                                                                     "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptSlate.mat",
+                                                                     "components.ScriptComponent.width":  5,
+                                                                     "components.ScriptComponent.height":  72,
+                                                                     "components.ScriptComponent.depth":  5,
+                                                                     "components.ScriptComponent.shape":  "box"
+                                                                 },
+                                  "@sceneObject:DeskLeg48_-25":  {
+                                                                     "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptSlate.mat",
+                                                                     "components.ScriptComponent.width":  5,
+                                                                     "components.ScriptComponent.height":  72,
+                                                                     "components.ScriptComponent.depth":  5,
+                                                                     "components.ScriptComponent.shape":  "box"
+                                                                 },
+                                  "@sceneObject:DeskLeg48_25":  {
+                                                                    "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptSlate.mat",
+                                                                    "components.ScriptComponent.width":  5,
+                                                                    "components.ScriptComponent.height":  72,
+                                                                    "components.ScriptComponent.depth":  5,
+                                                                    "components.ScriptComponent.shape":  "box"
+                                                                },
+                                  "@sceneObject:BedBase":  {
+                                                               "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptWood.mat",
+                                                               "components.ScriptComponent.width":  100,
+                                                               "components.ScriptComponent.height":  44,
+                                                               "components.ScriptComponent.depth":  190,
+                                                               "components.ScriptComponent.shape":  "box"
+                                                           },
+                                  "@sceneObject:BedCover":  {
+                                                                "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptIvory.mat",
+                                                                "components.ScriptComponent.width":  100,
+                                                                "components.ScriptComponent.height":  6,
+                                                                "components.ScriptComponent.depth":  190,
+                                                                "components.ScriptComponent.shape":  "box"
+                                                            },
+                                  "@sceneObject:BedPillow":  {
+                                                                 "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptSlate.mat",
+                                                                 "components.ScriptComponent.width":  65,
+                                                                 "components.ScriptComponent.height":  9,
+                                                                 "components.ScriptComponent.depth":  35,
+                                                                 "components.ScriptComponent.shape":  "box"
+                                                             },
+                                  "@sceneObject:StandinDoor":  {
+                                                                   "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptWood.mat",
+                                                                   "components.ScriptComponent.width":  90,
+                                                                   "components.ScriptComponent.height":  210,
+                                                                   "components.ScriptComponent.depth":  4,
+                                                                   "components.ScriptComponent.shape":  "box"
+                                                               },
+                                  "@sceneObject:StandinWindow":  {
+                                                                     "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptCyan.mat",
+                                                                     "components.ScriptComponent.width":  100,
+                                                                     "components.ScriptComponent.height":  70,
+                                                                     "components.ScriptComponent.depth":  4,
+                                                                     "components.ScriptComponent.shape":  "box"
+                                                                 },
+                                  "@sceneObject:WindowCross":  {
+                                                                   "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptIvory.mat",
+                                                                   "components.ScriptComponent.width":  4,
+                                                                   "components.ScriptComponent.height":  70,
+                                                                   "components.ScriptComponent.depth":  3,
+                                                                   "components.ScriptComponent.shape":  "box"
+                                                               },
+                                  "@sceneObject:WindowBar":  {
+                                                                 "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptIvory.mat",
+                                                                 "components.ScriptComponent.width":  100,
+                                                                 "components.ScriptComponent.height":  4,
+                                                                 "components.ScriptComponent.depth":  3,
+                                                                 "components.ScriptComponent.shape":  "box"
+                                                             },
+                                  "@sceneObject:KettleShelf":  {
+                                                                   "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptWood.mat",
+                                                                   "components.ScriptComponent.width":  60,
+                                                                   "components.ScriptComponent.height":  5,
+                                                                   "components.ScriptComponent.depth":  45,
+                                                                   "components.ScriptComponent.shape":  "box"
+                                                               },
+                                  "@sceneObject:StandinCable":  {
+                                                                    "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptCoral.mat",
+                                                                    "components.ScriptComponent.width":  22,
+                                                                    "components.ScriptComponent.height":  1,
+                                                                    "components.ScriptComponent.depth":  1,
+                                                                    "components.ScriptComponent.shape":  "box"
+                                                                },
+                                  "@sceneObject:MugShelf":  {
+                                                                "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptWood.mat",
+                                                                "components.ScriptComponent.width":  38,
+                                                                "components.ScriptComponent.height":  4,
+                                                                "components.ScriptComponent.depth":  32,
+                                                                "components.ScriptComponent.shape":  "box"
+                                                            },
+                                  "@sceneObject:StandinMug":  {
+                                                                  "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptIvory.mat",
+                                                                  "components.ScriptComponent.width":  9,
+                                                                  "components.ScriptComponent.height":  12,
+                                                                  "components.ScriptComponent.depth":  9,
+                                                                  "components.ScriptComponent.shape":  "round"
+                                                              },
+                                  "@sceneObject:StandinBottle":  {
+                                                                     "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptCyan.mat",
+                                                                     "components.ScriptComponent.width":  6,
+                                                                     "components.ScriptComponent.height":  18,
+                                                                     "components.ScriptComponent.depth":  6,
+                                                                     "components.ScriptComponent.shape":  "round"
+                                                                 },
+                                  "@sceneObject:BottleNeck":  {
+                                                                  "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptCyan.mat",
+                                                                  "components.ScriptComponent.width":  3,
+                                                                  "components.ScriptComponent.height":  8,
+                                                                  "components.ScriptComponent.depth":  3,
+                                                                  "components.ScriptComponent.shape":  "round"
+                                                              },
+                                  "@sceneObject:LampBase":  {
+                                                                "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptBrass.mat",
+                                                                "components.ScriptComponent.width":  18,
+                                                                "components.ScriptComponent.height":  3,
+                                                                "components.ScriptComponent.depth":  18,
+                                                                "components.ScriptComponent.shape":  "round"
+                                                            },
+                                  "@sceneObject:LampStem":  {
+                                                                "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptBrass.mat",
+                                                                "components.ScriptComponent.width":  2,
+                                                                "components.ScriptComponent.height":  27,
+                                                                "components.ScriptComponent.depth":  2,
+                                                                "components.ScriptComponent.shape":  "round"
+                                                            },
+                                  "@sceneObject:StandinLamp":  {
+                                                                   "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptIvory.mat",
+                                                                   "components.ScriptComponent.width":  23,
+                                                                   "components.ScriptComponent.height":  13,
+                                                                   "components.ScriptComponent.depth":  23,
+                                                                   "components.ScriptComponent.shape":  "round"
+                                                               },
+                                  "@sceneObject:StandinKettle":  {
+                                                                     "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptBrass.mat",
+                                                                     "components.ScriptComponent.width":  19,
+                                                                     "components.ScriptComponent.height":  18,
+                                                                     "components.ScriptComponent.depth":  19,
+                                                                     "components.ScriptComponent.shape":  "round"
+                                                                 },
+                                  "@sceneObject:KettleLid":  {
+                                                                 "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptIvory.mat",
+                                                                 "components.ScriptComponent.width":  14,
+                                                                 "components.ScriptComponent.height":  3,
+                                                                 "components.ScriptComponent.depth":  14,
+                                                                 "components.ScriptComponent.shape":  "round"
+                                                             },
+                                  "@sceneObject:Study plaque":  {
+                                                                    "components.ScriptComponent.label":  "STUDY",
+                                                                    "components.ScriptComponent.width":  34
+                                                                },
+                                  "@sceneObject:Lounge plaque":  {
+                                                                     "components.ScriptComponent.label":  "LOUNGE",
+                                                                     "components.ScriptComponent.width":  34
+                                                                 },
+                                  "@sceneObject:Hall plaque":  {
+                                                                   "components.ScriptComponent.label":  "HALL",
+                                                                   "components.ScriptComponent.width":  34
+                                                               },
+                                  "@sceneObject:Conservatory plaque":  {
+                                                                           "components.ScriptComponent.label":  "CONSERVATORY",
+                                                                           "components.ScriptComponent.width":  34
+                                                                       },
+                                  "@sceneObject:Kitchen plaque":  {
+                                                                      "components.ScriptComponent.label":  "KITCHEN",
+                                                                      "components.ScriptComponent.width":  34
+                                                                  },
+                                  "@sceneObject:CrateBase":  {
+                                                                 "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptSlate.mat",
+                                                                 "components.ScriptComponent.width":  46,
+                                                                 "components.ScriptComponent.height":  2,
+                                                                 "components.ScriptComponent.depth":  28,
+                                                                 "components.ScriptComponent.shape":  "box"
+                                                             },
+                                  "@sceneObject:CrateFront":  {
+                                                                  "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptWood.mat",
+                                                                  "components.ScriptComponent.width":  46,
+                                                                  "components.ScriptComponent.height":  10,
+                                                                  "components.ScriptComponent.depth":  2,
+                                                                  "components.ScriptComponent.shape":  "box"
+                                                              },
+                                  "@sceneObject:CrateBack":  {
+                                                                 "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptWood.mat",
+                                                                 "components.ScriptComponent.width":  46,
+                                                                 "components.ScriptComponent.height":  10,
+                                                                 "components.ScriptComponent.depth":  2,
+                                                                 "components.ScriptComponent.shape":  "box"
+                                                             },
+                                  "@sceneObject:CrateLeft":  {
+                                                                 "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptWood.mat",
+                                                                 "components.ScriptComponent.width":  2,
+                                                                 "components.ScriptComponent.height":  10,
+                                                                 "components.ScriptComponent.depth":  26,
+                                                                 "components.ScriptComponent.shape":  "box"
+                                                             },
+                                  "@sceneObject:CrateRight":  {
+                                                                  "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptWood.mat",
+                                                                  "components.ScriptComponent.width":  2,
+                                                                  "components.ScriptComponent.height":  10,
+                                                                  "components.ScriptComponent.depth":  26,
+                                                                  "components.ScriptComponent.shape":  "box"
+                                                              },
+                                  "@sceneObject:CrateBand-18":  {
+                                                                    "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptBrass.mat",
+                                                                    "components.ScriptComponent.width":  3,
+                                                                    "components.ScriptComponent.height":  11,
+                                                                    "components.ScriptComponent.depth":  0.5,
+                                                                    "components.ScriptComponent.shape":  "box"
+                                                                },
+                                  "@sceneObject:CrateBand18":  {
+                                                                   "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptBrass.mat",
+                                                                   "components.ScriptComponent.width":  3,
+                                                                   "components.ScriptComponent.height":  11,
+                                                                   "components.ScriptComponent.depth":  0.5,
+                                                                   "components.ScriptComponent.shape":  "box"
+                                                               },
+                                  "@sceneObject:CrateLid":  {
+                                                                "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptBrass.mat",
+                                                                "components.ScriptComponent.width":  46,
+                                                                "components.ScriptComponent.height":  2,
+                                                                "components.ScriptComponent.depth":  28,
+                                                                "components.ScriptComponent.shape":  "box"
+                                                            },
+                                  "@sceneObject:Envelope WHO":  {
+                                                                    "components.ScriptComponent.label":  "WHO",
+                                                                    "components.ScriptComponent.width":  13
+                                                                },
+                                  "@sceneObject:Envelope WHERE":  {
+                                                                      "components.ScriptComponent.label":  "WHERE",
+                                                                      "components.ScriptComponent.width":  13
+                                                                  },
+                                  "@sceneObject:Envelope WHAT":  {
+                                                                     "components.ScriptComponent.label":  "WHAT",
+                                                                     "components.ScriptComponent.width":  13
+                                                                 },
+                                  "@sceneObject:InterrogationMark":  {
+                                                                         "components.ScriptComponent.material":  "@asset:Assets/Materials/RoomscriptYellow.mat",
+                                                                         "components.ScriptComponent.width":  20,
+                                                                         "components.ScriptComponent.height":  0.5,
+                                                                         "components.ScriptComponent.depth":  20,
+                                                                         "components.ScriptComponent.shape":  "round"
+                                                                     },
+                                  "@sceneObject:RoomscriptCrate":  {
+                                                                       "components.ScriptComponent.hinge":  "@sceneObject:CrateHinge"
+                                                                   },
+                                  "@sceneObject:Roomscript":  {
+                                                                  "components.ScriptComponent.caseLid":  "@component:RoomscriptCaseLidUI/RoomscriptCaseLidUI",
+                                                                  "components.ScriptComponent.chips":  "@component:RoomscriptChipBarUI/RoomscriptChipBarUI",
+                                                                  "components.ScriptComponent.verbs":  "@component:RoomscriptVerbBarUI/RoomscriptVerbBarUI",
+                                                                  "components.ScriptComponent.notebook":  "@component:RoomscriptNotepadUI/RoomscriptNotepadUI",
+                                                                  "components.ScriptComponent.wallet":  "@component:RoomscriptEvidenceWalletUI/RoomscriptEvidenceWalletUI",
+                                                                  "components.ScriptComponent.audio":  "@component:RoomscriptAudio/RoomscriptAudio"
+                                                              }
+                              }
+               }
+}

@@ -1,0 +1,63 @@
+- !<AssetImportMetadata/8d1ad82a-7e14-4f12-9047-8c185d705423>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3c9cc744-b059-433a-a25a-da9cf1d4cb42
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3c9cc744-b059-433a-a25a-da9cf1d4cb42
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> b5344998-79bf-4eb1-a541-83f00bd26f9e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/b5344998-79bf-4eb1-a541-83f00bd26f9e>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 75e62704-a1c1-4043-8d2f-dba60fe2f6c0
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    audio: false
+    caseLid: false
+    chips: false
+    notebook: false
+    verbs: false
+    wallet: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - caseLid: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      chips: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      verbs: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      notebook: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      wallet: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+      audio: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input AssignableType_1 caseLid {"hint":"Case HUD"}'
+    - '// @input AssignableType_2 chips {"hint":"Question chips"}'
+    - '// @input AssignableType_3 verbs {"hint":"Statement and verbs"}'
+    - '// @input AssignableType_4 notebook {"hint":"Notebook"}'
+    - '// @input AssignableType_5 wallet {"hint":"Evidence wallet"}'
+    - '// @input AssignableType_6 audio {"hint":"Audio cues and music"}'
+    - '// @ui {"widget":"group_end"}'

@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/ab0ea154-f903-4b8f-9b9b-e083be07f080>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3363285b-55b8-43f6-b56d-247e8bcf3130
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3363285b-55b8-43f6-b56d-247e8bcf3130
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 23f91c68-f4d2-4b81-8fc3-cb63fad15a8e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/23f91c68-f4d2-4b81-8fc3-cb63fad15a8e>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: c85c56f6-5d37-4167-8467-7a91884720ca
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    fontScale: false
+    ink: false
+    width: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - width: !<float> 46.000000
+      fontScale: 1.600000
+      ink: !<Vec4> {x: 1.000000, y: 0.420000, z: 0.350000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input float width = 46 {"hint":"Panel width cm", "widget":"slider", "min":40, "max":60, "step":1}'
+    - '// @input float fontScale = 1.6 {"hint":"Text scale", "widget":"slider", "min":1, "max":2.5, "step":0.1}'
+    - '// @input vec4 ink = "{1,0.42,0.35,1}" {"hint":"Truth lettering", "widget":"color"}'
