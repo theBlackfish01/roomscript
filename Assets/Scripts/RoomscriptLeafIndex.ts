@@ -10,6 +10,7 @@ import {RoomscriptAiLeafScenario} from "./RoomscriptAiLeafScenario";
 import {RoomscriptLatencyLeafScenario} from "./RoomscriptLatencyLeafScenario";
 import {RoomscriptFallbackLeafScenario} from "./RoomscriptFallbackLeafScenario";
 import {RoomscriptSpeechLeafScenario} from "./RoomscriptSpeechLeafScenario";
+import {RoomscriptBindingLeafScenario} from "./RoomscriptBindingLeafScenario";
 
 @component
 export class RoomscriptLeafIndex extends BaseScriptComponent {
@@ -24,6 +25,7 @@ export class RoomscriptLeafIndex extends BaseScriptComponent {
     {id: "roomscript-ai-record-replay", typename: RoomscriptAiLeafScenario.getTypeName()},
     {id: "roomscript-live-latency", typename: RoomscriptLatencyLeafScenario.getTypeName()},
     {id: "roomscript-openai-fallback", typename: RoomscriptFallbackLeafScenario.getTypeName()},
-    {id: "roomscript-speech-budget", typename: RoomscriptSpeechLeafScenario.getTypeName()}
+    {id: "roomscript-speech-budget", typename: RoomscriptSpeechLeafScenario.getTypeName()},
+    {id: "roomscript-room-binding", typename: RoomscriptBindingLeafScenario.getTypeName()}
   ];
 }

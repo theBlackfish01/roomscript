@@ -4,26 +4,26 @@ import {canonicalJson} from "../Engine/core/CanonicalJson";
 
 /** Authored truth for the first complete case. Narrative never changes these facts. */
 const zones: RoomScan["zones"] = [
-  {id:"Z1", label:"desk", clueName:"Study", anchor:[45,0,-150]},
-  {id:"Z2", label:"bed", clueName:"Lounge", anchor:[-115,0,-100]},
-  {id:"Z3", label:"door", clueName:"Hall", anchor:[-140,0,90]},
-  {id:"Z4", label:"kettle corner", clueName:"Kitchen", anchor:[120,0,45]},
-  {id:"Z5", label:"window", clueName:"Conservatory", anchor:[140,0,-150]}
+  {id:"Z1", label:"desk", clueName:"Study", anchor:[80,0,-180]},
+  {id:"Z2", label:"bed", clueName:"Lounge", anchor:[-160,0,-120]},
+  {id:"Z3", label:"door", clueName:"Hall", anchor:[170,0,40]},
+  {id:"Z4", label:"kettle corner", clueName:"Kitchen", anchor:[180,0,-250]},
+  {id:"Z5", label:"window", clueName:"Conservatory", anchor:[-120,0,-280]}
 ];
 const objects: RoomObject[] = [
-  {id:"O1",label:"charger cable",type:"cord",zone:"Z1",pos:[55,75,-145],affordances:["weapon:strangle"],origin:"fixture",synonyms:["cable","cord","charger"]},
-  {id:"O2",label:"brass candlestick",type:"blunt",zone:"Z2",pos:[-100,55,-100],affordances:["weapon:blunt"],origin:"substitution",virtual:true,synonyms:["candlestick"]},
-  {id:"O3",label:"letter knife",type:"sharp",zone:"Z3",pos:[-125,80,75],affordances:["weapon:sharp"],origin:"substitution",virtual:true,synonyms:["knife","letter opener"]},
-  {id:"O4",label:"medicine bottle",type:"poison",zone:"Z4",pos:[115,80,35],affordances:["weapon:poison"],origin:"fixture",synonyms:["bottle","medicine","poison"]},
-  {id:"O5",label:"marble bookend",type:"heavy",zone:"Z5",pos:[130,90,-145],affordances:["weapon:heavy"],origin:"substitution",virtual:true,synonyms:["bookend","paperweight"]},
-  {id:"O6",label:"desk lamp",type:"light",zone:"Z1",pos:[20,95,-160],affordances:["witness:sight","witness:presence"],origin:"fixture",synonyms:["lamp"]},
-  {id:"O7",label:"evidence clock",type:"clock",zone:"Z3",pos:[-135,115,80],affordances:["witness:time"],origin:"substitution",virtual:true,synonyms:["clock"]},
-  {id:"O8",label:"door latch",type:"door",zone:"Z3",pos:[-145,100,90],affordances:["witness:passage"],origin:"fixture",synonyms:["door","latch"]},
-  {id:"O9",label:"chipped mug",type:"cup",zone:"Z1",pos:[35,76,-140],affordances:["witness:state"],origin:"fixture",synonyms:["mug","cup"]},
-  {id:"O10",label:"window glass",type:"mirror",zone:"Z5",pos:[145,130,-155],affordances:["witness:reflection"],origin:"fixture",synonyms:["window","glass","reflection"]},
-  {id:"O11",label:"kettle",type:"kettle",zone:"Z4",pos:[130,80,40],affordances:["witness:state"],origin:"fixture",synonyms:["tea kettle"]},
-  {id:"O12",label:"dictation recorder",type:"screen",zone:"Z1",pos:[65,78,-158],affordances:["witness:record"],origin:"substitution",virtual:true,synonyms:["recorder","recording","screen"]},
-  {id:"O13",label:"bed cover",type:"soft",zone:"Z2",pos:[-115,50,-100],affordances:["hiding:soft"],origin:"fixture",synonyms:["bed","cover"]}
+  {id:"O1",label:"charger cable",type:"cord",zone:"Z1",pos:[95,75.5,-190],affordances:["weapon:strangle"],origin:"fixture",synonyms:["cable","cord","charger"]},
+  {id:"O2",label:"brass candlestick",type:"blunt",zone:"Z2",pos:[-130,62,-90],affordances:["weapon:blunt"],origin:"substitution",virtual:true,synonyms:["candlestick"]},
+  {id:"O3",label:"letter knife",type:"sharp",zone:"Z3",pos:[150,80,20],affordances:["weapon:sharp"],origin:"substitution",virtual:true,synonyms:["knife","letter opener"]},
+  {id:"O4",label:"medicine bottle",type:"poison",zone:"Z4",pos:[190,98,-250],affordances:["weapon:poison"],origin:"fixture",synonyms:["bottle","medicine","poison"]},
+  {id:"O5",label:"marble bookend",type:"heavy",zone:"Z5",pos:[-120,90,-270],affordances:["weapon:heavy"],origin:"substitution",virtual:true,synonyms:["bookend","paperweight"]},
+  {id:"O6",label:"desk lamp",type:"light",zone:"Z1",pos:[110,109,-210],affordances:["witness:sight","witness:presence"],origin:"fixture",synonyms:["lamp"]},
+  {id:"O7",label:"evidence clock",type:"clock",zone:"Z3",pos:[170,145,40],affordances:["witness:time"],origin:"substitution",virtual:true,synonyms:["clock"]},
+  {id:"O8",label:"door latch",type:"door",zone:"Z3",pos:[190,110,70],affordances:["witness:passage"],origin:"fixture",synonyms:["door","latch"]},
+  {id:"O9",label:"chipped mug",type:"cup",zone:"Z1",pos:[65,84,-180],affordances:["witness:state"],origin:"fixture",synonyms:["mug","cup"]},
+  {id:"O10",label:"window glass",type:"mirror",zone:"Z5",pos:[-120,125,-280],affordances:["witness:reflection"],origin:"fixture",synonyms:["window","glass","reflection"]},
+  {id:"O11",label:"kettle",type:"kettle",zone:"Z4",pos:[175,96,-265],affordances:["witness:state"],origin:"fixture",synonyms:["tea kettle"]},
+  {id:"O12",label:"dictation recorder",type:"screen",zone:"Z1",pos:[65,79,-200],affordances:["witness:record"],origin:"substitution",virtual:true,synonyms:["recorder","recording","screen"]},
+  {id:"O13",label:"bed cover",type:"soft",zone:"Z2",pos:[-160,47,-120],affordances:["hiding:soft"],origin:"fixture",synonyms:["bed","cover"]}
 ];
 const room: RoomScan = {
   schema:1, roomId:"r_"+hashHex(canonicalJson(objects.map(o=>[o.type,zones.findIndex(z=>z.id===o.zone)]).sort())),

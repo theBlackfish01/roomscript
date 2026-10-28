@@ -3,8 +3,15 @@ import {describe,expect,it} from "vitest";
 import {createHeroCase,heroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {createHeroLineBank,heroFinalConfession,heroLineBank,selectHeroLine} from "../../../Assets/Scripts/Content/HeroLineBank";
 import {verifyCase} from "../../../Assets/Scripts/Engine/case/Solver";
+import {getRawRoomFixture} from "../../../Assets/Scripts/Engine/room/RoomFixtures";
 
 describe("HARLOW-1041 authored content",()=>{
+  it("shares the authored Preview fixture's zone coordinate frame while retaining semantic IDs",()=>{
+    const fixture=getRawRoomFixture("wadood-room");
+    for(const zone of heroCase.room.zones)expect(zone.anchor).toEqual(fixture.zones.find(z=>z.clueName===zone.clueName)!.anchor);
+    expect(heroCase.room.zones.find(z=>z.id==="Z4")!.clueName).toBe("Kitchen");
+    expect(heroCase.room.objects.filter(o=>o.virtual).map(o=>o.id)).toEqual(["O2","O3","O5","O7","O12"]);
+  });
   it("passes all eight solver acceptance checks",()=>{
     const report=verifyCase(createHeroCase());
     expect(report.issues).toEqual([]);

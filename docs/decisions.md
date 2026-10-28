@@ -96,3 +96,6 @@ Keep one physical transport slot available for live work; cancelled requests ret
 
 ### 2026-10-29 — A7 parallel audio within question budget
 Prepare all sentences concurrently under the shared scheduler, attach rejection handlers immediately and play in source order. Keep a 60-clip voice-keyed LRU; precache only validated current-account lines and neutral fillers. First audio must begin within 6.5s of the question, while normal playback may finish later. Missing or late audio retains readable subtitles. Authored suspect voice replaces the default onyx. Device listening quality remains a human/device check.
+
+### 2026-10-29 — L1 common coordinate frame
+Preserve hero semantic IDs and move its authored coordinates to the existing room fixture. Scene anchors and virtual props use a single floor root at the Preview floor height; runtime consumers transform case-local centimeters through that root. Physical stand-ins remain Preview-only, while anchor/virtual-prop/plaque content remains enabled on device. This fixes the current fixture binding without claiming a real-world room scan.
