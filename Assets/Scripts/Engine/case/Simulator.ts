@@ -49,7 +49,7 @@ export function simulateCase(seed:number,input:RoomScan,pitch:CasePitch,attempt=
   const otherZones=room.zones.filter(z=>z.id!==murderZone).map(z=>z.id);
   const murderSlot=rng.fork("time").int(5,9);const secretSlot=murderSlot-2;
   const slots=Array.from({length:12},(_,i)=>String(21+Math.floor(i/4)).padStart(2,"0")+":"+String(i%4*15).padStart(2,"0"));
-  const cast:Suspect[]=pitch.suspects.map(s=>({id:s.slot,name:s.name,nicknames:[],persona:s.role+". "+s.persona,voice:s.voice,actingNotes:s.actingNotes,tell:s.tell,tellProp:s.tell==="gaze_snap"?"brooch":s.tell==="flicker"?"lighter":s.tell==="hesitation"?"glasses":"glove",composureMax:s.slot===culprit?3:2,secret:s.secret.story,relations:s.relations.map(r=>({to:r.to,type:r.type})),baseline:{truthTopic:"baseline_truth",lieTopic:"baseline_lie"}}));
+  const cast:Suspect[]=pitch.suspects.map(s=>({id:s.slot,name:s.name,nicknames:[],persona:s.role+". "+s.persona,voice:s.voice,actingNotes:s.actingNotes,tell:s.tell,tellProp:s.tell==="gaze_snap"?"brooch":s.tell==="flicker"?"lighter":s.tell==="hesitation"?"glasses":"glove",composureMax:s.slot===culprit?3:2,secret:s.secret.story,relations:s.relations.map(r=>({to:r.to,type:r.type})),baseline:{truthTopic:"background",lieTopic:"borrowed_item"}}));
   const facts:Fact[]=[];const observedFacts:Id[]=[];const timeline:TimelineEntry[]=[];const actorZones:Record<Id,Id[]>={};
   const names:Record<string,string>={V:pitch.victim.name};for(const s of cast)names[s.id]=s.name;
   const add=(fact:Fact,observe=false)=>{facts.push(fact);if(observe)observedFacts.push(fact.id);return fact.id;};

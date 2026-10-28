@@ -4,7 +4,7 @@ import {buildAnswerSchema} from "../perf/AnswerSchema";
 import {LlmRequest} from "./LlmPort";
 
 export const PROMPT_VERSIONS = {
-  answer: "roomscript-answer-v1", pitch: "roomscript-pitch-v1", repair: "roomscript-repair-v1",
+  answer: "roomscript-answer-v2", pitch: "roomscript-pitch-v1", repair: "roomscript-repair-v1",
   linePack: "roomscript-linepack-v1", critique: "roomscript-critique-v1", director: "roomscript-director-v1",
   evidence: "roomscript-evidence-v1", partner: "roomscript-partner-v1", argument: "roomscript-argument-v1",
 } as const;

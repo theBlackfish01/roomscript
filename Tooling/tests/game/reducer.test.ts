@@ -1,3 +1,4 @@
+import {performanceRef} from "../../../Assets/Scripts/Engine/perf/ReferenceIds";
 import {describe,expect,it} from "vitest";
 import {createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {ActionPayload} from "../../../Assets/Scripts/Engine/core/Types";
@@ -167,7 +168,7 @@ describe("deterministic game reducer",()=>{
   });
   it("admits validated performance and keeps rejected dialogue out of the next prompt",()=>{
     const s=session(); s.act(ask);
-    const answer={topic:"where@22:30",cites:["a:C_VALE_ALIBI_0"],line:"I was in the Kitchen making tea at 22:30.",emotion:"guarded" as const};
+    const answer={topic:"where@22:30",cites:[performanceRef("a","C_VALE_ALIBI_0")],line:"I was in the Kitchen making tea at 22:30.",emotion:"guarded" as const};
     const knowledge=JSON.stringify(s.state.knowledge);
     s.act({type:"LineSpoken",suspect:"S2",key:"first",answer});
     expect(s.state.events.at(-1)?.type).toBe("lineSpoken");

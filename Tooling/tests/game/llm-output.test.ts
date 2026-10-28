@@ -1,3 +1,4 @@
+import {performanceRef} from "../../../Assets/Scripts/Engine/perf/ReferenceIds";
 import {describe, it, expect} from "vitest";
 import {createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {createGameState} from "../../../Assets/Scripts/Engine/game/GameState";
@@ -30,7 +31,7 @@ describe("raw model output audit actions", () => {
   });
   it("replays raw and performed actions in their original order without promoting raw content", () => {
     const graph = createHeroCase(); const actions: Action[] = [raw(), {seq: 2, by: "P1", type: "LineSpoken", suspect: "S2", key: "performed",
-      answer: {topic: "where@22:30", cites: ["a:C_VALE_ALIBI_0"], line: "I was in the Kitchen at 22:30.", emotion: "guarded"}}, {...raw(3), source: "replay"}];
+      answer: {topic: "where@22:30", cites: [performanceRef("a","C_VALE_ALIBI_0")], line: "I was in the Kitchen at 22:30.", emotion: "guarded"}}, {...raw(3), source: "replay"}];
     const replayed = replayGame(graph, actions);
     expect(replayed.log.map(action => action.type)).toEqual(["LlmOutput", "LineSpoken", "LlmOutput"]);
     expect(replayed.events.filter(event => event.type === "lineSpoken")).toHaveLength(1);

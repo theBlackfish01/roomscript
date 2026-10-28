@@ -1,3 +1,4 @@
+import {performanceRef} from "../../../Assets/Scripts/Engine/perf/ReferenceIds";
 import {describe, it, expect, vi} from "vitest";
 import {createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {heroLineBank} from "../../../Assets/Scripts/Content/HeroLineBank";
@@ -11,7 +12,7 @@ import {validateLine} from "../../../Assets/Scripts/Engine/perf/LineValidator";
 import {buildFactSheet} from "../../../Assets/Scripts/Engine/perf/FactSheetBuilder";
 import {FakeClock, deferred, flush} from "./helpers";
 
-const answer: Answer = {topic: "where@22:30", cites: ["a:C_VALE_ALIBI_0"], line: "I was in the Kitchen making tea at 22:30.", emotion: "guarded"};
+const answer: Answer = {topic: "where@22:30", cites: [performanceRef("a","C_VALE_ALIBI_0")], line: "I was in the Kitchen making tea at 22:30.", emotion: "guarded"};
 const response = (value = answer): LlmResponse => ({content: JSON.stringify(value)});
 function context(llm: LlmPort, bank: readonly LineBankEntry[] = heroLineBank) {
   const graph = createHeroCase(); const state = createGameState(graph); const clock = new FakeClock(); const scheduler = new Scheduler(clock);
@@ -27,7 +28,7 @@ describe("validated live answer pipeline", () => {
     const task = pipeline.start({...input, kind: "chip", topic: answer.topic}, {detective: () => order.push("detective"), chosen: () => order.push("chosen"), filler});
     expect(order).toEqual(["detective", "chosen"]); const selected = await task.promise;
     expect(selected).toMatchObject({origin: "cache", mode: "answer", attempts: 0, latencyMs: 0, rejectionCount: 0});
-    expect(selected.answer.cites).toContain("a:C_VALE_ALIBI_0"); expect(complete).not.toHaveBeenCalled();
+    expect(selected.answer.cites).toContain(performanceRef("a","C_VALE_ALIBI_0")); expect(complete).not.toHaveBeenCalled();
     clock.advance(7000); expect(filler).not.toHaveBeenCalled(); expect(clock.pending).toBe(0);
   });
   it("sends free text through model despite a cache hit, validates it, and never mutates game state", async () => {
@@ -97,8 +98,8 @@ describe("validated live answer pipeline", () => {
     expect(await neutral.pipeline.start(neutral.input).promise).toMatchObject({origin: "model", mode: "deflect"});
   });
   it("ignores invalid cached entries and respects a locked chip topic", async () => {
-    const wrong: LineBankEntry = {suspect: "S2", layer: 0, topic: answer.topic, mode: "answer", answer: {...answer, cites: ["a:C_VALE_ALIBI_2"]}};
-    const complete = vi.fn(async () => response({topic: "baseline:name", cites: ["a:C_S2_NAME"], line: "My name is Marguerite Vale.", emotion: "guarded"}));
+    const wrong: LineBankEntry = {suspect: "S2", layer: 0, topic: answer.topic, mode: "answer", answer: {...answer, cites: [performanceRef("a","C_VALE_ALIBI_2")]}};
+    const complete = vi.fn(async () => response({topic: "baseline:name", cites: [performanceRef("a","C_S2_NAME")], line: "My name is Marguerite Vale.", emotion: "guarded"}));
     const {pipeline, input} = context({complete}, [wrong]);
     const rejected = vi.fn();
     const result = await pipeline.start({...input, kind: "chip", topic: answer.topic}, {rejected}).promise;
@@ -108,7 +109,7 @@ describe("validated live answer pipeline", () => {
   it("press uses pressed citations and cancels old TTS tokens when the next question starts", async () => {
     const {pipeline, input} = context({complete: async () => response()});
     const first = pipeline.start({...input, kind: "chip", topic: answer.topic, mode: "press"}); const result = await first.promise;
-    expect(result.mode).toBe("press"); expect(result.answer.cites).toEqual(["p:C_VALE_ALIBI_0"]); expect(first.token.cancelled).toBe(false);
+    expect(result.mode).toBe("press"); expect(result.answer.cites).toEqual([performanceRef("p","C_VALE_ALIBI_0")]); expect(first.token.cancelled).toBe(false);
     const stopAudio = vi.fn(); first.token.onCancel(stopAudio);
     await pipeline.start({...input, kind: "chip", topic: answer.topic}).promise;
     expect(first.token.cancelled).toBe(true); expect(stopAudio).toHaveBeenCalledOnce();

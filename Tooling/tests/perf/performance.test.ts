@@ -1,3 +1,4 @@
+import {performanceRef} from "../../../Assets/Scripts/Engine/perf/ReferenceIds";
 import {describe, it, expect} from "vitest";
 import {heroCase, createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {heroLineBank} from "../../../Assets/Scripts/Content/HeroLineBank";
@@ -14,40 +15,40 @@ function context() {
   const graph = createHeroCase();
   const state = createGameState(graph);
   const sheet = buildFactSheet(graph, state, "S2");
-  const answer: Answer = {topic: "where@22:30", cites: ["a:C_VALE_ALIBI_0"], line: "I was in the Kitchen making tea at 22:30.", emotion: "guarded"};
+  const answer: Answer = {topic: "where@22:30", cites: [performanceRef("a","C_VALE_ALIBI_0")], line: "I was in the Kitchen making tea at 22:30.", emotion: "guarded"};
   return {graph, state, sheet, answer};
 }
 
 describe("truth-blind fact sheets", () => {
   it("contains only active accounts and excludes future layers, secrets and truth flags", () => {
     const {graph, state, sheet} = context();
-    expect(sheet.account.some(ref => ref.ref === "a:C_VALE_ALIBI_0")).toBe(true);
-    expect(sheet.account.some(ref => ref.ref === "a:C_VALE_ALIBI_1" || ref.ref === "a:C_VALE_ALIBI_2")).toBe(false);
+    expect(sheet.account.some(ref => ref.ref === performanceRef("a","C_VALE_ALIBI_0"))).toBe(true);
+    expect(sheet.account.some(ref => ref.ref === performanceRef("a","C_VALE_ALIBI_1") || ref.ref === performanceRef("a","C_VALE_ALIBI_2"))).toBe(false);
     const serialized = JSON.stringify(sheet);
     for (const field of ["envelope", "stance", "truth", "breakers", "onBreak", "secret", "asserts"]) expect(serialized).not.toContain('"' + field + '":');
     expect(serialized).not.toContain(graph.cast.suspects.find(person => person.id === "S2")!.secret);
     expect(sheet.knows).toEqual([]);
     state.suspects.S2.layer = 1;
     const next = buildFactSheet(graph, state, "S2");
-    expect(next.account.some(ref => ref.ref === "a:C_VALE_ALIBI_0")).toBe(false);
-    expect(next.account.some(ref => ref.ref === "a:C_VALE_ALIBI_1")).toBe(true);
+    expect(next.account.some(ref => ref.ref === performanceRef("a","C_VALE_ALIBI_0"))).toBe(false);
+    expect(next.account.some(ref => ref.ref === performanceRef("a","C_VALE_ALIBI_1"))).toBe(true);
     expect(next.account.some(ref => ref.topic === "baseline:name")).toBe(true);
   });
   it("replaces same-layer baseline accounts using the reducer override", () => {
     const {graph, state} = context();
     state.suspects.S2.topicOverrides["baseline:brooch"] = "C_S2_BASELINE_TRUE";
     const sheet = buildFactSheet(graph, state, "S2");
-    expect(sheet.topicToRef["baseline:brooch"]).toBe("a:C_S2_BASELINE_TRUE");
-    expect(sheet.account.some(ref => ref.ref === "a:C_S2_BASELINE_LIE")).toBe(false);
-    expect(sheet.pressed.find(ref => ref.topic === "baseline:brooch")!.ref).toBe("p:C_S2_BASELINE_TRUE");
+    expect(sheet.topicToRef["baseline:brooch"]).toBe(performanceRef("a","C_S2_BASELINE_TRUE"));
+    expect(sheet.account.some(ref => ref.ref === performanceRef("a","C_S2_BASELINE_LIE"))).toBe(false);
+    expect(sheet.pressed.find(ref => ref.topic === "baseline:brooch")!.ref).toBe(performanceRef("p","C_S2_BASELINE_TRUE"));
   });
   it("copies public memory refs and never shares mutable entities with game state", () => {
     const {graph, state} = context();
     state.suspects.S2.memory.push({id: "treatment1", text: "You accused me about the lamp.", entities: ["O6"], source: "player"});
     state.suspects.S2.heard.push({id: "gossip1", text: "Imran told me about the kettle.", entities: ["S1", "O11"], source: "gossip:S1"});
     const sheet = buildFactSheet(graph, state, "S2");
-    expect(sheet.memory[0].ref).toBe("m:treatment1");
-    expect(sheet.heard[0].ref).toBe("h:gossip1");
+    expect(sheet.memory[0].ref).toBe(performanceRef("m","treatment1"));
+    expect(sheet.heard[0].ref).toBe(performanceRef("h","gossip1"));
     sheet.memory[0].entities.push("changed");
     expect(state.suspects.S2.memory[0].entities).toEqual(["O6"]);
   });
@@ -81,9 +82,9 @@ describe("per-call answer schema", () => {
     const {sheet} = context();
     const schema = buildAnswerSchema(sheet) as any;
     expect(schema.additionalProperties).toBe(false);
-    expect(schema.properties.cites.items.enum).toContain("a:C_VALE_ALIBI_0");
-    expect(schema.properties.cites.items.enum).not.toContain("a:C_VALE_ALIBI_1");
-    expect(schema.properties.cites.items.enum).toContain("p:C_VALE_ALIBI_0");
+    expect(schema.properties.cites.items.enum).toContain(performanceRef("a","C_VALE_ALIBI_0"));
+    expect(schema.properties.cites.items.enum).not.toContain(performanceRef("a","C_VALE_ALIBI_1"));
+    expect(schema.properties.cites.items.enum).toContain(performanceRef("p","C_VALE_ALIBI_0"));
     expect(schema.properties.topic.enum).toContain("unclear");
     expect((buildAnswerSchema(sheet, "deflect") as any).properties.cites.items.enum).toEqual(["none"]);
   });
@@ -95,7 +96,7 @@ describe("seven validator gates", () => {
     const result = validateLine(JSON.stringify(answer), sheet, graph, "answer");
     expect(result).toEqual({ok: true, errors: [], answer});
     result.answer!.cites.push("changed");
-    expect(answer.cites).toEqual(["a:C_VALE_ALIBI_0"]);
+    expect(answer.cites).toEqual([performanceRef("a","C_VALE_ALIBI_0")]);
   });
   const adversarial: {name: string; update: Partial<Answer>; code: ValidationCode; mode?: AnswerMode}[] = [
     {name: "wrong known person", update: {line: "Imran was beside me in the Kitchen at 22:30."}, code: "ENTITY"},
@@ -117,7 +118,7 @@ describe("seven validator gates", () => {
     {name: "uncited memory", update: {line: "You accused me earlier."}, code: "MEMORY"},
     {name: "uncited memory paraphrase", update: {line: "As I told you, I was there."}, code: "MEMORY"},
     {name: "missing mandatory claim", update: {cites: ["none"]}, code: "CITATION_REQUIRED"},
-    {name: "future-layer cite", update: {cites: ["a:C_VALE_ALIBI_1"]}, code: "UNKNOWN_CITE"},
+    {name: "future-layer cite", update: {cites: [performanceRef("a","C_VALE_ALIBI_1")]}, code: "UNKNOWN_CITE"},
     {name: "press cites ordinary claim", update: {}, code: "CITATION_REQUIRED", mode: "press"},
     {name: "unapproved admission", update: {line: "I lied."}, code: "FORBIDDEN"},
   ];
@@ -136,7 +137,7 @@ describe("seven validator gates", () => {
   });
   it("requires specific press citations and permits equivalent spoken times", () => {
     const {graph, sheet, answer} = context();
-    const pressed = {...answer, cites: ["p:C_VALE_ALIBI_0"], line: "The kettle was boiling at half past ten."};
+    const pressed = {...answer, cites: [performanceRef("p","C_VALE_ALIBI_0")], line: "The kettle was boiling at half past ten."};
     expect(validateLine(pressed, sheet, graph, "press").ok).toBe(true);
     expect(validateLine({...answer, line: "I was in the Kitchen at ten-thirty."}, sheet, graph).ok).toBe(true);
     expect(validateLine({...answer, line: "I was in the Kitchen at 10:30 pm."}, sheet, graph).ok).toBe(true);
@@ -146,8 +147,8 @@ describe("seven validator gates", () => {
     state.suspects.S2.memory.push({id: "past", text: "You accused me earlier.", entities: ["S2"], source: "player"});
     state.suspects.S2.heard.push({id: "gossip", text: "Imran said the kettle was cold.", entities: ["S1", "O11"], source: "gossip:S1"});
     const sheet = buildFactSheet(graph, state, "S2");
-    expect(validateLine({...answer, cites: [...answer.cites, "m:past"], line: "You accused me earlier. I was in the Kitchen."}, sheet, graph).ok).toBe(true);
-    const hearsay = {...answer, cites: [...answer.cites, "h:gossip"], line: "Imran stood beside the kettle."};
+    expect(validateLine({...answer, cites: [...answer.cites, performanceRef("m","past")], line: "You accused me earlier. I was in the Kitchen."}, sheet, graph).ok).toBe(true);
+    const hearsay = {...answer, cites: [...answer.cites, performanceRef("h","gossip")], line: "Imran stood beside the kettle."};
     expect(validateLine(hearsay, sheet, graph).errors.map(error => error.code)).toContain("MEMORY");
     expect(validateLine({...hearsay, line: "Imran said the kettle was cold."}, sheet, graph).ok).toBe(true);
   });
@@ -156,7 +157,7 @@ describe("seven validator gates", () => {
     const answer: Answer = {topic: "unclear", cites: ["none"], line: "Ask me something more specific.", emotion: "guarded"};
     expect(validateLine(answer, sheet, graph, "deflect").ok).toBe(true);
     expect(validateLine({...answer, line: "I was in the Kitchen."}, sheet, graph, "deflect").ok).toBe(false);
-    expect(validateLine({...answer, cites: ["none", "a:C_VALE_ALIBI_0"]}, sheet, graph).errors.map(error => error.code)).toContain("UNKNOWN_CITE");
+    expect(validateLine({...answer, cites: ["none", performanceRef("a","C_VALE_ALIBI_0")]}, sheet, graph).errors.map(error => error.code)).toContain("UNKNOWN_CITE");
   });
 });
 
@@ -171,7 +172,7 @@ describe("gazetteer and topic mapping", () => {
   it("accepts cited possessive surnames while rejecting unknown possessive names", () => {
     const state = createGameState(heroCase);
     const sheet = buildFactSheet(heroCase, state, "S4");
-    const answer: Answer = {topic: "motive:S2", cites: ["a:C_PIKE_TRUST"], line: "Harlow intended to expose Vale's forged trust accounts.", emotion: "guarded"};
+    const answer: Answer = {topic: "motive:S2", cites: [performanceRef("a","C_PIKE_TRUST")], line: "Harlow intended to expose Vale's forged trust accounts.", emotion: "guarded"};
     expect(validateLine(answer, sheet, heroCase).ok).toBe(true);
     expect(validateLine({...answer, line: "Harlow intended to expose Alice's forged trust accounts."}, sheet, heroCase).ok).toBe(false);
   });
@@ -199,7 +200,7 @@ describe("validated line banks", () => {
       const state = createGameState(heroCase);
       state.suspects[entry.suspect].layer = entry.layer;
       for (const cite of entry.answer.cites) {
-        const statement = heroCase.statements.find(item => item.id === cite.slice(2));
+        const statement = heroCase.statements.find(item => performanceRef(entry.mode==="press"?"p":"a",item.id) === cite);
         if (statement?.replacementFor) state.suspects[entry.suspect].topicOverrides[statement.topic] = statement.id;
       }
       const sheet = buildFactSheet(heroCase, state, entry.suspect);
@@ -214,7 +215,7 @@ describe("validated line banks", () => {
     state.suspects.S2.topicOverrides["baseline:brooch"] = "C_S2_BASELINE_TRUE";
     const sheet = buildFactSheet(graph, state, "S2");
     const answer = lookupLine(heroLineBank, {suspect: "S2", topic: "baseline:brooch", layer: 0, mode: "answer"}, sheet, graph)!;
-    expect(answer.cites).toEqual(["a:C_S2_BASELINE_TRUE"]);
+    expect(answer.cites).toEqual([performanceRef("a","C_S2_BASELINE_TRUE")]);
     expect(lookupLine(heroLineBank, {suspect: "S2", topic: "where@22:30", layer: 2, mode: "confession"}, sheet, graph)).toBeUndefined();
   });
   it("skips invalid bank entries and supplies a safe deterministic canonical floor", () => {

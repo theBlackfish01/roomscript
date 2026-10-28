@@ -1,3 +1,4 @@
+import {performanceRef} from "../../../Assets/Scripts/Engine/perf/ReferenceIds";
 import {describe,expect,it} from "vitest";
 import {createHeroCase,heroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {createHeroLineBank,heroFinalConfession,heroLineBank,selectHeroLine} from "../../../Assets/Scripts/Content/HeroLineBank";
@@ -99,7 +100,7 @@ describe("bounded authored fallback performances",()=>{
       for(const mode of ["answer","press","broken"] as const) {
         const line=selectHeroLine(s.speaker,s.topic,s.layer,mode,s.id);
         expect(line,s.id+" "+mode).toBeDefined();
-        expect(line!.answer.cites).toEqual([(mode==="press"?"p:":"a:")+s.id]);
+        expect(line!.answer.cites).toEqual([performanceRef(mode==="press"?"p":"a",s.id)]);
       }
     }
     for(const entry of heroLineBank) {

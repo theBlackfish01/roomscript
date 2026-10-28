@@ -20,14 +20,14 @@ export function buildStatements(sim:Simulation,pitch:CasePitch):void {
       const c2={...whereabouts,id:`C_${s.slot}_whereabouts_2`,layer:2,asserts:[whereabouts.asserts as string,"F_MURDER_TOUCH"],canonical:whereabouts.canonical+" "+fact("F_MURDER_TOUCH").canonical,entities:[s.slot,g.envelope.where,g.envelope.what]};
       statements.push(c0,c1,c2);
     } else statements.push(whereabouts);
-    statements.push(truth(s.slot,"baseline_truth",`F_MOTIVE_${s.slot}`));
+    statements.push(truth(s.slot,"background",`F_MOTIVE_${s.slot}`));
     for(const other of g.cast.suspects.filter(p=>p.id!==culprit&&p.id!==s.slot))statements.push(truth(s.slot,"about_"+other.id,`F_AT_${other.id}_${murder}`));
     // These are recorded observations relayed by a suspect; object roots remain the independent primary routes.
     statements.push(truth(s.slot,"victim",`F_AT_V_${murder}`));
     for(const weapon of g.weapons.filter(id=>id!==g.envelope.what))statements.push(truth(s.slot,"weapon_"+weapon,`F_IN_${weapon}_${murder}`));
     statements.push(truth(s.slot,"motive",`F_MOTIVE_${s.slot}`));
-    for(const [topic,source] of [["secret",sim.secretFacts[s.slot]],["baseline_lie",sim.baselineFacts[s.slot]]] as [string,string][]) {
-      const actual=fact(source);const denial=falseFact(actual,source+"_DENIAL",{...actual.args,value:"denied"},`${s.name} denies ${topic==="secret"?"the concealed "+s.secret.type:"borrowing the item"}.`);
+    for(const [topic,source] of [["visit",sim.secretFacts[s.slot]],["borrowed_item",sim.baselineFacts[s.slot]]] as [string,string][]) {
+      const actual=fact(source);const denial=falseFact(actual,source+"_DENIAL",{...actual.args,value:"denied"},`${topic==="visit"?"I was attending to my own business.":"I did not borrow the item."}`);
       const original=truth(s.slot,topic,source);
       const replacement={...original,id:original.id+"_REPLY",replacementFor:original.id};
       statements.push({...original,asserts:denial.id,canonical:denial.canonical!,stance:"cover",breakers:proofs(source),onBreak:replacement.id},replacement);
