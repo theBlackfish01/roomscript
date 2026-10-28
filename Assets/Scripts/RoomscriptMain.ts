@@ -5,6 +5,7 @@ import {RoomscriptNotepadUI} from "./RoomscriptNotepadUI";
 import {RoomscriptEvidenceWalletUI} from "./RoomscriptEvidenceWalletUI";
 import {RoomscriptAudio} from "./RoomscriptAudio";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
+import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
 /** Scene wiring only. Engine bridge will own all case state; UI receives values/events. */
 @component export class RoomscriptMain extends BaseScriptComponent {
   @ui.group_start("References")
@@ -15,6 +16,7 @@ import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
   @input @hint("Evidence wallet") wallet:RoomscriptEvidenceWalletUI;
   @input @hint("Audio cues and music") audio:RoomscriptAudio;
   @input @hint("Deterministic case owner") engine:RoomscriptEngineBridge;
+  @input @hint("Production question and speech flow") interrogation:RoomscriptInterrogationController;
   @ui.group_end
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.start());}
   private start():void {
@@ -26,8 +28,7 @@ import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
       this.caseLid.show(false);this.chips.show(false);this.verbs.show(false);this.notebook.show(action==="Notebook");this.wallet.show(action==="Evidence");this.audio.play("ChalkScratch");});
     const close=()=>{this.notebook.show(false);this.wallet.show(false);this.caseLid.show(true);this.chips.show(true);this.verbs.show(true);};
     this.notebook.onClose.add(close);this.wallet.onClose.add(close);
-    this.chips.onQuestion.add(question=>{this.chips.setTopic(question==="free"?"free question":question);this.audio.play("Tink");});
-    this.verbs.onVerb.add(verb=>this.audio.play(verb==="Object"?"Objection":"ClockTick"));
-    print("Roomscript: C1 UIKit shells ready");
+    this.interrogation?.initialize();
+    console.log("Roomscript: production interrogation ready");
   }
 }

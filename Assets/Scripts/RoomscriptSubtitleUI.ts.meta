@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/e97bf6f4-d68f-4db2-a8bf-60b913e4ffcd>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 832ca5c6-5a18-449d-b099-e83a6a53a965
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 832ca5c6-5a18-449d-b099-e83a6a53a965
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> dd2e4ad5-fabc-48c4-b6d8-5fc379dd3348
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/dd2e4ad5-fabc-48c4-b6d8-5fc379dd3348>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 47d85795-8b8c-47b3-bab0-de0a27582a0f
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    fontScale: false
+    ink: false
+    width: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - width: !<float> 62.000000
+      fontScale: 1.500000
+      ink: !<Vec4> {x: 1.000000, y: 0.940000, z: 0.840000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input float width = 62 {"hint":"Subtitle width cm"}'
+    - '// @input float fontScale = 1.5 {"hint":"Subtitle typography scale"}'
+    - '// @input vec4 ink = "{1,0.94,0.84,1}" {"hint":"Subtitle ink", "widget":"color"}'

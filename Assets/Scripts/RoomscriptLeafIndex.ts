@@ -11,6 +11,8 @@ import {RoomscriptLatencyLeafScenario} from "./RoomscriptLatencyLeafScenario";
 import {RoomscriptFallbackLeafScenario} from "./RoomscriptFallbackLeafScenario";
 import {RoomscriptSpeechLeafScenario} from "./RoomscriptSpeechLeafScenario";
 import {RoomscriptBindingLeafScenario} from "./RoomscriptBindingLeafScenario";
+import {RoomscriptInterrogationLeafScenario} from "./RoomscriptInterrogationLeafScenario";
+import {RoomscriptLiveInterrogationLeafScenario} from "./RoomscriptLiveInterrogationLeafScenario";
 
 @component
 export class RoomscriptLeafIndex extends BaseScriptComponent {
@@ -26,6 +28,8 @@ export class RoomscriptLeafIndex extends BaseScriptComponent {
     {id: "roomscript-live-latency", typename: RoomscriptLatencyLeafScenario.getTypeName()},
     {id: "roomscript-openai-fallback", typename: RoomscriptFallbackLeafScenario.getTypeName()},
     {id: "roomscript-speech-budget", typename: RoomscriptSpeechLeafScenario.getTypeName()},
-    {id: "roomscript-room-binding", typename: RoomscriptBindingLeafScenario.getTypeName()}
+    {id: "roomscript-room-binding", typename: RoomscriptBindingLeafScenario.getTypeName()},
+    {id: "roomscript-interrogation", typename: RoomscriptInterrogationLeafScenario.getTypeName()},
+    {id: "roomscript-live-interrogation", typename: RoomscriptLiveInterrogationLeafScenario.getTypeName()}
   ];
 }

@@ -20,7 +20,8 @@ import {geminiRequest,openAIRequest,providerError} from "./Engine/ai/ProviderReq
     return !!token && token.length>20 && !token.includes("[INSERT");
   }
   async complete(request:LlmRequest,cancellation?:CancellationToken):Promise<LlmResponse> {
-    cancellation?.throwIfCancelled();if(this.forceOffline)throw new LlmError("unavailable");this.requests++;
+    cancellation?.throwIfCancelled();if(this.forceOffline)throw new LlmError("unavailable");
+    if(!this.hasCredentials(request.provider))throw new LlmError("unauthenticated");this.requests++;
     try {
       let content:string;
       if(request.provider==="openai") {

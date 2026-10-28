@@ -99,3 +99,6 @@ Prepare all sentences concurrently under the shared scheduler, attach rejection 
 
 ### 2026-10-29 — L1 common coordinate frame
 Preserve hero semantic IDs and move its authored coordinates to the existing room fixture. Scene anchors and virtual props use a single floor root at the Preview floor height; runtime consumers transform case-local centimeters through that root. Physical stand-ins remain Preview-only, while anchor/virtual-prop/plaque content remains enabled on device. This fixes the current fixture binding without claiming a real-world room scan.
+
+### 2026-10-29 — C5 reviewed topic and production ownership
+Lock the topic before Ask and model generation for both chips and free questions. Corrections are free until submission; model topic changes cannot alter the canonical filed statement. Record raw output before admitting a LineSpoken action. Keep authored cache-first chips, live free questions, current-account audio precache and subtitle fallback. A missing/expired gateway enters offline mode without repeated calls. Three live production samples passed the combined first-audio deadline; this is a small integration sample, separate from the 20-request Gemini text table.

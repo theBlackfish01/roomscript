@@ -50,7 +50,7 @@ import {heroLineBank} from "./Content/HeroLineBank";
     parent?.throwIfCancelled();const key=voice+"|"+sentence;const cached=this.cache.get(key);
     if(cached){this.cache.delete(key);this.cache.set(key,cached);this.hit++;return cached;}
     const track=await withDeadline(token=>this.client.scheduler.submit(priority,async()=>{
-      if(this.client.forceOffline)throw new LlmError("unavailable");
+      if(this.client.forceOffline||!this.client.hasCredentials("openai"))throw new LlmError("unavailable");
       try{return await OpenAI.speech({model:"gpt-4o-mini-tts",voice:voice as any,input:sentence,instructions:"A restrained theatrical suspect. Clear diction, quiet tension.",response_format:"mp3"});}
       catch(error){throw providerError(error);}
     },token).promise,budgetMs,this.client.clock,parent);

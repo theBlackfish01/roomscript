@@ -1,13 +1,14 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-29 00:11 PKT. Lens Studio MCP, sign-in, project, camera, packages and Preview verified. P0 implementation fixes E1–E4 and A1–A4 are complete with regressions. Tooling typecheck passes; all four Git LFS hooks are tracked and the secret guard remains active.
+Updated 2026-10-29 00:49 PKT. P0 review fixes and C5 with L1/A5–A8 are complete. Gateway credentials are blank for commit.
 
 ## Current work
 
-- C5 with L1 and A5–A8 is next: room binding, production interrogation, live transports and audio budgets.
-- Latest targeted engine/performance run: 142/142 passed. Hook checks: 5/5. Lens compile and fresh runtime clean. The E4 full-suite timeout and successful full-fuzz rerun are detailed below; a new integrated suite is running.
-- Current Preview is still the existing shell; the complete case is not delivered. Credentials are blank and will be refreshed for live tests.
-- Tests require elevated local execution because sandboxed esbuild cannot resolve workspace configuration through the user directory.
+- Next: staging pass, C6 tells/composure, C7 Spatial Objection, then the review's remaining resume order.
+- Production interrogation is wired: chips, free-question review/correction, deterministic claim, validated speech/subtitles and offline fallback. Full case remains unfinished.
+- Integrated P0 gate: **320/320 tests, 24 files, exit 0**. Latest C5 targeted run: **195/195 tests, 14 files**, Tooling typecheck clean. Lens MCP compile/start clean.
+- Strict Preview LEAF passes for offline controls and three live production answers. First audio: **1851 / 1744 / 4513 ms**, zero rejected outputs. See [C5 evidence](c5-production-latency-2026-10-29.json).
+- Tests require elevated local execution because sandboxed esbuild cannot resolve workspace configuration through the user directory. No push or remote created.
 ## Resume scope and review corrections
 
 Approved scope: one complete case first (live AI interrogation and tells, Spatial Objection, suggestion sweep, accusation/reenactment, opening), then should tier in plan order. Clue Night only if the core case is done and green by November 4. See [decisions.md](decisions.md).
@@ -167,3 +168,6 @@ Complete at the adapter level; C5 will invoke current-account precache. Sentence
 
 ### L1 — room binding (2026-10-29)
 Complete. Hero zone coordinates match the Preview fixture by semantic name while case IDs remain stable. All 13 objects and five zones have authored anchors under a floor-local CaseRoom root; five virtual props are present. Zone plaques moved out of PreviewRoom, bottle/mug stand-ins aligned with case positions. Binding component maps case to world and audits missing/drifting anchors. 39 content/room/tape tests pass; fail-fast roomscript-room-binding LEAF verifies translated root, all anchors, device-visible props/plaques with PreviewRoom disabled, and detection of intentional drift. Lens compile/start clean; front and top captures reviewed. Saved captures/2026-10-29-l1-room-binding.jpg. Full staging remains next after C5.
+
+### C5 — production interrogation (2026-10-29)
+Complete. Engine Ask precedes performance; the reviewed topic is locked for chips and free questions. Raw model outputs enter the action log before validated LineSpoken, subtitles and TTS. UIKit question review supports correction, exact Preview presets and device keyboard. Unauthenticated switches to offline fallback; current-account clips warm on suspect selection. Strict offline control/replay and three live model-plus-audio scenarios pass; 195 targeted tests and Tooling typecheck pass. Screenshot confirms the staging issues remain; staging is the next item.

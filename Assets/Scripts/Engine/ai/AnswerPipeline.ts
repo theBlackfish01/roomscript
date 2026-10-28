@@ -54,9 +54,9 @@ export class AnswerPipeline {
     const topic = input.topic ?? keywordIntent(input.question, sheet, input.graph).topic;
     if (!answerTopics(sheet).includes(topic)) throw new Error("Question topic is not in the current account");
     // Build and validate all request inputs before replacing the active question.
-    const request = answerRequest(sheet, input.question, this.options.model, mode);
+    const request = answerRequest(sheet, input.question, this.options.model, mode,topic);
     const graph = input.graph; const question = input.question; const kind = input.kind;
-    const lockTopic = kind === "chip" || input.topic !== undefined;
+    const lockTopic = true;
     this.current?.cancel();
     const id = this.nextId++; const source = new CancellationSource(); const network = new CancellationSource();
     const started = this.options.clock.nowMs(); const timers: Array<() => void> = [];

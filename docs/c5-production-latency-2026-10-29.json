@@ -1,0 +1,30 @@
+﻿{
+    "kind":  "production model plus first audio",
+    "note":  "First two responses hit the voice cache; the unusual-question deflection required new TTS.",
+    "date":  "2026-10-29",
+    "rejections":  0,
+    "target":  "Lens Studio Preview",
+    "rows":  {
+                 "value":  [
+                               {
+                                   "question":  "Where were you at 22:30?",
+                                   "textMs":  1851.1220999935176,
+                                   "audioMs":  1851.1220999935176,
+                                   "rejections":  0
+                               },
+                               {
+                                   "question":  "What is your name?",
+                                   "textMs":  1744.477200001711,
+                                   "audioMs":  1744.477200001711,
+                                   "rejections":  0
+                               },
+                               {
+                                   "question":  "Could a dragon juggle the moon?",
+                                   "textMs":  2003.9707999967504,
+                                   "audioMs":  4512.896700005513,
+                                   "rejections":  0
+                               }
+                           ],
+                 "Count":  3
+             }
+}

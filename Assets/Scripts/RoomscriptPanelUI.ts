@@ -52,7 +52,7 @@ export class PanelUI {
     const width=(this.width-3-(items.length-1))/items.length;
     return items.map(spec=>{
       const o=this.item(row,layout,width,height,spec.id),button=o.createComponent(RectangleButton.getTypeName()) as RectangleButton;
-      button.size=new vec3(width,height,1);button.onTriggerUp.add(()=>onAction(spec.id));
+      button.onInitialized.add(()=>button.size=new vec3(width,height,1));button.onTriggerUp.add(()=>onAction(spec.id));
       return this.label(o,spec.label,width,height,"small");
     });
   }

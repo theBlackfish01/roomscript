@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/a1bfc721-a5d7-41bb-bc63-2c9f5052483a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> fe0c9843-af4c-4098-8792-1a6203b8c755
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> fe0c9843-af4c-4098-8792-1a6203b8c755
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ae9d609d-4b88-418d-9eb5-33cdd76f0d2f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ae9d609d-4b88-418d-9eb5-33cdd76f0d2f>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 540df869-f2de-4e7c-9e03-d7d938a21da6
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    fontScale: false
+    ink: false
+    width: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - width: !<float> 58.000000
+      fontScale: 1.400000
+      ink: !<Vec4> {x: 1.000000, y: 0.940000, z: 0.840000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input float width = 58 {"hint":"Question review width cm"}'
+    - '// @input float fontScale = 1.4 {"hint":"Question typography scale"}'
+    - '// @input vec4 ink = "{1,0.94,0.84,1}" {"hint":"Question ink", "widget":"color"}'

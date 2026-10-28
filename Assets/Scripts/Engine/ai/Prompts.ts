@@ -27,7 +27,7 @@ export function promptRequest(kind: PromptKind, input: unknown, schema: Record<s
   return {provider: model.provider, model: model.model, promptVersion: PROMPT_VERSIONS[kind], temperature: 0,
     messages: [{role: "system", content: systems[kind]}, {role: "user", content: canonicalJson(input)}], schema};
 }
-export function answerRequest(sheet: FactSheet, question: string, model: ModelConfig, mode: AnswerMode = "answer"): LlmRequest {
+export function answerRequest(sheet: FactSheet, question: string, model: ModelConfig, mode: AnswerMode = "answer", lockedTopic?:string): LlmRequest {
   if (typeof question !== "string" || !question.trim() || question.length > 2000) throw new Error("Question must contain one to 2000 characters");
-  return promptRequest("answer", {sheet, engine: {mode, topicToRef: sheet.topicToRef}, question}, buildAnswerSchema(sheet, mode), model);
+  return promptRequest("answer", {sheet, engine: {mode, topicToRef: sheet.topicToRef,...(lockedTopic?{lockedTopic}: {})}, question}, buildAnswerSchema(sheet, mode), model);
 }

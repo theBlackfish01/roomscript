@@ -1,0 +1,67 @@
+- !<AssetImportMetadata/7aed9819-6540-40eb-9b12-3246c4b54b28>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 50e57977-f066-4008-a5a7-650786a7977d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 50e57977-f066-4008-a5a7-650786a7977d
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 74954446-350b-4d7b-95d9-2cd2f994cc61
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/74954446-350b-4d7b-95d9-2cd2f994cc61>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: a20df0d2-e92e-41b0-a773-c7024a2e0488
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    actor: false
+    chips: false
+    client: false
+    engine: false
+    questions: false
+    subtitles: false
+    tts: false
+    verbs: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - engine: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      client: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      tts: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      actor: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      chips: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+      verbs: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
+      subtitles: !<MappingBased.AssignableType_7> 00000000-0000-0000-0000-000000000000
+      questions: !<MappingBased.AssignableType_8> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType_1 engine {"hint":"Deterministic case owner"}'
+    - '// @input AssignableType_2 client {"hint":"Gateway transport"}'
+    - '// @input AssignableType_3 tts {"hint":"Sentence audio player"}'
+    - '// @input AssignableType_4 actor {"hint":"Current suspect actor"}'
+    - '// @input AssignableType_5 chips {"hint":"Question chip UI"}'
+    - '// @input AssignableType_6 verbs {"hint":"Canonical statement and verbs"}'
+    - '// @input AssignableType_7 subtitles {"hint":"Speaker-local subtitles"}'
+    - '// @input AssignableType_8 questions {"hint":"Free question draft and correction"}'

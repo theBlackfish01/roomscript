@@ -99,12 +99,12 @@ describe("validated live answer pipeline", () => {
     const neutral = context({complete: async () => response({topic: "unclear", cites: ["none"], line: "Ask me something more specific.", emotion: "guarded"})});
     expect(await neutral.pipeline.start(neutral.input).promise).toMatchObject({origin: "model", mode: "deflect"});
   });
-  it("ignores invalid cached entries and respects a locked chip topic", async () => {
+  it.each(["chip","free"] as const)("ignores invalid cached entries and respects a locked %s topic", async kind => {
     const wrong: LineBankEntry = {suspect: "S2", layer: 0, topic: answer.topic, mode: "answer", answer: {...answer, cites: [performanceRef("a","C_VALE_ALIBI_2")]}};
     const complete = vi.fn(async () => response({topic: "baseline:name", cites: [performanceRef("a","C_S2_NAME")], line: "My name is Marguerite Vale.", emotion: "guarded"}));
     const {pipeline, input} = context({complete}, [wrong]);
     const rejected = vi.fn();
-    const result = await pipeline.start({...input, kind: "chip", topic: answer.topic}, {rejected}).promise;
+    const result = await pipeline.start({...input, kind}, {rejected}).promise;
     expect(result.origin).toBe("canonical"); expect(result.answer.topic).toBe(answer.topic); expect(complete).toHaveBeenCalledTimes(2);
     expect(rejected.mock.calls.map(([event]) => event.codes)).toEqual([["TOPIC"], ["TOPIC"]]);
   });
