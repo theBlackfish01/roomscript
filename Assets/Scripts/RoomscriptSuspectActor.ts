@@ -14,7 +14,7 @@ import {GameState} from "./Engine/core/Types";
   @input @hint("Engine suspect ID") suspect:string="S2";
   private surface:Material;private visual:RenderMeshVisual;
   private stress=0;private jaw=0;private amplitude=0;private speaking=false;
-  private pose="neutral";private track:AudioTrackAsset;
+  private pose="neutral";private track:AudioTrackAsset;private frozen=false;
   private samples=new Float32Array(1024);
   onAwake():void {
     this.createEvent("OnStartEvent").bind(()=>this.build());
@@ -31,18 +31,20 @@ import {GameState} from "./Engine/core/Types";
     this.engine.initialize();this.engine.onState.add(state=>this.applyState(state));this.applyState(this.engine.snapshot());
   }
   applyState(state:GameState):void {
+    if(this.frozen)return;
     const s=state.suspects[this.suspect];if(!s||!this.surface)return;
     this.stress=1-s.composure/Math.max(1,s.composureMax);
     this.pose=s.layer>=2||s.composure<=0?"broken":s.layer>0||this.stress>=0.3?"rattled":this.speaking?"listening":"neutral";
     this.surface.mainPass.baseTex=this.pose==="broken"?this.broken:this.pose==="rattled"?this.rattled:this.pose==="listening"?this.listening:this.neutral;
   }
   setListening(active:boolean):void {this.speaking=active;this.applyState(this.engine.snapshot());}
+  setFrozen(value:boolean):void {this.frozen=value;if(!value)this.applyState(this.engine.snapshot());}
   voice():string {this.engine.initialize();return this.engine.caseGraph().cast.suspects.find(s=>s.id===this.suspect)?.voice || "onyx";}
   setVoice(track:AudioTrackAsset|null):void {this.track=track;this.setListening(!!track);if(!track)this.amplitude=0;}
   setAudioAmplitude(value:number):void {this.amplitude=Math.max(0,Math.min(1,value));}
   diagnostics():{pose:string;stress:number;jaw:number} {return {pose:this.pose,stress:this.stress,jaw:this.jaw};}
   private update():void {
-    if(!this.surface)return;
+    if(!this.surface||this.frozen)return;
     const root=this.getTransform(),delta=this.camera.getTransform().getWorldPosition().sub(root.getWorldPosition());delta.y=0;
     if(delta.length>0.01)root.setWorldRotation(quat.lookAt(delta.normalize(),vec3.up()));
     if(this.track){const control=this.track.control as FileAudioTrackProvider;

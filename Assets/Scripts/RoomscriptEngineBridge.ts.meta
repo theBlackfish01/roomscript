@@ -28,7 +28,8 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    player: false
+    roomRoot: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -38,10 +39,11 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - player: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      roomRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - '// @input SceneObject player {"hint":"Player setup reference"}'
+    - '// @input SceneObject roomRoot {"hint":"Shared room coordinate frame"}'

@@ -15,6 +15,8 @@ import {RoomscriptInterrogationLeafScenario} from "./RoomscriptInterrogationLeaf
 import {RoomscriptLiveInterrogationLeafScenario} from "./RoomscriptLiveInterrogationLeafScenario";
 import {RoomscriptStagingLeafScenario} from "./RoomscriptStagingLeafScenario";
 import {RoomscriptTellsLeafScenario} from "./RoomscriptTellsLeafScenario";
+import {RoomscriptObjectionLeafScenario} from "./RoomscriptObjectionLeafScenario";
+import {RoomscriptClueLeafScenario} from "./RoomscriptClueLeafScenario";
 
 @component
 export class RoomscriptLeafIndex extends BaseScriptComponent {
@@ -34,6 +36,8 @@ export class RoomscriptLeafIndex extends BaseScriptComponent {
     {id: "roomscript-interrogation", typename: RoomscriptInterrogationLeafScenario.getTypeName()},
     {id: "roomscript-live-interrogation", typename: RoomscriptLiveInterrogationLeafScenario.getTypeName()},
     {id: "roomscript-staging", typename: RoomscriptStagingLeafScenario.getTypeName()},
-    {id: "roomscript-tells", typename: RoomscriptTellsLeafScenario.getTypeName()}
+    {id: "roomscript-tells", typename: RoomscriptTellsLeafScenario.getTypeName()},
+    {id: "roomscript-objection", typename: RoomscriptObjectionLeafScenario.getTypeName()},
+    {id: "roomscript-clue", typename: RoomscriptClueLeafScenario.getTypeName()}
   ];
 }

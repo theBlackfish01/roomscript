@@ -1,0 +1,55 @@
+- !<AssetImportMetadata/34fab1aa-1753-4cdd-a12f-932d403dd750>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> ae992807-7995-49b3-8dc5-0f7d0834863f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> ae992807-7995-49b3-8dc5-0f7d0834863f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 8aa78f6c-33b6-460f-a537-e1e22dafbef7
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/8aa78f6c-33b6-460f-a537-e1e22dafbef7>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 69ae49ab-d06e-4a5b-874d-b52725b21b61
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    envelope: false
+    notebook: false
+    objection: false
+    tray: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - objection: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      notebook: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      tray: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      envelope: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input AssignableType_1 objection
+    - // @input AssignableType_2 notebook
+    - // @input SceneObject tray
+    - // @input SceneObject envelope

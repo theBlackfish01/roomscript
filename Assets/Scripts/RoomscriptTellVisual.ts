@@ -73,6 +73,7 @@ import {isLawyered} from "./Engine/game/Composure";
     this.line.enabled=!!this.target;
     if(this.target)this.updateLine(this.target.getTransform().getWorldPosition());
   }
+  relocateMark(position:vec3):void {this.mark=position;this.from=this.flow.actor.getTransform().getWorldPosition();this.to=position;this.moveStart=getTime();this.moving=true;}
   private updateLine(end:vec3):void {
     const start=this.flow.actor.getTransform().getWorldTransform().multiplyPoint(new vec3(0,132,5)),camera=this.flow.actor.camera.getTransform().getWorldPosition();
     const direction=end.sub(start),towards=camera.sub(start);let side=direction.cross(towards);if(side.length<.001)side=vec3.up();side=side.normalize().uniformScale(12);

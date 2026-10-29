@@ -1,10 +1,14 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-29 01:15 PKT. P0 review fixes and C5 with L1/A5–A8 are complete. Gateway credentials are blank for commit.
+Updated 2026-10-29 02:51 PKT. P0 fixes, C5 with L1/A5-A8, staging, C6 and D1 are verified. C7 shatter needs the pending native-instantiation exception. Credentials are blank.
 
 ## Current work
 
-- Staging and C6 are complete. Next: C7 object memories/Spatial Objection, then D1 suggestion sweep and the remaining resume order.
+- D1 suggestion sweep is verified: real pawn drag into a zone, weapon touch, dotted ghost, clockwise first-refuter sweep/private card, full no-refuter sweep/envelope breath, knowledge-only notebook and room markings. `roomscript-clue` passed twice after the audio fix, including listener/host-position regression checks. Engine targets: 138/138 across 8 files; Lens compile and Preview startup clean. Captures: `docs/captures/2026-10-29-d1ghost.jpg` and `2026-10-29-d1card.jpg`.
+- D1 exposed a native timeout at repeated spatial-audio enablement. Spatial audio now initializes once on a separate emitter; the camera has an AudioListener; delayed frames coalesce audible ticks while retaining every visited refuter. The regression exercises both successive sweeps and deterministic replay.
+- Checkpoint includes C7's unfinished effect wiring because D1 shares its object interactions and scene registration. No `m2-slice` or `m3-case` tag is justified yet. Pending approval is limited to one `AssetManager.instantiate([vfxAsset])` call for imported `RoomscriptShatter` UUID `51829ea2-ad44-43b1-b5f9-2b54493c160a`; all subsequent scene changes remain VirtualScene.
+- Staging and C6 are complete. C7 interactions are implemented and LEAF/direct Preview drag verified; **C7 is not complete** because its VFX graph imports but runtime-only references export as null. VirtualScene cannot instantiate the graph. A specific one-call native instantiation exception is pending Wadood in the chat. D1 is now verified. Return to C7 effect verification/commit/tag after approval, then D3, D2 and D6/D7.
+- C7 WIP includes paged object memories, observed-only wallet, real SIK slip dragging, wrong bounce/pip, correct silence/stamp/tearing paths/next layer/true-mark walk. Regression found and fixed UIKit backing/proximity colliders intercepting direct drag after reopening. Diagnostic timing restored to 1; particle preview off. No C7 commit yet.
 - Production interrogation is wired: chips, free-question review/correction, deterministic claim, validated speech/subtitles and offline fallback. Full case remains unfinished.
 - Integrated P0 gate: **320/320 tests, 24 files, exit 0**. Latest C5 targeted run: **195/195 tests, 14 files**, Tooling typecheck clean. Lens MCP compile/start clean.
 - Strict Preview LEAF passes for offline controls and three live production answers. First audio: **1851 / 1744 / 4513 ms**, zero rejected outputs. See [C5 evidence](c5-production-latency-2026-10-29.json).
@@ -177,3 +181,11 @@ HUD parented to the articulated crate lid, cue button removed, chips/verbs narro
 
 ### C6 — tells, verbs, composure (2026-10-29)
 Complete for the active interrogation actor. Engine TellCue selects authored tells, never model text; prop flare and dashed 0.25-degree gaze shader begin 300ms after speech (or admitted subtitle fallback). Covers both Vale layers and all cast baseline lies; truth, deflection, filler and lawyered replies stay quiet. Segmented composure display, claim preview on hover, door exit after three empty presses and knock/return after 30 charged night-minutes. Strict offline tells LEAF and real model/audio/tell integration pass; live tell delay318ms and first audio1742/1966/3999ms, zero rejection. 131 targeted tests and Tooling typecheck pass; Lens compile/start clean. A Preview reset interrupted the first live attempt; clean retry passed. Diagnostic capture extends visibility to8s only for inspection; production duration restored to0.9s.
+
+Checkpoint verification 2026-10-29 02:54 PKT: final roomscript-objection LEAF passed (25.850 s) after shared audio changes; Tooling typecheck exit 0, git diff --check clean. Runtime capture reviewed after resetting Preview camera. C7 shatter remains unverified and blocked as noted above.
+
+## Needs Wadood - checkpoint not committed
+
+The local C7/D1 checkpoint commit was NOT executed. Automatic permission approval review timed out twice (original and permitted retry); this is not a finding that the commit is unsafe. Changes remain in the working tree, with no staging performed. Last successful commit remains 5923208 (C6). User review reports under docs/REVIEW_2026-10-28.md and docs/reviews/ remain untracked and intentionally excluded. Gateway tokens are blank, project saved, and secret hook remains enabled.
+
+Resume after permission guidance: commit the verified checkpoint (Assets/Scene.scene, changed/new Assets/Scripts including EngineBridge metadata, RoomscriptShatter asset+meta, the two new Tooling game tests, NOTICE, progress/decisions/CLAD log and six dated captures). Do not stage the user review reports. Then, if approved, instantiate the single prepared VFX asset with the requested native exception, finish C7 visuals/LEAF, and continue D3 -> D2 -> D6/D7 -> should tier.

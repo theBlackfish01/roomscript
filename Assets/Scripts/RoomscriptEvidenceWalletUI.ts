@@ -12,6 +12,6 @@ import {PanelUI,wrapText} from "./RoomscriptPanelUI";
       if(id==="Use evidence")this.onSelect.invoke(this.entries[this.index].id);else {this.index=(this.index+(id==="Next evidence"?1:this.entries.length-1))%this.entries.length;this.render();}});
     this.view.buttons([{id:"Close evidence",label:"Close"}],()=>this.onClose.invoke());this.show(false);}
   setEntries(entries:{id:string;text:string}[]):void {this.entries=entries;this.index=Math.min(this.index,Math.max(0,entries.length-1));this.render();}
-  private render():void {if(this.body)this.body.text=this.entries.length?wrapText(this.entries[this.index].id+"\n\n"+this.entries[this.index].text,35):"No evidence collected.";}
+  private render():void {if(this.body)this.body.text=this.entries.length?wrapText(this.entries[this.index].text,35):"No evidence collected.";}
   show(value:boolean):void {this.view.show(value);}
 }
