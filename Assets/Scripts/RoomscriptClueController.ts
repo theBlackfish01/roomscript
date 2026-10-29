@@ -6,6 +6,7 @@ import {PanelUI,uiObject,wrapText} from "./RoomscriptPanelUI";
 import {worldLines,dottedSegment} from "./RoomscriptWorldLines";
 import {clockwiseAngle,refuterMarks,notebookPages,privateRefutation} from "./Engine/game/CluePresentation";
 import {Hypothesis,Vec3} from "./Engine/core/Types";
+import {spatialDrop} from "./Engine/game/SpatialDrop";
 
 /** Pawn staging and a private refutation sweep. Only engine events may expose a card. */
 @component export class RoomscriptClueController extends BaseScriptComponent {
@@ -51,17 +52,18 @@ import {Hypothesis,Vec3} from "./Engine/core/Types";
     this.objection.objectHandler=id=>{if(this.busy)return true;if(!this.selectedWho)return false;if(!graph.weapons.includes(id)){flow.subtitles.set("WREN","Touch one of the five marked possible weapons.");return true;}this.suggest(id);return true;};
     engine.onState.add(()=>{if(!this.busy)this.renderKnowledge();});this.renderKnowledge();
   }
+  syncSetupPose():void {const state=this.objection.flow.engine.snapshot(),room=this.objection.tells.room,pose=state.setupPose;if(pose){this.localOrigin=pose.origin;this.localForward=pose.forward;}this.origin=room.toWorld([this.localOrigin[0],3,this.localOrigin[2]]);const direction=room.getTransform().getWorldTransform().multiplyDirection(new vec3(this.localForward[0],0,this.localForward[2]));this.startingYaw=Math.atan2(direction.x,-direction.z);const marks=refuterMarks(this.objection.flow.engine.caseGraph());this.order=state.refuterOrder.map(id=>({id,angle:clockwiseAngle(this.localOrigin,this.localForward,marks[id]),position:room.toWorld(marks[id])}));}
   private dropPawn(id:string):void {
     const pawn=this.pawns.get(id)!,point=pawn.getTransform().getWorldPosition();pawn.getTransform().setLocalPosition(this.pawnHomes.get(id)!);pawn.getTransform().setLocalRotation(quat.quatIdentity());
     if(this.busy||this.objection.flow.engine.snapshot().verdict)return;if(this.pawnDropOverride?.(id,point))return;
     const room=this.objection.tells.room,local=room.getTransform().getInvertedWorldTransform().multiplyPoint(point),zones=this.objection.flow.engine.caseGraph().room.zones;
-    const zone=zones.map(z=>({zone:z,distance:Math.hypot(z.anchor[0]-local.x,z.anchor[2]-local.z)})).sort((a,b)=>a.distance-b.distance)[0];if(zone.distance>80)return;
+    const origin=room.getTransform().getInvertedWorldTransform().multiplyPoint(this.objection.flow.actor.camera.getTransform().getWorldPosition());const hit=spatialDrop([origin.x,origin.y,origin.z],[local.x,local.y,local.z],zones.map(z=>({id:z.id,position:z.anchor,radius:80})),6);if(!hit)return;const zone={zone:zones.find(z=>z.id===hit)!};
     this.selectedWho=id;this.selectedZone=zone.zone.id;this.objection.close();this.objection.flow.cancel();this.objection.flow.chips.show(false);this.objection.flow.verbs.show(false);this.ghost.enabled=true;this.ghost.getTransform().setWorldPosition(room.toWorld([zone.zone.anchor[0],0,zone.zone.anchor[2]+55]));
     const person=this.objection.flow.engine.caseGraph().cast.suspects.find(s=>s.id===id)!;this.objection.flow.subtitles.set("SUGGESTION",person.name+" in the "+zone.zone.clueName+". Touch a possible weapon.");
   }
   private suggest(weapon:string):void {
     if(!this.selectedWho||!this.selectedZone||this.busy)return;const flow=this.objection.flow;this.hypothesis={who:this.selectedWho,where:this.selectedZone,what:weapon};this.selectedWho=null;this.selectedZone=null;
-    this.busy=true;flow.cancel();const state=flow.engine.dispatch({type:"Suggest",...this.hypothesis});this.seq=state.lastSeq;
+    this.syncSetupPose();this.busy=true;flow.cancel();const state=flow.engine.dispatch({type:"Suggest",...this.hypothesis});this.seq=state.lastSeq;
     if(state.events.some(e=>e.seq===this.seq&&e.type==="rejected")){this.busy=false;return;}
     this.onSelection.invoke({...this.hypothesis});const card=privateRefutation(flow.engine.caseGraph(),state,this.seq,"P1");this.refuter=card?.holder||null;this.resultText=card?.text||"No witness can refute this suggestion. It remains possible.";
     this.endAngle=card?this.order.find(o=>o.id===card.holder)!.angle:Math.PI*2;this.began=getTime();this.visited=0;this.lastVisited=[];this.blade.enabled=true;this.blade.getTransform().setWorldPosition(this.origin);this.objection.tells.audio.play("Ratchet");

@@ -105,3 +105,6 @@ CLAD inline live-lens-tester workflow; VirtualScene authored Closing inputs; Rec
 
 ### 2026-10-30 — D2
 Applied specs-interaction-recipes and mesh-builder-scripting inline. VirtualScene wired opening references; runtime mesh strokes draw tape/chalk/light. Strict LEAF found crate-parent disabling and a skipped startup knock; both corrected, roomscript-opening and roomscript-cast passed. Compile/start clean; tab capture visually reviewed.
+
+### 2026-10-30 — L4/L5
+CLAD interaction recipes and runtime mesh helpers: manual placement UIKit, 13 yellow fixture brackets, angular drop hints. Recompile/refresh clean; strict opening, clue and objection LEAF pass. Placement screenshot caught cropped buttons; moved calibration card to fit and recaptured. 39 pure regressions pass.

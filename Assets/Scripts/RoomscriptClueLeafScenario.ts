@@ -14,9 +14,9 @@ import {replayGame} from "./Engine/game/Reducer";
     const audioOrigin=clue.objection.tells.audio.getTransform().getWorldPosition();
     expect(!!flow.actor.camera.getComponent("Component.AudioListenerComponent")).toBe(true);
     const starts:{busy:boolean;card:string}[]=[];clue.onSelection.add(()=>{const view=clue.diagnostics();starts.push({busy:view.busy,card:view.card});});
-    const finishSweep=async()=>{for(let i=0;i<150&&clue.diagnostics().busy;i++)await sleep(100);expect(clue.diagnostics().busy).toBe(false);};
-    const tap=async(name:string)=>{const targets=findInteractablesByName(name,undefined,true);expect(targets.length).toBe(1);await hand.trigger(targets[0]);await sleep(100);};
-    const dragPawn=async(id:string,zone:string)=>{const pawn=findInteractablesByName("RoomscriptPawn_"+id,undefined,true)[0],target=room.zoneAnchor(zone).getTransform().getWorldPosition(),vector=new vec3(1,0,0);
+    const finishSweep=async()=>{for(let i=0;i<150&&clue.diagnostics().busy;i++)await sleep(100);expect(clue.diagnostics().busy).toBe(false);await sleep(200);};
+    const tap=async(name:string)=>{const targets=findInteractablesByName(name,undefined,true);console.log("CLUE_TAP|"+name+"|"+targets.length);expect(targets.length).toBe(1);await hand.trigger(targets[0]);await sleep(100);};
+    const dragPawn=async(id:string,zone:string)=>{const pawn=findInteractablesByName("RoomscriptPawn_"+id,undefined,true)[0],target=vec3.lerp(flow.actor.camera.getTransform().getWorldPosition(),room.zoneAnchor(zone).getTransform().getWorldPosition(),.3),vector=new vec3(1,0,0);
       const remove=pawn.onDragUpdate.add(()=>{const delta=target.sub(pawn.getTransform().getWorldPosition()).uniformScale(.5);vector.x=delta.x;vector.y=delta.y;vector.z=delta.z;});try{await hand.drag(pawn,vector,2200);}finally{remove();}await sleep(200);};
     try {
       await dragPawn("S1","Z1");expect(clue.diagnostics().pending).toBe("S1");expect(findSceneObjectByName("RoomscriptSuggestionGhost").enabled).toBe(true);expect(engine.snapshot().elapsedMinutes).toBe(0);

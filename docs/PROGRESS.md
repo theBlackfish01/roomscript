@@ -1,6 +1,6 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-30 00:04 PKT. Review P0, C7, L2/L3 and D3 and D2 verified. L4/L5 next. Gateway credentials remain blank.
+Updated 2026-10-30 00:04 PKT. Review P0, C7, L2/L3 and D3/D2 and L4/L5 verified. AI P1 next. Gateway credentials remain blank.
 
 ## Current work
 
@@ -206,3 +206,10 @@ Four persistent actors with distinct original vector portraits, actor buttons an
 - Three spatial knocks, crossed door tape, crate cue and real SIK pull-tab, hinged light rays, progressively drawn chalk silhouette, envelope rise, room/object caption riffle, seal cue, four staggered arrivals and spatial clock ticks.
 - Investigation dispatch is paused during the opening; no pre-show click can spend case time. Existing feature scenarios use a shared pre-show skip; roomscript-opening exercises the real drag and checks all beats and zero elapsed time.
 - Strict roomscript-opening and roomscript-cast passed; compile/start clean. Capture captures/2026-10-30-d2-tab.png inspected. Simplifications: caption riffle, silhouette arrivals and fixed timing rather than head-aim gates.
+
+## L4/L5 — placement, fixture markers and angular drops (2026-10-30)
+
+- Manual floor calibration (5 cm steps), room rotation and explicit Place case before the opening. Forensic brackets and names on all 13 fixture anchors. This is the documented manual fallback, not automatic room scanning.
+- Drops accept a clear 4-degree alignment (6 degrees for zones), preserve near placement and reject overlapping ray targets. Live release hint names the chosen target. Strict roomscript-objection passed with an angular statement drop; roomscript-clue passed with pawns held at 30% of the target distance.
+- SetupCase logs the local starting origin/direction. Engine refuter order and visual sweep use that same snapshot; replay never needs the original live pose. 39/39 tests across game/{clue-presentation,spatial-drop,reducer}.test.ts; typecheck clean. Strict roomscript-opening checks floor adjustment, room audit, actual pull and setup log. Compile/start clean. Placement capture: captures/2026-10-30-l4-placement.png.
+- Verify on device: floor alignment, fixture-label readability and angular-drop comfort. No automatic plane/depth scan is claimed.

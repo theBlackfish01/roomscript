@@ -85,6 +85,7 @@ export interface SuspectState {
 export interface NotebookClaim { statement: Id; speaker: Id; topic: string; layer: number; canonical: string; asserts: Id[]; broken: boolean; }
 export interface ArgumentClaim { deduction: Id; refs: Id[]; span?: string; }
 export type ActionPayload =
+  | {type: "SetupCase"; origin: Vec3; forward: Vec3}
   | {type: "Ask"; suspect: Id; topic: string; question?: string}
   | {type: "Press"; suspect: Id; statement?: Id}
   | {type: "Believe"; suspect: Id; statement?: Id}
@@ -107,6 +108,7 @@ export type Action = {seq: number; by: Id} & ActionPayload;
 export interface GameEvent { seq: number; type: string; actor?: Id; refs?: Id[]; text?: string; data?: Record<string, unknown>; }
 export type Verdict = "correct" | "wrong" | "timeout" | null;
 export interface GameState {
+  setupPose: {origin:Vec3;forward:Vec3}|null; refuterOrder:Id[];
   caseId: string; lastSeq: number; elapsedMinutes: number; clockMinutes: number; pips: number; hunches: number;
   activeSuspect: Id | null; activeStatement: Id | null; suspects: Record<Id, SuspectState>;
   knowledge: PlayerKnowledge; notebook: NotebookClaim[];

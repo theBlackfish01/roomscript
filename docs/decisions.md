@@ -136,3 +136,6 @@ Timeout closes investigation but permits one valid accusation. Reveal reads seal
 
 ### 2026-10-30 — D2 opening
 The authored opening blocks investigation until the pull-tab and reveal complete. Timing is presentation-only and never advances the action clock. Knock scheduling uses separated beats so a slow first frame cannot skip one. Feature LEAF scenarios skip the independently tested pre-show.
+
+### 2026-10-30 — placement and replay
+Use explicit manual floor adjustment and rotation for the hero fixture. Angular card drops avoid reaching 2 m and reject ambiguous overlapping targets. Starting pose is a validated first SetupCase action; graph truth remains immutable and both refutation selection and sweep consume its order.

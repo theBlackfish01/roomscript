@@ -6,6 +6,7 @@ import {RoomscriptTellVisual} from "./RoomscriptTellVisual";
 import {RoomscriptEvidenceWalletUI} from "./RoomscriptEvidenceWalletUI";
 import {RoomscriptCaseLidUI} from "./RoomscriptCaseLidUI";
 import {objectDropEvidence,provenMark,walletEntries} from "./Engine/game/SpatialObjection";
+import {spatialDrop} from "./Engine/game/SpatialDrop";
 
 /** Spatial presentation of engine judgements. The drop contains observed IDs only. */
 @component export class RoomscriptSpatialObjectionController extends BaseScriptComponent {
@@ -34,7 +35,7 @@ import {objectDropEvidence,provenMark,walletEntries} from "./Engine/game/Spatial
     this.slip=uiObject(root,"RoomscriptStatementSlip");this.slip.getTransform().setLocalPosition(new vec3(-20,0,0));
     const slipView=new PanelUI(this.slip,32,17,1.35,new vec4(.247,.89,1,1),true);slipView.text("Slip title","STATEMENT",3,"small");this.slipText=slipView.text("Slip claim","",10);
     this.drag=this.slip.createComponent(RoomscriptDragInteraction.getTypeName()) as RoomscriptDragInteraction;
-    this.drag.onDragEnd.add(()=>this.drop());this.home=this.slip.getTransform().getLocalPosition();
+    this.drag.onDragUpdate.add(point=>{const id=this.dropTarget(point);this.hint.text=id?"Release on "+(id==="selected"?"selected memory":this.flow.engine.caseGraph().room.objects.find(o=>o.id===id)!.label):"Align the slip with a marker, then release.";});this.drag.onDragEnd.add(()=>this.drop());this.home=this.slip.getTransform().getLocalPosition();
     this.memory=uiObject(root,"RoomscriptMemoryCard");this.memory.getTransform().setLocalPosition(new vec3(20,0,0));
     const card=new PanelUI(this.memory,32,32,1.25,new vec4(1,.42,.35,1));card.text("Memory title","OBJECTS REMEMBER",3,"small");this.memoryText=card.text("Memory text","",16);
     card.buttons([{id:"Previous memory",label:"Previous"},{id:"Next memory",label:"Next"}],id=>{if(!this.memories.length)return;this.memoryIndex=(this.memoryIndex+(id==="Next memory"?1:this.memories.length-1))%this.memories.length;this.memoryText.text=wrapText(this.memories[this.memoryIndex].canonical,26);});
@@ -78,9 +79,7 @@ import {objectDropEvidence,provenMark,walletEntries} from "./Engine/game/Spatial
   private modal(active:boolean):void {this.flow.chips.show(!active);this.flow.verbs.show(!active);this.caseLid.show(!active);}
   private drop():void {
     if(!this.opened||this.phase!=="idle"||!this.slip.enabled)return;const point=this.slip.getTransform().getWorldPosition(),graph=this.flow.engine.caseGraph(),state=this.flow.engine.snapshot();let evidence:string[]=[];
-    if(this.selected&&point.distance(this.memory.getTransform().getWorldPosition())<22)evidence=[this.selected];
-    else {const object=graph.room.objects.map(o=>({id:o.id,distance:point.distance(this.tells.room.objectAnchor(o.id).getTransform().getWorldPosition())})).sort((a,b)=>a.distance-b.distance)[0];
-      if(object.distance<24)evidence=objectDropEvidence(graph,state,object.id);}
+    const hit=this.dropTarget(point);if(hit==="selected"&&this.selected)evidence=[this.selected];else if(hit)evidence=objectDropEvidence(graph,state,hit);
     if(!evidence.length){this.hint.text="Inspect the object, or choose a specific collected memory.";this.slip.getTransform().setLocalPosition(this.home);return;}
     this.flow.cancel();this.flow.actor.setFrozen(true);this.oldMark=this.flow.actor.getTransform().getWorldPosition();
     const proof=graph.evidence.find(e=>e.id===evidence[0]),witness=graph.statements.find(s=>s.id===evidence[0]);
@@ -94,6 +93,7 @@ import {objectDropEvidence,provenMark,walletEntries} from "./Engine/game/Spatial
     const mark=this.correct?provenMark(graph,result.activeStatement!):null;this.destination=mark?this.tells.room.toWorld(mark):null;
     this.dropped=point;this.began=getTime();this.phaseHistory=[];this.setPhase(this.correct?"silence":"bounce");this.tells.audio.silence(this.correct);
   }
+  private dropTarget(point:vec3):string|null {const origin=this.flow.actor.camera.getTransform().getWorldPosition(),tuple=(p:vec3):[number,number,number]=>[p.x,p.y,p.z],targets=this.flow.engine.caseGraph().room.objects.map(o=>({id:o.id,position:tuple(this.tells.room.objectAnchor(o.id).getTransform().getWorldPosition()),radius:24}));if(this.selected)targets.unshift({id:"selected",position:tuple(this.memory.getTransform().getWorldPosition()),radius:22});return spatialDrop(tuple(origin),tuple(point),targets);}
   private setPhase(value:string):void {this.phase=value;this.phaseHistory.push(value);}
   /** Deterministic decorative triangle field; no gameplay randomness or native asset instantiation. */
   private buildShards():void {

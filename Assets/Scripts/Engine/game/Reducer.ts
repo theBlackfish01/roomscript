@@ -10,6 +10,7 @@ import {chooseHunch} from "./Hunches";
 import {createGameState} from "./GameState";
 import {buildFactSheet} from "../perf/FactSheetBuilder";
 import {validateLine} from "../perf/LineValidator";
+import {clockwiseRefuters} from "./CluePresentation";
 
 function uniquePush(list: Id[], id: Id): void {if (!list.includes(id)) list.push(id);}
 function ids(value: unknown): value is string[] {return Array.isArray(value) && value.every(x => typeof x === "string");}
@@ -78,6 +79,11 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
   if (state.verdict !== null && !postVerdict && !finalAccusation) {reject("case_closed"); return state;}
 
   switch (action.type) {
+    case "SetupCase": {
+      const vector=(v:unknown):v is [number,number,number]=>Array.isArray(v)&&v.length===3&&v.every(n=>typeof n==="number"&&Number.isFinite(n));
+      if(previous.lastSeq!==0||!vector(action.origin)||!vector(action.forward)||Math.hypot(action.forward[0],action.forward[2])<.01){reject("invalid_setup");break;}
+      state.setupPose={origin:action.origin.slice() as [number,number,number],forward:action.forward.slice() as [number,number,number]};state.refuterOrder=clockwiseRefuters(graph,action.origin,action.forward);emit("setup",{refs:state.refuterOrder});break;
+    }
     case "Ask": {
       if (!suspectExists(action.suspect) || typeof action.topic !== "string") {reject("unknown_suspect_or_topic"); break;}
       const ss=state.suspects[action.suspect];

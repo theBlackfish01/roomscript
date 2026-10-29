@@ -247,6 +247,7 @@ describe("deterministic game reducer",()=>{
     s.graph.refutation.order=["S1"];
     s.graph.refutation.cards.S1=[{eliminates:"S4",via:"F_S4_ALIBI_WITNESS"}];
     s.graph.statements.find(c=>c.id==="C_SEES_S4")!.layer=1;
-    expect(firstRefuter(s.graph,{who:"S4",where:"Z1",what:"O1"},s.state)).toBeNull();
+
+    expect(firstRefuter(s.graph,{who:"S4",where:"Z1",what:"O1"},createGameState(s.graph))).toBeNull();
   });
 });

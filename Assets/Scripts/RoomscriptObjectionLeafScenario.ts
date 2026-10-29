@@ -13,8 +13,8 @@ import {ScenarioConfig} from "Leaf.lspkg/Scenarios/scenario/ScenarioConfig";
     await sleep(1800);const objection=findSceneObjectByName("RoomscriptObjection").getComponent(RoomscriptSpatialObjectionController.getTypeName()) as RoomscriptSpatialObjectionController;
     const flow=objection.flow,engine=flow.engine,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
     const tap=async(name:string)=>{const matches=findInteractablesByName(name,undefined,true);expect(matches.length).toBe(1);await hand.trigger(matches[0]);await sleep(180);};
-    const dragTo=async(target:SceneObject)=>{const slip=findInteractablesByName("RoomscriptStatementSlip",undefined,true)[0],vector=new vec3(1,0,0);
-      const remove=slip.onDragUpdate.add(()=>{const delta=target.getTransform().getWorldPosition().sub(slip.getTransform().getWorldPosition()).uniformScale(.16);vector.x=delta.x;vector.y=delta.y;vector.z=delta.z;});
+    const dragTo=async(target:SceneObject,ray=false)=>{const slip=findInteractablesByName("RoomscriptStatementSlip",undefined,true)[0],vector=new vec3(1,0,0);
+      const remove=slip.onDragUpdate.add(()=>{const destination=ray?vec3.lerp(flow.actor.camera.getTransform().getWorldPosition(),target.getTransform().getWorldPosition(),.25):target.getTransform().getWorldPosition();const delta=destination.sub(slip.getTransform().getWorldPosition()).uniformScale(.4);vector.x=delta.x;vector.y=delta.y;vector.z=delta.z;});
       try {await hand.drag(slip,vector,1400);}finally{remove();}await sleep(120);};
     try {
       expect(objection.diagnostics().shatterReady).toBe(true);expect(objection.diagnostics().shatterEnabled).toBe(false);
@@ -32,7 +32,7 @@ import {ScenarioConfig} from "Leaf.lspkg/Scenarios/scenario/ScenarioConfig";
       engine.dispatch({type:"Ask",suspect:"S3",topic:"about:V"});
       await flow.askChip("where@22:30");objection.wallet.onSelect.invoke("C_OKAFOR_REPLY");await sleep(300);
       expect(objection.diagnostics().selected).toBe("C_OKAFOR_REPLY");
-      await dragTo(findSceneObjectByName("RoomscriptMemoryCard"));await sleep(3200);expect(engine.snapshot().suspects.S2.layer).toBe(2);expect(engine.snapshot().activeStatement).toBe("C_VALE_ALIBI_2");
+      await dragTo(findSceneObjectByName("RoomscriptMemoryCard"),true);await sleep(3200);expect(engine.snapshot().suspects.S2.layer).toBe(2);expect(engine.snapshot().activeStatement).toBe("C_VALE_ALIBI_2");
       console.log("OBJECTION_CHECK|"+JSON.stringify({wrongPip:true,cardDrop:true,objectDrop:true,layer:2,history:objection.diagnostics().history}));
     }finally {objection.captureAt="";flow.cancel();flow.client.forceOffline=false;}
   }
