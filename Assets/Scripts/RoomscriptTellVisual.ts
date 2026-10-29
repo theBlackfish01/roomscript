@@ -45,6 +45,7 @@ import {isLawyered} from "./Engine/game/Composure";
     this.flow.onSpeaking.add(event=>{const cue=tellCue(this.flow.engine.caseGraph(),this.flow.engine.snapshot(),event.seq,event.suspect,event.mode);
       if(!cue)return;this.pending=cue;this.started=getTime();this.due=this.started+cue.delayMs/1000;this.until=this.due+this.tellDuration;});
     this.flow.engine.onState.add(state=>this.render(state));this.render(this.flow.engine.snapshot());
+    this.flow.onSuspectSelected.add(()=>{const actor=this.flow.actor.getSceneObject();this.pending=null;this.prop.enabled=false;this.line.enabled=false;this.moving=false;this.absent=false;this.mark=actor.getTransform().getWorldPosition();this.prop.setParent(actor);this.segments.forEach(s=>s.getSceneObject().setParent(actor));this.render(this.flow.engine.snapshot());});
   }
   private render(state:GameState):void {
     const last=state.log[state.log.length-1];if(last&&!["LineSpoken","LlmOutput"].includes(last.type)){this.pending=null;this.prop.enabled=false;this.line.enabled=false;}

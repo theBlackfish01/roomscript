@@ -17,11 +17,13 @@ import {RoomscriptStagingLeafScenario} from "./RoomscriptStagingLeafScenario";
 import {RoomscriptTellsLeafScenario} from "./RoomscriptTellsLeafScenario";
 import {RoomscriptObjectionLeafScenario} from "./RoomscriptObjectionLeafScenario";
 import {RoomscriptClueLeafScenario} from "./RoomscriptClueLeafScenario";
+import {RoomscriptCastLeafScenario} from "./RoomscriptCastLeafScenario";
 
 @component
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-cast",typename:RoomscriptCastLeafScenario.getTypeName()},
     {id: "roomscript-probe-layout-and-button", typename: RoomscriptProbeLeafScenario.getTypeName()},
     {id: "roomscript-probe-ik-reach", typename: RoomscriptProbeIKScenario.getTypeName()},
     {id: "roomscript-shell-navigation", typename: RoomscriptShellLeafScenario.getTypeName()},

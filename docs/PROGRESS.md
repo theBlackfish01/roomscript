@@ -191,3 +191,6 @@ Resume after permission guidance: commit the verified checkpoint (Assets/Scene.s
 
 ### C7 completion — 2026-10-29 23:43 PKT
 Existing RoomscriptShatter wired through @input and initially disabled. Its native asset is null in Preview (scene output disabled), so 30 MeshBuilder shards use lightMaterial beneath the same object. Yellow unplated stamp, scale punch, three-frame jitter, 250ms hold and persistent coral proof thread. Strict objection LEAF passes, including statements, bursts, initial/final disabled state and proof thread. Compile/start clean; stamp and shard captures reviewed under docs/captures/2026-10-29-c7-*.png. Tag m2-slice after commit.
+
+### L2/L3 — 2026-10-29 23:50 PKT
+Four persistent actors with distinct original vector portraits, actor buttons and crate selector. Selection routes questions, authored voice and tell geometry to the selected identity. Cards/subtitles attach to crate, away from faces; typography enlarged and row spacing corrected after capture review. Strict roomscript-cast, roomscript-objection and roomscript-clue passed. Compile/start clean. Captures: 2026-10-29-l3-cards.png and l3-crate-view.png; the latter is the downward crate view. New actors share their own portrait across pose slots; stress shader/jaw still animate. Device readability remains to verify.

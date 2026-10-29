@@ -11,7 +11,7 @@ import {RoomscriptCaseCrate} from "./RoomscriptCaseCrate";
     const range=Math.sqrt((mark.x-camera.x)**2+(mark.z-camera.z)**2);
     console.log("STAGING_RANGE|"+range);expect(range>=130&&range<=200).toBe(true);
     expect(findSceneObjectByName("RoomscriptCaseLidUI").getParent().name).toBe("CrateLid");
-    expect(findSceneObjectByName("RoomscriptSubtitleUI").getParent().name).toBe("RoomscriptSuspectSlot");
+    expect(findSceneObjectByName("RoomscriptSubtitleUI").getParent().name).toBe("RoomscriptCrate");
     const crate=findSceneObjectByName("RoomscriptCrate").getComponent(RoomscriptCaseCrate.getTypeName()) as RoomscriptCaseCrate;
     expect(crate.isAnimating()).toBe(false);
     const textIn=(root:SceneObject):Text|null=>{const own=root.getComponent("Component.Text") as Text;if(own)return own;for(let i=0;i<root.getChildrenCount();i++){const found=textIn(root.getChild(i));if(found)return found;}return null;};

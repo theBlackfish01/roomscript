@@ -662,6 +662,21 @@
     - !<own> b54dc8b5-dbcf-4fcc-a310-fb436127cc60
   Components:
     []
+- !<SceneObject/10fb35a7-f209-48da-a28a-1ba873866ec7>
+  PrefabRemaps:
+    []
+  Name: RoomscriptActor_S3
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -200.000000, y: 0.000000, z: -195.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 9bebe4da-0c64-481f-813a-4418420941ab
 - !<SceneObject/11ac73c9-b802-4eb6-abf5-f73054ca7e20>
   PrefabRemaps:
     []
@@ -771,7 +786,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: -15.000000, y: -16.000000, z: -110.000000}
+    Position: {x: -10.000000, y: -19.000000, z: 60.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -822,7 +837,6 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> f3f37f45-6b42-43bf-a191-ad4bf98f2168
-    - !<own> ed6e2173-fad5-491f-9670-d202a9854c02
   Components:
     - !<own> 6d87ba73-7b02-4bf7-9681-fe1bad9c2007
 - !<ScriptComponent/181a66e2-2eac-4fac-b0e7-3889d01ef298>
@@ -921,6 +935,14 @@
     - !<own> 7a9e83a3-a31a-474f-b300-b7361bc59a2d
     - !<own> 7af942d5-caeb-47be-9ef6-13a5e1e82d64
     - !<own> ba16d39b-ff7b-451c-beb0-933e28012f77
+    - !<own> 48cf6a5f-91a5-4a5e-a8ed-557dabda1df6
+    - !<own> bbb74de4-2534-424d-b245-2e2c924d3724
+    - !<own> 895cc2f2-76ad-4013-8240-95b34e8b21d7
+    - !<own> 8a98966c-4836-4e22-8bee-f6704f14f1d9
+    - !<own> dbc63759-bab3-411d-9e4d-580f66f41398
+    - !<own> 4b709316-1eb6-43f0-bea0-0a83b0b1038f
+    - !<own> ed6e2173-fad5-491f-9670-d202a9854c02
+    - !<own> 14ef3211-0c6a-455e-b19e-6cd06e773699
   Components:
     - !<own> 2937f0c3-afc2-4c86-88e2-a4b86b31e44a
 - !<ScriptComponent/1c48075e-0a1d-4a09-aa7d-731f51774052>
@@ -1340,8 +1362,8 @@
     {}
   ScriptInputs:
     "":
-      width: !<float> 30.000000
-      fontScale: 1.300000
+      width: !<float> 54.000000
+      fontScale: 2.200000
       ink: !<Vec4> {x: 1.000000, y: 0.940000, z: 0.840000, w: 1.000000}
   ScriptTypes:
     "":
@@ -1642,14 +1664,13 @@
   Enabled: true
   ScriptAsset: !<reference> 6fff8d64-3b96-4dd0-8a61-8c3c10b7ae9d
   ScriptInputsDefault:
-    fontScale: true
     ink: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      width: !<float> 30.000000
-      fontScale: 1.600000
+      width: !<float> 54.000000
+      fontScale: 2.200000
       ink: !<Vec4> {x: 0.250000, y: 0.890000, z: 1.000000, w: 1.000000}
   ScriptTypes:
     "":
@@ -1810,6 +1831,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/48cf6a5f-91a5-4a5e-a8ed-557dabda1df6>
+  PrefabRemaps:
+    []
+  Name: RoomscriptCast
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -10.000000, y: -40.000000, z: 60.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 81001325-0bba-4b7f-b6a8-a03eb0fce795
 - !<ScriptComponent/49cf7449-80f0-4161-80bf-65f7b6c7d36d>
   PrefabRemaps:
     []
@@ -1851,7 +1887,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: -100.000000}
+    Position: {x: -10.000000, y: 5.000000, z: 65.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -1879,6 +1915,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/4bee069b-772b-489e-94d6-039ad84b6ea0>
+  PrefabRemaps:
+    []
+  Name: RoomscriptActor_S1
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -170.000000, y: 0.000000, z: -90.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> fa0064f8-7269-4ca2-9135-435b52ed14dd
 - !<SceneObject/4c195c04-c397-454e-bd08-3485f37d84fe>
   PrefabRemaps:
     []
@@ -2096,6 +2147,29 @@
     - !<own> bf2095b6-c6f8-48c8-b840-e0a6cec0dc99
   Components:
     []
+- !<ScriptComponent/5ae92447-5f49-4387-9150-d9df1f94e7f8>
+  PrefabRemaps:
+    []
+  Name: RoomscriptSuspectActor
+  Enabled: true
+  ScriptAsset: !<reference> 17232007-c516-432c-9158-8a08d04f736f
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 57c683e6-809f-4f9f-b357-ea0ad5c57fdf
+      neutral: !<reference.Texture> 68c1bdf6-8e71-4bac-8c61-52ecd5736bca
+      listening: !<reference.Texture> 68c1bdf6-8e71-4bac-8c61-52ecd5736bca
+      rattled: !<reference.Texture> 68c1bdf6-8e71-4bac-8c61-52ecd5736bca
+      broken: !<reference.Texture> 68c1bdf6-8e71-4bac-8c61-52ecd5736bca
+      engine: !<MappingBased.AssignableType_1> 5fb41fee-e1d9-4791-b111-d0fa6fc95300
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      suspect: S4
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/5bb43c55-4859-4c81-be2c-6128ae514f77>
   PrefabRemaps:
     []
@@ -2828,6 +2902,26 @@
     []
   Components:
     - !<own> 335c5f8b-2917-49e8-8af5-220696e9bc09
+- !<ScriptComponent/81001325-0bba-4b7f-b6a8-a03eb0fce795>
+  PrefabRemaps:
+    []
+  Name: RoomscriptCastController
+  Enabled: true
+  ScriptAsset: !<reference> a74b6041-f3af-483d-bb03-737ba0e37859
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      flow: !<MappingBased.AssignableType_1> 71c30d98-2788-42e3-a002-f7d39f6070bf
+      room: !<MappingBased.AssignableType_2> 3950dc6b-10f4-481c-863c-c8d7c4b545f4
+      qadir: !<MappingBased.AssignableType_3> fa0064f8-7269-4ca2-9135-435b52ed14dd
+      okafor: !<MappingBased.AssignableType_4> 9bebe4da-0c64-481f-813a-4418420941ab
+      pike: !<MappingBased.AssignableType_5> 5ae92447-5f49-4387-9150-d9df1f94e7f8
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/81bc8e7c-9d1b-4305-8409-7d983da69e29>
   PrefabRemaps:
     []
@@ -2878,6 +2972,9 @@
     - !<own> a416cb1c-6762-4253-8958-0dacc095388d
     - !<own> c05a917d-1613-4355-afc9-bbe6dc245526
     - !<own> 0eae3a5c-1791-4b1f-8e2f-2f05b5d5d6d9
+    - !<own> 4bee069b-772b-489e-94d6-039ad84b6ea0
+    - !<own> 10fb35a7-f209-48da-a28a-1ba873866ec7
+    - !<own> 9f2afb90-610c-4882-b0b6-f3b3c245a218
   Components:
     - !<own> 3950dc6b-10f4-481c-863c-c8d7c4b545f4
 - !<SceneObject/82a4b4e8-283b-441c-8b94-9fdc50c958f2>
@@ -3066,7 +3163,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: -105.000000}
+    Position: {x: -10.000000, y: 5.000000, z: 65.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -3116,7 +3213,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: -105.000000}
+    Position: {x: -10.000000, y: 5.000000, z: 65.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -3214,15 +3311,13 @@
   Enabled: true
   ScriptAsset: !<reference> 3363285b-55b8-43f6-b56d-247e8bcf3130
   ScriptInputsDefault:
-    width: true
-    fontScale: true
     ink: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      width: !<float> 46.000000
-      fontScale: 1.600000
+      width: !<float> 54.000000
+      fontScale: 2.200000
       ink: !<Vec4> {x: 1.000000, y: 0.420000, z: 0.350000, w: 1.000000}
   ScriptTypes:
     "":
@@ -3358,6 +3453,29 @@
     - !<own> a4de4ce7-f468-4966-8a06-e29eea60c023
   Components:
     []
+- !<ScriptComponent/9bebe4da-0c64-481f-813a-4418420941ab>
+  PrefabRemaps:
+    []
+  Name: RoomscriptSuspectActor
+  Enabled: true
+  ScriptAsset: !<reference> 17232007-c516-432c-9158-8a08d04f736f
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 57c683e6-809f-4f9f-b357-ea0ad5c57fdf
+      neutral: !<reference.Texture> 53f3a911-0cc7-4d87-a754-1be1da7411ba
+      listening: !<reference.Texture> 53f3a911-0cc7-4d87-a754-1be1da7411ba
+      rattled: !<reference.Texture> 53f3a911-0cc7-4d87-a754-1be1da7411ba
+      broken: !<reference.Texture> 53f3a911-0cc7-4d87-a754-1be1da7411ba
+      engine: !<MappingBased.AssignableType_1> 5fb41fee-e1d9-4791-b111-d0fa6fc95300
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      suspect: S3
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/9c0d0536-a6ef-4cab-b66e-14fe03c80a3c>
   PrefabRemaps:
     []
@@ -3454,6 +3572,21 @@
     - !<own> 46ea93d6-d161-4453-9064-6ac11e1d6523
   Components:
     []
+- !<SceneObject/9f2afb90-610c-4882-b0b6-f3b3c245a218>
+  PrefabRemaps:
+    []
+  Name: RoomscriptActor_S4
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 150.000000, y: 0.000000, z: 15.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5ae92447-5f49-4387-9150-d9df1f94e7f8
 - !<SceneObject/a416cb1c-6762-4253-8958-0dacc095388d>
   PrefabRemaps:
     []
@@ -3706,8 +3839,8 @@
     {}
   ScriptInputs:
     "":
-      width: !<float> 50.000000
-      fontScale: !<float> 2.000000
+      width: !<float> 54.000000
+      fontScale: 2.200000
       ink: !<Vec4> {x: 1.000000, y: 0.940000, z: 0.840000, w: 1.000000}
   ScriptTypes:
     "":
@@ -3985,7 +4118,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: -15.000000, y: 0.000000, z: -110.000000}
+    Position: {x: -10.000000, y: 10.000000, z: 60.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -4597,12 +4730,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> bbb74de4-2534-424d-b245-2e2c924d3724
-    - !<own> 14ef3211-0c6a-455e-b19e-6cd06e773699
-    - !<own> 8a98966c-4836-4e22-8bee-f6704f14f1d9
-    - !<own> 895cc2f2-76ad-4013-8240-95b34e8b21d7
-    - !<own> 4b709316-1eb6-43f0-bea0-0a83b0b1038f
-    - !<own> dbc63759-bab3-411d-9e4d-580f66f41398
+    []
   Components:
     []
 - !<ScriptComponent/d6d9a751-bf4b-4437-8aab-b3b533b47b48>
@@ -4692,7 +4820,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -5.000000, z: -135.000000}
+    Position: {x: -10.000000, y: 5.000000, z: 65.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -4908,15 +5036,13 @@
   Enabled: true
   ScriptAsset: !<reference> 8c3dca70-a54a-4419-8cff-dee1a042e92f
   ScriptInputsDefault:
-    width: true
-    fontScale: true
     ink: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      width: !<float> 46.000000
-      fontScale: 1.600000
+      width: !<float> 54.000000
+      fontScale: 2.200000
       ink: !<Vec4> {x: 0.930000, y: 0.960000, z: 1.000000, w: 1.000000}
   ScriptTypes:
     "":
@@ -5164,7 +5290,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 86.000000, z: 4.000000}
+    Position: {x: -10.000000, y: 37.000000, z: 60.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -5701,6 +5827,29 @@
     []
   Components:
     - !<own> 92cd0721-7734-4671-a212-c4f044c03d2a
+- !<ScriptComponent/fa0064f8-7269-4ca2-9135-435b52ed14dd>
+  PrefabRemaps:
+    []
+  Name: RoomscriptSuspectActor
+  Enabled: true
+  ScriptAsset: !<reference> 17232007-c516-432c-9158-8a08d04f736f
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 57c683e6-809f-4f9f-b357-ea0ad5c57fdf
+      neutral: !<reference.Texture> feabb143-0fd0-4354-8da8-e5ad8c7a8ff5
+      listening: !<reference.Texture> feabb143-0fd0-4354-8da8-e5ad8c7a8ff5
+      rattled: !<reference.Texture> feabb143-0fd0-4354-8da8-e5ad8c7a8ff5
+      broken: !<reference.Texture> feabb143-0fd0-4354-8da8-e5ad8c7a8ff5
+      engine: !<MappingBased.AssignableType_1> 5fb41fee-e1d9-4791-b111-d0fa6fc95300
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      suspect: S1
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/fcc185fc-4e88-4e9e-9c71-40bd83b1b0ed>
   PrefabRemaps:
     []

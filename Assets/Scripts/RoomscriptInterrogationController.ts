@@ -28,6 +28,8 @@ import {heroLineBank} from "./Content/HeroLineBank";
   @input @hint("Free question draft and correction") questions:RoomscriptQuestionUI;
   readonly onSpeaking=new Event<{suspect:string;statement:string|null;mode:InterrogationMode;seq:number}>();
   readonly onObjectRequested=new Event<void>();
+  readonly onSuspectSelected=new Event<string>();
+  private actors=new Map<string,RoomscriptSuspectActor>();
   private pipeline:AnswerPipeline;private task:AnswerTask;private warming:CancellationSource;
   private selected="S2";private revision=0;private busy=false;private last:ChosenAnswer|null=null;private lastAudioMs:number|null=null;
   private speaking:{suspect:string;statement:string|null;mode:InterrogationMode;seq:number}|null=null;
@@ -50,9 +52,11 @@ import {heroLineBank} from "./Content/HeroLineBank";
   cancel():void {this.revision++;this.pipeline?.cancel();this.tts?.stop();this.busy=false;this.speaking=null;}
   selectSuspect(id:string):void {
     this.cancel();const graph=this.engine.caseGraph();if(!graph.cast.suspects.some(s=>s.id===id))throw new Error("Unknown suspect");
-    this.selected=id;this.actor.suspect=id;this.actor.applyState(this.engine.snapshot());this.render(this.engine.snapshot());
+    this.selected=id;this.actor=this.actors.get(id)||this.actor;this.actor.suspect=id;this.tts.actor=this.actor;this.actor.applyState(this.engine.snapshot());this.render(this.engine.snapshot());this.onSuspectSelected.invoke(id);
     this.warming?.cancel();this.warming=new CancellationSource();void this.tts.precacheCurrent(this.warming.token);
   }
+  registerActor(actor:RoomscriptSuspectActor):void {this.actors.set(actor.suspect,actor);}
+  actorFor(id:string):RoomscriptSuspectActor|undefined {return this.actors.get(id);}
   private choices():{topic:string;label:string;question:string}[] {
     const graph=this.engine.caseGraph(),sheet=buildFactSheet(graph,this.engine.snapshot(),this.selected),person=graph.cast.suspects.find(s=>s.id===this.selected)!;
     const all=questionChips(sheet),topics=[all.find(c=>c.topic.startsWith("where@"))?.topic,person.baseline.truthTopic,person.baseline.lieTopic];

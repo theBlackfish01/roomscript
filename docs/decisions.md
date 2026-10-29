@@ -128,3 +128,5 @@ C7/D1 share object interaction routing and scene registration. Save one coherent
 2026-10-29 review P0: stars 2-3 require one knowledge hypothesis and all exact deductions. Efficiency uses the solver's fully supported route including guaranteed timed evidence (hero 90 minutes). Unrefuted suggestions give neutral wording and no envelope breath; the standard refutation rules remain. Wallet entries include observed statements as well as objects.
 
 2026-10-29 C7: Preserve and wire Wadood's scene VFX object. Runtime asset was null despite its saved asset reference; use the authorized 30-triangle CPU fallback under that object. Do not spend the build on native VFX or call AssetManager.instantiate.
+
+2026-10-29 L2/L3: Three original vector portraits provide distinct lighter/glasses/gloves identities without generation latency. Each has its own actor instance, selected TTS speaker and tell parent. Crate-local cards preserve face visibility; looking down accesses the case desk.
