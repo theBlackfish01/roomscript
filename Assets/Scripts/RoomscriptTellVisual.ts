@@ -2,6 +2,7 @@ import {RoomscriptInterrogationController} from "./RoomscriptInterrogationContro
 import {RoomscriptRoomBinding} from "./RoomscriptRoomBinding";
 import {RoomscriptAudio} from "./RoomscriptAudio";
 import {tellCue,TellCue} from "./Engine/game/TellCue";
+import {tellWindow} from "./Engine/game/TellWindow";
 import {GameState} from "./Engine/core/Types";
 import {isLawyered} from "./Engine/game/Composure";
 
@@ -15,7 +16,7 @@ import {isLawyered} from "./Engine/game/Composure";
   @input @hint("Visible tell duration seconds; production 0.9") tellDuration:number=0.9;
   private line:RenderMeshVisual;private lineBuilder:MeshBuilder;private lineSurface:Material;
   private prop:SceneObject;private propSurface:Material;private segments:RenderMeshVisual[]=[];
-  private pending:TellCue|null=null;private due=0;private until=0;private target:SceneObject|null=null;
+  private pending:TellCue|null=null;private due=0;private until:number|null=null;private target:SceneObject|null=null;
   private count=0;private started=0;private lastDelay=0;private shownSegments=0;
   private absent=false;private moving=false;private moveStart=0;private from:vec3;private to:vec3;private mark:vec3;
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
@@ -43,7 +44,7 @@ import {isLawyered} from "./Engine/game/Composure";
     this.lineBuilder.appendVerticesInterleaved(new Array(32).fill(0));this.lineBuilder.appendIndices([0,1,2,0,2,3]);this.line=lineRoot.createComponent("Component.RenderMeshVisual") as RenderMeshVisual;
     this.line.mesh=this.lineBuilder.getMesh();this.line.mainMaterial=this.lineSurface;this.lineBuilder.updateMesh();this.line.enabled=false;
     this.flow.onSpeaking.add(event=>{const cue=tellCue(this.flow.engine.caseGraph(),this.flow.engine.snapshot(),event.seq,event.suspect,event.mode);
-      if(!cue)return;this.pending=cue;this.started=getTime();this.due=this.started+cue.delayMs/1000;this.until=this.due+this.tellDuration;});
+      if(!cue)return;this.pending=cue;this.started=getTime();this.due=this.started+cue.delayMs/1000;this.until=null;});
     this.flow.engine.onState.add(state=>this.render(state));this.render(this.flow.engine.snapshot());
     this.flow.onSuspectSelected.add(()=>{const actor=this.flow.actor.getSceneObject();this.pending=null;this.prop.enabled=false;this.line.enabled=false;this.moving=false;this.absent=false;this.mark=actor.getTransform().getWorldPosition();this.prop.setParent(actor);this.segments.forEach(s=>s.getSceneObject().setParent(actor));this.render(this.flow.engine.snapshot());});
   }
@@ -62,8 +63,9 @@ import {isLawyered} from "./Engine/game/Composure";
     if(this.moving){const t=Math.min(1,(now-this.moveStart)/1.5),ease=t*t*(3-2*t);this.flow.actor.getTransform().setWorldPosition(vec3.lerp(this.from,this.to,ease));
       if(t===1){this.moving=false;this.flow.actor.getSceneObject().enabled=!this.absent;}}
     if(!this.pending||now<this.due)return;
-    if(now>=this.until){this.pending=null;this.prop.enabled=false;this.line.enabled=false;return;}
-    if(!this.prop.enabled){this.count++;this.lastDelay=(now-this.started)*1000;this.audio.play(this.pending.kind==="flicker"?"Tink":"Shing");
+    const window=tellWindow(now,this.due,this.until,this.tellDuration);this.until=window.until;
+    if(!window.active){this.pending=null;this.prop.enabled=false;this.line.enabled=false;return;}
+    if(window.started){this.count++;this.lastDelay=(now-this.started)*1000;this.audio.play(this.pending.kind==="flicker"?"Tink":"Shing");
       this.target=this.pending.targetObject?this.room.objectAnchor(this.pending.targetObject):null;
       console.log("TELL|"+JSON.stringify({statement:this.pending.statement,target:this.pending.targetObject,delayMs:this.lastDelay}));}
     this.prop.enabled=true;

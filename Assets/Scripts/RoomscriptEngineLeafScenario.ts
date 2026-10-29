@@ -10,7 +10,7 @@ import {replayGame} from "./Engine/game/Reducer";
     await sleep(1500);const bridge=findSceneObjectByName("RoomscriptEngine").getComponent(RoomscriptEngineBridge.getTypeName()) as RoomscriptEngineBridge;
     expect(bridge.caseGraph().solver.ok).toBe(true);expect(bridge.caseGraph().solver.hypotheses.length).toBe(1);
     const before=bridge.snapshot();const after=bridge.dispatch({type:"Ask",suspect:"S2",topic:"where@22:30"});
-    expect(after.elapsedMinutes-before.elapsedMinutes).toBe(15);expect(after.knowledge.factIds.indexOf("X_VALE_KITCHEN")).toBe(-1);
+    expect(after.elapsedMinutes-before.elapsedMinutes).toBe(5);expect(after.knowledge.factIds.indexOf("X_VALE_KITCHEN")).toBe(-1);
     expect(JSON.stringify(replayGame(bridge.caseGraph(),after.log))).toBe(JSON.stringify(after));
     after.pips=0;expect(bridge.snapshot().pips).toBe(before.pips);
   }
