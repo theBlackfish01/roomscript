@@ -99,3 +99,6 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 2026-10-29 23:43 PKT: VirtualScene wired shatterObject and disabled its root. Corrected component path after a partial apply; no mixed writer. Lens API/LEAF verified the native-null fallback. Strict objection scenario passed normally and with slam/shatter inspection holds; both captures reviewed. ExecuteEditorCode saved project; token strip reports zero populated credentials.
 
 2026-10-29 23:50 PKT: ConvertSvgToTexture imported three original portraits (absolute source path, project-relative output folder required). VirtualScene created and wired cast actors/controller, reparented cards to crate. Strict cast/objection/clue LEAF passed; runtime front capture and crate Preview pixels reviewed. Typography row spacing fixed from capture.
+
+### 2026-10-30 — D3
+CLAD inline live-lens-tester workflow; VirtualScene authored Closing inputs; RecompileTypeScriptTool and RunAndCollectLogs clean; strict LEAF correct/wrong/timeout endings pass. PreviewPanelTool capture exposed overlapping result typography, fixed and recaptured.

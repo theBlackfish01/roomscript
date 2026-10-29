@@ -1,6 +1,6 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-29 23:36 PKT. Second-review P0 package verified; C7 complete; L2/L3 next. Gateway credentials remain blank.
+Updated 2026-10-30 00:04 PKT. Review P0, C7, L2/L3 and D3 verified. D2 opening next. Gateway credentials remain blank.
 
 ## Current work
 
@@ -8,8 +8,8 @@ Updated 2026-10-29 23:36 PKT. Second-review P0 package verified; C7 complete; L2
 - Review P0: unique-knowledge scoring, 90-minute fully supported benchmark, exact argument sets, both A4 regressions, statement wallet with every hero breaker covered. No-refuter sweep now reports uncertainty without envelope breathing.
 - Verification this run: 76/76 tests across game/{scoring,reducer,spatial-objection,clue-presentation}.test.ts and case/Solver.test.ts; 30/30 secret/hook tests. Lens compile/start clean; strict roomscript-objection (including C_OKAFOR_REPLY wallet drop) and roomscript-clue passed.
 - Prior review's full-suite baseline: 358/358 across 30 files, exit 0. Historical targeted totals below are superseded by that independently recorded full run.
-- Found Wadood's RoomscriptShatter scene object. Next: wire @input, disable until correct objection, verify VFX and polish. No native instantiation permission needed.
-- Production interrogation, tells, object inspection, slip objections and suggestion sweeps are playable. Four visible/selectable actors, ending, opening, placement and offline hero demo remain.
+- C7 uses the authored shatter object input with 30 CPU shards because the saved native VFX has no runtime asset; strict LEAF and captures passed; m2-slice tagged.
+- Four visible/selectable actors and crate-anchored cards verified (39ee94f). Accusation, truth-only simplified reconstruction, scoring and one final accusation at timeout now verified. Opening, placement, AI P1 and offline hero demo remain.
 
 ## Run order
 
@@ -22,7 +22,7 @@ C7 -> L2/L3 -> D3 including timeout accusation -> D2 -> L4/L5 -> AI P1 and red-t
 | A — setup and probes | Done | `m0-probe` |
 | B — deterministic truth engine and terminal | Done; review P0 corrected | `m1-terminal` |
 | C — interrogation slice | Done: C1-C7 verified with code-shard fallback | `m2-slice` |
-| D — whole case | Partial: D1 verified; D2/D3/D6/D7 pending; D5 engine only | `m3-case` not created |
+| D — whole case | Partial: D1 and D3 verified; D2/D6/D7 pending; D5 engine only | `m3-case` not created |
 | E — should tier | Not started as Lens experiences | none |
 | F — Clue Night | Not started; gated on core completion | none |
 
@@ -194,3 +194,9 @@ Existing RoomscriptShatter wired through @input and initially disabled. Its nati
 
 ### L2/L3 — 2026-10-29 23:50 PKT
 Four persistent actors with distinct original vector portraits, actor buttons and crate selector. Selection routes questions, authored voice and tell geometry to the selected identity. Cards/subtitles attach to crate, away from faces; typography enlarged and row spacing corrected after capture review. Strict roomscript-cast, roomscript-objection and roomscript-clue passed. Compile/start clean. Captures: 2026-10-29-l3-cards.png and l3-crate-view.png; the latter is the downward crate view. New actors share their own portrait across pose slots; stress shader/jaw still animate. Device readability remains to verify.
+
+## D3 — accusation and ending (2026-10-30)
+
+- One final accusation at timeout, exact available-proof filing, one-second seal hold, sealed-fact silhouettes, correct/wrong endings and rating. Wrong accusation cannot be retried.
+- 38/38 targeted tests: game/reducer.test.ts, game/scoring.test.ts, game/closing.test.ts. Strict LEAF roomscript-closing passed in correct, wrong and timeout modes; correct rerun after layout correction passed. Compile/start clean.
+- Capture: captures/2026-10-30-d3-ending.png. Result text visually checked; no title overlap. Reconstruction is simplified silhouettes, not full motion capture.

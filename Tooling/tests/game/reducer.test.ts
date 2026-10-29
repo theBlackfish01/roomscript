@@ -155,7 +155,17 @@ describe("deterministic game reducer",()=>{
     s.act({type:"Accuse",who:"S1",where:"Z1",what:"O1"}); expect(s.state.verdict).toBe("correct");
     const t=session(); for(let i=0;i<12;i++) t.act(ask);
     expect(t.state.verdict).toBe("timeout"); expect(t.state.elapsedMinutes).toBe(180);
-    t.act({type:"Accuse",...t.graph.envelope}); expect(t.state.verdict).toBe("timeout");
+    t.act({type:"Accuse",...t.graph.envelope}); expect(t.state.verdict).toBe("correct");
+    t.act({type:"Accuse",...t.graph.envelope,who:"S1"});expect(t.state.verdict).toBe("correct");
+    expect(t.state).toEqual(replayGame(t.graph,t.state.log));
+  });
+  it("timeout permits one final accusation, but no more investigation or retry after a wrong answer",()=>{
+    const s=session();for(let i=0;i<12;i++)s.act(ask);
+    s.act({type:"Accuse",who:"unknown",where:"Z1",what:"O1"});expect(s.state.accusation).toBeNull();
+    s.act({type:"PinchObject",object:"O1"});expect(s.state.events.at(-1)?.text).toBe("case_closed");
+    s.act({type:"Accuse",who:"S1",where:"Z1",what:"O1"});expect(s.state.verdict).toBe("wrong");
+    s.act({type:"Accuse",...s.graph.envelope});expect(s.state.verdict).toBe("wrong");
+    expect(s.state).toEqual(replayGame(s.graph,s.state.log));
   });
   it("model extraction only credits supported observed deductions",()=>{
     const s=session(); s.act({type:"ArgumentExtracted",claims:[{deduction:"D_MEANS",refs:["E_CABLE"]}]});

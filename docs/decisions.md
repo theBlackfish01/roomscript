@@ -130,3 +130,6 @@ C7/D1 share object interaction routing and scene registration. Save one coherent
 2026-10-29 C7: Preserve and wire Wadood's scene VFX object. Runtime asset was null despite its saved asset reference; use the authorized 30-triangle CPU fallback under that object. Do not spend the build on native VFX or call AssetManager.instantiate.
 
 2026-10-29 L2/L3: Three original vector portraits provide distinct lighter/glasses/gloves identities without generation latency. Each has its own actor instance, selected TTS speaker and tell parent. Crate-local cards preserve face visibility; looking down accesses the case desk.
+
+### 2026-10-30 — D3 final accusation
+Timeout closes investigation but permits one valid accusation. Reveal reads sealed true timeline facts only after correct/wrong verdict. Explicit File known proof credits only exact known engine routes. Simplified silhouettes provide the reenactment; the result shows rating, case ID and seal.

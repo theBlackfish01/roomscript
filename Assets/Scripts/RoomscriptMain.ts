@@ -25,6 +25,7 @@ import {RoomscriptInterrogationController} from "./RoomscriptInterrogationContro
     this.engine.onState.add(state=>this.caseLid.setCounters(state.clockMinutes-state.elapsedMinutes,state.pips,state.hunches));
     this.engine.initialize();
     this.caseLid.onAction.add(action=>{
+      if(action!=="Notebook"&&action!=="Evidence")return;
       this.caseLid.show(false);this.chips.show(false);this.verbs.show(false);this.notebook.show(action==="Notebook");this.wallet.show(action==="Evidence");this.audio.play("ChalkScratch");});
     const close=()=>{this.notebook.show(false);this.wallet.show(false);this.caseLid.show(true);this.chips.show(true);this.verbs.show(true);};
     this.notebook.onClose.add(close);this.wallet.onClose.add(close);

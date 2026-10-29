@@ -1,0 +1,49 @@
+- !<AssetImportMetadata/629e9a97-8042-49ea-8532-a896cb1befb0>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> e5af238d-69ef-462a-a41e-825e0b55ee7f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> e5af238d-69ef-462a-a41e-825e0b55ee7f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 2f4b09ac-defc-480b-b3ce-3768788a3ac8
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/2f4b09ac-defc-480b-b3ce-3768788a3ac8>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 958b067b-4e9d-4662-9dd9-05e2b49c9e6d
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cast: false
+    clue: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - clue: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      cast: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType_1 clue {"hint":"Suggestion selection and shared presentation"}'
+    - '// @input AssignableType_2 cast {"hint":"Persistent visible cast"}'

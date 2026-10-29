@@ -74,7 +74,8 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
     return s && currentStatement(graph,state,suspect,s.topic)?.id === s.id ? s : undefined;
   };
   const postVerdict = ["LineSpoken","GossipSpoken","ArgumentClaim","ArgumentExtracted","PitchReceived"].includes(action.type);
-  if (state.verdict !== null && !postVerdict) {reject("case_closed"); return state;}
+  const finalAccusation=state.verdict==="timeout" && state.accusation===null && action.type==="Accuse";
+  if (state.verdict !== null && !postVerdict && !finalAccusation) {reject("case_closed"); return state;}
 
   switch (action.type) {
     case "Ask": {
