@@ -23,8 +23,8 @@ import {RoomscriptTellVisual} from "./RoomscriptTellVisual";
       await tap("Press");await tap("Press");await tap("Press");await sleep(1800);
       expect(tells.diagnostics().absent).toBe(true);expect(flow.actor.getSceneObject().enabled).toBe(false);expect(tells.diagnostics().segments).toBe(1);
       const clock=engine.snapshot().elapsedMinutes;await flow.askChip("where@22:30");expect(engine.snapshot().elapsedMinutes).toBe(clock);
-      engine.dispatch({type:"Ask",suspect:"S1",topic:"where@22:30"});expect(tells.diagnostics().absent).toBe(true);
-      engine.dispatch({type:"Ask",suspect:"S1",topic:"where@22:30"});await sleep(1800);
+      engine.dispatch({type:"Ask",suspect:"S3",topic:"about:V"});expect(tells.diagnostics().absent).toBe(true);
+      engine.dispatch({type:"Ask",suspect:"S3",topic:"about:V"});await sleep(1800);
       expect(tells.diagnostics().absent).toBe(false);expect(flow.actor.getSceneObject().enabled).toBe(true);
       console.log("TELLS_CHECK|"+JSON.stringify({delayMs:tells.diagnostics().delayMs,count:tells.diagnostics().count,baseline:true,deflectionQuiet:true,doorReturn:true}));
     } finally {flow.cancel();flow.client.forceOffline=false;}

@@ -38,7 +38,7 @@ describe("deterministic game reducer",()=>{
     s.act({type:"PinchObject",object:"O11"});
     s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_KETTLE_COLD"]});
     expect(s.state.suspects.S2.layer).toBe(1); expect(s.state.hunches).toBe(1);
-    expect(s.state.elapsedMinutes).toBe(25); expect(s.state.activeStatement).toBe("C_VALE_ALIBI_1");
+    expect(s.state.elapsedMinutes).toBe(15); expect(s.state.activeStatement).toBe("C_VALE_ALIBI_1");
     expect(s.state.notebook.find(c=>c.statement==="C_VALE_ALIBI_0")?.broken).toBe(true);
     s.act({type:"PinchObject",object:"O12"});
     s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_1",evidence:["E_RECORDING"]});
@@ -57,7 +57,7 @@ describe("deterministic game reducer",()=>{
     const s=session(); s.act(ask); s.act({type:"PinchObject",object:"O11"});
     s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_KETTLE_COLD"]});
     s.act({type:"Ask",suspect:"S3",topic:"about:V"});
-    while(s.state.elapsedMinutes<75) s.act({type:"Ask",suspect:"S1",topic:"baseline:name"});
+    while(s.state.elapsedMinutes<75) s.act({type:"Ask",suspect:"S3",topic:"about:V"});
     const pips=s.state.pips;
     s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_1",evidence:[evidence]});
     expect(s.state.suspects.S2.layer).toBe(2);
@@ -82,11 +82,11 @@ describe("deterministic game reducer",()=>{
   it("three empty presses produce a timed lawyered state",()=>{
     const s=session(); s.act(ask);
     for(let i=0;i<3;i++) s.act({type:"Press",suspect:"S2"});
-    expect(s.state.elapsedMinutes).toBe(60); expect(s.state.suspects.S2.lawyeredUntil).toBe(90);
-    s.act(ask); expect(s.state.elapsedMinutes).toBe(60);
-    s.act({type:"Ask",suspect:"S1",topic:"baseline:name"});
-    s.act({type:"Ask",suspect:"S1",topic:"baseline:name"});
-    s.act(ask); expect(s.state.elapsedMinutes).toBe(105); expect(s.state.activeSuspect).toBe("S2");
+    expect(s.state.elapsedMinutes).toBe(50); expect(s.state.suspects.S2.lawyeredUntil).toBe(80);
+    s.act(ask); expect(s.state.elapsedMinutes).toBe(50);
+    s.act({type:"Ask",suspect:"S3",topic:"about:V"});
+    s.act({type:"Ask",suspect:"S3",topic:"about:V"});
+    s.act(ask); expect(s.state.elapsedMinutes).toBe(85); expect(s.state.activeSuspect).toBe("S2");
   });
   it("cannot repeatedly earn Hunches by breaking an inherited baseline",()=>{
     const s=session(); s.act(ask); s.act({type:"PinchObject",object:"O6"});
@@ -114,8 +114,8 @@ describe("deterministic game reducer",()=>{
     expect(s.state.notebook).toEqual(before.notebook);
     expect(s.state.elapsedMinutes).toBe(before.elapsedMinutes);
     expect(s.state.pips).toBe(before.pips); expect(s.state.hunches).toBe(before.hunches);
-    s.act({type:"Ask",suspect:"S1",topic:"baseline:name"});
-    s.act({type:"Ask",suspect:"S1",topic:"baseline:name"});
+    s.act({type:"Ask",suspect:"S3",topic:"about:V"});
+    s.act({type:"Ask",suspect:"S3",topic:"about:V"});
     s.act(action);
     expect(s.state.events.at(-1)?.type).not.toBe("rejected");
     expect(s.state).toEqual(replayGame(s.graph,s.state.log));
@@ -134,7 +134,7 @@ describe("deterministic game reducer",()=>{
     expect(s.state.elapsedMinutes).toBe(5);
     s.act({type:"BeatChosen",beat:"B_LETTER"}); expect(s.state.beatsFired).toEqual([]);
     s.act({type:"PinchObject",object:"O12"}); expect(s.state.knowledge.evidenceIds).not.toContain("E_VOICEMAIL");
-    for(let i=0;i<5;i++) s.act(ask);
+    for(let i=0;i<13;i++) s.act(ask);
     expect(s.state.beatsFired).toEqual(["B_LETTER","B_VOICEMAIL"]);
     expect(s.state.events.filter(e=>e.type==="beat"&&e.refs?.includes("B_LETTER"))).toHaveLength(1);
     expect(s.state.knowledge.evidenceIds).toContain("E_VOICEMAIL");
@@ -153,14 +153,14 @@ describe("deterministic game reducer",()=>{
   it("locks the accusation and reaches timeout deterministically",()=>{
     const s=session(); s.act({type:"Accuse",...s.graph.envelope});
     s.act({type:"Accuse",who:"S1",where:"Z1",what:"O1"}); expect(s.state.verdict).toBe("correct");
-    const t=session(); for(let i=0;i<12;i++) t.act(ask);
+    const t=session(); for(let i=0;i<36;i++) t.act(ask);
     expect(t.state.verdict).toBe("timeout"); expect(t.state.elapsedMinutes).toBe(180);
     t.act({type:"Accuse",...t.graph.envelope}); expect(t.state.verdict).toBe("correct");
     t.act({type:"Accuse",...t.graph.envelope,who:"S1"});expect(t.state.verdict).toBe("correct");
     expect(t.state).toEqual(replayGame(t.graph,t.state.log));
   });
   it("timeout permits one final accusation, but no more investigation or retry after a wrong answer",()=>{
-    const s=session();for(let i=0;i<12;i++)s.act(ask);
+    const s=session();for(let i=0;i<36;i++)s.act(ask);
     s.act({type:"Accuse",who:"unknown",where:"Z1",what:"O1"});expect(s.state.accusation).toBeNull();
     s.act({type:"PinchObject",object:"O1"});expect(s.state.events.at(-1)?.text).toBe("case_closed");
     s.act({type:"Accuse",who:"S1",where:"Z1",what:"O1"});expect(s.state.verdict).toBe("wrong");

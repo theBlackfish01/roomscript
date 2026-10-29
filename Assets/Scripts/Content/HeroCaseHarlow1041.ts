@@ -136,11 +136,14 @@ for(const b of baselines) {
   );
 }
 
+// Cheap first-layer questions make the tell-teaching exchange worth asking.
+for(const statement of statements) if(statement.topic.startsWith("baseline:") || statement.layer===0 && statement.topic.startsWith("where@")) statement.costMinutes=5;
+
 // Repeating the bounded account is a valid pressure response; it never invents a fact.
 for(const statement of statements) if(!statement.pressed) statement.pressed={canonical:statement.canonical,entities:statement.entities.slice()};
 
 const base: CaseGraph = {
-  schema:1,caseId:"HARLOW-1041@"+room.roomId,seed:1041,pitchHash:hashHex("HARLOW-1041-authored-v1"),compilerVersion:"roomscript-0.1.0",era:"1940s_noir",
+  schema:1,caseId:"HARLOW-1041@"+room.roomId,seed:1041,pitchHash:hashHex("HARLOW-1041-authored-v2"),compilerVersion:"roomscript-0.2.0",era:"1940s_noir",
   room,slots:["21:00","21:15","21:30","21:45","22:00","22:15","22:30","22:45","23:00","23:15","23:30","23:45"],murderSlot:6,bodyFound:"22:41",
   envelope:{who:"S2",where:"Z1",what:"O1"},cast:{victim:{id:"V",name:"Edmund Harlow"},suspects},weapons:["O1","O2","O3","O4","O5"],facts,
   witnessing:evidence.filter(e=>e.kind==="object_memory").flatMap(e=>e.proves.map(fact=>({witness:e.holder,fact,channel:"record" as const}))),
@@ -165,7 +168,7 @@ const base: CaseGraph = {
   requiredDeductions:[
     {id:"D_OPPORTUNITY",type:"opportunity",subject:"S2",supports:[["E_VALE_LAMP"],["C_VALE_ALIBI_2"]],canonical:"Vale was in the Study during the murder window."},
     {id:"D_MEANS",type:"means",subject:"S2",supports:[["E_CABLE"],["C_VALE_ALIBI_2"]],canonical:"Vale handled the cable during the murder window."},
-    {id:"D_ALIBI",type:"alibi_broken",subject:"S2",supports:[["E_KETTLE_COLD"],["E_VALE_LAMP"]],canonical:"Vale's tea alibi is false."},
+    {id:"D_ALIBI",type:"alibi_broken",subject:"S2",supports:[["C_VALE_ALIBI_0","E_KETTLE_COLD"],["C_VALE_ALIBI_0","E_VALE_LAMP"]],canonical:"Vale's tea alibi is false."},
     {id:"D_MOTIVE",type:"motive",subject:"S2",supports:[["E_TRUST_NOTE"],["C_PIKE_TRUST"],["E_LETTER"]],canonical:"Harlow was about to expose Vale's forged trust accounts."}
   ],clockMinutes:180
 };

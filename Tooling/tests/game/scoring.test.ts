@@ -5,13 +5,15 @@ import {ActionPayload} from "../../../Assets/Scripts/Engine/core/Types";
 import {createGameState} from "../../../Assets/Scripts/Engine/game/GameState";
 import {reduceGame,replayGame} from "../../../Assets/Scripts/Engine/game/Reducer";
 import {scoreCase} from "../../../Assets/Scripts/Engine/game/Scoring";
+import {availableArguments} from "../../../Assets/Scripts/Engine/game/Closing";
 
 function session(){
   const graph=createHeroCase();let state=createGameState(graph);
   return {graph,get state(){return state;},act(payload:ActionPayload){state=reduceGame(graph,state,{...payload,seq:state.lastSeq+1,by:"P1"});}};
 }
 function argue(s:ReturnType<typeof session>){
-  for(const [deduction,ref] of [["D_OPPORTUNITY","E_VALE_LAMP"],["D_MEANS","E_CABLE"],["D_ALIBI","E_VALE_LAMP"],["D_MOTIVE",s.state.knowledge.evidenceIds.includes("E_LETTER")?"E_LETTER":"E_TRUST_NOTE"]]) s.act({type:"ArgumentClaim",deduction,refs:[ref]});
+  if(!s.state.knowledge.statementIds.includes("C_VALE_ALIBI_0"))s.act({type:"Ask",suspect:"S2",topic:"where@22:30"});
+  for(const claim of availableArguments(s.graph,s.state))s.act({type:"ArgumentClaim",...claim});
 }
 describe("inspection costs and Holmes rating",()=>{
   it("charges one ten-minute wake-up for a bundle; repeat viewing is free",()=>{
@@ -25,7 +27,7 @@ describe("inspection costs and Holmes rating",()=>{
   it("charges an exhaustive inspection and withholds its efficiency star",()=>{
     const s=session();for(const object of s.graph.room.objects)s.act({type:"PinchObject",object:object.id});
     expect(s.state.elapsedMinutes).toBe(130);argue(s);s.act({type:"Accuse",...s.graph.envelope});
-    expect(scoreCase(s.graph,s.state)).toMatchObject({rating:2,deductions:4,minutes:130,minimumMinutes:90});
+    expect(scoreCase(s.graph,s.state)).toMatchObject({rating:2,deductions:4,minutes:135,minimumMinutes:85});
   });
   it("matches the solver's weighted minimum to an executable acquisition route",()=>{
     const s=session();const route=minimumCostRoute(s.graph);
@@ -37,21 +39,24 @@ describe("inspection costs and Holmes rating",()=>{
     s.act({type:"PinchObject",object:"O1"});argue(s);s.act({type:"Accuse",...s.graph.envelope});
     // A missing/stale cached solver report must not make the score's benchmark zero.
     expect(s.graph.solver).toBeUndefined();
-    expect(scoreCase(s.graph,s.state)).toMatchObject({rating:3,minutes:90,minimumMinutes:90});
+    expect(scoreCase(s.graph,s.state)).toMatchObject({rating:3,minutes:95,minimumMinutes:85});
   });
-  it("a thirty-minute guess with four deductions and twenty hypotheses still earns only one star",()=>{
+  it("a thirty-five-minute guess with four deductions and twenty hypotheses still earns only one star",()=>{
     const s=session();for(const object of ["O6","O1","O13"])s.act({type:"PinchObject",object});
     argue(s);expect(s.state.arguments).toHaveLength(4);
     expect(solvePlayerKnowledge(s.graph,s.state.knowledge).hypotheses.length).toBeGreaterThan(1);
     s.act({type:"Accuse",...s.graph.envelope});
-    expect(scoreCase(s.graph,s.state)).toMatchObject({rating:1,minutes:30,minimumMinutes:90});
+    expect(scoreCase(s.graph,s.state)).toMatchObject({rating:1,minutes:35,minimumMinutes:85});
   });
   it("computes a fully supported benchmark rather than the cheapest unique-solution route",()=>{
     const s=session(),route=minimumCostRoute(s.graph,undefined,true);
-    expect(route.minutes).toBe(90);
-    for(const object of new Set(route.refs.map(ref=>s.graph.evidence.find(e=>e.id===ref)!).filter(e=>!e.latent).map(e=>e.holder)))s.act({type:"PinchObject",object});
+    expect(route.minutes).toBe(85);
+    s.act({type:"Ask",suspect:"S2",topic:"where@22:30"});
+    for(const object of new Set(route.refs.map(ref=>s.graph.evidence.find(e=>e.id===ref)).filter(e=>e&&!e.latent).map(e=>e!.holder)))s.act({type:"PinchObject",object});
+    s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_VALE_LAMP"]});
+    s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_1",evidence:["E_VOICEMAIL"]});
     argue(s);s.act({type:"Accuse",...s.graph.envelope});
-    expect(scoreCase(s.graph,s.state)).toMatchObject({rating:3,deductions:4,minutes:90});
+    expect(scoreCase(s.graph,s.state)).toMatchObject({rating:3,deductions:4,minutes:85});
   });
   it("does not score forged superset arguments from a loaded state",()=>{
     const s=session();for(const object of s.graph.room.objects)s.act({type:"PinchObject",object:object.id});

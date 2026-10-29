@@ -21,7 +21,7 @@ const HELP=[
   "pinch <object> | show <suspect> <evidence> | dismiss <suspect> | hunch",
   "suggest <suspect> <zone> <weapon> | accuse <suspect> <zone> <weapon>",
   "arg <deduction> <evidence/claim IDs> | help | quit",
-  "Use IDs printed on cards. Questions, pressure and suggestions spend case minutes; inspection is free."
+  "Use IDs printed on cards. Baseline and first alibi questions cost 5 minutes; other questions, pressure and suggestions cost 15. First inspection costs 10; repeat viewing is free."
 ];
 
 /** A thin command adapter: all truth, tells, time, objections and verdicts come from reduceGame. */
@@ -129,7 +129,7 @@ export const HERO_DEMO_COMMANDS=[
   "press S2 C_VALE_ALIBI_0","pinch O11","object S2 C_VALE_ALIBI_0 E_KETTLE_COLD",
   "pinch O12","object S2 C_VALE_ALIBI_1 E_RECORDING","pinch O1","pinch O8","pinch O10",
   "pinch O2","pinch O3","pinch O4","pinch O5","suggest S1 Z1 O1","grid",
-  "arg D_OPPORTUNITY E_VALE_LAMP","arg D_MEANS E_CABLE","arg D_ALIBI E_KETTLE_COLD","arg D_MOTIVE E_LETTER",
+  "arg D_OPPORTUNITY E_VALE_LAMP","arg D_MEANS E_CABLE","arg D_ALIBI C_VALE_ALIBI_0 E_KETTLE_COLD","arg D_MOTIVE E_LETTER",
   "arguments","accuse S2 Z1 O1"
 ];
 

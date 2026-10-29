@@ -8,7 +8,7 @@ describe("terminal player",()=>{
     expect(player.state.verdict).toBe("correct");
     expect(player.state.suspects.S2.layer).toBe(2);
     expect(player.state.arguments).toHaveLength(4);
-    expect(player.state.elapsedMinutes).toBe(175);
+    expect(player.state.elapsedMinutes).toBe(145);
     expect(lines.some(line=>line.startsWith("TELL Marguerite Vale"))).toBe(true);
     expect(lines.filter(line=>line.startsWith("OBJECTION SUSTAINED"))).toHaveLength(3);
     expect(lines.some(line=>line.includes("Remaining hypotheses: 1"))).toBe(true);

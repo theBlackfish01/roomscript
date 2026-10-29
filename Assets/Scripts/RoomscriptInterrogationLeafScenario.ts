@@ -13,14 +13,14 @@ import {replayGame} from "./Engine/game/Reducer";
     await sleep(1500);
     const flow=findSceneObjectByName("RoomscriptInterrogation").getComponent(RoomscriptInterrogationController.getTypeName()) as RoomscriptInterrogationController;
     const engine=flow.engine,hand=new DefaultLeafInteractor(),oldOffline=flow.client.forceOffline;
-    const tap=async(name:string)=>{const hits=findInteractablesByName(name,undefined,true);expect(hits.length).toBe(1);await hand.trigger(hits[0]);await sleep(200);};
+    const tap=async(name:string)=>{console.log("INTERROGATION_TAP_START|"+name);const hits=findInteractablesByName(name,undefined,true);expect(hits.length).toBe(1);await hand.trigger(hits[0]);console.log("INTERROGATION_TAP_END|"+name);await sleep(200);};
     const done=async()=>{for(let i=0;i<50&&flow.diagnostics().busy;i++)await sleep(200);expect(flow.diagnostics().busy).toBe(false);};
     try {
       flow.client.forceOffline=true;
       const start=engine.snapshot().elapsedMinutes;
       await tap("Question 1");await done();
-      expect(engine.snapshot().elapsedMinutes-start).toBe(15);
-      expect(flow.diagnostics().last!.origin).toBe("cache");
+      expect(engine.snapshot().elapsedMinutes-start).toBe(5);
+      expect(["cache","line-bank"].includes(flow.diagnostics().last!.origin)).toBe(true);
       expect(engine.snapshot().activeStatement!==null).toBe(true);
       expect(flow.subtitles.text().length).toBeGreaterThan(0);
       const before=engine.snapshot().elapsedMinutes;

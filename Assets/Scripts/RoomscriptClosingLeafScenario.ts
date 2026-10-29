@@ -13,7 +13,7 @@ import {RoomscriptClosingController} from "./RoomscriptClosingController";
     const tap=async(name:string)=>{const matches=findInteractablesByName(name,undefined,true);expect(matches.length).toBe(1);await hand.trigger(matches[0]);await sleep(120);};
     try {
       const mode=config?.get("mode")||"correct";
-      if(mode==="timeout"){for(let i=0;i<12;i++)engine.dispatch({type:"Ask",suspect:"S2",topic:"where@22:30"});expect(closing.diagnostics().opened).toBe(true);}
+      if(mode==="timeout"){for(let i=0;i<36;i++)engine.dispatch({type:"Ask",suspect:"S2",topic:"where@22:30"});expect(closing.diagnostics().opened).toBe(true);}
       else await tap("Accuse");
       await sleep(250); // UIKit enables the timeout-opened panel on the following frame.
       expect(closing.diagnostics().phase).toBe("idle");
