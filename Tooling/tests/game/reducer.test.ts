@@ -166,6 +166,27 @@ describe("deterministic game reducer",()=>{
     s.act({type:"PitchReceived",pitch:{verdict:"correct",envelope:{who:"S1"},tell:false}});
     expect(s.state.verdict).toBeNull(); expect(s.graph.envelope.who).toBe("S2");
   });
+  it.each(["ArgumentClaim","ArgumentExtracted"] as const)("requires an exact argument support set for %s",type=>{
+    const s=session();for(const object of s.graph.room.objects)s.act({type:"PinchObject",object:object.id});
+    const submit=(deduction:string,refs:string[])=>s.act(type==="ArgumentClaim"?{type,deduction,refs}:{type,claims:[{deduction,refs}]});
+    for(const deduction of s.graph.requiredDeductions)submit(deduction.id,s.state.knowledge.evidenceIds.slice());
+    expect(s.state.arguments).toEqual([]);
+    s.graph.requiredDeductions.find(d=>d.id==="D_MEANS")!.supports=[["E_CABLE","E_VALE_LAMP"]];
+    submit("D_MEANS",["E_CABLE"]);expect(s.state.arguments).toEqual([]);
+    submit("D_MEANS",["E_VALE_LAMP","E_CABLE"]);expect(s.state.arguments).toHaveLength(1);
+  });
+  it.each(["other-topic","unrelated-action"])("a break permission cannot escape its cue: %s",scenario=>{
+    const s=session();s.act({type:"Ask",suspect:"S2",topic:"baseline:brooch"});
+    s.act({type:"PinchObject",object:"O6"});
+    s.act({type:"Object",suspect:"S2",statement:"C_S2_BASELINE_LIE",evidence:["E_S2_BASELINE"]});
+    const id=scenario==="other-topic"?"C_VALE_ALIBI_0":"C_S2_BASELINE_TRUE";
+    if(scenario==="unrelated-action")s.act({type:"PinchObject",object:"O11"});
+    const claim=s.graph.statements.find(c=>c.id===id)!;
+    s.act({type:"LineSpoken",suspect:"S2",key:scenario,answer:{topic:claim.topic,cites:[performanceRef("a",id)],line:claim.canonical+" I lied.",emotion:"rattled"}});
+    expect(s.state.events.at(-1)?.text).toBe("unvalidated_performance");
+    expect(s.state.suspects.S2.recentLines).toEqual([]);
+    expect(s.state).toEqual(replayGame(s.graph,s.state.log));
+  });
   it("admits validated performance and keeps rejected dialogue out of the next prompt",()=>{
     const s=session(); s.act(ask);
     const answer={topic:"where@22:30",cites:[performanceRef("a","C_VALE_ALIBI_0")],line:"I was in the Kitchen making tea at 22:30.",emotion:"guarded" as const};

@@ -5,7 +5,7 @@ import {RoomscriptInterrogationController} from "./RoomscriptInterrogationContro
 import {RoomscriptTellVisual} from "./RoomscriptTellVisual";
 import {RoomscriptEvidenceWalletUI} from "./RoomscriptEvidenceWalletUI";
 import {RoomscriptCaseLidUI} from "./RoomscriptCaseLidUI";
-import {objectDropEvidence,provenMark} from "./Engine/game/SpatialObjection";
+import {objectDropEvidence,provenMark,walletEntries} from "./Engine/game/SpatialObjection";
 
 /** Spatial presentation of engine judgements. The drop contains observed IDs only. */
 @component export class RoomscriptSpatialObjectionController extends BaseScriptComponent {
@@ -54,7 +54,7 @@ import {objectDropEvidence,provenMark} from "./Engine/game/SpatialObjection";
       const interaction=anchor.createComponent(Interactable.getTypeName()) as Interactable;interaction.targetingMode=3;interaction.onTriggerEnd.add(()=>{if(this.objectHandler?.(object.id))return;if(!this.opened)this.inspect(object.id);});});
     this.flow.engine.onState.add(()=>this.refreshWallet());this.refreshWallet();this.getSceneObject().enabled=this.shatterPreview;
   }
-  private refreshWallet():void {const state=this.flow.engine.snapshot();this.wallet.setEntries(this.flow.engine.caseGraph().evidence.filter(e=>state.knowledge.evidenceIds.includes(e.id)).map(e=>({id:e.id,text:e.canonical})));}
+  private refreshWallet():void {this.wallet.setEntries(walletEntries(this.flow.engine.caseGraph(),this.flow.engine.snapshot()));}
   inspect(object:string):void {
     if(this.phase!=="idle")return;this.flow.cancel();const state=this.flow.engine.dispatch({type:"PinchObject",object});
     const entries=this.flow.engine.caseGraph().evidence.filter(e=>e.holder===object&&state.knowledge.evidenceIds.includes(e.id));
@@ -66,9 +66,10 @@ import {objectDropEvidence,provenMark} from "./Engine/game/SpatialObjection";
   open(evidence?:string):void {
     if(this.phase!=="idle")return;const state=this.flow.engine.snapshot(),claim=this.flow.engine.caseGraph().statements.find(s=>s.id===state.activeStatement);
     if(!claim||claim.speaker!==this.flow.diagnostics().suspect){this.flow.subtitles.set("WREN","Ask a question before challenging an account.");return;}
-    this.flow.cancel();this.claim=claim.id;this.opened=true;this.selected=evidence&&state.knowledge.evidenceIds.includes(evidence)?evidence:null;
+    const entry=walletEntries(this.flow.engine.caseGraph(),state).find(e=>e.id===evidence);
+    this.flow.cancel();this.claim=claim.id;this.opened=true;this.selected=entry?entry.id:null;
     this.getSceneObject().enabled=true;this.controls.enabled=true;this.slip.enabled=true;this.slip.getTransform().setLocalPosition(this.home);this.slipText.text=wrapText(claim.canonical,30);
-    this.memory.enabled=!!this.selected;this.memory.getTransform().setLocalPosition(new vec3(20,0,0));this.memories=[];if(this.selected)this.memoryText.text=wrapText(this.flow.engine.caseGraph().evidence.find(e=>e.id===this.selected)!.canonical,26);
+    this.memory.enabled=!!this.selected;this.memory.getTransform().setLocalPosition(new vec3(20,0,0));this.memories=[];if(entry)this.memoryText.text=wrapText(entry.text,26);
     this.hint.text="Drag the statement onto an object or memory.";this.modal(true);
   }
   close():void {if(this.phase!=="idle")return;this.opened=false;this.getSceneObject().enabled=false;this.modal(false);}

@@ -24,8 +24,10 @@ import {InteractionPlane} from "SpectaclesInteractionKit.lspkg/Components/Intera
       objection.close();objection.open("E_KETTLE_COLD");await sleep(300);await dragTo(findSceneObjectByName("RoomscriptMemoryCard"));expect(objection.diagnostics().correct).toBe(true);
       await sleep(3200);expect(engine.snapshot().suspects.S2.layer).toBe(1);expect(objection.diagnostics().history.join(",")).toBe("silence,slam,shatter,walk,idle");
       expect(flow.actor.getTransform().getWorldPosition().distance(objection.tells.room.toWorld([80,0,-125]))<.1).toBe(true);
-      await tap("RoomscriptObject_O12");await tap("Close memory");await tap("Object");await sleep(300);
-      await dragTo(objection.tells.room.objectAnchor("O12"));await sleep(3200);expect(engine.snapshot().suspects.S2.layer).toBe(2);expect(engine.snapshot().activeStatement).toBe("C_VALE_ALIBI_2");
+      engine.dispatch({type:"Ask",suspect:"S3",topic:"about:V"});
+      await flow.askChip("where@22:30");objection.wallet.onSelect.invoke("C_OKAFOR_REPLY");await sleep(300);
+      expect(objection.diagnostics().selected).toBe("C_OKAFOR_REPLY");
+      await dragTo(findSceneObjectByName("RoomscriptMemoryCard"));await sleep(3200);expect(engine.snapshot().suspects.S2.layer).toBe(2);expect(engine.snapshot().activeStatement).toBe("C_VALE_ALIBI_2");
       console.log("OBJECTION_CHECK|"+JSON.stringify({wrongPip:true,cardDrop:true,objectDrop:true,layer:2,history:objection.diagnostics().history}));
     }finally {flow.cancel();flow.client.forceOffline=false;}
   }

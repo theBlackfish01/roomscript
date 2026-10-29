@@ -1,5 +1,11 @@
 import {CaseGraph,GameState,Vec3} from "../core/Types";
 
+/** One presentation boundary shared by Lens selection and regression tests. */
+export function walletEntries(graph:CaseGraph,state:GameState):{id:string;text:string}[] {
+  return graph.evidence.filter(e=>state.knowledge.evidenceIds.includes(e.id)).map(e=>({id:e.id,text:e.canonical})).concat(
+    graph.statements.filter(s=>state.knowledge.statementIds.includes(s.id)).map(s=>({id:s.id,text:(graph.cast.suspects.find(p=>p.id===s.speaker)?.name||s.speaker)+": "+s.canonical})));
+}
+
 /** Object drops never guess which of several memories refutes a claim. */
 export function objectDropEvidence(graph:CaseGraph,state:GameState,object:string):string[] {
   const observed=graph.evidence.filter(e=>e.holder===object&&state.knowledge.evidenceIds.includes(e.id));

@@ -124,3 +124,5 @@ C7/D1 share object interaction routing and scene registration. Save one coherent
 
 2026-10-29: The checkpoint commit could not execute: automatic approval review timed out on both the initial attempt and the permitted retry. Work remains saved and uncommitted; stop for Needs Wadood permission guidance. This is an approval-service timeout, not a secret-hook failure or unsafe-action finding.
 `n2026-10-29: Use the existing RoomscriptShatter scene object when present, otherwise code shards. No AssetManager.instantiate exception. Personal API credentials remain Tooling-only; detect their formats before harness work.
+
+2026-10-29 review P0: stars 2-3 require one knowledge hypothesis and all exact deductions. Efficiency uses the solver's fully supported route including guaranteed timed evidence (hero 90 minutes). Unrefuted suggestions give neutral wording and no envelope breath; the standard refutation rules remain. Wallet entries include observed statements as well as objects.

@@ -206,16 +206,20 @@ function acquisitionCost(graph: CaseGraph, roots: readonly Id[]): number {
     if (evidence) holders[evidence.holder] = Math.max(holders[evidence.holder] || 0, evidence.costMinutes ?? 0);
     else cost += graph.statements.find(s => s.id === ref)?.costMinutes ?? 15;
   }
-  return cost + Object.values(holders).reduce((sum, value) => sum + value, 0);
+  const beatMinute = Math.max(0,...roots.flatMap(ref => graph.beats.filter(b=>b.guaranteed&&b.reveals.includes(ref)).map(b=>b.minute)));
+  return Math.max(beatMinute,cost + Object.values(holders).reduce((sum, value) => sum + value, 0));
 }
 
 /** Exact branch-and-bound set cover over obtainable proof bundles, weighted by acquisition actions. */
-export function minimumCostRoute(graph: CaseGraph, reachable: ReachableKnowledge = reachableKnowledge(graph, {includeBeats: false})): {minutes: number; refs: Id[]} {
+export function minimumCostRoute(graph: CaseGraph, suppliedReachable?: ReachableKnowledge, requireDeductions = false): {minutes: number; refs: Id[]} {
+  const reachable = suppliedReachable || reachableKnowledge(graph, {includeBeats: requireDeductions});
   const hypotheses = enumerateHypotheses(graph);
   const solutions = hypotheses.filter(h => consistent(h, reachable.facts, graph));
   if (solutions.length !== 1) return {minutes: Infinity, refs: []};
   const target = hypotheses.map((h, i) => sameHypothesis(h, solutions[0]) ? -1 : i).filter(i => i >= 0);
   const packages = packagesFor(graph, reachable, hypotheses);
+  const deductionPaths = requireDeductions ? graph.requiredDeductions.map(d => d.supports.flatMap(route =>
+    combine(route.map(ref => reachable.supports[ref] || [])))) : [];
   let bestCost = Infinity; let bestRoots: Id[] = [];
   const visited = new Set<string>();
   const visit = (roots: Id[]): void => {
@@ -223,7 +227,12 @@ export function minimumCostRoute(graph: CaseGraph, reachable: ReachableKnowledge
     const cost = acquisitionCost(graph, roots); if (cost >= bestCost) return;
     const facts = factsFromRoots(reachable, roots);
     const missing = target.filter(i => consistent(hypotheses[i], facts, graph));
-    if (!missing.length) {bestCost = cost; bestRoots = roots; return;}
+    const unsupported = deductionPaths.find(paths => !paths.some(path => subset(path, roots)));
+    if (!missing.length && !unsupported) {bestCost = cost; bestRoots = roots; return;}
+    if (!missing.length) {
+      for (const path of unsupported || []) visit(merge(roots, path));
+      return;
+    }
     const next = missing.slice().sort((a,b) => packages.filter(p => p.covers.includes(a)).length - packages.filter(p => p.covers.includes(b)).length)[0];
     const choices = packages.filter(p => p.covers.includes(next)).map(p => merge(roots, p.roots));
     choices.sort((a,b) => acquisitionCost(graph,a)-acquisitionCost(graph,b) || a.length-b.length || a.join().localeCompare(b.join()));

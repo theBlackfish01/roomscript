@@ -79,7 +79,7 @@ import {Hypothesis,Vec3} from "./Engine/core/Types";
     let tick:vec3|null=null;while(this.visited<this.order.length&&this.order[this.visited].angle<=angle){const witness=this.order[this.visited++];this.lastVisited.push(witness.id);tick=witness.position;}if(tick)this.objection.tells.audio.playAt("ClockTick",tick);
     if(t===1){this.busy=false;this.blade.enabled=false;this.ghost.enabled=false;this.renderKnowledge();
       if(this.refuter){this.panel.enabled=true;this.cardText.text=wrapText(this.resultText,31);this.objection.tells.audio.playAt("Chime",this.order.find(o=>o.id===this.refuter)!.position);}
-      else{this.breathing=getTime();this.breaths++;this.objection.flow.subtitles.set("WREN",this.resultText);}}
+      else{this.objection.flow.subtitles.set("WREN",this.resultText);this.objection.flow.chips.show(true);this.objection.flow.verbs.show(true);this.objection.caseLid.show(true);}}
   }
   selected():Hypothesis|null {return this.hypothesis?{...this.hypothesis}:null;}
   diagnostics():{busy:boolean;pending:string|null;refuter:string|null;visited:string[];card:string;breathing:boolean;breaths:number} {return {busy:this.busy,pending:this.selectedWho,refuter:this.refuter,visited:this.lastVisited.slice(),card:this.panel.enabled?this.resultText:"",breathing:!!this.breathing,breaths:this.breaths};}

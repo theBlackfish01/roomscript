@@ -1,42 +1,36 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-29 02:51 PKT. P0 fixes, C5 with L1/A5-A8, staging, C6 and D1 are verified. C7 shatter needs the pending native-instantiation exception. Credentials are blank.
+Updated 2026-10-29 23:36 PKT. Second-review P0 package verified; C7 visual finish next. Gateway credentials remain blank.
 
 ## Current work
 
-- D1 suggestion sweep is verified: real pawn drag into a zone, weapon touch, dotted ghost, clockwise first-refuter sweep/private card, full no-refuter sweep/envelope breath, knowledge-only notebook and room markings. `roomscript-clue` passed twice after the audio fix, including listener/host-position regression checks. Engine targets: 138/138 across 8 files; Lens compile and Preview startup clean. Captures: `docs/captures/2026-10-29-d1ghost.jpg` and `2026-10-29-d1card.jpg`.
-- D1 exposed a native timeout at repeated spatial-audio enablement. Spatial audio now initializes once on a separate emitter; the camera has an AudioListener; delayed frames coalesce audible ticks while retaining every visited refuter. The regression exercises both successive sweeps and deterministic replay.
-- Checkpoint includes C7's unfinished effect wiring because D1 shares its object interactions and scene registration. No `m2-slice` or `m3-case` tag is justified yet. Pending approval is limited to one `AssetManager.instantiate([vfxAsset])` call for imported `RoomscriptShatter` UUID `51829ea2-ad44-43b1-b5f9-2b54493c160a`; all subsequent scene changes remain VirtualScene.
-- Staging and C6 are complete. C7 interactions are implemented and LEAF/direct Preview drag verified; **C7 is not complete** because its VFX graph imports but runtime-only references export as null. VirtualScene cannot instantiate the graph. A specific one-call native instantiation exception is pending Wadood in the chat. D1 is now verified. Return to C7 effect verification/commit/tag after approval, then D3, D2 and D6/D7.
-- C7 WIP includes paged object memories, observed-only wallet, real SIK slip dragging, wrong bounce/pip, correct silence/stamp/tearing paths/next layer/true-mark walk. Regression found and fixed UIKit backing/proximity colliders intercepting direct drag after reopening. Diagnostic timing restored to 1; particle preview off. No C7 commit yet.
-- Production interrogation is wired: chips, free-question review/correction, deterministic claim, validated speech/subtitles and offline fallback. Full case remains unfinished.
-- Integrated P0 gate: **320/320 tests, 24 files, exit 0**. Latest C5 targeted run: **195/195 tests, 14 files**, Tooling typecheck clean. Lens MCP compile/start clean.
-- Strict Preview LEAF passes for offline controls and three live production answers. First audio: **1851 / 1744 / 4513 ms**, zero rejected outputs. See [C5 evidence](c5-production-latency-2026-10-29.json).
-- Tests require elevated local execution because sandboxed esbuild cannot resolve workspace configuration through the user directory. No push or remote created.
-## Resume scope and review corrections
+- Checkpoint eac2866 preserves C7/D1. Guard commit 6f2fc35 adds API-key patterns before local red-teaming.
+- Review P0: unique-knowledge scoring, 90-minute fully supported benchmark, exact argument sets, both A4 regressions, statement wallet with every hero breaker covered. No-refuter sweep now reports uncertainty without envelope breathing.
+- Verification this run: 76/76 tests across game/{scoring,reducer,spatial-objection,clue-presentation}.test.ts and case/Solver.test.ts; 30/30 secret/hook tests. Lens compile/start clean; strict roomscript-objection (including C_OKAFOR_REPLY wallet drop) and roomscript-clue passed.
+- Prior review's full-suite baseline: 358/358 across 30 files, exit 0. Historical targeted totals below are superseded by that independently recorded full run.
+- Found Wadood's RoomscriptShatter scene object. Next: wire @input, disable until correct objection, verify VFX and polish. No native instantiation permission needed.
+- Production interrogation, tells, object inspection, slip objections and suggestion sweeps are playable. Four visible/selectable actors, ending, opening, placement and offline hero demo remain.
 
-Approved scope: one complete case first (live AI interrogation and tells, Spatial Objection, suggestion sweep, accusation/reenactment, opening), then should tier in plan order. Clue Night only if the core case is done and green by November 4. See [decisions.md](decisions.md).
+## Run order
 
-Order: every review P0 with regression coverage; C5 with L1 and A5–A8; staging; C6; C7; D1; D3; D2; D6/D7; should tier; conditional Clue Night. P0 implementation findings are closed; P1 and later work remains. MCP preflight passed. Refresh credentials at live AI tests and blank them before every commit.
-
-**Review corrections supersede the historical pause-time verification statements below.** The [test review](reviews/2026-10-28-tests.md) records **252/252 tests across 21 files, exit 0 (69.5 s)** and verifies async case-fuzz batching against a failing synchronous counterfactual. The [Lens review](reviews/2026-10-28-lens-and-repo.md) found final-tree compilation at **22:06:08** and four subsequent clean Preview starts. These are review evidence, not checks rerun in this session. At review time two Tooling test type errors were reported at `tests/ai/pipeline.test.ts:38`; passing Vitest does not establish typecheck success.
-
-The remaining sections preserve the historical pause checkpoint and its captures; the old pause instruction and pending-verification claims are superseded by this update.
-
-The detailed handoff is [PAUSE_HANDOFF_2026-10-28.md](PAUSE_HANDOFF_2026-10-28.md). It contains the implementation inventory, evidence, unfinished interfaces, known issues, remaining A–F work, restart commands and a ten-minute Preview tour.
+C7 -> L2/L3 -> D3 including timeout accusation -> D2 -> L4/L5 -> AI P1 and red-team study -> D6/D7 plus hero tape. No remote/push. Physical device testing stays with Wadood.
 
 ## Status by stage
 
 | Stage | State | Milestone |
 |---|---|---|
-| A — setup and probes | Complete | `m0-probe` |
-| B — deterministic truth engine and terminal | Complete | `m1-terminal` |
-| C — interrogation slice | Partial: C1–C3 complete; C4 partial; C5 pure pipeline prepared; C6–C7 pending | `m2-slice` not created |
-| D — whole case | Not delivered; D5 engine preparation preserved | `m3-case` not created |
-| E — should tier | Not started as Lens experiences | `m4-should` not created |
-| F — Clue Night | Not started; gate and Sync probe pending | `m5-cluenight` not created |
+| A — setup and probes | Done | `m0-probe` |
+| B — deterministic truth engine and terminal | Done; review P0 corrected | `m1-terminal` |
+| C — interrogation slice | Partial: C1-C6 verified; C7 interactions pass, shatter/polish pending | `m2-slice` not created |
+| D — whole case | Partial: D1 verified; D2/D3/D6/D7 pending; D5 engine only | `m3-case` not created |
+| E — should tier | Not started as Lens experiences | none |
+| F — Clue Night | Not started; gated on core completion | none |
 
-**What is playable:** the terminal investigation, including the scripted solve demo. **What Preview currently contains:** room/crate/audio, navigable UIKit shells, a verified engine bridge, Vale's actor and testable AI adapters. The production buttons are not yet wired to a complete Lens interrogation. Do not describe the current Preview as the finished game.
+## Needs Wadood
+
+- Physical Specs checks: placement, readable additive text, spatial audio, ray drops, keyboard/ASR.
+- Private remote/backup remains unconfigured; no remote or push is authorized in this run.
+- Previous checkpoint approval blocker is resolved (eac2866). Previous native-instantiation request is superseded.
 
 ## Local checkpoints
 
@@ -184,7 +178,7 @@ Complete for the active interrogation actor. Engine TellCue selects authored tel
 
 Checkpoint verification 2026-10-29 02:54 PKT: final roomscript-objection LEAF passed (25.850 s) after shared audio changes; Tooling typecheck exit 0, git diff --check clean. Runtime capture reviewed after resetting Preview camera. C7 shatter remains unverified and blocked as noted above.
 
-## Needs Wadood - checkpoint not committed
+## Historical checkpoint blocker — resolved by eac2866
 
 The local C7/D1 checkpoint commit was NOT executed. Automatic permission approval review timed out twice (original and permitted retry); this is not a finding that the commit is unsafe. Changes remain in the working tree, with no staging performed. Last successful commit remains 5923208 (C6). User review reports under docs/REVIEW_2026-10-28.md and docs/reviews/ remain untracked and intentionally excluded. Gateway tokens are blank, project saved, and secret hook remains enabled.
 

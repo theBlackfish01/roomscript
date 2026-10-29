@@ -24,7 +24,7 @@ import {replayGame} from "./Engine/game/Reducer";
       expect(findSceneObjectByName("RoomscriptPawn_S1").getChildrenCount()>2).toBe(true);await tap("Close refutation");
       expect(findSceneObjectByName("RoomscriptCaseLidUI").getChild(0).getComponent("ColliderComponent").enabled).toBe(false);
       await tap("RoomscriptObject_O6");await tap("Close memory");expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);
-      await dragPawn("S2","Z1");expect(clue.diagnostics().pending).toBe("S2");await tap("RoomscriptObject_O1");await finishSweep();expect(clue.diagnostics().refuter).toBe(null);expect(clue.diagnostics().breaths).toBe(1);expect(engine.snapshot().elapsedMinutes).toBe(40);expect(engine.snapshot().verdict).toBe(null);
+      await dragPawn("S2","Z1");expect(clue.diagnostics().pending).toBe("S2");await tap("RoomscriptObject_O1");await finishSweep();expect(clue.diagnostics().refuter).toBe(null);expect(clue.diagnostics().breaths).toBe(0);expect(engine.snapshot().elapsedMinutes).toBe(40);expect(engine.snapshot().verdict).toBe(null);
       expect(JSON.stringify(replayGame(engine.caseGraph(),engine.snapshot().log))).toBe(JSON.stringify(engine.snapshot()));
       expect(clue.objection.tells.audio.getTransform().getWorldPosition().distance(audioOrigin)<.01).toBe(true);
       console.log("CLUE_CHECK|"+JSON.stringify({refuter:"O8",privateCard:true,noRefuter:true,pawnDrag:true,clock:40,replay:true}));

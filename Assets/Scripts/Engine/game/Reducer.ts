@@ -145,7 +145,7 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
       advanceClock(state,15);
       const refuter=firstRefuter(graph,action,state);
       if (refuter) {learnFact(refuter.fact.id); emit("refuted",{actor:refuter.holder,refs:[refuter.card.eliminates,refuter.fact.id],data:{privateTo:action.by}});}
-      else emit("breathesIn"); break;
+      else emit("unrefuted",{text:"No one could refute this suggestion. This is not proof."}); break;
     }
     case "Dismiss": {
       if (!suspectExists(action.suspect)) {reject("unknown_suspect"); break;}
@@ -171,7 +171,7 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
       for (const claim of claims) {
         if (!claim || typeof claim !== "object") {reject("invalid_argument"); continue;}
         const deduction=graph.requiredDeductions.find(d=>d.id===claim.deduction);
-        if (!deduction || !ids(claim.refs) || !claim.refs.every(ref=>known.has(ref)) || !deduction.supports.some(route=>route.every(ref=>claim.refs.includes(ref)))) {reject("unsupported_argument"); continue;}
+        if (!deduction || !ids(claim.refs) || !claim.refs.every(ref=>known.has(ref)) || !deduction.supports.some(route=>new Set(route).size===new Set(claim.refs).size && route.every(ref=>claim.refs.includes(ref)))) {reject("unsupported_argument"); continue;}
         if (!state.arguments.some(a=>a.deduction===claim.deduction)) state.arguments.push({deduction:claim.deduction,refs:claim.refs.slice()});
         emit("argumentSupported",{refs:[claim.deduction,...claim.refs]});
       }

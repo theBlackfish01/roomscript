@@ -7,7 +7,7 @@ import {PanelUI,wrapText} from "./RoomscriptPanelUI";
   @input('vec4','{1,0.42,0.35,1}') @hint("Truth lettering") @widget(new ColorWidget()) ink:vec4;
   readonly onClose=new Event<void>();readonly onSelect=new Event<string>();private view:PanelUI;private body:Text;private entries:{id:string;text:string}[]=[];private index=0;
   build():void {if(this.view)return;this.view=new PanelUI(this.getSceneObject(),this.width,54,this.fontScale,this.ink);
-    this.view.text("Wallet title","OBJECTS REMEMBER",4,"title");this.body=this.view.text("Evidence card","No evidence collected.",30,"body");
+    this.view.text("Wallet title","EVIDENCE & STATEMENTS",4,"title");this.body=this.view.text("Evidence card","No evidence collected.",30,"body");
     this.view.buttons([{id:"Previous evidence",label:"Previous"},{id:"Use evidence",label:"Use evidence"},{id:"Next evidence",label:"Next"}],id=>{if(!this.entries.length)return;
       if(id==="Use evidence")this.onSelect.invoke(this.entries[this.index].id);else {this.index=(this.index+(id==="Next evidence"?1:this.entries.length-1))%this.entries.length;this.render();}});
     this.view.buttons([{id:"Close evidence",label:"Close"}],()=>this.onClose.invoke());this.show(false);}
