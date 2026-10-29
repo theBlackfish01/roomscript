@@ -30,6 +30,7 @@
   ScriptInputsHidden:
     caseLid: false
     flow: false
+    shatterObject: false
     shatterPreview: false
     tells: false
     timelineScale: false
@@ -47,6 +48,7 @@
       tells: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
       wallet: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
       caseLid: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      shatterObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       timelineScale: !<float> 1.000000
       shatterPreview: false
   ScriptTypes:
@@ -57,5 +59,6 @@
     - // @input AssignableType_2 tells
     - // @input AssignableType_3 wallet
     - // @input AssignableType_4 caseLid
+    - '// @input SceneObject shatterObject {"hint":"Existing RoomscriptShatter scene object; disabled until a correct objection"}'
     - '// @input float timelineScale = 1 {"hint":"Diagnostic slow motion; production 1"}'
     - '// @input bool shatterPreview {"hint":"Diagnostic particle preview; production false"}'

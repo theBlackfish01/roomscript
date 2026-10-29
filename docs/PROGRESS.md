@@ -1,6 +1,6 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-29 23:36 PKT. Second-review P0 package verified; C7 visual finish next. Gateway credentials remain blank.
+Updated 2026-10-29 23:36 PKT. Second-review P0 package verified; C7 complete; L2/L3 next. Gateway credentials remain blank.
 
 ## Current work
 
@@ -21,7 +21,7 @@ C7 -> L2/L3 -> D3 including timeout accusation -> D2 -> L4/L5 -> AI P1 and red-t
 |---|---|---|
 | A — setup and probes | Done | `m0-probe` |
 | B — deterministic truth engine and terminal | Done; review P0 corrected | `m1-terminal` |
-| C — interrogation slice | Partial: C1-C6 verified; C7 interactions pass, shatter/polish pending | `m2-slice` not created |
+| C — interrogation slice | Done: C1-C7 verified with code-shard fallback | `m2-slice` |
 | D — whole case | Partial: D1 verified; D2/D3/D6/D7 pending; D5 engine only | `m3-case` not created |
 | E — should tier | Not started as Lens experiences | none |
 | F — Clue Night | Not started; gated on core completion | none |
@@ -188,3 +188,6 @@ Resume after permission guidance: commit the verified checkpoint (Assets/Scene.s
 - C7/D1 checkpoint committed as eac2866; gateway tokens verified blank; no milestone tag.
 - Router preflight: correct project open, signed in, MCP reachable. Old native-instantiation request superseded by Wadood's existing-object-or-shards instruction.
 - API-key guard now rejects sk-ant-, sk-, sk-proj- and AIza credentials across file types. Regression: 30/30 across tests/tooling/secrets.test.ts and tests/repo/hooks.test.ts (exit 0).
+
+### C7 completion — 2026-10-29 23:43 PKT
+Existing RoomscriptShatter wired through @input and initially disabled. Its native asset is null in Preview (scene output disabled), so 30 MeshBuilder shards use lightMaterial beneath the same object. Yellow unplated stamp, scale punch, three-frame jitter, 250ms hold and persistent coral proof thread. Strict objection LEAF passes, including statements, bursts, initial/final disabled state and proof thread. Compile/start clean; stamp and shard captures reviewed under docs/captures/2026-10-29-c7-*.png. Tag m2-slice after commit.

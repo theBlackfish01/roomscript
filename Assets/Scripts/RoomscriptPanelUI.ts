@@ -28,14 +28,14 @@ export function wrapText(text:string,columns=42):string {
 export class PanelUI {
   private column:SceneObject;
   private layout:FlexLayout;
-  constructor(readonly root:SceneObject,readonly width:number,readonly height:number,readonly scale:number,readonly color:vec4,passiveBacking=false) {
+  constructor(readonly root:SceneObject,readonly width:number,readonly height:number,readonly scale:number,readonly color:vec4,passiveBacking=false,noBacking=false) {
     root.createComponent("Component.Canvas");
     const backing=uiObject(root,"Backing");
-    const plate=backing.createComponent(BackPlate.getTypeName()) as BackPlate;plate.size=new vec2(width,height);plate.style="dark";
+    if(!noBacking){const plate=backing.createComponent(BackPlate.getTypeName()) as BackPlate;plate.size=new vec2(width,height);plate.style="dark";
     if(passiveBacking)plate.onInitialized.add(()=>{const plane=backing.getComponent(InteractionPlane.getTypeName()) as InteractionPlane;
       const disable=()=>{plate.interactable.enabled=false;backing.getComponent("ColliderComponent").enabled=false;plane.enabled=false;if(plane.collider)plane.collider.enabled=false;};disable();plate.createEvent("OnEnableEvent").bind(disable);
       // SIK creates the proximity collider at OnStart, after BackPlate initializes.
-      const ready=plate.createEvent("UpdateEvent");ready.bind(()=>{if(plane.collider){plane.collider.enabled=false;ready.enabled=false;}});});
+      const ready=plate.createEvent("UpdateEvent");ready.bind(()=>{if(plane.collider){plane.collider.enabled=false;ready.enabled=false;}});});}
     this.column=uiObject(backing,"Content");this.layout=flex(this.column,width-3,height-3);
   }
   private item(parent:SceneObject,layout:FlexLayout,width:number,height:number,name:string):SceneObject {

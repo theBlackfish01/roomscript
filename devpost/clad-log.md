@@ -95,3 +95,5 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 `n2026-10-29: Codex loaded lens-studio-router (preflight_only), lens-studio-field-notes and editor-api inline; ListAllPanels/ExecuteEditorCode verified correct project and authorization; VirtualScene read captured scene inventory.
 
 2026-10-29 23:36 PKT: live-lens-tester and specs-leaf-run-in-preview procedures run inline. MCP compile/start clean; fail-fast roomscript-objection and roomscript-clue passed after P0. Loaded scene-construction, specs-build-ui, specs-project-init and lens-api for C7 follow-up. Preview capture: docs/captures/2026-10-29-p0-wallet.png.
+
+2026-10-29 23:43 PKT: VirtualScene wired shatterObject and disabled its root. Corrected component path after a partial apply; no mixed writer. Lens API/LEAF verified the native-null fallback. Strict objection scenario passed normally and with slam/shatter inspection holds; both captures reviewed. ExecuteEditorCode saved project; token strip reports zero populated credentials.

@@ -37,7 +37,7 @@ export class RoomscriptLeafIndex extends BaseScriptComponent {
     {id: "roomscript-live-interrogation", typename: RoomscriptLiveInterrogationLeafScenario.getTypeName()},
     {id: "roomscript-staging", typename: RoomscriptStagingLeafScenario.getTypeName()},
     {id: "roomscript-tells", typename: RoomscriptTellsLeafScenario.getTypeName()},
-    {id: "roomscript-objection", typename: RoomscriptObjectionLeafScenario.getTypeName()},
+    {id: "roomscript-objection", typename: RoomscriptObjectionLeafScenario.getTypeName(),parameters:{capture:""}},
     {id: "roomscript-clue", typename: RoomscriptClueLeafScenario.getTypeName()}
   ];
 }
