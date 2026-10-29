@@ -12,6 +12,13 @@ afterEach(() => {
 });
 
 describe("secret guard", () => {
+  it.each(["sk-", "sk-ant-", "sk-proj-", "AIza"])("rejects %s API keys in any file without exposing values", prefix => {
+    const credential = prefix + "x".repeat(40);
+    for (const path of ["fixture.txt", "asset.meta", "asset.prefab"]) {
+      expect(inspectFile(path, credential)).toEqual(["API key"]);
+    }
+    expect(inspectFile("notes.md", prefix + " pattern")).toEqual([]);
+  });
   it.each(["key.pem", ".mcp.json", "nested/.mcp.json", "ls-live-instance.json", ".claude/settings.local.json", ".codex/config.toml", ".env.local"])("rejects forbidden path %s", path => {
     expect(inspectFile(path, "")).toContain("forbidden secret/local filename");
   });

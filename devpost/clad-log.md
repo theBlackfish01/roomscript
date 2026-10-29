@@ -92,3 +92,4 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 2026-10-29 02:54 PKT | C7/D1 checkpoint | RecompileTypeScriptTool, RunAndCollectLogsTool, run_leaf_scenario, MovePreviewCamera, CaptureRuntimeViewTool | Final roomscript-objection passed 25.850 s; clean Lens compile/start; reset camera and inspected full staging. Tooling typecheck and diff check passed. No shatter proof claimed.
 
 2026-10-29 | Commit checkpoint blocked | exec_command sandbox escalation | Automatic approval review timed out twice before git ran. No commit, no staging, no push. Last commit 5923208; verified C7/D1 work saved. Needs Wadood permission guidance.
+`n2026-10-29: Codex loaded lens-studio-router (preflight_only), lens-studio-field-notes and editor-api inline; ListAllPanels/ExecuteEditorCode verified correct project and authorization; VirtualScene read captured scene inventory.

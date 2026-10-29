@@ -189,3 +189,8 @@ Checkpoint verification 2026-10-29 02:54 PKT: final roomscript-objection LEAF pa
 The local C7/D1 checkpoint commit was NOT executed. Automatic permission approval review timed out twice (original and permitted retry); this is not a finding that the commit is unsafe. Changes remain in the working tree, with no staging performed. Last successful commit remains 5923208 (C6). User review reports under docs/REVIEW_2026-10-28.md and docs/reviews/ remain untracked and intentionally excluded. Gateway tokens are blank, project saved, and secret hook remains enabled.
 
 Resume after permission guidance: commit the verified checkpoint (Assets/Scene.scene, changed/new Assets/Scripts including EngineBridge metadata, RoomscriptShatter asset+meta, the two new Tooling game tests, NOTICE, progress/decisions/CLAD log and six dated captures). Do not stage the user review reports. Then, if approved, instantiate the single prepared VFX asset with the requested native exception, finish C7 visuals/LEAF, and continue D3 -> D2 -> D6/D7 -> should tier.
+
+## 2026-10-29 resumed review pass
+- C7/D1 checkpoint committed as eac2866; gateway tokens verified blank; no milestone tag.
+- Router preflight: correct project open, signed in, MCP reachable. Old native-instantiation request superseded by Wadood's existing-object-or-shards instruction.
+- API-key guard now rejects sk-ant-, sk-, sk-proj- and AIza credentials across file types. Regression: 30/30 across tests/tooling/secrets.test.ts and tests/repo/hooks.test.ts (exit 0).

@@ -12,6 +12,8 @@ export function inspectFile(filename, content) {
     issues.push("forbidden secret/local filename");
   }
   if (/\bBearer[\t ]+/i.test(content)) issues.push("authorization credential");
+  if (/\bsk-(?:ant-|proj-)?[A-Za-z0-9_-]{20,}/.test(content)) issues.push("API key");
+  if (/\bAIza[0-9A-Za-z_-]{35}/.test(content)) issues.push("API key");
   if (/-----BEGIN [A-Z0-9 ][A-Z0-9 -]*-----/.test(content)) issues.push("PEM block");
   if (path.endsWith(".scene")) {
     try {
