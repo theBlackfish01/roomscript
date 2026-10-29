@@ -18,8 +18,8 @@ export function splitSentences(line:string):string[] {
 }
 export type PreparedClip<T>={ok:true;track:T}|{ok:false;error:unknown};
 /** Handle rejection immediately, even if a later clip fails before the first finishes. */
-export function prepareSpeech<T>(line:string,synthesize:(sentence:string)=>Promise<T>):Array<{sentence:string;ready:Promise<PreparedClip<T>>}> {
-  return splitSentences(line).map(sentence=>({sentence,ready:Promise.resolve().then(()=>synthesize(sentence))
+export function prepareSpeech<T>(line:string,synthesize:(sentence:string,index:number)=>Promise<T>):Array<{sentence:string;ready:Promise<PreparedClip<T>>}> {
+  return splitSentences(line).map((sentence,index)=>({sentence,ready:Promise.resolve().then(()=>synthesize(sentence,index))
     .then(track=>({ok:true as const,track}),error=>({ok:false as const,error}))}));
 }
-export function audioBudgetMs(questionStartedAt:number,now:number):number {return Math.min(DEADLINES.ttsMs,remainingMs(questionStartedAt,DEADLINES.answerMs,now));}
+export function audioBudgetMs(questionStartedAt:number,now:number,sentenceIndex=0):number {return sentenceIndex>0?DEADLINES.ttsMs:Math.min(DEADLINES.ttsMs,remainingMs(questionStartedAt,DEADLINES.answerMs,now));}

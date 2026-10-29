@@ -15,6 +15,7 @@ const weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday", "satur
 export function normalizedWords(text: string): string {
   return normalizedText(text).toLowerCase()
     .replace(/\b(i|you|we|they)'ve\b/g,"$1 have").replace(/\bi'm\b/g,"i am")
+    .replace(/\b(i|you|he|she|we|they)'d\b/g,"$1 would").replace(/\b(i|you|he|she|we|they)'ll\b/g,"$1 will")
     .replace(/\b(he|she|it|that|there)'s\b/g,"$1 is").replace(/\b(you|we|they)'re\b/g,"$1 are")
     .replace(/\bwon't\b/g,"will not").replace(/\bcan't\b/g,"can not").replace(/n't\b/g," not");
 }

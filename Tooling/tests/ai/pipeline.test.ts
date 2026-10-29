@@ -22,6 +22,7 @@ function context(llm: LlmPort, bank: readonly LineBankEntry[] = heroLineBank) {
 }
 
 describe("validated live answer pipeline", () => {
+  it.each(["unclear","where@22:30"])("rejects a deflection on locked topic even when returned as %s",async(topic)=>{const refusal={topic,cites:["none"],line:"I have nothing to add.",emotion:"guarded" as const},complete=vi.fn(async()=>response(refusal));const {pipeline,input}=context({complete});const result=await pipeline.start({...input,topic:"where@22:30"}).promise;expect(result.origin).toBe("line-bank");expect(result.mode).toBe("answer");expect(result.answer.cites).not.toContain("none");expect(result.rejectionCount).toBe(2);});
   it("performs chips from a validated authored cache immediately without model calls or fillers", async () => {
     const complete = vi.fn(async () => response()); const {pipeline, input, clock} = context({complete});
     const order: string[] = []; const filler = vi.fn();
@@ -97,7 +98,7 @@ describe("validated live answer pipeline", () => {
     expect(result).toMatchObject({origin: "deflection", mode: "deflect", attempts: 1}); expect(result.answer.cites).toEqual(["none"]);
     expect(complete).toHaveBeenCalledOnce();
     const neutral = context({complete: async () => response({topic: "unclear", cites: ["none"], line: "Ask me something more specific.", emotion: "guarded"})});
-    expect(await neutral.pipeline.start(neutral.input).promise).toMatchObject({origin: "model", mode: "deflect"});
+    expect(await neutral.pipeline.start({...neutral.input,question:"Could a dragon juggle the moon?"}).promise).toMatchObject({origin: "model", mode: "deflect"});
   });
   it.each(["chip","free"] as const)("ignores invalid cached entries and respects a locked %s topic", async kind => {
     const wrong: LineBankEntry = {suspect: "S2", layer: 0, topic: answer.topic, mode: "answer", answer: {...answer, cites: [performanceRef("a","C_VALE_ALIBI_2")]}};

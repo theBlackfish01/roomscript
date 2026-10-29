@@ -56,6 +56,7 @@ import {heroLineBank} from "./Content/HeroLineBank";
     this.warming?.cancel();this.warming=new CancellationSource();void this.tts.precacheCurrent(this.warming.token);
   }
   registerActor(actor:RoomscriptSuspectActor):void {this.actors.set(actor.suspect,actor);}
+  prepareAudioProbe(warm:boolean):void {this.warming?.cancel();this.tts.clearCacheForProbe();if(warm){this.warming=new CancellationSource();void this.tts.precacheCurrent(this.warming.token);}}
   actorFor(id:string):RoomscriptSuspectActor|undefined {return this.actors.get(id);}
   private choices():{topic:string;label:string;question:string}[] {
     const graph=this.engine.caseGraph(),sheet=buildFactSheet(graph,this.engine.snapshot(),this.selected),person=graph.cast.suspects.find(s=>s.id===this.selected)!;

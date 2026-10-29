@@ -32,9 +32,9 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 
 - 2026-10-28 21:19 PKT â€” B3/B4 parallel pure-engine workers authored HARLOW-1041, fallback lines and human STORY, plus eight-check solver. Hero passes; 20 broken variants produce expected codes. Main integrated tuple-aware refutation.
 - 2026-10-28 21:19 PKT â€” B5/B6 main reducer plus parallel safety worker: 13 reducer and41 safety tests, all authored lines admitted and adversarial samples rejected. CLAD RecompileTypeScriptTool succeeded; RunAndCollectLogsTool confirmed startup without Lens exceptions (known LEAF editor reset warning remains). No scene changes in these packages, so visual/LEAF checks remain the Stage A baseline until C1.
-- 2026-10-28 21:24 PKT — B7 parallel engine worker built and verified terminal player; main integrated four tests and documented honest case-clock timing. B8 fuzz caught repeat-Hunch baseline bug, fixed with reducer regression.
-- 2026-10-28 21:25 PKT — Stage B complete:170 Vitest tests,1000 players,29487 actions, terminal demo; RecompileTypeScriptTool + RunAndCollectLogsTool succeeded. B8 exposed and regressed inherited-baseline repeat rewards and circular breaker independence. CLAD builder loaded inline for C1; sound/music preflight found no FFmpeg, installed project-local tempAssetGen tool for acoustic verification.
-- 2026-10-28 21:43 PKT — C1 inline specs-experience-builder + specs-build-ui, mesh-builder-scripting, materials, build-sfx/build-music, specs-audio and live-lens-tester:55 authored objects,7 materials,11 WAVs, five UIKit shells and plaques. AssetManager import verified, two-phase VirtualScene bootstrap, See-and-fix corrected layout/envelope-facing/first-play audio. Both shell LEAF scenarios pass fail-fast; four final captures reviewed. FFmpeg peak -0.4dB all assets; no human listening claim.
+- 2026-10-28 21:24 PKT â€” B7 parallel engine worker built and verified terminal player; main integrated four tests and documented honest case-clock timing. B8 fuzz caught repeat-Hunch baseline bug, fixed with reducer regression.
+- 2026-10-28 21:25 PKT â€” Stage B complete:170 Vitest tests,1000 players,29487 actions, terminal demo; RecompileTypeScriptTool + RunAndCollectLogsTool succeeded. B8 exposed and regressed inherited-baseline repeat rewards and circular breaker independence. CLAD builder loaded inline for C1; sound/music preflight found no FFmpeg, installed project-local tempAssetGen tool for acoustic verification.
+- 2026-10-28 21:43 PKT â€” C1 inline specs-experience-builder + specs-build-ui, mesh-builder-scripting, materials, build-sfx/build-music, specs-audio and live-lens-tester:55 authored objects,7 materials,11 WAVs, five UIKit shells and plaques. AssetManager import verified, two-phase VirtualScene bootstrap, See-and-fix corrected layout/envelope-facing/first-play audio. Both shell LEAF scenarios pass fail-fast; four final captures reviewed. FFmpeg peak -0.4dB all assets; no human listening claim.
 
 - 2026-10-28 21:51 PKT | C2 | CLAD script-author/live-lens-tester inline procedures; VirtualScene component wiring, RecompileTypeScriptTool, RunAndCollectLogsTool, LEAF fail-fast, PreviewPanelTool | engine bridge passes, unique solver report and 165-minute HUD captured; project saved.
 
@@ -92,7 +92,8 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 2026-10-29 02:54 PKT | C7/D1 checkpoint | RecompileTypeScriptTool, RunAndCollectLogsTool, run_leaf_scenario, MovePreviewCamera, CaptureRuntimeViewTool | Final roomscript-objection passed 25.850 s; clean Lens compile/start; reset camera and inspected full staging. Tooling typecheck and diff check passed. No shatter proof claimed.
 
 2026-10-29 | Commit checkpoint blocked | exec_command sandbox escalation | Automatic approval review timed out twice before git ran. No commit, no staging, no push. Last commit 5923208; verified C7/D1 work saved. Needs Wadood permission guidance.
-`n2026-10-29: Codex loaded lens-studio-router (preflight_only), lens-studio-field-notes and editor-api inline; ListAllPanels/ExecuteEditorCode verified correct project and authorization; VirtualScene read captured scene inventory.
+
+2026-10-29: Codex loaded lens-studio-router (preflight_only), lens-studio-field-notes and editor-api inline; ListAllPanels/ExecuteEditorCode verified correct project and authorization; VirtualScene read captured scene inventory.
 
 2026-10-29 23:36 PKT: live-lens-tester and specs-leaf-run-in-preview procedures run inline. MCP compile/start clean; fail-fast roomscript-objection and roomscript-clue passed after P0. Loaded scene-construction, specs-build-ui, specs-project-init and lens-api for C7 follow-up. Preview capture: docs/captures/2026-10-29-p0-wallet.png.
 
@@ -100,11 +101,15 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 
 2026-10-29 23:50 PKT: ConvertSvgToTexture imported three original portraits (absolute source path, project-relative output folder required). VirtualScene created and wired cast actors/controller, reparented cards to crate. Strict cast/objection/clue LEAF passed; runtime front capture and crate Preview pixels reviewed. Typography row spacing fixed from capture.
 
-### 2026-10-30 — D3
+### 2026-10-30 â€” D3
 CLAD inline live-lens-tester workflow; VirtualScene authored Closing inputs; RecompileTypeScriptTool and RunAndCollectLogs clean; strict LEAF correct/wrong/timeout endings pass. PreviewPanelTool capture exposed overlapping result typography, fixed and recaptured.
 
-### 2026-10-30 — D2
+### 2026-10-30 â€” D2
 Applied specs-interaction-recipes and mesh-builder-scripting inline. VirtualScene wired opening references; runtime mesh strokes draw tape/chalk/light. Strict LEAF found crate-parent disabling and a skipped startup knock; both corrected, roomscript-opening and roomscript-cast passed. Compile/start clean; tab capture visually reviewed.
 
-### 2026-10-30 — L4/L5
+### 2026-10-30 â€” L4/L5
 CLAD interaction recipes and runtime mesh helpers: manual placement UIKit, 13 yellow fixture brackets, angular drop hints. Recompile/refresh clean; strict opening, clue and objection LEAF pass. Placement screenshot caught cropped buttons; moved calibration card to fit and recaptured. 39 pure regressions pass.
+
+### 2026-10-30 - AI P1
+Applied CLAD specs-ai-remote-service and inline live-lens-tester workflow. Editor authorized gateway refresh passed ephemeral tokens in memory to VirtualScene without printing them. MCP compilation and refreshed startup were clean. A 30-call LEAF study was interrupted by automatic asset reload and its MCP call timed out at 300 seconds; split into serial ten-call batches. Local Tooling Anthropic surrogate corpus includes preserved baseline and independent holdout, both with usage ledgers. Repaired six invalid UTF-8 bytes in this log.
+2026-10-30 00:56 PKT: Both three-batch production runs and strict speech-budget passed. Final capture has 30 samples, zero voice cache hits, 18 audible, 12 caption fallback; raw audited output saved. Final synonym regression compiled and refreshed cleanly. VirtualScene blanked all three gateway fields; editor saved and token strip found zero populated fields.

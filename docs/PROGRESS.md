@@ -1,6 +1,6 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-30 00:04 PKT. Review P0, C7, L2/L3 and D3/D2 and L4/L5 verified. AI P1 next. Gateway credentials remain blank.
+Updated 2026-10-30 00:56 PKT. P0, C7, L2/L3, D3/D2, L4/L5 and AI P1 verified. Interrogation incentives and D6/D7 next. Gateway credentials blank.
 
 ## Current work
 
@@ -9,7 +9,7 @@ Updated 2026-10-30 00:04 PKT. Review P0, C7, L2/L3 and D3/D2 and L4/L5 verified.
 - Verification this run: 76/76 tests across game/{scoring,reducer,spatial-objection,clue-presentation}.test.ts and case/Solver.test.ts; 30/30 secret/hook tests. Lens compile/start clean; strict roomscript-objection (including C_OKAFOR_REPLY wallet drop) and roomscript-clue passed.
 - Prior review's full-suite baseline: 358/358 across 30 files, exit 0. Historical targeted totals below are superseded by that independently recorded full run.
 - C7 uses the authored shatter object input with 30 CPU shards because the saved native VFX has no runtime asset; strict LEAF and captures passed; m2-slice tagged.
-- Four visible/selectable actors and crate-anchored cards verified (39ee94f). Accusation, truth-only simplified reconstruction, scoring and one final accusation at timeout now verified. Opening, placement, AI P1 and offline hero demo remain.
+- Four visible/selectable actors and crate-anchored cards verified (39ee94f). Accusation, truth-only simplified reconstruction, scoring and one final accusation at timeout now verified. Opening and placement are verified. AI P1 and both studies are complete; offline hero demo remains.
 
 ## Run order
 
@@ -55,7 +55,7 @@ C7 -> L2/L3 -> D3 including timeout accusation -> D2 -> L4/L5 -> AI P1 and red-t
 
 The WIP commit is intentionally not a package-completion claim. The final documentation commit follows it. No remote, push, publication or physical Specs action was performed.
 
-## Verification summary
+## Historical verification summary (superseded by the run entries above and below)
 
 - Completed Stage B baseline: **170 tests passed across 11 files**.
 - Latest integrated run: **250 tests passed across 21 files, but the process exited 1** because a long synchronous case-fuzz test caused a Vitest worker RPC `onTaskUpdate` timeout. This is not a clean full-suite pass.
@@ -213,3 +213,11 @@ Four persistent actors with distinct original vector portraits, actor buttons an
 - Drops accept a clear 4-degree alignment (6 degrees for zones), preserve near placement and reject overlapping ray targets. Live release hint names the chosen target. Strict roomscript-objection passed with an angular statement drop; roomscript-clue passed with pawns held at 30% of the target distance.
 - SetupCase logs the local starting origin/direction. Engine refuter order and visual sweep use that same snapshot; replay never needs the original live pose. 39/39 tests across game/{clue-presentation,spatial-drop,reducer}.test.ts; typecheck clean. Strict roomscript-opening checks floor adjustment, room audit, actual pull and setup log. Compile/start clean. Placement capture: captures/2026-10-30-l4-placement.png.
 - Verify on device: floor alignment, fixture-label readability and angular-drop comfort. No automatic plane/depth scan is claimed.
+
+## AI P1 and studies - 2026-10-30
+
+- Mapped-topic schema and deflection lock; conservative paraphrase guard plus expanded denials; separate continuation-sentence TTS budget. Historical v2 tape requests preserved.
+- Latest full-suite checkpoint before the final two paraphrase regressions: 396/396 in 32 files, exit 0, pure Tooling/Engine typecheck clean. AI subset 135/135 in six files; final regression/prompt subset 67/67 in two files (62 safety + 5 prompt).
+- Strict production study passed in three ten-call batches; strict speech-budget passed. 30 calls, zero voice-cache hits, 27 live model answers, one live fallback and two forced-offline fallbacks. First-audio p95 5886 ms among 18 audible calls; 12 subtitle-only. One faithful paraphrase was rejected and is now covered by an accepted-synonym/reversed-role regression. See production-study-2026-10-30.md.
+- Claude surrogate holdout: 0/48 bypasses and 18/34 false rejections. Conservative fallback is necessary. Total local API estimate $1.0996298. See validator-study-2026-10-30.md and saved raw corpora. Gateway monetary billing is unavailable.
+- Remaining quality limitations: natural-language false rejections, mostly canonical model performances, and poor audio completion under precache load. These do not change engine truth or prevent the caption-based case.

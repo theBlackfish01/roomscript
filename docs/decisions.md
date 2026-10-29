@@ -139,3 +139,6 @@ The authored opening blocks investigation until the pull-tab and reveal complete
 
 ### 2026-10-30 — placement and replay
 Use explicit manual floor adjustment and rotation for the hero fixture. Angular card drops avoid reaching 2 m and reject ambiguous overlapping targets. Starting pose is a validated first SetupCase action; graph truth remains immutable and both refutation selection and sweep consume its order.
+
+### 2026-10-30 - AI P1 validation policy
+Prompt v3 locks a mapped topic, rejects deflection there, and asks for bounded paraphrase. Most content words must be supported by the selected canonical claim; targeted confession/meta/role and reply-participant checks supplement the guard. This is a conservative lexical policy, not semantic entailment. Authored and canonical fallback remains mandatory. Independent holdout: 0/48 attack bypasses, 18/34 false rejections; do not advertise unrestricted natural-answer acceptance. Initial plus holdout Anthropic estimate $1.0996298. See validator-study-2026-10-30.md for raw and protocol-filtered denominators. Continuation TTS gets its own four-second synthesis allowance; first audio retains the 6.5-second budget. Historical prompt-v2 tapes retain their original request builder in Tooling tests.

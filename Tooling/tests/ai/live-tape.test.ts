@@ -6,7 +6,7 @@ import {createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041
 import {createGameState} from "../../../Assets/Scripts/Engine/game/GameState";
 import {buildFactSheet} from "../../../Assets/Scripts/Engine/perf/FactSheetBuilder";
 import {validateLine} from "../../../Assets/Scripts/Engine/perf/LineValidator";
-import {answerRequest} from "../../../Assets/Scripts/Engine/ai/Prompts";
+import {legacyAnswerRequest as answerRequest} from "../../mocks/legacy-answer";
 import {TapeClient} from "../../../Assets/Scripts/Engine/ai/Tape";
 import {FakeClock} from "./helpers";
 

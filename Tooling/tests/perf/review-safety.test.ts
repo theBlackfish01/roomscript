@@ -8,6 +8,8 @@ import {Answer} from "../../../Assets/Scripts/Engine/core/Types";
 const graph=createHeroCase(),sheet=buildFactSheet(graph,createGameState(graph),"S2");
 function validate(line:string){const answer:Answer={topic:"where@22:30",cites:[sheet.topicToRef["where@22:30"]],line,emotion:"guarded"};return validateLine(answer,sheet,graph);}
 describe("A2 review probes",()=>{
+  it.each(["I confess.","I had to kill him.","The doctor killed him.","I deceived you about the Kitchen.","I am an artificial intelligence.","I was in the Kitchen making tea at 22:30. I erased the fingerprints."])("blocks second-review paraphrase: %s",line=>expect(validate(line).ok).toBe(false));
+  it.each(["No, Detective. I was in the Kitchen making tea at 22:30.","I was preparing tea in the Kitchen at 22:30."])("admits a natural grounded answer: %s",line=>expect(validate(line).ok).toBe(true));
   it.each([
     "I'm the killer.","I'm the murderer.","I'm the culprit.","I've killed him, Detective.",
     "I choked him in the Kitchen at 22:30.","I'm guilty.","Edmund died because of me.",
@@ -35,6 +37,9 @@ describe("A2 review probes",()=>{
   });
 });
 describe("A3 claim consistency",()=>{
+  it.each([["I heard Harlow respond to Vale after she went into the Study.",true],["I heard Vale respond to Harlow after she went into the Study.",false]])("checks reply synonyms without reversing roles: %s",(line,accepted)=>{const sheet=buildFactSheet(graph,createGameState(graph),"S3");expect(validateLine({topic:"about:V",cites:[sheet.topicToRef["about:V"]],line,emotion:"guarded"},sheet,graph).ok).toBe(accepted);});
+  it.each(["The Kitchen, at 22:30. I was making tea, nothing more dramatic than that.","I would rather not be pressed on it, but at 22:30 I was in the Kitchen making tea."])("keeps harmless reticence separate from factual negation: %s",line=>expect(validate(line).ok).toBe(true));
+  it("rejects implication, reversed answer roles and an invented professional role",()=>{const initial=createGameState(graph),okafor=buildFactSheet(graph,initial,"S3"),pike=buildFactSheet(graph,initial,"S4");for(const line of ["Harlow answered Vale after she entered the Study, and frankly, Detective, that tells you who did it.","I heard Vale answer Harlow after he entered the Study, Detective."]){expect(validateLine({topic:"about:V",cites:[okafor.topicToRef["about:V"]],line,emotion:"guarded"},okafor,graph).ok).toBe(false);}expect(validateLine({topic:"motive:S2",cites:[pike.topicToRef["motive:S2"]],line:"As Vale's appointed trustee, I can tell you Harlow intended to expose those forged trust accounts.",emotion:"guarded"},pike,graph).ok).toBe(false);});
   it.each([
     "I was never in the Kitchen at 22:30.","I wasn't in the Kitchen at 22:30.",
     "My husband was with me in the Kitchen at 22:30.","My sister was with me in the Kitchen at 22:30.",

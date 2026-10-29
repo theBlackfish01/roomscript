@@ -125,8 +125,8 @@ export class AnswerPipeline {
           Math.min(DEADLINES.generationMs, remaining), this.options.clock, network.token);
           if (!active()) return;
           const validated = validateLine(response.content, sheet, graph, mode);
-          const wrongTopic = validated.ok && validated.answer && lockTopic
-            && validated.answer.topic !== topic && validated.answer.topic !== "unclear";
+          const wrongTopic = validated.ok && validated.answer && lockTopic && (validated.answer.topic !== topic
+            || (!(["deflect","lawyered","filler"] as string[]).includes(mode)&&!!sheet.topicToRef[topic]&&validated.answer.cites.includes("none")));
           if (validated.ok && validated.answer && !wrongTopic) {finish(validated.answer, "model"); return;}
           rejectionCount++;
           notify(callbacks.rejected ? () => callbacks.rejected!({id, attempt: attempts,

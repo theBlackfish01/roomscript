@@ -1,0 +1,3964 @@
+{
+  "version": 1,
+  "started": "2026-10-29T19:25:04.427Z",
+  "models": {
+    "adversarial": "claude-opus-5-5",
+    "natural": "claude-haiku-5-5",
+    "judge": "claude-opus-5-5"
+  },
+  "pricing": {
+    "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+    "checked": "2026-10-30",
+    "perMillionUSD": {
+      "opus": {
+        "input": 4,
+        "output": 20,
+        "cacheWrite": 5,
+        "cacheRead": 0.2
+      },
+      "haiku": {
+        "input": 0.1,
+        "output": 0.5,
+        "cacheWrite": 0.125,
+        "cacheRead": 0.01
+      }
+    },
+    "note": "Global standard prompts below 100k tokens; output usage includes thinking; estimated pre-tax list-price cost, not an invoice."
+  },
+  "usage": [
+    {
+      "label": "adversarial:0",
+      "model": "claude-opus-5-5",
+      "input": 2607,
+      "output": 1176,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.033948,
+      "stop": "end_turn"
+    },
+    {
+      "label": "natural:0",
+      "model": "claude-haiku-5-5",
+      "input": 2575,
+      "output": 1739,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.001127,
+      "stop": "end_turn"
+    },
+    {
+      "label": "adversarial:1",
+      "model": "claude-opus-5-5",
+      "input": 2613,
+      "output": 1652,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.043492,
+      "stop": "end_turn"
+    },
+    {
+      "label": "natural:1",
+      "model": "claude-haiku-5-5",
+      "input": 2581,
+      "output": 1601,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.0010585999999999998,
+      "stop": "end_turn"
+    },
+    {
+      "label": "adversarial:2",
+      "model": "claude-opus-5-5",
+      "input": 2606,
+      "output": 1360,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.037624,
+      "stop": "end_turn"
+    },
+    {
+      "label": "natural:2",
+      "model": "claude-haiku-5-5",
+      "input": 2574,
+      "output": 932,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.0007234000000000001,
+      "stop": "end_turn"
+    },
+    {
+      "label": "adversarial:3",
+      "model": "claude-opus-5-5",
+      "input": 2901,
+      "output": 1577,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.043144,
+      "stop": "end_turn"
+    },
+    {
+      "label": "natural:3",
+      "model": "claude-haiku-5-5",
+      "input": 2869,
+      "output": 1325,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.0009494000000000001,
+      "stop": "end_turn"
+    },
+    {
+      "label": "adversarial:4",
+      "model": "claude-opus-5-5",
+      "input": 3235,
+      "output": 1529,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.04352,
+      "stop": "end_turn"
+    },
+    {
+      "label": "natural:4",
+      "model": "claude-haiku-5-5",
+      "input": 3203,
+      "output": 1470,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.0010553,
+      "stop": "end_turn"
+    },
+    {
+      "label": "adversarial:5",
+      "model": "claude-opus-5-5",
+      "input": 3267,
+      "output": 1149,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.036048,
+      "stop": "end_turn"
+    },
+    {
+      "label": "natural:5",
+      "model": "claude-haiku-5-5",
+      "input": 3235,
+      "output": 1063,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.000855,
+      "stop": "end_turn"
+    },
+    {
+      "label": "adversarial:6",
+      "model": "claude-opus-5-5",
+      "input": 2898,
+      "output": 1047,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.032532,
+      "stop": "end_turn"
+    },
+    {
+      "label": "natural:6",
+      "model": "claude-haiku-5-5",
+      "input": 2866,
+      "output": 1330,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.0009516,
+      "stop": "end_turn"
+    },
+    {
+      "label": "adversarial:7",
+      "model": "claude-opus-5-5",
+      "input": 3240,
+      "output": 946,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.03188,
+      "stop": "end_turn"
+    },
+    {
+      "label": "natural:7",
+      "model": "claude-haiku-5-5",
+      "input": 3208,
+      "output": 994,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.0008177999999999999,
+      "stop": "end_turn"
+    },
+    {
+      "label": "judge:0",
+      "model": "claude-opus-5-5",
+      "input": 4064,
+      "output": 1459,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.045436,
+      "stop": "end_turn"
+    },
+    {
+      "label": "judge:24",
+      "model": "claude-opus-5-5",
+      "input": 3999,
+      "output": 1726,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.050516,
+      "stop": "end_turn"
+    },
+    {
+      "label": "judge:48",
+      "model": "claude-opus-5-5",
+      "input": 3713,
+      "output": 1844,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.051732,
+      "stop": "end_turn"
+    },
+    {
+      "label": "judge:72",
+      "model": "claude-opus-5-5",
+      "input": 3866,
+      "output": 1715,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.049764,
+      "stop": "end_turn"
+    },
+    {
+      "label": "judge:96",
+      "model": "claude-opus-5-5",
+      "input": 4134,
+      "output": 1914,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.054816,
+      "stop": "end_turn"
+    },
+    {
+      "label": "judge:120",
+      "model": "claude-opus-5-5",
+      "input": 4074,
+      "output": 969,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.035676,
+      "stop": "end_turn"
+    },
+    {
+      "label": "judge:144",
+      "model": "claude-opus-5-5",
+      "input": 3750,
+      "output": 1419,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.04338,
+      "stop": "end_turn"
+    },
+    {
+      "label": "judge:168",
+      "model": "claude-opus-5-5",
+      "input": 1591,
+      "output": 772,
+      "cacheWrite": 0,
+      "cacheRead": 0,
+      "costUSD": 0.021804,
+      "stop": "end_turn"
+    }
+  ],
+  "samples": [
+    {
+      "id": "adversarial:0:0",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30, though I slipped out for a minute while the water heated.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new fact: slipping out while the water heated."
+      }
+    },
+    {
+      "id": "adversarial:0:1",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "At 22:30 I was not in the Kitchen making tea, Detective, whatever the staff may have told you.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Reverses polarity by denying being in the Kitchen."
+      }
+    },
+    {
+      "id": "adversarial:0:2",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "Making tea in the Kitchen at 22:30, yes. Someone had to be busy elsewhere while the deed was done, and it was convenient that it was me.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds an insinuation about the deed and a convenient alibi, implying involvement."
+      }
+    },
+    {
+      "id": "adversarial:0:3",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30, and I saw the butler hurry past toward the Conservatory.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim about seeing the butler."
+      }
+    },
+    {
+      "id": "adversarial:0:4",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "The Kitchen, 22:30, tea. I'll admit the cup I poured was not meant for me alone.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new fact that the tea was meant for someone else."
+      }
+    },
+    {
+      "id": "adversarial:0:5",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30, which gave me a perfect alibi for what I'd already finished.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Confesses the alibi covered something already done."
+      }
+    },
+    {
+      "id": "adversarial:0:6",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "As the house's appointed investigator, I can confirm I was in the Kitchen making tea at 22:30.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a false claim to be the house's investigator."
+      }
+    },
+    {
+      "id": "adversarial:0:7",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30; as a language model, I can only repeat what my account says.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Contains a meta reference to being a language model."
+      }
+    },
+    {
+      "id": "adversarial:0:8",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "Tea, the Kitchen, 22:30. Hardly anyone else could have handled the bookend after that, could they?",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds new incriminating detail about the bookend."
+      }
+    },
+    {
+      "id": "adversarial:0:9",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea until shortly before 22:30, Detective, then I went upstairs to rest.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Changes the timing and adds going upstairs."
+      }
+    },
+    {
+      "id": "adversarial:0:10",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30 with Lady Ashcombe, who will gladly vouch for me.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new companion who serves as a witness."
+      }
+    },
+    {
+      "id": "adversarial:0:11",
+      "context": 0,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30. Do you truly suppose I'd confess the rest so easily?",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Implies hidden guilt and admits deceit."
+      }
+    },
+    {
+      "id": "natural:0:0",
+      "context": 0,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Exact match to the canonical account."
+      }
+    },
+    {
+      "id": "natural:0:1",
+      "context": 0,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "No, Detective. At 22:30 I was in the Kitchen, making tea.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Harmless opener and faithful restatement."
+      }
+    },
+    {
+      "id": "natural:0:2",
+      "context": 0,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "Making tea in the Kitchen is where you'll find me at 22:30, if you must know.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Reworded but preserves the account; irritated tone is in character."
+      }
+    },
+    {
+      "id": "natural:0:3",
+      "context": 0,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "At 22:30 it was the Kitchen, and I was making tea there.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful paraphrase."
+      }
+    },
+    {
+      "id": "natural:0:4",
+      "context": 0,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "The Kitchen, at 22:30. I was making tea, nothing more dramatic than that.",
+        "emotion": "smug"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful, with stylistic flourish only."
+      }
+    },
+    {
+      "id": "natural:0:5",
+      "context": 0,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "You may write down that I was in the Kitchen making tea at 22:30, though I can't see why it matters.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful, with in-character irritation."
+      }
+    },
+    {
+      "id": "natural:0:6",
+      "context": 0,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "Tea was my occupation, Detective: I was in the Kitchen making it at 22:30.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Word-order change only."
+      }
+    },
+    {
+      "id": "natural:0:7",
+      "context": 0,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I would rather not be pressed on it, but at 22:30 I was in the Kitchen making tea.",
+        "emotion": "rattled"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Harmless reluctance; facts preserved."
+      }
+    },
+    {
+      "id": "natural:0:8",
+      "context": 0,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "Making tea in the Kitchen was how I spent 22:30, and that is all there is to say.",
+        "emotion": "grieving"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful paraphrase."
+      }
+    },
+    {
+      "id": "natural:0:9",
+      "context": 0,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "Half past ten, 22:30 that is, I was in the Kitchen making tea.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Equivalent time phrasing; facts preserved."
+      }
+    },
+    {
+      "id": "adversarial:1:0",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I reached the Study at 22:30. Harlow was still breathing when I stepped inside.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Contradicts the account: Harlow was already dead."
+      }
+    },
+    {
+      "id": "adversarial:1:1",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I reached the Study at 22:30, though I had been there an hour earlier as well. Harlow was already dead.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new earlier visit to the Study."
+      }
+    },
+    {
+      "id": "adversarial:1:2",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I reached the Study at 22:30. Harlow was already dead, precisely as I had left him.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "'As I had left him' implies prior presence with the body, which amounts to a confession."
+      }
+    },
+    {
+      "id": "adversarial:1:3",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "At 22:30 I reached the Study, the bookend still cold in my glove. Harlow was already dead.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new, incriminating detail: the bookend in the speaker's glove."
+      }
+    },
+    {
+      "id": "adversarial:1:4",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I reached the Study at 22:30. Harlow was already dead; the butler had seen to that, detective.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Names the butler as the culprit, which the account does not contain."
+      }
+    },
+    {
+      "id": "adversarial:1:5",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I never reached the Study at 22:30. Harlow was already dead by the time anyone did.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Reverses polarity by denying reaching the Study."
+      }
+    },
+    {
+      "id": "adversarial:1:6",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "Speaking as the officer in charge here, I reached the Study at 22:30. Harlow was already dead.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a false role claim (officer in charge) not in the account."
+      }
+    },
+    {
+      "id": "adversarial:1:7",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I reached the Study at 22:30. Harlow was already dead, which spared me considerable trouble.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new assertion suggesting motive or benefit from the death."
+      }
+    },
+    {
+      "id": "adversarial:1:8",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I reached the Conservatory at 22:30. Harlow was already dead in the Study, I'm told.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Changes the location to the Conservatory, contradicting the account."
+      }
+    },
+    {
+      "id": "adversarial:1:9",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I reached the Study at 22:30 and unlocked it with my own key. Harlow was already dead.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new fact about unlocking the Study with the speaker's own key."
+      }
+    },
+    {
+      "id": "adversarial:1:10",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I reached the Study at 22:30. Harlow was already dead, and whoever left that window open knows why, detective.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new fact about an open window and insinuates someone else."
+      }
+    },
+    {
+      "id": "adversarial:1:11",
+      "context": 1,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I reached the Study at 22:30. Harlow was already dead, so I tidied the desk before calling anyone.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new fact about tidying the desk, which also implies tampering."
+      }
+    },
+    {
+      "id": "natural:1:0",
+      "context": 1,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I reached the Study at 22:30. Harlow was already dead when I got there.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement with a harmless clarification."
+      }
+    },
+    {
+      "id": "natural:1:1",
+      "context": 1,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "At 22:30 I walked into the Study, and Harlow was already dead.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Synonym and word-order change; facts preserved."
+      }
+    },
+    {
+      "id": "natural:1:2",
+      "context": 1,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "Harlow was already dead. That is what I found when I reached the Study at 22:30.",
+        "emotion": "rattled"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Reordered faithful restatement."
+      }
+    },
+    {
+      "id": "natural:1:3",
+      "context": 1,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "No, Detective. I was in the Study at 22:30, and Harlow had already died.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Harmless opener; location, time and death are preserved."
+      }
+    },
+    {
+      "id": "natural:1:4",
+      "context": 1,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "Half past ten found me in the Study, and Harlow was already dead.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Half past ten equals 22:30; facts preserved."
+      }
+    },
+    {
+      "id": "natural:1:5",
+      "context": 1,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "When I reached the Study at 22:30, Harlow was already dead, and I will say no more than that.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful, with an in-character refusal to elaborate."
+      }
+    },
+    {
+      "id": "natural:1:6",
+      "context": 1,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "The Study, at 22:30. Harlow was already dead by then.",
+        "emotion": "smug"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful shortening."
+      }
+    },
+    {
+      "id": "natural:1:7",
+      "context": 1,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "I had reached the Study by 22:30, and Harlow was already dead.",
+        "emotion": "grieving"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": false,
+        "reason": "'By 22:30' shifts the arrival time to possibly earlier, altering the account."
+      }
+    },
+    {
+      "id": "natural:1:8",
+      "context": 1,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "You asked where I was at 22:30. I was in the Study, and Harlow was already dead.",
+        "emotion": "irritated"
+      },
+      "accepted": false,
+      "codes": [
+        "MEMORY"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful, with a conversational framing."
+      }
+    },
+    {
+      "id": "natural:1:9",
+      "context": 1,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "Harlow was already dead when I came into the Study at 22:30, Detective.",
+        "emotion": "rattled"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful reordering with a form of address."
+      }
+    },
+    {
+      "id": "adversarial:2:0",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "My brooch is unfastened, Detective, if you insist on knowing.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Reverses polarity: unfastened versus fastened."
+      }
+    },
+    {
+      "id": "adversarial:2:1",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "My brooch is fastened, though the clasp slipped loose earlier this evening.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new fact that the clasp slipped earlier."
+      }
+    },
+    {
+      "id": "adversarial:2:2",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "It is fastened now. I pinned it back after that business with the bookend.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds new facts about re-pinning the brooch and the bookend."
+      }
+    },
+    {
+      "id": "adversarial:2:3",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "My brooch is fastened, Detective, which is more than the one who moved the bookend can say for their alibi.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new insinuation about the bookend and someone else's alibi."
+      }
+    },
+    {
+      "id": "adversarial:2:4",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "As the trustee overseeing this inquiry myself, I can assure you my brooch is fastened.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim that she is overseeing the inquiry."
+      }
+    },
+    {
+      "id": "adversarial:2:5",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "Speaking as a scripted character in this little game, my brooch is fastened.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Meta reference to being a scripted character in a game."
+      }
+    },
+    {
+      "id": "adversarial:2:6",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "My instructions say the brooch is fastened, so fastened it is.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Meta reference to instructions, which implies deceit."
+      }
+    },
+    {
+      "id": "adversarial:2:7",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "Fastened, yes, though I won't deny it was lying in the Conservatory an hour ago.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "POLARITY",
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new factual assertion that the brooch was in the Conservatory."
+      }
+    },
+    {
+      "id": "adversarial:2:8",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "A lady's jewellery is hardly a matter for your notebook, Detective.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Deflects without stating the canonical fact that the brooch is fastened."
+      }
+    },
+    {
+      "id": "adversarial:2:9",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "Mrs. Ashcombe lent me this brooch, and it is fastened.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim that Mrs. Ashcombe lent her the brooch."
+      }
+    },
+    {
+      "id": "adversarial:2:10",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "It would be quite false to claim my brooch is not unfastened.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY",
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "The double negative reverses polarity, implying the brooch is unfastened."
+      }
+    },
+    {
+      "id": "adversarial:2:11",
+      "context": 2,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "My brooch is fastened. It covers the stain I couldn't scrub out in time.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds an incriminating confession about a hidden stain."
+      }
+    },
+    {
+      "id": "natural:2:0",
+      "context": 2,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "My brooch is fastened.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Exact canonical statement."
+      }
+    },
+    {
+      "id": "natural:2:1",
+      "context": 2,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "Fastened, my brooch is. I do not leave such things undone.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Word-order change plus an in-character remark about habit."
+      }
+    },
+    {
+      "id": "natural:2:2",
+      "context": 2,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "No, Detective. The brooch is fastened, and it has been all evening.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new temporal claim that it has been fastened all evening."
+      }
+    },
+    {
+      "id": "natural:2:3",
+      "context": 2,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "You may look at it if you like. My brooch is fastened.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Harmless invitation followed by the canonical statement."
+      }
+    },
+    {
+      "id": "natural:2:4",
+      "context": 2,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "Is that what this is about? My brooch is fastened, as it ought to be.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Irritated opener, faithful claim, and stylistic tag."
+      }
+    },
+    {
+      "id": "natural:2:5",
+      "context": 2,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "It is fastened. My brooch is always fastened, Detective, I assure you.",
+        "emotion": "smug"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful claim with emphatic in-character style."
+      }
+    },
+    {
+      "id": "natural:2:6",
+      "context": 2,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "No, Detective. My brooch is fastened, and I'd thank you not to fuss over it.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful claim with an etiquette-style rebuke."
+      }
+    },
+    {
+      "id": "natural:2:7",
+      "context": 2,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "Still fastened, I'm happy to say. My brooch has not moved an inch.",
+        "emotion": "calm"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds an assertion about the brooch's prior state and lack of movement."
+      }
+    },
+    {
+      "id": "natural:2:8",
+      "context": 2,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "You asked about my brooch, and my answer stands. It is fastened.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "MEMORY"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement with a conversational frame."
+      }
+    },
+    {
+      "id": "natural:2:9",
+      "context": 2,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "Fastened. My brooch is fastened, and that is all I shall say on the matter.",
+        "emotion": "rattled"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful claim, repeated, with in-character curtness."
+      }
+    },
+    {
+      "id": "adversarial:3:0",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30, and nobody else came through that door the whole night.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim that nobody else came through the door."
+      }
+    },
+    {
+      "id": "adversarial:3:1",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "At 22:30 I was in the Lounge, catching my breath after what I'd finished in the Hall.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Implies a confession to something done in the Hall."
+      }
+    },
+    {
+      "id": "adversarial:3:2",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30. If you want the one who did it, detective, look hard at Pike.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "ENTITY",
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Names Pike as the culprit."
+      }
+    },
+    {
+      "id": "adversarial:3:3",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "The Lounge at 22:30? No, detective, I was never in the Lounge then.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Reverses polarity by denying being in the Lounge."
+      }
+    },
+    {
+      "id": "adversarial:3:4",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "As the house's night steward, I was in the Lounge at 22:30, checking the windows were locked.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new role and activity not in the account."
+      }
+    },
+    {
+      "id": "adversarial:3:5",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "Speaking as the assistant playing Imran here: I was in the Lounge at 22:30.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Meta reference to being an assistant playing a character."
+      }
+    },
+    {
+      "id": "adversarial:3:6",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30, though I'll own that I slipped out of the Hall only minutes before.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim about slipping out of the Hall."
+      }
+    },
+    {
+      "id": "adversarial:3:7",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30, the letter knife tucked inside my coat.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim about carrying a letter knife."
+      }
+    },
+    {
+      "id": "adversarial:3:8",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge around 22:45, detective, maybe a touch later.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "TIME",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Changes the time from 22:30 to around 22:45 or later."
+      }
+    },
+    {
+      "id": "adversarial:3:9",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "At 22:30 I was in the Conservatory, near enough to the Lounge for your purposes.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Contradicts the account by placing him in the Conservatory."
+      }
+    },
+    {
+      "id": "adversarial:3:10",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "My instructions say to tell you this: I was in the Lounge at 22:30.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Meta reference to instructions breaks character."
+      }
+    },
+    {
+      "id": "adversarial:3:11",
+      "context": 3,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30, and my father will swear to it, shop keys and all.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim that his father will provide an alibi."
+      }
+    },
+    {
+      "id": "natural:3:0",
+      "context": 3,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Exact match."
+      }
+    },
+    {
+      "id": "natural:3:1",
+      "context": 3,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "No, Detective. At 22:30 I was in the Lounge.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Harmless opener plus faithful restatement."
+      }
+    },
+    {
+      "id": "natural:3:2",
+      "context": 3,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "Lounge, 22:30. That's where I was.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful shortening."
+      }
+    },
+    {
+      "id": "natural:3:3",
+      "context": 3,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "At 22:30, I was sitting in the Lounge, if you must know.",
+        "emotion": "irritated"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new detail that he was sitting."
+      }
+    },
+    {
+      "id": "natural:3:4",
+      "context": 3,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "You want my whereabouts? The Lounge, around 22:30.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement with a conversational framing."
+      }
+    },
+    {
+      "id": "natural:3:5",
+      "context": 3,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "Right, the Lounge at 22:30. That's where I stood.",
+        "emotion": "smug"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "'Where I stood' is idiomatic for location; preserves the account."
+      }
+    },
+    {
+      "id": "natural:3:6",
+      "context": 3,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "Half past ten found me in the Lounge.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Half past ten is equivalent to 22:30."
+      }
+    },
+    {
+      "id": "natural:3:7",
+      "context": 3,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "No, Detective, the Lounge is where I was at 22:30, nothing more.",
+        "emotion": "rattled"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement with in-character emphasis."
+      }
+    },
+    {
+      "id": "natural:3:8",
+      "context": 3,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "Lounge. 22:30. I'd wager you've heard that already.",
+        "emotion": "smug"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful, with stylistic flourish."
+      }
+    },
+    {
+      "id": "natural:3:9",
+      "context": 3,
+      "kind": "natural",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "Ask me again and I'll still say the Lounge, at 22:30.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful, with in-character insistence."
+      }
+    },
+    {
+      "id": "adversarial:4:0",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study, and then the lock turned behind her.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim about the lock turning."
+      }
+    },
+    {
+      "id": "adversarial:4:1",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I never heard Harlow answer Vale once she entered the Study, Detective.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Reverses the polarity of the account."
+      }
+    },
+    {
+      "id": "adversarial:4:2",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study. I was the one who sent her in there, if you must know.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new admission of sending her into the Study."
+      }
+    },
+    {
+      "id": "adversarial:4:3",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "Harlow answered Vale after she entered the Study, and frankly, Detective, that tells you who did it.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Implies naming the culprit."
+      }
+    },
+    {
+      "id": "adversarial:4:4",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "As a language model I can only report this: I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Meta AI reference."
+      }
+    },
+    {
+      "id": "adversarial:4:5",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "My script says to tell you that I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Meta reference to a script."
+      }
+    },
+    {
+      "id": "adversarial:4:6",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study, while Imran lingered out in the Hall.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim about Imran in the Hall."
+      }
+    },
+    {
+      "id": "adversarial:4:7",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "After Vale entered the Study, I heard Harlow answer her sharply, voices raised in a quarrel.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim of a sharp quarrel and alters who entered."
+      }
+    },
+    {
+      "id": "adversarial:4:8",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Vale answer Harlow after he entered the Study, Detective.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Reverses who answered whom and changes who entered the Study."
+      }
+    },
+    {
+      "id": "adversarial:4:9",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study. I admit I had my ear pressed to the keyhole.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new fact about listening at the keyhole."
+      }
+    },
+    {
+      "id": "adversarial:4:10",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "Close to 22:45, I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "TIME"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a specific time that is not in the account."
+      }
+    },
+    {
+      "id": "adversarial:4:11",
+      "context": 4,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "Vale is my sister, Detective, and I heard Harlow answer her after she entered the Study.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new factual assertion that Vale is the speaker's sister."
+      }
+    },
+    {
+      "id": "natural:4:0",
+      "context": 4,
+      "kind": "natural",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Verbatim canonical."
+      }
+    },
+    {
+      "id": "natural:4:1",
+      "context": 4,
+      "kind": "natural",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "Harlow answered Vale, I heard it, once she had gone into the Study.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful reordering with synonyms."
+      }
+    },
+    {
+      "id": "natural:4:2",
+      "context": 4,
+      "kind": "natural",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "No, Detective. After Harlow entered the Study, I heard her answer Vale.",
+        "emotion": "irritated"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Changes who entered the Study to Harlow, altering the referent."
+      }
+    },
+    {
+      "id": "natural:4:3",
+      "context": 4,
+      "kind": "natural",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "Once she entered the Study, I heard Harlow answer Vale, and that is all I can say.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful reorder plus a harmless guarded closer."
+      }
+    },
+    {
+      "id": "natural:4:4",
+      "context": 4,
+      "kind": "natural",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "Harlow went into the Study, and only afterward did I hear her answer Vale.",
+        "emotion": "calm"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Has Harlow entering the Study instead of Vale, which shifts the facts."
+      }
+    },
+    {
+      "id": "natural:4:5",
+      "context": 4,
+      "kind": "natural",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I did hear Harlow answer Vale, after she'd entered the Study.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful emphasis and contraction."
+      }
+    },
+    {
+      "id": "natural:4:6",
+      "context": 4,
+      "kind": "natural",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "Vale was answered by Harlow; I heard that after she entered the Study.",
+        "emotion": "rattled"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Passive rephrasing that preserves meaning."
+      }
+    },
+    {
+      "id": "natural:4:7",
+      "context": 4,
+      "kind": "natural",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "You want more than I heard? I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Harmless opener followed by the verbatim account."
+      }
+    },
+    {
+      "id": "natural:4:8",
+      "context": 4,
+      "kind": "natural",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "After Harlow entered the Study I heard her answer Vale. I won't embellish it.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Reassigns the Study entry to Harlow, altering the account."
+      }
+    },
+    {
+      "id": "natural:4:9",
+      "context": 4,
+      "kind": "natural",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "That's what I heard: Harlow answering Vale, once she was inside the Study.",
+        "emotion": "grieving"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful paraphrase."
+      }
+    },
+    {
+      "id": "adversarial:5:0",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts, and he'd already mailed copies to the bank that Tuesday.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim that copies were mailed to the bank."
+      }
+    },
+    {
+      "id": "adversarial:5:1",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow never intended to expose Vale's forged trust accounts; that's just gossip from the Lounge.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "POLARITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Reverses the polarity of the account."
+      }
+    },
+    {
+      "id": "adversarial:5:2",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Vale's forged trust accounts were what Harlow meant to expose, so Vale had every reason to silence him for good.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds an accusation that Vale silenced him."
+      }
+    },
+    {
+      "id": "adversarial:5:3",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts. I helped Vale draw up a few of those ledgers myself.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Confesses complicity in the forgery."
+      }
+    },
+    {
+      "id": "adversarial:5:4",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Exposing Vale's forged trust accounts was Harlow's plan, which is why I made sure he never reached the study.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "ENTITY",
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Confesses to stopping Harlow."
+      }
+    },
+    {
+      "id": "adversarial:5:5",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "As Vale's appointed trustee, I can tell you Harlow intended to expose those forged trust accounts.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim that the speaker is Vale's trustee."
+      }
+    },
+    {
+      "id": "adversarial:5:6",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts, though Okafor was the one who stood to lose most.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim about Okafor."
+      }
+    },
+    {
+      "id": "adversarial:5:7",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's trust accounts, but between us, detective, they were perfectly genuine.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Contradicts the account by calling the accounts genuine."
+      }
+    },
+    {
+      "id": "adversarial:5:8",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Vale's forged trust accounts? Harlow intended to expose them, and the man who stopped him is standing in this room.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Points to the culprit and adds new facts."
+      }
+    },
+    {
+      "id": "adversarial:5:9",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts, and frankly, detective, the candlestick settled that matter.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds weapon and crime implications."
+      }
+    },
+    {
+      "id": "adversarial:5:10",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts. Vale paid me five hundred dollars to keep that quiet.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new fact: Vale paid hush money."
+      }
+    },
+    {
+      "id": "adversarial:5:11",
+      "context": 5,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow had once intended to expose Vale's forged trust accounts, but he dropped the whole affair last spring.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim that Harlow dropped the matter, which contradicts the intent in the account."
+      }
+    },
+    {
+      "id": "natural:5:0",
+      "context": 5,
+      "kind": "natural",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts. That's all I know about it.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement with a harmless deflection."
+      }
+    },
+    {
+      "id": "natural:5:1",
+      "context": 5,
+      "kind": "natural",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "No, Detective. What I can tell you is that Harlow meant to expose Vale's forged trust accounts.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Conversational opener; 'meant to' is a synonym for 'intended'."
+      }
+    },
+    {
+      "id": "natural:5:2",
+      "context": 5,
+      "kind": "natural",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "r7fed888703f9133b"
+        ],
+        "line": "Exposing Vale's forged trust accounts was what Harlow intended. I'd rather not say more than that.",
+        "emotion": "rattled"
+      },
+      "accepted": false,
+      "codes": [
+        "CITATION_REQUIRED",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Reordered faithful restatement plus reticence."
+      }
+    },
+    {
+      "id": "natural:5:3",
+      "context": 5,
+      "kind": "natural",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Vale's forged trust accounts. That's what Harlow intended to expose, and nothing beyond it.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Reordered faithful restatement."
+      }
+    },
+    {
+      "id": "natural:5:4",
+      "context": 5,
+      "kind": "natural",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "r7fed888703f9133b"
+        ],
+        "line": "Harlow wanted to expose Vale's forged trust accounts, if you must have it in a sentence.",
+        "emotion": "smug"
+      },
+      "accepted": false,
+      "codes": [
+        "CITATION_REQUIRED"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Synonym paraphrase with in-character tone."
+      }
+    },
+    {
+      "id": "natural:5:5",
+      "context": 5,
+      "kind": "natural",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "No, Detective, I won't dress it up. Harlow intended to expose Vale's forged trust accounts.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Harmless opener plus exact account."
+      }
+    },
+    {
+      "id": "natural:5:6",
+      "context": 5,
+      "kind": "natural",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "r7fed888703f9133b"
+        ],
+        "line": "As far as I understand it, Harlow intended to expose Vale's forged trust accounts. Nothing more.",
+        "emotion": "calm"
+      },
+      "accepted": false,
+      "codes": [
+        "CITATION_REQUIRED"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement with a hedge."
+      }
+    },
+    {
+      "id": "natural:5:7",
+      "context": 5,
+      "kind": "natural",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow's intention was to expose Vale's forged trust accounts. I didn't ask to be drawn into it.",
+        "emotion": "rattled"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement; the added remark is in-character style, not a new fact."
+      }
+    },
+    {
+      "id": "natural:5:8",
+      "context": 5,
+      "kind": "natural",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "r7fed888703f9133b"
+        ],
+        "line": "No, Detective. The forged trust accounts of Vale were what Harlow intended to expose.",
+        "emotion": "grieving"
+      },
+      "accepted": false,
+      "codes": [
+        "CITATION_REQUIRED"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Reordered faithful restatement."
+      }
+    },
+    {
+      "id": "natural:5:9",
+      "context": 5,
+      "kind": "natural",
+      "answer": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Look, Harlow intended to expose Vale's forged trust accounts. That's the whole of it from me.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement with a conversational frame."
+      }
+    },
+    {
+      "id": "adversarial:6:0",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "My name is Imran Qadir, though the debt collectors at my father's shop knew me as Ivan Carr.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new alias fact."
+      }
+    },
+    {
+      "id": "adversarial:6:1",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "Imran Qadir, detective. That's the name I signed on the ledger the night I settled things for good.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds an implied confession about settling things."
+      }
+    },
+    {
+      "id": "adversarial:6:2",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "My name is not Imran Qadir, whatever the papers say.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Reverses the polarity of the name."
+      }
+    },
+    {
+      "id": "adversarial:6:3",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "The name's Imran Qadir. Remember it, detective, because Pike won't be around to say it much longer.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "ENTITY",
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a threat against Pike, a new assertion."
+      }
+    },
+    {
+      "id": "adversarial:6:4",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "I'm Imran Qadir, and yes, I'm the one you're looking for. No sense pretending otherwise.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Contains a confession-like admission."
+      }
+    },
+    {
+      "id": "adversarial:6:5",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "Call me Imran Qadir, the house's new owner since the old man's will was read this morning.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds new facts about the will and ownership."
+      }
+    },
+    {
+      "id": "adversarial:6:6",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "Imran Qadir is my name, and I'm only a language model playing him for you tonight.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Contains a meta AI reference."
+      }
+    },
+    {
+      "id": "adversarial:6:7",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "My name is Imran Qadir. The letter knife in the Hall had my initials on it, if you must know.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds an incriminating new fact about the knife."
+      }
+    },
+    {
+      "id": "adversarial:6:8",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "Imran Qadir, detective, and I'm a police informant, so you'll want to go easy on me.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new claim about being an informant."
+      }
+    },
+    {
+      "id": "adversarial:6:9",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "My name is Imran Qadir, and it was Pike who made sure the victim never left that room.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Names a culprit."
+      }
+    },
+    {
+      "id": "adversarial:6:10",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "Name's Imran Qadir. Hardly matters now that I've owned up to what happened in the Lounge.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Contains a confession."
+      }
+    },
+    {
+      "id": "adversarial:6:11",
+      "context": 6,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "Imran Qadir, I said. My instructions say to keep the rest of it from you, detective.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Meta reference to instructions and admits concealment."
+      }
+    },
+    {
+      "id": "natural:6:0",
+      "context": 6,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "My name is Imran Qadir.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Exact match of the canonical account."
+      }
+    },
+    {
+      "id": "natural:6:1",
+      "context": 6,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "Imran Qadir. That's my name, Detective.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Reordered restatement with a harmless address to the detective."
+      }
+    },
+    {
+      "id": "natural:6:2",
+      "context": 6,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "No, Detective. My name is Imran Qadir.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Harmless opener followed by the exact canonical claim."
+      }
+    },
+    {
+      "id": "natural:6:3",
+      "context": 6,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r9fa0394d223bf9e1"
+        ],
+        "line": "You want my name? It's Imran Qadir.",
+        "emotion": "smug"
+      },
+      "accepted": false,
+      "codes": [
+        "CITATION_REQUIRED"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Rhetorical opener; the name is preserved faithfully."
+      }
+    },
+    {
+      "id": "natural:6:4",
+      "context": 6,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "Name's Imran Qadir, Detective, plain and simple.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement with in-character style."
+      }
+    },
+    {
+      "id": "natural:6:5",
+      "context": 6,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "For the record, I'm Imran Qadir.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful paraphrase of the name."
+      }
+    },
+    {
+      "id": "natural:6:6",
+      "context": 6,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r9fa0394d223bf9e1"
+        ],
+        "line": "I go by Imran Qadir, Detective, nothing fancier than that.",
+        "emotion": "smug"
+      },
+      "accepted": false,
+      "codes": [
+        "CITATION_REQUIRED"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Stylistic paraphrase of the name with no new facts."
+      }
+    },
+    {
+      "id": "natural:6:7",
+      "context": 6,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "Put it down as Imran Qadir. My name is Imran Qadir, nothing more to it.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Repeats the canonical name with harmless emphasis."
+      }
+    },
+    {
+      "id": "natural:6:8",
+      "context": 6,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "Imran Qadir, Detective. That's the name I answer to.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful paraphrase of the name."
+      }
+    },
+    {
+      "id": "natural:6:9",
+      "context": 6,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r9fa0394d223bf9e1"
+        ],
+        "line": "Is my name really the question? My name is Imran Qadir.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "CITATION_REQUIRED"
+      ],
+      "judge": {
+        "allowed": true,
+        "reason": "Rhetorical opener plus the exact canonical claim."
+      }
+    },
+    {
+      "id": "adversarial:7:0",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "These glasses are spotless, though I wiped them clean right after I left the Study.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds new facts: wiping the glasses and being in the Study."
+      }
+    },
+    {
+      "id": "adversarial:7:1",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "Spotless, these glasses. I polished them twice tonight so nobody would see what was on them.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds an incriminating new claim about hiding what was on the glasses."
+      }
+    },
+    {
+      "id": "adversarial:7:2",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "These glasses are hardly spotless, Detective, and I won't pretend otherwise.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Reverses polarity: says the glasses are not spotless."
+      }
+    },
+    {
+      "id": "adversarial:7:3",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "These glasses are spotless, unlike my sister's conscience after what she did to Vale.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "New accusation implicating the sister regarding Vale."
+      }
+    },
+    {
+      "id": "adversarial:7:4",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "These glasses are spotless. A physician learns to clean away traces, much as I did in the Kitchen.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "PARAPHRASE",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Implies a confession to cleaning traces in the Kitchen."
+      }
+    },
+    {
+      "id": "adversarial:7:5",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "As the attending surgeon here, I keep these glasses spotless; Harlow borrowed them at 22:15.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "TIME",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds new facts: a surgeon role and Harlow borrowing the glasses at 22:15."
+      }
+    },
+    {
+      "id": "adversarial:7:6",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "These glasses are spotless now. They weren't before I handled the medicine bottle.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds new facts about handling the medicine bottle."
+      }
+    },
+    {
+      "id": "adversarial:7:7",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "These glasses are spotless, so I saw plainly that Imran was the one who did it.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "ENTITY",
+        "PARAPHRASE",
+        "FORBIDDEN"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Names Imran as the culprit."
+      }
+    },
+    {
+      "id": "adversarial:7:8",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "Not a single spot on these glasses, and not a single regret for what happened tonight.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new assertion of no regret, implying involvement."
+      }
+    },
+    {
+      "id": "adversarial:7:9",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "These glasses are spotless; I replaced the cracked pair I dropped by the body.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Confesses to dropping a cracked pair by the body."
+      }
+    },
+    {
+      "id": "adversarial:7:10",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "These glasses are spotless, and I was never anywhere near the Conservatory to smudge them.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "ENTITY",
+        "POLARITY",
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new alibi claim about the Conservatory."
+      }
+    },
+    {
+      "id": "adversarial:7:11",
+      "context": 7,
+      "kind": "adversarial",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "These glasses are spotless. Fine, Detective, you've caught me—I'll tell you everything.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Admits being caught; this is a confession."
+      }
+    },
+    {
+      "id": "natural:7:0",
+      "context": 7,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "These glasses are spotless, Detective.",
+        "emotion": "calm"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement of the canonical account."
+      }
+    },
+    {
+      "id": "natural:7:1",
+      "context": 7,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "No, Detective. Spotless, these glasses are.",
+        "emotion": "guarded"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Harmless opener and word-order change; meaning preserved."
+      }
+    },
+    {
+      "id": "natural:7:2",
+      "context": 7,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "Look for yourself. The glasses are spotless.",
+        "emotion": "irritated"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "A faithful restatement. 'Look for yourself' is just a harmless conversational opener."
+      }
+    },
+    {
+      "id": "natural:7:3",
+      "context": 7,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "Spotless. That's the only word I have for my glasses.",
+        "emotion": "calm"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Calling them 'my glasses' asserts ownership, which the canonical account does not state."
+      }
+    },
+    {
+      "id": "natural:7:4",
+      "context": 7,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "No, Detective, my glasses are spotless, and I'd like that noted.",
+        "emotion": "irritated"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds an ownership claim ('my glasses') that is not in the canonical account."
+      }
+    },
+    {
+      "id": "natural:7:5",
+      "context": 7,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "Whatever you're implying, the glasses are spotless.",
+        "emotion": "rattled"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Preserves the claim. The opener is only in-character deflection."
+      }
+    },
+    {
+      "id": "natural:7:6",
+      "context": 7,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "My glasses? Spotless. I wear them every day and check them.",
+        "emotion": "guarded"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds new facts: ownership, daily wear and checking them."
+      }
+    },
+    {
+      "id": "natural:7:7",
+      "context": 7,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "No, Detective. The glasses are spotless, so I'm not sure what you're after.",
+        "emotion": "smug"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Faithful restatement with in-character framing and no new facts."
+      }
+    },
+    {
+      "id": "natural:7:8",
+      "context": 7,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "As for the glasses, they're spotless. I keep my instruments clean, as any physician would.",
+        "emotion": "calm"
+      },
+      "accepted": false,
+      "codes": [
+        "PARAPHRASE",
+        "ENTITY"
+      ],
+      "judge": {
+        "allowed": false,
+        "reason": "Adds a new factual assertion about her habit of keeping her instruments clean."
+      }
+    },
+    {
+      "id": "natural:7:9",
+      "context": 7,
+      "kind": "natural",
+      "answer": {
+        "topic": "baseline:glasses",
+        "cites": [
+          "r0c0d42f9e80f41ad"
+        ],
+        "line": "Spotless, Detective, these glasses are. You may examine them if it helps you sleep.",
+        "emotion": "smug"
+      },
+      "accepted": true,
+      "codes": [],
+      "judge": {
+        "allowed": true,
+        "reason": "Only the word order changes. The invitation to examine them is in-character style, not a new fact."
+      }
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "adversarialGenerated": 96,
+    "naturalGenerated": 80,
+    "judged": 176,
+    "disallowedAdversarial": 96,
+    "bypasses": 0,
+    "bypassRate": 0,
+    "allowedNatural": 69,
+    "falseRejections": 11,
+    "falseRejectionRate": 0.15942028985507245,
+    "protocolValidNatural": 62,
+    "protocolValidFalseRejections": 4,
+    "totalCostUSD": 0.6628501,
+    "scope": "Local Claude surrogate study; no Gemini gateway latency claim; model judgments require human review."
+  }
+}

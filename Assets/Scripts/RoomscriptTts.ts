@@ -27,6 +27,7 @@ import {heroLineBank} from "./Content/HeroLineBank";
   stop():void {this.source?.cancel();if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor?.setVoice(null);}
   diagnostics():{played:number;fallback:number;cache:number;hits:number;playing:boolean} {return {played:this.played,fallback:this.fallback,cache:this.cache.size,hits:this.hit,playing:!!this.audio?.audioTrack&&this.audio.isPlaying()};}
   cached(line:string,voice=this.actor.voice()):boolean {return splitSentences(line).every(sentence=>this.cache.has(voice+"|"+sentence));}
+  clearCacheForProbe():void {this.stop();this.cache.clear();}
   async precacheCurrent(parent?:CancellationToken):Promise<number> {
     if(this.client.forceOffline||!this.client.hasCredentials("openai"))return 0;
     this.actor.engine.initialize();const graph=this.actor.engine.caseGraph(),state=this.actor.engine.snapshot();
@@ -62,7 +63,7 @@ import {heroLineBank} from "./Content/HeroLineBank";
     const unsubscribe=parent?.onCancel(()=>{source.cancel();if(this.source===source){if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);}})||(()=>{});
     const began=questionStartedAt??this.client.clock.nowMs();this.onSubtitle.invoke(line);let first=true;
     try {
-      const clips=prepareSpeech(line,sentence=>this.synthesize(sentence,selectedVoice,"live",audioBudgetMs(began,this.client.clock.nowMs()),source.token));
+      const clips=prepareSpeech(line,(sentence,index)=>this.synthesize(sentence,selectedVoice,"live",audioBudgetMs(began,this.client.clock.nowMs(),index),source.token));
       for(const clip of clips) {
         const prepared=await clip.ready;source.token.throwIfCancelled();if(prepared.ok===false)throw prepared.error;
         if(first&&this.client.clock.nowMs()-began>DEADLINES.answerMs)throw new LlmError("timeout");

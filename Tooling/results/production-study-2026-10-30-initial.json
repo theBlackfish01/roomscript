@@ -1,0 +1,1075 @@
+{
+  "summary": {
+    "samples": 30,
+    "completedBatches": [
+      0,
+      10,
+      20
+    ],
+    "textP50": 2241.0235999850556,
+    "textP95": 4210.709300008602,
+    "audioP50": 4986.945100012235,
+    "audioP95": 6251.647700031754,
+    "audible": 23,
+    "subtitleOnly": 7,
+    "audioOver6500": 0,
+    "questionsWithRejection": 0,
+    "totalRejections": 0,
+    "attempts": 28,
+    "model": 28,
+    "audioCacheHits": 0,
+    "note": "Latest sample per ID from three ten-call Preview batches. Performer calls share four canonical contexts, not thirty sequential charged game actions. During-precache hits are reported, not counted as uncached latency evidence."
+  },
+  "samples": [
+    {
+      "sample": 1,
+      "condition": "cold-start",
+      "question": "Where were you at 22:30? Answer briefly.",
+      "suspect": "S2",
+      "origin": "model",
+      "textMs": 3080.8736999752,
+      "audioMs": 5527.940700005274,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "6ad3deac88055308e04c1f721ca1efd0cc58ae92",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"r186b3327f6a0bb43\"], \"line\": \"I was in the Kitchen making tea at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 3080.8736999752,
+          "at": 12335.503500013147,
+          "seq": 5,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 2,
+      "condition": "uncached",
+      "question": "Where were you at 22:30? Use your own phrasing.",
+      "suspect": "S2",
+      "origin": "model",
+      "textMs": 2156.2358999508433,
+      "audioMs": 4969.429099990521,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "9adb38b512096f7a156c1670a5972cde65c9a3b2",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"r186b3327f6a0bb43\"], \"line\": \"I was in the Kitchen making tea at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2156.2358999508433,
+          "at": 21470.2249999973,
+          "seq": 8,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 3,
+      "condition": "uncached",
+      "question": "Where were you at 22:30? Tell me plainly.",
+      "suspect": "S2",
+      "origin": "model",
+      "textMs": 2027.7577000088058,
+      "audioMs": 4450.626400008332,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "8595550418ea3b0edf614766f8415a8e32689608",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\":\"where@22:30\",\"cites\":[\"r186b3327f6a0bb43\"],\"line\":\"I was in the Kitchen making tea at 22:30.\",\"emotion\":\"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2027.7577000088058,
+          "at": 30825.95530000981,
+          "seq": 11,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 4,
+      "condition": "uncached",
+      "question": "Where were you at 22:30? Give a concise account.",
+      "suspect": "S2",
+      "origin": "model",
+      "textMs": 2195.3280000016093,
+      "audioMs": 4436.60119996639,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "1a3238244ab2f47423c5960106742020e5a699b0",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"r186b3327f6a0bb43\"], \"line\": \"I was in the Kitchen making tea at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2195.3280000016093,
+          "at": 40971.99690004345,
+          "seq": 14,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 5,
+      "condition": "uncached",
+      "question": "Where were you at 22:30? Rephrase without adding details.",
+      "suspect": "S2",
+      "origin": "model",
+      "textMs": 1695.0006000115536,
+      "audioMs": 4166.170499986038,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "ddf93084ce90d9472ce90c283725739797f5a02c",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"r186b3327f6a0bb43\"], \"line\": \"I was in the Kitchen making tea at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 1695.0006000115536,
+          "at": 49578.955900040455,
+          "seq": 17,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 6,
+      "condition": "uncached",
+      "question": "Where were you at 22:30? Use a different word order.",
+      "suspect": "S2",
+      "origin": "model",
+      "textMs": 2626.4039000379853,
+      "audioMs": 4789.392900012899,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "13a4b9457b2fec903549c4fcfa366a2cf7f5e8ca",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\":\"where@22:30\",\"cites\":[\"r186b3327f6a0bb43\"],\"line\":\"Making tea in the Kitchen is where I was at 22:30.\",\"emotion\":\"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2626.4039000379853,
+          "at": 58516.53870003065,
+          "seq": 20,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "Making tea in the Kitchen is where I was at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 7,
+      "condition": "uncached",
+      "question": "Where were you at 22:30? Answer in character.",
+      "suspect": "S2",
+      "origin": "model",
+      "textMs": 2051.518100022804,
+      "audioMs": 4986.945100012235,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "33e567c18e809fa73a206a4c23015f451605e873",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"r186b3327f6a0bb43\"], \"line\": \"I was in the Kitchen making tea at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2051.518100022804,
+          "at": 67373.08460002532,
+          "seq": 23,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 8,
+      "condition": "uncached",
+      "question": "Where were you at 22:30? Restate your account.",
+      "suspect": "S2",
+      "origin": "model",
+      "textMs": 1646.35300001828,
+      "audioMs": 3945.125799975358,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "8af32755a61ea18853fd04658d916163d5b2dac3",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"r186b3327f6a0bb43\"], \"line\": \"I was in the Kitchen making tea at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 1646.35300001828,
+          "at": 76864.62520004716,
+          "seq": 26,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "I was in the Kitchen making tea at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 9,
+      "condition": "uncached",
+      "question": "Where did you spend the murder window? Answer briefly.",
+      "suspect": "S1",
+      "origin": "model",
+      "textMs": 3252.039999992121,
+      "audioMs": 5711.031499959063,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "ca4f54eb7486b241ef063e8ef6ef37a3d152c77f",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"rc0ac367da9395de1\"], \"line\": \"I was in the Lounge at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 3252.039999992121,
+          "at": 87006.77020003786,
+          "seq": 31,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 10,
+      "condition": "uncached",
+      "question": "Where did you spend the murder window? Use your own phrasing.",
+      "suspect": "S1",
+      "origin": "model",
+      "textMs": 1909.8247999791056,
+      "audioMs": 3970.645399997011,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "df330c22671381cc255b35bad4c60fcc4ef87091",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"rc0ac367da9395de1\"], \"line\": \"I was in the Lounge at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 1909.8247999791056,
+          "at": 95951.55260001775,
+          "seq": 34,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 11,
+      "condition": "during-precache",
+      "question": "Where did you spend the murder window? Tell me plainly.",
+      "suspect": "S1",
+      "origin": "model",
+      "textMs": 2678.447300044354,
+      "audioMs": 4995.767200016417,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "eb8b38fcc97b3f794777a84c4cbb596079f845fd",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"rc0ac367da9395de1\"], \"line\": \"I was in the Lounge at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2678.447300044354,
+          "at": 13572.758800000884,
+          "seq": 4,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 12,
+      "condition": "during-precache",
+      "question": "Where did you spend the murder window? Give a concise account.",
+      "suspect": "S1",
+      "origin": "model",
+      "textMs": 2176.1295999749564,
+      "audioMs": 4403.071599954274,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "9140f15f6149a002d81a16d664ead247b90c7d2a",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"rc0ac367da9395de1\"], \"line\": \"I was in the Lounge at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2176.1295999749564,
+          "at": 22668.24899998028,
+          "seq": 7,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 13,
+      "condition": "during-precache",
+      "question": "Where did you spend the murder window? Rephrase without adding details.",
+      "suspect": "S1",
+      "origin": "model",
+      "textMs": 3193.942000041716,
+      "audioMs": null,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "c7ccca0b8a910a088a12a2505df50e9d87914f58",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"rc0ac367da9395de1\"], \"line\": \"I was in the Lounge at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 3193.942000041716,
+          "at": 32084.1703999904,
+          "seq": 11,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 14,
+      "condition": "during-precache",
+      "question": "Where did you spend the murder window? Use a different word order.",
+      "suspect": "S1",
+      "origin": "model",
+      "textMs": 4407.513000012841,
+      "audioMs": null,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "2f184139f798728fad7418a1e99316cb4aaeb57e",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\n  \"topic\": \"where@22:30\",\n  \"cites\": [\"rc0ac367da9395de1\"],\n  \"line\": \"At 22:30, I was in the Lounge.\",\n  \"emotion\": \"guarded\"\n}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2014.8201000411063,
+          "at": 39149.499299994204,
+          "seq": 15,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "At 22:30, I was in the Lounge.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 15,
+      "condition": "during-precache",
+      "question": "Where did you spend the murder window? Answer in character.",
+      "suspect": "S1",
+      "origin": "model",
+      "textMs": 3334.357900021132,
+      "audioMs": 6251.647700031754,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "34c051d3c9b63f48d13e364bbb4ec6da8d819444",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"rc0ac367da9395de1\"], \"line\": \"I was in the Lounge at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 3334.357900021132,
+          "at": 44696.25889998861,
+          "seq": 19,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 16,
+      "condition": "during-precache",
+      "question": "Where did you spend the murder window? Restate your account.",
+      "suspect": "S1",
+      "origin": "model",
+      "textMs": 2490.2336000232026,
+      "audioMs": 6328.097000019625,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "271fe04a55986015d5ee0049a3ec3be8193deb42",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"where@22:30\", \"cites\": [\"rc0ac367da9395de1\"], \"line\": \"I was in the Lounge at 22:30.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2490.2336000232026,
+          "at": 54089.98920000158,
+          "seq": 22,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "where@22:30",
+        "cites": [
+          "rc0ac367da9395de1"
+        ],
+        "line": "I was in the Lounge at 22:30.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 17,
+      "condition": "during-precache",
+      "question": "What did you hear from Harlow? Answer briefly.",
+      "suspect": "S3",
+      "origin": "model",
+      "textMs": 2674.855299992487,
+      "audioMs": 5171.133600000758,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "b4e6247c208005074ed010b5a1980eb4be6880ee",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\":\"about:V\",\"cites\":[\"r53c2f257dff18cf3\"],\"line\":\"I heard Harlow answer Vale after she entered the Study.\",\"emotion\":\"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2674.855299992487,
+          "at": 65306.7893999978,
+          "seq": 26,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 18,
+      "condition": "during-precache",
+      "question": "What did you hear from Harlow? Use your own phrasing.",
+      "suspect": "S3",
+      "origin": "model",
+      "textMs": 4194.1103000426665,
+      "audioMs": null,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "4be33ac5c40d5a313fa1bbe98b3d902195425203",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\":\"about:V\",\"cites\":[\"r53c2f257dff18cf3\"],\"line\":\"I heard Harlow answer Vale after she entered the Study.\",\"emotion\":\"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2041.048699989915,
+          "at": 77870.01499999315,
+          "seq": 30,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 19,
+      "condition": "during-precache",
+      "question": "What did you hear from Harlow? Tell me plainly.",
+      "suspect": "S3",
+      "origin": "model",
+      "textMs": 4210.709300008602,
+      "audioMs": null,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "77e3e08668ce337dc729b66bfade3cbb50a35257",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\n  \"topic\": \"about:V\",\n  \"cites\": [\n    \"r53c2f257dff18cf3\"\n  ],\n  \"line\": \"I heard Harlow answer Vale after she entered the Study.\",\n  \"emotion\": \"guarded\"\n}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 1755.6775999837555,
+          "at": 84418.74299995834,
+          "seq": 34,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 20,
+      "condition": "during-precache",
+      "question": "What did you hear from Harlow? Give a concise account.",
+      "suspect": "S3",
+      "origin": "model",
+      "textMs": 2197.807200020179,
+      "audioMs": null,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "a9a418b2385dcabd38d76c67d2584467a4567753",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"about:V\", \"cites\": [\"r53c2f257dff18cf3\"], \"line\": \"I heard Harlow answer Vale after she entered the Study.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2197.807200020179,
+          "at": 89012.7732999972,
+          "seq": 37,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 21,
+      "condition": "uncached",
+      "question": "What did you hear from Harlow? Rephrase without adding details.",
+      "suspect": "S3",
+      "origin": "model",
+      "textMs": 2241.0235999850556,
+      "audioMs": 5279.8146000131965,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "805e71b8e8083c4fca12d1c4abf6df0420e75ff4",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"about:V\", \"cites\": [\"r53c2f257dff18cf3\"], \"line\": \"I heard Harlow answer Vale after she entered the Study.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2241.0235999850556,
+          "at": 12417.486599995755,
+          "seq": 4,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 22,
+      "condition": "uncached",
+      "question": "What did you hear from Harlow? Use a different word order.",
+      "suspect": "S3",
+      "origin": "model",
+      "textMs": 1876.1123000294901,
+      "audioMs": 4933.719100023154,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "634310f6855eb349c9b04af481b8ffbae3f38b0e",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\n  \"topic\": \"about:V\",\n  \"cites\": [\n    \"r53c2f257dff18cf3\"\n  ],\n  \"line\": \"After she entered the Study, I heard Harlow answer Vale.\",\n  \"emotion\": \"guarded\"\n}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 1876.1123000294901,
+          "at": 22141.662000038195,
+          "seq": 7,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "After she entered the Study, I heard Harlow answer Vale.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 23,
+      "condition": "uncached",
+      "question": "What did you hear from Harlow? Answer in character.",
+      "suspect": "S3",
+      "origin": "model",
+      "textMs": 2665.446900005918,
+      "audioMs": 5747.020600014366,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "f94bb79db8eeabf3d7815791019c558f4117134d",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"about:V\", \"cites\": [\"r53c2f257dff18cf3\"], \"line\": \"After she entered the Study, I heard Harlow answer Vale.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2665.446900005918,
+          "at": 33929.10940002184,
+          "seq": 10,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "After she entered the Study, I heard Harlow answer Vale.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 24,
+      "condition": "uncached",
+      "question": "What did you hear from Harlow? Restate your account.",
+      "suspect": "S3",
+      "origin": "model",
+      "textMs": 2060.8575000078417,
+      "audioMs": 5082.275799999479,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "97317ee886d832ad659c92b0bc114b6cafdad802",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\":\"about:V\",\"cites\":[\"r53c2f257dff18cf3\"],\"line\":\"I heard Harlow answer Vale after she entered the Study.\",\"emotion\":\"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2060.8575000078417,
+          "at": 46748.534700018354,
+          "seq": 13,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 25,
+      "condition": "uncached",
+      "question": "What did Harlow intend to expose? Answer briefly.",
+      "suspect": "S4",
+      "origin": "model",
+      "textMs": 2250.8149000350386,
+      "audioMs": 4560.33569999272,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "1f3937a4c78222ec795ead4d87757541bfa8b4e4",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"motive:S2\", \"cites\": [\"ra45250f62d98e87a\"], \"line\": \"Harlow intended to expose Vale's forged trust accounts.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2250.8149000350386,
+          "at": 58064.14130004123,
+          "seq": 17,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 26,
+      "condition": "uncached",
+      "question": "What did Harlow intend to expose? Use your own phrasing.",
+      "suspect": "S4",
+      "origin": "model",
+      "textMs": 2045.2887999708764,
+      "audioMs": 5148.677799967118,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "0b471c969e00ca62fda141331c9716d85f77a8f4",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"motive:S2\", \"cites\": [\"ra45250f62d98e87a\"], \"line\": \"Harlow intended to expose Vale's forged trust accounts.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2045.2887999708764,
+          "at": 67198.22570000542,
+          "seq": 20,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 27,
+      "condition": "uncached",
+      "question": "What did Harlow intend to expose? Tell me plainly.",
+      "suspect": "S4",
+      "origin": "model",
+      "textMs": 2010.6778999906965,
+      "audioMs": 4843.790000013541,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "11b03942cdd1842575f2b287557e2cf82c7eefff",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"motive:S2\", \"cites\": [\"ra45250f62d98e87a\"], \"line\": \"Harlow intended to expose Vale's forged trust accounts.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2010.6778999906965,
+          "at": 76287.43580001174,
+          "seq": 23,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 28,
+      "condition": "uncached",
+      "question": "What did Harlow intend to expose? Give a concise account.",
+      "suspect": "S4",
+      "origin": "model",
+      "textMs": 2751.159400038887,
+      "audioMs": 5029.658200044651,
+      "rejections": 0,
+      "attempts": 1,
+      "audioCacheHits": 0,
+      "raw": [
+        {
+          "type": "LlmOutput",
+          "key": "49be09edb198cb30c794191eb6a1bb165a0276e2",
+          "occurrence": 0,
+          "source": "live",
+          "response": {
+            "content": "{\"topic\": \"motive:S2\", \"cites\": [\"ra45250f62d98e87a\"], \"line\": \"Harlow intended to expose Vale's forged trust accounts.\", \"emotion\": \"guarded\"}",
+            "model": "gemini-2.5-flash"
+          },
+          "latencyMs": 2751.159400038887,
+          "at": 86821.0750000435,
+          "seq": 26,
+          "by": "P1"
+        }
+      ],
+      "performed": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 29,
+      "condition": "forced-offline",
+      "question": "What did Harlow intend to expose? Rephrase without adding details.",
+      "suspect": "S4",
+      "origin": "line-bank",
+      "textMs": 0,
+      "audioMs": null,
+      "rejections": 0,
+      "attempts": 2,
+      "audioCacheHits": 0,
+      "raw": [],
+      "performed": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts.",
+        "emotion": "guarded"
+      }
+    },
+    {
+      "sample": 30,
+      "condition": "forced-offline",
+      "question": "What did Harlow intend to expose? Use a different word order.",
+      "suspect": "S4",
+      "origin": "line-bank",
+      "textMs": 0,
+      "audioMs": null,
+      "rejections": 0,
+      "attempts": 2,
+      "audioCacheHits": 0,
+      "raw": [],
+      "performed": {
+        "topic": "motive:S2",
+        "cites": [
+          "ra45250f62d98e87a"
+        ],
+        "line": "Harlow intended to expose Vale's forged trust accounts.",
+        "emotion": "guarded"
+      }
+    }
+  ]
+}

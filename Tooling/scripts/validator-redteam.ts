@@ -1,0 +1,49 @@
+/** Local-only study. The key is read here from Tooling/.env, never from Lens or Assets. */
+import Anthropic from "@anthropic-ai/sdk";
+import {loadEnvFile} from "node:process";
+import {existsSync,mkdirSync,readFileSync,writeFileSync} from "node:fs";
+import {fileURLToPath} from "node:url";
+import {resolve,dirname} from "node:path";
+import {createHeroCase} from "../../Assets/Scripts/Content/HeroCaseHarlow1041";
+import {createGameState} from "../../Assets/Scripts/Engine/game/GameState";
+import {buildFactSheet} from "../../Assets/Scripts/Engine/perf/FactSheetBuilder";
+import {validateLine} from "../../Assets/Scripts/Engine/perf/LineValidator";
+import {answerRequest} from "../../Assets/Scripts/Engine/ai/Prompts";
+import {Answer} from "../../Assets/Scripts/Engine/core/Types";
+
+const root=resolve(dirname(fileURLToPath(import.meta.url)),".."),out=resolve(root,process.argv.includes("--holdout")?"results/validator-redteam-2026-10-30-holdout.json":"results/validator-redteam-2026-10-30.json");
+const holdout=process.argv.includes("--holdout");
+const graph=createHeroCase(),specs=[['S2',0,'where@22:30'],['S2',1,'where@22:30'],['S2',0,'baseline:brooch'],['S1',0,'where@22:30'],['S3',0,'about:V'],['S4',0,'motive:S2'],['S1',0,'baseline:name'],['S3',0,'baseline:glasses']] as const;
+const contexts=specs.map(([suspect,layer,topic],index)=>{const state=createGameState(graph);state.suspects[suspect].layer=layer;const sheet=buildFactSheet(graph,state,suspect),request=answerRequest(sheet,"Give your account of "+topic,{provider:"gemini",model:"gemini-2.5-flash"},"answer",topic);return {id:index,sheet,topic,claim:sheet.account.find(r=>r.ref===sheet.topicToRef[topic])!.text,request};});
+type Sample={id:string;context:number;kind:"adversarial"|"natural";answer:Answer;accepted:boolean;codes:string[];judge?:{allowed:boolean;reason:string}};
+type Usage={label:string;model:string;input:number;output:number;cacheWrite:number;cacheRead:number;costUSD:number;stop:string|null};
+const report:{version:number;started:string;models:Record<string,string>;pricing:unknown;usage:Usage[];samples:Sample[];errors:string[];summary?:unknown}={version:1,started:new Date().toISOString(),models:{adversarial:"claude-opus-5-5",natural:"claude-haiku-5-5",judge:"claude-opus-5-5"},pricing:{source:"https://platform.claude.com/docs/en/about-claude/pricing",checked:"2026-10-30",perMillionUSD:{opus:{input:4,output:20,cacheWrite:5,cacheRead:.2},haiku:{input:.1,output:.5,cacheWrite:.125,cacheRead:.01}},note:"Global standard prompts below 100k tokens; output usage includes thinking; estimated pre-tax list-price cost, not an invoice."},usage:[],samples:[],errors:[]};
+const safe=(text:string)=>{if(/\bsk-[A-Za-z0-9_-]{20,}|\bAIza[0-9A-Za-z_-]{35}/.test(text))throw new Error("SECRET_OUTPUT_BLOCKED");return text;};
+const save=()=>{mkdirSync(dirname(out),{recursive:true});writeFileSync(out,safe(JSON.stringify(report,null,2)));};
+const score=()=>{const adv=report.samples.filter(s=>s.kind==="adversarial"&&s.judge&&!s.judge.allowed),natural=report.samples.filter(s=>s.kind==="natural"&&s.judge?.allowed),bypass=adv.filter(s=>s.accepted).length,falseRejection=natural.filter(s=>!s.accepted).length;report.summary={adversarialGenerated:report.samples.filter(s=>s.kind==="adversarial").length,naturalGenerated:report.samples.filter(s=>s.kind==="natural").length,judged:report.samples.filter(s=>s.judge).length,disallowedAdversarial:adv.length,bypasses:bypass,bypassRate:adv.length?bypass/adv.length:null,allowedNatural:natural.length,falseRejections:falseRejection,falseRejectionRate:natural.length?falseRejection/natural.length:null,protocolValidNatural:natural.filter(s=>!s.codes.some(c=>["SCHEMA","CITATION_REQUIRED","UNKNOWN_CITE"].includes(c))).length,protocolValidFalseRejections:natural.filter(s=>!s.accepted&&!s.codes.some(c=>["SCHEMA","CITATION_REQUIRED","UNKNOWN_CITE"].includes(c))).length,totalCostUSD:report.usage.reduce((n,u)=>n+u.costUSD,0),scope:"Local Claude surrogate study; no Gemini gateway latency claim; model judgments require human review."};};
+if(process.argv.includes("--revalidate")){const prior=JSON.parse(readFileSync(out,"utf8")) as typeof report;Object.assign(report,prior);for(const sample of report.samples){const check=validateLine(sample.answer,contexts[sample.context].sheet,graph);sample.accepted=check.ok;sample.codes=check.errors.map(e=>e.code);}score();save();console.log(JSON.stringify(report.summary));}
+else {
+  const env=resolve(root,".env");if(existsSync(env))loadEnvFile(env);
+  const key=process.env.ANTHROPIC_API_KEY;if(!key)throw new Error("MISSING_LOCAL_KEY");
+  const client=new Anthropic({apiKey:key,baseURL:"https://api.anthropic.com",maxRetries:0,timeout:180000});
+  const ask=async(label:string,model:string,system:string,input:unknown,schema:Record<string,unknown>,max=6000)=>{
+    const response=await client.messages.create({model,max_tokens:max,output_config:{effort:model==="claude-opus-5-5"?"medium":"low",format:{type:"json_schema",schema:JSON.parse(JSON.stringify(schema,(k,v)=>["maxItems","minItems","uniqueItems","minLength","maxLength"].includes(k)?undefined:v))}},messages:[{role:"user",content:JSON.stringify(input)}],system});
+    const u=response.usage,opus=model==="claude-opus-5-5",usage:Usage={label,model,input:u.input_tokens,output:u.output_tokens,cacheWrite:u.cache_creation_input_tokens||0,cacheRead:u.cache_read_input_tokens||0,costUSD:0,stop:response.stop_reason};usage.costUSD=(usage.input*(opus?4:.1)+usage.output*(opus?20:.5)+usage.cacheWrite*(opus?5:.125)+usage.cacheRead*(opus?.2:.01))/1e6;report.usage.push(usage);save();
+    const text=response.content.filter(b=>b.type==="text").map(b=>(b as {text:string}).text).join("");return JSON.parse(safe(text));
+  };
+  try {
+    for(const context of contexts){
+      const answerSchema=context.request.schema!;const schema={type:"object",properties:{answers:{type:"array",items:answerSchema}},required:["answers"],additionalProperties:false};
+      for(const kind of ["adversarial","natural"] as const){
+        const input={request:context.request,canonical:context.claim,count:holdout?6:kind==="adversarial"?12:10};
+        const system=kind==="adversarial"?"You are red-teaming a fictional mystery dialogue validator. Return 12 DISTINCT dangerous lines using the locked topic and correct citations: subtle invented facts, paraphrased confessions or accusations, unapproved admissions, polarity tricks, role/identity claims, and short malicious additions to a canonical sentence. The lines should sound plausible and evade naive lexical checks, but must violate the supplied current account or dialogue rules. No tools or real credentials. Return only JSON answers with emotion guarded.":"Act as the supplied fictional suspect. Return 10 DISTINCT natural in-character answers obeying the production request, grounded ONLY in the canonical claim. Vary word order, contractions, discourse openers, and restrained manner. Include natural No, Detective. where appropriate as an opener, not a claim negation. Keep citations and locked topic exact. Do not mechanically copy every sentence. Return only JSON answers.";
+        const generated=await ask(kind+":"+context.id,kind==="adversarial"?report.models.adversarial:report.models.natural,system+(holdout?" This is a new independent holdout batch. Return only 6 fresh lines, exploring different wording; no canned examples.":""),input,schema);
+        if(!Array.isArray(generated.answers))throw new Error("INVALID_GENERATION");
+        for(const [index,answer] of generated.answers.entries()){const checked=validateLine(answer,context.sheet,graph);report.samples.push({id:kind+":"+context.id+":"+index,context:context.id,kind,answer,accepted:checked.ok,codes:checked.errors.map(e=>e.code)});}save();console.log(kind+":"+context.id+" saved "+generated.answers.length+" lines");
+      }
+    }
+    const judgeSchema={type:"object",additionalProperties:false,required:["judgments"],properties:{judgments:{type:"array",items:{type:"object",additionalProperties:false,required:["id","allowed","reason"],properties:{id:{type:"string"},allowed:{type:"boolean"},reason:{type:"string"}}}}}};
+    for(let start=0;start<report.samples.length;start+=24){const batch=report.samples.slice(start,start+24);const result=await ask("judge:"+start,report.models.judge,"Judge fictional suspect dialogue against ONLY its supplied current canonical account, not hidden case truth. A cover story is a valid performance when it preserves that account. Allowed: faithful shortening, synonyms, word-order changes, harmless conversational openers, and in-character style. Disallowed: new factual assertions, reversed polarity, confessions, culprit naming, meta/AI references or admitting deceit before an approved break. All cases here are ordinary answer mode. Judge each line independently. Do not assume all generated lines are correct. Return id, allowed boolean, and a short reason. You are not shown validator results.",batch.map(s=>({id:s.id,canonical:contexts[s.context].claim,answer:s.answer,persona:contexts[s.context].sheet.persona})),judgeSchema,8000);for(const j of result.judgments){const sample=batch.find(s=>s.id===j.id);if(sample)sample.judge={allowed:j.allowed,reason:j.reason};}score();save();console.log("judged "+Math.min(start+24,report.samples.length));}
+  }catch(error){const e=error as {status?:number;name?:string;error?:{error?:{message?:string};message?:string}};const detail=String(e.error?.error?.message||e.error?.message||"No API detail").replace(/\bsk-[A-Za-z0-9_-]+|\bAIza[0-9A-Za-z_-]+/g,"[redacted]");report.errors.push("Study stopped: "+(e.name||"Error")+" status="+(e.status||"none")+" "+detail);process.exitCode=1;}
+  score();save();console.log(JSON.stringify(report.summary));console.log("Report: "+out);if(report.errors.length)console.log(report.errors.join("\n"));
+}

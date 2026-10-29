@@ -1,0 +1,14 @@
+import {enterCase} from "./RoomscriptLeafSetup";
+import {ScenarioConfig} from "Leaf.lspkg/Scenarios/scenario/ScenarioConfig";
+import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
+import {expect} from "Leaf.lspkg/Utils/common/Expect";
+import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
+import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
+/** Thirty uncached performer calls; one canonical Ask per context keeps the gameplay clock out of this benchmark. */
+@component export class RoomscriptProductionStudyLeafScenario extends Scenario {
+  async run(config?:ScenarioConfig):Promise<void>{await enterCase();await sleep(1500);const flow=findSceneObjectByName("RoomscriptInterrogation").getComponent(RoomscriptInterrogationController.getTypeName()) as RoomscriptInterrogationController;expect(flow.client.hasCredentials("gemini")).toBe(true);expect(flow.client.hasCredentials("openai")).toBe(true);const rows:unknown[]=[];
+    const topics=[{suspect:"S2",topic:"where@22:30",question:"Where were you at 22:30?"},{suspect:"S1",topic:"where@22:30",question:"Where did you spend the murder window?"},{suspect:"S3",topic:"about:V",question:"What did you hear from Harlow?"},{suspect:"S4",topic:"motive:S2",question:"What did Harlow intend to expose?"}];
+    const styles=["Answer briefly.","Use your own phrasing.","Tell me plainly.","Give a concise account.","Rephrase without adding details.","Use a different word order.","Answer in character.","Restate your account."];
+    const start=Number(config?.get("start")||"0"),count=10;try{for(let i=start;i<start+count;i++){const context=topics[Math.floor(i/8)];if(i===start||i%8===0){flow.selectSuspect(context.suspect);flow.engine.dispatch({type:"Ask",suspect:context.suspect,topic:context.topic});}const forced=i>=28,warm=i>=10&&i<20;flow.client.forceOffline=forced;flow.prepareAudioProbe(warm);const before=flow.engine.snapshot().log.length,hits=flow.tts.diagnostics().hits;await flow.perform(context.question+" "+styles[i%8],"free",context.topic);const d=flow.diagnostics(),actions=flow.engine.snapshot().log.slice(before);expect(d.last!==null).toBe(true);const row={sample:i+1,condition:forced?"forced-offline":warm?"during-precache":i===0?"cold-start":"uncached",question:context.question+" "+styles[i%8],suspect:context.suspect,origin:d.last!.origin,textMs:d.last!.latencyMs,audioMs:d.audioMs,rejections:d.last!.rejectionCount,attempts:d.last!.attempts,audioCacheHits:flow.tts.diagnostics().hits-hits,raw:actions.filter(a=>a.type==="LlmOutput"),performed:d.last!.answer};rows.push(row);console.log("PRODUCTION_STUDY|"+JSON.stringify(row));if(forced)expect(d.last!.origin==="line-bank"||d.last!.origin==="canonical").toBe(true);await sleep(100);}expect(rows.length).toBe(count);console.log("PRODUCTION_STUDY_COMPLETE|"+start+"|"+count);}finally{flow.cancel();flow.client.forceOffline=false;}
+  }
+}

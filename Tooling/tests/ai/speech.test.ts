@@ -20,4 +20,7 @@ describe("speech preparation",()=>{
     expect(audioBudgetMs(1000,1000)).toBe(4000);expect(audioBudgetMs(1000,5000)).toBe(2500);
     expect(audioBudgetMs(1000,7499)).toBe(1);expect(audioBudgetMs(1000,7500)).toBe(0);
   });
+  it("gives continuation synthesis its own budget after first-audio deadline",async()=>{
+    const budgets:number[]=[];const clips=prepareSpeech("First sentence. Second sentence.",async(_,index)=>{const budget=audioBudgetMs(1000,7400,index);budgets.push(budget);return budget;});await flush();expect(budgets).toEqual([100,4000]);expect(await clips[1].ready).toEqual({ok:true,track:4000});expect(audioBudgetMs(1000,9000,1)).toBe(4000);
+  });
 });
