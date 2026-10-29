@@ -14,9 +14,11 @@ import {PanelUI} from "./RoomscriptPanelUI";
     this.topic=this.view.text("Topic","Asking about: whereabouts",4,"small");
     this.labels=this.view.buttons([{id:"Question 1",label:"Where were you?"},{id:"Question 2",label:"Your name"}],id=>this.onQuestion.invoke(this.keys[id==="Question 1"?0:1]||id),4);
     this.labels.push(...this.view.buttons([{id:"Question 3",label:"Your brooch"},{id:"Ask anything",label:"Ask anything"}],id=>this.onQuestion.invoke(id==="Question 3"?(this.keys[2]||id):"free"),4));
+    this.view.buttons([{id:"More questions",label:"More questions"}],()=>this.onQuestion.invoke("more"),4);
   }
   setPerson(name:string):void {this.person.text=name.toUpperCase();}
   setTopic(label:string):void {this.topic.text="Asking about: "+label;}
   setQuestions(items:{topic:string;label:string}[]):void {this.keys=items.map(i=>i.topic);items.slice(0,3).forEach((item,i)=>this.labels[i].text=item.label);}
+  topics():string[]{return this.keys.slice();}
   show(value:boolean):void {this.view.show(value);}
 }

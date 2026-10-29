@@ -123,7 +123,7 @@ The two-sweep LEAF regression exposed a native audio timeout in repeated spatial
 C7/D1 share object interaction routing and scene registration. Save one coherent checkpoint containing verified D1 and the explicitly unfinished C7 effect adapter, without milestone tags. C7's required graph effect remains blocked by AGENTS.md's VirtualScene-only rule versus vfx-graph's explicit native AssetManager.instantiate requirement. Wadood's pending exception is scoped to the already-imported RoomscriptShatter asset (51829ea2-ad44-43b1-b5f9-2b54493c160a), one instantiation call, then VirtualScene placement. No raw HTTP fallback and no guessed runtime asset export. Resume C7 verification once approved, then D3, D2, D6/D7 and the should tier.
 
 2026-10-29: The checkpoint commit could not execute: automatic approval review timed out on both the initial attempt and the permitted retry. Work remains saved and uncommitted; stop for Needs Wadood permission guidance. This is an approval-service timeout, not a secret-hook failure or unsafe-action finding.
-`n2026-10-29: Use the existing RoomscriptShatter scene object when present, otherwise code shards. No AssetManager.instantiate exception. Personal API credentials remain Tooling-only; detect their formats before harness work.
+2026-10-29: Use the existing RoomscriptShatter scene object when present, otherwise code shards. No AssetManager.instantiate exception. Personal API credentials remain Tooling-only; detect their formats before harness work.
 
 2026-10-29 review P0: stars 2-3 require one knowledge hypothesis and all exact deductions. Efficiency uses the solver's fully supported route including guaranteed timed evidence (hero 90 minutes). Unrefuted suggestions give neutral wording and no envelope breath; the standard refutation rules remain. Wallet entries include observed statements as well as objects.
 
@@ -131,13 +131,13 @@ C7/D1 share object interaction routing and scene registration. Save one coherent
 
 2026-10-29 L2/L3: Three original vector portraits provide distinct lighter/glasses/gloves identities without generation latency. Each has its own actor instance, selected TTS speaker and tell parent. Crate-local cards preserve face visibility; looking down accesses the case desk.
 
-### 2026-10-30 — D3 final accusation
+### 2026-10-30 â€” D3 final accusation
 Timeout closes investigation but permits one valid accusation. Reveal reads sealed true timeline facts only after correct/wrong verdict. Explicit File known proof credits only exact known engine routes. Simplified silhouettes provide the reenactment; the result shows rating, case ID and seal.
 
-### 2026-10-30 — D2 opening
+### 2026-10-30 â€” D2 opening
 The authored opening blocks investigation until the pull-tab and reveal complete. Timing is presentation-only and never advances the action clock. Knock scheduling uses separated beats so a slow first frame cannot skip one. Feature LEAF scenarios skip the independently tested pre-show.
 
-### 2026-10-30 — placement and replay
+### 2026-10-30 â€” placement and replay
 Use explicit manual floor adjustment and rotation for the hero fixture. Angular card drops avoid reaching 2 m and reject ambiguous overlapping targets. Starting pose is a validated first SetupCase action; graph truth remains immutable and both refutation selection and sweep consume its order.
 
 ### 2026-10-30 - AI P1 validation policy
@@ -145,3 +145,10 @@ Prompt v3 locks a mapped topic, rejects deflection there, and asks for bounded p
 
 ### 2026-10-30 - Reward hearing the account
 Hero v2 requires C_VALE_ALIBI_0 together with the lamp or cold kettle for D_ALIBI. Name/prop baselines and first-layer whereabouts cost five minutes; later accounts and witness/motive questions retain fifteen. The night remains 180 minutes. The fully supported benchmark recomputes to 85, not the old 90: eight inspected holders plus the five-minute alibi, two exact objections and the guaranteed voicemail/letter. A reducer-executed regression proves this route. The unique-knowledge-only route remains 80. The authored seal/version is incremented so the revised rules are distinguishable.
+
+### 2026-10-30 - Offline demo and verification boundary
+Ship this checkpoint in explicit Stage mode, with authored performances, captions and no network requirement. Availability degradation changes presentation only; it cannot alter facts or scoring. Keep provider authentication independent so an expired primary does not disable a valid secondary. Expose all mapped witness questions through paged chips for Preview.
+
+Preserve an honestly labeled terminal hero action tape while the full Preview tour is blocked. Never relabel it as captured model output or award m3-case without the integration gate. A late first render starts the authorized tell visibility interval rather than silently skipping it; the 300 ms timing target still requires a responsive device/Preview check.
+
+The synchronous player-fuzz test exceeded its 60-second deadline under current load. Yield between players without changing random streams, test equivalence, and preserve the full 1000-player run. Move 5000-case generation to test:fuzz and keep the review-recommended 200-case smoke test in the default suite. This changes the harness, not game behavior or acceptance assertions.

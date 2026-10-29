@@ -1,15 +1,15 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-30 00:56 PKT. P0, C7, L2/L3, D3/D2, L4/L5 and AI P1 verified. Interrogation incentives and D6/D7 next. Gateway credentials blank.
+Updated 2026-10-30 01:36 PKT. P0, C7, L2/L3, D3/D2, L4/L5 and AI P1 verified. N3 engine tests pass. D6 offline fallback and D7 hero replay are implemented; integrated Preview verification is blocked by execution timeouts. Gateway credentials blank; saved Stage mode enabled. No m3-case tag.
 
 ## Current work
 
 - Checkpoint eac2866 preserves C7/D1. Guard commit 6f2fc35 adds API-key patterns before local red-teaming.
-- Review P0: unique-knowledge scoring, 90-minute fully supported benchmark, exact argument sets, both A4 regressions, statement wallet with every hero breaker covered. No-refuter sweep now reports uncertainty without envelope breathing.
+- Review P0: unique-knowledge scoring, exact argument sets, both A4 regressions, statement wallet with every hero breaker covered. N3's cheaper heard-alibi question changes the fully supported benchmark from 90 to 85 minutes. No-refuter sweep reports uncertainty without envelope breathing.
 - Verification this run: 76/76 tests across game/{scoring,reducer,spatial-objection,clue-presentation}.test.ts and case/Solver.test.ts; 30/30 secret/hook tests. Lens compile/start clean; strict roomscript-objection (including C_OKAFOR_REPLY wallet drop) and roomscript-clue passed.
 - Prior review's full-suite baseline: 358/358 across 30 files, exit 0. Historical targeted totals below are superseded by that independently recorded full run.
 - C7 uses the authored shatter object input with 30 CPU shards because the saved native VFX has no runtime asset; strict LEAF and captures passed; m2-slice tagged.
-- Four visible/selectable actors and crate-anchored cards verified (39ee94f). Accusation, truth-only simplified reconstruction, scoring and one final accusation at timeout now verified. Opening and placement are verified. AI P1 and both studies are complete; offline hero demo remains.
+- Four visible/selectable actors and crate-anchored cards verified (39ee94f). Accusation, truth-only simplified reconstruction, scoring and one final accusation at timeout verified. Opening and placement verified. AI P1 and both studies complete. Authored terminal hero tape passes golden replay; combined Preview tour remains pending.
 
 ## Run order
 
@@ -22,15 +22,25 @@ C7 -> L2/L3 -> D3 including timeout accusation -> D2 -> L4/L5 -> AI P1 and red-t
 | A — setup and probes | Done | `m0-probe` |
 | B — deterministic truth engine and terminal | Done; review P0 corrected | `m1-terminal` |
 | C — interrogation slice | Done: C1-C7 verified with code-shard fallback | `m2-slice` |
-| D — whole case | Partial: D1/D2/D3 verified; D6/D7 pending; D5 engine only | `m3-case` not created |
+| D — whole case | Partial: D1/D2/D3 verified; D6 implemented, D7 replay verified but Preview gate pending; D5 engine only | `m3-case` not created |
 | E — should tier | Not started as Lens experiences | none |
 | F — Clue Night | Not started; gated on core completion | none |
 
 ## Needs Wadood
 
+- Bring Lens Studio to the foreground and check Preview for a pause/modal; relaunch if execution timeouts persist. Repeated interrogation/all-tells attempts failed, with a tell delayed 10.65 seconds and JavaScript timeouts even in a Map lookup. Cause unproven. Windows inspection pipe is unavailable; the documented window-activation API requires an ungranted UiTest module permission. No permission bypass attempted. Complete the core LEAF rerun before recording a demo.
 - Physical Specs checks: placement, readable additive text, spatial audio, ray drops, keyboard/ASR.
 - Private remote/backup remains unconfigured; no remote or push is authorized in this run.
 - Previous checkpoint approval blocker is resolved (eac2866). Previous native-instantiation request is superseded.
+
+## Latest D6/D7 checkpoint
+
+- D6: explicit Stage mode bypasses text/audio network calls; authored answers and captions keep case logic intact. Availability HUD and conservative downgrade ladder added. Missing Google authentication permits the separately authenticated OpenAI fallback; it no longer globally disables providers. Pure stage/network-loss regressions pass. Physical network-loss and final HUD interaction remain unverified.
+- Every mapped question is now reachable through **More questions**, including Okafor's witness account. Compiles; the new pagination awaits a clean integrated UI pass.
+- A frame-delayed authorized tell receives its full visible interval starting on the first eligible frame. Pure normal/delayed-window regressions pass; this does not claim the 300 ms performance target is met in the stalled Preview.
+- Offline golden route: `Tooling/results/hero-authored-tape-2026-10-30.json`, state hash `1ff9cf13`, 145 case-minutes, four deductions, correct verdict, rating 2/3, fully supported par 85. Provenance is authored terminal play, not a fabricated Preview capture. `RoomscriptHeroDemoLeafScenario` and the capture harvester are ready for a successful Preview run.
+- Test runner hardening: player fuzz yields every 25 players with a sync/async equivalence test. The default case-fuzz gate is 200 cases; `npm run test:fuzz` retains 5000 cases. The previous full attempt was interrupted after the synchronous 1000-player test exceeded 60 seconds; it is not a green full run.
+- Guided tour: [PREVIEW_TOUR.md](PREVIEW_TOUR.md). Next run: restore responsive Preview, run strict interrogation/all-tells/hero-demo, capture actual hero tape, rerun closing correct/wrong/timeout and core controls, then assess m3-case. Do not start casting/generation UI, E or F before the core gate.
 
 ## Local checkpoints
 
@@ -226,3 +236,17 @@ N3 pure regressions pass (37/37), but repeated interrogation LEAF attempts time 
 
 ## N3 interrogation value - engine verified
 Hero v2 prices baseline/name and first-layer alibi questions at five minutes and requires the heard tea alibi in D_ALIBI's exact support set. The executable fully supported route is now 85 minutes, superseding the earlier 90-minute benchmark; the unique-only route remains 80. The terminal demo is 145 minutes. 37/37 reducer/scoring/interrogation-value tests pass; terminal/content/legacy-tape compatibility was corrected for the new exact deduction. Lens compiles and starts cleanly; the separate slow Preview interaction diagnostic remains open. No milestone is awarded for that pending check.
+
+Final isolated Preview attempt: roomscript-hero-demo failed at 30.844 s, expected tab but still at knocks; JavaScript timeout in OpeningController.beat. The heavy test batch was stopped during this attempt, so concurrent fuzz does not explain the failure by itself. Capture: captures/2026-10-30-d7-timeout.png. Compile succeeded and refreshed startup reached production interrogation ready without startup errors. Later execution is not healthy.
+
+## FIRST_PASS section 4 handoff
+
+- Stages A/B/C done, tagged m0-probe / m1-terminal / m2-slice. D partial: opening, accusation (including timeout), reconstruction, clue and objection verified separately; D6 and the full D7 integrated gate remain partial. D4/D5 Lens, E and F are frozen/out of scope until the core gate. No m3-case.
+- Verified feature LEAF this run: objection, clue, cast, opening; closing correct/wrong/timeout; production-study batches and speech-budget. Latest interrogation/all-tells/hero-demo failed or timed out; do not treat earlier passes as the final integrated pass. Captures include 2026-10-29-c7-*.png, 2026-10-29-l3-crate-view.png, 2026-10-30-d3-ending.png, 2026-10-30-d2-tab.png and 2026-10-30-l4-placement.png. New failure capture is 2026-10-30-d7-timeout.png.
+- Probes: Gemini 2.5 Flash is primary (20/20); GPT-4o mini is secondary (8/20 with rate limits); mini TTS 20/20. Built-in synthesis unsupported and Imagen failed, so retain authored art/captions. Camera stream worked 20/20 in the simulated room; Sync deferred. See probe-results.md. Production first-audio p95 was 5886 ms among 18 audible calls out of 30; 12 caption-only.
+- Validator: baseline bypass 3/96, fixed corpus 0/96, independent holdout 0/48. Independent natural-answer false rejection 18/34 (52.94%); keep conservative authored fallback. Total Anthropic usage estimate $1.0996298. See validator-study-2026-10-30.md and production-study-2026-10-30.md.
+- Known limits: unresponsive Preview prevents whole-case acceptance; high natural-answer false rejection; unreliable uncached audio under load; three new actors reuse each portrait across pose slots; manual placement and simplified opening/reconstruction. No bundled offline spoken dialogue, only captions and cue audio. Physical display/readability, placement, audio, ray drops, keyboard and ASR need Specs.
+- Ten-minute tour: place/pull -> meet four actors -> Vale brooch/alibi -> kettle objection -> Okafor About Harlow -> second Vale objection with statement wallet -> remaining proof objects -> Qadir/Study/cable suggestion -> Vale/Study/cable accusation -> file proof and hold seal -> reconstruction/rating. Detailed controls and exact route in PREVIEW_TOUR.md.
+- Next: foreground/relaunch Lens Studio if needed, restore responsive Preview, run strict interrogation/all-tells/hero-demo and core closing/control regressions, harvest the actual Preview tape, then decide m3-case. Needs Wadood is listed near the top. All local credentials are blank; no remote/push/publication performed.
+
+Final regression gate (2026-10-30 01:41 PKT): npm test -- --maxWorkers=1 passed 411/411 tests across 37 files, exit 0, 159.36 s. Includes 1000 players / 29081 actions and 200/200 generated cases across five fixtures (max 201.5 ms, p95 126.1 ms, 55 distinct room/envelope pairs). This is the revised default gate, not a fresh 5000-case run. Tooling/pure-engine typecheck exit 0. Latest Lens compilation passed; final refresh reached production interrogation ready with no startup errors and restored the placement screen. Later integrated execution failures remain unresolved.

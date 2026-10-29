@@ -6,7 +6,10 @@ import {Scheduler} from "./Engine/ai/Scheduler";
 import {geminiRequest,openAIRequest,providerError} from "./Engine/ai/ProviderRequests";
 /** Gateway-only transport. Authentication stays in RSG; deadlines never release pending transport slots. */
 @component export class RoomscriptLlmClient extends BaseScriptComponent implements LlmPort {
+  @input @hint("Offline stage demo: bundled hero and authored captions; no gateway requests") stageMode:boolean=false;
   forceOffline=false;private requests=0;
+  private expired=new Set<string>();
+  isOffline():boolean{return this.stageMode||this.forceOffline;}
   readonly clock:ClockPort={nowMs:()=>getTime()*1000,after:(ms,callback)=>{
     const e=this.createEvent("DelayedCallbackEvent");let pending=true;
     e.bind(()=>{pending=false;this.removeEvent(e);callback();});e.reset(ms/1000);
@@ -16,11 +19,12 @@ import {geminiRequest,openAIRequest,providerError} from "./Engine/ai/ProviderReq
   onAwake():void {this.createEvent("OnDestroyEvent").bind(()=>this.scheduler.dispose());}
   requestCount():number{return this.requests;}
   hasCredentials(provider:"openai"|"gemini"):boolean {
+    if(this.expired.has(provider))return false;
     const token=RemoteServiceGatewayCredentials.getApiToken(provider==="openai"?AvaliableApiTypes.OpenAI:AvaliableApiTypes.Google);
     return !!token && token.length>20 && !token.includes("[INSERT");
   }
   async complete(request:LlmRequest,cancellation?:CancellationToken):Promise<LlmResponse> {
-    cancellation?.throwIfCancelled();if(this.forceOffline)throw new LlmError("unavailable");
+    cancellation?.throwIfCancelled();if(this.isOffline())throw new LlmError("unavailable");
     if(!this.hasCredentials(request.provider))throw new LlmError("unauthenticated");this.requests++;
     try {
       let content:string;
@@ -34,7 +38,7 @@ import {geminiRequest,openAIRequest,providerError} from "./Engine/ai/ProviderReq
       cancellation?.throwIfCancelled();if(typeof content!=="string"||!content.trim())throw new LlmError("invalid_response");
       return {content,model:request.model};
     } catch(error) {
-      throw providerError(error);
+      const failure=providerError(error);if(failure.code==="unauthenticated")this.expired.add(request.provider);throw failure;
     }
   }
 }

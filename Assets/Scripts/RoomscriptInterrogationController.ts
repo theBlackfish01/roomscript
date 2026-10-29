@@ -15,6 +15,7 @@ import {buildFactSheet} from "./Engine/perf/FactSheetBuilder";
 import {keywordIntent,questionChips} from "./Engine/perf/KeywordIntent";
 import {performanceMode} from "./Engine/game/Reducer";
 import {heroLineBank} from "./Content/HeroLineBank";
+import {Degradation} from "./Engine/ai/Degradation";
 
 /** Production adapter. Engine actions precede performance; validated output is logged before speech. */
 @component export class RoomscriptInterrogationController extends BaseScriptComponent {
@@ -29,16 +30,20 @@ import {heroLineBank} from "./Content/HeroLineBank";
   readonly onSpeaking=new Event<{suspect:string;statement:string|null;mode:InterrogationMode;seq:number}>();
   readonly onObjectRequested=new Event<void>();
   readonly onSuspectSelected=new Event<string>();
+  readonly onAvailability=new Event<string>();
+  private availability:Degradation;
   private actors=new Map<string,RoomscriptSuspectActor>();
   private pipeline:AnswerPipeline;private task:AnswerTask;private warming:CancellationSource;
   private selected="S2";private revision=0;private busy=false;private last:ChosenAnswer|null=null;private lastAudioMs:number|null=null;
+  private questionPage=0;
   private speaking:{suspect:string;statement:string|null;mode:InterrogationMode;seq:number}|null=null;
   onAwake():void {this.createEvent("OnDestroyEvent").bind(()=>{this.warming?.cancel();this.cancel();});}
   initialize():void {
     if(this.pipeline)return;this.engine.initialize();this.chips.build();this.verbs.build();this.subtitles.build();this.questions.build();
+    this.availability=new Degradation(this.client.stageMode,this.client.hasCredentials("gemini")||this.client.hasCredentials("openai"));
     const tape=new TapeClient({mode:"RECORD",clock:this.client.clock,live:this.client,emit:event=>this.engine.dispatch(event),log:line=>console.log(line)});
-    this.pipeline=new AnswerPipeline({clock:this.client.clock,scheduler:this.client.scheduler,llm:tape,lineBank:heroLineBank,model:{provider:"gemini",model:"gemini-2.5-flash"}});
-    this.chips.onQuestion.add(topic=>{if(topic==="free")this.reviewQuestion("");else void this.askChip(topic);});
+    this.pipeline=new AnswerPipeline({clock:this.client.clock,scheduler:this.client.scheduler,llm:tape,lineBank:heroLineBank,model:{provider:"gemini",model:"gemini-2.5-flash"},preferAuthored:()=>this.client.stageMode||this.availability.preferAuthored});
+    this.chips.onQuestion.add(topic=>{if(topic==="more"){this.questionPage=(this.questionPage+1)%Math.ceil(this.choices().length/3);this.render(this.engine.snapshot());}else if(topic==="free")this.reviewQuestion("");else void this.askChip(topic);});
     this.questions.onDraft.add(text=>this.reviewQuestion(text));
     this.questions.onSubmit.add(draft=>{this.questions.show(false);this.chips.show(true);this.verbs.show(true);void this.askFree(draft.question,draft.topic);});
     this.questions.onClose.add(()=>{this.chips.show(true);this.verbs.show(true);});
@@ -48,11 +53,12 @@ import {heroLineBank} from "./Content/HeroLineBank";
     this.tts.onAudioStarted.add(event=>{if(this.speaking){this.lastAudioMs=event.latencyMs;this.onSpeaking.invoke(this.speaking);this.speaking=null;}});
     this.engine.onState.add(state=>this.render(state));this.selectSuspect(this.actor.suspect);
   }
-  diagnostics():{busy:boolean;suspect:string;last:ChosenAnswer|null;audioMs:number|null;offline:boolean} {return {busy:this.busy,suspect:this.selected,last:this.last,audioMs:this.lastAudioMs,offline:this.client.forceOffline};}
+  diagnostics():{busy:boolean;suspect:string;last:ChosenAnswer|null;audioMs:number|null;offline:boolean;level:number} {return {busy:this.busy,suspect:this.selected,last:this.last,audioMs:this.lastAudioMs,offline:this.client.isOffline()||this.availability?.level===0,level:this.client.stageMode?0:this.availability?.level??0};}
+  availabilityLabel():string{return this.client.stageMode?"Offline case / captions":this.availability?.label||"Offline case / captions";}
   cancel():void {this.revision++;this.pipeline?.cancel();this.tts?.stop();this.busy=false;this.speaking=null;}
   selectSuspect(id:string):void {
     this.cancel();const graph=this.engine.caseGraph();if(!graph.cast.suspects.some(s=>s.id===id))throw new Error("Unknown suspect");
-    this.selected=id;this.actor=this.actors.get(id)||this.actor;this.actor.suspect=id;this.tts.actor=this.actor;this.actor.applyState(this.engine.snapshot());this.render(this.engine.snapshot());this.onSuspectSelected.invoke(id);
+    this.selected=id;this.questionPage=0;this.actor=this.actors.get(id)||this.actor;this.actor.suspect=id;this.tts.actor=this.actor;this.actor.applyState(this.engine.snapshot());this.render(this.engine.snapshot());this.onSuspectSelected.invoke(id);
     this.warming?.cancel();this.warming=new CancellationSource();void this.tts.precacheCurrent(this.warming.token);
   }
   registerActor(actor:RoomscriptSuspectActor):void {this.actors.set(actor.suspect,actor);}
@@ -61,7 +67,8 @@ import {heroLineBank} from "./Content/HeroLineBank";
   private choices():{topic:string;label:string;question:string}[] {
     const graph=this.engine.caseGraph(),sheet=buildFactSheet(graph,this.engine.snapshot(),this.selected),person=graph.cast.suspects.find(s=>s.id===this.selected)!;
     const all=questionChips(sheet),topics=[all.find(c=>c.topic.startsWith("where@"))?.topic,person.baseline.truthTopic,person.baseline.lieTopic];
-    return topics.map(topic=>all.find(c=>c.topic===topic)).filter(Boolean).map(chip=>({topic:chip!.topic,question:chip!.question,label:chip!.topic.startsWith("where@")?"Whereabouts":chip!.topic==="baseline:name"?"Your name":chip!.topic.replace("baseline:","Your ")}));
+    const ordered=topics.map(topic=>all.find(c=>c.topic===topic)).filter(Boolean).concat(all.filter(c=>!topics.includes(c.topic)&&c.topic!=="unclear"));
+    return ordered.map(chip=>{const topic=chip!.topic,id=topic.split(":")[1],name=id==="V"?"Harlow":graph.cast.suspects.find(s=>s.id===id)?.name.split(" ").slice(-1)[0]||graph.room.objects.find(o=>o.id===id)?.label||"account";return {topic,question:chip!.question,label:topic.startsWith("where@")?"Whereabouts":topic==="baseline:name"?"Your name":topic.startsWith("baseline:")?topic.replace("baseline:","Your "):topic.startsWith("motive:")?name+"'s motive":"About "+name};});
   }
   reviewQuestion(text:string):void {const graph=this.engine.caseGraph(),sheet=buildFactSheet(graph,this.engine.snapshot(),this.selected);
     this.questions.review(text,keywordIntent(text,sheet,graph).topic,this.choices());this.chips.show(false);this.verbs.show(false);}
@@ -82,12 +89,13 @@ import {heroLineBank} from "./Content/HeroLineBank";
     const isCurrent=()=>revision===this.revision&&this.engine.snapshot().elapsedMinutes===state.elapsedMinutes&&this.engine.snapshot().activeStatement===state.activeStatement;
     this.task=this.pipeline.start({graph,state,suspect,question,kind,topic,mode},{
       detective:()=>{this.subtitles.set("DETECTIVE",question);this.chips.setTopic(this.choices().find(c=>c.topic===topic)?.label||topic);},
-      rejected:event=>{if(event.codes.includes("unauthenticated"))this.client.forceOffline=true;},
+      rejected:event=>{event.codes.forEach(code=>this.availability.failure(code));if(!this.client.hasCredentials("gemini")&&!this.client.hasCredentials("openai"))this.availability.offline();this.onAvailability.invoke(this.availabilityLabel());},
       filler:event=>{if(isCurrent()){this.admit(event.answer,"filler");if(this.tts.cached(event.answer.line))void this.tts.speak(event.answer.line,undefined,this.task?.token,began);}}
     });
     const task=this.task;
     try {
       const chosen=await task.promise;if(!isCurrent())return;
+      if(chosen.origin==="model")this.availability.success();
       if(!this.admit(chosen.answer,chosen.mode))return;
       this.last=chosen;this.speaking={suspect,statement:state.activeStatement,mode:chosen.mode,seq:state.lastSeq};
       const spoke=await this.tts.speak(chosen.answer.line,undefined,task.token,began);
@@ -104,7 +112,7 @@ import {heroLineBank} from "./Content/HeroLineBank";
   }
   private render(state:GameState):void {
     const graph=this.engine.caseGraph(),person=graph.cast.suspects.find(s=>s.id===this.selected)!;
-    this.chips.setPerson(person.name);this.chips.setQuestions(this.choices());
+    this.chips.setPerson(person.name);const choices=this.choices();this.chips.setQuestions(Array.from({length:3},(_,i)=>choices[(this.questionPage*3+i)%choices.length]));
     this.verbs.setClaim(state.activeSuspect===this.selected?graph.statements.find(s=>s.id===state.activeStatement)?.canonical||"Ask a question to file a statement.":"Ask a question to file a statement.");
   }
 }

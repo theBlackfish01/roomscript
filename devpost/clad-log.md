@@ -116,3 +116,10 @@ Applied CLAD specs-ai-remote-service and inline live-lens-tester workflow. Edito
 
 ### 2026-10-30 - N3 and Preview diagnostic
 RecompileTypeScriptTool and RunAndCollectLogs confirm the revised hero starts. Repeated strict roomscript-interrogation runs timed out (90/120 seconds); DEBUG instrumentation shows slow initial waits and hover entry. Preview screenshot captured the open question panel. Computer-use skill loaded to inspect foreground rendering; native pipe unavailable (OS error 2). A speculative three-frame button delay did not help and was reverted. No raw HTTP or alternate UI automation was used. Engine package verified by executable 85-minute scoring regression; the unresolved Lens diagnostic is recorded in PROGRESS.
+
+### 2026-10-30 - D6/D7 offline checkpoint
+Applied CLAD Lens API and inline live-lens-tester procedures. VirtualScene enabled Stage mode and editor saved with blank credentials. Added availability UI, paged witness questions, all-cover and complete hero scenarios. MCP compile passed; startup reset had no errors. Strict all-tells failed (expected three tells, observed two) with JavaScript execution timeouts and a 10.65-second delayed tell. Public UiTest window activation was permission-blocked; no bypass. Tell-window regression now preserves visibility on a late first frame. Terminal hero tape and golden replay verify complete case truth and verdict without network. Preview capture remains pending.
+
+2026-10-30 01:38 PKT: Isolated roomscript-hero-demo failed during knocks (30.844 s) with JavaScript execution timeout, despite stopping heavy tests. PreviewPanelTool screenshot saved and visually reviewed: docs/captures/2026-10-30-d7-timeout.png. No complete Preview tape or m3 tag created.
+
+2026-10-30 01:41 PKT: Final refreshed startup clean, placement screen restored. Revised serial default Vitest gate passed 411/411 in 37 files; typecheck clean. 200/200 generated cases and 1000 players retained. Secret strip found zero credential fields populated. No whole-case milestone claimed.

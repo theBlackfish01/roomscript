@@ -36,6 +36,7 @@ export interface AnswerPipelineOptions {
   clock: ClockPort; scheduler: Scheduler; llm: LlmPort; model: ModelConfig;
   fallbackModel?: ModelConfig;
   lineBank: readonly LineBankEntry[];
+  preferAuthored?:()=>boolean;
 }
 
 /** Presentation orchestration only. This class never dispatches game actions or changes state. */
@@ -99,6 +100,7 @@ export class AnswerPipeline {
     };
     notify(callbacks.detective ? () => callbacks.detective!({id, question, topic}) : undefined);
     if (!active()) return task; // A callback may start a newer question.
+    if(this.options.preferAuthored?.()){fallback();return task;}
     if (kind === "chip") {
       const cached = lookupLine(this.options.lineBank, {suspect: sheet.suspect, topic, layer, mode}, sheet, graph);
       if (cached) {finish(cached, "cache"); return task;}
@@ -137,7 +139,7 @@ export class AnswerPipeline {
           notify(callbacks.rejected ? () => callbacks.rejected!({id, attempt: attempts,
             codes: [error instanceof LlmError ? error.code : "unavailable"]}) : undefined);
           // These cannot improve on a retry with the same request and credentials.
-          if (error instanceof LlmError && ["cancelled", "unauthenticated", "unsafe_tape", "tape_miss"].includes(error.code)) {fallback(); return;}
+          if (error instanceof LlmError && ["cancelled", "unsafe_tape", "tape_miss"].includes(error.code)) {fallback(); return;}
         }
         if (!active()) return;
         if (!canRetry(started, this.options.clock.nowMs(), attempts)) {fallback(); return;}

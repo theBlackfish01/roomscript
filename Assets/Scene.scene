@@ -851,7 +851,7 @@
     {}
   ScriptInputs:
     "":
-      {}
+      stageMode: true
   ScriptTypes:
     "":
       {}

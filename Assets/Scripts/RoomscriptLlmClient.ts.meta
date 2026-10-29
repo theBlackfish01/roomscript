@@ -28,7 +28,7 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    stageMode: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -38,10 +38,9 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - stageMode: false
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - '// @input bool stageMode {"hint":"Offline stage demo: bundled hero and authored captions; no gateway requests"}'

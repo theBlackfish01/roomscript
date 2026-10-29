@@ -30,6 +30,7 @@ import {RoomscriptInterrogationController} from "./RoomscriptInterrogationContro
     const close=()=>{this.notebook.show(false);this.wallet.show(false);this.caseLid.show(true);this.chips.show(true);this.verbs.show(true);};
     this.notebook.onClose.add(close);this.wallet.onClose.add(close);
     this.interrogation?.initialize();
+    this.caseLid.setMode(this.interrogation.availabilityLabel());this.interrogation.onAvailability.add(label=>this.caseLid.setMode(label));
     console.log("Roomscript: production interrogation ready");
   }
 }

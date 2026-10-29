@@ -95,8 +95,8 @@ describe("validated live answer pipeline", () => {
   it("uses a validated neutral floor for weird questions and labels no-cite answers as deflections", async () => {
     const complete = vi.fn(async () => {throw new LlmError("unauthenticated");}); const {pipeline, input} = context({complete}, []);
     const result = await pipeline.start({...input, question: "Could a dragon juggle the moon?"}).promise;
-    expect(result).toMatchObject({origin: "deflection", mode: "deflect", attempts: 1}); expect(result.answer.cites).toEqual(["none"]);
-    expect(complete).toHaveBeenCalledOnce();
+    expect(result).toMatchObject({origin: "deflection", mode: "deflect", attempts: 2}); expect(result.answer.cites).toEqual(["none"]);
+    expect(complete).toHaveBeenCalledTimes(2);
     const neutral = context({complete: async () => response({topic: "unclear", cites: ["none"], line: "Ask me something more specific.", emotion: "guarded"})});
     expect(await neutral.pipeline.start({...neutral.input,question:"Could a dragon juggle the moon?"}).promise).toMatchObject({origin: "model", mode: "deflect"});
   });
