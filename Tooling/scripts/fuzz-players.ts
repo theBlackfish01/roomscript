@@ -29,7 +29,7 @@ export function assertCurrentAccounts(graph:CaseGraph,state:GameState):void {
  * If everyone is lawyered, a legal suggestion (15 minutes) advances time instead.
  * An adversary repeating free Dismiss forever is intentionally outside this guarantee.
  */
-export function fuzzPlayers(graph:CaseGraph=createHeroCase(),players=1000,seed=1041):FuzzReport {
+function* fuzzPlayerSteps(graph:CaseGraph,players:number,seed:number):Generator<void,FuzzReport> {
   requireInvariant(Number.isSafeInteger(players)&&players>0,"players must be a positive integer");
   const original=JSON.stringify(graph);
   const proof=verifyCase(graph);
@@ -112,12 +112,23 @@ export function fuzzPlayers(graph:CaseGraph=createHeroCase(),players=1000,seed=1
     if(player<10)requireInvariant(JSON.stringify(replayGame(graph,state.log))===JSON.stringify(state),`Replay diverged for player ${player}`);
     report.terminations[state.verdict]=(report.terminations[state.verdict]||0)+1;
     report.actions+=state.log.length;report.maxActions=Math.max(report.maxActions,state.log.length);
+    yield;
   }
   requireInvariant(JSON.stringify(graph)===original,"Fuzz mutated case graph");
   return report;
 }
 
+export function fuzzPlayers(graph:CaseGraph=createHeroCase(),players=1000,seed=1041):FuzzReport {
+  const steps=fuzzPlayerSteps(graph,players,seed);let step=steps.next();while(!step.done)step=steps.next();return step.value;
+}
+
+/** Same named random streams and assertions; yields to worker IPC every 25 players. */
+export async function fuzzPlayersAsync(graph:CaseGraph=createHeroCase(),players=1000,seed=1041):Promise<FuzzReport> {
+  const steps=fuzzPlayerSteps(graph,players,seed);let step=steps.next(),count=0;
+  while(!step.done){if(++count%25===0)await new Promise<void>(resolve=>setImmediate(resolve));step=steps.next();}return step.value;
+}
+
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href) {
   const players=process.argv[2]===undefined?1000:Number(process.argv[2]);
-  console.log(JSON.stringify(fuzzPlayers(createHeroCase(),players),null,2));
+  fuzzPlayersAsync(createHeroCase(),players).then(report=>console.log(JSON.stringify(report,null,2))).catch(error=>{console.error(error);process.exitCode=1;});
 }
