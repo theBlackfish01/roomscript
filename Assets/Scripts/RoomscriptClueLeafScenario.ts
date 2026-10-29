@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -7,7 +8,7 @@ import {RoomscriptClueController} from "./RoomscriptClueController";
 import {replayGame} from "./Engine/game/Reducer";
 
 @component export class RoomscriptClueLeafScenario extends Scenario {
-  async run():Promise<void> {
+  async run():Promise<void> { await enterCase();
     await sleep(1800);const clue=findSceneObjectByName("RoomscriptClue").getComponent(RoomscriptClueController.getTypeName()) as RoomscriptClueController;
     const flow=clue.objection.flow,engine=flow.engine,room=clue.objection.tells.room,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
     const audioOrigin=clue.objection.tells.audio.getTransform().getWorldPosition();

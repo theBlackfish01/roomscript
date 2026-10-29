@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -6,7 +7,7 @@ import {DefaultLeafInteractor} from "Leaf.lspkg/Interactors/interactor/DefaultLe
 import {RoomscriptTellVisual} from "./RoomscriptTellVisual";
 
 @component export class RoomscriptTellsLeafScenario extends Scenario {
-  async run():Promise<void> {
+  async run():Promise<void> { await enterCase();
     await sleep(1500);const tells=findSceneObjectByName("RoomscriptTells").getComponent(RoomscriptTellVisual.getTypeName()) as RoomscriptTellVisual;
     const flow=tells.flow,engine=flow.engine,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
     const tap=async(name:string)=>{const matches=findInteractablesByName(name,undefined,true);expect(matches.length).toBe(1);await hand.trigger(matches[0]);await sleep(150);};

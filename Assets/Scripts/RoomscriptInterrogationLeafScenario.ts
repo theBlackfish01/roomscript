@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -8,7 +9,7 @@ import {replayGame} from "./Engine/game/Reducer";
 
 /** Exercises production controls, charged intent, topic correction and network-off behavior. */
 @component export class RoomscriptInterrogationLeafScenario extends Scenario {
-  async run():Promise<void> {
+  async run():Promise<void> { await enterCase();
     await sleep(1500);
     const flow=findSceneObjectByName("RoomscriptInterrogation").getComponent(RoomscriptInterrogationController.getTypeName()) as RoomscriptInterrogationController;
     const engine=flow.engine,hand=new DefaultLeafInteractor(),oldOffline=flow.client.forceOffline;

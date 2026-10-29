@@ -1,3 +1,4 @@
+import {RoomscriptOpeningLeafScenario} from "./RoomscriptOpeningLeafScenario";
 import {scenariosIndex} from "Leaf.lspkg/Scenarios/decorator/ScenarioIndexDecorator";
 import {ScenarioMetadata} from "Leaf.lspkg/Scenarios/scenario/ScenarioMetadata";
 import {RoomscriptProbeLeafScenario} from "./RoomscriptProbeLeafScenario";
@@ -24,6 +25,7 @@ import {RoomscriptClosingLeafScenario} from "./RoomscriptClosingLeafScenario";
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-opening",typename:RoomscriptOpeningLeafScenario.getTypeName()},
     {id:"roomscript-closing",typename:RoomscriptClosingLeafScenario.getTypeName(),parameters:{mode:"correct"}},
     {id:"roomscript-cast",typename:RoomscriptCastLeafScenario.getTypeName()},
     {id: "roomscript-probe-layout-and-button", typename: RoomscriptProbeLeafScenario.getTypeName()},

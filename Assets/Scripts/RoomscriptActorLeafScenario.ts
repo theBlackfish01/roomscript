@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -5,7 +6,7 @@ import {RoomscriptSuspectActor} from "./RoomscriptSuspectActor";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 /** Engine-driven puppet regression, including audio-envelope response and grounded placement. */
 @component export class RoomscriptActorLeafScenario extends Scenario {
-  async run():Promise<void> {
+  async run():Promise<void> { await enterCase();
     await sleep(1500);
     const object=findSceneObjectByName("RoomscriptSuspectSlot");
     const actor=object.getComponent(RoomscriptSuspectActor.getTypeName()) as RoomscriptSuspectActor;

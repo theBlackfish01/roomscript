@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName, sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -7,7 +8,7 @@ import {createIKInteractor} from "Leaf.lspkg/Interactors/interactor/ik/visualize
 /** Physical reach/ray diagnostics for the middle button. */
 @component
 export class RoomscriptProbeIKScenario extends Scenario {
-  async run(): Promise<void> {
+  async run(): Promise<void> { await enterCase();
     await sleep(1500);
     const ik = createIKInteractor();
     await ik.trigger(findInteractablesByName("Probe D", undefined, true)[0]);

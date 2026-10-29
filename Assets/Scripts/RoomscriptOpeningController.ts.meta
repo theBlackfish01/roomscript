@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/060b29ca-6a14-45fa-8305-d2aef6a6d70a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 9d4ca74c-ce0d-4a28-a251-1857cf13715e
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 9d4ca74c-ce0d-4a28-a251-1857cf13715e
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 6a6b4bcb-f8e6-4e26-8154-3731450469bc
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/6a6b4bcb-f8e6-4e26-8154-3731450469bc>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 286a14cd-3506-411a-b9d9-f2f9fc92202c
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cast: false
+    clue: false
+    crate: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - cast: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      clue: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      crate: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType_1 cast {"hint":"Persistent actors and room"}'
+    - '// @input AssignableType_2 clue {"hint":"Envelope and shared presentation"}'
+    - '// @input AssignableType_3 crate {"hint":"Hinged case"}'

@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 // LEAF scenario pattern adapted from CLAD, Apache-2.0; see NOTICE.
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
@@ -9,7 +10,7 @@ import {FlexLayout} from "SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex
 /** Regression: all rows initialize and backing plane does not block button dispatch. */
 @component
 export class RoomscriptProbeLeafScenario extends Scenario {
-  async run(): Promise<void> {
+  async run(): Promise<void> { await enterCase();
     await sleep(1500);
     const panel = findSceneObjectByName("RoomscriptProbeLab");
     expect(!!panel).toBe(true);

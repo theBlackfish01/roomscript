@@ -1,6 +1,6 @@
 # Roomscript progress — RESUMED
 
-Updated 2026-10-30 00:04 PKT. Review P0, C7, L2/L3 and D3 verified. D2 opening next. Gateway credentials remain blank.
+Updated 2026-10-30 00:04 PKT. Review P0, C7, L2/L3 and D3 and D2 verified. L4/L5 next. Gateway credentials remain blank.
 
 ## Current work
 
@@ -22,7 +22,7 @@ C7 -> L2/L3 -> D3 including timeout accusation -> D2 -> L4/L5 -> AI P1 and red-t
 | A — setup and probes | Done | `m0-probe` |
 | B — deterministic truth engine and terminal | Done; review P0 corrected | `m1-terminal` |
 | C — interrogation slice | Done: C1-C7 verified with code-shard fallback | `m2-slice` |
-| D — whole case | Partial: D1 and D3 verified; D2/D6/D7 pending; D5 engine only | `m3-case` not created |
+| D — whole case | Partial: D1/D2/D3 verified; D6/D7 pending; D5 engine only | `m3-case` not created |
 | E — should tier | Not started as Lens experiences | none |
 | F — Clue Night | Not started; gated on core completion | none |
 
@@ -200,3 +200,9 @@ Four persistent actors with distinct original vector portraits, actor buttons an
 - One final accusation at timeout, exact available-proof filing, one-second seal hold, sealed-fact silhouettes, correct/wrong endings and rating. Wrong accusation cannot be retried.
 - 38/38 targeted tests: game/reducer.test.ts, game/scoring.test.ts, game/closing.test.ts. Strict LEAF roomscript-closing passed in correct, wrong and timeout modes; correct rerun after layout correction passed. Compile/start clean.
 - Capture: captures/2026-10-30-d3-ending.png. Result text visually checked; no title overlap. Reconstruction is simplified silhouettes, not full motion capture.
+
+## D2 — opening (2026-10-30)
+
+- Three spatial knocks, crossed door tape, crate cue and real SIK pull-tab, hinged light rays, progressively drawn chalk silhouette, envelope rise, room/object caption riffle, seal cue, four staggered arrivals and spatial clock ticks.
+- Investigation dispatch is paused during the opening; no pre-show click can spend case time. Existing feature scenarios use a shared pre-show skip; roomscript-opening exercises the real drag and checks all beats and zero elapsed time.
+- Strict roomscript-opening and roomscript-cast passed; compile/start clean. Capture captures/2026-10-30-d2-tab.png inspected. Simplifications: caption riffle, silhouette arrivals and fixed timing rather than head-aim gates.

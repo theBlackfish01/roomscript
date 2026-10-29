@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -6,7 +7,7 @@ import {RoomscriptTellVisual} from "./RoomscriptTellVisual";
 
 /** Three real production requests including their first spoken audio. */
 @component export class RoomscriptLiveInterrogationLeafScenario extends Scenario {
-  async run():Promise<void> {
+  async run():Promise<void> { await enterCase();
     await sleep(2000);
     const flow=findSceneObjectByName("RoomscriptInterrogation").getComponent(RoomscriptInterrogationController.getTypeName()) as RoomscriptInterrogationController;
     flow.client.forceOffline=false;

@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -11,7 +12,7 @@ import {withDeadline} from "./Engine/ai/Deadlines";
 
 /** Diagnostic text-only sample; production still enforces the combined audio deadline. */
 @component export class RoomscriptLatencyLeafScenario extends Scenario {
-  async run():Promise<void> {
+  async run():Promise<void> { await enterCase();
     await sleep(1500);
     const client=findSceneObjectByName("RoomscriptLlmClient").getComponent(RoomscriptLlmClient.getTypeName()) as RoomscriptLlmClient;
     const engine=findSceneObjectByName("RoomscriptEngine").getComponent(RoomscriptEngineBridge.getTypeName()) as RoomscriptEngineBridge;

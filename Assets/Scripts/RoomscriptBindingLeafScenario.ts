@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -5,7 +6,7 @@ import {RoomscriptRoomBinding} from "./RoomscriptRoomBinding";
 
 /** Check real authored transforms and device-visible content independently of Preview furniture. */
 @component export class RoomscriptBindingLeafScenario extends Scenario {
-  async run():Promise<void> {
+  async run():Promise<void> { await enterCase();
     await sleep(1500);
     const root=findSceneObjectByName("RoomscriptCaseRoom"),preview=findSceneObjectByName("PreviewRoom");
     const binding=root.getComponent(RoomscriptRoomBinding.getTypeName()) as RoomscriptRoomBinding;

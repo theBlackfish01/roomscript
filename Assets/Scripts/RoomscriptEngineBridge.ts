@@ -11,6 +11,7 @@ import {clockwiseRefuters} from "./Engine/game/CluePresentation";
   @input @hint("Player setup reference") player:SceneObject;
   @input @hint("Shared room coordinate frame") roomRoot:SceneObject;
   readonly onState=new Event<GameState>();
+  investigationEnabled=true;
   private graph:CaseGraph;private state:GameState;
   initialize():void {
     if(this.state)return;
@@ -24,6 +25,7 @@ import {clockwiseRefuters} from "./Engine/game/CluePresentation";
   caseGraph():CaseGraph {return JSON.parse(JSON.stringify(this.graph)) as CaseGraph;}
   snapshot():GameState {return JSON.parse(JSON.stringify(this.state)) as GameState;}
   dispatch(payload:ActionPayload,player="P1"):GameState {
+    if(!this.investigationEnabled)return this.snapshot();
     this.state=reduceGame(this.graph,this.state,{...payload,seq:this.state.lastSeq+1,by:player});
     const snapshot=this.snapshot();this.onState.invoke(snapshot);return snapshot;
   }

@@ -1,10 +1,11 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
 import {RoomscriptCaseCrate} from "./RoomscriptCaseCrate";
 
 @component export class RoomscriptStagingLeafScenario extends Scenario {
-  async run():Promise<void> {
+  async run():Promise<void> { await enterCase();
     await sleep(1800);
     const camera=findSceneObjectByName("Camera Object").getTransform().getWorldPosition();
     const actor=findSceneObjectByName("RoomscriptSuspectSlot"),mark=actor.getTransform().getWorldPosition();

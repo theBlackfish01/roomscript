@@ -2291,6 +2291,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/62c64c84-33fc-4b57-a2ff-af5a670600b1>
+  PrefabRemaps:
+    []
+  Name: RoomscriptOpening
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -25.000000, y: -55.000000, z: -145.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 63a30bb4-29e5-4d93-9690-a4cec24b6656
 - !<ScriptComponent/62c8207e-5097-4cbb-87ee-f9929651f04b>
   PrefabRemaps:
     []
@@ -2308,6 +2323,24 @@
       width: !<float> 100.000000
       height: !<float> 4.000000
       depth: !<float> 3.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/63a30bb4-29e5-4d93-9690-a4cec24b6656>
+  PrefabRemaps:
+    []
+  Name: RoomscriptOpeningController
+  Enabled: true
+  ScriptAsset: !<reference> 9d4ca74c-ce0d-4a28-a251-1857cf13715e
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      cast: !<MappingBased.AssignableType_1> 81001325-0bba-4b7f-b6a8-a03eb0fce795
+      clue: !<MappingBased.AssignableType_2> cf2b242b-894c-4cd8-9f63-3c1898d1d0db
+      crate: !<MappingBased.AssignableType_3> 2937f0c3-afc2-4c86-88e2-a4b86b31e44a
   ScriptTypes:
     "":
       {}
@@ -3066,6 +3099,7 @@
     - !<own> 12da5e3e-6294-43f5-8a37-0413a80e80e2
     - !<own> 162db78f-9339-4061-a2ac-895f9d78282a
     - !<own> baa78423-0542-41dd-8dd2-21cf19720280
+    - !<own> 62c64c84-33fc-4b57-a2ff-af5a670600b1
   Components:
     - !<own> 07faadeb-ecb8-414f-9572-e63020bc35d0
 - !<SceneObject/83ef588c-5040-4344-b15f-0554c739da0b>

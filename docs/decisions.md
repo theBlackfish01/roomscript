@@ -133,3 +133,6 @@ C7/D1 share object interaction routing and scene registration. Save one coherent
 
 ### 2026-10-30 — D3 final accusation
 Timeout closes investigation but permits one valid accusation. Reveal reads sealed true timeline facts only after correct/wrong verdict. Explicit File known proof credits only exact known engine routes. Simplified silhouettes provide the reenactment; the result shows rating, case ID and seal.
+
+### 2026-10-30 — D2 opening
+The authored opening blocks investigation until the pull-tab and reveal complete. Timing is presentation-only and never advances the action clock. Knock scheduling uses separated beats so a slow first frame cannot skip one. Feature LEAF scenarios skip the independently tested pre-show.

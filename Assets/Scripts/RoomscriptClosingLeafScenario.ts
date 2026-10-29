@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {ScenarioConfig} from "Leaf.lspkg/Scenarios/scenario/ScenarioConfig";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
@@ -7,7 +8,7 @@ import {DefaultLeafInteractor} from "Leaf.lspkg/Interactors/interactor/DefaultLe
 import {RoomscriptClosingController} from "./RoomscriptClosingController";
 
 @component export class RoomscriptClosingLeafScenario extends Scenario {
-  async run(config?:ScenarioConfig):Promise<void> {
+  async run(config?:ScenarioConfig):Promise<void> { await enterCase();
     await sleep(2000);const closing=findSceneObjectByName("RoomscriptClosing").getComponent(RoomscriptClosingController.getTypeName()) as RoomscriptClosingController,flow=closing.cast.flow,engine=flow.engine,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
     const tap=async(name:string)=>{const matches=findInteractablesByName(name,undefined,true);expect(matches.length).toBe(1);await hand.trigger(matches[0]);await sleep(120);};
     try {

@@ -102,3 +102,6 @@ Evidence for the judging criterion "use of CLAD and the Lens Studio MCP". One li
 
 ### 2026-10-30 — D3
 CLAD inline live-lens-tester workflow; VirtualScene authored Closing inputs; RecompileTypeScriptTool and RunAndCollectLogs clean; strict LEAF correct/wrong/timeout endings pass. PreviewPanelTool capture exposed overlapping result typography, fixed and recaptured.
+
+### 2026-10-30 — D2
+Applied specs-interaction-recipes and mesh-builder-scripting inline. VirtualScene wired opening references; runtime mesh strokes draw tape/chalk/light. Strict LEAF found crate-parent disabling and a skipped startup knock; both corrected, roomscript-opening and roomscript-cast passed. Compile/start clean; tab capture visually reviewed.

@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 // CLAD live-lens-tester procedure; UI dispatch, geometry and audio are exercised in Preview.
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
@@ -8,7 +9,7 @@ import {RoomscriptAudio} from "./RoomscriptAudio";
 import {RoomscriptCaseCrate} from "./RoomscriptCaseCrate";
 
 @component export class RoomscriptShellLeafScenario extends Scenario {
-  async run():Promise<void> {
+  async run():Promise<void> { await enterCase();
     await sleep(1500);const hand=new DefaultLeafInteractor();
     const tap=async(name:string)=>{const hits=findInteractablesByName(name,undefined,true);expect(hits.length).toBe(1);await hand.trigger(hits[0]);await sleep(250);};
     const notebook=findSceneObjectByName("RoomscriptNotepadUI"),wallet=findSceneObjectByName("RoomscriptEvidenceWalletUI");

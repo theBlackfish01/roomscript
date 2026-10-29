@@ -8,4 +8,5 @@
     this.hinge.getTransform().setLocalRotation(quat.fromEulerAngles(-this.angle*Math.PI/180*(1-Math.pow(1-t,3)),0,0));if(t===1)this.tick.enabled=false;});}
   restart():void {this.elapsed=0;this.tick.enabled=true;}
   isAnimating():boolean {return this.tick.enabled;}
+  close():void {this.tick.enabled=false;this.elapsed=0;this.hinge.getTransform().setLocalRotation(quat.quatIdentity());}
 }

@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -8,7 +9,7 @@ import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjection
 
 /** Visible identities, UI selection, voice routing, and crate-local card regression. */
 @component export class RoomscriptCastLeafScenario extends Scenario {
-  async run():Promise<void> {
+  async run():Promise<void> { await enterCase();
     await sleep(2000);const cast=findSceneObjectByName("RoomscriptCast").getComponent(RoomscriptCastController.getTypeName()) as RoomscriptCastController;
     const flow=cast.flow,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
     try {

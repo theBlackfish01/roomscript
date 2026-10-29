@@ -1,3 +1,4 @@
+import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -8,7 +9,7 @@ import {InteractionPlane} from "SpectaclesInteractionKit.lspkg/Components/Intera
 import {ScenarioConfig} from "Leaf.lspkg/Scenarios/scenario/ScenarioConfig";
 
 @component export class RoomscriptObjectionLeafScenario extends Scenario {
-  async run(config?:ScenarioConfig):Promise<void> {
+  async run(config?:ScenarioConfig):Promise<void> { await enterCase();
     await sleep(1800);const objection=findSceneObjectByName("RoomscriptObjection").getComponent(RoomscriptSpatialObjectionController.getTypeName()) as RoomscriptSpatialObjectionController;
     const flow=objection.flow,engine=flow.engine,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
     const tap=async(name:string)=>{const matches=findInteractablesByName(name,undefined,true);expect(matches.length).toBe(1);await hand.trigger(matches[0]);await sleep(180);};
