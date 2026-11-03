@@ -1,4 +1,6 @@
 import {Answer, AnswerMode, CaseGraph, FactSheet, SheetRef} from "../core/Types";
+import {preservesRoles} from "./RoleGuard";
+import {bankMembership} from "./PerformanceBank";
 import {ANSWER_EMOTIONS, answerTopics} from "./AnswerSchema";
 import {allSheetRefs} from "./FactSheetBuilder";
 import {buildGazetteer, findEntities, findNumbersAndDays, findTimes, normalizedWords, normalizedText} from "./Gazetteer";
@@ -64,6 +66,7 @@ export function validateLine(input: unknown, sheet: FactSheet, graph: CaseGraph,
   } else if (!mapped && !deflecting) {
     reject(2, "CITATION_REQUIRED", "Unmapped topics cannot make factual assertions");
   }
+  if(!errors.length&&bankMembership(answer,sheet,graph,mode))return {ok:true,errors:[],answer:{...answer,cites:answer.cites.slice()}};
   const allowedEntities = new Set(sheet.safeEntities.concat(...cited.map(ref => ref.entities)));
   const gazetteer = buildGazetteer(graph);
   const mentions = findEntities(answer.line, gazetteer);
@@ -85,6 +88,7 @@ export function validateLine(input: unknown, sheet: FactSheet, graph: CaseGraph,
   // Compare against the mandated claim, not an unrelated extra citation. These
   // conservative lexical gates do not claim general natural-language entailment.
   const required = mapped && refs.get(mode==="press" ? sheet.pressed.find(ref=>ref.of===mapped)?.ref || "" : mapped);
+  if(!neutral&&!deflecting&&required&&mode!=="confession"&&!preservesRoles(required.text,answer.line))reject(4,"PARAPHRASE","Performance changes a participant, possession or negated verb");
   const negative = (text:string) => /\b(?:not|never|no|neither|nobody|nothing|without)\b/.test(claimWords(text));
   if(!neutral && !deflecting && required && negative(required.text)!==negative(answer.line))
     reject(4,"POLARITY","Performance changes the polarity of its required claim");

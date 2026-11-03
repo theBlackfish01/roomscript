@@ -1,11 +1,12 @@
 import {Answer, AnswerMode, CaseGraph, FactSheet, GameState, LineBankEntry} from "../core/Types";
 import {buildFactSheet} from "../perf/FactSheetBuilder";
-import {answerTopics} from "../perf/AnswerSchema";
+import {performanceOptions} from "../perf/PerformanceBank";
+import {answerTopics,parseDirector} from "../perf/AnswerSchema";
 import {keywordIntent} from "../perf/KeywordIntent";
 import {canonicalFallback, lookupLine} from "../perf/LineBank";
 import {validateLine} from "../perf/LineValidator";
 import {CancellationSource, CancellationToken, ClockPort, LlmError, LlmPort} from "./LlmPort";
-import {answerRequest, ModelConfig} from "./Prompts";
+import {answerRequest,directorRequest, ModelConfig} from "./Prompts";
 import {canRetry, DEADLINES, remainingMs, withDeadline} from "./Deadlines";
 import {Scheduler} from "./Scheduler";
 
@@ -55,7 +56,8 @@ export class AnswerPipeline {
     const topic = input.topic ?? keywordIntent(input.question, sheet, input.graph).topic;
     if (!answerTopics(sheet).includes(topic)) throw new Error("Question topic is not in the current account");
     // Build and validate all request inputs before replacing the active question.
-    const request = answerRequest(sheet, input.question, this.options.model, mode,topic);
+    const directing=performanceOptions(input.graph,sheet,topic,mode).variants.length>0;
+    const request = directing?directorRequest(input.graph,sheet,input.question,this.options.model,mode,topic):answerRequest(sheet, input.question, this.options.model, mode,topic);
     const graph = input.graph; const question = input.question; const kind = input.kind;
     const lockTopic = true;
     this.current?.cancel();
@@ -90,7 +92,7 @@ export class AnswerPipeline {
     };
     const fallback = () => {
       if (!active()) return;
-      const bank = lookupLine(this.options.lineBank, {suspect: sheet.suspect, topic, layer, mode}, sheet, graph);
+      const bank = lookupLine(this.options.lineBank, {suspect: sheet.suspect, topic, layer, mode,seq:input.state.lastSeq}, sheet, graph);
       if (bank) {finish(bank, "line-bank"); return;}
       const canonical = canonicalFallback(sheet, topic, mode);
       if (validateLine(canonical, sheet, graph, mode).ok) {
@@ -102,7 +104,7 @@ export class AnswerPipeline {
     if (!active()) return task; // A callback may start a newer question.
     if(this.options.preferAuthored?.()){fallback();return task;}
     if (kind === "chip") {
-      const cached = lookupLine(this.options.lineBank, {suspect: sheet.suspect, topic, layer, mode}, sheet, graph);
+      const cached = lookupLine(this.options.lineBank, {suspect: sheet.suspect, topic, layer, mode,seq:input.state.lastSeq}, sheet, graph);
       if (cached) {finish(cached, "cache"); return task;}
     }
     const filler = canonicalFallback(sheet, "unclear", "filler");
@@ -126,7 +128,8 @@ export class AnswerPipeline {
             transportToken => this.options.llm.complete(attemptRequest, transportToken), token,attemptRequest.provider+":text").promise,
           Math.min(DEADLINES.generationMs, remaining), this.options.clock, network.token);
           if (!active()) return;
-          const validated = validateLine(response.content, sheet, graph, mode);
+          const parsed=directing?parseDirector(response.content,graph,sheet,topic,mode):response.content;
+          const validated = validateLine(parsed, sheet, graph, mode);
           const wrongTopic = validated.ok && validated.answer && lockTopic && (validated.answer.topic !== topic
             || (!(["deflect","lawyered","filler"] as string[]).includes(mode)&&!!sheet.topicToRef[topic]&&validated.answer.cites.includes("none")));
           if (validated.ok && validated.answer && !wrongTopic) {finish(validated.answer, "model"); return;}

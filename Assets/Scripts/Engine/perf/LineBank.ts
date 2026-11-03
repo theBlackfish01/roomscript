@@ -1,11 +1,14 @@
 import {Answer, AnswerMode, CaseGraph, FactSheet, LineBankEntry} from "../core/Types";
+import {selectPerformance} from "./PerformanceBank";
 import {validateLine} from "./LineValidator";
 
-export interface LineQuery {suspect: string; topic: string; layer: number; mode: AnswerMode;}
+export interface LineQuery {suspect: string; topic: string; layer: number; mode: AnswerMode;seq?:number;}
 
 /** Validation disambiguates same-layer replacements; stale or hidden refs never become fallback speech. */
 export function lookupLine(entries: readonly LineBankEntry[], query: LineQuery, sheet: FactSheet, graph: CaseGraph): Answer | undefined {
   if (query.suspect !== sheet.suspect || query.mode === "confession") return undefined;
+  const performance=selectPerformance(graph,sheet,query.topic,query.mode,query.seq??0);
+  if(performance&&validateLine(performance,sheet,graph,query.mode).ok)return performance;
   const neutral = query.mode === "deflect" || query.mode === "lawyered" || query.mode === "filler";
   const candidates = entries.filter(entry => entry.suspect === query.suspect && entry.mode === query.mode
     && entry.layer <= query.layer && (entry.topic === query.topic || (neutral && entry.topic === "unclear")))

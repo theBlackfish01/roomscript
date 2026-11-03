@@ -137,7 +137,7 @@ describe("seven validator gates", () => {
   });
   it("requires specific press citations and permits equivalent spoken times", () => {
     const {graph, sheet, answer} = context();
-    const pressed = {...answer, cites: [performanceRef("p","C_VALE_ALIBI_0")], line: "The kettle was boiling at half past ten."};
+    const pressed = {...answer, cites: [performanceRef("p","C_VALE_ALIBI_0")], line: "The kettle was boiling. I stayed beside it at half past ten."};
     expect(validateLine(pressed, sheet, graph, "press").ok).toBe(true);
     expect(validateLine({...answer, line: "I was in the Kitchen at ten-thirty."}, sheet, graph).ok).toBe(true);
     expect(validateLine({...answer, line: "I was in the Kitchen at 10:30 pm."}, sheet, graph).ok).toBe(true);
@@ -147,10 +147,10 @@ describe("seven validator gates", () => {
     state.suspects.S2.memory.push({id: "past", text: "You accused me earlier.", entities: ["S2"], source: "player"});
     state.suspects.S2.heard.push({id: "gossip", text: "Imran said the kettle was cold.", entities: ["S1", "O11"], source: "gossip:S1"});
     const sheet = buildFactSheet(graph, state, "S2");
-    expect(validateLine({...answer, cites: [...answer.cites, performanceRef("m","past")], line: "You accused me earlier. I was in the Kitchen."}, sheet, graph).ok).toBe(true);
+    expect(validateLine({...answer, cites: [...answer.cites, performanceRef("m","past")], line: "You accused me earlier. I was in the Kitchen making tea at 22:30."}, sheet, graph).ok).toBe(true);
     const hearsay = {...answer, cites: [...answer.cites, performanceRef("h","gossip")], line: "Imran stood beside the kettle."};
     expect(validateLine(hearsay, sheet, graph).errors.map(error => error.code)).toContain("MEMORY");
-    expect(validateLine({...hearsay, line: "Imran said the kettle was cold."}, sheet, graph).ok).toBe(true);
+    expect(validateLine({...hearsay, line: "Imran said the kettle was cold. I was in the Kitchen making tea at 22:30."}, sheet, graph).ok).toBe(true);
   });
   it("permits neutral deflections but never allows them to smuggle a claim", () => {
     const {graph, sheet} = context();
