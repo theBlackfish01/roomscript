@@ -5,7 +5,7 @@ import {culpritForSeed,simulateCase,TimelineEntry} from "./Simulator";
 import {dealEvidence} from "./Dealer";
 import {buildStatements} from "./StatementBuilder";
 import {planBeats} from "./BeatPlanner";
-import {verifyCase} from "./Solver";
+import {verifyCase,minimumCostRoute} from "./Solver";
 import {planRepairs,RepairPlan} from "./RepairPlanner";
 export interface CompileTrace {stage:"pitch"|"bind"|"simulate"|"solver"|"accepted"|"repair";attempt:number;ok:boolean;details:string;}
 export interface CompileResult {ok:boolean;graph?:CaseGraph;attempts:number;trace:CompileTrace[];errors:PitchIssue[];solverIssues:SolverIssue[];repair:RepairPlan;bindings?:Record<string,string>;timeline?:TimelineEntry[];}
@@ -26,9 +26,13 @@ export function compileCase(seed:number,room:RoomScan,input:unknown,options:Comp
       trace.push({stage:"bind",attempt:attempt+1,ok:true,details:Object.keys(simulation.bindings).length+" roles bound to physical or explicit virtual objects."});
       trace.push({stage:"simulate",attempt:attempt+1,ok:true,details:simulation.timeline.length+" actor-slot observations generated."});
       dealEvidence(simulation);buildStatements(simulation,pitch);planBeats(simulation,pitch);
+      // Scale actual acquisition costs, never just the reported par. Short compiler
+      // cases otherwise collapse to two bundled inspections.
+      const minimum=minimumCostRoute(simulation.graph).minutes;
+      if(Number.isFinite(minimum)&&minimum>0&&minimum<60){const factor=60/minimum;for(const e of simulation.graph.evidence)if(e.costMinutes)e.costMinutes=Math.ceil(e.costMinutes*factor);for(const s of simulation.graph.statements)if(s.costMinutes)s.costMinutes=Math.ceil(s.costMinutes*factor);}
       const report=verifyCase(simulation.graph);last=report.issues;
       trace.push({stage:"solver",attempt:attempt+1,ok:report.ok,details:report.ok?"All eight proof checks passed.":report.issues.map(i=>i.code).join(",")});
-      if(report.ok) {
+      if(report.ok && report.minRouteMinutes>=60) {
         simulation.graph.solver=report;trace.push({stage:"accepted",attempt:attempt+1,ok:true,details:"Sealed deterministic case accepted."});
         return {ok:true,graph:simulation.graph,attempts:attempt+1,trace,errors:[],solverIssues:[],repair:planRepairs([]),bindings:simulation.bindings,timeline:simulation.timeline};
       }

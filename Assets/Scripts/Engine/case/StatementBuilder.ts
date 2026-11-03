@@ -33,5 +33,6 @@ export function buildStatements(sim:Simulation,pitch:CasePitch):void {
       statements.push({...original,asserts:denial.id,canonical:denial.canonical!,stance:"cover",breakers:proofs(source),onBreak:replacement.id},replacement);
     }
   }
+  for(const statement of statements){const name=g.cast.suspects.find(s=>s.id===statement.speaker)!.name;statement.canonical=statement.canonical.split(name+"'s").join("my").split(name).join("I");}
   g.requiredDeductions=[{id:"D_OPPORTUNITY",type:"opportunity",subject:culprit,supports:proofs(`F_AT_${culprit}_${murder}`),canonical:"The suspect occupied the murder zone."},{id:"D_MEANS",type:"means",subject:culprit,supports:proofs("F_MURDER_TOUCH"),canonical:"The suspect handled the murder weapon."},{id:"D_ALIBI",type:"alibi_broken",subject:culprit,supports:proofs(`F_AT_${culprit}_${murder}`),canonical:"The initial whereabouts account was contradicted."},{id:"D_MOTIVE",type:"motive",subject:culprit,supports:proofs(`F_MOTIVE_${culprit}`),canonical:fact(`F_MOTIVE_${culprit}`).canonical!}];
 }

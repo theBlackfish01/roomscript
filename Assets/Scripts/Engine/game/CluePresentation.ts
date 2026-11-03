@@ -4,7 +4,7 @@ import {getCurrentStatements,statementFacts} from "./Actions";
 /** Setup marks follow the first account, including authored covers. They do not certify it. */
 export function refuterMarks(graph:CaseGraph):Record<string,Vec3> {
   const marks:Record<string,Vec3>={};graph.room.objects.forEach(o=>marks[o.id]=o.pos.slice() as Vec3);
-  graph.cast.suspects.forEach(person=>{const claim=getCurrentStatements(graph,person.id,0).find(s=>s.topic.startsWith("where@"));
+  graph.cast.suspects.forEach(person=>{const claim=getCurrentStatements(graph,person.id,0).find(s=>graph.facts.some(f=>statementFacts(s).includes(f.id)&&f.pred==="at"&&f.args.who===person.id));
     const fact=claim&&graph.facts.find(f=>statementFacts(claim).includes(f.id)&&f.pred==="at"&&f.args.who===person.id);
     const zone=fact&&graph.room.zones.find(z=>z.id===fact.args.zone);
     if(!zone)throw new Error("Missing claimed mark for "+person.id);marks[person.id]=[zone.anchor[0],0,zone.anchor[2]+55];});return marks;
