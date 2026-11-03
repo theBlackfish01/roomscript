@@ -3,7 +3,7 @@ import {createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041
 import {createGameState} from "../../../Assets/Scripts/Engine/game/GameState";
 import {buildFactSheet} from "../../../Assets/Scripts/Engine/perf/FactSheetBuilder";
 import {validateLine} from "../../../Assets/Scripts/Engine/perf/LineValidator";
-import {assertionFree,composePerformance,selectPerformance} from "../../../Assets/Scripts/Engine/perf/PerformanceBank";
+import {assertionFree,composePerformance,selectPerformance,bankMembership} from "../../../Assets/Scripts/Engine/perf/PerformanceBank";
 import {parseDirector,buildDirectorSchema} from "../../../Assets/Scripts/Engine/perf/AnswerSchema";
 import {AnswerPipeline} from "../../../Assets/Scripts/Engine/ai/AnswerPipeline";
 import {Scheduler} from "../../../Assets/Scripts/Engine/ai/Scheduler";
@@ -14,3 +14,15 @@ it("admits finite composed performances and rejects foreign IDs or references",(
 it("only admits assertion-free register vocabulary",()=>{const {graph}=fixture();expect(assertionFree("Write it down slowly.",graph)).toBe(true);for(const line of ["Harlow was alive.","Never mind.","My sister.","At 22:30.","The cable.","I stole it."])expect(assertionFree(line,graph)).toBe(false)});
 it("rejects detached negators and changed possessive roles",()=>{const {graph,state}=fixture();state.suspects.S2.layer=1;const sheet=buildFactSheet(graph,state,"S2"),topic="where@22:30",cites=[sheet.pressed.find(r=>r.topic===topic)!.ref];for(const line of ["Harlow spoke after I entered the Study, never doubt it.","Harlow spoke after I entered the Study. No."])expect(validateLine({topic,cites,line,emotion:"guarded"},sheet,graph,"press").ok).toBe(false);});
 it("a mocked live director emits a composition admitted by the reducer",async()=>{const {graph,state,topic}=fixture(),clock=new FakeClock();const asked=reduceGame(graph,state,{type:"Ask",suspect:"S2",topic,seq:1,by:"test"});const pipeline=new AnswerPipeline({clock,scheduler:new Scheduler(clock),model:{provider:"gemini",model:"test"},lineBank:[],llm:{complete:async request=>{expect(request.promptVersion).toBe("roomscript-direct-v1");return {content:JSON.stringify({variant:"v1",opener:"open",tail:"tail",emotion:"guarded"})}}}});const result=await pipeline.start({graph,state:asked,suspect:"S2",topic,question:"Really, that is your story?",kind:"free"}).promise;const admitted=reduceGame(graph,asked,{type:"LineSpoken",suspect:"S2",key:"test",answer:result.answer,seq:2,by:"test"});expect(admitted.events.at(-1)?.type).toBe("lineSpoken");});
+it("checks a production-size bank without rebuilding vocabulary for every composition",()=>{
+  const {graph,sheet,topic}=fixture(),base=graph.performances!.variants[0];
+  graph.performances={variants:Array.from({length:478},(_,i)=>({...base,id:"v"+i,ref:i<6?base.ref:"other"+i})),register:Array.from({length:90},(_,i)=>({id:"r"+i,suspect:"S2",kind:i<45?"opener" as const:"tail" as const,text:i<45?"Well, Detective.":"Write it down slowly."}))};
+  const statements=graph.statements;let reads=0;
+  Object.defineProperty(graph,"statements",{get:()=>{reads++;return statements},configurable:true});
+  const answer={topic,cites:[base.ref],line:"Well, Detective. "+base.text+" Write it down slowly.",emotion:"guarded" as const};
+  expect(bankMembership(answer,sheet,graph,"answer")).toBe(true);expect(reads).toBe(1);
+  reads=0;expect(bankMembership({...answer,line:answer.line+" Tampered."},sheet,graph,"answer")).toBe(false);expect(reads).toBe(1);
+  // Do not memoize mutable case content: an edited canonical can invalidate a register.
+  statements[0]={...statements[0],canonical:"Write slowly."};
+  expect(bankMembership(answer,sheet,graph,"answer")).toBe(false);
+});
