@@ -60,6 +60,7 @@ export interface CaseGraph {
   statements: Statement[]; refutation: {order: Id[]; cards: Record<Id, RefutationCard[]>};
   beats: Beat[]; requiredDeductions: RequiredDeduction[]; clockMinutes: number;
   solver?: SolverReport; era: string;
+  story?: {spine: Id[]; secrets: Record<Id,Id[]>};
 }
 export interface PlayerKnowledge { factIds: Id[]; evidenceIds: Id[]; statementIds: Id[]; }
 export type AnswerMode = "answer" | "press" | "deflect" | "broken" | "lawyered" | "filler" | "confession";
@@ -110,6 +111,7 @@ export type Verdict = "correct" | "wrong" | "timeout" | null;
 export interface GameState {
   setupPose: {origin:Vec3;forward:Vec3}|null; refuterOrder:Id[];
   caseId: string; lastSeq: number; elapsedMinutes: number; clockMinutes: number; pips: number; hunches: number;
+  hunchObject: Id | null;
   activeSuspect: Id | null; activeStatement: Id | null; suspects: Record<Id, SuspectState>;
   knowledge: PlayerKnowledge; notebook: NotebookClaim[];
   grid: {suspects: Id[]; zones: Id[]; weapons: Id[]};

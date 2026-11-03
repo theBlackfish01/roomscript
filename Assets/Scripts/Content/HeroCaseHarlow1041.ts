@@ -45,7 +45,7 @@ const addFact = (id:string,pred:Fact["pred"],args:Fact["args"],canonical:string,
   facts.push(fact); return id;
 };
 
-addFact("F_VICTIM_STUDY_LAMP","at",{who:"V",zone:"Z1"},"Harlow stood in the Study at 22:30.",["V","Z1","22:30"],6);
+addFact("F_VICTIM_STUDY_LAMP","at",{who:"V",zone:"Z1"},"Harlow was at the Study desk at 22:30.",["V","Z1","22:30"],6);
 addFact("F_VICTIM_STUDY_MUG","at",{who:"V",zone:"Z1"},"Harlow knocked the mug from the Study desk at 22:30.",["V","Z1","O9","22:30"],6);
 addFact("F_VALE_STUDY","at",{who:"S2",zone:"Z1"},"Vale stood in the Study at 22:30.",["S2","Z1","22:30"],6);
 addFact("F_VALE_CABLE","touched",{who:"S2",obj:"O1"},"Vale handled the cable at 22:30.",["S2","O1","22:30"],6);
@@ -59,6 +59,10 @@ addFact("F_BODY_FOUND","state",{who:"V",prop:"found_at",value:"22:41"},"Harlow's
 addFact("X_VALE_KITCHEN","at",{who:"S2",zone:"Z4"},"Vale was in the Kitchen at 22:30.",["S2","Z4","22:30"],6,false);
 addFact("X_KETTLE_BOILING","state",{obj:"O11",prop:"temperature",value:"boiling"},"The kettle was boiling during the murder window.",["O11"],6,false);
 addFact("X_DEAD_BEFORE_ARRIVAL","before",{first:"Harlow_death",second:"Vale_arrival"},"Harlow died before Vale arrived.",["V","S2"],6,false);
+
+addFact("F_VICTIM_STUDY_REPLY","at",{who:"V",zone:"Z1"},"Harlow answered from the Study at 22:30.",["V","Z1","22:30"],6);
+addFact("F_MURDER_SPINE","state",{who:"S2",prop:"killed",value:"V",zone:"Z1",obj:"O1"},"At 22:30 in the Study, Vale strangled Harlow with the charger cable.",["S2","V","Z1","O1","22:30"],6);
+addFact("F_STAGING_INTENT","state",{who:"S2",prop:"staging",value:"heart_failure"},"Vale moved him from the chair to the floor to make his death look like his heart.",["S2","V","Z1"],6);
 
 const alibis = [
   {id:"S1",zone:"Z3",wrong:"Z2",holder:"O8",observer:"S3",name:"Imran",place:"Hall",wrongPlace:"Lounge",secret:"debt_note_stolen",secretText:"Imran stole his debt note before the murder."},
@@ -83,7 +87,7 @@ for(const w of weaponLocations) {
 }
 const baselines = [
   {speaker:"S1",topic:"baseline:lighter",prop:"lighter",falseValue:"empty",trueValue:"fuelled",holder:"O8",lie:"My lighter is empty.",truth:"My lighter is fuelled.",observed:"The door remembers Imran's lighter catching a flame."},
-  {speaker:"S2",topic:"baseline:brooch",prop:"brooch_clasp",falseValue:"fastened",trueValue:"open",holder:"O6",lie:"My brooch is fastened.",truth:"My brooch clasp is open.",observed:"The lamp catches the open clasp on Vale's brooch."},
+  {speaker:"S2",topic:"baseline:brooch",prop:"brooch_clasp",falseValue:"fastened",trueValue:"open",holder:"O9",lie:"My brooch is fastened.",truth:"My brooch clasp is open.",observed:"The mug catches the open clasp on Vale's brooch."},
   {speaker:"S3",topic:"baseline:glasses",prop:"glasses",falseValue:"spotless",trueValue:"smudged",holder:"O11",lie:"These glasses are spotless.",truth:"My glasses are smudged.",observed:"The kettle reflects a smudge across Okafor's glasses."},
   {speaker:"S4",topic:"baseline:gloves",prop:"gloves",falseValue:"dry",trueValue:"wet",holder:"O10",lie:"Both my gloves are dry.",truth:"My gloves are wet.",observed:"The window remembers water dripping from Pike's gloves."}
 ];
@@ -94,9 +98,9 @@ for(const b of baselines) {
 }
 
 const evidence: Evidence[] = [
-  {id:"E_VICTIM_LAMP",holder:"O6",kind:"object_memory",proves:["F_VICTIM_STUDY_LAMP"],canonical:"The lamp remembers Harlow standing in the Study at 22:30.",entities:["O6","V","Z1","22:30"],costMinutes:10},
+  {id:"E_VICTIM_LAMP",holder:"O6",kind:"object_memory",proves:["F_VICTIM_STUDY_LAMP"],canonical:"The lamp remembers Harlow at the Study desk at 22:30.",entities:["O6","V","Z1","22:30"],costMinutes:10},
   {id:"E_VICTIM_MUG",holder:"O9",kind:"object_memory",proves:["F_VICTIM_STUDY_MUG"],canonical:"The mug remembers Harlow's sleeve knocking it from the Study desk at 22:30.",entities:["O9","V","Z1","22:30"],costMinutes:10},
-  {id:"E_VALE_LAMP",holder:"O6",kind:"object_memory",proves:["F_VALE_STUDY"],canonical:"The lamp remembers Vale beside the Study desk at 22:30.",entities:["O6","S2","Z1","22:30"],costMinutes:10},
+  {id:"E_VALE_LAMP",holder:"O12",kind:"object_memory",proves:["F_VALE_STUDY"],canonical:"The recorder places Vale beside the Study desk at 22:30.",entities:["O12","S2","Z1","22:30"],costMinutes:10},
   {id:"E_KETTLE_COLD",holder:"O11",kind:"object_memory",proves:["F_KETTLE_COLD"],canonical:"The kettle remembers no heat during the murder window. There was no boiling tea.",entities:["O11"],costMinutes:10},
   {id:"E_CABLE",holder:"O1",kind:"object_memory",proves:["F_VALE_CABLE","F_CABLE_CONTACT"],canonical:"The cable remembers Vale's hands. Harlow's collar fibres remain caught in it.",entities:["O1","S2","V"],costMinutes:10},
   {id:"E_RECORDING",holder:"O12",kind:"object_memory",proves:["F_RECORDER_ORDER"],canonical:"The recorder preserves Harlow answering Vale after she entered. He was alive when she arrived.",entities:["O12","V","S2"],costMinutes:10},
@@ -115,7 +119,7 @@ const statements: Statement[] = [
   {id:"C_VALE_ALIBI_0",speaker:"S2",topic:"where@22:30",asserts:["X_VALE_KITCHEN","X_KETTLE_BOILING"],stance:"cover",layer:0,canonical:"I was in the Kitchen making tea at 22:30.",entities:["S2","Z4","O11","22:30"],about:"O11",breakers:[["E_KETTLE_COLD"],["E_VALE_LAMP"]],onBreak:"C_VALE_ALIBI_1",pressed:{canonical:"The kettle was boiling. I stayed beside it at 22:30.",entities:["O11","Z4","22:30"]},costMinutes:15},
   {id:"C_VALE_ALIBI_1",speaker:"S2",topic:"where@22:30",asserts:["F_VALE_STUDY","X_DEAD_BEFORE_ARRIVAL"],stance:"cover",layer:1,canonical:"I reached the Study at 22:30. Harlow was already dead.",entities:["S2","Z1","V","22:30"],about:"O12",breakers:[["E_RECORDING"],["E_VOICEMAIL"],["C_OKAFOR_REPLY"]],onBreak:"C_VALE_ALIBI_2",pressed:{canonical:"Harlow never spoke after I entered the Study.",entities:["V","S2","Z1"]},costMinutes:15},
   {id:"C_VALE_ALIBI_2",speaker:"S2",topic:"where@22:30",asserts:["F_VALE_STUDY","F_VALE_CABLE"],stance:"truth",layer:2,canonical:"I met Harlow in the Study at 22:30. The cable was in my hands.",entities:["S2","V","Z1","O1","22:30"],about:"O1",breakers:[],pressed:{canonical:"The cable was in my hands in the Study. That is my account.",entities:["S2","O1","Z1"]},costMinutes:15},
-  {id:"C_OKAFOR_REPLY",speaker:"S3",topic:"about:V",asserts:"F_REPLY_AFTER_ARRIVAL",stance:"truth",layer:0,canonical:"I heard Harlow answer Vale after she entered the Study.",entities:["S3","V","S2","Z1"],breakers:[],costMinutes:15},
+  {id:"C_OKAFOR_REPLY",speaker:"S3",topic:"about:V",asserts:["F_REPLY_AFTER_ARRIVAL","F_VICTIM_STUDY_REPLY"],stance:"truth",layer:0,canonical:"I heard Harlow answer Vale after she entered the Study.",entities:["S3","V","S2","Z1"],breakers:[],costMinutes:15},
   {id:"C_PIKE_TRUST",speaker:"S4",topic:"motive:S2",asserts:"F_VALE_MOTIVE",stance:"truth",layer:0,canonical:"Harlow intended to expose Vale's forged trust accounts.",entities:["S4","V","S2"],breakers:[],costMinutes:15}
 ];
 for(const a of alibis) {
@@ -139,11 +143,13 @@ for(const b of baselines) {
 // Cheap first-layer questions make the tell-teaching exchange worth asking.
 for(const statement of statements) if(statement.topic.startsWith("baseline:") || statement.layer===0 && statement.topic.startsWith("where@")) statement.costMinutes=5;
 
+for(const statement of statements) if(statement.topic.startsWith("about:") || statement.topic.startsWith("motive:")) statement.costMinutes=10;
+
 // Repeating the bounded account is a valid pressure response; it never invents a fact.
 for(const statement of statements) if(!statement.pressed) statement.pressed={canonical:statement.canonical,entities:statement.entities.slice()};
 
 const base: CaseGraph = {
-  schema:1,caseId:"HARLOW-1041@"+room.roomId,seed:1041,pitchHash:hashHex("HARLOW-1041-authored-v2"),compilerVersion:"roomscript-0.2.0",era:"1940s_noir",
+  schema:1,caseId:"HARLOW-1041@"+room.roomId,seed:1041,pitchHash:hashHex("HARLOW-1041-authored-v3"),compilerVersion:"roomscript-0.3.0",era:"1940s_noir",
   room,slots:["21:00","21:15","21:30","21:45","22:00","22:15","22:30","22:45","23:00","23:15","23:30","23:45"],murderSlot:6,bodyFound:"22:41",
   envelope:{who:"S2",where:"Z1",what:"O1"},cast:{victim:{id:"V",name:"Edmund Harlow"},suspects},weapons:["O1","O2","O3","O4","O5"],facts,
   witnessing:evidence.filter(e=>e.kind==="object_memory").flatMap(e=>e.proves.map(fact=>({witness:e.holder,fact,channel:"record" as const}))),
@@ -170,7 +176,7 @@ const base: CaseGraph = {
     {id:"D_MEANS",type:"means",subject:"S2",supports:[["E_CABLE"],["C_VALE_ALIBI_2"]],canonical:"Vale handled the cable during the murder window."},
     {id:"D_ALIBI",type:"alibi_broken",subject:"S2",supports:[["C_VALE_ALIBI_0","E_KETTLE_COLD"],["C_VALE_ALIBI_0","E_VALE_LAMP"]],canonical:"Vale's tea alibi is false."},
     {id:"D_MOTIVE",type:"motive",subject:"S2",supports:[["E_TRUST_NOTE"],["C_PIKE_TRUST"],["E_LETTER"]],canonical:"Harlow was about to expose Vale's forged trust accounts."}
-  ],clockMinutes:180
+  ],story:{spine:["F_VALE_MOTIVE","F_MURDER_SPINE","F_VICTIM_STUDY_MUG","F_STAGING_INTENT","F_KETTLE_COLD"],secrets:{S1:["F_S1_SECRET"],S3:["F_S3_SECRET"],S4:["F_S4_SECRET"]}},clockMinutes:180
 };
 
 /** Fresh mutable copy for independent sessions, compiler fixtures and broken-variant tests. */

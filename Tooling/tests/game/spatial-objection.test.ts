@@ -18,12 +18,12 @@ describe("spatial objection mapping",()=>{
       expect(walletEntries(graph,state).find(e=>e.id===ref)?.text,cover.id+" -> "+ref).toBeTruthy();
     }
   });
-  it("real object bundles require selection while a sole recording is directly presentable",()=>{
+  it("real object bundles require selection, including the recorder arrival and reply records",()=>{
     const graph=createHeroCase();let state=createGameState(graph);
     state=reduceGame(graph,state,{type:"PinchObject",object:"O11",seq:1,by:"P1"});
     expect(objectDropEvidence(graph,state,"O11")).toEqual([]);
     state=reduceGame(graph,state,{type:"PinchObject",object:"O12",seq:2,by:"P1"});
-    expect(objectDropEvidence(graph,state,"O12")).toEqual(["E_RECORDING"]);
+    expect(objectDropEvidence(graph,state,"O12")).toEqual([]);
   });
   it("offers only a single observed object memory, never latent or unobserved evidence",()=>{const graph=createHeroCase(),state=createGameState(graph);expect(objectDropEvidence(graph,state,"O11")).toEqual([]);state.knowledge.evidenceIds.push("E_KETTLE_COLD");expect(objectDropEvidence(graph,state,"O11")).toEqual(["E_KETTLE_COLD"]);graph.evidence.push({...graph.evidence.find(e=>e.id==="E_KETTLE_COLD")!,id:"second"});state.knowledge.evidenceIds.push("second");expect(objectDropEvidence(graph,state,"O11")).toEqual([]);});
   it("never moves a suspect to a false asserted location",()=>{const graph=createHeroCase();expect(provenMark(graph,"C_VALE_ALIBI_0")).toBeNull();expect(provenMark(graph,"C_VALE_ALIBI_1")).toEqual([80,0,-125]);expect(provenMark(graph,"C_VALE_ALIBI_2")).toEqual([80,0,-125]);});

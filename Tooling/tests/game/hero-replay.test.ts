@@ -1,5 +1,5 @@
 import {it,expect} from "vitest";
-import tape from "../../results/hero-authored-tape-2026-10-30.json";
+import tape from "../../results/run4-b-hero-v3.json";
 import {createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {replayGame} from "../../../Assets/Scripts/Engine/game/Reducer";
 import {scoreCase} from "../../../Assets/Scripts/Engine/game/Scoring";

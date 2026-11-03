@@ -47,7 +47,7 @@ describe("deterministic game reducer",()=>{
   });
   it("breaks the baseline without skipping murder-cover layers",()=>{
     const s=session(); s.act({type:"Ask",suspect:"S2",topic:"baseline:brooch"});
-    s.act({type:"PinchObject",object:"O6"});
+    s.act({type:"PinchObject",object:"O9"});
     s.act({type:"Object",suspect:"S2",statement:"C_S2_BASELINE_LIE",evidence:["E_S2_BASELINE"]});
     expect(s.state.suspects.S2.layer).toBe(0);
     expect(currentStatement(s.graph,s.state,"S2","baseline:brooch")?.id).toBe("C_S2_BASELINE_TRUE");
@@ -86,12 +86,14 @@ describe("deterministic game reducer",()=>{
     s.act(ask); expect(s.state.elapsedMinutes).toBe(50);
     s.act({type:"Ask",suspect:"S3",topic:"about:V"});
     s.act({type:"Ask",suspect:"S3",topic:"about:V"});
+    s.act({type:"Ask",suspect:"S3",topic:"about:V"});
     s.act(ask); expect(s.state.elapsedMinutes).toBe(85); expect(s.state.activeSuspect).toBe("S2");
   });
   it("cannot repeatedly earn Hunches by breaking an inherited baseline",()=>{
-    const s=session(); s.act(ask); s.act({type:"PinchObject",object:"O6"});
+    const s=session(); s.act(ask); s.act({type:"PinchObject",object:"O12"});
     s.act({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_VALE_LAMP"]});
     s.act({type:"Ask",suspect:"S2",topic:"baseline:brooch"});
+    s.act({type:"PinchObject",object:"O9"});
     s.act({type:"Object",suspect:"S2",statement:"C_S2_BASELINE_LIE",evidence:["E_S2_BASELINE"]});
     expect(currentStatement(s.graph,s.state,"S2","baseline:brooch")?.id).toBe("C_S2_BASELINE_TRUE");
     expect(s.state.suspects.S2.layer).toBe(1); expect(s.state.hunches).toBe(2);
@@ -114,6 +116,7 @@ describe("deterministic game reducer",()=>{
     expect(s.state.notebook).toEqual(before.notebook);
     expect(s.state.elapsedMinutes).toBe(before.elapsedMinutes);
     expect(s.state.pips).toBe(before.pips); expect(s.state.hunches).toBe(before.hunches);
+    s.act({type:"Ask",suspect:"S3",topic:"about:V"});
     s.act({type:"Ask",suspect:"S3",topic:"about:V"});
     s.act({type:"Ask",suspect:"S3",topic:"about:V"});
     s.act(action);
@@ -145,8 +148,9 @@ describe("deterministic game reducer",()=>{
     // S1's Hall alibi does not contradict a Hall suggestion; the lamp supplies the actual refutation.
     expect(firstRefuter(s.graph,{who:"S1",where:"Z3",what:"O1"})?.holder).toBe("O6");
     expect(firstRefuter(s.graph,s.graph.envelope)).toBeNull();
+    s.act({type:"PinchObject",object:"O11"});
     s.act({type:"Suggest",who:"S1",where:"Z1",what:"O1"});
-    expect(s.state.elapsedMinutes).toBe(15); expect(s.state.knowledge.factIds).toContain("F_S1_ALIBI_OBJECT");
+    expect(s.state.elapsedMinutes).toBe(25); expect(s.state.knowledge.factIds).toContain("F_S1_ALIBI_OBJECT");
     expect(s.state.grid.suspects).not.toContain("S1"); // Location still unknown; no hidden-envelope elimination.
     s.act({type:"PinchObject",object:"O6"}); expect(s.state.grid.suspects).toContain("S1");
   });
@@ -187,7 +191,7 @@ describe("deterministic game reducer",()=>{
   });
   it.each(["other-topic","unrelated-action"])("a break permission cannot escape its cue: %s",scenario=>{
     const s=session();s.act({type:"Ask",suspect:"S2",topic:"baseline:brooch"});
-    s.act({type:"PinchObject",object:"O6"});
+    s.act({type:"PinchObject",object:"O12"});
     s.act({type:"Object",suspect:"S2",statement:"C_S2_BASELINE_LIE",evidence:["E_S2_BASELINE"]});
     const id=scenario==="other-topic"?"C_VALE_ALIBI_0":"C_S2_BASELINE_TRUE";
     if(scenario==="unrelated-action")s.act({type:"PinchObject",object:"O11"});
@@ -223,7 +227,7 @@ describe("deterministic game reducer",()=>{
     s.act({type:"LineSpoken",suspect:"S2",key:"spoof",mode:"broken",answer:{topic:cover.topic,cites:[performanceRef("a",cover.id)],line:cover.canonical+" I lied.",emotion:"rattled"}});
     expect(s.state.events.at(-1)?.type).toBe("rejected");
     expect(s.state.suspects.S2.recentLines).toEqual([]);
-    s.act({type:"PinchObject",object:"O6"});
+    s.act({type:"PinchObject",object:"O9"});
     s.act({type:"Object",suspect:"S2",statement:cover.id,evidence:["E_S2_BASELINE"]});
     const correction=s.graph.statements.find(c=>c.id==="C_S2_BASELINE_TRUE")!;
     const answer={topic:correction.topic,cites:[performanceRef("a",correction.id)],line:correction.canonical+" I lied.",emotion:"rattled" as const};

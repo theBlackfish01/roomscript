@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "provenance": "Authored deterministic terminal route; not a Preview capture or generated model output",
+  "caseId": "HARLOW-1041@r_27fe6e25",
+  "seal": "fa4d9ec4",
+  "commands": [
+    "ask S2 what is your name?",
+    "ask S2 tell me about your brooch",
+    "pinch O9",
+    "object S2 C_S2_BASELINE_LIE E_S2_BASELINE",
+    "ask S2 where were you at 22:30?",
+    "press S2 C_VALE_ALIBI_0",
+    "pinch O11",
+    "object S2 C_VALE_ALIBI_0 E_KETTLE_COLD",
+    "pinch O12",
+    "object S2 C_VALE_ALIBI_1 E_RECORDING",
+    "pinch O1",
+    "pinch O8",
+    "pinch O10",
+    "pinch O2",
+    "pinch O3",
+    "pinch O4",
+    "pinch O5",
+    "suggest S1 Z1 O1",
+    "grid",
+    "arg D_OPPORTUNITY E_VALE_LAMP",
+    "arg D_MEANS E_CABLE",
+    "arg D_ALIBI C_VALE_ALIBI_0 E_KETTLE_COLD",
+    "arg D_MOTIVE E_LETTER",
+    "arguments",
+    "accuse S2 Z1 O1"
+  ],
+  "log": [
+    {
+      "type": "Ask",
+      "suspect": "S2",
+      "topic": "baseline:name",
+      "question": "what is your name?",
+      "seq": 1,
+      "by": "terminal"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S2",
+      "topic": "baseline:brooch",
+      "question": "tell me about your brooch",
+      "seq": 2,
+      "by": "terminal"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O9",
+      "seq": 3,
+      "by": "terminal"
+    },
+    {
+      "type": "Object",
+      "suspect": "S2",
+      "statement": "C_S2_BASELINE_LIE",
+      "evidence": [
+        "E_S2_BASELINE"
+      ],
+      "seq": 4,
+      "by": "terminal"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S2",
+      "topic": "where@22:30",
+      "question": "where were you at 22:30?",
+      "seq": 5,
+      "by": "terminal"
+    },
+    {
+      "type": "Press",
+      "suspect": "S2",
+      "statement": "C_VALE_ALIBI_0",
+      "seq": 6,
+      "by": "terminal"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O11",
+      "seq": 7,
+      "by": "terminal"
+    },
+    {
+      "type": "Object",
+      "suspect": "S2",
+      "statement": "C_VALE_ALIBI_0",
+      "evidence": [
+        "E_KETTLE_COLD"
+      ],
+      "seq": 8,
+      "by": "terminal"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O12",
+      "seq": 9,
+      "by": "terminal"
+    },
+    {
+      "type": "Object",
+      "suspect": "S2",
+      "statement": "C_VALE_ALIBI_1",
+      "evidence": [
+        "E_RECORDING"
+      ],
+      "seq": 10,
+      "by": "terminal"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O1",
+      "seq": 11,
+      "by": "terminal"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O8",
+      "seq": 12,
+      "by": "terminal"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O10",
+      "seq": 13,
+      "by": "terminal"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O2",
+      "seq": 14,
+      "by": "terminal"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O3",
+      "seq": 15,
+      "by": "terminal"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O4",
+      "seq": 16,
+      "by": "terminal"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O5",
+      "seq": 17,
+      "by": "terminal"
+    },
+    {
+      "type": "Suggest",
+      "who": "S1",
+      "where": "Z1",
+      "what": "O1",
+      "seq": 18,
+      "by": "terminal"
+    },
+    {
+      "type": "ArgumentClaim",
+      "deduction": "D_OPPORTUNITY",
+      "refs": [
+        "E_VALE_LAMP"
+      ],
+      "seq": 19,
+      "by": "terminal"
+    },
+    {
+      "type": "ArgumentClaim",
+      "deduction": "D_MEANS",
+      "refs": [
+        "E_CABLE"
+      ],
+      "seq": 20,
+      "by": "terminal"
+    },
+    {
+      "type": "ArgumentClaim",
+      "deduction": "D_ALIBI",
+      "refs": [
+        "C_VALE_ALIBI_0",
+        "E_KETTLE_COLD"
+      ],
+      "seq": 21,
+      "by": "terminal"
+    },
+    {
+      "type": "ArgumentClaim",
+      "deduction": "D_MOTIVE",
+      "refs": [
+        "E_LETTER"
+      ],
+      "seq": 22,
+      "by": "terminal"
+    },
+    {
+      "type": "Accuse",
+      "who": "S2",
+      "where": "Z1",
+      "what": "O1",
+      "seq": 23,
+      "by": "terminal"
+    }
+  ],
+  "expected": {
+    "stateHash": "b8c33e02",
+    "score": {
+      "rating": 3,
+      "deductions": 4,
+      "required": 4,
+      "minutes": 145,
+      "minimumMinutes": 85,
+      "stars": [
+        {
+          "name": "Solved",
+          "earned": true
+        },
+        {
+          "name": "Proven",
+          "earned": true
+        },
+        {
+          "name": "Broke the culprit",
+          "earned": true
+        }
+      ]
+    }
+  }
+}

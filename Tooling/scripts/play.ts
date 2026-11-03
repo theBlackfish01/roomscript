@@ -5,6 +5,7 @@ import {fileURLToPath} from "node:url";
 import {Action,ActionPayload,CaseGraph,GameEvent,GameState} from "../../Assets/Scripts/Engine/core/Types";
 import {createHeroCase} from "../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {heroFinalConfession} from "../../Assets/Scripts/Content/HeroLineBank";
+import {endingSummary} from "../../Assets/Scripts/Engine/game/CaseClarity";
 import {createGameState} from "../../Assets/Scripts/Engine/game/GameState";
 import {reduceGame} from "../../Assets/Scripts/Engine/game/Reducer";
 import {solvePlayerKnowledge} from "../../Assets/Scripts/Engine/case/Solver";
@@ -21,7 +22,7 @@ const HELP=[
   "pinch <object> | show <suspect> <evidence> | dismiss <suspect> | hunch",
   "suggest <suspect> <zone> <weapon> | accuse <suspect> <zone> <weapon>",
   "arg <deduction> <evidence/claim IDs> | help | quit",
-  "Use IDs printed on cards. Baseline and first alibi questions cost 5 minutes; other questions, pressure and suggestions cost 15. First inspection costs 10; repeat viewing is free."
+  "Use IDs printed on cards. Baseline and first alibi questions cost 5 minutes; witness questions cost 10; pressure and suggestions cost 15. First inspection costs 10; repeat viewing is free."
 ];
 
 /** A thin command adapter: all truth, tells, time, objections and verdicts come from reduceGame. */
@@ -49,7 +50,7 @@ export class TerminalPlayer {
       case "objectionWrong":return ["OBJECTION OVERRULED: "+event.text];
       case "refuted":return ["REFUTED by "+who+": "+this.name(refs[0])+" — "+(this.graph.facts.find(f=>f.id===refs[1])?.canonical??refs[1])];
       case "breathesIn":return ["No one can refute that suggestion. The room breathes in."];
-      case "verdict":return ["VERDICT: "+event.text,...(event.text==="correct"?["Vale: "+heroFinalConfession.answer.line]:[])];
+      case "verdict":return ["VERDICT: "+event.text,...endingSummary(this.graph,this.state).map(s=>s.text),...(event.text==="correct"?["Vale: "+heroFinalConfession.answer.line]:[])];
       case "beat":return ["BEAT: "+event.text];
       case "hunch":return ["HUNCH: investigate "+refs.join(", ")];
       case "argumentSupported":return ["ARGUMENT SUPPORTED: "+refs[0]];
@@ -61,7 +62,7 @@ export class TerminalPlayer {
       case "revealed":return ["Showed "+refs[0]+" to "+who+"."];
       case "dismissed":return ["Dismissed "+who+"."];
       case "timeout":return ["TIMEOUT: the case clock has expired."];
-      case "credibilityExhausted":return ["CASE CLOSED: credibility exhausted."];
+      case "credibilityExhausted":return ["Credibility exhausted: objections locked; investigating and accusing remain available."];
       default:return event.text?[event.text]:[];
     }
   }
@@ -124,7 +125,7 @@ export class TerminalPlayer {
 }
 
 export const HERO_DEMO_COMMANDS=[
-  "ask S2 what is your name?","ask S2 tell me about your brooch","pinch O6",
+  "ask S2 what is your name?","ask S2 tell me about your brooch","pinch O9",
   "object S2 C_S2_BASELINE_LIE E_S2_BASELINE","ask S2 where were you at 22:30?",
   "press S2 C_VALE_ALIBI_0","pinch O11","object S2 C_VALE_ALIBI_0 E_KETTLE_COLD",
   "pinch O12","object S2 C_VALE_ALIBI_1 E_RECORDING","pinch O1","pinch O8","pinch O10",

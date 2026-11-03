@@ -8,7 +8,7 @@ import {ActionPayload} from "../../../Assets/Scripts/Engine/core/Types";
 it("requires hearing Vale's alibi before its contradiction can earn a deduction",()=>{
   const graph=createHeroCase();let state=createGameState(graph);
   const act=(payload:ActionPayload)=>state=reduceGame(graph,state,{...payload,seq:state.lastSeq+1,by:"P1"});
-  act({type:"PinchObject",object:"O6"});
+  act({type:"PinchObject",object:"O12"});
   expect(availableArguments(graph,state).some(a=>a.deduction==="D_ALIBI")).toBe(false);
   act({type:"ArgumentClaim",deduction:"D_ALIBI",refs:["E_VALE_LAMP"]});
   expect(state.arguments).toEqual([]);

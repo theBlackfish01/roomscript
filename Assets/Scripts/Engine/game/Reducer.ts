@@ -117,13 +117,14 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
     }
     case "Object": case "CallLiar": {
       if (!suspectExists(action.suspect) || !ids(action.evidence)) {reject("invalid_objection"); break;}
+      if(state.pips===0){reject("credibility_locked");break;}
       if (isLawyered(state.suspects[action.suspect],state.elapsedMinutes)) {reject("lawyered"); break;}
       const judged=judgeObjection(graph,state,action.suspect,action.statement,action.evidence);
       const ss=state.suspects[action.suspect];
       ss.memory.push({id:String(action.seq),text:judged.correct ? "The detective proved your account false." : "The detective wrongly accused you.",entities:[],source:"objection"});
       if (!judged.correct || !judged.target) {
         state.pips=Math.max(0,state.pips-1); emit("objectionWrong",{actor:action.suspect,refs:[action.statement],text:judged.reason});
-        if (!state.pips) {state.verdict="wrong"; emit("credibilityExhausted");} break;
+        if (!state.pips) emit("credibilityExhausted",{text:"Objections are locked. You can still investigate and accuse."}); break;
       }
       const target=judged.target;
       const source=state.notebook.find(claim=>claim.statement===action.statement); if(source) source.broken=true;
@@ -137,7 +138,8 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
     case "PinchObject": {
       if (!graph.room.objects.some(o=>o.id===action.object)) {reject("unknown_object"); break;}
       const evidence=graph.evidence.filter(e=>e.holder===action.object && (!e.latent || !!e.beat && state.beatsFired.includes(e.beat)) && !state.knowledge.evidenceIds.includes(e.id));
-      advanceClock(state,Math.max(0,...evidence.map(e=>e.costMinutes ?? 0)));
+      advanceClock(state,state.hunchObject===action.object?0:Math.max(0,...evidence.map(e=>e.costMinutes ?? 0)));
+      if(state.hunchObject===action.object)state.hunchObject=null;
       evidence.forEach(collect); break;
     }
     case "RevealEvidence": {
@@ -149,6 +151,7 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
     }
     case "Suggest": {
       if (!validHypothesis(graph,action)) {reject("unknown_card"); break;}
+      if(state.knowledge.factIds.length<2){reject("gather_evidence_first");break;}
       advanceClock(state,15);
       const refuter=firstRefuter(graph,action,state);
       if (refuter) {learnFact(refuter.fact.id); emit("refuted",{actor:refuter.holder,refs:[refuter.card.eliminates,refuter.fact.id],data:{privateTo:action.by}});}
@@ -160,10 +163,11 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
       emit("dismissed",{actor:action.suspect}); break;
     }
     case "UseHunch": {
+      if(state.hunchObject){reject("hunch_already_marked");break;}
       if (state.hunches<=0) {reject("no_hunches"); break;}
       const ref=chooseHunch(graph,state);
-      if (!ref) {reject("no_observed_cover"); break;}
-      state.hunches--; emit("hunch",{refs:[ref]}); break;
+      if (!ref) {reject("no_uninspected_object"); break;}
+      state.hunches--; state.hunchObject=ref; emit("hunch",{refs:[ref],text:"Inspect this marked object for free."}); break;
     }
     case "Accuse": {
       if (!validHypothesis(graph,action)) {reject("unknown_card"); break;}
@@ -200,7 +204,7 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
       if (!validation.ok || !validation.answer) {reject("unvalidated_performance"); break;}
       const answer=validation.answer;
       const ss=state.suspects[action.suspect];
-      answer.cites.filter(ref=>ref!=="none").forEach(ref=>uniquePush(ss.saidSoFar,ref)); ss.recentLines=[...ss.recentLines,answer.line].slice(-2);
+      answer.cites.filter(ref=>ref!=="none").forEach(ref=>uniquePush(ss.saidSoFar,ref)); if(!answer.cites.includes("none")) ss.recentLines=[...ss.recentLines,answer.line].slice(-3);
       emit("lineSpoken",{actor:action.suspect,refs:answer.cites.slice(),text:answer.line}); break;
     }
     case "GossipSpoken": reject("gossip_packet_not_yet_admitted"); break;

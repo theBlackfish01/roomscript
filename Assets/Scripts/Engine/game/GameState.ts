@@ -6,6 +6,6 @@ export function createGameState(graph: CaseGraph): GameState {
     rapport:0,respect:0,emptyPresses:0,lawyeredUntil:0,shownEvidence:[],heard:[],memory:[],saidSoFar:[],recentLines:[]
   };
   return {setupPose:null,refuterOrder:graph.refutation.order.slice(),caseId:graph.caseId,lastSeq:0,elapsedMinutes:0,clockMinutes:graph.clockMinutes,pips:5,hunches:0,
-    activeSuspect:null,activeStatement:null,suspects,knowledge:{factIds:[],evidenceIds:[],statementIds:[]},
+    hunchObject:null,activeSuspect:null,activeStatement:null,suspects,knowledge:{factIds:[],evidenceIds:[],statementIds:[]},
     notebook:[],grid:{suspects:[],zones:[],weapons:[]},beatsFired:[],arguments:[],verdict:null,accusation:null,events:[],log:[]};
 }
