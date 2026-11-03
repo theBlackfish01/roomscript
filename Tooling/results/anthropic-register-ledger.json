@@ -1,0 +1,54 @@
+{
+  "model": "claude-opus-5-5",
+  "usage": [
+    {
+      "label": "write:S1",
+      "input": 711,
+      "output": 1674,
+      "costUSD": 0.036324
+    },
+    {
+      "label": "judge:S1",
+      "input": 1049,
+      "output": 1070,
+      "costUSD": 0.025596
+    },
+    {
+      "label": "write:S2",
+      "input": 717,
+      "output": 1783,
+      "costUSD": 0.038528
+    },
+    {
+      "label": "judge:S2",
+      "input": 1017,
+      "output": 1099,
+      "costUSD": 0.026048
+    },
+    {
+      "label": "write:S3",
+      "input": 719,
+      "output": 1645,
+      "costUSD": 0.035776
+    },
+    {
+      "label": "judge:S3",
+      "input": 1005,
+      "output": 856,
+      "costUSD": 0.02114
+    },
+    {
+      "label": "write:S4",
+      "input": 724,
+      "output": 2502,
+      "costUSD": 0.052936
+    },
+    {
+      "label": "judge:S4",
+      "input": 1073,
+      "output": 900,
+      "costUSD": 0.022292
+    }
+  ],
+  "totalCostUSD": 0.25864
+}

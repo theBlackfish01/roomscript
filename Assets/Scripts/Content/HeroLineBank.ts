@@ -28,7 +28,7 @@ export function createHeroLineBank(graph:CaseGraph=heroCase):LineBankEntry[] {
       for(const mode of ["deflect","filler","lawyered"] as AnswerMode[]) bank.push({suspect:suspect.id,topic:"unclear",layer,mode,answer:{topic:"unclear",cites:["none"],line:neutral[mode],emotion:mode==="lawyered"?"irritated":"guarded"}});
     }
   }
-  bank.push({suspect:"S2",topic:"where@22:30",layer:2,mode:"confession",answer:{topic:"where@22:30",cites:[performanceRef("a","C_VALE_ALIBI_2")],line:"I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust.",emotion:"grieving"}});
+  bank.push({suspect:"S2",topic:"where@22:30",layer:2,mode:"confession",answer:{topic:"where@22:30",cites:[performanceRef("a","C_VALE_ALIBI_2")],line:"I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts.",emotion:"grieving"}});
   return bank;
 }
 

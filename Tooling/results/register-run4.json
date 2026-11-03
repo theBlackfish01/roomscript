@@ -1,0 +1,949 @@
+{
+  "model": "claude-opus-5-5",
+  "report": [
+    {
+      "suspect": "S1",
+      "generated": {
+        "segments": [
+          {
+            "kind": "opener",
+            "text": "Ah, detective, how good of you."
+          },
+          {
+            "kind": "opener",
+            "text": "Well, well, how very observant."
+          },
+          {
+            "kind": "opener",
+            "text": "Goodness, detective, please ask."
+          },
+          {
+            "kind": "opener",
+            "text": "Heavens, a question for me?"
+          },
+          {
+            "kind": "opener",
+            "text": "Dear detective, do ask."
+          },
+          {
+            "kind": "opener",
+            "text": "Gracious, you again?"
+          },
+          {
+            "kind": "tail",
+            "text": "Suffice to say, I am listening."
+          },
+          {
+            "kind": "tail",
+            "text": "Thank you, detective."
+          },
+          {
+            "kind": "tail",
+            "text": "Do write that down, detective."
+          },
+          {
+            "kind": "tail",
+            "text": "As you say, detective."
+          },
+          {
+            "kind": "tail",
+            "text": "Indeed, quite so."
+          },
+          {
+            "kind": "tail",
+            "text": "If you please."
+          },
+          {
+            "kind": "tail",
+            "text": "Trust me, detective."
+          },
+          {
+            "kind": "tail",
+            "text": "Fine, then."
+          },
+          {
+            "kind": "filler",
+            "text": "Hm."
+          },
+          {
+            "kind": "filler",
+            "text": "Hmm."
+          },
+          {
+            "kind": "filler",
+            "text": "Well."
+          },
+          {
+            "kind": "deflect",
+            "text": "Let me think a moment."
+          },
+          {
+            "kind": "deflect",
+            "text": "Perhaps you could ask that again, slowly."
+          },
+          {
+            "kind": "deflect",
+            "text": "I would rather collect myself for a moment."
+          },
+          {
+            "kind": "deflect",
+            "text": "Please, I need a moment of space."
+          },
+          {
+            "kind": "deflect",
+            "text": "Frankly, enough of that matter."
+          },
+          {
+            "kind": "deflect",
+            "text": "Pardon me, could you say that again?"
+          },
+          {
+            "kind": "deflect",
+            "text": "Excuse me, is this a specific concern?"
+          },
+          {
+            "kind": "deflect",
+            "text": "Forgive me, I need to think."
+          },
+          {
+            "kind": "lawyered",
+            "text": "I shall answer only the specific question, detective."
+          },
+          {
+            "kind": "lawyered",
+            "text": "Write the question down, and I shall answer."
+          },
+          {
+            "kind": "lawyered",
+            "text": "I should answer that as asked, and only as asked."
+          }
+        ]
+      },
+      "judged": {
+        "judgments": [
+          {
+            "index": 0,
+            "allowed": true
+          },
+          {
+            "index": 1,
+            "allowed": true
+          },
+          {
+            "index": 2,
+            "allowed": true
+          },
+          {
+            "index": 3,
+            "allowed": true
+          },
+          {
+            "index": 4,
+            "allowed": true
+          },
+          {
+            "index": 5,
+            "allowed": false
+          },
+          {
+            "index": 6,
+            "allowed": true
+          },
+          {
+            "index": 7,
+            "allowed": true
+          },
+          {
+            "index": 8,
+            "allowed": false
+          },
+          {
+            "index": 9,
+            "allowed": false
+          },
+          {
+            "index": 10,
+            "allowed": false
+          },
+          {
+            "index": 11,
+            "allowed": true
+          },
+          {
+            "index": 12,
+            "allowed": false
+          },
+          {
+            "index": 13,
+            "allowed": true
+          },
+          {
+            "index": 14,
+            "allowed": true
+          },
+          {
+            "index": 15,
+            "allowed": true
+          },
+          {
+            "index": 16,
+            "allowed": true
+          },
+          {
+            "index": 17,
+            "allowed": true
+          },
+          {
+            "index": 18,
+            "allowed": true
+          },
+          {
+            "index": 19,
+            "allowed": true
+          },
+          {
+            "index": 20,
+            "allowed": true
+          },
+          {
+            "index": 21,
+            "allowed": true
+          },
+          {
+            "index": 22,
+            "allowed": true
+          },
+          {
+            "index": 23,
+            "allowed": true
+          },
+          {
+            "index": 24,
+            "allowed": true
+          },
+          {
+            "index": 25,
+            "allowed": true
+          },
+          {
+            "index": 26,
+            "allowed": true
+          },
+          {
+            "index": 27,
+            "allowed": true
+          }
+        ]
+      },
+      "kept": 22
+    },
+    {
+      "suspect": "S2",
+      "generated": {
+        "segments": [
+          {
+            "kind": "opener",
+            "text": "Well, detective."
+          },
+          {
+            "kind": "opener",
+            "text": "Ah, detective, good."
+          },
+          {
+            "kind": "opener",
+            "text": "Pardon me, detective."
+          },
+          {
+            "kind": "opener",
+            "text": "Goodness, again?"
+          },
+          {
+            "kind": "opener",
+            "text": "Very well, ask."
+          },
+          {
+            "kind": "opener",
+            "text": "Gracious, a question."
+          },
+          {
+            "kind": "tail",
+            "text": "If you please."
+          },
+          {
+            "kind": "tail",
+            "text": "Thank you, detective."
+          },
+          {
+            "kind": "tail",
+            "text": "As you might suppose."
+          },
+          {
+            "kind": "tail",
+            "text": "If that would suffice."
+          },
+          {
+            "kind": "tail",
+            "text": "Do write that down."
+          },
+          {
+            "kind": "tail",
+            "text": "Slowly, if you please."
+          },
+          {
+            "kind": "tail",
+            "text": "Indeed, quite."
+          },
+          {
+            "kind": "tail",
+            "text": "With my thanks."
+          },
+          {
+            "kind": "filler",
+            "text": "Hm."
+          },
+          {
+            "kind": "filler",
+            "text": "Hmm."
+          },
+          {
+            "kind": "filler",
+            "text": "Well."
+          },
+          {
+            "kind": "deflect",
+            "text": "Forgive me, but that is rather your concern."
+          },
+          {
+            "kind": "deflect",
+            "text": "Perhaps ask again, and more slowly."
+          },
+          {
+            "kind": "deflect",
+            "text": "Really, detective, how very observant."
+          },
+          {
+            "kind": "deflect",
+            "text": "Excuse me, I need a moment to collect myself."
+          },
+          {
+            "kind": "deflect",
+            "text": "Is that question really your concern?"
+          },
+          {
+            "kind": "deflect",
+            "text": "Good heavens, the question again."
+          },
+          {
+            "kind": "deflect",
+            "text": "Do let me think, detective."
+          },
+          {
+            "kind": "deflect",
+            "text": "I would ask for more space, please."
+          },
+          {
+            "kind": "lawyered",
+            "text": "Be specific, detective, or let the matter be."
+          },
+          {
+            "kind": "lawyered",
+            "text": "I shall answer only a specific question."
+          },
+          {
+            "kind": "lawyered",
+            "text": "Write the question down, then ask again."
+          }
+        ]
+      },
+      "judged": {
+        "judgments": [
+          {
+            "index": 0,
+            "allowed": true
+          },
+          {
+            "index": 1,
+            "allowed": true
+          },
+          {
+            "index": 2,
+            "allowed": true
+          },
+          {
+            "index": 3,
+            "allowed": true
+          },
+          {
+            "index": 4,
+            "allowed": true
+          },
+          {
+            "index": 5,
+            "allowed": true
+          },
+          {
+            "index": 6,
+            "allowed": true
+          },
+          {
+            "index": 7,
+            "allowed": true
+          },
+          {
+            "index": 8,
+            "allowed": false
+          },
+          {
+            "index": 9,
+            "allowed": true
+          },
+          {
+            "index": 10,
+            "allowed": true
+          },
+          {
+            "index": 11,
+            "allowed": true
+          },
+          {
+            "index": 12,
+            "allowed": false
+          },
+          {
+            "index": 13,
+            "allowed": true
+          },
+          {
+            "index": 14,
+            "allowed": true
+          },
+          {
+            "index": 15,
+            "allowed": true
+          },
+          {
+            "index": 16,
+            "allowed": true
+          },
+          {
+            "index": 17,
+            "allowed": true
+          },
+          {
+            "index": 18,
+            "allowed": true
+          },
+          {
+            "index": 19,
+            "allowed": false
+          },
+          {
+            "index": 20,
+            "allowed": true
+          },
+          {
+            "index": 21,
+            "allowed": true
+          },
+          {
+            "index": 22,
+            "allowed": true
+          },
+          {
+            "index": 23,
+            "allowed": true
+          },
+          {
+            "index": 24,
+            "allowed": true
+          },
+          {
+            "index": 25,
+            "allowed": true
+          },
+          {
+            "index": 26,
+            "allowed": true
+          },
+          {
+            "index": 27,
+            "allowed": true
+          }
+        ]
+      },
+      "kept": 25
+    },
+    {
+      "suspect": "S3",
+      "generated": {
+        "segments": [
+          {
+            "kind": "opener",
+            "text": "Well, detective."
+          },
+          {
+            "kind": "opener",
+            "text": "Listen to me, please."
+          },
+          {
+            "kind": "opener",
+            "text": "Frankly, detective, enough."
+          },
+          {
+            "kind": "opener",
+            "text": "Ah, the question again."
+          },
+          {
+            "kind": "opener",
+            "text": "Good heavens, detective."
+          },
+          {
+            "kind": "opener",
+            "text": "Very well, ask."
+          },
+          {
+            "kind": "tail",
+            "text": "If you please."
+          },
+          {
+            "kind": "tail",
+            "text": "And that is that."
+          },
+          {
+            "kind": "tail",
+            "text": "So be it."
+          },
+          {
+            "kind": "tail",
+            "text": "Write that down, detective."
+          },
+          {
+            "kind": "tail",
+            "text": "Then let that suffice."
+          },
+          {
+            "kind": "tail",
+            "text": "I trust that is enough."
+          },
+          {
+            "kind": "tail",
+            "text": "Thank you, detective."
+          },
+          {
+            "kind": "tail",
+            "text": "Slowly, detective, slowly."
+          },
+          {
+            "kind": "filler",
+            "text": "Hm."
+          },
+          {
+            "kind": "filler",
+            "text": "Hmm."
+          },
+          {
+            "kind": "filler",
+            "text": "Ah."
+          },
+          {
+            "kind": "deflect",
+            "text": "That question again, detective?"
+          },
+          {
+            "kind": "deflect",
+            "text": "Ask me a specific question."
+          },
+          {
+            "kind": "deflect",
+            "text": "Let me collect myself a moment."
+          },
+          {
+            "kind": "deflect",
+            "text": "I need a moment, please."
+          },
+          {
+            "kind": "deflect",
+            "text": "How observant of you, detective."
+          },
+          {
+            "kind": "deflect",
+            "text": "Perhaps you could ask more slowly."
+          },
+          {
+            "kind": "deflect",
+            "text": "Frankly, that is your concern, detective."
+          },
+          {
+            "kind": "deflect",
+            "text": "I would rather answer a specific question."
+          },
+          {
+            "kind": "lawyered",
+            "text": "I shall answer only a specific question."
+          },
+          {
+            "kind": "lawyered",
+            "text": "Put that down as asked and answered."
+          },
+          {
+            "kind": "lawyered",
+            "text": "I will answer if the question is specific."
+          }
+        ]
+      },
+      "judged": {
+        "judgments": [
+          {
+            "index": 0,
+            "allowed": true
+          },
+          {
+            "index": 1,
+            "allowed": true
+          },
+          {
+            "index": 2,
+            "allowed": true
+          },
+          {
+            "index": 3,
+            "allowed": true
+          },
+          {
+            "index": 4,
+            "allowed": true
+          },
+          {
+            "index": 5,
+            "allowed": true
+          },
+          {
+            "index": 6,
+            "allowed": true
+          },
+          {
+            "index": 7,
+            "allowed": true
+          },
+          {
+            "index": 8,
+            "allowed": true
+          },
+          {
+            "index": 9,
+            "allowed": true
+          },
+          {
+            "index": 10,
+            "allowed": true
+          },
+          {
+            "index": 11,
+            "allowed": true
+          },
+          {
+            "index": 12,
+            "allowed": true
+          },
+          {
+            "index": 13,
+            "allowed": true
+          },
+          {
+            "index": 14,
+            "allowed": true
+          },
+          {
+            "index": 15,
+            "allowed": true
+          },
+          {
+            "index": 16,
+            "allowed": true
+          },
+          {
+            "index": 17,
+            "allowed": true
+          },
+          {
+            "index": 18,
+            "allowed": true
+          },
+          {
+            "index": 19,
+            "allowed": true
+          },
+          {
+            "index": 20,
+            "allowed": true
+          },
+          {
+            "index": 21,
+            "allowed": false
+          },
+          {
+            "index": 22,
+            "allowed": true
+          },
+          {
+            "index": 23,
+            "allowed": true
+          },
+          {
+            "index": 24,
+            "allowed": true
+          },
+          {
+            "index": 25,
+            "allowed": true
+          },
+          {
+            "index": 26,
+            "allowed": true
+          },
+          {
+            "index": 27,
+            "allowed": true
+          }
+        ]
+      },
+      "kept": 26
+    },
+    {
+      "suspect": "S4",
+      "generated": {
+        "segments": [
+          {
+            "kind": "opener",
+            "text": "Ah, detective, how very good of you."
+          },
+          {
+            "kind": "opener",
+            "text": "Well, detective, I am listening, really."
+          },
+          {
+            "kind": "opener",
+            "text": "Goodness, detective, how observant of you."
+          },
+          {
+            "kind": "opener",
+            "text": "Frankly, detective, ask your question, please."
+          },
+          {
+            "kind": "opener",
+            "text": "Dear detective, do say your concern."
+          },
+          {
+            "kind": "opener",
+            "text": "Good heavens, detective, then ask."
+          },
+          {
+            "kind": "tail",
+            "text": "That should suffice, yes?"
+          },
+          {
+            "kind": "tail",
+            "text": "That is quite enough, really."
+          },
+          {
+            "kind": "tail",
+            "text": "Thank you, detective, very much."
+          },
+          {
+            "kind": "tail",
+            "text": "I trust you understand."
+          },
+          {
+            "kind": "tail",
+            "text": "I suppose so, honestly."
+          },
+          {
+            "kind": "tail",
+            "text": "Do write that down, slowly."
+          },
+          {
+            "kind": "tail",
+            "text": "Now, if you will excuse me."
+          },
+          {
+            "kind": "tail",
+            "text": "So, then, is this fine?"
+          },
+          {
+            "kind": "filler",
+            "text": "Hm."
+          },
+          {
+            "kind": "filler",
+            "text": "Hmm, well."
+          },
+          {
+            "kind": "filler",
+            "text": "Ah, yes."
+          },
+          {
+            "kind": "deflect",
+            "text": "Perhaps you could ask again, slowly."
+          },
+          {
+            "kind": "deflect",
+            "text": "Is that really the matter of concern?"
+          },
+          {
+            "kind": "deflect",
+            "text": "Forgive me, I need more space."
+          },
+          {
+            "kind": "deflect",
+            "text": "I would rather think, if I may."
+          },
+          {
+            "kind": "deflect",
+            "text": "Pardon me, I need a moment."
+          },
+          {
+            "kind": "deflect",
+            "text": "Let me collect myself, please."
+          },
+          {
+            "kind": "deflect",
+            "text": "How very specific a question."
+          },
+          {
+            "kind": "deflect",
+            "text": "Gracious, how very observant."
+          },
+          {
+            "kind": "lawyered",
+            "text": "Write down only my answer, please."
+          },
+          {
+            "kind": "lawyered",
+            "text": "I have answered, detective, and answered enough."
+          },
+          {
+            "kind": "lawyered",
+            "text": "Suffice to say, I said as much as I shall say."
+          }
+        ]
+      },
+      "judged": {
+        "judgments": [
+          {
+            "index": 0,
+            "allowed": true
+          },
+          {
+            "index": 1,
+            "allowed": true
+          },
+          {
+            "index": 2,
+            "allowed": true
+          },
+          {
+            "index": 3,
+            "allowed": true
+          },
+          {
+            "index": 4,
+            "allowed": true
+          },
+          {
+            "index": 5,
+            "allowed": true
+          },
+          {
+            "index": 6,
+            "allowed": true
+          },
+          {
+            "index": 7,
+            "allowed": true
+          },
+          {
+            "index": 8,
+            "allowed": true
+          },
+          {
+            "index": 9,
+            "allowed": true
+          },
+          {
+            "index": 10,
+            "allowed": true
+          },
+          {
+            "index": 11,
+            "allowed": true
+          },
+          {
+            "index": 12,
+            "allowed": true
+          },
+          {
+            "index": 13,
+            "allowed": true
+          },
+          {
+            "index": 14,
+            "allowed": true
+          },
+          {
+            "index": 15,
+            "allowed": true
+          },
+          {
+            "index": 16,
+            "allowed": true
+          },
+          {
+            "index": 17,
+            "allowed": true
+          },
+          {
+            "index": 18,
+            "allowed": true
+          },
+          {
+            "index": 19,
+            "allowed": true
+          },
+          {
+            "index": 20,
+            "allowed": true
+          },
+          {
+            "index": 21,
+            "allowed": true
+          },
+          {
+            "index": 22,
+            "allowed": true
+          },
+          {
+            "index": 23,
+            "allowed": true
+          },
+          {
+            "index": 24,
+            "allowed": true
+          },
+          {
+            "index": 25,
+            "allowed": true
+          },
+          {
+            "index": 26,
+            "allowed": false
+          },
+          {
+            "index": 27,
+            "allowed": false
+          }
+        ]
+      },
+      "kept": 26
+    }
+  ]
+}

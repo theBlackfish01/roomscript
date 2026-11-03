@@ -24,7 +24,7 @@ async function ask(label:string,system:string,input:unknown,schema:any){
  const u=r.usage;ledger.usage.push({label,input:u.input_tokens,output:u.output_tokens,cacheWrite:u.cache_creation_input_tokens||0,cacheRead:u.cache_read_input_tokens||0,costUSD:(u.input_tokens*4+u.output_tokens*20+(u.cache_creation_input_tokens||0)*5+(u.cache_read_input_tokens||0)*.2)/1e6});ledger.totalCostUSD=ledger.usage.reduce((n:number,x:any)=>n+x.costUSD,0);save(ledgerFile,ledger);
  const text=r.content.filter(x=>x.type==='text').map(x=>(x as any).text).join('');const value=JSON.parse(safe(text));save(file,value);return value;
 }
-const g=createHeroCase(),results:any[]=[],variants:any[]=[];
+const g=createHeroCase(),results:any[]=[],variants:any[]=[];delete g.performances;
 const schema={type:'object',additionalProperties:false,required:['candidates'],properties:{candidates:{type:'array',items:{type:'object',additionalProperties:false,required:['text','emotion'],properties:{text:{type:'string'},emotion:{type:'string',enum:['calm','guarded','irritated','rattled','smug','grieving']}}}}}};
 const judgeSchema={type:'object',additionalProperties:false,required:['judgments'],properties:{judgments:{type:'array',items:{type:'object',additionalProperties:false,required:['index','allowed','reason'],properties:{index:{type:'integer'},allowed:{type:'boolean'},reason:{type:'string'}}}}}};
 for(const s of g.statements){

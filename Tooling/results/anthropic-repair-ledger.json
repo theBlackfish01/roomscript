@@ -1,0 +1,126 @@
+{
+  "model": "claude-opus-5-5",
+  "usage": [
+    {
+      "label": "repair:C_VALE_ALIBI_1:answer",
+      "input": 847,
+      "output": 339,
+      "costUSD": 0.010168
+    },
+    {
+      "label": "judge:C_VALE_ALIBI_1:answer",
+      "input": 744,
+      "output": 364,
+      "costUSD": 0.010256
+    },
+    {
+      "label": "repair:C_SEES_S3:answer",
+      "input": 946,
+      "output": 341,
+      "costUSD": 0.010604
+    },
+    {
+      "label": "judge:C_SEES_S3:answer",
+      "input": 745,
+      "output": 356,
+      "costUSD": 0.0101
+    },
+    {
+      "label": "repair:C_SEES_S3:press",
+      "input": 933,
+      "output": 343,
+      "costUSD": 0.010592
+    },
+    {
+      "label": "judge:C_SEES_S3:press",
+      "input": 747,
+      "output": 382,
+      "costUSD": 0.010628
+    },
+    {
+      "label": "repair:C_S4_ALIBI_0:answer",
+      "input": 773,
+      "output": 282,
+      "costUSD": 0.008732
+    },
+    {
+      "label": "judge:C_S4_ALIBI_0:answer",
+      "input": 679,
+      "output": 403,
+      "costUSD": 0.010776
+    },
+    {
+      "label": "repair:C_S4_ALIBI_1:answer",
+      "input": 990,
+      "output": 376,
+      "costUSD": 0.01148
+    },
+    {
+      "label": "judge:C_S4_ALIBI_1:answer",
+      "input": 785,
+      "output": 361,
+      "costUSD": 0.01036
+    },
+    {
+      "label": "repair:C_S4_ALIBI_1:press",
+      "input": 958,
+      "output": 377,
+      "costUSD": 0.011372
+    },
+    {
+      "label": "judge:C_S4_ALIBI_1:press",
+      "input": 786,
+      "output": 453,
+      "costUSD": 0.012204
+    },
+    {
+      "label": "repair:C_SEES_O2:answer",
+      "input": 982,
+      "output": 339,
+      "costUSD": 0.010708
+    },
+    {
+      "label": "judge:C_SEES_O2:answer",
+      "input": 743,
+      "output": 430,
+      "costUSD": 0.011572
+    },
+    {
+      "label": "repair:C_SEES_O2:press",
+      "input": 949,
+      "output": 336,
+      "costUSD": 0.010516
+    },
+    {
+      "label": "judge:C_SEES_O2:press",
+      "input": 740,
+      "output": 352,
+      "costUSD": 0.01
+    },
+    {
+      "label": "repair:C_S4_BASELINE_LIE:answer",
+      "input": 750,
+      "output": 254,
+      "costUSD": 0.00808
+    },
+    {
+      "label": "judge:C_S4_BASELINE_LIE:answer",
+      "input": 648,
+      "output": 511,
+      "costUSD": 0.012812
+    },
+    {
+      "label": "repair:C_S4_BASELINE_TRUE:answer",
+      "input": 742,
+      "output": 236,
+      "costUSD": 0.007688
+    },
+    {
+      "label": "judge:C_S4_BASELINE_TRUE:answer",
+      "input": 628,
+      "output": 514,
+      "costUSD": 0.012792
+    }
+  ],
+  "totalCostUSD": 0.21144
+}
