@@ -1,0 +1,6 @@
+import {it,expect,vi} from "vitest";
+import {Scheduler} from "../../../Assets/Scripts/Engine/ai/Scheduler";
+import {Degradation} from "../../../Assets/Scripts/Engine/ai/Degradation";
+import {FakeClock,deferred,flush} from "./helpers";
+it("a single unavailable reply never permanently closes the live path",()=>{const d=new Degradation();d.failure("unavailable");expect(d.preferAuthored).toBe(false);d.success();expect(d.level).toBe(3);});
+it("isolates provider cooldowns and gives the first spoken sentence queue priority",async()=>{const clock=new FakeClock(),s=new Scheduler(clock,1);s.reportRateLimit(2000,"gemini:text");const blocked=vi.fn(async()=>"gemini");const g=s.submit("live",blocked,undefined,"gemini:text");const o=s.submit("live",async()=>"openai",undefined,"openai:text");expect(await o.promise).toBe("openai");expect(blocked).not.toHaveBeenCalled();clock.advance(2000);await flush();expect(await g.promise).toBe("gemini");const hold=deferred<void>(),first=s.submit("live",()=>hold.promise),order:string[]=[];const text=s.submit("live",async()=>{order.push("text")});const speech=s.submit("speech",async()=>{order.push("speech")});hold.resolve();await first.promise;await Promise.all([text.promise,speech.promise]);expect(order).toEqual(["speech","text"]);});

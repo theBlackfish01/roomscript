@@ -18,8 +18,8 @@ export function buildFactSheet(graph: CaseGraph, state: GameState, suspect: Id):
   const topicToRef: Record<string, string> = {};
   for (const ref of account) Object.defineProperty(topicToRef, ref.topic!, {value: ref.ref, enumerable: true, writable: true, configurable: true});
   const recentLines = state.events.filter(event => event.type === "lineSpoken" && event.actor === suspect
-    && typeof event.text === "string" && event.refs && event.refs.every(ref => refs.has(ref) || ref === "none"))
-    .slice(-2).map(event => event.text!);
+    && typeof event.text === "string" && event.refs && !event.refs.includes("none") && event.refs.every(ref => refs.has(ref) || ref === "none"))
+    .slice(-3).map(event => event.text!);
   return {
     suspect, name: person.name, persona: person.persona, era: graph.era,
     mood: {composure: current.composure, composureMax: current.composureMax, rapport: current.rapport,

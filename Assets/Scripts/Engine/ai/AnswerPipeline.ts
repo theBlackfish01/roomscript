@@ -123,7 +123,7 @@ export class AnswerPipeline {
           const secondary=this.options.fallbackModel ?? (this.options.model.provider==="gemini" ? {provider:"openai" as const,model:"gpt-4o-mini"} : undefined);
           const attemptRequest=attempts>1 && secondary ? {...request,...secondary} : request;
           const response = await withDeadline(token => this.options.scheduler.submit("live",
-            transportToken => this.options.llm.complete(attemptRequest, transportToken), token).promise,
+            transportToken => this.options.llm.complete(attemptRequest, transportToken), token,attemptRequest.provider+":text").promise,
           Math.min(DEADLINES.generationMs, remaining), this.options.clock, network.token);
           if (!active()) return;
           const validated = validateLine(response.content, sheet, graph, mode);
