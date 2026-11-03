@@ -28,6 +28,7 @@ export function canonicalFallback(sheet: FactSheet, topic: string, mode: AnswerM
   if (!neutral && mode !== "confession" && ref && ref.text.length <= 220 && !sheet.guarded.includes(topic)) {
     return {topic, cites: [ref.ref], line: ref.text, emotion: mode === "broken" ? "rattled" : "guarded"};
   }
-  return {topic: "unclear", cites: ["none"], line: mode === "filler" ? "Let me think." : mode === "lawyered" ? "I need some space." : "Ask me something more specific.", emotion: "guarded"};
+  // These exact neutral lines share the authored bank's bundled recordings.
+  return {topic: "unclear", cites: ["none"], line: mode === "filler" ? "Give me a moment to collect myself." : mode === "lawyered" ? "I have answered enough. Give me some space." : "Ask me something more specific.", emotion: "guarded"};
 }
 function compare(a: string, b: string): number {return a < b ? -1 : a > b ? 1 : 0;}
