@@ -1,0 +1,20 @@
+{
+  "version": "v3+role-guard",
+  "apiCostUSD": 0,
+  "results": [
+    {
+      "source": "validator-redteam-2026-10-30.json",
+      "attacks": 96,
+      "bypasses": 0,
+      "natural": 69,
+      "falseRejections": 32
+    },
+    {
+      "source": "validator-redteam-2026-10-30-holdout.json",
+      "attacks": 48,
+      "bypasses": 0,
+      "natural": 34,
+      "falseRejections": 24
+    }
+  ]
+}

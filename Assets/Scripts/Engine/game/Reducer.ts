@@ -3,7 +3,7 @@ import {solvePlayerKnowledge} from "../case/Solver";
 import {currentStatement, getCurrentStatements, knownRefs, statementFacts} from "./Actions";
 import {advanceClock} from "./Clock";
 import {emptyPress, isLawyered, newEvidence} from "./Composure";
-import {judgeObjection} from "./ObjectionJudge";
+import {judgeObjection,objectionReason} from "./ObjectionJudge";
 import {firstRefuter} from "./RefutationRound";
 import {judgeAccusation, validHypothesis} from "./Accusation";
 import {chooseHunch} from "./Hunches";
@@ -123,7 +123,7 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
       const ss=state.suspects[action.suspect];
       ss.memory.push({id:String(action.seq),text:judged.correct ? "The detective proved your account false." : "The detective wrongly accused you.",entities:[],source:"objection"});
       if (!judged.correct || !judged.target) {
-        state.pips=Math.max(0,state.pips-1); emit("objectionWrong",{actor:action.suspect,refs:[action.statement],text:judged.reason});
+        state.pips=Math.max(0,state.pips-1); emit("objectionWrong",{actor:action.suspect,refs:[action.statement],text:objectionReason(judged.reason),data:{reason:judged.reason}});
         if (!state.pips) emit("credibilityExhausted",{text:"Objections are locked. You can still investigate and accuse."}); break;
       }
       const target=judged.target;
