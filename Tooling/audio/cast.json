@@ -1,0 +1,362 @@
+{
+  "version": 1,
+  "voices": [
+    {
+      "id": "S2",
+      "name": "Vale",
+      "description": "A fictional mature woman with a cultured 1940s mid-Atlantic contralto, cool precision and restrained authority. Low chest resonance, crisp consonants, elegant dry irony. Under pressure her breath narrows but her words stay clear. Natural dramatic acting, intimate dry studio recording, no impersonation.",
+      "text": "Really, Detective. I prefer a precise question to a theatrical accusation. Take your time, arrange your papers, and let us discuss this with a little dignity.",
+      "fallback": "pFZP5JQG7iQjIQuC4Bku",
+      "previews": [
+        {
+          "index": 0,
+          "path": "Tooling/audio/previews/S2-1.mp3",
+          "generatedVoiceId": "Ajczv1caVKcFEG1TdJH0",
+          "duration": 12.592833333333333,
+          "metrics": {
+            "paceWpm": 124,
+            "rmsDb": -20.5,
+            "clippedFraction": 0,
+            "activeFraction": 0.5306965292669367
+          },
+          "score": 95.94
+        },
+        {
+          "index": 1,
+          "path": "Tooling/audio/previews/S2-2.mp3",
+          "generatedVoiceId": "ysTjlrxaU2pIe4zuixSo",
+          "duration": 12.201,
+          "metrics": {
+            "paceWpm": 128,
+            "rmsDb": -20,
+            "clippedFraction": 0,
+            "activeFraction": 0.5573219527939873
+          },
+          "score": 97.93
+        },
+        {
+          "index": 2,
+          "path": "Tooling/audio/previews/S2-3.mp3",
+          "generatedVoiceId": "gs6Z7os6xvnyGsWecOvM",
+          "duration": 13.559375,
+          "metrics": {
+            "paceWpm": 115,
+            "rmsDb": -20.5,
+            "clippedFraction": 0,
+            "activeFraction": 0.47384531695870846
+          },
+          "score": 91.52
+        }
+      ],
+      "selected": 1,
+      "voiceId": "ysTjlrxaU2pIe4zuixSo",
+      "voiceSource": "designed"
+    },
+    {
+      "id": "S1",
+      "name": "Imran Qadir",
+      "description": "A fictional adult male warm quick baritone with a light natural South Asian English lilt. Relaxed slouched charm, slightly smiling phrasing, then a cautious hesitation when pressed. Respectful subtle accent, never caricature. 1940s noir dialogue, clear intimate dry studio recording.",
+      "text": "Well now, Detective, there is a way to ask a question. Give me a moment to find the words. You need not stare quite so hard; I can hear you perfectly.",
+      "fallback": "TX3LPaxmHKxFdv7VOQHJ",
+      "previews": [
+        {
+          "index": 0,
+          "path": "Tooling/audio/previews/S1-1.mp3",
+          "generatedVoiceId": "QefbtgMIZqMEV81ZifAz",
+          "duration": 11.965916666666667,
+          "metrics": {
+            "paceWpm": 155,
+            "rmsDb": -19,
+            "clippedFraction": 0,
+            "activeFraction": 0.5871176701057855
+          },
+          "score": 99.78
+        },
+        {
+          "index": 1,
+          "path": "Tooling/audio/previews/S1-2.mp3",
+          "generatedVoiceId": "8oYRZ1HsnLUNsrovnm5l",
+          "duration": 10.267916666666666,
+          "metrics": {
+            "paceWpm": 181,
+            "rmsDb": -17.4,
+            "clippedFraction": 0,
+            "activeFraction": 0.6386294731459046
+          },
+          "score": 86.93
+        },
+        {
+          "index": 2,
+          "path": "Tooling/audio/previews/S1-3.mp3",
+          "generatedVoiceId": "YtmWaYpBUoqH4JryEt12",
+          "duration": 10.372416666666666,
+          "metrics": {
+            "paceWpm": 179,
+            "rmsDb": -19.8,
+            "clippedFraction": 0,
+            "activeFraction": 0.47919604652564335
+          },
+          "score": 87.84
+        }
+      ],
+      "selected": 0,
+      "voiceId": "QefbtgMIZqMEV81ZifAz",
+      "voiceSource": "designed"
+    },
+    {
+      "id": "S3",
+      "name": "Dr Ada Okafor",
+      "description": "A fictional British-Nigerian woman physician, mature measured low alto, composed and unsentimental. Educated British English with a subtle natural Nigerian cadence, dry wit, exact consonants and economical breaths. Never caricature. Intimate dry studio drama recording.",
+      "text": "Please be precise, Detective. I shall answer what you ask, and I would appreciate the same courtesy in return. Take a breath. There is no value in rushing the question.",
+      "fallback": "EXAVITQu4vr4xnSDxMaL",
+      "previews": [
+        {
+          "index": 0,
+          "path": "Tooling/audio/previews/S3-1.mp3",
+          "generatedVoiceId": "UN8dBZcfTFkY8WHbuYU4",
+          "duration": 12.749583333333334,
+          "metrics": {
+            "paceWpm": 141,
+            "rmsDb": -18.7,
+            "clippedFraction": 0,
+            "activeFraction": 0.5297846678825675
+          },
+          "score": 99.41
+        },
+        {
+          "index": 1,
+          "path": "Tooling/audio/previews/S3-2.mp3",
+          "generatedVoiceId": "zZgWoBeRmH2tXRkmGUqw",
+          "duration": 13.010791666666666,
+          "metrics": {
+            "paceWpm": 138,
+            "rmsDb": -17.7,
+            "clippedFraction": 0,
+            "activeFraction": 0.583033861173034
+          },
+          "score": 99.17
+        },
+        {
+          "index": 2,
+          "path": "Tooling/audio/previews/S3-3.mp3",
+          "generatedVoiceId": "vrGwBFlE87OQe6FwpEeM",
+          "duration": 13.794458333333333,
+          "metrics": {
+            "paceWpm": 130,
+            "rmsDb": -16.6,
+            "clippedFraction": 0,
+            "activeFraction": 0.6360073045952792
+          },
+          "score": 95.24
+        }
+      ],
+      "selected": 0,
+      "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+      "voiceSource": "designed"
+    },
+    {
+      "id": "S4",
+      "name": "Pike",
+      "description": "A fictional middle-aged male with a dry gravelly lower tenor, guarded clipped working-class London English. Edgy hunched energy and breath before a difficult word, still fully intelligible. No growling caricature. 1940s noir intimate dry studio dialogue.",
+      "text": "Easy, Detective. You keep asking it as though the words will change. Let me finish, will you? I am choosing them carefully. There. Write that down if it helps.",
+      "fallback": "N2lVS1w4EtoT3dr4eOWO",
+      "previews": [
+        {
+          "index": 0,
+          "path": "Tooling/audio/previews/S4-1.mp3",
+          "generatedVoiceId": "ipGBytZBT2jD1vT0wKyK",
+          "duration": 12.04425,
+          "metrics": {
+            "paceWpm": 144,
+            "rmsDb": -21.1,
+            "clippedFraction": 0,
+            "activeFraction": 0.5231862320232096
+          },
+          "score": 89.73
+        },
+        {
+          "index": 1,
+          "path": "Tooling/audio/previews/S4-2.mp3",
+          "generatedVoiceId": "SmBwnbDs71G6fkv30xkp",
+          "duration": 15.570791666666667,
+          "metrics": {
+            "paceWpm": 112,
+            "rmsDb": -21.5,
+            "clippedFraction": 0,
+            "activeFraction": 0.5336807116706276
+          },
+          "score": 73.37
+        },
+        {
+          "index": 2,
+          "path": "Tooling/audio/previews/S4-3.mp3",
+          "generatedVoiceId": "U6wZ3XtvyghlOiwLv6lF",
+          "duration": 17.869583333333335,
+          "metrics": {
+            "paceWpm": 97,
+            "rmsDb": -21.6,
+            "clippedFraction": 0,
+            "activeFraction": 0.3899588644345259
+          },
+          "score": 66.19
+        }
+      ],
+      "selected": 0,
+      "voiceId": "ipGBytZBT2jD1vT0wKyK",
+      "voiceSource": "designed"
+    },
+    {
+      "id": "V",
+      "name": "Harlow",
+      "description": "A fictional older British man, resonant weathered baritone, formal but urgent. Quiet authority giving way to a strained warning. Deliberate clear speech for a 1940s noir voicemail, dry studio recording without phone processing.",
+      "text": "Listen carefully. I need this message heard all the way through. There are matters that require an explanation, and I intend to have that explanation in plain words.",
+      "fallback": "JBFqnCBsd6RMkjVDRZzb",
+      "previews": [
+        {
+          "index": 0,
+          "path": "Tooling/audio/previews/V-1.mp3",
+          "generatedVoiceId": "CU2pUgmtH6hlzqHz0VnC",
+          "duration": 12.592833333333333,
+          "metrics": {
+            "paceWpm": 133,
+            "rmsDb": -18.6,
+            "clippedFraction": 0,
+            "activeFraction": 0.586257048685569
+          },
+          "score": 98.3
+        },
+        {
+          "index": 1,
+          "path": "Tooling/audio/previews/V-2.mp3",
+          "generatedVoiceId": "q73As9L9xFzdBCCTn5j0",
+          "duration": 12.35775,
+          "metrics": {
+            "paceWpm": 136,
+            "rmsDb": -19.9,
+            "clippedFraction": 0,
+            "activeFraction": 0.6164495814259339
+          },
+          "score": 97.03
+        },
+        {
+          "index": 2,
+          "path": "Tooling/audio/previews/V-3.mp3",
+          "generatedVoiceId": "riOENIeIwDBSYsgbUZ6t",
+          "duration": 11.887541666666667,
+          "metrics": {
+            "paceWpm": 141,
+            "rmsDb": -18.7,
+            "clippedFraction": 0,
+            "activeFraction": 0.6971373283133163
+          },
+          "score": 94.34
+        }
+      ],
+      "selected": 0,
+      "voiceId": "CU2pUgmtH6hlzqHz0VnC",
+      "voiceSource": "designed"
+    },
+    {
+      "id": "WREN",
+      "name": "Wren",
+      "description": "A fictional young adult woman detective partner with a crisp bright mezzo-soprano, alert warm intelligence and concise reassuring delivery. Neutral clear British English, gentle dry wit. Natural intimate 1940s noir drama, dry studio recording.",
+      "text": "Start with what you can prove. Listen to the answer, watch the hesitation, and keep the two separate. We have time for one careful question. Make it count, Detective.",
+      "fallback": "Xb7hH8MSUJpSbSDYk0k2",
+      "previews": [
+        {
+          "index": 0,
+          "path": "Tooling/audio/previews/WREN-1.mp3",
+          "generatedVoiceId": "7T6LgvYWTCWZrcqxkr5F",
+          "duration": 13.402625,
+          "metrics": {
+            "paceWpm": 130,
+            "rmsDb": -19.4,
+            "clippedFraction": 0,
+            "activeFraction": 0.5023529356895338
+          },
+          "score": 82.41
+        },
+        {
+          "index": 1,
+          "path": "Tooling/audio/previews/WREN-2.mp3",
+          "generatedVoiceId": "jNpgKgWPoh3vfj5CBSyr",
+          "duration": 11.965916666666667,
+          "metrics": {
+            "paceWpm": 145,
+            "rmsDb": -19.1,
+            "clippedFraction": 0,
+            "activeFraction": 0.5569805406817291
+          },
+          "score": 90.21
+        },
+        {
+          "index": 2,
+          "path": "Tooling/audio/previews/WREN-3.mp3",
+          "generatedVoiceId": "3hlTUORZWpGv9E0FYWYV",
+          "duration": 14.839375,
+          "metrics": {
+            "paceWpm": 117,
+            "rmsDb": -22.5,
+            "clippedFraction": 0,
+            "activeFraction": 0.47775283170669036
+          },
+          "score": 76.13
+        }
+      ],
+      "selected": 1,
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "voiceSource": "designed"
+    },
+    {
+      "id": "NARRATOR",
+      "name": "Narrator",
+      "description": "A fictional mature male noir storyteller with a warm textured bass-baritone, intimate restrained gravitas, unhurried but never sleepy. Clear neutral mid-Atlantic English, a subtle edge of melancholy. Dry studio recording, cinematic narrative without parody.",
+      "text": "A room. Four guests. One question left hanging in the silence. Somewhere between what was said and what can be proved, the truth is waiting for a patient listener.",
+      "fallback": "JBFqnCBsd6RMkjVDRZzb",
+      "previews": [
+        {
+          "index": 0,
+          "path": "Tooling/audio/previews/NARRATOR-1.mp3",
+          "generatedVoiceId": "YkFWZ2PY38ydOi5xawNN",
+          "duration": 15.387916666666667,
+          "metrics": {
+            "paceWpm": 113,
+            "rmsDb": -18,
+            "clippedFraction": 0,
+            "activeFraction": 0.641933885237511
+          },
+          "score": 89.04
+        },
+        {
+          "index": 1,
+          "path": "Tooling/audio/previews/NARRATOR-2.mp3",
+          "generatedVoiceId": "B0odo6wtKgrAjq9aRI8S",
+          "duration": 14.369166666666667,
+          "metrics": {
+            "paceWpm": 121,
+            "rmsDb": -18.6,
+            "clippedFraction": 0,
+            "activeFraction": 0.659845657261678
+          },
+          "score": 93.05
+        },
+        {
+          "index": 2,
+          "path": "Tooling/audio/previews/NARRATOR-3.mp3",
+          "generatedVoiceId": "UeBBciydI2n3MwV18MHO",
+          "duration": 13.559375,
+          "metrics": {
+            "paceWpm": 128,
+            "rmsDb": -18.2,
+            "clippedFraction": 0,
+            "activeFraction": 0.5899152225925567
+          },
+          "score": 96.66
+        }
+      ],
+      "selected": 2,
+      "voiceId": "UeBBciydI2n3MwV18MHO",
+      "voiceSource": "designed"
+    }
+  ]
+}
