@@ -5,6 +5,7 @@ import {createHeroCase} from '../../Assets/Scripts/Content/HeroCaseHarlow1041';
 import {openingCaseCard,endingSummary} from '../../Assets/Scripts/Engine/game/CaseClarity';
 import {partnerLine,PartnerTrigger} from '../../Assets/Scripts/Engine/game/Partner';
 import {createGameState} from '../../Assets/Scripts/Engine/game/GameState';
+import {splitSentences} from '../../Assets/Scripts/Engine/ai/Speech';
 const root=resolve(import.meta.dirname,'../..'),g=createHeroCase();const lines:any[]=[];
 const add=(speaker:string,text:string,id:string,take='steady')=>{if(!lines.some(x=>x.speaker===speaker&&x.text===text&&x.take===take))lines.push({speaker,text,id,take});};
 for(const e of createHeroLineBank())for(const take of ['steady','rattled','broken'])add(e.suspect,e.answer.line,e.answer.cites[0],take);
@@ -32,5 +33,8 @@ for(const fact of g.facts.filter(f=>f.truth&&/MOTIVE|KILLED|MURDER|SECRET/.test(
 const preferred=(name:string)=>{const staged=resolve(root,'Tooling/audio/out/staged/Assets/Scripts/Content',name);return existsSync(staged)?staged:resolve(root,'Assets/Scripts/Content',name);};
 const bank=preferred('HeroVariantBank.ts');if(existsSync(bank)){const {HERO_VARIANTS}=await import(pathToFileURL(bank).href);for(const v of HERO_VARIANTS)for(const take of process.argv.includes('--all-moods')?['steady','rattled','broken']:[v.emotion==='rattled'?'rattled':'steady'])add(v.suspect,v.text,v.id,take);}
 const register=preferred('HeroRegisterBank.ts');if(existsSync(register)){const {HERO_REGISTER}=await import(pathToFileURL(register).href);for(const v of HERO_REGISTER)add(v.suspect,v.text,v.id);}
-const video=readFileSync(resolve(root,'devpost/drafts/video-plan.md'),'utf8');for(const match of video.matchAll(/- \*\*VO (\d+) \([^\n]+?\*\* "([^\n]+?)"/g))add('NARRATOR',match[2].replace(/\*/g,''),'video-vo-'+match[1]);
-mkdirSync(resolve(root,'Tooling/audio'),{recursive:true});writeFileSync(resolve(root,'Tooling/audio/voice-spec.json'),JSON.stringify({version:1,lines},null,2));console.log('Voice inventory '+lines.length);
+const videoOverrides:Record<string,string>={'8':"The engine checks the accusation. Prove the case, and break the culprit's last account, to earn all three stars.",'9':'Under the hood, truth is compiled, not generated. A solver proves one unique answer. The language model directs validated lines. Tests, simulated players, and generated cases check the rules.'};
+const video=readFileSync(resolve(root,'devpost/drafts/video-plan.md'),'utf8');for(const match of video.matchAll(/- \*\*VO (\d+) \([^\n]+?\*\* "([^\n]+?)"/g))add('NARRATOR',videoOverrides[match[1]]||match[2].replace(/\*/g,''),'video-vo-'+match[1]);
+const runtime=process.argv.includes('--runtime');const outputLines=runtime?lines.filter(l=>!l.id.startsWith('video-vo-')):lines;
+const sentenceKeys=runtime?[...new Set(outputLines.flatMap(l=>splitSentences(l.text).map(text=>l.speaker+'|'+l.take+'|'+text)))]:undefined;
+mkdirSync(resolve(root,'Tooling/audio'),{recursive:true});writeFileSync(resolve(root,'Tooling/audio/'+(runtime?'voice-runtime-spec.json':'voice-spec.json')),JSON.stringify({version:1,lines:outputLines,sentenceKeys},null,2));console.log('Voice inventory '+outputLines.length+(runtime?' runtime':''));

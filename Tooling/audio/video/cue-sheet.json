@@ -1,0 +1,87 @@
+{
+  "durationSeconds": 170,
+  "source": "devpost/drafts/video-plan.md",
+  "note": "Scratch timing only, no listening claim. Provider quota prevented revised VO8/9: older paid clips are trimmed to accurate clauses. VO10 omits the unverified all-steps-tested claim. Clauses are extracted with real alignment, not resynthesized. Live-AI demonstration claim in VO4 must match the final recorded capture. Picture-locked timing and editorial listening remain pending.",
+  "clips": [
+    {
+      "id": "video-vo-1",
+      "startSeconds": 11,
+      "endSeconds": 27.24,
+      "text": "AI can make a mystery endlessly replayable, but it also makes things up, and a mystery that contradicts itself isn't fair. Roomscript splits the job: an engine proves the case, and the AI only plays the suspects.",
+      "source": "Assets/Audio/Voice/NARRATOR/c50d740f984d9239e8cb.mp3",
+      "trimmedFallback": false
+    },
+    {
+      "id": "video-vo-2",
+      "startSeconds": 27.54,
+      "endSeconds": 37.489,
+      "text": "You place the case in your room. In the Lens Studio Preview this is a simulated room; the kettle, lamp and desk become the evidence.",
+      "source": "Assets/Audio/Voice/NARRATOR/b0cd93fb069d6f3ed74d.mp3",
+      "trimmedFallback": false
+    },
+    {
+      "id": "video-vo-3",
+      "startSeconds": 37.788999999999994,
+      "endSeconds": 43.126999999999995,
+      "text": "Every suspect has a baseline, and a tell. Watch where Vale looks.",
+      "source": "Assets/Audio/Voice/NARRATOR/b21f05542d0c96a5fd1b.mp3",
+      "trimmedFallback": false
+    },
+    {
+      "id": "video-vo-4",
+      "startSeconds": 52,
+      "endSeconds": 60.123000000000005,
+      "text": "That answer was live AI. But it was only allowed to say what the engine handed it, and it was checked before she spoke.",
+      "source": "Assets/Audio/Voice/NARRATOR/d12cf404915e3ff9322d.mp3",
+      "trimmedFallback": false
+    },
+    {
+      "id": "video-vo-5",
+      "startSeconds": 60.423,
+      "endSeconds": 63.392,
+      "text": "Objects remember. The kettle never boiled.",
+      "source": "Assets/Audio/Voice/NARRATOR/fcb7ced2f9a417812ea8.mp3",
+      "trimmedFallback": false
+    },
+    {
+      "id": "video-vo-6",
+      "startSeconds": 87,
+      "endSeconds": 92.178,
+      "text": "Break one lie and she retreats to the next. A witness statement breaks that one.",
+      "source": "Assets/Audio/Voice/NARRATOR/91d7250482f40473ac09.mp3",
+      "trimmedFallback": false
+    },
+    {
+      "id": "video-vo-7",
+      "startSeconds": 98,
+      "endSeconds": 103.163,
+      "text": "Like Clue, you can test a theory. The other suspects refute it, privately.",
+      "source": "Assets/Audio/Voice/NARRATOR/205ddb5c0124bb8e6820.mp3",
+      "trimmedFallback": false
+    },
+    {
+      "id": "video-vo-8",
+      "startSeconds": 112,
+      "endSeconds": 113.963,
+      "text": "When you're sure, accuse.",
+      "source": "Assets/Audio/Voice/NARRATOR/9dbb0009bc67a949d91f.mp3",
+      "trimmedFallback": true
+    },
+    {
+      "id": "video-vo-9",
+      "startSeconds": 131,
+      "endSeconds": 137.458,
+      "text": "Under the hood, truth is compiled, not generated. A solver proves one unique answer",
+      "source": "Assets/Audio/Voice/NARRATOR/efcabee9d77fdc10f69f.mp3",
+      "trimmedFallback": true
+    },
+    {
+      "id": "video-vo-10",
+      "startSeconds": 147,
+      "endSeconds": 156.297,
+      "text": "And it was built by coding agents: Codex and Claude Code, using Snap's CLAD skills and the Lens Studio MCP",
+      "source": "Assets/Audio/Voice/NARRATOR/64f424f14aebc380ffd5.mp3",
+      "trimmedFallback": true
+    }
+  ]
+}

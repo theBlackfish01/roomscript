@@ -1,0 +1,151 @@
+{
+  "positive_global_styles": [
+    "instrumental",
+    "1940s noir jazz",
+    "muted trumpet",
+    "upright bass",
+    "felt piano",
+    "brushed drums",
+    "cinematic",
+    "room for dialogue"
+  ],
+  "negative_global_styles": [
+    "vocals",
+    "singing",
+    "lyrics",
+    "modern pop",
+    "distortion"
+  ],
+  "sections": [
+    {
+      "section_name": "Door and title",
+      "duration_ms": 10000,
+      "positive_local_styles": [
+        "Almost silent brushed texture, restrained suspense",
+        "instrumental"
+      ],
+      "negative_local_styles": [
+        "vocals",
+        "lyrics"
+      ],
+      "lines": []
+    },
+    {
+      "section_name": "Pitch and placement",
+      "duration_ms": 22000,
+      "positive_local_styles": [
+        "Elegant muted trumpet theme, warm upright bass, quietly confident",
+        "instrumental"
+      ],
+      "negative_local_styles": [
+        "vocals",
+        "lyrics"
+      ],
+      "lines": []
+    },
+    {
+      "section_name": "Interrogation",
+      "duration_ms": 26000,
+      "positive_local_styles": [
+        "Sparse felt piano and brushed bass under dialogue, subtle tension",
+        "instrumental"
+      ],
+      "negative_local_styles": [
+        "vocals",
+        "lyrics"
+      ],
+      "lines": []
+    },
+    {
+      "section_name": "Investigation",
+      "duration_ms": 10000,
+      "positive_local_styles": [
+        "Careful plucked bass pulse, curious celesta accents",
+        "instrumental"
+      ],
+      "negative_local_styles": [
+        "vocals",
+        "lyrics"
+      ],
+      "lines": []
+    },
+    {
+      "section_name": "Objection",
+      "duration_ms": 18000,
+      "positive_local_styles": [
+        "Begin with a held breath, decisive original brass strike, then revelation and space",
+        "instrumental"
+      ],
+      "negative_local_styles": [
+        "vocals",
+        "lyrics"
+      ],
+      "lines": []
+    },
+    {
+      "section_name": "Second lie",
+      "duration_ms": 10000,
+      "positive_local_styles": [
+        "Brief urgent investigation motif",
+        "instrumental"
+      ],
+      "negative_local_styles": [
+        "vocals",
+        "lyrics"
+      ],
+      "lines": []
+    },
+    {
+      "section_name": "Suggestion",
+      "duration_ms": 14000,
+      "positive_local_styles": [
+        "Mechanical precise jazz pulse, quiet and restrained",
+        "instrumental"
+      ],
+      "negative_local_styles": [
+        "vocals",
+        "lyrics"
+      ],
+      "lines": []
+    },
+    {
+      "section_name": "Accusation and reconstruction",
+      "duration_ms": 20000,
+      "positive_local_styles": [
+        "Slow glassy celesta and strings, suspense resolves warmly",
+        "instrumental"
+      ],
+      "negative_local_styles": [
+        "vocals",
+        "lyrics"
+      ],
+      "lines": []
+    },
+    {
+      "section_name": "Under the hood and build",
+      "duration_ms": 32000,
+      "positive_local_styles": [
+        "Gentle purposeful forward pulse under narration",
+        "instrumental"
+      ],
+      "negative_local_styles": [
+        "vocals",
+        "lyrics"
+      ],
+      "lines": []
+    },
+    {
+      "section_name": "End card",
+      "duration_ms": 8000,
+      "positive_local_styles": [
+        "Muted trumpet theme returns, clean final cadence and silence",
+        "instrumental"
+      ],
+      "negative_local_styles": [
+        "vocals",
+        "lyrics"
+      ],
+      "lines": []
+    }
+  ]
+}

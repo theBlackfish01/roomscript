@@ -1,0 +1,16 @@
+- !<AssetImportMetadata/a0d4e68e-efd9-425d-9737-d4788ef7ee2b>
+  ImportedAssetIds:
+    FileAudioTrack: !<reference> c6cf28c5-b894-4a10-829e-ef06bb09ffe9
+  ImporterName: FileAudioTrackImporter
+  PrimaryAsset: !<reference> c6cf28c5-b894-4a10-829e-ef06bb09ffe9
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    {}
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000

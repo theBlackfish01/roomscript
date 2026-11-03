@@ -1,0 +1,19 @@
+{
+  "scope": "published runtime",
+  "voiceClips": 878,
+  "derivedClips": 326,
+  "requestedPerformances": 552,
+  "sfx": 30,
+  "music": 8,
+  "dialogues": 5,
+  "bytes": 13020141,
+  "megabytes": 13.02,
+  "credits": {
+    "budget": 150000,
+    "total": 82898,
+    "headerConfirmed": 21193,
+    "estimatedOrReserved": 61705,
+    "unresolved": 0
+  },
+  "errors": []
+}

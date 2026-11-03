@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "clips": [
+    {
+      "name": "ArrivalDialogue",
+      "lines": [
+        {
+          "speaker": "S2",
+          "text": "Good evening, Detective."
+        },
+        {
+          "speaker": "S1",
+          "text": "Quite an entrance, Detective."
+        },
+        {
+          "speaker": "S3",
+          "text": "Please be precise."
+        },
+        {
+          "speaker": "S4",
+          "text": "Easy, Detective."
+        }
+      ],
+      "factIds": [],
+      "identity": "e57f1b501d43da4915f76da9555527bb41b3d6bb463ce02771f06ffcd9bd7a03",
+      "path": "Assets/Audio/Dialogue/ArrivalDialogue.mp3"
+    },
+    {
+      "name": "HarlowVoicemail",
+      "lines": [
+        {
+          "speaker": "S2",
+          "text": "[quietly] Edmund?"
+        },
+        {
+          "speaker": "V",
+          "text": "[firmly] Vale. I intend to expose your forged trust accounts."
+        }
+      ],
+      "factIds": [
+        "F_REPLY_AFTER_ARRIVAL",
+        "F_VALE_MOTIVE"
+      ],
+      "phone": true,
+      "identity": "76a3c1cdae4b3e8332cc2d6e3c2ad0bf8fc043aa5ebb91a58b109635f64806e3",
+      "path": "Assets/Audio/Dialogue/HarlowVoicemail.mp3"
+    },
+    {
+      "name": "ValeConfession",
+      "lines": [
+        {
+          "speaker": "S2",
+          "text": "[sad] I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts."
+        }
+      ],
+      "factIds": [
+        "F_MURDER_SPINE",
+        "F_VALE_MOTIVE"
+      ],
+      "verdictOnly": true,
+      "identity": "fe6ddf6090f6152577f64fc7d5d58c7c18354e86fbaf62e4d45cbe6000cd55ee",
+      "path": "Assets/Audio/Dialogue/ValeConfession.mp3"
+    },
+    {
+      "name": "WrongEscape",
+      "lines": [
+        {
+          "speaker": "S2",
+          "text": "[coolly] Good night, Detective."
+        }
+      ],
+      "factIds": [],
+      "verdictOnly": true,
+      "identity": "7efe6d26a6c1cee2bcc523c6b1629964b2eba113119cf8fda31d0c46067421d0",
+      "path": "Assets/Audio/Dialogue/WrongEscape.mp3"
+    },
+    {
+      "name": "OpeningExchange",
+      "lines": [
+        {
+          "speaker": "NARRATOR",
+          "text": "Edmund Harlow was found dead at 22:41. Four guests remain. Who killed Harlow, where, and with what?"
+        },
+        {
+          "speaker": "WREN",
+          "text": "Four guests. Ask, listen, and compare their words with the room."
+        }
+      ],
+      "factIds": [
+        "F_BODY_FOUND"
+      ],
+      "identity": "35b8e0b5517d12e1edde85aead3e93c5f6ae0af36956fee154cf79eabc6b3c29",
+      "path": "Assets/Audio/Dialogue/OpeningExchange.mp3"
+    }
+  ]
+}

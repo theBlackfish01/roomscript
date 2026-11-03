@@ -9,6 +9,8 @@ export const read=(p,fallback)=>existsSync(p)?JSON.parse(readFileSync(p,'utf8'))
 export function save(p,x){mkdirSync(dirname(p),{recursive:true});writeFileSync(p+'.tmp',JSON.stringify(x,null,2));renameSync(p+'.tmp',p);}
 export const ledgerPath=resolve(ROOT,'Tooling/results/elevenlabs-ledger.json');
 export const CAP=150000;
+export function audioFile(path){for(const p of [resolve(AUDIO,'out/staged',path),resolve(AUDIO,'library',path.replace(/^Assets\/Audio\//,'')),resolve(ROOT,path)])if(existsSync(p))return p;throw Error('MISSING_AUDIO_FILE '+path);}
+export function parseManifestExport(source,name){const prefix='export const '+name+' = ',at=source.indexOf(prefix);if(at<0)throw Error('MISSING_MANIFEST_EXPORT '+name);return JSON.parse(source.slice(at+prefix.length).trim().replace(/;$/,''));}
 export function cleanAlignment(a){if(!a)return undefined;const text=a.characters.join(''),skip=new Set();for(const m of text.matchAll(/\[[^\]]*\]/g))for(let i=m.index;i<m.index+m[0].length;i++)skip.add(i);const starts=a.starts||a.character_start_times_seconds,ends=a.ends||a.character_end_times_seconds;const result={characters:[],starts:[],ends:[]};for(let i=0;i<a.characters.length;i++)if(!skip.has(i)){result.characters.push(a.characters[i]);result.starts.push(starts[i]);result.ends.push(ends[i]);}while(result.characters.length&&/^\s$/.test(result.characters[0])){result.characters.shift();result.starts.shift();result.ends.shift();}return result;}
 export const total=l=>l.entries.reduce((n,e)=>n+(e.credits||0),0);
 export function reserve(l,id,estimate,label){if(l.entries.some(e=>e.id===id&&e.status==='reserved'))throw Error('UNRESOLVED_RESERVATION: inspect ledger before retry');if(l.entries.some(e=>e.id===id&&e.status==='complete'))throw Error('UNCACHED_COMPLETED_REQUEST: restore cache before retry');if(total(l)+estimate>CAP)throw Error('CREDIT_CAP');l.entries.push({id,label,status:'reserved',credits:estimate,estimate:true,at:new Date().toISOString()});}
@@ -20,11 +22,12 @@ export async function request(endpoint,body,{label,estimate=0,json=false}={}){
  const lock=resolve(AUDIO,'out/request.lock');let fd;try{fd=openSync(lock,'wx');}catch{throw Error('AUDIO_GENERATOR_ALREADY_RUNNING');}
  try{
   const ledger=read(ledgerPath,{version:1,capCredits:CAP,notes:['Historical key test predates ledger: 30 TTS + 36 SFX + 39 dialogue known; reserve 3000 for voice-design/music unknown costs.'],entries:[{id:'historical-key-test',label:'pre-Run4 key capability test',status:'complete',credits:3105,estimate:true}]});
+  if(ledger.providerBlock)throw Error('PROVIDER_BLOCKED_'+ledger.providerBlock.reason);
   reserve(ledger,id,estimate,label);save(ledgerPath,ledger);
   loadEnvFile(resolve(ROOT,'Tooling/.env'));const key=process.env.ELEVENLABS_API_KEY;if(!key)throw Error('MISSING_ELEVENLABS_KEY');
   let response;try{response=await fetch('https://api.elevenlabs.io'+endpoint,{method:'POST',headers:{'xi-api-key':key,'content-type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(240000)});}catch{throw Error('NETWORK_UNCERTAIN_RESERVATION_RETAINED');}
   const data=Buffer.from(await response.arrayBuffer());settle(ledger,id,response.headers.get('character-cost'),response.ok);save(ledgerPath,ledger);
-  if(!response.ok){let reason='';try{const e=JSON.parse(data.toString());reason=String(e.detail?.status||e.detail?.message||e.error?.type||'').replace(/[^a-zA-Z0-9_. -]/g,'').slice(0,160);}catch{}throw Error('ELEVENLABS_HTTP_'+response.status+' '+reason);}
+  if(!response.ok){let reason='';try{const e=JSON.parse(data.toString());reason=String(e.detail?.status||e.error?.type||'').replace(/[^a-zA-Z0-9_. -]/g,'').slice(0,160);}catch{}if(reason==='quota_exceeded'){ledger.providerBlock={reason,at:new Date().toISOString(),note:'No further paid requests until Wadood confirms provider quota is available.'};save(ledgerPath,ledger);}throw Error('ELEVENLABS_HTTP_'+response.status+' '+reason);}
   writeFileSync(bin,data);save(meta,{complete:true,id,endpoint,label,at:new Date().toISOString(),credits:ledger.entries.findLast(e=>e.id===id).credits});
   return {id,data:json?JSON.parse(data.toString()):data,cached:false};
  }finally{if(fd!==undefined){closeSync(fd);unlinkSync(lock);}}

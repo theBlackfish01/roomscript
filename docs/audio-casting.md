@@ -93,3 +93,11 @@ Chosen: preview **3**, designed; voice ID `UeBBciydI2n3MwV18MHO`. Target pace 13
 To swap one role, update its voiceId in Tooling/audio/cast.json and rerun render.mjs. Cache identity includes voice ID, text, model and settings, so other roles reuse their existing paid generations.
 
 API references: [Voice Design](https://elevenlabs.io/docs/api-reference/text-to-voice/design), [Create voice](https://elevenlabs.io/docs/api-reference/text-to-voice/create).
+
+## Run 4 library and video listening queue
+
+The selected cast has now generated the runtime voice library, including canonical steady/rattled/broken takes, all selected validated variants, Wren and case-summary narration. All 21 audition previews above are retained. This runtime cannot hear audio; the selection remains an explicitly technical provisional choice.
+
+Start the editorial review with [ScratchMix.mp3](../Tooling/audio/video/ScratchMix.mp3), [isolated scratch VO](../Tooling/audio/video/ScratchVO.mp3), and [the 2:50 score](../Tooling/audio/video/VideoSoundtrack.mp3). The [cue sheet](../Tooling/audio/video/cue-sheet.json) records timed clips and the accurate trimmed VO8/9 fallback after provider quota exhaustion. Review the [Harlow voicemail](../Tooling/audio/library/Dialogue/HarlowVoicemail.mp3), [Vale confession](../Tooling/audio/library/Dialogue/ValeConfession.mp3), and [arrival exchange](../Tooling/audio/library/Dialogue/ArrivalDialogue.mp3) for acting and character separation. The voicemail's motive disclosure still needs deterministic Lens/engine admission before use; it is not an integration approval.
+
+The [runtime handoff](../Tooling/audio/INTEGRATION.md) lists coverage and remaining wiring. ElevenLabs accounting stopped at82,898 credits (21,193 header-confirmed;61,705 conservative estimates), below the150,000 cap, because the provider returned `quota_exceeded`. All canonical moods are complete;403 requested extra variant mood/new VO performances remain missing. Wadood can confirm or swap any cast choice after listening; exact voice/text/settings caching prevents billing unchanged takes again.

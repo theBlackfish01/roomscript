@@ -32,3 +32,11 @@ Sources: [voice design](https://elevenlabs.io/docs/api-reference/text-to-voice/d
 `variants-generate.ts` asks Claude Opus 5.5 for ten candidates per statement/mode, runs independent judgment, and filters at current strictness. `variants-finalize.ts` rechecks against the current engine after concurrent engine edits. `variants-repair.ts` fills only filter shortfalls with constrained new candidates; it never loosens the validator. The generated registers also pass the current assertion-free gate. Per-request token usage and estimated cost are in three `Tooling/results/anthropic-*-ledger.json` files.
 
 ffmpeg is an existing local tool recovered from the machine's ffmpeg-static cache. Its executable stays ignored and is not distributed. No third-party source code is copied into this pipeline.
+
+## Run 4 completion checkpoint
+
+The selected runtime export contains 552 original voice performances plus 326 derived sentence clips, 30 SFX, eight runtime score cues and five dialogue scenes (13.02 MB). Full requested variant mood expansion stopped on ElevenLabs HTTP 401 `quota_exceeded`: 403 requested performances remain unrendered. `Tooling/results/elevenlabs-ledger.json` records 82,898 accounted credits (21,193 header-confirmed; 61,705 conservative estimates), zero unresolved reservations, and a provider block preventing further paid calls. Do not clear the block without Wadood confirming available provider quota. Anthropic generation/judging totals $1.848136.
+
+Every paid original is backed up in `library/`; these files remain outside the Lens. `out/` additionally keeps raw responses and the content-hash request cache. A fresh checkout can use the normalized library to rebuild sentence clips. The locally installed ffmpeg executable must be available at `out/bin/ffmpeg.exe`.
+
+For an offline rebuild, use `audio-inventory.ts --runtime`, `audio-segments.ts`, `node Tooling/audio/ship.mjs`, and `node Tooling/audio/verify.mjs --ship`. Publish the verified lean snapshot with `node Tooling/audio/publish.mjs --ship` at an agreed Lens checkpoint. The default publisher targets the larger master snapshot and should not be used for shipping. Video audio is under `video/`, outside Assets. See [INTEGRATION.md](INTEGRATION.md) for exact exports, alignment, coverage and remaining Lens work.

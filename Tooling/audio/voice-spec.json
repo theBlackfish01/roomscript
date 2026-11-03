@@ -1,0 +1,6683 @@
+{
+  "version": 1,
+  "lines": [
+    {
+      "speaker": "S1",
+      "text": "I was in the Lounge at 22:30.",
+      "id": "rc0ac367da9395de1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "I was in the Lounge at 22:30.",
+      "id": "rc0ac367da9395de1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "I was in the Lounge at 22:30.",
+      "id": "rc0ac367da9395de1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "I saw Pike in the Conservatory at 22:30.",
+      "id": "r0400e516f46c420a",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "I saw Pike in the Conservatory at 22:30.",
+      "id": "r0400e516f46c420a",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "I saw Pike in the Conservatory at 22:30.",
+      "id": "r0400e516f46c420a",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "The letter knife stayed in the Hall at 22:30.",
+      "id": "r0f461aebe727090f",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "The letter knife stayed in the Hall at 22:30.",
+      "id": "r0f461aebe727090f",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "The letter knife stayed in the Hall at 22:30.",
+      "id": "r0f461aebe727090f",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "My name is Imran Qadir.",
+      "id": "r1090b982ceebf3d6",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "My name is Imran Qadir.",
+      "id": "r1090b982ceebf3d6",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "My name is Imran Qadir.",
+      "id": "r1090b982ceebf3d6",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "My lighter is empty.",
+      "id": "r1efcf543c69f8347",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "My lighter is empty.",
+      "id": "r1efcf543c69f8347",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "My lighter is empty.",
+      "id": "r1efcf543c69f8347",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "My lighter is fuelled.",
+      "id": "r0660cd07e3452b2b",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "My lighter is fuelled.",
+      "id": "r0660cd07e3452b2b",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "My lighter is fuelled.",
+      "id": "r0660cd07e3452b2b",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "I was in the Hall at 22:30. I stole my debt note before that.",
+      "id": "rbfac34eaa8395c4e",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "I was in the Hall at 22:30. I stole my debt note before that.",
+      "id": "rbfac34eaa8395c4e",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "I was in the Hall at 22:30. I stole my debt note before that.",
+      "id": "rbfac34eaa8395c4e",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I was in the Kitchen making tea at 22:30.",
+      "id": "r186b3327f6a0bb43",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I was in the Kitchen making tea at 22:30.",
+      "id": "r186b3327f6a0bb43",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "I was in the Kitchen making tea at 22:30.",
+      "id": "r186b3327f6a0bb43",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "rc2a76e5605adfb32",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "rc2a76e5605adfb32",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "rc2a76e5605adfb32",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "The bookend stayed in the Conservatory at 22:30.",
+      "id": "r1546245de52705e9",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "The bookend stayed in the Conservatory at 22:30.",
+      "id": "r1546245de52705e9",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "The bookend stayed in the Conservatory at 22:30.",
+      "id": "r1546245de52705e9",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "My name is Marguerite Vale.",
+      "id": "r878d420d988b8b41",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "My name is Marguerite Vale.",
+      "id": "r878d420d988b8b41",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "My name is Marguerite Vale.",
+      "id": "r878d420d988b8b41",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "My brooch is fastened.",
+      "id": "ra096a3a4284aba08",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "My brooch is fastened.",
+      "id": "ra096a3a4284aba08",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "My brooch is fastened.",
+      "id": "ra096a3a4284aba08",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "My brooch clasp is open.",
+      "id": "r2ba9521ed5446d62",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "My brooch clasp is open.",
+      "id": "r2ba9521ed5446d62",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "My brooch clasp is open.",
+      "id": "r2ba9521ed5446d62",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I reached the Study at 22:30. Harlow was already dead.",
+      "id": "r176b3194f5a0b9b0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I reached the Study at 22:30. Harlow was already dead.",
+      "id": "r176b3194f5a0b9b0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "I reached the Study at 22:30. Harlow was already dead.",
+      "id": "r176b3194f5a0b9b0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Harlow never spoke after I entered the Study.",
+      "id": "rc3a76fe906adfcc5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Harlow never spoke after I entered the Study.",
+      "id": "rc3a76fe906adfcc5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Harlow never spoke after I entered the Study.",
+      "id": "rc3a76fe906adfcc5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I met Harlow in the Study at 22:30. The cable was in my hands.",
+      "id": "r1a6b364df8a0be69",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I met Harlow in the Study at 22:30. The cable was in my hands.",
+      "id": "r1a6b364df8a0be69",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "I met Harlow in the Study at 22:30. The cable was in my hands.",
+      "id": "r1a6b364df8a0be69",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "The cable was in my hands in the Study. That is my account.",
+      "id": "rc0a76b3003adf80c",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "The cable was in my hands in the Study. That is my account.",
+      "id": "rc0a76b3003adf80c",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "The cable was in my hands in the Study. That is my account.",
+      "id": "rc0a76b3003adf80c",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "I heard Harlow answer Vale after she entered the Study.",
+      "id": "r53c2f257dff18cf3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "I heard Harlow answer Vale after she entered the Study.",
+      "id": "r53c2f257dff18cf3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "I heard Harlow answer Vale after she entered the Study.",
+      "id": "r53c2f257dff18cf3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "I saw Imran in the Hall at 22:30.",
+      "id": "r0900ecf5f16c3d51",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "I saw Imran in the Hall at 22:30.",
+      "id": "r0900ecf5f16c3d51",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "I saw Imran in the Hall at 22:30.",
+      "id": "r0900ecf5f16c3d51",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "I was in the Conservatory at 22:30.",
+      "id": "rf847852fc768ef13",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "I was in the Conservatory at 22:30.",
+      "id": "rf847852fc768ef13",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "I was in the Conservatory at 22:30.",
+      "id": "rf847852fc768ef13",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "r144622cae4270456",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "r144622cae4270456",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "r144622cae4270456",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "My name is Dr. Ada Okafor.",
+      "id": "rfb537d1439af80e8",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "My name is Dr. Ada Okafor.",
+      "id": "rfb537d1439af80e8",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "My name is Dr. Ada Okafor.",
+      "id": "rfb537d1439af80e8",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "These glasses are spotless.",
+      "id": "r0c0d42f9e80f41ad",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "These glasses are spotless.",
+      "id": "r0c0d42f9e80f41ad",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "These glasses are spotless.",
+      "id": "r0c0d42f9e80f41ad",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "My glasses are smudged.",
+      "id": "r968c4fe5d7c3b7e9",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "My glasses are smudged.",
+      "id": "r968c4fe5d7c3b7e9",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "My glasses are smudged.",
+      "id": "r968c4fe5d7c3b7e9",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "I was in the Kitchen at 22:30. I had borrowed medicine without logging it.",
+      "id": "rf747839cc668ed80",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "I was in the Kitchen at 22:30. I had borrowed medicine without logging it.",
+      "id": "rf747839cc668ed80",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "I was in the Kitchen at 22:30. I had borrowed medicine without logging it.",
+      "id": "rf747839cc668ed80",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Harlow intended to expose Vale's forged trust accounts.",
+      "id": "ra45250f62d98e87a",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Harlow intended to expose Vale's forged trust accounts.",
+      "id": "ra45250f62d98e87a",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Harlow intended to expose Vale's forged trust accounts.",
+      "id": "ra45250f62d98e87a",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "I saw Okafor in the Kitchen at 22:30.",
+      "id": "r0700e9cfef6c3a2b",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "I saw Okafor in the Kitchen at 22:30.",
+      "id": "r0700e9cfef6c3a2b",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "I saw Okafor in the Kitchen at 22:30.",
+      "id": "r0700e9cfef6c3a2b",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "I was in the Hall at 22:30.",
+      "id": "rcc9678c2e1e3563e",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "I was in the Hall at 22:30.",
+      "id": "rcc9678c2e1e3563e",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "I was in the Hall at 22:30.",
+      "id": "rcc9678c2e1e3563e",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "The candlestick stayed in the Lounge at 22:30.",
+      "id": "r0e461958e627077c",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "The candlestick stayed in the Lounge at 22:30.",
+      "id": "r0e461958e627077c",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "The candlestick stayed in the Lounge at 22:30.",
+      "id": "r0e461958e627077c",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "My name is Jonah Pike.",
+      "id": "r8b0d1cdfd339b20b",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "My name is Jonah Pike.",
+      "id": "r8b0d1cdfd339b20b",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "My name is Jonah Pike.",
+      "id": "r8b0d1cdfd339b20b",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Both my gloves are dry.",
+      "id": "r9e88833afd2164d6",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Both my gloves are dry.",
+      "id": "r9e88833afd2164d6",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Both my gloves are dry.",
+      "id": "r9e88833afd2164d6",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "My gloves are wet.",
+      "id": "r94ed407c437a6538",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "My gloves are wet.",
+      "id": "r94ed407c437a6538",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "My gloves are wet.",
+      "id": "r94ed407c437a6538",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Ask me something more specific.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Give me a moment to collect myself.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "I have answered enough. Give me some space.",
+      "id": "none",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "rcd967a55e2e357d1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "rcd967a55e2e357d1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "rcd967a55e2e357d1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts.",
+      "id": "r1a6b364df8a0be69",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts.",
+      "id": "r1a6b364df8a0be69",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts.",
+      "id": "r1a6b364df8a0be69",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0",
+      "take": "tell"
+    },
+    {
+      "speaker": "S2",
+      "text": "I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1",
+      "take": "tell"
+    },
+    {
+      "speaker": "S1",
+      "text": "I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0",
+      "take": "tell"
+    },
+    {
+      "speaker": "S3",
+      "text": "I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0",
+      "take": "tell"
+    },
+    {
+      "speaker": "S4",
+      "text": "I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0",
+      "take": "tell"
+    },
+    {
+      "speaker": "S1",
+      "text": "My lighter is empty.",
+      "id": "C_S1_BASELINE_LIE",
+      "take": "tell"
+    },
+    {
+      "speaker": "S2",
+      "text": "My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE",
+      "take": "tell"
+    },
+    {
+      "speaker": "S3",
+      "text": "These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE",
+      "take": "tell"
+    },
+    {
+      "speaker": "S4",
+      "text": "Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE",
+      "take": "tell"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Listen at the door.",
+      "id": "opening-listen",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Nobody leaves.",
+      "id": "opening-lock",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Edmund Harlow was found at twenty-two forty-one. Four guests. One killer. Who did it, where, and with what?",
+      "id": "opening-case",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Start with what you can prove.",
+      "id": "wren-open",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Watch the hesitation. A tell is a lead, not proof.",
+      "id": "wren-tell",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "That is a contradiction. Keep the statement beside the evidence.",
+      "id": "wren-objection",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "What do we know for certain?",
+      "id": "wren-idle",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Read the evidence once more before you seal it.",
+      "id": "wren-seal",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "A letter. Read it carefully.",
+      "id": "wren-letter",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Listen to the recording.",
+      "id": "wren-voicemail",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Stay here. We still have questions.",
+      "id": "wren-flight",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Keep your eyes on the evidence.",
+      "id": "wren-blackout",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Case closed.",
+      "id": "case-closed",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Good evening, Detective.",
+      "id": "arrival-vale",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Quite an entrance, Detective.",
+      "id": "arrival-qadir",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please be precise.",
+      "id": "arrival-okafor",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Easy, Detective.",
+      "id": "arrival-pike",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Time has run out. Make your final accusation.",
+      "id": "timeout",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "An accusation is not proof. The case remains unresolved.",
+      "id": "wrong-ending",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Edmund Harlow was found dead at 22:41. Four guests remain. Who killed Harlow, where, and with what?",
+      "id": "opening-case-exact",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Harlow intended to expose Vale's forged trust accounts.",
+      "id": "ending-0",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "At 22:30 in the Study, Vale strangled Harlow with the charger cable.",
+      "id": "ending-1",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Harlow knocked the mug from the Study desk at 22:30.",
+      "id": "ending-2",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Vale moved him from the chair to the floor to make his death look like his heart.",
+      "id": "ending-3",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "The kettle stayed cold during the murder window.",
+      "id": "ending-4",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Imran stole his debt note before the murder.",
+      "id": "ending-5",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Okafor borrowed medicine without logging it.",
+      "id": "ending-6",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Pike brought a forged certificate.",
+      "id": "ending-7",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Four guests. Ask, listen, and compare their words with the room.",
+      "id": "wren:opening",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Notice that movement. It is a reason to check the account, not a verdict.",
+      "id": "wren:first-tell",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "The evidence changed the account. Keep the old slip beside the proof.",
+      "id": "wren:first-objection",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "A letter. Read it before you decide what it means.",
+      "id": "wren:letter",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Listen to the order of the voices.",
+      "id": "wren:voicemail",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Nobody leaves before we finish.",
+      "id": "wren:flight",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Follow the trace. Keep to what it actually proves.",
+      "id": "wren:blackout",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Choose a suspect or inspect an object. The notebook keeps what you learn.",
+      "id": "wren:idle",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Check who, where, and with what before you break the seal.",
+      "id": "wren:seal",
+      "take": "steady"
+    },
+    {
+      "speaker": "WREN",
+      "text": "Your evidence leaves one possibility: Marguerite Vale, Study, charger cable. Check your deductions.",
+      "id": "wren:seal:proven",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. I was in the Kitchen, I was making tea, at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. I was in the Kitchen, I was making tea, at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. I was in the Kitchen, I was making tea, at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Once more, then. I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Once more, then. I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Once more, then. I was in the Kitchen making tea at 22:30.",
+      "id": "C_VALE_ALIBI_0:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must. The kettle was boiling, and I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must. The kettle was boiling, and I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must. The kettle was boiling, and I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "As I have said. The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "As I have said. The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "As I have said. The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, but again? The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, but again? The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, but again? The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Let me be precise. The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Let me be precise. The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Let me be precise. The kettle was boiling. I stayed beside it at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "With respect. The kettle was boiling. I stayed beside it, at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "With respect. The kettle was boiling. I stayed beside it, at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "With respect. The kettle was boiling. I stayed beside it, at 22:30.",
+      "id": "C_VALE_ALIBI_0:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Detective. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Detective. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Detective. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Please. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Please. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Please. I reached the Study at 22:30. Harlow was already dead.",
+      "id": "C_VALE_ALIBI_1:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Must we? Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Must we? Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Must we? Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Please. Harlow... Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Please. Harlow... Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Please. Harlow... Harlow never spoke after I entered the Study.",
+      "id": "C_VALE_ALIBI_1:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, I met Harlow in the Study at 22:30. The cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, I met Harlow in the Study at 22:30. The cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, I met Harlow in the Study at 22:30. The cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Let me be precise, then. I met Harlow in the Study at 22:30. And the cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Let me be precise, then. I met Harlow in the Study at 22:30. And the cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Let me be precise, then. I met Harlow in the Study at 22:30. And the cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "How direct of you. I met Harlow in the Study at 22:30. The cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "How direct of you. I met Harlow in the Study at 22:30. The cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "How direct of you. I met Harlow in the Study at 22:30. The cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, this is rather much. I met Harlow in the Study at 22:30. The cable... was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, this is rather much. I met Harlow in the Study at 22:30. The cable... was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, this is rather much. I met Harlow in the Study at 22:30. The cable... was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "With respect, I met Harlow in the Study at 22:30. The cable was in my hands. That is all.",
+      "id": "C_VALE_ALIBI_2:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "With respect, I met Harlow in the Study at 22:30. The cable was in my hands. That is all.",
+      "id": "C_VALE_ALIBI_2:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "With respect, I met Harlow in the Study at 22:30. The cable was in my hands. That is all.",
+      "id": "C_VALE_ALIBI_2:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. I met Harlow in the Study, at 22:30. The cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. I met Harlow in the Study, at 22:30. The cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. I met Harlow in the Study, at 22:30. The cable was in my hands.",
+      "id": "C_VALE_ALIBI_2:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you insist. The cable was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you insist. The cable was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you insist. The cable was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Once more, then. The cable was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Once more, then. The cable was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Once more, then. The cable was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Do forgive me. The cable was in my hands in the Study. That is my account, and it stands.",
+      "id": "C_VALE_ALIBI_2:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Do forgive me. The cable was in my hands in the Study. That is my account, and it stands.",
+      "id": "C_VALE_ALIBI_2:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Do forgive me. The cable was in my hands in the Study. That is my account, and it stands.",
+      "id": "C_VALE_ALIBI_2:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "As I said. The cable was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "As I said. The cable was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "As I said. The cable was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really now. The cable was in my hands, in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really now. The cable was in my hands, in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really now. The cable was in my hands, in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. The cable... was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. The cable... was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. The cable... was in my hands in the Study. That is my account.",
+      "id": "C_VALE_ALIBI_2:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look, I heard Harlow answer Vale after she entered the Study. That's all.",
+      "id": "C_OKAFOR_REPLY:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look, I heard Harlow answer Vale after she entered the Study. That's all.",
+      "id": "C_OKAFOR_REPLY:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look, I heard Harlow answer Vale after she entered the Study. That's all.",
+      "id": "C_OKAFOR_REPLY:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "If you must know, I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "If you must know, I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "If you must know, I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "As I said. I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "As I said. I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "As I said. I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I heard Harlow answer Vale... after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I heard Harlow answer Vale... after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I heard Harlow answer Vale... after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "As I said, I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "As I said, I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "As I said, I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I heard Harlow answer Vale after she entered the Study. Nothing more dramatic than that.",
+      "id": "C_OKAFOR_REPLY:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I heard Harlow answer Vale after she entered the Study. Nothing more dramatic than that.",
+      "id": "C_OKAFOR_REPLY:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I heard Harlow answer Vale after she entered the Study. Nothing more dramatic than that.",
+      "id": "C_OKAFOR_REPLY:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly, I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly, I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly, I heard Harlow answer Vale after she entered the Study.",
+      "id": "C_OKAFOR_REPLY:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. Harlow intended to expose Vale's forged trust accounts.",
+      "id": "C_PIKE_TRUST:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. Harlow intended to expose Vale's forged trust accounts.",
+      "id": "C_PIKE_TRUST:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. Harlow intended to expose Vale's forged trust accounts.",
+      "id": "C_PIKE_TRUST:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, quite. Harlow intended to expose Vale's forged trust accounts, that's all, really.",
+      "id": "C_PIKE_TRUST:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, quite. Harlow intended to expose Vale's forged trust accounts, that's all, really.",
+      "id": "C_PIKE_TRUST:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, quite. Harlow intended to expose Vale's forged trust accounts, that's all, really.",
+      "id": "C_PIKE_TRUST:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, Harlow intended to expose Vale's forged trust accounts.",
+      "id": "C_PIKE_TRUST:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, Harlow intended to expose Vale's forged trust accounts.",
+      "id": "C_PIKE_TRUST:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, Harlow intended to expose Vale's forged trust accounts.",
+      "id": "C_PIKE_TRUST:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, so. Harlow intended to expose Vale's forged trust accounts, yes, exactly that.",
+      "id": "C_PIKE_TRUST:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, so. Harlow intended to expose Vale's forged trust accounts, yes, exactly that.",
+      "id": "C_PIKE_TRUST:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, so. Harlow intended to expose Vale's forged trust accounts, yes, exactly that.",
+      "id": "C_PIKE_TRUST:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly. Harlow intended to expose Vale's forged trust accounts.",
+      "id": "C_PIKE_TRUST:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly. Harlow intended to expose Vale's forged trust accounts.",
+      "id": "C_PIKE_TRUST:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly. Harlow intended to expose Vale's forged trust accounts.",
+      "id": "C_PIKE_TRUST:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look. Harlow intended to expose Vale's forged trust accounts, and I'd rather leave it there.",
+      "id": "C_PIKE_TRUST:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look. Harlow intended to expose Vale's forged trust accounts, and I'd rather leave it there.",
+      "id": "C_PIKE_TRUST:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look. Harlow intended to expose Vale's forged trust accounts, and I'd rather leave it there.",
+      "id": "C_PIKE_TRUST:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. Harlow intended to expose Vale's forged trust accounts. That's all, really.",
+      "id": "C_PIKE_TRUST:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. Harlow intended to expose Vale's forged trust accounts. That's all, really.",
+      "id": "C_PIKE_TRUST:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. Harlow intended to expose Vale's forged trust accounts. That's all, really.",
+      "id": "C_PIKE_TRUST:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look, Harlow intended to expose Vale's forged trust accounts—there, I've said it, may I go?",
+      "id": "C_PIKE_TRUST:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look, Harlow intended to expose Vale's forged trust accounts—there, I've said it, may I go?",
+      "id": "C_PIKE_TRUST:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look, Harlow intended to expose Vale's forged trust accounts—there, I've said it, may I go?",
+      "id": "C_PIKE_TRUST:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, fine. Harlow intended to expose Vale's forged trust accounts—now, if you'll excuse me.",
+      "id": "C_PIKE_TRUST:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, fine. Harlow intended to expose Vale's forged trust accounts—now, if you'll excuse me.",
+      "id": "C_PIKE_TRUST:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, fine. Harlow intended to expose Vale's forged trust accounts—now, if you'll excuse me.",
+      "id": "C_PIKE_TRUST:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly? Harlow intended to expose Vale's forged trust accounts, and I'd rather leave it there, thanks.",
+      "id": "C_PIKE_TRUST:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly? Harlow intended to expose Vale's forged trust accounts, and I'd rather leave it there, thanks.",
+      "id": "C_PIKE_TRUST:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly? Harlow intended to expose Vale's forged trust accounts, and I'd rather leave it there, thanks.",
+      "id": "C_PIKE_TRUST:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so... I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so... I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so... I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Lounge at 22:30. That's all there is.",
+      "id": "C_S1_ALIBI_0:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Lounge at 22:30. That's all there is.",
+      "id": "C_S1_ALIBI_0:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Lounge at 22:30. That's all there is.",
+      "id": "C_S1_ALIBI_0:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly, I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly, I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly, I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine, fine. I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine, fine. I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine, fine. I was in the Lounge at 22:30.",
+      "id": "C_S1_ALIBI_0:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, I was in the Hall at 22:30. And I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, I was in the Hall at 22:30. And I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, I was in the Hall at 22:30. And I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Hall at 22:30. I stole my debt note before that. There.",
+      "id": "C_S1_ALIBI_1:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Hall at 22:30. I stole my debt note before that. There.",
+      "id": "C_S1_ALIBI_1:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Hall at 22:30. I stole my debt note before that. There.",
+      "id": "C_S1_ALIBI_1:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? I was in the Hall at 22:30. I stole my debt note before that, yes.",
+      "id": "C_S1_ALIBI_1:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? I was in the Hall at 22:30. I stole my debt note before that, yes.",
+      "id": "C_S1_ALIBI_1:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? I was in the Hall at 22:30. I stole my debt note before that, yes.",
+      "id": "C_S1_ALIBI_1:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "So. I was in the Hall at 22:30. I stole my debt note before that. That's all of it.",
+      "id": "C_S1_ALIBI_1:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "So. I was in the Hall at 22:30. I stole my debt note before that. That's all of it.",
+      "id": "C_S1_ALIBI_1:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "So. I was in the Hall at 22:30. I stole my debt note before that. That's all of it.",
+      "id": "C_S1_ALIBI_1:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Yes, well... I was in the Hall at 22:30. I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Yes, well... I was in the Hall at 22:30. I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Yes, well... I was in the Hall at 22:30. I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, here it is. I was in the Hall at 22:30. I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, here it is. I was in the Hall at 22:30. I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, here it is. I was in the Hall at 22:30. I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Hall at 22:30. And yes, I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Hall at 22:30. And yes, I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I was in the Hall at 22:30. And yes, I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right then. I was in the Hall at 22:30, and I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right then. I was in the Hall at 22:30, and I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right then. I was in the Hall at 22:30, and I stole my debt note before that.",
+      "id": "C_S1_ALIBI_1:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I saw Imran in the Hall. At 22:30.",
+      "id": "C_SEES_S1:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I saw Imran in the Hall. At 22:30.",
+      "id": "C_SEES_S1:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I saw Imran in the Hall. At 22:30.",
+      "id": "C_SEES_S1:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly... I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly... I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly... I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. I saw Imran, in the Hall, at 22:30.",
+      "id": "C_SEES_S1:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. I saw Imran, in the Hall, at 22:30.",
+      "id": "C_SEES_S1:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. I saw Imran, in the Hall, at 22:30.",
+      "id": "C_SEES_S1:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look, I saw Imran in the Hall at 22:30. That's all.",
+      "id": "C_SEES_S1:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look, I saw Imran in the Hall at 22:30. That's all.",
+      "id": "C_SEES_S1:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look, I saw Imran in the Hall at 22:30. That's all.",
+      "id": "C_SEES_S1:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "As I said... I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "As I said... I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "As I said... I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. I saw Imran in the Hall at 22:30.",
+      "id": "C_SEES_S1:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I saw Imran in the Hall at 22:30. Nothing more.",
+      "id": "C_SEES_S1:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I saw Imran in the Hall at 22:30. Nothing more.",
+      "id": "C_SEES_S1:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I saw Imran in the Hall at 22:30. Nothing more.",
+      "id": "C_SEES_S1:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "If you must know, I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "If you must know, I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "If you must know, I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "I... I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "I... I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "I... I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I was in the Conservatory at 22:30. That's all.",
+      "id": "C_S3_ALIBI_0:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I was in the Conservatory at 22:30. That's all.",
+      "id": "C_S3_ALIBI_0:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I was in the Conservatory at 22:30. That's all.",
+      "id": "C_S3_ALIBI_0:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Listen. I was in the Conservatory. At 22:30.",
+      "id": "C_S3_ALIBI_0:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Listen. I was in the Conservatory. At 22:30.",
+      "id": "C_S3_ALIBI_0:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Listen. I was in the Conservatory. At 22:30.",
+      "id": "C_S3_ALIBI_0:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Once more, then. I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Once more, then. I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Once more, then. I was in the Conservatory at 22:30.",
+      "id": "C_S3_ALIBI_0:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I was in the Kitchen at 22:30. I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I was in the Kitchen at 22:30. I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. I was in the Kitchen at 22:30. I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I was in the Kitchen at 22:30. And yes, I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I was in the Kitchen at 22:30. And yes, I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. I was in the Kitchen at 22:30. And yes, I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... I was in the Kitchen at 22:30. I had borrowed medicine without logging it. That's all.",
+      "id": "C_S3_ALIBI_1:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... I was in the Kitchen at 22:30. I had borrowed medicine without logging it. That's all.",
+      "id": "C_S3_ALIBI_1:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... I was in the Kitchen at 22:30. I had borrowed medicine without logging it. That's all.",
+      "id": "C_S3_ALIBI_1:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I was in the Kitchen at 22:30. I had borrowed medicine... without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I was in the Kitchen at 22:30. I had borrowed medicine... without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I was in the Kitchen at 22:30. I had borrowed medicine... without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "All right... I was in the Kitchen at 22:30. I had borrowed medicine. Without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "All right... I was in the Kitchen at 22:30. I had borrowed medicine. Without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "All right... I was in the Kitchen at 22:30. I had borrowed medicine. Without logging it.",
+      "id": "C_S3_ALIBI_1:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. I was in the Kitchen at 22:30... I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. I was in the Kitchen at 22:30... I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. I was in the Kitchen at 22:30... I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I was in the Kitchen at 22:30. I had borrowed medicine without logging it. That's all.",
+      "id": "C_S3_ALIBI_1:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I was in the Kitchen at 22:30. I had borrowed medicine without logging it. That's all.",
+      "id": "C_S3_ALIBI_1:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. I was in the Kitchen at 22:30. I had borrowed medicine without logging it. That's all.",
+      "id": "C_S3_ALIBI_1:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. I was in the Kitchen at 22:30. I had borrowed medicine without logging it. No need for theatrics.",
+      "id": "C_S3_ALIBI_1:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. I was in the Kitchen at 22:30. I had borrowed medicine without logging it. No need for theatrics.",
+      "id": "C_S3_ALIBI_1:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. I was in the Kitchen at 22:30. I had borrowed medicine without logging it. No need for theatrics.",
+      "id": "C_S3_ALIBI_1:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Listen. I was in the Kitchen at 22:30. I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Listen. I was in the Kitchen at 22:30. I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Listen. I was in the Kitchen at 22:30. I had borrowed medicine without logging it.",
+      "id": "C_S3_ALIBI_1:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I saw Okafor in the Kitchen at 22:30. That's all, really.",
+      "id": "C_SEES_S3:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I saw Okafor in the Kitchen at 22:30. That's all, really.",
+      "id": "C_SEES_S3:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I saw Okafor in the Kitchen at 22:30. That's all, really.",
+      "id": "C_SEES_S3:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. I saw Okafor in the Kitchen at 22:30, and honestly that's everything I have.",
+      "id": "C_SEES_S3:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. I saw Okafor in the Kitchen at 22:30, and honestly that's everything I have.",
+      "id": "C_SEES_S3:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. I saw Okafor in the Kitchen at 22:30, and honestly that's everything I have.",
+      "id": "C_SEES_S3:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must. I saw Okafor in the Kitchen at 22:30, so—are we finished?",
+      "id": "C_SEES_S3:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must. I saw Okafor in the Kitchen at 22:30, so—are we finished?",
+      "id": "C_SEES_S3:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must. I saw Okafor in the Kitchen at 22:30, so—are we finished?",
+      "id": "C_SEES_S3:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly, I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly, I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly, I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I saw Okafor in the Kitchen at 22:30. That's all, really, that's all.",
+      "id": "C_SEES_S3:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I saw Okafor in the Kitchen at 22:30. That's all, really, that's all.",
+      "id": "C_SEES_S3:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I saw Okafor in the Kitchen at 22:30. That's all, really, that's all.",
+      "id": "C_SEES_S3:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective, I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective, I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective, I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Certainly. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Certainly. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Certainly. I saw Okafor in the Kitchen at 22:30.",
+      "id": "C_SEES_S3:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "I saw Okafor in the Kitchen at 22:30. Naturally.",
+      "id": "C_SEES_S3:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "I saw Okafor in the Kitchen at 22:30. Naturally.",
+      "id": "C_SEES_S3:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "I saw Okafor in the Kitchen at 22:30. Naturally.",
+      "id": "C_SEES_S3:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, well. I was in the Hall at 22:30, yes.",
+      "id": "C_S4_ALIBI_0:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, well. I was in the Hall at 22:30, yes.",
+      "id": "C_S4_ALIBI_0:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, well. I was in the Hall at 22:30, yes.",
+      "id": "C_S4_ALIBI_0:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really, Detective. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really, Detective. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really, Detective. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. I was in the Hall at 22:30.",
+      "id": "C_S4_ALIBI_0:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look. I was in the Hall at 22:30, that's all, really.",
+      "id": "C_S4_ALIBI_0:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look. I was in the Hall at 22:30, that's all, really.",
+      "id": "C_S4_ALIBI_0:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look. I was in the Hall at 22:30, that's all, really.",
+      "id": "C_S4_ALIBI_0:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, I was in the Hall at 22:30, there.",
+      "id": "C_S4_ALIBI_0:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, I was in the Hall at 22:30, there.",
+      "id": "C_S4_ALIBI_0:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, I was in the Hall at 22:30, there.",
+      "id": "C_S4_ALIBI_0:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, so. I was in the Hall at 22:30, I was, yes.",
+      "id": "C_S4_ALIBI_0:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, so. I was in the Hall at 22:30, I was, yes.",
+      "id": "C_S4_ALIBI_0:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, so. I was in the Hall at 22:30, I was, yes.",
+      "id": "C_S4_ALIBI_0:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I was in the Conservatory at 22:30. I brought a forged certificate—there, that's all of it, really.",
+      "id": "C_S4_ALIBI_1:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I was in the Conservatory at 22:30. I brought a forged certificate—there, that's all of it, really.",
+      "id": "C_S4_ALIBI_1:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. I was in the Conservatory at 22:30. I brought a forged certificate—there, that's all of it, really.",
+      "id": "C_S4_ALIBI_1:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must. I was in the Conservatory at 22:30. I brought a forged certificate, yes, a forged certificate, quite.",
+      "id": "C_S4_ALIBI_1:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must. I was in the Conservatory at 22:30. I brought a forged certificate, yes, a forged certificate, quite.",
+      "id": "C_S4_ALIBI_1:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must. I was in the Conservatory at 22:30. I brought a forged certificate, yes, a forged certificate, quite.",
+      "id": "C_S4_ALIBI_1:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. At 22:30, I was in the Conservatory. I brought a forged certificate, and that's—that's everything, truly.",
+      "id": "C_S4_ALIBI_1:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. At 22:30, I was in the Conservatory. I brought a forged certificate, and that's—that's everything, truly.",
+      "id": "C_S4_ALIBI_1:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. At 22:30, I was in the Conservatory. I brought a forged certificate, and that's—that's everything, truly.",
+      "id": "C_S4_ALIBI_1:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must. I was in the Conservatory at 22:30. I brought a forged certificate. Are we finished?",
+      "id": "C_S4_ALIBI_1:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must. I was in the Conservatory at 22:30. I brought a forged certificate. Are we finished?",
+      "id": "C_S4_ALIBI_1:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must. I was in the Conservatory at 22:30. I brought a forged certificate. Are we finished?",
+      "id": "C_S4_ALIBI_1:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. I was in the Conservatory at 22:30, and I brought a forged certificate—now, may I go?",
+      "id": "C_S4_ALIBI_1:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. I was in the Conservatory at 22:30, and I brought a forged certificate—now, may I go?",
+      "id": "C_S4_ALIBI_1:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. I was in the Conservatory at 22:30, and I brought a forged certificate—now, may I go?",
+      "id": "C_S4_ALIBI_1:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes. I was in the Conservatory at 22:30. I brought a forged certificate.",
+      "id": "C_S4_ALIBI_1:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I saw Pike in the Conservatory at 22:30. That's all.",
+      "id": "C_SEES_S4:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I saw Pike in the Conservatory at 22:30. That's all.",
+      "id": "C_SEES_S4:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, I saw Pike in the Conservatory at 22:30. That's all.",
+      "id": "C_SEES_S4:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. I saw Pike, in the Conservatory, at 22:30.",
+      "id": "C_SEES_S4:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. I saw Pike, in the Conservatory, at 22:30.",
+      "id": "C_SEES_S4:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. I saw Pike, in the Conservatory, at 22:30.",
+      "id": "C_SEES_S4:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "So, yes. I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "So, yes. I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "So, yes. I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so, I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so, I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so, I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Yes, well. I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Yes, well. I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Yes, well. I saw Pike in the Conservatory at 22:30.",
+      "id": "C_SEES_S4:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. The candlestick stayed in the Lounge at 22:30—must I say it twice? The Lounge, 22:30, there.",
+      "id": "C_SEES_O2:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. The candlestick stayed in the Lounge at 22:30—must I say it twice? The Lounge, 22:30, there.",
+      "id": "C_SEES_O2:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. The candlestick stayed in the Lounge at 22:30—must I say it twice? The Lounge, 22:30, there.",
+      "id": "C_SEES_O2:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "The candlestick stayed in the Lounge at 22:30. Naturally.",
+      "id": "C_SEES_O2:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "The candlestick stayed in the Lounge at 22:30. Naturally.",
+      "id": "C_SEES_O2:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "The candlestick stayed in the Lounge at 22:30. Naturally.",
+      "id": "C_SEES_O2:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really? The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really? The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really? The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, yes. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, yes. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, yes. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. The candlestick stayed in the Lounge at 22:30. That's all, really, may I go?",
+      "id": "C_SEES_O2:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. The candlestick stayed in the Lounge at 22:30. That's all, really, may I go?",
+      "id": "C_SEES_O2:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. The candlestick stayed in the Lounge at 22:30. That's all, really, may I go?",
+      "id": "C_SEES_O2:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. The candlestick stayed in the Lounge at 22:30. Must we, must we really keep at this?",
+      "id": "C_SEES_O2:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. The candlestick stayed in the Lounge at 22:30. Must we, must we really keep at this?",
+      "id": "C_SEES_O2:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. The candlestick stayed in the Lounge at 22:30. Must we, must we really keep at this?",
+      "id": "C_SEES_O2:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. The candlestick stayed in the Lounge at 22:30, yes, the Lounge, at 22:30, yes.",
+      "id": "C_SEES_O2:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. The candlestick stayed in the Lounge at 22:30, yes, the Lounge, at 22:30, yes.",
+      "id": "C_SEES_O2:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. The candlestick stayed in the Lounge at 22:30, yes, the Lounge, at 22:30, yes.",
+      "id": "C_SEES_O2:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "The candlestick stayed in the Lounge at 22:30. Really.",
+      "id": "C_SEES_O2:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "The candlestick stayed in the Lounge at 22:30. Really.",
+      "id": "C_SEES_O2:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "The candlestick stayed in the Lounge at 22:30. Really.",
+      "id": "C_SEES_O2:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes. The candlestick stayed in the Lounge at 22:30.",
+      "id": "C_SEES_O2:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, the letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, the letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, the letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? The letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? The letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? The letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, the letter knife stayed in the Hall at 22:30. That's all.",
+      "id": "C_SEES_O3:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, the letter knife stayed in the Hall at 22:30. That's all.",
+      "id": "C_SEES_O3:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, the letter knife stayed in the Hall at 22:30. That's all.",
+      "id": "C_SEES_O3:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so, the letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so, the letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so, the letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, the letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, the letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, the letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? The letter knife stayed in the Hall at 22:30. That's all there is.",
+      "id": "C_SEES_O3:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? The letter knife stayed in the Hall at 22:30. That's all there is.",
+      "id": "C_SEES_O3:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? The letter knife stayed in the Hall at 22:30. That's all there is.",
+      "id": "C_SEES_O3:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Now, now. The letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Now, now. The letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Now, now. The letter knife stayed in the Hall at 22:30.",
+      "id": "C_SEES_O3:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Listen. The letter knife stayed in the Hall. At 22:30. Right there.",
+      "id": "C_SEES_O3:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Listen. The letter knife stayed in the Hall. At 22:30. Right there.",
+      "id": "C_SEES_O3:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Listen. The letter knife stayed in the Hall. At 22:30. Right there.",
+      "id": "C_SEES_O3:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well... the medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well... the medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well... the medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "If you must know, the medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "If you must know, the medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "If you must know, the medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. The medicine bottle stayed in the Kitchen. At 22:30.",
+      "id": "C_SEES_O4:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. The medicine bottle stayed in the Kitchen. At 22:30.",
+      "id": "C_SEES_O4:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. The medicine bottle stayed in the Kitchen. At 22:30.",
+      "id": "C_SEES_O4:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. The medicine bottle... stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. The medicine bottle... stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. The medicine bottle... stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Let's be clear. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Let's be clear. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Let's be clear. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please... The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please... The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please... The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Let's be precise. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Let's be precise. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Let's be precise. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well... the medicine bottle stayed in the Kitchen. At 22:30.",
+      "id": "C_SEES_O4:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well... the medicine bottle stayed in the Kitchen. At 22:30.",
+      "id": "C_SEES_O4:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well... the medicine bottle stayed in the Kitchen. At 22:30.",
+      "id": "C_SEES_O4:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Once more, then. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Once more, then. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Once more, then. The medicine bottle stayed in the Kitchen at 22:30.",
+      "id": "C_SEES_O4:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. The bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. The bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. The bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, the bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, the bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, the bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, but the bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, but the bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, but the bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I see. Yes, the bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I see. Yes, the bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "I see. Yes, the bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Once more, then. The bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Once more, then. The bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Once more, then. The bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "How tiresome. The bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "How tiresome. The bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "How tiresome. The bookend stayed in the Conservatory at 22:30.",
+      "id": "C_SEES_O5:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "With respect, the bookend stayed in the Conservatory at 22:30. That is all.",
+      "id": "C_SEES_O5:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "With respect, the bookend stayed in the Conservatory at 22:30. That is all.",
+      "id": "C_SEES_O5:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "With respect, the bookend stayed in the Conservatory at 22:30. That is all.",
+      "id": "C_SEES_O5:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, my name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, my name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, my name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, then. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, then. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, then. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Of course. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Of course. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Of course. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "So. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "So. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "So. My name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my name is Imran Qadir.",
+      "id": "C_S1_NAME:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well. My name is Imran Qadir.",
+      "id": "C_S1_NAME:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well. My name is Imran Qadir.",
+      "id": "C_S1_NAME:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well. My name is Imran Qadir.",
+      "id": "C_S1_NAME:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, um. My name is Imran Qadir.",
+      "id": "C_S1_NAME:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, um. My name is Imran Qadir.",
+      "id": "C_S1_NAME:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, um. My name is Imran Qadir.",
+      "id": "C_S1_NAME:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. My name is Imran Qadir, yes.",
+      "id": "C_S1_NAME:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. My name is Imran Qadir, yes.",
+      "id": "C_S1_NAME:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. My name is Imran Qadir, yes.",
+      "id": "C_S1_NAME:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly. My name is Imran Qadir. Still.",
+      "id": "C_S1_NAME:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly. My name is Imran Qadir. Still.",
+      "id": "C_S1_NAME:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly. My name is Imran Qadir. Still.",
+      "id": "C_S1_NAME:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? My lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? My lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? My lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "I... my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "I... my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "I... my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "So. My lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "So. My lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "So. My lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, well... my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, well... my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, well... my lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Wait, wait. My lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Wait, wait. My lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Wait, wait. My lighter is empty.",
+      "id": "C_S1_BASELINE_LIE:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? My lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? My lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Honestly? My lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, right. My lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, right. My lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, right. My lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my lighter is fuelled. That's all.",
+      "id": "C_S1_BASELINE_TRUE:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my lighter is fuelled. That's all.",
+      "id": "C_S1_BASELINE_TRUE:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Look, my lighter is fuelled. That's all.",
+      "id": "C_S1_BASELINE_TRUE:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so... my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so... my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Right, so... my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. My lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. My lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine. My lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Yes... my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Yes... my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S1",
+      "text": "Yes... my lighter is fuelled.",
+      "id": "C_S1_BASELINE_TRUE:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Of course. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Of course. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Of course. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I see. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I see. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "I see. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. My name... my name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. My name... my name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. My name... my name is Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Certainly. My name is Marguerite Vale. Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Certainly. My name is Marguerite Vale. Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Certainly. My name is Marguerite Vale. Marguerite Vale.",
+      "id": "C_S2_NAME:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Please. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Please. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Please. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, but my name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, but my name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, but my name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I— yes. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I— yes. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "I— yes. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "How tiresome. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "How tiresome. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "How tiresome. My name is Marguerite Vale.",
+      "id": "C_S2_NAME:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, my brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, my brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, my brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Must we? My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Must we? My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Must we? My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I— well. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I— well. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "I— well. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Yes. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Yes. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Yes. My brooch is fastened.",
+      "id": "C_S2_BASELINE_LIE:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, my brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, my brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you must know, my brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Yes, quite. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Yes, quite. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Yes, quite. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "I see. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I see. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "I see. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Really, now. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me. My brooch clasp is open.",
+      "id": "C_S2_BASELINE_TRUE:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "If we must. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "If we must. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "If we must. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "All right. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "All right. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "All right. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Of course. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Of course. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Of course. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. My name is Dr. Ada Okafor. That's all.",
+      "id": "C_S3_NAME:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. My name is Dr. Ada Okafor. That's all.",
+      "id": "C_S3_NAME:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. My name is Dr. Ada Okafor. That's all.",
+      "id": "C_S3_NAME:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. My name is Dr. Ada Okafor.",
+      "id": "C_S3_NAME:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Yes. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Yes. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Yes. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well... these glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well... these glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well... these glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Enough. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Enough. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Enough. These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "I... These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "I... These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "I... These glasses are spotless.",
+      "id": "C_S3_BASELINE_LIE:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... my glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... my glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look... my glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Yes, well. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Yes, well. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Yes, well. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Right. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look, my glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look, my glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Look, my glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly... my glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly... my glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Honestly... my glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Fine. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. My glasses... are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. My glasses... are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "So. My glasses... are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S3",
+      "text": "Please. My glasses are smudged.",
+      "id": "C_S3_BASELINE_TRUE:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. My name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. My name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. My name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, of course. My name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, of course. My name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, of course. My name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. My name is Jonah Pike—Jonah Pike.",
+      "id": "C_S4_NAME:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. My name is Jonah Pike—Jonah Pike.",
+      "id": "C_S4_NAME:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. My name is Jonah Pike—Jonah Pike.",
+      "id": "C_S4_NAME:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Certainly. My name—my name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Certainly. My name—my name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Certainly. My name—my name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. My name is Jonah Pike. There.",
+      "id": "C_S4_NAME:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. My name is Jonah Pike. There.",
+      "id": "C_S4_NAME:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. My name is Jonah Pike. There.",
+      "id": "C_S4_NAME:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please, it's simple. My name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please, it's simple. My name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please, it's simple. My name is Jonah Pike.",
+      "id": "C_S4_NAME:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, of course. My name is Jonah Pike—",
+      "id": "C_S4_NAME:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, of course. My name is Jonah Pike—",
+      "id": "C_S4_NAME:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, of course. My name is Jonah Pike—",
+      "id": "C_S4_NAME:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. My name is Jonah Pike, if we must.",
+      "id": "C_S4_NAME:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. My name is Jonah Pike, if we must.",
+      "id": "C_S4_NAME:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. My name is Jonah Pike, if we must.",
+      "id": "C_S4_NAME:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. My name is Jonah Pike—is that all?",
+      "id": "C_S4_NAME:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. My name is Jonah Pike—is that all?",
+      "id": "C_S4_NAME:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "So. My name is Jonah Pike—is that all?",
+      "id": "C_S4_NAME:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. My name is Jonah Pike. Can we move on.",
+      "id": "C_S4_NAME:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. My name is Jonah Pike. Can we move on.",
+      "id": "C_S4_NAME:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Fine. My name is Jonah Pike. Can we move on.",
+      "id": "C_S4_NAME:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Of course. My name is Jonah Pike, naturally.",
+      "id": "C_S4_NAME:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Of course. My name is Jonah Pike, naturally.",
+      "id": "C_S4_NAME:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Of course. My name is Jonah Pike, naturally.",
+      "id": "C_S4_NAME:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly? Both my gloves are dry, quite dry, so—",
+      "id": "C_S4_BASELINE_LIE:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly? Both my gloves are dry, quite dry, so—",
+      "id": "C_S4_BASELINE_LIE:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Honestly? Both my gloves are dry, quite dry, so—",
+      "id": "C_S4_BASELINE_LIE:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, so. Both my gloves are dry. Dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, so. Both my gloves are dry. Dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right, so. Both my gloves are dry. Dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Both my gloves are dry. Honestly.",
+      "id": "C_S4_BASELINE_LIE:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Both my gloves are dry. Honestly.",
+      "id": "C_S4_BASELINE_LIE:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Both my gloves are dry. Honestly.",
+      "id": "C_S4_BASELINE_LIE:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look, both my gloves are dry — quite dry, really.",
+      "id": "C_S4_BASELINE_LIE:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look, both my gloves are dry — quite dry, really.",
+      "id": "C_S4_BASELINE_LIE:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Look, both my gloves are dry — quite dry, really.",
+      "id": "C_S4_BASELINE_LIE:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really, now. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really, now. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really, now. Both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, well — both my gloves are dry, both of them, dry.",
+      "id": "C_S4_BASELINE_LIE:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, well — both my gloves are dry, both of them, dry.",
+      "id": "C_S4_BASELINE_LIE:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, well — both my gloves are dry, both of them, dry.",
+      "id": "C_S4_BASELINE_LIE:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:press:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:press:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, both my gloves are dry.",
+      "id": "C_S4_BASELINE_LIE:press:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "I— both my gloves are dry. They are. Dry.",
+      "id": "C_S4_BASELINE_LIE:press:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "I— both my gloves are dry. They are. Dry.",
+      "id": "C_S4_BASELINE_LIE:press:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "I— both my gloves are dry. They are. Dry.",
+      "id": "C_S4_BASELINE_LIE:press:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v0",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v0",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, my gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, my gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "If you must know, my gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. Yes. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. Yes. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. Yes. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Detective. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really? My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really? My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v4",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Really? My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v4",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v5",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Please. My gloves are wet.",
+      "id": "C_S4_BASELINE_TRUE:answer:v5",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, yes. My gloves are wet, that's all.",
+      "id": "C_S4_BASELINE_TRUE:press:v1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, yes. My gloves are wet, that's all.",
+      "id": "C_S4_BASELINE_TRUE:press:v1",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Yes, yes. My gloves are wet, that's all.",
+      "id": "C_S4_BASELINE_TRUE:press:v1",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well, then. My gloves are wet, if you must know.",
+      "id": "C_S4_BASELINE_TRUE:press:v2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well, then. My gloves are wet, if you must know.",
+      "id": "C_S4_BASELINE_TRUE:press:v2",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well, then. My gloves are wet, if you must know.",
+      "id": "C_S4_BASELINE_TRUE:press:v2",
+      "take": "broken"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. My gloves are wet, and that's that, now may I?",
+      "id": "C_S4_BASELINE_TRUE:press:v3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. My gloves are wet, and that's that, now may I?",
+      "id": "C_S4_BASELINE_TRUE:press:v3",
+      "take": "rattled"
+    },
+    {
+      "speaker": "S4",
+      "text": "Right. My gloves are wet, and that's that, now may I?",
+      "id": "C_S4_BASELINE_TRUE:press:v3",
+      "take": "broken"
+    },
+    {
+      "speaker": "S1",
+      "text": "Ah, detective, how good of you.",
+      "id": "S1:opener:0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well, well, how very observant.",
+      "id": "S1:opener:1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Goodness, detective, please ask.",
+      "id": "S1:opener:2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Heavens, a question for me?",
+      "id": "S1:opener:3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Dear detective, do ask.",
+      "id": "S1:opener:4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Suffice to say, I am listening.",
+      "id": "S1:tail:6",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Thank you, detective.",
+      "id": "S1:tail:7",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "If you please.",
+      "id": "S1:tail:11",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Fine, then.",
+      "id": "S1:tail:13",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Hm.",
+      "id": "S1:filler:14",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Hmm.",
+      "id": "S1:filler:15",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Well.",
+      "id": "S1:filler:16",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Let me think a moment.",
+      "id": "S1:deflect:17",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Perhaps you could ask that again, slowly.",
+      "id": "S1:deflect:18",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "I would rather collect myself for a moment.",
+      "id": "S1:deflect:19",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Please, I need a moment of space.",
+      "id": "S1:deflect:20",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Frankly, enough of that matter.",
+      "id": "S1:deflect:21",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Pardon me, could you say that again?",
+      "id": "S1:deflect:22",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Excuse me, is this a specific concern?",
+      "id": "S1:deflect:23",
+      "take": "steady"
+    },
+    {
+      "speaker": "S1",
+      "text": "Forgive me, I need to think.",
+      "id": "S1:deflect:24",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well, detective.",
+      "id": "S2:opener:0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Ah, detective, good.",
+      "id": "S2:opener:1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Pardon me, detective.",
+      "id": "S2:opener:2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Goodness, again?",
+      "id": "S2:opener:3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Very well, ask.",
+      "id": "S2:opener:4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Gracious, a question.",
+      "id": "S2:opener:5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If you please.",
+      "id": "S2:tail:6",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Thank you, detective.",
+      "id": "S2:tail:7",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "If that would suffice.",
+      "id": "S2:tail:9",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Do write that down.",
+      "id": "S2:tail:10",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Slowly, if you please.",
+      "id": "S2:tail:11",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "With my thanks.",
+      "id": "S2:tail:13",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Hm.",
+      "id": "S2:filler:14",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Hmm.",
+      "id": "S2:filler:15",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Well.",
+      "id": "S2:filler:16",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Forgive me, but that is rather your concern.",
+      "id": "S2:deflect:17",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Perhaps ask again, and more slowly.",
+      "id": "S2:deflect:18",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Excuse me, I need a moment to collect myself.",
+      "id": "S2:deflect:20",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Is that question really your concern?",
+      "id": "S2:deflect:21",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Good heavens, the question again.",
+      "id": "S2:deflect:22",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Do let me think, detective.",
+      "id": "S2:deflect:23",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "I would ask for more space, please.",
+      "id": "S2:deflect:24",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Be specific, detective, or let the matter be.",
+      "id": "S2:lawyered:25",
+      "take": "steady"
+    },
+    {
+      "speaker": "S2",
+      "text": "Write the question down, then ask again.",
+      "id": "S2:lawyered:27",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Well, detective.",
+      "id": "S3:opener:0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Listen to me, please.",
+      "id": "S3:opener:1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Frankly, detective, enough.",
+      "id": "S3:opener:2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Ah, the question again.",
+      "id": "S3:opener:3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Good heavens, detective.",
+      "id": "S3:opener:4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Very well, ask.",
+      "id": "S3:opener:5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "If you please.",
+      "id": "S3:tail:6",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "And that is that.",
+      "id": "S3:tail:7",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "So be it.",
+      "id": "S3:tail:8",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Write that down, detective.",
+      "id": "S3:tail:9",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Then let that suffice.",
+      "id": "S3:tail:10",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Thank you, detective.",
+      "id": "S3:tail:12",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Slowly, detective, slowly.",
+      "id": "S3:tail:13",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Hm.",
+      "id": "S3:filler:14",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Hmm.",
+      "id": "S3:filler:15",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Ah.",
+      "id": "S3:filler:16",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "That question again, detective?",
+      "id": "S3:deflect:17",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Ask me a specific question.",
+      "id": "S3:deflect:18",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Let me collect myself a moment.",
+      "id": "S3:deflect:19",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "I need a moment, please.",
+      "id": "S3:deflect:20",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Perhaps you could ask more slowly.",
+      "id": "S3:deflect:22",
+      "take": "steady"
+    },
+    {
+      "speaker": "S3",
+      "text": "Frankly, that is your concern, detective.",
+      "id": "S3:deflect:23",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Ah, detective, how very good of you.",
+      "id": "S4:opener:0",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Well, detective, I am listening, really.",
+      "id": "S4:opener:1",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Goodness, detective, how observant of you.",
+      "id": "S4:opener:2",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Frankly, detective, ask your question, please.",
+      "id": "S4:opener:3",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Dear detective, do say your concern.",
+      "id": "S4:opener:4",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Good heavens, detective, then ask.",
+      "id": "S4:opener:5",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "That should suffice, yes?",
+      "id": "S4:tail:6",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "That is quite enough, really.",
+      "id": "S4:tail:7",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Thank you, detective, very much.",
+      "id": "S4:tail:8",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "I suppose so, honestly.",
+      "id": "S4:tail:10",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Do write that down, slowly.",
+      "id": "S4:tail:11",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Now, if you will excuse me.",
+      "id": "S4:tail:12",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "So, then, is this fine?",
+      "id": "S4:tail:13",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Hm.",
+      "id": "S4:filler:14",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Hmm, well.",
+      "id": "S4:filler:15",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Ah, yes.",
+      "id": "S4:filler:16",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Perhaps you could ask again, slowly.",
+      "id": "S4:deflect:17",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Is that really the matter of concern?",
+      "id": "S4:deflect:18",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Forgive me, I need more space.",
+      "id": "S4:deflect:19",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "I would rather think, if I may.",
+      "id": "S4:deflect:20",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Pardon me, I need a moment.",
+      "id": "S4:deflect:21",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Let me collect myself, please.",
+      "id": "S4:deflect:22",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "How very specific a question.",
+      "id": "S4:deflect:23",
+      "take": "steady"
+    },
+    {
+      "speaker": "S4",
+      "text": "Gracious, how very observant.",
+      "id": "S4:deflect:24",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "AI can make a mystery endlessly replayable, but it also makes things up, and a mystery that contradicts itself isn't fair. Roomscript splits the job: an engine proves the case, and the AI only plays the suspects.",
+      "id": "video-vo-1",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "You place the case in your room. In the Lens Studio Preview this is a simulated room; the kettle, lamp and desk become the evidence.",
+      "id": "video-vo-2",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Every suspect has a baseline, and a tell. Watch where Vale looks.",
+      "id": "video-vo-3",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "That answer was live AI. But it was only allowed to say what the engine handed it, and it was checked before she spoke.",
+      "id": "video-vo-4",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Objects remember. The kettle never boiled.",
+      "id": "video-vo-5",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Break one lie and she retreats to the next. A witness statement breaks that one.",
+      "id": "video-vo-6",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Like Clue, you can test a theory. The other suspects refute it, privately.",
+      "id": "video-vo-7",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "The engine checks the accusation. Prove the case, and break the culprit's last account, to earn all three stars.",
+      "id": "video-vo-8",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "Under the hood, truth is compiled, not generated. A solver proves one unique answer. The language model directs validated lines. Tests, simulated players, and generated cases check the rules.",
+      "id": "video-vo-9",
+      "take": "steady"
+    },
+    {
+      "speaker": "NARRATOR",
+      "text": "And it was built by coding agents: Codex and Claude Code, using Snap's CLAD skills and the Lens Studio MCP, with every step compiled, tested in Preview and committed.",
+      "id": "video-vo-10",
+      "take": "steady"
+    }
+  ]
+}

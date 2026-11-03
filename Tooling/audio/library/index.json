@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "note": "Normalized paid originals. AI-generated ElevenLabs audio; provider terms apply, not MIT. Does not include derived sentence files or duplicate raw response cache.",
+  "voiceOriginals": 712,
+  "cues": 39,
+  "dialogues": 5,
+  "bytes": 18498036
+}
