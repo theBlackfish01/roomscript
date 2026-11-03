@@ -1,0 +1,24 @@
+{
+  "name": "roomscript-art",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline, deterministic, code-driven art pipeline for Roomscript (Three.js in headless Chromium -> PNG/GLB/MP4).",
+  "type": "module",
+  "license": "UNLICENSED",
+  "scripts": {
+    "art": "node run.mjs",
+    "art:portraits": "node run.mjs --only portraits",
+    "art:props": "node run.mjs --only props",
+    "art:cards": "node run.mjs --only cards",
+    "art:motion": "node run.mjs --only motion",
+    "art:sheet": "node run.mjs --only sheet"
+  },
+  "dependencies": {
+    "@fontsource/alfa-slab-one": "^5.3.0",
+    "@fontsource/anton": "^5.3.0",
+    "@fontsource/courier-prime": "^5.3.0",
+    "@fontsource/special-elite": "^5.3.0",
+    "playwright-core": "^1.64.1",
+    "three": "0.170.0"
+  }
+}

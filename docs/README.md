@@ -14,6 +14,9 @@
 | [design/05-clue-and-la-noire-research.md](design/05-clue-and-la-noire-research.md) | Reference mechanics (Clue, L.A. Noire, AI interrogation games), repos with licences, multiplayer research | Background |
 | [PROGRESS.md](PROGRESS.md) | Live build status | Everyone |
 | [PAUSE_HANDOFF_2026-10-28.md](PAUSE_HANDOFF_2026-10-28.md) | User-requested pause: complete inventory, WIP, verification limits, remaining work and restart/tour instructions | Wadood and the next agent |
+| [REVIEW_2026-10-28.md](REVIEW_2026-10-28.md) | First independent review (fix list); full reports in `reviews/` | Wadood and agents |
+| [REVIEW_2026-10-29.md](REVIEW_2026-10-29.md) | Second review (historical) | Wadood and agents |
+| [REVIEW_2026-11-03.md](REVIEW_2026-11-03.md) | **Final review and polish plan:** work packages, art direction, schedule; reports, mockups and art contact sheet in `reviews/` | Agents (current runs) |
 | [decisions.md](decisions.md) | Decisions made during the build, with reasons | Everyone |
 | [probe-results.md](probe-results.md) | Gateway, TTS, camera and Sync Kit probe measurements | Everyone |
 | [later.md](later.md) | Ideas parked for after the hackathon | Everyone |

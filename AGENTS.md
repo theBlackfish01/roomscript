@@ -101,6 +101,7 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
 - [`docs/plan/IMPLEMENTATION_PLAN.md`](docs/plan/IMPLEMENTATION_PLAN.md) — work packages and acceptance criteria.
 - [`docs/README.md`](docs/README.md) — index of the design docs.
 - [`docs/PROGRESS.md`](docs/PROGRESS.md) — current state. Read it first after any context reset.
+- [`docs/REVIEW_2026-11-03.md`](docs/REVIEW_2026-11-03.md) — the latest independent review: the final polish plan, work packages and schedule for the current runs. Earlier reviews are historical.
 
 **Rules for every agent:**
 1. **The LLM never decides truth.** A deterministic TypeScript engine (`Assets/Scripts/Engine/`) decides every fact, lie flag, tell, refutation, objection result and verdict. Any code path where model output changes one of those is a bug.
@@ -125,3 +126,17 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
 8. **Logging.** Log CLAD and MCP usage (skill, agent or tool, and what it produced) to `devpost/clad-log.md`, and decisions to `docs/decisions.md`. CLAD use is a judging criterion.
 9. **No scope creep.** New ideas go to `docs/later.md`, not into the build.
 10. **Git.** Commit after each work package. Never push or create a remote without asking Wadood.
+11. **Local API keys.** `Tooling/.env` (gitignored) holds `ANTHROPIC_API_KEY` and `ELEVENLABS_API_KEY` for local Node tooling only. ElevenLabs has a $50 cap: keep `Tooling/results/elevenlabs-ledger.json` from the `character-cost` headers and stop at 150,000 credits. Both keys:
+    - validator red-teaming, judging and content drafting;
+    - read it only from `Tooling/` scripts;
+    - never copy it into `Assets/`, the scene, logs, docs or test fixtures, and never print it;
+    - Claude isn't on Snap's gateway, so production prompts and latency are still measured on Gemini through the gateway.
+12. **Don't idle on a blocker.**
+    - If something needs Wadood or is stuck for more than about 30 minutes, record it under "Needs Wadood" in `docs/PROGRESS.md`.
+    - Take the documented fallback, or move to the next independent work package, and keep going.
+    - If a commit fails for a non-secret reason (for example, the approval service times out), retry once. If it fails again, record it and keep working; commit at the next verified step.
+13. **Preview hygiene.**
+    - Restart Lens Studio before any long LEAF verification or capture session. Long reload-heavy sessions degrade the process.
+    - Record the run handshake time in PROGRESS.
+    - Never call `snapshot()` or `caseGraph()` inside `update()` or drag handlers.
+14. **Never commit a scene that has Stage mode on without the bundled voice library wired**, because the suspects would be silent.

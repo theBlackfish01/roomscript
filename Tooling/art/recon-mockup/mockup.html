@@ -1,0 +1,317 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Roomscript reconstruction mockup</title>
+<style>html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from "three";
+import {Line2} from "three/addons/lines/Line2.js";
+import {LineMaterial} from "three/addons/lines/LineMaterial.js";
+import {LineGeometry} from "three/addons/lines/LineGeometry.js";
+import {EffectComposer} from "three/addons/postprocessing/EffectComposer.js";
+import {RenderPass} from "three/addons/postprocessing/RenderPass.js";
+import {UnrealBloomPass} from "three/addons/postprocessing/UnrealBloomPass.js";
+import {ShaderPass} from "three/addons/postprocessing/ShaderPass.js";
+import {OutputPass} from "three/addons/postprocessing/OutputPass.js";
+
+// ---- engine-derived data (copied from HeroCaseHarlow1041.ts; cm, floor-local, player at origin facing -Z) ----
+const ZONES={Z1:{name:"Study",a:[80,0,-180]},Z2:{name:"Lounge",a:[-160,0,-120]},Z3:{name:"Hall",a:[170,0,40]},Z4:{name:"Kitchen",a:[180,0,-250]},Z5:{name:"Conservatory",a:[-120,0,-280]}};
+const OBJ={O1:[95,75.5,-190],O6:[110,109,-210],O7:[170,145,40],O8:[190,110,70],O9:[65,84,-180],O10:[-120,125,-280],O11:[175,96,-265],O12:[65,79,-200],O13:[-160,47,-120],O4:[190,98,-250],O5:[-120,90,-270]};
+const mark=(z,dx=0)=>[ZONES[z].a[0]+dx,0,ZONES[z].a[2]+55];
+// claimed (layer-0 cover) vs certified (truth fact at slot 6) marks; dx = proposed per-suspect lateral offset to avoid collisions
+const CAST={
+  S1:{name:"Imran Qadir",short:"QADIR",claim:"Z2",truth:"Z3",prop:"lighter",dx:-28,slip:"I was in the Lounge at 22:30."},
+  S2:{name:"Marguerite Vale",short:"VALE",claim:"Z4",truth:"Z1",prop:"brooch",dx:-38,slip:"I was in the Kitchen making tea at 22:30."},
+  S3:{name:"Dr. Ada Okafor",short:"OKAFOR",claim:"Z5",truth:"Z4",prop:"glasses",dx:28,slip:"I was in the Conservatory at 22:30."},
+  S4:{name:"Jonah Pike",short:"PIKE",claim:"Z3",truth:"Z5",prop:"gloves",dx:-20,slip:"I was in the Hall at 22:30."}};
+
+const C={coral:"#FF6B5A",cyan:"#3FE3FF",yellow:"#FFD60A",ivory:"#FFF0D6",brass:"#E8B04A",chalk:"#EEF4FF",violet:"#8F7CFF"};
+const params=new URLSearchParams(location.search);const FRAME=params.get("frame")||"A";
+const W=1600,H=900;
+
+// ---------- renderer ----------
+const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setSize(W,H);renderer.setPixelRatio(1);renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.25;
+renderer.outputColorSpace=THREE.SRGBColorSpace;document.body.appendChild(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color("#060504");
+const camera=new THREE.PerspectiveCamera(56,W/H,1,6000);
+
+// ---------- procedural textures ----------
+function canvasTex(w,h,draw,repeat){const c=document.createElement("canvas");c.width=w;c.height=h;const g=c.getContext("2d");draw(g,w,h);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;if(repeat){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(repeat[0],repeat[1]);}return t;}
+let seed=1041;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};
+const floorTex=canvasTex(1024,1024,(g,w,h)=>{g.fillStyle="#3a2618";g.fillRect(0,0,w,h);for(let r=0;r<8;r++){const y=r*h/8;for(let k=0;k<3;k++){const x0=(r*137+k*341)%w;g.fillStyle=`hsl(25,${30+rnd()*15}%,${12+rnd()*8}%)`;g.fillRect(x0,y,w/2.2,h/8-3);}
+ g.fillStyle="#120a06";g.fillRect(0,y+h/8-3,w,3);}for(let i=0;i<4000;i++){g.fillStyle=`rgba(0,0,0,${rnd()*.12})`;g.fillRect(rnd()*w,rnd()*h,rnd()*60,1);} },[4,4]);
+const wallTex=canvasTex(512,512,(g,w,h)=>{g.fillStyle="#3b3430";g.fillRect(0,0,w,h);for(let x=0;x<w;x+=32){g.fillStyle="rgba(255,240,214,.025)";g.fillRect(x,0,14,h);}for(let i=0;i<3000;i++){g.fillStyle=`rgba(0,0,0,${rnd()*.08})`;g.fillRect(rnd()*w,rnd()*h,2,2);}},[6,3]);
+const fabricTex=canvasTex(256,256,(g,w,h)=>{g.fillStyle="#4b4f5a";g.fillRect(0,0,w,h);for(let i=0;i<2500;i++){g.fillStyle=`rgba(${rnd()>.5?255:0},${rnd()>.5?255:0},255,${rnd()*.05})`;g.fillRect(rnd()*w,rnd()*h,3,1);}},[3,3]);
+const rugTex=canvasTex(512,512,(g,w,h)=>{g.fillStyle="#4a2420";g.fillRect(0,0,w,h);g.strokeStyle="#8a5a3a";g.lineWidth=10;g.strokeRect(24,24,w-48,h-48);g.lineWidth=3;g.strokeRect(50,50,w-100,h-100);for(let i=0;i<5000;i++){g.fillStyle=`rgba(0,0,0,${rnd()*.15})`;g.fillRect(rnd()*w,rnd()*h,2,2);}});
+const std=(o)=>new THREE.MeshStandardMaterial(Object.assign({roughness:.85,metalness:0},o));
+
+// ---------- the simulated room (stand-in for Lens Studio's simulated evening room) ----------
+const room=new THREE.Group();scene.add(room);
+function box(w,h,d,mat,x,y,z,ry=0){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);m.position.set(x,y,z);m.rotation.y=ry;room.add(m);return m;}
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(520,520),std({map:floorTex,roughness:.6}));floor.rotation.x=-Math.PI/2;floor.position.set(0,0,-90);room.add(floor);
+const wallM=std({map:wallTex});
+box(520,270,4,wallM,0,135,-305);              // back wall
+box(4,270,520,wallM,-262,135,-90);            // left wall
+box(4,270,520,wallM,218,135,-90);             // right wall
+const ceil=box(520,4,520,std({color:"#1d1a18"}),0,270,-90);
+const rug=new THREE.Mesh(new THREE.PlaneGeometry(190,140),std({map:rugTex}));rug.rotation.x=-Math.PI/2;rug.position.set(-10,.3,-150);room.add(rug);
+// desk (Study)
+const wood=std({color:"#4a2e1c",roughness:.55});
+box(150,4,72,wood,80,75,-200);for(const [x,z] of [[10,-232],[150,-232],[10,-168],[150,-168]])box(4,73,4,wood,x,36.5,z);
+box(60,4,26,wood,135,60,-200); // drawer shelf
+// chair
+box(46,4,44,wood,182,46,-120);box(4,50,44,wood,203,72,-120);for(const [x,z] of [[162,-140],[202,-140],[162,-100],[202,-100]])box(3,46,3,wood,x,23,z);
+// lamp (real fixture O6)
+box(16,3,16,std({color:"#2a2a2a",metalness:.6,roughness:.3}),110,77,-210);box(1.5,30,1.5,std({color:"#b08a4a",metalness:.8,roughness:.3}),110,92,-210);
+const shade=new THREE.Mesh(new THREE.CylinderGeometry(9,15,16,24,1,true),std({color:"#e9dcc0",emissive:"#ffcf8a",emissiveIntensity:.55,side:THREE.DoubleSide}));shade.position.set(110,112,-210);room.add(shade);
+// recorder (O12) and cable (O1) and mug O9 (real fixtures, drawn plain)
+box(16,5,10,std({color:"#1b1b1d",roughness:.4}),65,79.5,-200);
+const cableCurve=new THREE.CatmullRomCurve3([[95,77.6,-205],[88,77.6,-196],[100,77.6,-188],[92,77.6,-180],[110,77.6,-176]].map(p=>new THREE.Vector3(...p)));
+room.add(new THREE.Mesh(new THREE.TubeGeometry(cableCurve,40,.5,6),std({color:"#e8e8e8",roughness:.5})));
+// bed (Lounge)
+box(140,30,200,std({color:"#2c2420"}),-185,15,-115);box(140,16,196,std({map:fabricTex}),-185,38,-115);box(130,10,40,std({color:"#cfc6b6"}),-185,50,-200);
+box(140,90,6,wood,-185,45,-217);
+// door (Hall) in right wall
+box(3,205,90,std({color:"#3c2a1e",roughness:.6}),215.5,102.5,45);box(2,4,10,std({color:"#c9a14a",metalness:.8,roughness:.3}),213,110,72);
+// kitchen counter + kettle (O11) + bottle (O4)
+box(76,90,66,std({color:"#2d2b29",roughness:.5}),178,45,-270);box(80,4,70,std({color:"#5b5650",roughness:.35}),178,92,-270);
+const kettle=new THREE.Mesh(new THREE.SphereGeometry(9,20,14),std({color:"#9aa0a6",metalness:.7,roughness:.25}));kettle.scale.y=.9;kettle.position.set(175,102,-265);room.add(kettle);
+const bottle=new THREE.Mesh(new THREE.CylinderGeometry(3,3,11,12),std({color:"#5a3a1a",roughness:.3,transparent:true,opacity:.85}));bottle.position.set(190,99.5,-250);room.add(bottle);
+// window (Conservatory) on back wall: frame + night glass
+const glass=new THREE.Mesh(new THREE.PlaneGeometry(150,110),std({color:"#0d1626",emissive:"#1a2b47",emissiveIntensity:.5,roughness:.1}));glass.position.set(-120,150,-302);room.add(glass);
+for(const [w,h,x,y] of [[154,5,-120,207],[154,5,-120,93],[5,114,-196,150],[5,114,-44,150],[3,110,-120,150],[150,3,-120,150]])box(w,h,3,std({color:"#d9cfbd"}),x,y,-300);
+box(70,85,40,wood,-120,42.5,-278); // window table (bookend sits here)
+// crate stand + crate (the case box)
+box(42,92,32,std({color:"#6b4a30",roughness:.6}),-25,46,-150);
+// bookshelf left wall for texture
+box(30,180,90,wood,-245,90,-275);for(let s=0;s<5;s++){box(28,2,88,wood,-245,20+s*38,-275);for(let b=0;b<9;b++){const hh=22+rnd()*12;box(18,hh,6,std({color:`hsl(${rnd()*40},35%,${18+rnd()*14}%)`}),-245,22+s*38+hh/2,-312+b*9.5+18);}}
+
+// lighting: evening room — warm lamp, cool moonlight, low ambient (the room itself, not added AR light)
+scene.add(new THREE.HemisphereLight("#5a5f78","#3a2a1c",2.2));scene.add(new THREE.AmbientLight("#ffe8d0",.35));
+const lampLight=new THREE.PointLight("#ffbf72",9000,700,2);lampLight.position.set(110,118,-208);scene.add(lampLight);
+const moon=new THREE.SpotLight("#7f9cff",14000,900,.6,.6,2);moon.position.set(-120,170,-340);moon.target.position.set(-60,0,-60);scene.add(moon,moon.target);
+const fill=new THREE.PointLight("#ffd9b0",22000,900,2);fill.position.set(-20,240,60);const fill2=new THREE.PointLight("#ffcf9a",9000,600,2);fill2.position.set(150,220,-120);scene.add(fill2);scene.add(fill);
+
+// ---------- AR layer (additive, like the Specs display) ----------
+const ar=new THREE.Group();scene.add(ar);
+const lineMats=[];
+function line(points,color,width=3,opts={}){const g=new LineGeometry();g.setPositions(points.flat());const m=new LineMaterial({color,linewidth:width,transparent:true,opacity:opts.opacity??1,dashed:!!opts.dashed,dashSize:opts.dash||8,gapSize:opts.gap||6,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:opts.depthTest??true});m.resolution.set(W,H);const l=new Line2(g,m);if(opts.dashed)l.computeLineDistances();ar.add(l);lineMats.push(m);return l;}
+function sprite(tex,w,h,pos,opts={}){const m=new THREE.SpriteMaterial({map:tex,transparent:true,blending:opts.normal?THREE.NormalBlending:THREE.AdditiveBlending,depthWrite:false,depthTest:opts.depthTest??true,opacity:opts.opacity??1,color:opts.tint||"#ffffff"});const s=new THREE.Sprite(m);s.scale.set(w,h,1);s.position.set(...pos);if(opts.center)s.center.set(...opts.center);ar.add(s);return s;}
+function plane(tex,w,h,pos,rot=[0,0,0],opts={}){const m=new THREE.MeshBasicMaterial({map:tex,transparent:true,blending:opts.normal?THREE.NormalBlending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide,opacity:opts.opacity??1,depthTest:opts.depthTest??true});const p=new THREE.Mesh(new THREE.PlaneGeometry(w,h),m);p.position.set(...pos);p.rotation.set(...rot);ar.add(p);return p;}
+function textTex(lines,o={}){const size=o.size||64,font=o.font||"Bahnschrift",weight=o.weight||"700";const c=document.createElement("canvas");const g=c.getContext("2d");g.font=`${weight} ${size}px ${font}`;if(o.tracking)g.letterSpacing=o.tracking+"px";
+  const lw=Math.max(...lines.map(l=>g.measureText(l).width));c.width=Math.ceil(lw+size*(o.padX??.8));c.height=Math.ceil(lines.length*size*(o.lh||1.15)+size*(o.padY??.6));
+  g.font=`${weight} ${size}px ${font}`;if(o.tracking)g.letterSpacing=o.tracking+"px";g.textBaseline="middle";g.textAlign=o.align||"center";if(o.plate){g.fillStyle=o.plate;roundRect(g,2,2,c.width-4,c.height-4,size*.25);g.fill();}
+  if(o.border){g.strokeStyle=o.border;g.lineWidth=o.borderW||4;if(o.borderDash)g.setLineDash(o.borderDash);roundRect(g,4,4,c.width-8,c.height-8,size*.25);g.stroke();g.setLineDash([]);}
+  g.shadowColor=o.glow||o.color||"#fff";g.shadowBlur=o.blur??size*.25;g.fillStyle=o.color||C.ivory;
+  if(o.tracking)g.letterSpacing=o.tracking+"px";
+  lines.forEach((l,i)=>g.fillText(l,o.align==="left"?size*.4:c.width/2,size*(o.padY??.6)/2+size*(o.lh||1.15)*(i+.5)));
+  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.userData={w:c.width,h:c.height};return t;}
+function roundRect(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath();}
+function label(lines,heightCm,pos,o={}){const t=textTex(lines,o);const s=sprite(t,heightCm*t.userData.w/t.userData.h,heightCm,pos,o);return s;}
+
+// ---------- ghost cut-outs (paper-theatre engraving; fades to specks below the waist) ----------
+function ghostTex(o){const w=512,h=1024,c=document.createElement("canvas");c.width=w;c.height=h;const g=c.getContext("2d");
+  const rim=o.rim||C.ivory,ink=o.ink||C.ivory;const pose=o.pose||"stand";
+  // silhouette path
+  const sil=new Path2D();sil.moveTo(256-70,330);sil.lineTo(256-150,380);sil.quadraticCurveTo(256-175,520,256-150,700);sil.lineTo(256-120,980);sil.lineTo(256+120,980);sil.lineTo(256+150,700);sil.quadraticCurveTo(256+175,520,256+150,380);sil.lineTo(256+70,330);sil.closePath();
+  g.save();
+  if(!o.claim){// hatching (dense = dark coat), clipped to torso, fading downward
+    g.save();g.clip(sil);for(let i=-h;i<w+h;i+=o.hatch||11){g.strokeStyle=ink;g.lineWidth=2.2;g.beginPath();g.moveTo(i,330);g.lineTo(i+700,1030);g.stroke();}
+    g.restore();g.globalCompositeOperation="destination-in";const fade=g.createLinearGradient(0,380,0,900);fade.addColorStop(0,"rgba(0,0,0,.55)");fade.addColorStop(.45,"rgba(0,0,0,.35)");fade.addColorStop(1,"rgba(0,0,0,0)");g.fillStyle=fade;g.fillRect(0,0,w,h);g.globalCompositeOperation="source-over";}
+  g.restore();
+  // specks below waist
+  for(let i=0;i<(o.claim?60:260);i++){const y=640+Math.pow(rnd(),.7)*370,spread=150-((y-640)/370)*40,x=256+(rnd()*2-1)*spread;g.fillStyle=o.claim?rim:ink;g.globalAlpha=(1-(y-640)/400)*.9*rnd();g.beginPath();g.arc(x,y,1.5+rnd()*2.5,0,7);g.fill();}
+  g.globalAlpha=1;
+  // rim contour
+  g.shadowColor=rim;g.shadowBlur=18;g.strokeStyle=rim;g.lineWidth=o.claim?6:7;if(o.claim)g.setLineDash([22,16]);
+  const rimPath=new Path2D();rimPath.moveTo(256-120,760);rimPath.lineTo(256-150,700);rimPath.quadraticCurveTo(256-175,520,256-150,380);rimPath.lineTo(256-70,330);rimPath.moveTo(256+70,330);rimPath.lineTo(256+150,380);rimPath.quadraticCurveTo(256+175,520,256+150,700);rimPath.lineTo(256+120,760);
+  g.stroke(rimPath);
+  // head
+  g.beginPath();g.ellipse(256,215,78,96,0,0,7);g.stroke();g.setLineDash([]);if(!o.claim){g.save();g.shadowBlur=0;g.fillStyle="rgba(255,240,214,0.22)";g.beginPath();g.ellipse(256,215,74,92,0,0,7);g.fill();g.restore();}
+  if(!o.claim){g.shadowBlur=6;g.lineWidth=4;g.strokeStyle=ink;// face
+    g.beginPath();g.moveTo(222,205);g.lineTo(240,203);g.moveTo(272,203);g.lineTo(290,205);g.stroke();
+    g.beginPath();g.moveTo(258,215);g.lineTo(250,250);g.lineTo(262,252);g.stroke();g.beginPath();g.moveTo(240,274);g.lineTo(272,272);g.stroke();
+    // hair
+    g.lineWidth=3;for(let k=0;k<7;k++){g.beginPath();g.moveTo(180+k*4,190-k*6);g.quadraticCurveTo(250,90-k*3,330-k*3,170+k*4);g.stroke();}
+    // collar V
+    g.lineWidth=5;g.beginPath();g.moveTo(206,345);g.lineTo(256,430);g.lineTo(306,345);g.stroke();
+    // neck
+    g.beginPath();g.moveTo(232,305);g.lineTo(230,335);g.moveTo(280,305);g.lineTo(282,335);g.stroke();}
+  else{g.font="700 120px Bahnschrift";g.textAlign="center";g.fillStyle=rim;g.shadowBlur=20;g.fillText("?",256,255);}
+  // arms / pose
+  g.lineWidth=7;g.strokeStyle=rim;g.shadowColor=rim;g.shadowBlur=14;
+  if(pose==="cable"){g.beginPath();g.moveTo(256-150,390);g.lineTo(256-185,520);g.lineTo(256-80,560);g.stroke();g.beginPath();g.moveTo(256+150,390);g.lineTo(256+190,500);g.lineTo(256+95,540);g.stroke();
+    g.strokeStyle=C.coral;g.shadowColor=C.coral;g.lineWidth=8;g.beginPath();g.moveTo(256-80,560);g.bezierCurveTo(256-40,600,256+40,520,256+95,540);g.stroke();
+    g.fillStyle=C.ivory;g.shadowColor=C.ivory;for(const [x,y] of [[256-80,560],[256+95,540]]){g.beginPath();g.arc(x,y,16,0,7);g.fill();}}
+  if(pose==="sleeve"){g.beginPath();g.moveTo(256+150,390);g.lineTo(256+235,470);g.lineTo(256+250,420);g.stroke();g.fillStyle=C.ivory;g.beginPath();g.arc(256+250,420,15,0,7);g.fill();}
+  // props = the tell, hero brightness
+  g.shadowBlur=30;
+  if(o.prop==="brooch"){g.fillStyle="#fff";g.shadowColor=o.culprit?C.coral:"#fff";g.beginPath();g.arc(300,410,15,0,7);g.fill();g.strokeStyle=C.brass;g.lineWidth=4;g.beginPath();g.arc(300,410,22,0,7);g.stroke();}
+  if(o.prop==="lighter"){g.fillStyle="#fff7d0";g.shadowColor="#ffcf5a";g.beginPath();g.moveTo(140,560);g.quadraticCurveTo(128,535,142,512);g.quadraticCurveTo(156,536,140,560);g.fill();g.fillRect(132,560,18,24);}
+  if(o.prop==="glasses"){g.fillStyle="#ffffff";g.shadowColor="#fff";g.beginPath();g.ellipse(228,205,22,15,0,0,7);g.ellipse(286,205,22,15,0,0,7);g.fill();}
+  if(o.prop==="gloves"){g.fillStyle="#ffffff";g.shadowColor="#fff";g.beginPath();g.ellipse(120,640,22,30,.3,0,7);g.ellipse(392,640,22,30,-.3,0,7);g.fill();}
+  if(o.dissolve){g.globalCompositeOperation="destination-out";for(let i=0;i<1400;i++){const y=rnd()*h,x=rnd()*w;if(rnd()<o.dissolve*(1.2-y/h)){g.beginPath();g.arc(x,y,4+rnd()*14,0,7);g.fill();}}g.globalCompositeOperation="source-over";}
+  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t;}
+// figures are 75% scale (past tense): 170 cm person -> 127 cm cut-out; texture 512x1024 maps to 64x128 cm
+function ghost(pos,o,heightCm=128,opacity=1){const t=ghostTex(o);return sprite(t,heightCm/2,heightCm,[pos[0],pos[1]+heightCm/2-6,pos[2]],{opacity,center:[.5,.5]});}
+
+// ---------- specks / beads ----------
+const dotTex=canvasTex(64,64,(g)=>{const r=g.createRadialGradient(32,32,0,32,32,32);r.addColorStop(0,"rgba(255,255,255,1)");r.addColorStop(.25,"rgba(255,255,255,.8)");r.addColorStop(1,"rgba(255,255,255,0)");g.fillStyle=r;g.fillRect(0,0,64,64);});
+function specks(points,color,size=3,opacity=1){const g=new THREE.BufferGeometry();g.setAttribute("position",new THREE.Float32BufferAttribute(points.flat(),3));const m=new THREE.PointsMaterial({map:dotTex,color,size,sizeAttenuation:true,transparent:true,opacity,blending:THREE.AdditiveBlending,depthWrite:false});const p=new THREE.Points(g,m);ar.add(p);return p;}
+function arc(a,b,h,n=40){const pts=[];for(let i=0;i<=n;i++){const t=i/n;pts.push([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t+Math.sin(Math.PI*t)*h,a[2]+(b[2]-a[2])*t]);}return pts;}
+function ring(center,r,y,n=64,from=0,to=Math.PI*2){const pts=[];for(let i=0;i<=n;i++){const a=from+(to-from)*i/n;pts.push([center[0]+Math.cos(a)*r,y,center[2]+Math.sin(a)*r]);}return pts;}
+function floorDisc(pos,r,color,opacity=.5){const t=canvasTex(256,256,(g)=>{const gr=g.createRadialGradient(128,128,0,128,128,128);gr.addColorStop(0,"rgba(255,255,255,.0)");gr.addColorStop(.75,"rgba(255,255,255,.15)");gr.addColorStop(.93,"rgba(255,255,255,1)");gr.addColorStop(1,"rgba(255,255,255,0)");g.fillStyle=gr;g.fillRect(0,0,256,256);});
+  const m=new THREE.MeshBasicMaterial({map:t,color,transparent:true,opacity,blending:THREE.AdditiveBlending,depthWrite:false});const p=new THREE.Mesh(new THREE.PlaneGeometry(r*2,r*2),m);p.rotation.x=-Math.PI/2;p.position.set(pos[0],1,pos[2]);ar.add(p);return p;}
+
+// ---------- reusable set pieces ----------
+const CRATE=[-25,92,-150];
+function crate(lidOpen=true){const cm=std({color:"#b8862f",roughness:.6});box(56,24,38,cm,CRATE[0],CRATE[1]+12,CRATE[2]);if(lidOpen){const lid=box(56,2,38,cm,CRATE[0],CRATE[1]+38,CRATE[2]-22);lid.rotation.x=-1.25;}
+  for(const x of [-18,18])box(4,24.5,39,std({color:"#e8b04a"}),CRATE[0]+x,CRATE[1]+12,CRATE[2]);}
+function chalkOutline(opacity=.9){const path=[[-35,-20],[-20,-10],[-15,15],[-25,25],[-23,40],[-10,45],[0,40],[2,25],[15,15],[20,-10],[35,-20],[25,-28],[8,-15],[8,-55],[20,-78],[12,-84],[-2,-62],[-8,-40],[-16,-62],[-28,-80],[-35,-74],[-20,-52],[-20,-15],[-35,-20]];
+  line(path.map(p=>[80+p[0],1.2,-180+p[1]]),C.chalk,2.6,{opacity});}
+function timeDial(needleSlot,highlight=6,scale=1,progress=1){// brass dial floating above the crate; 12 engine slots
+  const c=[CRATE[0],CRATE[1]+60,CRATE[2]];const R=19*scale;const slots=["21:00","21:15","21:30","21:45","22:00","22:15","22:30","22:45","23:00","23:15","23:30","23:45"];
+  const pts=[];for(let i=0;i<=72;i++){const a=-Math.PI/2+i/72*Math.PI*2*progress;pts.push([c[0]+Math.cos(a)*R,c[1]-Math.sin(a)*R,c[2]]);}line(pts,C.brass,3.2);
+  const pts2=[];for(let i=0;i<=72;i++){const a=i/72*Math.PI*2;pts2.push([c[0]+Math.cos(a)*(R+5),c[1]-Math.sin(a)*(R+5),c[2]]);}line(pts2,C.brass,1.2,{opacity:.5});
+  slots.forEach((s,i)=>{const a=Math.PI/2-i/12*Math.PI*2;const hot=i===highlight;const r0=R-(hot?7:4),r1=R+ (hot?3:0);
+    line([[c[0]+Math.cos(a)*r0,c[1]+Math.sin(a)*r0,c[2]],[c[0]+Math.cos(a)*r1,c[1]+Math.sin(a)*r1,c[2]]],hot?C.coral:C.brass,hot?5:2.5);
+    if(i%2===0||hot)label([s],hot?4.2:2.6,[c[0]+Math.cos(a)*(R+9),c[1]+Math.sin(a)*(R+11),c[2]],{color:hot?C.coral:C.brass,font:"Consolas",size:48,blur:8});});
+  const na=Math.PI/2-needleSlot/12*Math.PI*2;line([[c[0],c[1],c[2]+.5],[c[0]+Math.cos(na)*(R-3),c[1]+Math.sin(na)*(R-3),c[2]+.5]],C.ivory,4);
+  specks([[c[0],c[1],c[2]+.6]],C.ivory,7);return c;}
+function bracket(p,color,s=10,w=3){const [x,y,z]=p;const L=[[[x-s,y-s*.8,z],[x-s,y+s*.8,z],[x-s*.4,y+s*.8,z]],[[x+s*.4,y+s*.8,z],[x+s,y+s*.8,z],[x+s,y-s*.8,z]]];L.forEach(seg=>line(seg,color,w));}
+function slip(text,pos,heightCm,burn){// cyan dashed claim slip; burn = 0..1 dissolve with coral embers
+  const t=textTex(wrap(text,24),{size:46,font:"Segoe UI",weight:"700",color:C.cyan,glow:C.cyan,blur:6,border:C.cyan,borderDash:[18,12],borderW:5,padX:1.2,padY:1.2,plate:"rgba(63,227,255,0.06)"});
+  if(burn){const cv=t.image,g=cv.getContext("2d");g.globalCompositeOperation="destination-out";const W2=cv.width,H2=cv.height;
+    for(let i=0;i<2600;i++){const x=rnd()*W2,y=rnd()*H2;const edge=(x/W2)*.6+(1-y/H2)*.4;if(edge<burn+rnd()*.12){g.beginPath();g.arc(x,y,3+rnd()*9,0,7);g.fill();}}
+    g.globalCompositeOperation="source-over";t.needsUpdate=true;}
+  const s=sprite(t,heightCm*t.userData.w/t.userData.h,heightCm,pos);
+  if(burn){const em=[];const w=heightCm*t.userData.w/t.userData.h;for(let i=0;i<70;i++){em.push([pos[0]-w/2+w*(burn*.9+rnd()*.2),pos[1]-heightCm/2+rnd()*heightCm+rnd()*14,pos[2]+rnd()*4]);}specks(em,C.coral,2.4);specks(em.slice(0,25).map(p=>[p[0]+2,p[1]+6,p[2]]),C.yellow,1.6);}
+  return s;}
+function wrap(t,n){const words=t.split(" "),out=[];let cur="";for(const w of words){if((cur+" "+w).trim().length>n){out.push(cur.trim());cur=w;}else cur+=" "+w;}if(cur.trim())out.push(cur.trim());return out;}
+function tag(text,pos,color=C.yellow,h=3.2){return label([text],h,pos,{font:"Consolas",size:44,color,glow:color,blur:6,plate:"rgba(255,214,10,0.07)",border:color,borderW:3,padX:.9,padY:.7});}
+function mugAt(p,tilt,beads=true){const g=new THREE.Group();const body=new THREE.Mesh(new THREE.CylinderGeometry(4,3.6,9,20,1,true),std({color:"#e9e2d3",roughness:.5,side:THREE.DoubleSide}));g.add(body);
+  const handle=new THREE.Mesh(new THREE.TorusGeometry(2.6,.7,8,16,Math.PI),std({color:"#e9e2d3"}));handle.position.x=4.3;handle.rotation.z=-Math.PI/2;g.add(handle);g.position.set(...p);g.rotation.set(tilt[0],tilt[1],tilt[2]);room.add(g);
+  // AR rim on the real-world stand-in: a luminous contour so the frozen mug reads as 'held by the record'
+  return g;}
+
+// ---------- frames ----------
+const title=(lines,o={})=>{const d=document.createElement("div");};
+function overlayText(ctx){}
+
+if(FRAME==="A"){// t≈5 s: blackout done, dial unspooled at the crate, four cyan claims stand where each suspect SAID they were
+  crate(true);
+  timeDial(5,6,1,1);
+  for(const [id,s] of Object.entries(CAST)){if(id==="S4")continue;const m=mark(s.claim,s.dx);ghost(m,{claim:true,rim:C.cyan},128,.9);floorDisc(m,26,C.cyan,.45);
+    slip(s.slip,[m[0],m[1]+156,m[2]],17);label([s.short],6.5,[m[0],m[1]+137,m[2]],{color:C.cyan,font:"Bahnschrift",size:56,blur:10,tracking:6});}
+  // Pike's claim is behind the player (door). Off-screen indicator.
+  label(["PIKE · HALL  ›"],6,[150,130,-120],{color:C.cyan,font:"Bahnschrift",size:52,blur:8});
+  label(["THE ACCOUNTS"],7,[CRATE[0],CRATE[1]+94,CRATE[2]],{color:C.brass,font:"Bahnschrift",size:72,tracking:10});
+  // sparse frozen motes (banked light now gone; only the record glows)
+  const motes=[];for(let i=0;i<70;i++)motes.push([-200+rnd()*400,40+rnd()*170,-300+rnd()*260]);specks(motes,C.ivory,1.6,.5);
+  camera.position.set(45,172,150);camera.lookAt(-15,88,-160);camera.fov=64;camera.updateProjectionMatrix();
+}
+if(FRAME==="B"){// t≈12 s: corrections — Vale's tea claim burns at the cold kettle; her record streams as coral dust to the Study
+  crate(true);timeDial(6,6,1,1);chalkOutline(.55);
+  const vc=mark("Z4",CAST.S2.dx),vt=mark("Z1",CAST.S2.dx);
+  ghost(vc,{claim:true,rim:C.cyan,dissolve:.6},128,.85);
+  slip(CAST.S2.slip,[vc[0]+5,vc[1]+158,vc[2]],17,.45);
+  bracket(OBJ.O11.map((v,i)=>i===1?v+4:v),C.yellow,12,3.5);tag("KETTLE · COLD ALL NIGHT",[OBJ.O11[0]-20,OBJ.O11[1]+30,OBJ.O11[2]+10],C.yellow,6);
+  // dust stream: cyan specks leave the claim, turn coral along an arc, recompose at the certified mark
+  const a=[vc[0],95,vc[2]],b=[vt[0],95,vt[2]];const path=arc(a,b,55,60);const dust=[];path.forEach((p,i)=>{for(let k=0;k<6;k++)dust.push([p[0]+(rnd()-.5)*10,p[1]+(rnd()-.5)*10,p[2]+(rnd()-.5)*10]);});
+  specks(dust.slice(0,120),C.cyan,2.4);specks(dust.slice(120),C.coral,2.6);line(path.slice(20),C.coral,2,{opacity:.55});
+  ghost(vt,{rim:C.coral,prop:"brooch",culprit:true,hatch:8},128,.95);floorDisc(vt,26,C.coral,.6);
+  // Okafor already corrected into the Kitchen (her certified mark), ivory = innocent; Qadir corrected at the door behind
+  const ot=mark("Z4",CAST.S3.dx);ghost(ot,{rim:C.ivory,prop:"glasses",hatch:9},128,.75);floorDisc(ot,24,C.ivory,.35);
+  label(["OKAFOR · KITCHEN"],5,[ot[0],ot[1]+137,ot[2]],{color:C.ivory,font:"Bahnschrift",size:48,blur:6});
+  label(["VALE · STUDY"],6,[vt[0],vt[1]+140,vt[2]],{color:C.coral,font:"Bahnschrift",size:56,blur:10,tracking:6});
+  // the second lie waits on the recorder
+  slip("I reached the Study at 22:30. Harlow was already dead.",[OBJ.O12[0]-35,OBJ.O12[1]+48,OBJ.O12[2]+20],13,0);
+  bracket([OBJ.O12[0],OBJ.O12[1]+3,OBJ.O12[2]+6],C.yellow,9,3);
+  label(["22:30"],7,[CRATE[0],CRATE[1]+94,CRATE[2]],{color:C.coral,font:"Bahnschrift",size:72,tracking:8});
+  camera.position.set(195,168,-30);camera.lookAt(85,92,-195);camera.fov=62;camera.updateProjectionMatrix();
+}
+if(FRAME==="C"){// t≈18 s: bullet time at the murder slot; orbit view from the front-right of the desk
+  chalkOutline(.22);
+  const ht=[38,0,-150],vt=[-2,0,-128];
+  ghost(ht,{rim:C.ivory,pose:"sleeve",hatch:9},128,.72);
+  ghost(vt,{rim:C.coral,prop:"brooch",culprit:true,pose:"cable",hatch:8},128,1);
+  // the real mug, knocked from the desk edge, held mid-fall; its trajectory so far is a dotted ivory arc
+  const edge=[68,77,-166],mp=[82,50,-146];mugAt(mp,[.95,.3,.6]);
+  const traj=[];for(let i=0;i<=14;i++){const t=i/14;traj.push([edge[0]+(mp[0]-edge[0])*t,edge[1]+(mp[1]-edge[1])*t+Math.sin(Math.PI*t)*5,edge[2]+(mp[2]-edge[2])*t]);}
+  specks(traj,C.ivory,1.8,.8);
+  line(ring([mp[0],0,mp[2]],7.5,mp[1]+5,40),C.ivory,3.2,{opacity:1});
+  // crown of suspended luminous beads leaving the mug mouth
+  const beads=[];for(let i=0;i<34;i++){const a=i/34*Math.PI*2,r=5+rnd()*9,lift=4+Math.abs(Math.sin(a*2.5))*10*rnd();beads.push([mp[0]+Math.cos(a)*r+4,mp[1]+8+lift,mp[2]+Math.sin(a)*r*.7]);}
+  for(let i=0;i<22;i++)beads.push([mp[0]+6+rnd()*14,mp[1]+14+rnd()*22,mp[2]-4+rnd()*8]);
+  specks(beads,C.ivory,3.8);specks(beads,"#ffffff",1.6);specks(beads.slice(0,20),C.coral,1.6,.8);
+  // frozen motes; rain streaks frozen on the window
+  const motes=[];for(let i=0;i<240;i++)motes.push([-60+rnd()*220,30+rnd()*150,-270+rnd()*200]);specks(motes,C.ivory,1.3,.55);
+  for(let i=0;i<40;i++){const x=-190+rnd()*140,y=100+rnd()*100;line([[x,y,-299],[x+1.5,y-9-rnd()*8,-299]],"#a9c4ff",1.2,{opacity:.35});}
+  // evidence tags, each bound to a certified fact id
+  tag("LAMP · VALE AT THE DESK 22:30",[OBJ.O6[0]-5,OBJ.O6[1]+28,OBJ.O6[2]],C.yellow,4.2);
+  tag("MUG · KNOCKED FROM THE DESK 22:30",[mp[0]+30,mp[1]+52,mp[2]+6],C.yellow,4.2);line([[mp[0]+12,mp[1]+48,mp[2]+6],[mp[0]+4,mp[1]+14,mp[2]]],C.yellow,1.5,{opacity:.7});
+  tag("CABLE · IN VALE'S HANDS",[vt[0]-30,40,vt[2]+30],C.coral,4.2);
+  tag("RECORDER · HE ANSWERED HER",[OBJ.O12[0]-6,OBJ.O12[1]+22,OBJ.O12[2]+4],C.yellow,4.2);
+  bracket([OBJ.O6[0],OBJ.O6[1]+2,OBJ.O6[2]+10],C.yellow,11,3);bracket([OBJ.O12[0],OBJ.O12[1]+2,OBJ.O12[2]+7],C.yellow,9,3);
+  const wf=[];for(let i=0;i<40;i++)wf.push([OBJ.O12[0]-14+i*.7,OBJ.O12[1]+9+Math.sin(i*.9)*Math.exp(-Math.abs(i-20)/8)*4,OBJ.O12[2]+6]);line(wf,C.coral,2);
+  // orbit path hint on the floor (AR: walk it; Preview: scripted dolly)
+  line(ring([45,0,-150],125,1.5,96,-.6,1.4),C.brass,1.6,{dashed:true,dash:6,gap:8,opacity:.6});
+  label(["22:30 · THE STUDY"],13,[0,152,-225],{color:C.brass,font:"Bahnschrift",size:80,tracking:10});
+  label(["TIME HELD · WALK AROUND IT"],4.4,[0,137,-225],{color:C.ivory,font:"Consolas",size:44,blur:6});
+  camera.position.set(185,118,-28);camera.lookAt(40,82,-165);camera.fov=52;camera.updateProjectionMatrix();
+}
+if(FRAME==="D"){// t≈33 s: tableau at certified marks, deduction ledger, CASE CLOSED on the crate
+  crate(false);chalkOutline(.75);
+  for(const [id,s] of Object.entries(CAST)){const m=mark(s.truth,s.dx);const culprit=id==="S2";ghost(m,{rim:culprit?C.coral:C.ivory,prop:s.prop,culprit,hatch:culprit?8:12},128,culprit?1:.42);floorDisc(m,24,culprit?C.coral:C.ivory,culprit?.6:.22);
+    label([s.short+" · "+ZONES[s.truth].name.toUpperCase()],culprit?6:4.6,[m[0],m[1]+140,m[2]],{color:culprit?C.coral:C.ivory,font:"Bahnschrift",size:52,blur:culprit?12:4,opacity:culprit?1:.75});}
+  // red string: coral, proven links only, from Vale to the objects that proved each filed deduction
+  const v=mark("Z1",CAST.S2.dx);const vh=[v[0],95,v[2]];
+  for(const p of [OBJ.O1,OBJ.O6,OBJ.O11])line([vh,p],C.coral,2,{opacity:.85});
+  line([vh,OBJ.O13],C.ivory,1.4,{dashed:true,dash:3,gap:5,opacity:.5}); // motive: available but not argued -> dotted pencil
+  // stamp
+  const st=canvasTex(1200,520,(g,w,h)=>{g.save();g.translate(w/2,h/2);g.rotate(-.05);g.strokeStyle=C.yellow;g.lineWidth=14;g.shadowColor=C.yellow;g.shadowBlur=18;g.strokeRect(-470,-170,940,340);
+    g.lineWidth=5;g.strokeRect(-440,-140,880,280);g.font="900 160px Bahnschrift";g.textAlign="center";g.textBaseline="middle";g.fillStyle=C.yellow;g.fillText("CASE CLOSED",0,-10);
+    g.font="700 44px Consolas";g.fillText("HARLOW-1041  ·  SEAL fc4da1ea",0,105);
+    for(let i=-460;i<460;i+=40){g.beginPath();g.moveTo(i,-205);g.lineTo(i+20,-185);g.lineTo(i+40,-205);g.stroke();}
+    g.globalCompositeOperation="destination-out";for(let i=0;i<1400;i++){g.beginPath();g.arc(-480+Math.random()*960,-200+Math.random()*400,1+Math.random()*2.5,0,7);g.fill();}g.restore();});
+  sprite(st,72,31.2,[CRATE[0]+5,CRATE[1]+80,CRATE[2]],{depthTest:false});
+  // deduction ledger rising from the crate: filed (coral ✓) vs not argued (ivory ○, dotted string)
+  const ledger=[["✓ OPPORTUNITY","lamp · Vale at the desk",true],["✓ MEANS","cable · Vale's hands",true],["✓ ALIBI BROKEN","kettle · cold all night",true],["○ MOTIVE","bed cover · not argued",false]];
+  ledger.forEach(([a,b,ok],i)=>{const y=CRATE[1]+50-i*8;label([a],6,[CRATE[0]-20,y,CRATE[2]+14],{color:ok?C.coral:C.ivory,font:"Bahnschrift",size:52,blur:ok?10:2,opacity:ok?1:.6,padX:.5});
+    label([b],4.6,[CRATE[0]+30,y,CRATE[2]+14],{color:C.ivory,font:"Consolas",size:40,blur:3,opacity:ok?.9:.55,padX:.5});});
+  label(["HOLMES 2/3 · 145 MIN · PAR 85"],4.6,[CRATE[0]+4,CRATE[1]+12,CRATE[2]+14],{color:C.brass,font:"Consolas",size:44,blur:6});
+  camera.position.set(-110,168,35);camera.lookAt(25,100,-170);camera.fov=60;camera.updateProjectionMatrix();
+}
+if(FRAME==="E"){// wrong-accusation variant: the accused's secret clears him; the real culprit walks out through the tape
+  line([[212,95,2],[212,150,88]],C.yellow,6);line([[212,150,2],[212,124,38]],C.yellow,6);line([[212,116,54],[204,92,74],[208,82,86]],C.yellow,6);
+  const vt=[200,0,46];ghost(vt,{rim:C.coral,prop:"brooch",culprit:true,dissolve:.3,hatch:8},170,1);
+  line(arc([60,2,-120],[195,2,40],0,30),C.coral,3,{opacity:.6,dashed:true,dash:10,gap:6});
+  specks(Array.from({length:90},()=>[198+rnd()*14,20+rnd()*150,20+rnd()*60]),C.coral,2.2);
+  label(["THE CULPRIT ESCAPED"],16,[120,215,-40],{color:C.yellow,font:"Bahnschrift",size:90,tracking:8});
+  label(["VALE · OUT THROUGH THE TAPE"],9,[205,190,40],{color:C.coral,font:"Bahnschrift",size:56,blur:8,tracking:6});
+  // the accused innocent (Qadir) at his certified Hall mark — his secret surfaces, clearing him
+  const q=[130,0,92];ghost(q,{rim:C.ivory,prop:"lighter",hatch:12},170,.6);
+  label(["YOU ACCUSED QADIR"],10,[q[0]+10,200,q[2]+20],{color:C.ivory,font:"Bahnschrift",size:56,blur:6});
+  label(["He stole his debt note before the murder.","He did not kill Harlow."],15,[q[0]+10,176,q[2]+20],{color:C.ivory,font:"Segoe UI",weight:"600",size:44,blur:4,border:C.ivory,borderW:3,padX:1,padY:1,plate:"rgba(255,240,214,0.05)"});
+  const cards=[["WHO","QADIR ✗",C.cyan,true],["WHERE","STUDY ✓",C.coral,false],["WHAT","CABLE ✓",C.coral,false]];
+  cards.forEach(([a,b,col,bad],i)=>label([a,b],13,[10+i*30,95,-40+i*6],{color:col,font:"Bahnschrift",size:50,border:col,borderW:4,padX:1,padY:.9,plate:"rgba(255,255,255,0.03)",borderDash:bad?[14,10]:undefined}));
+  camera.position.set(-60,165,-150);camera.lookAt(160,115,40);camera.fov=62;camera.updateProjectionMatrix();
+}
+
+// ---------- post: bloom + vignette + grain ----------
+const composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(W,H),.55,.5,.72));
+const vig=new ShaderPass({uniforms:{tDiffuse:{value:null},seed:{value:7.0}},vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+  fragmentShader:`uniform sampler2D tDiffuse;uniform float seed;varying vec2 vUv;float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233))+seed)*43758.5453);}
+  void main(){vec4 c=texture2D(tDiffuse,vUv);vec2 d=vUv-.5;float v=smoothstep(.85,.25,length(d*vec2(1.1,1.)));c.rgb*=mix(.55,1.,v);c.rgb+= (h(vUv*1000.)-.5)*.035;gl_FragColor=c;}`});
+composer.addPass(vig);composer.addPass(new OutputPass());
+composer.render();
+// caption strip (2D overlay rendered into the PNG by the capture script)
+window.__caption={A:"A · 0:05  THE ACCOUNTS — blackout done; the dial at the crate; cyan claim-ghosts stand where each suspect SAID they were",
+ B:"B · 0:12  CORRECTION — the tea slip burns at the cold kettle; Vale's record streams as dust to her certified Study mark",
+ C:"C · 0:18  BULLET TIME 22:30 — mug frozen mid-fall in beads, cable in Vale's hands; every tag cites an engine fact",
+ D:"D · 0:33  TABLEAU — certified marks, coral string to proof, deduction ledger from state.arguments, CASE CLOSED",
+ E:"E · wrong-accusation variant — the accused's secret clears him; the real culprit walks out through the tape"}[FRAME];
+window.__done=true;
+</script></body></html>

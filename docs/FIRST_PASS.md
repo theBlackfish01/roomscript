@@ -97,6 +97,8 @@ Not in this pass:
 - **Anything that needs the physical Specs.** Build it, mark it "verify on device" and continue.
 - **Spending money, accepting terms, or publishing.**
 
+Stopping is never the answer to a blocker. Record it under "Needs Wadood" in `docs/PROGRESS.md`, then take the fallback or move on to the next independent package (AGENTS.md rule 12).
+
 Everything else, decide yourself and record it. That includes story details within the design, styling within the palette and technical choices. Wadood reviews `Content/STORY.md` and the captures later.
 
 ## 4. When you finish (or run out of road)
