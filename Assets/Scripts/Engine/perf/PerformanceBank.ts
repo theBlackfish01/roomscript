@@ -5,10 +5,13 @@ export type {VariantEntry,RegisterEntry} from "../core/Types";
 export interface DirectorChoice {variant:string;opener:string;tail:string;emotion:Answer["emotion"];}
 /** Conservative discourse vocabulary. Registers carry no case predicates. */
 const discourse=new Set("ah hm hmm well really quite detective please thank thanks you your me my i am was would could may might shall should can will do be is it that this the a an and but or so for to of with as if then now just only very rather more much yes perhaps certainly honestly frankly listen listening enough again slowly write down put understand pardon forgive excuse suppose see say saying said answer question asking ask matter concern concerns specific collect myself moment space need have answered let think fine indeed dear good heavens gracious goodness how observant trust suffice".split(" "));
+const grammar=new Set("i am was would could may might shall should can will do be is are were been it that this these those the a an and but or so for to of with as if then now just only very rather more much you your me my our its at in on by from before after all both has have had did there s".split(" "));
 export function assertionFree(text:string,graph:CaseGraph):boolean {
   const words=normalizedWords(text);
   if(!text.trim()||text.length>90||findEntities(text,buildGazetteer(graph)).some(e=>e.ids.some(id=>id!=="detective"))||findTimes(text).length||findNumbersAndDays(text).length)return false;
   if(/\b(?:not|no|never|nothing|nobody|without|dead|alive|kill|killed|murder|lie|lied|guilty|he|she|him|her|they|them|his|their)\b/.test(words))return false;
+  const caseWords=new Set(graph.statements.flatMap(s=>(normalizedWords(s.canonical).match(/[a-z]+/g)||[]).filter(w=>!grammar.has(w))));
+  if((words.match(/[a-z]+/g)||[]).some(w=>caseWords.has(w)))return false;
   return (words.match(/[a-z]+/g)||[]).every(w=>discourse.has(w));
 }
 export function performanceOptions(graph:CaseGraph,sheet:FactSheet,topic:string,mode:AnswerMode):{variants:VariantEntry[];openers:RegisterEntry[];tails:RegisterEntry[]} {
