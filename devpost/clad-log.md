@@ -87,3 +87,5 @@ Raw-log SHA-256: `34820b09cc040b6dbe223def9e95c3649f5764cb9ec6f8016e6d5106e59b6b
 - Main used CLAD lens-api and specs-build-ui context for E6: pure admitted-word timing, forward cursor on audio position, boundary-only Text updates. Four tests passed; MCP compile/refresh and fail-fast bundle passed; capture acceptance blocked.
 
 - Codex art_polish worker, second independent task: zero-cost saved-corpus validator replay, constrained role/inflection normalization; 55 focused tests and unchanged rejection of all 169 disallowed samples. Main repeated rescore, same hashes and results.
+
+- Codex vale_audio worker: pure NarrativeAudio event selection + ten regressions, exact shipped-content coverage. No Lens adapter added after MCP failure. Main full pure suite 462/462 (49 files), 89.20 s; pure typecheck passed.
