@@ -172,3 +172,8 @@ Run 6 art: preserve original procedural direction; use 1.85x ivory structure, tw
 Run 6 post-import hero registration failure blocks Phase A2 and master promotion. Preserve the verified offline audio checkpoint separately from scene acceptance. Never label the old-cast hero pass as proof for the new cast. Stop Lens tooling after MCP transport failure; resume independent engine/publication work.
 
 V3: accept bounded grammatical equivalence and shared inflection vocabulary while retaining roles, negation, citations, entities and times. No sentence allowlist or acceptance threshold reduction. Report 58.8% honestly; do not claim the earlier 25% aspiration is met or treat inspected holdout as unseen.
+
+## 2026-11-05 — Run 7 start
+
+Latest owner instructions supersede historical freeze/provider/push restrictions. Use Preset plus Dynamic, engine-only truth, local Tooling bridge with graceful authored fallback. Preserve actual scan provenance; quota stops generation only. R8 applies the skill to existing design decisions without fabricating an interview. Install under Tooling/skills because the initial .agents directory disappeared across Lens restart (cause unproven). Git ownership mismatch resolved with command-local safe.directory; no global trust change. No GUI; planned restart completed 23:37:12 PKT.
+

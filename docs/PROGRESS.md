@@ -1,4 +1,23 @@
-﻿# Run 6 — partial handoff, 2026-11-05
+# Run 7 — active, 2026-11-05 night
+
+## Current state (supersedes historical entries)
+
+Feature freeze: **Sun Nov 8, 21:00 PKT**. Follow the Nov 5 judges review and latest owner overrides: Preset + Dynamic; local Claude may be the main Preview provider; Gemini optional; quota stops generation only. No multiplayer. Package commits/pushes authorized; public release remains owner-only.
+
+- Owner docs and regenerated bridge/meta committed/pushed as `8ca3ad7` on `run5-wip`. Master promotion awaits A2.
+- R8: `challengepost/learn-specs` installed project-locally. Initial `.agents/skills` copy disappeared after Lens restart (cause unproven); reinstalled under `Tooling/skills/plan-lens`. Brief/checklist review uses existing owner design, no invented interview/sign-off.
+- Preflight: Lens 5.23.2, correct project and sign-in confirmed through MCP. Perspective/World tracking; SIK/UIKit/LEAF present. Preview initially webcam; restored SPECS 27 Interactive Evening Room.
+- Graceful planned restart **23:37:12 PKT**, process 48484. No asset writes during import/registration. Compile succeeded; refresh errors empty, first activity 28 ms. 25 scenarios registered, list call 23 ms (not a scenario-run handshake).
+- Plan: R8 → strict replacement bundle + hero A2 → promote master if both pass → bounded camera spike → art/UI/distance/physical/audio/moments/live beat → final integrated gate/captures. Main owns Lens; two workers maximum; no full suite during LEAF/art.
+- Costs so far: Claude $0; ElevenLabs 0 new credits. No Run 7 visual/gameplay acceptance claimed yet.
+
+## Needs Wadood (current)
+
+- Listen to cast/Harlow splice when captures arrive; subscription eligibility and final public release/submission remain owner work.
+- Device-only comfort, real hand tracking and additive display remain unverified.
+
+---
+# Run 6 — partial handoff, 2026-11-05
 
 ## Current submission state (supersedes historical entries)
 

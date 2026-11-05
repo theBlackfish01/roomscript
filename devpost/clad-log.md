@@ -91,3 +91,9 @@ Raw-log SHA-256: `34820b09cc040b6dbe223def9e95c3649f5764cb9ec6f8016e6d5106e59b6b
 - Codex vale_audio worker: pure NarrativeAudio event selection + ten regressions, exact shipped-content coverage. No Lens adapter added after MCP failure. Main full pure suite 462/462 (49 files), 89.20 s; pure typecheck passed.
 
 - Run 6 final evidence: 462/462 pure tests (49 files), typecheck clean, published assets verified. Preserved a replay-checked earlier-cast hero tape with explicit provenance. History scan 925 blobs / zero findings at code checkpoint; current scan clean. Final report records all 15 requested items without claiming blocked Lens work.
+
+## Run 7 — 2026-11-05 night
+
+- Codex main loaded lens-studio-router (preflight_only), editor-api, lens-studio-field-notes, specs-project-init and live-lens-tester/specs-leaf-run-in-preview inline under FIRST_PASS 1b. MCP confirmed project/sign-in, read 226 scene objects, checked packages, restored Interactive Evening Room, saved and gracefully restarted from shell. Compile/runtime clean; 25 LEAF scenarios listed in 23 ms. Assets writes paused for A2.
+- skill-installer downloaded challengepost/learn-specs project-locally; plan-lens applied by Codex devpost worker to existing owner design. Initial .agents copy disappeared after restart; durable copy under Tooling/skills. No invented interview/sign-off. Findings tracked in devpost/run7-skill-review.md.
+

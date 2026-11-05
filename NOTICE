@@ -107,3 +107,11 @@ to Hasbro; L.A. Noire belongs to its respective Rockstar/Take-Two owners. These
 names are used to identify platforms or explain inspiration. No affiliation or
 endorsement is implied. No Clue or L.A. Noire logos, footage, music or source code
 are included.
+
+Devpost Learn skill pack (Run 7)
+- challengepost/learn-specs, Copyright (c) 2026 Devpost, MIT.
+  Source: https://github.com/challengepost/learn-specs
+  Project-local development skill at Tooling/skills/plan-lens; not shipped in
+  the Lens runtime. Its original licence is preserved beside SKILL.md.
+  The brief template's Build notes and After the build checklist are retained
+  in devpost/design-brief.md; see devpost/run7-skill-review.md for provenance.
