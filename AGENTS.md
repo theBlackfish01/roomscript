@@ -102,6 +102,7 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
 - [`docs/README.md`](docs/README.md) — index of the design docs.
 - [`docs/PROGRESS.md`](docs/PROGRESS.md) — current state. Read it first after any context reset.
 - [`docs/REVIEW_2026-11-03.md`](docs/REVIEW_2026-11-03.md) — the latest independent review: the final polish plan, work packages and schedule for the current runs. Earlier reviews are historical.
+- [`docs/REVIEW_SESSION_2026-11-05.md`](docs/REVIEW_SESSION_2026-11-05.md) — what the hackathon judges said in their Nov 5 live review, and the design changes that follow (R1–R10). Read it before any UI, interaction or video work.
 
 **Rules for every agent:**
 1. **The LLM never decides truth.** A deterministic TypeScript engine (`Assets/Scripts/Engine/`) decides every fact, lie flag, tell, refutation, objection result and verdict. Any code path where model output changes one of those is a bug.
@@ -126,7 +127,7 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
 8. **Logging.** Log CLAD and MCP usage (skill, agent or tool, and what it produced) to `devpost/clad-log.md`, and decisions to `docs/decisions.md`. CLAD use is a judging criterion.
 9. **No scope creep.** New ideas go to `docs/later.md`, not into the build.
 10. **Git.** Commit after each work package. Never push or create a remote without asking Wadood.
-11. **Local API keys.** `Tooling/.env` (gitignored) holds `ANTHROPIC_API_KEY` and `ELEVENLABS_API_KEY` for local Node tooling only. ElevenLabs: keep `Tooling/results/elevenlabs-ledger.json` from the `character-cost` headers. The first allowance is used up; 30,000 more credits were added on Nov 4, usable freely until the provider returns a quota error. Both keys:
+11. **Local API keys.** `Tooling/.env` (gitignored) holds `ANTHROPIC_API_KEY` and `ELEVENLABS_API_KEY` for local Node tooling only. ElevenLabs: keep `Tooling/results/elevenlabs-ledger.json` from the `character-cost` headers. Use credits freely; on a quota error, follow rule 18 (stop generating audio only, never development). Both keys:
     - validator red-teaming, judging and content drafting;
     - read it only from `Tooling/` scripts;
     - never copy it into `Assets/`, the scene, logs, docs or test fixtures, and never print it;
@@ -150,3 +151,16 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
       Run 5 wrongly skipped these: it committed nothing and couldn't reach ElevenLabs.
     - **Never wait on a human.** If a step needs Wadood personally, or an escalation is denied twice, record it under Needs Wadood and continue with the next package.
     - Give every shell command and LEAF batch a timeout of 10 minutes or less.
+16. **Recover from Lens MCP failures instead of ending the run.** The Lens-managed rule above ("stop and report") means: never work around a failed MCP tool with raw HTTP. It does **not** mean the run should end. When a Lens MCP or LEAF call fails (for example "Failed to get scenario list after 600 attempts"):
+    1. Record the error.
+    2. Pause asset writes, and wait for imports to settle.
+    3. Gracefully restart Lens Studio from the shell: close it without force, wait, relaunch it with this project, wait for the MCP to reconnect, and confirm the project and sign-in.
+    4. Retry once.
+
+    Up to 3 restarts per run. If it still fails, keep doing all Node-side and offline work, and retry Lens after the next restart. Never use GUI tools for any of this (rule 15).
+17. **Local model bridge.** The project is developed and demoed in Lens Studio Preview on Wadood's laptop, so any model provider is fine.
+    - A local Tooling process may call Claude Opus (`claude-opus-5-5`, key from `Tooling/.env`) for room casting, live answers or Wren, if it beats the gateway models.
+    - The key never enters `Assets/`, the scene or the lens.
+    - The lens must fall back gracefully (authored or prerecorded) when the bridge isn't running.
+    - Model output is only a proposal or performance. The engine compiles, verifies and decides.
+18. **Budgets and quotas never block development.** On a quota or budget limit (ElevenLabs, Claude, the gateway), stop only that kind of generation, use fallbacks (existing takes, phrase pieces, live TTS, subtitles), record what's missing under Needs Wadood, and keep building.

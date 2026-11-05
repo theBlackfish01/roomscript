@@ -105,82 +105,313 @@ Finish with the FIRST_PASS §4 final report, including:
 - a list for Run 5.
 ```
 
-## Run 6: save, swap Vale, voices, art, moments (Thu Nov 5)
+## Run 7: ambitious overnight: the judges' lessons, room casting, UI, art, audio, moments (Thu Nov 5, night)
 
-Run 5 did a lot but committed nothing and made no network calls. The old rule 15 told it to skip all approvals, including the automatic ones it needs for git and ElevenLabs. Rule 15 is rewritten; Run 6 saves everything first.
+This run includes the Nov 5 judge review (docs/REVIEW_SESSION_2026-11-05.md) and Wadood's decisions: the skill pack first, camera room casting with Claude Opus locally, a voice-agent spike, multiplayer decided on Friday, and the freeze on Sun Nov 8 at 21:00.
 
 Before pasting: restart Lens Studio, open RoomScriptF and sign in; `cd C:\Users\wadoo\Desktop\SPECS_Hackathon\RoomScriptF`; run `codex --approve-for-me`.
 
 ```
-Continue the Roomscript build: this is Run 6. Lens Studio was just restarted, it is open on this project, and I'm signed in. You're running in Codex: follow §1b of docs/FIRST_PASS.md.
+Continue the Roomscript build: this is Run 7, an ambitious overnight run. Lens Studio was just restarted, it is open on this project, and I'm signed in. You're running in Codex: follow §1b of docs/FIRST_PASS.md.
+
+Read, in order:
+1. AGENTS.md (rules 12–17; 16 and 17 are new);
+2. **docs/REVIEW_SESSION_2026-11-05.md**: the hackathon judges' live review, the changes R1–R10, and my decisions at the end;
+3. docs/RUN6_REPORT.md;
+4. docs/PROGRESS.md;
+5. docs/REVIEW_2026-11-03.md.
+
+**Feature freeze is now Sun Nov 8 at 21:00 PKT.** Be ambitious: quality matters more than finishing early.
+
+**What the judges reward:**
+- a complete product, not a "website on your face";
+- big pinch targets, minimal text and progressive disclosure;
+- feedback as small peripheral toasts;
+- augmenting the real room, not simulating one;
+- an interface that changes with distance (they praised one project for exactly this);
+- physical, hands-free actions;
+- originality, using what only glasses have (a camera that sees what you see, graphics in view, free hands);
+- and, quoted: "we haven't seen LLMs or voice models in Specs yet."
+
+Roomscript's voiced AI suspects and physical objections are our edge. Make them the headline, and cut UI clutter hard.
+
+**Rules recap:**
+- **Rule 16:** on an MCP or LEAF failure, pause asset writes, gracefully restart Lens Studio from the shell, and retry (up to 3 restarts). Never end the run over it.
+- **Rule 15:** no GUI tools; normal escalations for git, network and npm; never wait on me; timeouts of 10 minutes or less.
+- **Rule 17:** the local Claude vision bridge is Preview-only, the key stays in Tooling, and labels are honest.
+
+**Git:** you're on `run5-wip` at `46f9e58` (pushed). Commit the uncommitted scene (regenerated LEAF bridge IDs) and my docs edits. When step 2 passes, fast-forward `master` to `run5-wip`, push, and work on `master` from then on.
+
+**Parallelism (memory):** at most 2 subagents alongside the main Lens session, one Chromium at a time, and no full test suite during LEAF or art renders.
+
+**Budgets:**
+- **Claude** (`claude-opus-5-5`): up to $30 for vision casting, banks and judging. Record it.
+- **ElevenLabs:** about 25,000 credits left. Spend them in this order: phrase segments for generated cases, the casting narration, new effects, then the voice-agent spike. Stop on a quota error and record it; I can top up.
+
+Commit and push after every verified step. Keep PROGRESS, decisions.md and devpost/clad-log.md current.
+
+## 1. The DevPost skill pack first (R8)
+- Install `challengepost/learn-specs` project-locally, never globally.
+- Run plan-lens, answering from our design, to produce or validate devpost/design-brief.md with an honest provenance note.
+- Run its "After the build: judge it" checklist on the current build, and turn its findings into a list you act on in this run.
+- Record what the skill pack changed. That's the Devpost "how the skill pack helped" answer.
+
+## 2. The Phase A2 gate on the new cast
+- Restart Lens Studio, let imports settle, and write no assets during registration.
+- Run strict roomscript-bundled-voices and the repaired hero route.
+- Commit the scene, fast-forward `master` and push.
+
+## 3. SPIKE (about 2 hours, then go or no-go): the camera reads the room and casts the case
+
+This is the headline AR feature.
+- **Capture:** grab Preview camera frames of the simulated Evening Room from 3–5 viewpoints. The camera module worked in Preview in the Stage A probe.
+- **Detect, with Claude Opus locally:** objects, Clue-role affordances (witness, weapon, hiding place, timekeeper) and 2D boxes, in strict JSON.
+  - Transport: a localhost Tooling bridge the lens calls in Preview (dev flag, rule 17), or an offline pass where you capture frames through MCP and write a room-scan JSON the lens loads. Pick whichever works, and record why.
+  - Also implement the in-lens Gemini (RSG) detection path for Specs.
+- **Locate in 3D:** hit-test through the box centres (World Query, or the Preview room's depth/geometry), merge across viewpoints, and snap to surfaces.
+- **Compile:** feed the detected fixtures into the existing room binding and case compiler (Substitution, Solver) to get a verified case. The engine decides; vision only proposes.
+- **Present:** the casting sweep. Labels pop onto real furniture one at a time, voiced by the narrator: "Your desk lamp: WITNESS. Your charger cable: THE ROPE." It ends with "Tonight, this room is Harlow's study."
+- **Go if:** at least 5 objects land within about 25 cm, the case compiles, and the sweep looks right in a capture.
+- **No-go:** do the R3 casting sweep on authored anchors to the visible real furniture. Record the decision and evidence either way.
+- **Honest label:** "In Preview the room scan uses Claude Opus through a local bridge; on Specs, Gemini through Snap's gateway."
+
+## 4. Lanes (main session on Lens, plus at most 2 subagents)
+
+**Lens, main session, in this order:**
+1. **A3 art:** all 5 poses per actor, cards, props and ghosts, with texture residency and compression. Capture each suspect.
+2. **R1 UI diet:**
+   - one small world-anchored panel at a time, never in front of a speaker's face, with the HUD on the crate lid;
+   - at most 3 big question chips (at least about 2.5° tall) with "More";
+   - icon-plus-three-words cards that expand on pinch;
+   - peripheral toasts;
+   - the ending as a stamp plus stars;
+   - the Clue grid marked in the room itself, with the notebook optional;
+   - one-line subtitles at the speaker, with word reveal;
+   - the Anton/Courier Prime fonts and the design-03 palette.
+3. **R2 interface by distance:**
+   - walk up to a suspect to question them (nearest in view within about 1.5 m), with no picker menu and a tested Preview fallback;
+   - level of detail by distance: far, zone names, silhouettes and room marks; near an object, its memory; near a suspect, the questions.
+4. **R3 casting sweep and room anchoring:** from the spike, or authored. Hide the stand-in boxes in Director and film mode; virtual props sit on real surfaces.
+5. **Physical delight moments:**
+   - pinch and **pull a memory out of an object**, like drawing out a photograph;
+   - **lift** the cable or mug to inspect it;
+   - **point at a suspect to accuse**;
+   - the objection: carrying the slip, made big.
+6. **R5 contextual voiced tips and R6 less friction.** Wren speaks one-line hints at the moment of need, once each; they ask, they don't tell. Auto-placement in Preview and Director mode, and the first question within about 30 s.
+7. **Audio wiring:**
+   - the narration selector and guard (Tooling/audio/RUN6-WIRING.md);
+   - narrator triggers;
+   - dialogue scenes on their beats, with Harlow's motive gated;
+   - the score's tension layer;
+   - effects on beats;
+   - **voice tells**: hesitation takes play only on engine-authorised tells.
+8. **The moments:**
+   - B2 reconstruction with the new ghosts, plus T2 (dial, slip burn, ledger, narration);
+   - **R7:** your own route replayed as a faint trail next to the truth ("You walked 23 m; you checked the kettle twice");
+   - B1 beats on stage: letter, voicemail, Pike's flight, blackout/UV;
+   - B3 endings: correct with Vale's confession and the voiced summary; wrong; timeout.
+9. **R4 live AI beat:**
+   - A free typed question in Preview (spoken on Specs) gets an in-character answer chosen by the live director, voiced, and labelled "live AI via Snap RSG". Fresh RSG tokens; blank them before committing.
+   - **A conversational Wren:** ask "what do we know?" and Wren answers only from PlayerKnowledge, never the hidden truth.
+10. **A6 hero VFX** (objection, tells, sweep, seal, opening), then **A7**: the naive-player LEAF finishing in 40 clicks or fewer.
+11. **S2:** fix the polish scenario's clock `isPlaying()` failure, then measure frame time toward 8 ms.
+
+**Lane B, engine and content (subagent):**
+- **Generated cases playable in your room.** Run the compiler on the detected (or authored) Evening Room: first-person statements, line banks, verified solvability.
+- **Voices for any generated case:** phrase-composed speech from pre-rendered ElevenLabs segments per voice (zone names, object types, times, templates), with live RSG TTS only as a fallback.
+- Wren's PlayerKnowledge answers.
+- The route-replay data.
+- **Acceptance:** a generated case on the Evening Room plays to a verdict in the terminal and in a LEAF smoke test.
+
+**Lane C, audio and voice (subagent):**
+- the casting-sweep narration;
+- phrase segments for generated cases;
+- new effects (casting chime, toast tick, pull-memory whoosh, lift);
+- **E8 spike, an ElevenLabs voice agent that plays a suspect.** Check whether it can run in the lens (WebSocket, mic in Preview or on device, audio playback), and design truth safety so facts come only from engine tools. Ship it only if it's truth-safe; otherwise document it for later. The video uses prerecorded voices.
+
+**Lane D, art (subagent, when a slot is free):**
+- the casting labels;
+- toasts and icons;
+- the pulled-memory photograph;
+- the stamp;
+- the route trail;
+- role cards for any detectable object type.
+
+**Lane E, publication (when a slot is free):**
+- **R9:** update devpost/drafts/video-plan.md:
+  - gameplay in the first 10 s;
+  - by 0:20, "A one-player murder mystery that casts your room as the crime scene, for anyone who loves Clue and detective games";
+  - an uncut 60–90 s segment;
+  - hands, not a mouse;
+  - honest Preview labels;
+  - the AI-voice beat and a 15 s "AI voices, engine truth" explainer;
+  - room casting as a key shot.
+- **R10:** the Devpost description (what, who, what we learned, how the skill pack helped).
+- The README.
+
+## 5. Final gate
+- restart Lens Studio;
+- run the integrated LEAF (hero-demo, interrogation, all-tells, closing correct/wrong/timeout, naive-player, plus casting and generated-case smoke tests);
+- Director-mode captures of every beat;
+- a new-cast hero performance tape;
+- **an uncut continuous 60–90 s run** from opening the crate to the first answer;
+- tag m3-case if it passes;
+- rename the lens to Roomscript.
+
+## 6. If time remains
+- A9: exported lens size (target under 18 MB);
+- A8: the camera spike, then B2 T3;
+- the rest of the publication check: README GIF from a capture, final NOTICE (including Claude for vision, ElevenLabs voices and music, and the AI disclosure), a history scan.
+
+## Two modes: Preset for the demo, Dynamic as a real capability
+Build both, selectable from the crate lid at the start:
+
+**Preset ("The Harlow Trust", the default and the video's main story).**
+- The authored HARLOW-1041 case on hand-tuned anchors to the Evening Room's real furniture.
+- Fully prerecorded voices; deterministic, so every take is the same.
+- Its casting sweep replays a **saved room scan**: one real scan from the spike, frozen into a fixture so it looks identical every time. Label it "recorded scan".
+
+**Dynamic ("Cast my room", a real, working capability).**
+- A live room scan (Claude Opus bridge in Preview, Gemini on Specs), then the compiler deals a **new verified case** on the detected furniture.
+- Phrase-composed voices, with live AI for free questions.
+- Each run can differ: a new seed means a new murder in the same room.
+- It must play end to end to a verdict, with LEAF smoke tests on at least 3 seeds, but it doesn't need the Preset's hand polish.
+
+Both modes share the engine, UI, art and VFX.
+
+**In the video:** the Preset carries the story. A short Dynamic segment then shows the same room cast as a different case ("same room, new murder"). Add that shot to the video plan.
+
+**Don't start multiplayer.** I'll decide tomorrow based on this run's progress.
+
+## Overrides (Wadood, latest; these win over anything above)
+- **Model provider doesn't matter.** This is developed and demoed on my laptop in Lens Studio Preview.
+  - Use whichever model gives the best result. Claude Opus through the local bridge is fine as the **main** path for room casting, and also for live answers or Wren if it's better than the gateway models.
+  - Gemini (RSG) is optional; skip the device-path work if it costs time.
+  - No provider labels are needed in the video. Just keep the key out of Assets/ and the scene, and fall back gracefully (authored or prerecorded) if the bridge isn't running.
+- **Never let a budget or quota block development.**
+  - If ElevenLabs returns a quota error, stop *generating audio* only, and keep building everything else.
+  - Use fallbacks for any missing audio: existing takes, phrase pieces, live RSG TTS, or subtitles.
+  - List what's missing under Needs Wadood so I can top up and re-render later.
+  - The same goes for Claude spend and any other provider limit.
+
+Finish with the FIRST_PASS §4 final report, including:
+- done, partial or not started per item;
+- the spike decisions (room casting, voice agent);
+- Needs Wadood;
+- the Preview captures I should look at (suspects, UI, casting sweep, moments, endings, objection, live AI, Wren);
+- costs (Claude, ElevenLabs).
+```
+
+## Run 6: finish Runs 4 and 5, then polish (Thu Nov 5, historical)
+
+Run 5's work was committed by Claude to `run5-wip` (`6518394`) and pushed. Rule 15 is rewritten so Codex requests its automatic git and network approvals again.
+
+Before pasting: restart Lens Studio, open RoomScriptF and sign in; `cd C:\Users\wadoo\Desktop\SPECS_Hackathon\RoomScriptF`; run `codex --approve-for-me`.
+
+```
+Continue the Roomscript build: this is Run 6. It finishes everything left over from Runs 4 and 5, then does the Run 6 polish. Lens Studio was just restarted, it is open on this project, and I'm signed in. You're running in Codex: follow §1b of docs/FIRST_PASS.md.
 
 Read AGENTS.md (rule 15 was REWRITTEN), docs/RUN5_REPORT.md, docs/PROGRESS.md and docs/REVIEW_2026-11-03.md. All earlier decisions stand: private repo, MIT, real history, feature freeze Sat Nov 7 at 21:00 PKT.
 
-**Important correction:** Run 5 committed nothing and couldn't reach ElevenLabs, because it skipped every approval. That was a mistake in the old rule 15.
-- Request sandbox escalations normally. My automatic approver handles them: git add/commit/push and LFS; network to api.elevenlabs.io, api.anthropic.com and github.com; npm.
+**Git state:** Run 5's whole working tree was committed for you by Claude as `6518394` on branch `run5-wip` and pushed to origin. `master` is still at `bfaf5ff`.
+- Keep working on `run5-wip`.
+- As soon as Phase A step 2 passes, fast-forward `master` to it and push `master`. From then on, commit to `master`.
+- Remove the duplicate prototype folders Tooling/art/web and Tooling/art/specs with `git rm` if nothing uses them; history keeps them.
+
+**Rule 15 correction:** Run 5 committed nothing and couldn't reach ElevenLabs, because it skipped every approval. Request sandbox escalations normally; my automatic approver handles them: git add/commit/push and LFS; network to api.elevenlabs.io, api.anthropic.com and github.com; npm.
 - Only GUI tools (computer-use, screenshots, window activation, UI automation) stay forbidden.
-- Never wait on me personally: record it and move on.
+- Never wait on me personally: record it under Needs Wadood and move on.
 - Timeouts of 10 minutes or less on every command and LEAF batch.
 
 **Parallelism:** at most 2 subagents, one Chromium at a time, and no full test suite during art renders or LEAF.
 
-We have about two days before the freeze, so this run is about getting a complete, good-looking hero case into the video, not breadth. In order:
+**ElevenLabs:** use the 30,000 new credits freely, with a new ledger segment, and stop on a quota error. **Claude:** under $3, recorded.
 
-0. **Save Run 5's work first.**
-   - Commit the current working tree in logical commits (audio compression and VoiceLibrary; art pipeline and assets; publication files; Lens UI and clarity changes; docs). Exclude the duplicate Tooling/art/web and Tooling/art/specs folders if they're unused.
-   - Run the secret hook and push to origin. Use Tooling/results/run5-preserved/ only if something is missing.
-   - If the scene commit would break rule 14, commit everything else first, then the scene right after step 2 passes.
+Commit and push after every verified step. Keep PROGRESS, decisions.md and devpost/clad-log.md current.
 
-1. **Vale voice swap** (ElevenLabs, from the 30,000 new credits):
-   - save designed voice preview S2-1 (generatedVoiceId Ajczv1caVKcFEG1TdJH0);
-   - update Tooling/audio/cast.json;
-   - re-render only Vale's lines and her dialogue parts;
-   - compress, re-export and verify.
+## Phase A: finish what Runs 4 and 5 left blocking
 
-   Then spend any remaining credits on missing hero-path takes, then on effects or music the new moments need. Stop on a quota error.
+1. **Vale voice swap.**
+   - Save designed preview S2-1 (generatedVoiceId Ajczv1caVKcFEG1TdJH0) as a voice.
+   - Update Tooling/audio/cast.json.
+   - Re-render only Vale's lines (performances, mood and tell takes) and her parts in the opening exchange, the arrival and the confession.
+   - Compress, re-export and verify.
 
-2. **Voices in the game, verified.**
-   - Restart Lens Studio, and let the asset import finish before refreshing. Last time the refresh after importing hundreds of audio files timed out; if that happens again, consolidate voice clips into fewer files (segment playback already supports that).
-   - Then run strict roomscript-bundled-voices on the compressed library, and the repaired hero route.
-   - Commit the scene.
+2. **Voices verified in the game.**
+   - Restart Lens Studio and let the asset import finish before refreshing. Last time, the refresh after importing hundreds of audio files timed out; if it happens again, consolidate the voice clips into fewer files (segment playback already supports this).
+   - Run strict roomscript-bundled-voices on the compressed library, and the repaired hero route.
+   - Commit the scene, then fast-forward `master`.
 
-3. **Art, my top visual priority.** The new suspects finally have distinct silhouettes; good. But the lines are thin and dim, and the poses differ mostly in the hands.
+3. **S2 frame time.** It measured 29.7 ms against an 8 ms target. Profile per-frame copies, listeners and text rebuilds, fix them, and record the new number.
+
+4. **Finish the audio wiring:**
+   - Wren and narrator triggers (V5): opening, first tell, first objection, each beat, idle, and before the seal.
+   - The dialogue scenes on their beats (E3), with Harlow's motive gated until the engine admits it.
+   - The score's composure-driven tension layer and every sound effect on its beat (full S3 acceptance).
+   - Word-by-word subtitle reveal from the timestamps (E6).
+   - Spend leftover credits on missing hero-path takes, then the remaining mood and tell takes (E2).
+
+## Phase B: Run 6, a complete good-looking hero case for the video
+
+5. **Art, my top visual priority.** The suspects now have distinct silhouettes; good. But the lines are thin and dim, and the poses differ mostly in the hands.
    - Make strokes thicker and brighter: ivory, with a soft glow, so they read over the photoreal Preview room.
-   - Push pose contrast through posture, head tilt and face, not only the hands.
+   - Push pose contrast through posture, head tilt and face.
    - Make faces slightly larger.
    - Composite-test over a Preview room capture before wiring.
-   - Then do A3: wire actors, cards, props and ghosts through VirtualScene, selecting and compressing textures (not everything is loaded at once).
-   - Capture each suspect in Preview.
+   - Then do A3: wire actors, cards, props and ghosts through VirtualScene, selecting and compressing textures (not everything loaded at once).
+   - Preview captures of each suspect in each pose.
 
-4. **UI:** A4, one panel at a time in the design-03 palette with the new card art and icons, plus the opening case card, the "What we know" strip and the SAID/PROVEN slips, captured.
+6. **UI:**
+   - A4, one panel at a time in the design-03 palette with the new card art and icons;
+   - A5, OFL fonts imported, with angular sizing;
+   - the opening case card;
+   - the "What we know" strip;
+   - the SAID/PROVEN slips.
 
-5. **The moments, voiced:**
-   - B2 reconstruction T1 polish with the new ghost sprites;
-   - B1 beats on stage (letter, voicemail with Harlow's voice, Pike's flight, blackout/UV);
-   - B3 endings (correct with Vale's confession and the voiced summary; wrong; timeout);
-   - Wren and narrator triggers;
-   - the score's tension layer and the sound effects on their beats.
+   Capture each.
 
-6. **A6 objection polish** (hero word texture, glow, shake, shards, coral string), plus the **minimum A7 UX fixes** that a first-time player needs.
+7. **The moments, voiced:**
+   - B2 reconstruction T1 polish with the new ghost sprites, then T2 (time dial, slip burn, deduction ledger, narration);
+   - B1 beats on stage (letter, voicemail in Harlow's voice, Pike's flight, blackout/UV);
+   - B3 endings (correct with Vale's confession and the voiced summary; wrong; timeout).
 
-7. **Final gate:**
+8. **A6 hero VFX:**
+   - the objection: hero-word texture, glow, shake, shards, coral string;
+   - the tells;
+   - the sweep;
+   - the seal;
+   - the opening.
+
+   Then **A7 UX simplification**, with the naive-player LEAF finishing the case in 40 clicks or fewer.
+
+9. **Final gate:**
    - restart Lens Studio;
-   - run the integrated LEAF (hero-demo, interrogation, all-tells, closing correct/wrong/timeout);
+   - run the integrated LEAF (hero-demo, interrogation, all-tells, closing correct/wrong/timeout, naive-player);
    - Director-mode captures of every beat;
    - a hero performance tape with bundled audio;
    - tag m3-case if it passes;
    - rename the lens to Roomscript.
 
-8. **Only if everything above is green:** Y2 (one labelled live-AI exchange), then A8 (camera, 20-minute spike).
+## Phase C: everything else that's still open (after Phase B, before the freeze)
 
-Move to docs/later.md: the Y1 Case Compiler page, B2 T2/T3, and V3 recall tuning.
+10. **Y2:** one labelled live-AI exchange (fresh RSG tokens; blank them before committing).
+11. **Y1:** the Case Compiler page on the crate lid (deal and prove three cases on the Preview room).
+12. **A8:** camera rig (20-minute spike), then B2 T3 (camera path or diorama turntable).
+13. **A9:** export the lens, record the build size (target under 18 MB) and compress textures and audio until it fits.
+14. **V3 recall:** lower the 70.6% holdout false rejection without any loss in attack safety; rescore the saved corpora with no API cost.
+15. **Publication final check:**
+    - NOTICE complete, including the AI-voice disclosure;
+    - README with a hero GIF slot and a "How it was built" section;
+    - devpost texts;
+    - a full-history secret scan;
+    - a PROGRESS submission-state block.
 
-Commit and push after every verified step. Keep PROGRESS, decisions.md and devpost/clad-log.md current.
+At the freeze (Sat Nov 7, 21:00 PKT), stop feature work. Move anything unfinished to docs/later.md, then do fixes only.
 
 Finish with the FIRST_PASS §4 final report, including:
 - done, partial or not started per item;
 - Needs Wadood;
-- the captures I should look at (Preview captures of each suspect, UI, reconstruction, endings);
+- the captures I should look at (suspects, UI, reconstruction, endings, objection);
 - costs.
 ```
 
