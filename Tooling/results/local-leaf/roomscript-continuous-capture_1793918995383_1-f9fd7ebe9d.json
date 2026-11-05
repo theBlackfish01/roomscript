@@ -1,0 +1,266 @@
+{
+  "requestId": "roomscript-continuous-capture:1793918995383:1",
+  "scenarioId": "roomscript-continuous-capture",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:50:13.406",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-continuous-capture",
+        "requestId": "roomscript-continuous-capture:1793918995383:1",
+        "config": {
+          "seconds": "5",
+          "input": "default",
+          "source": "camera",
+          "quiet": "true",
+          "backdrop": "true",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793919013405,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:50:51.897",
+      "record": {
+        "status": "failed",
+        "scenarioId": "roomscript-continuous-capture",
+        "requestId": "roomscript-continuous-capture:1793918995383:1",
+        "config": {
+          "seconds": "5",
+          "input": "default",
+          "source": "camera",
+          "quiet": "true",
+          "backdrop": "true",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793919013405,
+        "finishedAt": 1793919051897,
+        "elapsedMs": 38492,
+        "error": "Error: FAILED: roomscript-continuous-capture - AssertionError: Expected: \"true\" - Received: \"false\"",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:50:15.320",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1780,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:50:15.328",
+      "name": "CONTINUOUS_CAPTURE_API",
+      "data": {
+        "recorderAvailable": true
+      }
+    },
+    {
+      "logTime": "03:50:15.878",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:Rain",
+        "ms": 465,
+        "call": 23
+      }
+    },
+    {
+      "logTime": "03:50:17.750",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1869,
+        "call": 25
+      }
+    },
+    {
+      "logTime": "03:50:20.062",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 2231,
+        "call": 28
+      }
+    },
+    {
+      "logTime": "03:50:22.344",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:TapeZip",
+        "ms": 2180,
+        "call": 31
+      }
+    },
+    {
+      "logTime": "03:50:29.218",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:CrateThud",
+        "ms": 1697,
+        "call": 61
+      }
+    },
+    {
+      "logTime": "03:50:46.398",
+      "name": "CONTINUOUS_CAPTURE_QUIET",
+      "data": {
+        "ready": true,
+        "phase": "tab",
+        "narration": {
+          "queued": 0,
+          "playing": false,
+          "played": 3,
+          "fallback": 0,
+          "rejectedDialogue": 0,
+          "cueStarts": 5,
+          "tickStarts": 0,
+          "tickAge": -1,
+          "tickDuration": 0,
+          "tickPosition": 0
+        }
+      }
+    },
+    {
+      "logTime": "03:50:46.539",
+      "name": "CAPTURE_BACKDROP_READY",
+      "data": {
+        "frames": 3,
+        "width": 512,
+        "height": 585,
+        "targetWidth": 1392,
+        "targetHeight": 3180,
+        "clear": true,
+        "source": "Preview CameraModule Default_Color",
+        "stereoAlignmentVerified": false,
+        "colorOrderVerified": false
+      }
+    },
+    {
+      "logTime": "03:50:46.540",
+      "name": "CONTINUOUS_CAPTURE_STARTED",
+      "data": {
+        "utc": "2026-11-05T22:50:46.539Z",
+        "seconds": 5,
+        "input": "default",
+        "quiet": true,
+        "backdrop": true,
+        "requestedSource": "camera",
+        "actualSource": "camera.renderTarget + CameraModule backdrop",
+        "source": "Render Target",
+        "width": 1392,
+        "height": 3180,
+        "scale": 1,
+        "audio": "unverified; no recorder audio option"
+      }
+    },
+    {
+      "logTime": "03:50:51.884",
+      "name": "CONTINUOUS_CAPTURE_READY",
+      "data": {
+        "utc": "2026-11-05T22:50:51.884Z",
+        "requestedSeconds": 5,
+        "measuredSeconds": 5.018539900018368,
+        "backdrop": true,
+        "observedFrames": 159,
+        "actualSource": "camera.renderTarget + CameraModule backdrop",
+        "technicalProbeOnly": true,
+        "roomComposite": "unverified",
+        "providerSeconds": 0.33329999446868896,
+        "ready": true,
+        "texture": "",
+        "width": 1392,
+        "height": 3180,
+        "input": "default",
+        "firstAnswerSeconds": -1,
+        "timeline": [],
+        "flowFailure": "",
+        "audio": "inspect recovered file streams; assume silent until verified",
+        "nativePathExposed": false
+      }
+    },
+    {
+      "logTime": "03:50:51.893",
+      "name": "CAPTURE_BACKDROP_RESTORED",
+      "data": {
+        "input": true,
+        "clear": true,
+        "restored": true
+      }
+    },
+    {
+      "logTime": "03:50:51.894",
+      "name": "CONTINUOUS_CAPTURE_ACCEPTANCE",
+      "data": {
+        "ok": false,
+        "issues": [
+          "invalid_encoded_duration"
+        ],
+        "minimumSeconds": 5,
+        "minimumFrames": 150,
+        "flowFailure": "",
+        "audioVerified": false,
+        "roomCompositeVerified": false,
+        "observedFramesAreEncodedFrames": false
+      }
+    }
+  ],
+  "errors": [
+    {
+      "logTime": "03:50:51.895",
+      "text": "E [DefaultLeafScenarioManager] [ 38.486s]FAILED: roomscript-continuous-capture - AssertionError: Expected: \"true\" - Received: \"false\""
+    },
+    {
+      "logTime": "03:50:51.895",
+      "text": "E [DefaultLeafScenarioManager] [ 38.487s][roomscript-continuous-capture] FAILED - AssertionError: Expected: \"true\" - Received: \"false\""
+    }
+  ],
+  "latest": {
+    "status": "failed",
+    "scenarioId": "roomscript-continuous-capture",
+    "requestId": "roomscript-continuous-capture:1793918995383:1",
+    "config": {
+      "seconds": "5",
+      "input": "default",
+      "source": "camera",
+      "quiet": "true",
+      "backdrop": "true",
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "180",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793919013405,
+    "finishedAt": 1793919051897,
+    "elapsedMs": 38492,
+    "error": "Error: FAILED: roomscript-continuous-capture - AssertionError: Expected: \"true\" - Received: \"false\"",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 12789,
+  "endLine": 12811,
+  "evidenceLabel": "LEAF local-manager FAILED",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 3699221,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:50:52.322Z"
+}

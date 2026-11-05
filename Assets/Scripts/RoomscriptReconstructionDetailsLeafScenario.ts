@@ -1,7 +1,7 @@
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {ScenarioConfig} from "Leaf.lspkg/Scenarios/scenario/ScenarioConfig";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
-import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
+import {findSceneObjectByName,sleep,nextFrame} from "Leaf.lspkg/Utils/common/Utils";
 import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
 import {RoomscriptClosingController} from "./RoomscriptClosingController";
 import {availableArguments} from "./Engine/game/Closing";
@@ -18,10 +18,10 @@ import {canonicalJson} from "./Engine/core/CanonicalJson";
     try{
       flow.client.forceOffline=true;engine.configurePreset();opening.finish();
       expect(closing.captureReconstructionDetail("correction")).toBe(false);expect(closing.captureReconstructionDetail("ledger")).toBe(false);
-      engine.dispatch({type:"Ask",suspect:"S2",topic:"where@22:30"});
-      const graph=engine.graphRef();for(const object of graph.room.objects)engine.dispatch({type:"PinchObject",object:object.id});
-      for(const claim of availableArguments(graph,engine.snapshot()))engine.dispatch({type:"ArgumentClaim",...claim});
-      expect(engine.snapshot().arguments.length).toBe(graph.requiredDeductions.length);engine.dispatch({type:"Accuse",...graph.envelope});
+      const fixtureStarted=Date.now();engine.dispatch({type:"Ask",suspect:"S2",topic:"where@22:30"});await nextFrame();console.log("RECONSTRUCTION_FIXTURE_PROGRESS|"+JSON.stringify({step:"asked",elapsedMs:Date.now()-fixtureStarted}));
+      const graph=engine.graphRef();for(const object of graph.room.objects){engine.dispatch({type:"PinchObject",object:object.id});await nextFrame();console.log("RECONSTRUCTION_FIXTURE_PROGRESS|"+JSON.stringify({step:"object",object:object.id,elapsedMs:Date.now()-fixtureStarted}));}
+      const claims=availableArguments(graph,engine.snapshot());for(let i=0;i<claims.length;i++){engine.dispatch({type:"ArgumentClaim",...claims[i]});await nextFrame();console.log("RECONSTRUCTION_FIXTURE_PROGRESS|"+JSON.stringify({step:"argument",completed:i+1,total:claims.length,elapsedMs:Date.now()-fixtureStarted}));}
+      expect(engine.snapshot().arguments.length).toBe(graph.requiredDeductions.length);engine.dispatch({type:"Accuse",...graph.envelope});await nextFrame();console.log("RECONSTRUCTION_FIXTURE_PROGRESS|"+JSON.stringify({step:"sealed",elapsedMs:Date.now()-fixtureStarted}));
       expect(engine.snapshot().verdict).toBe("correct");expect(closing.diagnostics().phase).toBe("reconstruction");
       for(const kind of ["correction","ledger"] as const){if(shot!=="both"&&shot!==kind)continue;
         const before=canonicalJson(engine.snapshot());expect(closing.captureReconstructionDetail(kind,hold)).toBe(true);expect(canonicalJson(engine.snapshot())).toBe(before);

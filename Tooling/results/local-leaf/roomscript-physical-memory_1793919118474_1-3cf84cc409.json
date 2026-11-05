@@ -1,0 +1,240 @@
+{
+  "requestId": "roomscript-physical-memory:1793919118474:1",
+  "scenarioId": "roomscript-physical-memory",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:52:15.632",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-physical-memory",
+        "requestId": "roomscript-physical-memory:1793919118474:1",
+        "config": {
+          "ik": "false",
+          "hold": "false",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793919135632,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:52:59.385",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-physical-memory",
+        "requestId": "roomscript-physical-memory:1793919118474:1",
+        "config": {
+          "ik": "false",
+          "hold": "false",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793919135632,
+        "finishedAt": 1793919179385,
+        "elapsedMs": 43753,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:52:17.499",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1781,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:52:19.965",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    },
+    {
+      "logTime": "03:52:28.064",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 4309,
+        "call": 36
+      }
+    },
+    {
+      "logTime": "03:52:29.928",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1864,
+        "call": 37
+      }
+    },
+    {
+      "logTime": "03:52:34.670",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ToastTick",
+        "ms": 3051,
+        "call": 56
+      }
+    },
+    {
+      "logTime": "03:52:35.846",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Kettle",
+        "ms": 1174,
+        "call": 57
+      }
+    },
+    {
+      "logTime": "03:52:38.770",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:PullMemory",
+        "ms": 2922,
+        "call": 59
+      }
+    },
+    {
+      "logTime": "03:52:40.659",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Chime",
+        "ms": 1756,
+        "call": 61
+      }
+    },
+    {
+      "logTime": "03:52:43.669",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:LiftInspect",
+        "ms": 1774,
+        "call": 64
+      }
+    },
+    {
+      "logTime": "03:52:46.340",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Chime",
+        "ms": 2422,
+        "call": 67
+      }
+    },
+    {
+      "logTime": "03:52:49.710",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:LiftInspect",
+        "ms": 2137,
+        "call": 71
+      }
+    },
+    {
+      "logTime": "03:52:50.030",
+      "name": "CABLE_LIFT_CHECK",
+      "data": {
+        "authored": true,
+        "liftedMeshObserved": true,
+        "photoFallbackObserved": false,
+        "anchorUnmoved": true
+      }
+    },
+    {
+      "logTime": "03:52:52.620",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Chime",
+        "ms": 1780,
+        "call": 76
+      }
+    },
+    {
+      "logTime": "03:52:53.407",
+      "name": "PHYSICAL_MEMORY_CHECK",
+      "data": {
+        "ik": false,
+        "phase": "idle",
+        "correct": false,
+        "history": [],
+        "opened": false,
+        "selected": null,
+        "shatterReady": true,
+        "bursts": 0,
+        "shatterEnabled": false,
+        "proofThreads": 0,
+        "pulling": null,
+        "pulls": 3,
+        "lifts": 2,
+        "bindings": 0
+      }
+    },
+    {
+      "logTime": "03:52:55.563",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    }
+  ],
+  "errors": [
+    {
+      "logTime": "03:52:38.769",
+      "text": "E 03:52:38.769 _nlo_cache\\H\\55e0cd\\1\\Src\\Lenses\\Audio\\AudioOutput\\SpeakerAudioOutputFactory.cpp:58 (@Es::Preview::PreviewWorker #5) LS::Audio::SpeakerAudioOutputFactory::createSpeakerOutput] [AudioOutput]  Can not Set Media Type for Sink Writer"
+    }
+  ],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-physical-memory",
+    "requestId": "roomscript-physical-memory:1793919118474:1",
+    "config": {
+      "ik": "false",
+      "hold": "false",
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "180",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793919135632,
+    "finishedAt": 1793919179385,
+    "elapsedMs": 43753,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 13066,
+  "endLine": 13089,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 3785410,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:53:00.368Z"
+}

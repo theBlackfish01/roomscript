@@ -31,7 +31,7 @@ import {RectangleButton} from "SpectaclesUIKit.lspkg/Scripts/Components/Button/R
       expect(cardBottom>layout.surfaceWorld[1]).toBe(true);expect(tabBottom>layout.surfaceWorld[1]).toBe(true);expect(buttonBottom>layout.surfaceWorld[1]).toBe(true);expect(button.size.y).toBe(9);
       console.log("CRATE_SURFACE_CHECK|"+JSON.stringify({surface:layout.surfaceWorld,baseBottom:[bottom.x,bottom.y,bottom.z],cardBottom,tabBottom,buttonBottom}));
     };assertCrateSurface();
-    expect(opening.cast.room.propCount()).toBe(6);
+    expect(opening.cast.room.propCount()).toBe(7);
     const legacy=opening.cast.room.legacyPropDiagnostics();expect(legacy.replaced.length).toBe(6);expect(legacy.hidden).toBe(11);expect(legacy.visible).toBe(0);expect(legacy.anchorsEnabled).toBe(true);
     expect(opening.cast.room.objectAnchor("O4").enabled).toBe(true);expect(findSceneObjectByName("InterrogationMark").enabled).toBe(false);expect(findSceneObjectByName("RoomscriptDoorTape").enabled).toBe(false);
     console.log("PROP_LEGACY_CHECK|"+JSON.stringify(legacy));expect(admittedCard(engine.graphRef(),engine.snapshot(),"E_KETTLE_COLD")).toBe(null);
@@ -42,6 +42,6 @@ import {RectangleButton} from "SpectaclesUIKit.lspkg/Scripts/Components/Button/R
     objection.wallet.setEntries(walletEntries(engine.graphRef(),engine.snapshot()));expect(objection.wallet.cardDiagnostics().expanded).toBe(true);
     const generatedView={...engine.graphRef(),caseId:"generated-card-guard"};expect(admittedCard(generatedView,engine.snapshot(),"E_KETTLE_COLD")!.authored).toBe(false);
     await tap("Close evidence");console.log("MEMORY_CARD_CHECK|"+JSON.stringify({unknownHidden:true,expandedPreserved:true,dynamicBlankFrame:true,knowledge:engine.snapshot().knowledge.evidenceIds.length}));
-    expect(engine.configureDynamic(7,EVENING_ROOM_SCAN).ok).toBe(true);expect(opening.cast.room.propCount()).toBe(0);engine.configurePreset();opening.finish();expect(opening.cast.room.propCount()).toBe(6);expect(opening.cast.room.legacyPropDiagnostics().visible).toBe(0);expect(opening.cast.room.legacyPropDiagnostics().hidden).toBe(11);assertCrateSurface();console.log("PROP_RESET_CHECK|6_preset,0_dynamic,6_restored_no_legacy");
+    expect(engine.configureDynamic(7,EVENING_ROOM_SCAN).ok).toBe(true);expect(opening.cast.room.propCount()).toBe(0);engine.configurePreset();opening.finish();expect(opening.cast.room.propCount()).toBe(7);expect(opening.cast.room.legacyPropDiagnostics().visible).toBe(0);expect(opening.cast.room.legacyPropDiagnostics().hidden).toBe(11);assertCrateSurface();console.log("PROP_RESET_CHECK|7_preset,0_dynamic,7_restored_no_legacy");
   }
 }

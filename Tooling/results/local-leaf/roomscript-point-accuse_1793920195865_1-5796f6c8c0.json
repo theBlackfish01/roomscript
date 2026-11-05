@@ -1,0 +1,830 @@
+{
+  "requestId": "roomscript-point-accuse:1793920195865:1",
+  "scenarioId": "roomscript-point-accuse",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "04:10:12.081",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-point-accuse",
+        "requestId": "roomscript-point-accuse:1793920195865:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793920212081,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "04:10:46.045",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-point-accuse",
+        "requestId": "roomscript-point-accuse:1793920195865:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793920212081,
+        "finishedAt": 1793920246045,
+        "elapsedMs": 33964,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "04:10:13.886",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1721,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "04:10:16.528",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    },
+    {
+      "logTime": "04:10:22.625",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 2614,
+        "call": 36
+      }
+    },
+    {
+      "logTime": "04:10:23.710",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1084,
+        "call": 37
+      }
+    },
+    {
+      "logTime": "04:10:23.944",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "Preset ready",
+        "lastCheck": "setup",
+        "closing": {
+          "phase": "idle",
+          "opened": false,
+          "picked": {
+            "who": "S1",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": false,
+        "controlsBlocked": false,
+        "proximity": {
+          "nearest": "",
+          "previewFallback": false,
+          "checks": 0,
+          "reason": "startup"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 1,
+        "verbs": 0,
+        "nameS4": 1,
+        "bodyS4": 0,
+        "cancel": 0,
+        "accusations": 0,
+        "verdict": null
+      }
+    },
+    {
+      "logTime": "04:10:24.512",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "unique target: Question S2",
+        "received": 1,
+        "expected": 1
+      }
+    },
+    {
+      "logTime": "04:10:24.526",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "before pinch Question S2",
+        "lastCheck": "unique target: Question S2",
+        "closing": {
+          "phase": "idle",
+          "opened": false,
+          "picked": {
+            "who": "S1",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": false,
+        "controlsBlocked": false,
+        "proximity": {
+          "nearest": "",
+          "previewFallback": false,
+          "checks": 2,
+          "reason": "scanned"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 0,
+        "verbs": 0,
+        "nameS4": 1,
+        "bodyS4": 0,
+        "cancel": 0,
+        "accusations": 0,
+        "verdict": null,
+        "targetPosition": [
+          100,
+          6.5,
+          -219.5999755859375
+        ],
+        "indirect": true
+      }
+    },
+    {
+      "logTime": "04:10:27.547",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "after pinch Question S2",
+        "lastCheck": "unique target: Question S2",
+        "closing": {
+          "phase": "idle",
+          "opened": false,
+          "picked": {
+            "who": "S1",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": false,
+        "controlsBlocked": false,
+        "proximity": {
+          "nearest": "S2",
+          "previewFallback": true,
+          "checks": 17,
+          "reason": "Preview fallback"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 1,
+        "verbs": 0,
+        "nameS4": 1,
+        "bodyS4": 0,
+        "cancel": 0,
+        "accusations": 0,
+        "verdict": null,
+        "downs": 1,
+        "ends": 1,
+        "buttonUps": 1
+      }
+    },
+    {
+      "logTime": "04:10:27.755",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "question selected",
+        "lastCheck": "unique target: Question S2",
+        "closing": {
+          "phase": "idle",
+          "opened": false,
+          "picked": {
+            "who": "S1",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": false,
+        "controlsBlocked": false,
+        "proximity": {
+          "nearest": "S2",
+          "previewFallback": true,
+          "checks": 18,
+          "reason": "Preview fallback"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 1,
+        "verbs": 0,
+        "nameS4": 1,
+        "bodyS4": 0,
+        "cancel": 0,
+        "accusations": 0,
+        "verdict": null
+      }
+    },
+    {
+      "logTime": "04:10:27.759",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "questions shown before accusation",
+        "received": 1,
+        "expected": 1
+      }
+    },
+    {
+      "logTime": "04:10:27.761",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "verbs hidden before accusation",
+        "received": 0,
+        "expected": 0
+      }
+    },
+    {
+      "logTime": "04:10:27.761",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "body targeting initially off",
+        "received": false,
+        "expected": false
+      }
+    },
+    {
+      "logTime": "04:10:27.765",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "body S4 initially hidden",
+        "received": 0,
+        "expected": 0
+      }
+    },
+    {
+      "logTime": "04:10:30.369",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "accusation opened",
+        "lastCheck": "body S4 initially hidden",
+        "closing": {
+          "phase": "idle",
+          "opened": true,
+          "picked": {
+            "who": "S1",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": true,
+        "controlsBlocked": true,
+        "proximity": {
+          "nearest": "S2",
+          "previewFallback": true,
+          "checks": 18,
+          "reason": "Preview fallback"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 0,
+        "verbs": 0,
+        "nameS4": 0,
+        "bodyS4": 1,
+        "cancel": 1,
+        "accusations": 0,
+        "verdict": null
+      }
+    },
+    {
+      "logTime": "04:10:30.369",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "accusation modal open",
+        "received": true,
+        "expected": true
+      }
+    },
+    {
+      "logTime": "04:10:30.369",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "body targeting on",
+        "received": true,
+        "expected": true
+      }
+    },
+    {
+      "logTime": "04:10:30.372",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "name S4 hidden in accusation",
+        "received": 0,
+        "expected": 0
+      }
+    },
+    {
+      "logTime": "04:10:30.375",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "questions hidden in accusation",
+        "received": 0,
+        "expected": 0
+      }
+    },
+    {
+      "logTime": "04:10:30.378",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "verbs hidden in accusation",
+        "received": 0,
+        "expected": 0
+      }
+    },
+    {
+      "logTime": "04:10:30.382",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "unique target: RoomscriptAccuse_S4",
+        "received": 1,
+        "expected": 1
+      }
+    },
+    {
+      "logTime": "04:10:30.382",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "body S4 uses indirect hand ray",
+        "received": true,
+        "expected": true
+      }
+    },
+    {
+      "logTime": "04:10:30.385",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "unique target: RoomscriptAccuse_S4",
+        "received": 1,
+        "expected": 1
+      }
+    },
+    {
+      "logTime": "04:10:30.399",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "before pinch RoomscriptAccuse_S4",
+        "lastCheck": "unique target: RoomscriptAccuse_S4",
+        "closing": {
+          "phase": "idle",
+          "opened": true,
+          "picked": {
+            "who": "S1",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": true,
+        "controlsBlocked": true,
+        "proximity": {
+          "nearest": "S2",
+          "previewFallback": true,
+          "checks": 18,
+          "reason": "Preview fallback"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 0,
+        "verbs": 0,
+        "nameS4": 0,
+        "bodyS4": 1,
+        "cancel": 1,
+        "accusations": 0,
+        "verdict": null,
+        "targetPosition": [
+          -105.86016845703125,
+          -91,
+          -385.4071044921875
+        ],
+        "indirect": true
+      }
+    },
+    {
+      "logTime": "04:10:35.699",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ToastTick",
+        "ms": 2464,
+        "call": 90
+      }
+    },
+    {
+      "logTime": "04:10:35.843",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "after pinch RoomscriptAccuse_S4",
+        "lastCheck": "unique target: RoomscriptAccuse_S4",
+        "closing": {
+          "phase": "idle",
+          "opened": true,
+          "picked": {
+            "who": "S4",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": true,
+        "controlsBlocked": true,
+        "proximity": {
+          "nearest": "S2",
+          "previewFallback": true,
+          "checks": 33,
+          "reason": "modal"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 0,
+        "verbs": 0,
+        "nameS4": 0,
+        "bodyS4": 1,
+        "cancel": 1,
+        "accusations": 0,
+        "verdict": null,
+        "downs": 1,
+        "ends": 1,
+        "buttonUps": null
+      }
+    },
+    {
+      "logTime": "04:10:36.112",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "body selection settled",
+        "lastCheck": "unique target: RoomscriptAccuse_S4",
+        "closing": {
+          "phase": "idle",
+          "opened": true,
+          "picked": {
+            "who": "S4",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": true,
+        "controlsBlocked": true,
+        "proximity": {
+          "nearest": "S2",
+          "previewFallback": true,
+          "checks": 34,
+          "reason": "modal"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 0,
+        "verbs": 0,
+        "nameS4": 0,
+        "bodyS4": 1,
+        "cancel": 1,
+        "accusations": 0,
+        "verdict": null
+      }
+    },
+    {
+      "logTime": "04:10:36.112",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "body pinch selects S4",
+        "received": "S4",
+        "expected": "S4"
+      }
+    },
+    {
+      "logTime": "04:10:36.112",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "body pinch never seals",
+        "received": 0,
+        "expected": 0
+      }
+    },
+    {
+      "logTime": "04:10:36.112",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "body pinch leaves verdict empty",
+        "received": null,
+        "expected": null
+      }
+    },
+    {
+      "logTime": "04:10:36.115",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "unique target: Cancel accusation",
+        "received": 1,
+        "expected": 1
+      }
+    },
+    {
+      "logTime": "04:10:36.115",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "cancel target clears tabletop",
+        "received": true,
+        "expected": true
+      }
+    },
+    {
+      "logTime": "04:10:36.129",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "before pinch Cancel accusation",
+        "lastCheck": "cancel target clears tabletop",
+        "closing": {
+          "phase": "idle",
+          "opened": true,
+          "picked": {
+            "who": "S4",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": true,
+        "controlsBlocked": true,
+        "proximity": {
+          "nearest": "S2",
+          "previewFallback": true,
+          "checks": 34,
+          "reason": "modal"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 0,
+        "verbs": 0,
+        "nameS4": 0,
+        "bodyS4": 1,
+        "cancel": 1,
+        "accusations": 0,
+        "verdict": null,
+        "targetPosition": [
+          3.201000213623047,
+          -124.43350219726562,
+          -257.7626953125
+        ],
+        "indirect": true
+      }
+    },
+    {
+      "logTime": "04:10:40.867",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "after pinch Cancel accusation",
+        "lastCheck": "cancel target clears tabletop",
+        "closing": {
+          "phase": "idle",
+          "opened": false,
+          "picked": {
+            "who": "S4",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": false,
+        "controlsBlocked": false,
+        "proximity": {
+          "nearest": "S2",
+          "previewFallback": true,
+          "checks": 56,
+          "reason": "Preview fallback"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 1,
+        "verbs": 0,
+        "nameS4": 1,
+        "bodyS4": 0,
+        "cancel": 0,
+        "accusations": 0,
+        "verdict": null,
+        "downs": 1,
+        "ends": 1,
+        "buttonUps": 1
+      }
+    },
+    {
+      "logTime": "04:10:41.219",
+      "name": "POINT_ACCUSE_STEP",
+      "data": {
+        "step": "cancel settled",
+        "lastCheck": "cancel target clears tabletop",
+        "closing": {
+          "phase": "idle",
+          "opened": false,
+          "picked": {
+            "who": "S4",
+            "where": "Z1",
+            "what": "O1"
+          },
+          "result": ""
+        },
+        "targeting": false,
+        "controlsBlocked": false,
+        "proximity": {
+          "nearest": "S2",
+          "previewFallback": true,
+          "checks": 58,
+          "reason": "Preview fallback"
+        },
+        "busy": false,
+        "rightPinching": false,
+        "camera": [
+          100,
+          0,
+          -45
+        ],
+        "questions": 1,
+        "verbs": 0,
+        "nameS4": 1,
+        "bodyS4": 0,
+        "cancel": 0,
+        "accusations": 0,
+        "verdict": null
+      }
+    },
+    {
+      "logTime": "04:10:41.219",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "cancel closes modal",
+        "received": false,
+        "expected": false
+      }
+    },
+    {
+      "logTime": "04:10:41.219",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "cancel disables body targeting",
+        "received": false,
+        "expected": false
+      }
+    },
+    {
+      "logTime": "04:10:41.223",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "cancel hides body S4",
+        "received": 0,
+        "expected": 0
+      }
+    },
+    {
+      "logTime": "04:10:41.229",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "cancel restores only questions",
+        "received": true,
+        "expected": true
+      }
+    },
+    {
+      "logTime": "04:10:41.232",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "cancel restores name S4",
+        "received": 1,
+        "expected": 1
+      }
+    },
+    {
+      "logTime": "04:10:41.232",
+      "name": "POINT_ACCUSE_ASSERT",
+      "data": {
+        "name": "cancel never seals",
+        "received": 0,
+        "expected": 0
+      }
+    },
+    {
+      "logTime": "04:10:41.232",
+      "name": "POINT_ACCUSE_CHECK",
+      "data": {
+        "strictIK": true,
+        "indirect": true,
+        "picked": "S4",
+        "accusations": 0,
+        "cancelRestored": true
+      }
+    },
+    {
+      "logTime": "04:10:43.349",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-point-accuse",
+    "requestId": "roomscript-point-accuse:1793920195865:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "240",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793920212081,
+    "finishedAt": 1793920246045,
+    "elapsedMs": 33964,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 14699,
+  "endLine": 14749,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 4330522,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T23:10:46.620Z"
+}

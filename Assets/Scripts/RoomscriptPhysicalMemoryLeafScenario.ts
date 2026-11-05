@@ -29,11 +29,17 @@ import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
         const before=count();await scripted.drag(target("RoomscriptObject_"+kettle.id),new vec3(0,.001,0),300);
         expect(count()).toBe(before);expect(objection.diagnostics().opened).toBe(false);await sleep(300);
       }
-      for(const object of ik?[cup]:[kettle,cup,cord]){
+      for(const object of ik?[cup,cord]:[kettle,cup,cord]){
         const anchor=room.objectAnchor(object.id),position=anchor.getTransform().getWorldPosition(),before=count(),counters=objection.diagnostics();
-        const item=target("RoomscriptObject_"+object.id);
+        const item=target("RoomscriptObject_"+object.id);let liftedMeshObserved=false,photoFallbackObserved=false;
+        const inspectLift=()=>{if(object.type!=="cord")return;const lifted=findSceneObjectByName("RoomscriptLiftedProp_"+object.id),photo=findSceneObjectByName("RoomscriptPulledMemory");
+          let meshes=0;const visit=(node:SceneObject)=>{meshes+=node.getComponents("Component.RenderMeshVisual").filter(component=>component.enabled).length;for(let i=0;i<node.getChildrenCount();i++)visit(node.getChild(i));};if(lifted)visit(lifted);
+          liftedMeshObserved=!!lifted&&lifted.enabled&&meshes===2&&objection.cardDiagnostics().liftedVisual;photoFallbackObserved=!!photo&&photo.enabled;
+        };
+        item.onDragStart.add(inspectLift);
         if(ik){console.log("MEMORY_REACH_ROUTE|"+JSON.stringify({object:object.id,indirect:ik.right.isIndirect(item)}));await ik.drag(item,new vec3(0,18,0));}
         else await scripted.drag(item,new vec3(0,1,0),duration);
+        item.onDragStart.remove(inspectLift);if(object.type==="cord"){expect(liftedMeshObserved).toBe(true);expect(photoFallbackObserved).toBe(false);const source=findSceneObjectByName("RoomscriptPropVisual_"+object.id,anchor);expect(!!source&&source.enabled).toBe(true);console.log("CABLE_LIFT_CHECK|"+JSON.stringify({authored:true,liftedMeshObserved,photoFallbackObserved,anchorUnmoved:anchor.getTransform().getWorldPosition().distance(position)<.001}));}
         expect(count()).toBe(before+1);expect(objection.diagnostics().pulls).toBe(counters.pulls+1);
         expect(objection.diagnostics().lifts).toBe(counters.lifts+(object.type==="cup"||object.type==="cord"?1:0));
         expect(objection.diagnostics().opened).toBe(true);expect(anchor.getTransform().getWorldPosition().distance(position)<.001).toBe(true);expect(room.audit().length).toBe(0);

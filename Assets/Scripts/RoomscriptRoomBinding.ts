@@ -3,6 +3,8 @@ import {Vec3} from "./Engine/core/Types";
 import {EVENING_ROOM_FLOOR_Y} from "./Content/EveningRoomScan";
 import {presetProp} from "./RoomscriptArtLibrary";
 import {RoomscriptPropMesh} from "./RoomscriptPropMesh";
+import {createAuthoredCable} from "./RoomscriptCableProp";
+import {presetCableObject} from "./Content/AuthoredCableGeometry";
 
 /** Case coordinates are floor-local centimeters. Authored anchors are the shared world mapping. */
 @component export class RoomscriptRoomBinding extends BaseScriptComponent {
@@ -32,6 +34,7 @@ import {RoomscriptPropMesh} from "./RoomscriptPropMesh";
       graph.room.objects.forEach(o=>this.objects.set(o.id,make("RoomscriptObject_"+o.id,o.pos)));graph.room.zones.forEach(z=>this.zones.set(z.id,make("RoomscriptZone_"+z.id,z.anchor)));
     }
     if(preset)for(const object of graph.room.objects){const prefab=presetProp(graph,object.id);if(!prefab)continue;const visual=prefab.instantiate(this.objectAnchor(object.id));visual.name="RoomscriptPropVisual_"+object.id;this.hideReplacedLegacy(this.objectAnchor(object.id),visual);this.replacedProps.push(object.id);visual.getTransform().setLocalPosition(vec3.zero());visual.getTransform().setLocalScale(vec3.one());if(object.id==="O3"){visual.getTransform().setLocalRotation(quat.fromEulerAngles(0,0,Math.PI/2));visual.getTransform().setLocalPosition(new vec3(16,1.25,0));}this.generated.push(visual);}
+    const cableObject=preset?presetCableObject(graph):undefined;if(cableObject){const cable=createAuthoredCable(this.objectAnchor(cableObject.id),cableObject.id);if(cable)this.generated.push(cable);}
     this.boundCase=graph.caseId;if(!this.subscribed){this.subscribed=true;this.engine.onCaseChanged.add(()=>{this.boundCase="";this.initialize();});}
     const failures=this.audit();if(failures.length)throw new Error("Room binding: "+failures.join(", "));
   }

@@ -1,0 +1,145 @@
+{
+  "requestId": "roomscript-point-accuse:1793919264691:1",
+  "scenarioId": "roomscript-point-accuse",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:54:42.319",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-point-accuse",
+        "requestId": "roomscript-point-accuse:1793919264691:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793919282319,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:55:20.643",
+      "record": {
+        "status": "failed",
+        "scenarioId": "roomscript-point-accuse",
+        "requestId": "roomscript-point-accuse:1793919264691:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793919282319,
+        "finishedAt": 1793919320643,
+        "elapsedMs": 38324,
+        "error": "Error: FAILED: roomscript-point-accuse - AssertionError: Received: \"true\"",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:54:44.419",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 2011,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:54:46.902",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    },
+    {
+      "logTime": "03:54:54.613",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 3770,
+        "call": 36
+      }
+    },
+    {
+      "logTime": "03:54:56.438",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1825,
+        "call": 37
+      }
+    },
+    {
+      "logTime": "03:55:11.254",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ToastTick",
+        "ms": 2825,
+        "call": 67
+      }
+    },
+    {
+      "logTime": "03:55:17.432",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    }
+  ],
+  "errors": [
+    {
+      "logTime": "03:55:20.636",
+      "text": "E [DefaultLeafScenarioManager] [ 38.315s]FAILED: roomscript-point-accuse - AssertionError: Received: \"true\""
+    },
+    {
+      "logTime": "03:55:20.637",
+      "text": "E [DefaultLeafScenarioManager] [ 38.315s][roomscript-point-accuse] FAILED - AssertionError: Received: \"true\""
+    }
+  ],
+  "latest": {
+    "status": "failed",
+    "scenarioId": "roomscript-point-accuse",
+    "requestId": "roomscript-point-accuse:1793919264691:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "180",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793919282319,
+    "finishedAt": 1793919320643,
+    "elapsedMs": 38324,
+    "error": "Error: FAILED: roomscript-point-accuse - AssertionError: Received: \"true\"",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 13332,
+  "endLine": 13350,
+  "evidenceLabel": "LEAF local-manager FAILED",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 3874338,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:55:21.357Z"
+}

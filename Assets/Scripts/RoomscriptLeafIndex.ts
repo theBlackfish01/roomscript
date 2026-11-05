@@ -51,7 +51,7 @@ export class RoomscriptLeafIndex extends BaseScriptComponent {
     {id:"roomscript-proximity",typename:RoomscriptProximityLeafScenario.getTypeName()},
     {id:"roomscript-memory-cards",typename:RoomscriptMemoryCardLeafScenario.getTypeName()},
     {id:"roomscript-actor-pose-capture",typename:RoomscriptActorPoseCaptureLeafScenario.getTypeName(),parameters:{suspect:"S2",pose:"neutral",audit:"true"}},
-    {id:"roomscript-continuous-capture",typename:RoomscriptContinuousCaptureLeafScenario.getTypeName(),parameters:{seconds:"5",input:"default",source:"capture"}},
+    {id:"roomscript-continuous-capture",typename:RoomscriptContinuousCaptureLeafScenario.getTypeName(),parameters:{seconds:"5",input:"default",source:"capture",quiet:"true",backdrop:"false",targetWidth:"0"}},
     {id:"roomscript-live-ai-beat",typename:RoomscriptLiveAiBeatLeafScenario.getTypeName()},
     {id:"roomscript-point-accuse",typename:RoomscriptPointAccuseLeafScenario.getTypeName()},
     {id:"roomscript-generated-cases",typename:RoomscriptGeneratedCaseLeafScenario.getTypeName(),parameters:{seed:"7",source:"recorded"}},

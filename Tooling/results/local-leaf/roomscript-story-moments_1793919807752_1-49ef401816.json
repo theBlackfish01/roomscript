@@ -1,0 +1,321 @@
+{
+  "requestId": "roomscript-story-moments:1793919807752:1",
+  "scenarioId": "roomscript-story-moments",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "04:03:43.783",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-story-moments",
+        "requestId": "roomscript-story-moments:1793919807752:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793919823783,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "04:05:00.638",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-story-moments",
+        "requestId": "roomscript-story-moments:1793919807752:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793919823783,
+        "finishedAt": 1793919900637,
+        "elapsedMs": 76854,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "04:03:44.511",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 631,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "04:03:46.970",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    },
+    {
+      "logTime": "04:03:53.770",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 3380,
+        "call": 36
+      }
+    },
+    {
+      "logTime": "04:03:55.480",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1710,
+        "call": 37
+      }
+    },
+    {
+      "logTime": "04:03:58.805",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ToastTick",
+        "ms": 2476,
+        "call": 53
+      }
+    },
+    {
+      "logTime": "04:04:05.466",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Letter",
+        "ms": 3290,
+        "call": 54
+      }
+    },
+    {
+      "logTime": "04:04:06.412",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Letter",
+        "ms": 945,
+        "call": 56
+      }
+    },
+    {
+      "logTime": "04:04:06.431",
+      "name": "STORY_MOMENT",
+      "data": {
+        "kind": "letter",
+        "beat": "B_LETTER",
+        "evidence": "E_LETTER"
+      }
+    },
+    {
+      "logTime": "04:04:06.520",
+      "name": "STORY_ADVANCE",
+      "data": 45
+    },
+    {
+      "logTime": "04:04:11.680",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:PhoneStatic",
+        "ms": 4119,
+        "call": 82
+      }
+    },
+    {
+      "logTime": "04:04:14.624",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:PhoneStatic",
+        "ms": 2944,
+        "call": 83
+      }
+    },
+    {
+      "logTime": "04:04:14.642",
+      "name": "STORY_MOMENT",
+      "data": {
+        "kind": "voicemail",
+        "beat": "B_VOICEMAIL",
+        "evidence": "E_VOICEMAIL"
+      }
+    },
+    {
+      "logTime": "04:04:17.866",
+      "name": "STORY_ADVANCE",
+      "data": 75
+    },
+    {
+      "logTime": "04:04:20.714",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:TapeZip",
+        "ms": 1977,
+        "call": 87
+      }
+    },
+    {
+      "logTime": "04:04:20.806",
+      "name": "STORY_MOMENT",
+      "data": {
+        "kind": "flight",
+        "beat": "B_FLIGHT"
+      }
+    },
+    {
+      "logTime": "04:04:24.055",
+      "name": "STORY_ADVANCE",
+      "data": 105
+    },
+    {
+      "logTime": "04:04:30.912",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ToastTick",
+        "ms": 2522,
+        "call": 93
+      }
+    },
+    {
+      "logTime": "04:04:31.693",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Polaroid",
+        "ms": 780,
+        "call": 94
+      }
+    },
+    {
+      "logTime": "04:04:34.546",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Polaroid",
+        "ms": 2853,
+        "call": 95
+      }
+    },
+    {
+      "logTime": "04:04:41.676",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Blackout",
+        "ms": 2640,
+        "call": 97
+      }
+    },
+    {
+      "logTime": "04:04:45.002",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.track:BlackoutDrone",
+        "ms": 3326,
+        "call": 99
+      }
+    },
+    {
+      "logTime": "04:04:48.455",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "ambience.track:UvHum",
+        "ms": 3453,
+        "call": 102
+      }
+    },
+    {
+      "logTime": "04:04:48.528",
+      "name": "STORY_MOMENT",
+      "data": {
+        "kind": "blackout",
+        "beat": "B_BLACKOUT"
+      }
+    },
+    {
+      "logTime": "04:04:48.531",
+      "name": "STORY_ADVANCE",
+      "data": 120
+    },
+    {
+      "logTime": "04:04:55.051",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 2502,
+        "call": 137
+      }
+    },
+    {
+      "logTime": "04:04:55.111",
+      "name": "STORY_MOMENTS_CHECK",
+      "data": {
+        "moments": {
+          "seen": [
+            "B_LETTER",
+            "B_VOICEMAIL",
+            "B_FLIGHT",
+            "B_BLACKOUT"
+          ],
+          "cards": 2,
+          "active": null,
+          "uv": true,
+          "modal": false
+        },
+        "cardsAdmitted": true,
+        "physicalPinches": true,
+        "flightReturned": true,
+        "blackoutResumed": true,
+        "replay": true
+      }
+    },
+    {
+      "logTime": "04:04:57.241",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-story-moments",
+    "requestId": "roomscript-story-moments:1793919807752:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "240",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793919823783,
+    "finishedAt": 1793919900637,
+    "elapsedMs": 76854,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 14044,
+  "endLine": 14091,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 4105556,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T23:05:00.920Z"
+}

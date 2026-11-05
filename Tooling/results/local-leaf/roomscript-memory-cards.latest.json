@@ -1,23 +1,23 @@
 {
-  "requestId": "roomscript-memory-cards:1793918262395:1",
+  "requestId": "roomscript-memory-cards:1793919203224:1",
   "scenarioId": "roomscript-memory-cards",
   "transport": "local-manager",
   "mcpTransportPass": false,
   "scopeComplete": true,
   "events": [
     {
-      "logTime": "03:37:58.041",
+      "logTime": "03:53:41.253",
       "record": {
         "status": "running",
         "scenarioId": "roomscript-memory-cards",
-        "requestId": "roomscript-memory-cards:1793918262395:1",
+        "requestId": "roomscript-memory-cards:1793919203224:1",
         "config": {
           "__leaf__log_level": "ERROR",
           "__leaf__timeout_secs": "180",
           "__leaf__diagnostic_policy": "fail-fast",
           "__leaf__diagnostic_report_duration_ms": "-1"
         },
-        "startedAt": 1793918278041,
+        "startedAt": 1793919221253,
         "finishedAt": 0,
         "elapsedMs": 0,
         "error": "",
@@ -26,20 +26,20 @@
       }
     },
     {
-      "logTime": "03:38:32.722",
+      "logTime": "03:54:16.099",
       "record": {
         "status": "passed",
         "scenarioId": "roomscript-memory-cards",
-        "requestId": "roomscript-memory-cards:1793918262395:1",
+        "requestId": "roomscript-memory-cards:1793919203224:1",
         "config": {
           "__leaf__log_level": "ERROR",
           "__leaf__timeout_secs": "180",
           "__leaf__diagnostic_policy": "fail-fast",
           "__leaf__diagnostic_report_duration_ms": "-1"
         },
-        "startedAt": 1793918278041,
-        "finishedAt": 1793918312722,
-        "elapsedMs": 34681,
+        "startedAt": 1793919221253,
+        "finishedAt": 1793919256099,
+        "elapsedMs": 34846,
         "error": "",
         "transport": "local-manager",
         "strict": true
@@ -48,43 +48,45 @@
   ],
   "markers": [
     {
-      "logTime": "03:37:59.138",
+      "logTime": "03:53:43.074",
       "name": "AUDIO_NATIVE_SLOW",
       "data": {
         "label": "cue.track:Knock",
-        "ms": 1016,
+        "ms": 1735,
         "call": 19
       }
     },
     {
-      "logTime": "03:38:09.405",
+      "logTime": "03:53:45.594",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    },
+    {
+      "logTime": "03:53:53.496",
       "name": "AUDIO_NATIVE_SLOW",
       "data": {
         "label": "score.play:Interrogation",
-        "ms": 3496,
+        "ms": 3822,
         "call": 36
       }
     },
     {
-      "logTime": "03:38:11.197",
+      "logTime": "03:53:54.390",
       "name": "AUDIO_NATIVE_SLOW",
       "data": {
         "label": "clock.track",
-        "ms": 1792,
+        "ms": 893,
         "call": 37
       }
     },
     {
-      "logTime": "03:38:11.631",
-      "name": "AUDIO_NATIVE_SLOW",
-      "data": {
-        "label": "volume:RoomTone",
-        "ms": 161,
-        "call": 40
-      }
-    },
-    {
-      "logTime": "03:38:11.644",
+      "logTime": "03:53:54.592",
       "name": "CRATE_SURFACE_CHECK",
       "data": {
         "surface": [
@@ -103,7 +105,7 @@
       }
     },
     {
-      "logTime": "03:38:11.653",
+      "logTime": "03:53:54.599",
       "name": "PROP_LEGACY_CHECK",
       "data": {
         "replaced": [
@@ -133,43 +135,43 @@
       }
     },
     {
-      "logTime": "03:38:14.988",
+      "logTime": "03:53:59.112",
       "name": "AUDIO_NATIVE_SLOW",
       "data": {
         "label": "cue.play:ToastTick",
-        "ms": 2981,
-        "call": 48
-      }
-    },
-    {
-      "logTime": "03:38:16.090",
-      "name": "AUDIO_NATIVE_SLOW",
-      "data": {
-        "label": "cue.track:Kettle",
-        "ms": 1094,
+        "ms": 4196,
         "call": 49
       }
     },
     {
-      "logTime": "03:38:17.780",
+      "logTime": "03:54:00.480",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Kettle",
+        "ms": 1366,
+        "call": 50
+      }
+    },
+    {
+      "logTime": "03:54:02.482",
       "name": "AUDIO_NATIVE_SLOW",
       "data": {
         "label": "cue.track:Chime",
-        "ms": 1687,
-        "call": 51
+        "ms": 1998,
+        "call": 52
       }
     },
     {
-      "logTime": "03:38:23.313",
+      "logTime": "03:54:08.095",
       "name": "AUDIO_NATIVE_SLOW",
       "data": {
         "label": "cue.play:ChalkScratch",
-        "ms": 3550,
-        "call": 56
+        "ms": 4183,
+        "call": 57
       }
     },
     {
-      "logTime": "03:38:24.411",
+      "logTime": "03:54:09.221",
       "name": "MEMORY_CARD_CHECK",
       "data": {
         "unknownHidden": true,
@@ -179,16 +181,18 @@
       }
     },
     {
-      "logTime": "03:38:32.717",
-      "name": "AUDIO_NATIVE_SLOW",
+      "logTime": "03:54:11.964",
+      "name": "AUTHORED_CABLE",
       "data": {
-        "label": "clock.track",
-        "ms": 1756,
-        "call": 74
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
       }
     },
     {
-      "logTime": "03:38:32.720",
+      "logTime": "03:54:16.097",
       "name": "CRATE_SURFACE_CHECK",
       "data": {
         "surface": [
@@ -207,36 +211,36 @@
       }
     },
     {
-      "logTime": "03:38:32.720",
+      "logTime": "03:54:16.097",
       "name": "PROP_RESET_CHECK",
-      "data": "6_preset,0_dynamic,6_restored_no_legacy"
+      "data": "7_preset,0_dynamic,7_restored_no_legacy"
     }
   ],
   "errors": [],
   "latest": {
     "status": "passed",
     "scenarioId": "roomscript-memory-cards",
-    "requestId": "roomscript-memory-cards:1793918262395:1",
+    "requestId": "roomscript-memory-cards:1793919203224:1",
     "config": {
       "__leaf__log_level": "ERROR",
       "__leaf__timeout_secs": "180",
       "__leaf__diagnostic_policy": "fail-fast",
       "__leaf__diagnostic_report_duration_ms": "-1"
     },
-    "startedAt": 1793918278041,
-    "finishedAt": 1793918312722,
-    "elapsedMs": 34681,
+    "startedAt": 1793919221253,
+    "finishedAt": 1793919256099,
+    "elapsedMs": 34846,
     "error": "",
     "transport": "local-manager",
     "strict": true
   },
-  "startLine": 11736,
-  "endLine": 11763,
+  "startLine": 13199,
+  "endLine": 13221,
   "evidenceLabel": "LEAF strict local-manager PASS",
   "source": {
     "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
-    "logBytes": 3362808,
+    "logBytes": 3830621,
     "tailTruncated": false
   },
-  "harvestedAt": "2026-11-05T22:38:43.621Z"
+  "harvestedAt": "2026-11-05T22:54:16.909Z"
 }

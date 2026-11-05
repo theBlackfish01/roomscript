@@ -1,0 +1,210 @@
+{
+  "requestId": "roomscript-physical-memory:1793918688777:1",
+  "scenarioId": "roomscript-physical-memory",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:45:05.725",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-physical-memory",
+        "requestId": "roomscript-physical-memory:1793918688777:1",
+        "config": {
+          "ik": "false",
+          "hold": "false",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793918705724,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:45:51.029",
+      "record": {
+        "status": "failed",
+        "scenarioId": "roomscript-physical-memory",
+        "requestId": "roomscript-physical-memory:1793918688777:1",
+        "config": {
+          "ik": "false",
+          "hold": "false",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793918705724,
+        "finishedAt": 1793918751029,
+        "elapsedMs": 45305,
+        "error": "Error: FAILED: roomscript-physical-memory - AssertionError: Expected: \"true\" - Received: \"false\"",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:45:07.670",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1857,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:45:17.197",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 3551,
+        "call": 36
+      }
+    },
+    {
+      "logTime": "03:45:18.871",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1674,
+        "call": 37
+      }
+    },
+    {
+      "logTime": "03:45:19.358",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:RoomTone",
+        "ms": 209,
+        "call": 40
+      }
+    },
+    {
+      "logTime": "03:45:23.697",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ToastTick",
+        "ms": 3000,
+        "call": 47
+      }
+    },
+    {
+      "logTime": "03:45:24.946",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Kettle",
+        "ms": 1247,
+        "call": 48
+      }
+    },
+    {
+      "logTime": "03:45:26.912",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:PullMemory",
+        "ms": 1964,
+        "call": 50
+      }
+    },
+    {
+      "logTime": "03:45:30.634",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Chime",
+        "ms": 3590,
+        "call": 52
+      }
+    },
+    {
+      "logTime": "03:45:33.638",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:LiftInspect",
+        "ms": 1701,
+        "call": 54
+      }
+    },
+    {
+      "logTime": "03:45:36.075",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Chime",
+        "ms": 2282,
+        "call": 57
+      }
+    },
+    {
+      "logTime": "03:45:39.092",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:LiftInspect",
+        "ms": 1791,
+        "call": 60
+      }
+    },
+    {
+      "logTime": "03:45:41.768",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Chime",
+        "ms": 2517,
+        "call": 64
+      }
+    },
+    {
+      "logTime": "03:45:51.026",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 2192,
+        "call": 75
+      }
+    }
+  ],
+  "errors": [
+    {
+      "logTime": "03:45:51.026",
+      "text": "E [DefaultLeafScenarioManager] [ 45.300s]FAILED: roomscript-physical-memory - AssertionError: Expected: \"true\" - Received: \"false\""
+    },
+    {
+      "logTime": "03:45:51.027",
+      "text": "E [DefaultLeafScenarioManager] [ 45.300s][roomscript-physical-memory] FAILED - AssertionError: Expected: \"true\" - Received: \"false\""
+    }
+  ],
+  "latest": {
+    "status": "failed",
+    "scenarioId": "roomscript-physical-memory",
+    "requestId": "roomscript-physical-memory:1793918688777:1",
+    "config": {
+      "ik": "false",
+      "hold": "false",
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "180",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793918705724,
+    "finishedAt": 1793918751029,
+    "elapsedMs": 45305,
+    "error": "Error: FAILED: roomscript-physical-memory - AssertionError: Expected: \"true\" - Received: \"false\"",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 12328,
+  "endLine": 12350,
+  "evidenceLabel": "LEAF local-manager FAILED",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 3549567,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:46:07.496Z"
+}

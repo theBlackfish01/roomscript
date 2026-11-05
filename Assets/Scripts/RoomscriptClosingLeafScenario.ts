@@ -2,7 +2,7 @@ import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {ScenarioConfig} from "Leaf.lspkg/Scenarios/scenario/ScenarioConfig";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
-import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
+import {findSceneObjectByName,sleep,nextFrame} from "Leaf.lspkg/Utils/common/Utils";
 import {findInteractablesByName} from "Leaf.lspkg/Interactors/InteractableUtils";
 import {DefaultLeafInteractor} from "Leaf.lspkg/Interactors/interactor/DefaultLeafInteractor";
 import {RoomscriptClosingController} from "./RoomscriptClosingController";
@@ -12,8 +12,8 @@ import {RoomscriptClosingController} from "./RoomscriptClosingController";
     await sleep(2000);const closing=findSceneObjectByName("RoomscriptClosing").getComponent(RoomscriptClosingController.getTypeName()) as RoomscriptClosingController,flow=closing.cast.flow,engine=flow.engine,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
     const tap=async(name:string)=>{const matches=findInteractablesByName(name,undefined,true);expect(matches.length).toBe(1);await hand.trigger(matches[0]);await sleep(120);};
     try {
-      const mode=config?.get("mode")||"correct";
-      if(mode==="timeout"){for(let i=0;i<36;i++)engine.dispatch({type:"Ask",suspect:"S2",topic:"where@22:30"});expect(closing.diagnostics().opened).toBe(true);}
+      const mode=config?.get("mode")||"correct",fixtureStarted=Date.now();
+      if(mode==="timeout"){for(let i=0;i<36;i++){engine.dispatch({type:"Ask",suspect:"S2",topic:"where@22:30"});await nextFrame();if(i===0||(i+1)%6===0)console.log("CLOSING_FIXTURE_PROGRESS|"+JSON.stringify({mode,asks:i+1,total:36,elapsedMs:Date.now()-fixtureStarted,phase:closing.diagnostics().phase,opened:closing.diagnostics().opened}));}expect(closing.diagnostics().opened).toBe(true);}
       else await tap("Accuse");
       await sleep(250); // UIKit enables the timeout-opened panel on the following frame.
       expect(closing.diagnostics().phase).toBe("idle");

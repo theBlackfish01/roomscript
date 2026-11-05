@@ -1,0 +1,110 @@
+{
+  "requestId": "roomscript-proximity:1793918924303:1",
+  "scenarioId": "roomscript-proximity",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:49:00.892",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-proximity",
+        "requestId": "roomscript-proximity:1793918924303:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793918940892,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:49:16.568",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-proximity",
+        "requestId": "roomscript-proximity:1793918924303:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793918940892,
+        "finishedAt": 1793918956568,
+        "elapsedMs": 15676,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:49:02.658",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1687,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:49:12.230",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 3589,
+        "call": 36
+      }
+    },
+    {
+      "logTime": "03:49:13.989",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1759,
+        "call": 37
+      }
+    },
+    {
+      "logTime": "03:49:16.567",
+      "name": "PROXIMITY_CHECK",
+      "data": "far_hidden,near_S4,modal_blocked,Preview_pinch_fallback"
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-proximity",
+    "requestId": "roomscript-proximity:1793918924303:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "180",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793918940892,
+    "finishedAt": 1793918956568,
+    "elapsedMs": 15676,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 12667,
+  "endLine": 12675,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 3650072,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:49:17.222Z"
+}

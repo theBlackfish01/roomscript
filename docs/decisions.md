@@ -205,3 +205,11 @@ Separate S2 correctness from performance. The local scenario passes native clock
 
 Use the saved coffee-table hit to support the crate: 0.75 scale and local base bottom -6cm imply root y=-140.1835cm. Move opening controls above that plane. Remove only legacy PropMesh descendants beneath successfully replaced props; do not hide interaction anchors or unrelated furniture. Strict local LEAF geometry/reset checks pass. Native video provider success alone is insufficient: the recovered single-frame file requires a stronger duration/frame acceptance gate.
 
+
+## 2026-11-06 03:53 PKT — physical evidence and recording acceptance
+
+Replace the proximity scenario's fixed 400 ms sleep with bounded checks of the real controller state, retaining both near/far assertions. Strict local-manager PASS15.676 s follows the original failed run. Move only Vale's presentation to `[100, -176, -230]` cm for crate clearance; graph truth stays unchanged. The latest clearance capture still has Okafor behind Vale and is diagnostic, not final hero art.
+
+Select the authored cable by object type, never an assumed fixture ID: the strict lift failure revealed O4 is poison and O1 is cord. The corrected default physical-memory scenario passed43.753 s with a lifted mesh, no photo fallback and unchanged anchor. Preserve the authored origin; the recorded scan did not detect a cable. Do not extend this default-path result to the separate IK route or human hand comfort. The art staging handoff's O4 reference is historical and superseded.
+
+Reject native recording on actual encoded duration and frame evidence, not API success or any positive duration. One frame at0.033 s falsely satisfied the old weak probe. The stricter five-second quiet/background run failed:159 LateUpdates but10 encoded frames/0.333 s. CameraModule can supply the room backdrop, but swapped RGB and missing continuous output remain unresolved. No60–90 s or finished-film claim. Preserve this failure and the earlier false acceptance for diagnosis.

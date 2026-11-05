@@ -1,6 +1,6 @@
 # Native continuous capture probe
 
-Status: published for main compilation after import release; no native recorder execution or successful movie claimed. No GUI, desktop/window recorder, scene writes or Lens MCP calls were used by this lane.
+Status (Nov 6 follow-up): native recording produced a recoverable MP4, but it is unusable: one frame / about 0.033 seconds, 1392x3180, silent, AR over black with a reported color-channel issue. The old positive-duration-only five-second assertion was too weak. A stricter gate is staged below; no usable continuous movie is claimed. No GUI, desktop/window recorder, scene writes or Lens MCP calls were used by this lane.
 
 ## API and source
 
@@ -19,7 +19,7 @@ After the prefab runtime exposed a documented-but-unavailable native static `get
 Publish `Tooling/staging/RoomscriptContinuousCaptureLeafScenario.ts` only after import release, then register `roomscript-continuous-capture`.
 
 1. Immediately before the probe, run `node Tooling/scripts/run7-native-video.mjs mark`.
-2. Run LEAF with `seconds=5`, `input=default`, `source=capture`. It records current live output at half resolution for a cheap test, without skipping/opening the case or inventing gameplay.
+2. After publishing the stricter staged gate, run LEAF with `seconds=5`, `input=default`, `source=camera`, `quiet=true`. Native size and `saveThumbnail=false` avoid the already observed scaled-writer and tall-thumbnail failures. This is a technical source/cadence probe, not a gameplay take.
 3. Run `node Tooling/scripts/run7-native-video.mjs discover` with normal sandbox escalation for Lens-owned temporary files. It reads only direct temp files, LensStudio_* subdirectories and the Lens Studio cache; symlinks are skipped. It looks for newly modified ISO-media `ftyp` headers rather than assuming a filename.
 4. If exactly one new candidate is identified, `node Tooling/scripts/run7-native-video.mjs copy` copies it into `Tooling/results/run7-native-video/`, reports duration/video/audio streams and decodes it through existing ffmpeg. If there are multiple candidates, it stops without choosing arbitrarily. Inspect provenance before any manual selection.
 5. Inspect frames from that native file using ffmpeg/local image viewing. Confirm room, artwork, UI, aspect ratio and continuous motion. This is viewing an already generated artifact, not taking a desktop screenshot.
@@ -31,6 +31,34 @@ The test logs its action timeline, actual native provider duration and first com
 
 ## Local discovery evidence
 
-The helper passed `node --check` and a read-only discovery:12,296 entries visited, no truncation, no access errors and no newly recorded MP4. Normal escalation was needed for protected LensStudio_* folders. Their current contents include decoded imported audio, confirming they are active Lens temporary storage; that is not evidence that VideoRecorder will write its video there. No native probe has run yet. If the probe returns a usable provider but discovery finds no file, record local extraction as unresolved; do not upload to an external service as an unapproved workaround.
+The initial helper discovery visited 12,296 entries with no new movie. A later main-run probe recovered `Tooling/results/run7-native-video/native-1793918182040.mp4`. Read-only FFmpeg inspection confirms a 30fps H.264 video stream at 1392x3180 and about 0.033 seconds, with no audio stream. Main's artifact inspection found only AR against black and swapped color channels. Extraction therefore works; the source, cadence and usable-video gate do not yet pass. No upload is needed or proposed.
 
 The helper is bounded to45seconds/40,000 entries and reports truncation/errors. Its copy operation is additive and never deletes or moves user files. No FFmpeg desktop, screen, window, microphone or loopback capture source is used.
+
+## Strict gate and bounded next probe
+
+`Tooling/staging/RoomscriptContinuousCaptureLeafScenario.ts` now uses pure `CaptureAcceptance.ts`: provider must be ready, dimensions positive, encoded duration at least five seconds for the probe, and at least 150 recording-frame callbacks observed. Full takes still require 60–90 encoded seconds and a completed answer within the requested window. The actual 0.033-second regression and three other acceptance cases pass (4/4) in `Tooling/tests/perf/capture-acceptance.test.ts`. The frame callback is disabled before finalization, so encoding/wait time cannot inflate that count. Callbacks are explicitly not represented as encoded frames.
+
+Five-second mode defaults to `quiet=true`: it waits up to 45 wall seconds for tab/ready, an empty/non-playing narrator, idle interrogation and one second without new instrumented native audio calls. It then waits through `nextFrame()` until elapsed time and the 150-callback floor are both reached, with a 30-second wall bound. This neither mutes sound nor skips authored actions. It attempts to avoid the known synchronous opening calls swallowing the recording window. `quiet=false` retains a deliberate stress probe. Actual provider duration remains mandatory; simulation/wall time never substitutes for movie duration.
+
+Local API evidence: `VideoRecorder.startRecording` starts on the **next frame**; options offer no frame rate, timestamp or frame-submission API. Therefore a five-second jump in `getTime()` does not prove five seconds were encoded. The recovered stream is 30fps, motivating the bounded 150-frame probe; this observed writer rate is not a general API guarantee.
+
+Both `scene.captureTarget` and `scene.liveTarget` were unavailable in this Preview; the camera target contains AR without the simulator's external room composition. The staged log reports actual source selection. `Camera.inputTexture` plus `enableClearColor` is documented as a backdrop before AR drawing (StudioLib lines 12328–12382), and the scan already obtains simulated-room pixels through CameraModule Default_Color. A temporary camera-input backdrop is a possible later probe, but stereo packing/FOV alignment and color order are unverified. No compositor, shader or camera mutation was staged: first require a genuine multi-frame technical movie, then test one temporary backdrop with exact restoration. A black-background or color-swapped file remains unsuitable for the room-augmentation video, regardless of a technical duration pass. Audio capture is still unresolved.
+
+### Optional backdrop probe, staged after main's follow-up
+
+Main authorized one bounded compositor experiment. `backdrop=true` is now staged for the five-second Preview probe only; default is false and full takes reject it until visual calibration is established. It reuses the scanner's proven `CameraModule.createCameraRequest()` / `Default_Color` / 512-pixel smaller-dimension pattern and waits at most 5 wall seconds / 240 callbacks for a real camera frame. It temporarily sets the main camera's input texture and color clear, then records that camera's existing target. No shader, render target, FOV, tracking mode or scene asset is changed.
+
+The original input texture and clear flag are restored in nested `finally` blocks even after camera/recorder failure; OnDestroy also attempts restoration. The frame listener is removed. Logs report camera/target dimensions, unverified stereo/color alignment, and actual restoration checks using asset identity. This is an investigative backdrop, not proof that the packed stereo target matches the room view. Audio remains unverified and the technical gate still requires encoded duration and real dimensions.
+
+After import release: `node Tooling/scripts/run7-publish-video-backdrop.mjs --imports-allowed` verifies both authoritative source hashes before publishing only the scenario and registry. Run `seconds=5,input=default,source=camera,quiet=true,backdrop=true`, recover the actual MP4, and inspect room furniture registration, aspect, both eye regions, RGB order and motion. Stop this route if that single artifact fails; do not call it usable gameplay footage. No runtime or visual success is claimed for this staged experiment.
+
+### Backdrop result and one smaller-target probe
+
+The quiet backdrop run produced 159 LateUpdate callbacks but only 10 encoded frames / 0.333 seconds at 1392x3180. The strict gate correctly failed. `backdrop-frame.png` visibly contains the Evening Room plus AR in two vertically packed views, so room composition is possible; the palette is still reported red/blue-swapped and the movie remains silent and far too short. This is not a usable continuous capture.
+
+The API explains one important limit: `LateUpdateEvent` runs **before rendering** (`StudioLib.d.ts:14560`). It is not a texture-update or encoded-frame callback. No documented post-render callback, manual-render method or recorder frame-rate control was found. Reduced target/readback load is a hypothesis, not a diagnosis of hidden Preview throttling.
+
+Main authorized one smaller-target experiment. `targetWidth=640` (default0; also320) is staged for five-second Preview probes only. `scene.createRenderTargetTexture()` plus RenderTargetProvider custom resolution requests640x732 per eye from the current packed source aspect. The actual allocated size is logged rather than assuming whether Preview doubles it. A new Camera.ColorRenderTarget descriptor replaces the first target temporarily; original descriptor array remains untouched and is restored in finally/OnDestroy with identity checks. The new target disables MSAA only for this diagnostic. Recorder creation moves after target/backdrop setup and keeps textureScale1, avoiding the known Windows scaled-writer mismatch.
+
+Publisher: `node Tooling/scripts/run7-publish-small-video-target.mjs --imports-allowed`. Probe: `seconds=5,input=default,source=camera,quiet=true,backdrop=true,targetWidth=640`. The five-second encoded-duration gate is unchanged. Full-take work remains blocked pending a genuinely valid short movie, acceptable colors/alignment and a truthful audio plan. No Asset or camera mutation was executed by this staging lane.
