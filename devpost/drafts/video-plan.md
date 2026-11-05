@@ -1,98 +1,64 @@
-# Roomscript: 3-minute video plan (Preview-only)
+﻿# Roomscript: 2:50 video plan — Run 7
 
-Adapted from `docs/design/03-ar-staging-and-storyboard.md` §7 to **what is built** (PROGRESS and PREVIEW_TOUR, Oct 30) and to **no device**. Hard cap **2:50** (rules say under 3:00; leave margin for YouTube rounding).
+**Editorial target, not a capture inventory.** Use only shots verified by the final Run 7 report and actual recordings. The Preset carries the story; a short Dynamic segment shows **same room, new murder** if its scan and three seeded end-to-end gates pass. Gameplay starts immediately. Wadood handles recording/editing/upload; agent work uses Lens MCP only, never desktop/UI automation.
 
-**Changes from the storyboard:**
-- **Dropped:**
-  - the device shots 7, 13 and 19;
-  - the twist/luminol (§4.5, not built);
-  - bullet-time reenactment (only a simplified reconstruction exists);
-  - "it reads your room" (placement is manual, with fixture markers);
-  - motes and rain.
-- **Shot 22 ("same case, two rooms") is replaced** by a terminal clip of the case compiler binding to two fixture rooms, which the engine does do.
-- **Added:** a pitch beat (problem / who / why), required by the Presentation criterion, and a CLAD/MCP "how it was built" beat (Technical Implementation).
+## The promise
 
-## Capture method
+By 0:20 say: **A one-player murder mystery that casts your room as the crime scene, for anyone who loves Clue and detective games.**
 
-| Item | How |
-|---|---|
-| Lens footage | **OBS Studio** window capture of Lens Studio, cropped to the maximised Preview panel; 1920×1080 (or 1080×1080 cropped later), 60 fps, CQP/CRF about 18. Lens audio goes on a separate track (desktop audio, or OBS application-audio capture of Lens Studio). Hide the cursor where clicks aren't the point. Keep it where a "pinch" is the action, and add a click ring in the edit. |
-| Preview setup | Interactive Preview, SPECS device, the authored Roomscript simulated room. **Film mode** (Run 1 adds it): hide debug, availability and diagnostic HUDs. Reset Preview before each shot. |
-| Repeatable camera | Before each take, an agent sets the shot's start pose with the MCP **`MovePreviewCamera`**, using saved waypoints per shot (`docs/video/waypoints.json`). Do slow pans by hand (right-drag or WASD) or with keyframed MovePreviewCamera steps. Smooth them in the editor with gentle stabilisation or speed ramps. |
-| Driving the action | Use **LEAF scenarios as a motion-control rig** where they're stable (opening, objection, clue, closing): start the OBS recording, then run the scenario, for clean and identical takes. Otherwise play by hand with the mouse, following PREVIEW_TOUR. Record 2–3 takes per shot. |
-| Dialogue | **Stage mode** (authored answers and captions) for every take except **one live take**: Stage mode off, fresh RSG tokens, ask Vale "Whereabouts" 3–5 times and keep the best. **Afterwards, blank the tokens and run `strip-scene-tokens`.** |
-| Build footage | Record a fresh 2–3 min session: a Codex or Claude Code terminal on the left, Lens Studio on the right. Have the agent do a small, real task, such as "nudge the kettle marker 5 cm via VirtualScene, recompile, run `roomscript-objection` LEAF, capture Preview". Also capture the Vitest run (`npm test`), the terminal solver (`npm run play -- --demo`) and the case compiler. |
-| Stills | Export 3:2 stills for the Devpost gallery and the README GIF from the same footage. |
-| Editor | DaVinci Resolve (free) or CapCut desktop. Burn in captions; YouTube auto-captions are optional. |
+The audience sees voiced suspects, a physical contradiction, a complete flow and the room itself. Technical explanations support those moments. No provider branding is required by Wadood's latest decision. Keep **Lens Studio Preview · simulated room** visible on Lens footage; distinguish **recorded scan**, **authored anchors**, **live scan**, and **live AI** only when those labels match the take.
 
-## Shot list (target 2:50)
+## Shot list — 170 seconds
 
-**Tags:**
-- `[P]` Preview footage; carries the persistent corner badge **"Lens Studio Preview · simulated room"**.
-- `[A]` authored line (Stage mode).
-- `[LIVE]` live AI.
-- `[T]` terminal or screen capture.
-- `⏩` time compressed.
+| Time | Picture | Sound and purpose | Gate |
+|---|---|---|---|
+| 0:00–0:10 | A suspect speaks, then a large statement slip is carried onto the kettle. OBJECTION, fractured paper and coral proof thread. No title card first. | Let the suspect's voice and objection land. Title appears unobtrusively after the action. | Current-cast voice and objection take. |
+| 0:10–0:20 | Room-wide glimpse of furniture labels and four distinct suspects; then one clear face. | Exact audience/promise line above. | Director capture; no stand-in boxes or UI over the face. |
+| 0:20–1:30 | **UNCUT — one continuous 70-second take.** Begin at the crate, choose/default Preset, pull the tab, casting sweep, walk toward a suspect, ask the first question, hear the answer; continue naturally to the first memory if the answer finishes before 70s. | Actual Lens audio. No voiceover over dialogue. A first answer within about 30s remains the product target: do not delay it merely to fill the take. | One continuous source clip, no jump cuts, time compression, concealed reset or replaced audio. Capture 60–90s; edit this slot to the source duration and keep total <3:00. |
+| 1:30–1:50 | A pulled memory photograph; large carried objection; quick clue/refutation; seal; a brief truth reconstruction and stamp/stars. | A short bridge: “Her words are a claim. Your room can contradict them.” Let effects breathe. | Only completed moments; use fewer shots rather than mock unfinished features. |
+| 1:50–2:05 | Return to crate: **Cast my room**. Live scan brackets land on the same furniture, a different verified case opens, then one voiced generated statement or verdict evidence. Caption: **Same room. New murder.** | Narrator role-casting line, then the new suspect line. | Real scan + compiled case; at least 3 seeded Dynamic LEAF verdicts. If not passed, omit capability claim; show authored Preset casting instead. Never substitute terminal output as Lens gameplay. |
+| 2:05–2:20 | Type an actual free question, see the in-character answer, hear it. Briefly ask Wren “What do we know?” if both fit. Small **live AI** label on actual live beat. | Preserve original voice. No provider label needed. State or mark any cut wait. | Saved raw request/output and action tape; engine-authorised reply. Wren uses only PlayerKnowledge. If not live, label prerecorded and omit live claim. |
+| 2:20–2:35 | **AI voices, engine truth**: simple animated flow, 15 seconds. A closed case envelope -> engine's permitted account -> AI performance -> checked line -> voice; engine separately drives tells and verdict. | “The engine fixes the facts, proves the case and decides every lie, tell and verdict. AI gives the suspects a performance. It cannot rewrite the murder. If a response fails its checks, a permitted line takes over.” | Explain implemented path; don't imply validation makes arbitrary free conversation infallible. |
+| 2:35–2:45 | A real CLAD/MCP build-and-check moment; brief/design note beside resulting UI; strict LEAF outcome and dated test checkpoint. | “Built with coding agents, Snap's CLAD and Lens Studio MCP. The Devpost pack helped us test the design as an AR experience.” | Actual tool transcript and result, no staged green output. Counts match dated report. |
+| 2:45–2:50 | Roomscript stamp, repository and Learn AR with SPECS. | Final chord and clock stop. | End credits/disclosure readable; details in description. |
 
-| # | Time | Shot | Audio / VO | Src |
-|---|---|---|---|---|
-| 1 | 0:00–0:04 | Dark simulated room. **Three knocks**; the camera turns to the door, then back to the crate on the desk. | Knock SFX ×3 (`Knock.wav`), then silence. | P |
-| 2 | 0:04–0:10 | Pinch the crate tab: TapeZip, lid, light floods, **chalk outline races across the floor**, the envelope rises. | Zip, CrateThud, ChalkScratch. **Title card overlay:** ROOMSCRIPT, "A murder mystery staged in your room." | P |
-| 3 | 0:10–0:24 | **Pitch.** Slow push over the four suspects arriving (Qadir, Vale, Okafor, Pike). | **VO 1** (pitch, below). Music bed enters low. | P |
-| 4 | 0:24–0:32 | **Placement.** Fixture markers and yellow brackets snap to the kettle, lamp and desk; *Place case*. (Cut this shot before 2 in chronology, or use it as a flashback; easiest is to keep it here as "how it maps".) | **VO 2.** Bracket clicks. | P |
-| 5 | 0:32–0:44 | Select **Vale**. Ask *Your name* (steady), then *Your brooch*: **the tell fires, a gaze line flicks to the object**. Caption: *Learn her tell.* | Vale's line `[A]`, Tink and Shing. **VO 3.** | P |
-| 6 | 0:44–0:58 | **LIVE exchange:** ask Vale *Whereabouts*. Her answer is spoken by the AI voice and captioned. Corner tag: **"Live AI: Gemini via Snap Remote Service Gateway · AI voice"**. Cut the wait and mark it ⏩ ("2.4 s"). | Her live line `[LIVE]`. **VO 4** (short, after the line). | P |
-| 7 | 0:58–1:08 | **Objects remember.** Inspect the **kettle**: its memory card (cold, no whistle). Inspect the **lamp**. | Object SFX. **VO 5.** | P |
-| 8 | 1:08–1:26 | **OBJECTION.** Open the wallet, take **E_KETTLE_COLD**, and drag the statement slip onto the kettle's memory card. **Yellow OBJECTION slams in, shards burst, the coral proof thread draws**, Vale falls back to her second account. | `Objection.wav`, Shing. Hold 1 s of silence before the slam. No VO; let it breathe. | P |
-| 9 | 1:26–1:36 | Quick second objection ⏩: Okafor's reply (**C_OKAFOR_REPLY**) breaks Vale's second account. A 3-cut montage. | **VO 6.** | P |
-| 10 | 1:36–1:50 | **Suggestion.** Drag Qadir's pawn into the **Study** with the **charger cable**. Dotted ghost, ratchet; **the sweep circles the suspects**; a private refutation card flips. | Ratchet, tick sweep, Chime. **VO 7.** | P |
-| 11 | 1:50–2:10 | **Accusation.** *Accuse*: Vale / Study / charger cable → *File known proof* → **hold the seal**. Truth reconstruction, then the ending: deductions, rating, case seal. | Heartbeat-like silence, then the warm chord from `BackgroundMusic`. **VO 8.** | P |
-| 12 | 2:10–2:26 | **Under the hood.** Animated architecture diagram (engine → fact sheet → LLM → validator → voice or line bank). Cut to the terminal: solver "1 solution", `npm test` **411 passed**, fuzz "1000 players". Then the compiler binding the case to two fixture rooms. | **VO 9.** | T |
-| 13 | 2:26–2:42 | **How it was built.** Split screen: the agent terminal issuing `VirtualScene` / `RecompileTypeScriptTool` / `run_leaf_scenario` while Lens Studio updates; a LEAF scenario turns green ⏩; a quick scroll through `devpost/clad-log.md` and `git log` with tags. | **VO 10.** | T |
-| 14 | 2:42–2:50 | **End card** (below). | Tick… tick, then a hard cut. | card |
+If the uncut segment needs 90 seconds, remove 20 seconds from the montage/build explanation outside the required 15-second truth explainer. Do not cut inside it and still call it uncut. If no continuous take succeeds, report that gap and publish only accurately described separate segments; do not claim the uncut acceptance passed.
 
-**If integrated Preview is still unstable:** every shot above is a separate segment that matches a scenario that already passed on its own (opening, cast, clue, objection, closing, placement). Film per segment and reset between them. Don't claim a single continuous playthrough.
+## Hands and capture
 
-## Voiceover script (Wadood's own voice, about 240 words, calm, about 135 wpm)
+- Show SIK hand/ray interactions supplied by Preview and clear object motion. Keep the active target large. Avoid small mouse-menu footage. No composited real hands or hardware footage that would imply device testing.
+- Use the actual Preview output, recorded by Wadood with audio. A recording tool may crop the Preview; it must not fabricate successful interaction or hide pauses within the uncut segment.
+- Record the Preset in Stage/bundled mode so every take uses the same authored case and voice timing. If a recorded scan exists, replay the frozen fixture and show that label. If it does not, use **authored anchors**.
+- Record Dynamic separately with a new seed, a real scan response and its verified case hash. Save capture, seed, scan fixture/provenance and action tape together. Note any fallback in the take log.
+- Before long takes, restart Lens Studio, settle imports and pause asset writes. Main uses MCP camera poses and LEAF to prepare repeatable beats. No GUI automation.
+- Film mode hides diagnostics and stand-in geometry, never runtime warnings needed to understand an unsuccessful take. The Preview simulation disclosure remains.
+- Two or three candidate takes per beat (default). Retain original uncut source audio/video and annotate capture time and build commit. Never dub a prerecorded answer over a live response while labelling it live.
 
-- **VO 1 (0:11):** "AI can make a mystery endlessly replayable, but it also makes things up, and a mystery that contradicts itself isn't fair. Roomscript splits the job: an engine *proves* the case, and the AI only *plays* the suspects."
-- **VO 2 (0:25):** "You place the case in your room. In the Lens Studio Preview this is a simulated room; the kettle, lamp and desk become the evidence."
-- **VO 3 (0:34):** "Every suspect has a baseline, and a tell. Watch where Vale looks."
-- **VO 4 (0:52):** "That answer was live AI. But it was only allowed to say what the engine handed it, and it was checked before she spoke."
-- **VO 5 (1:00):** "Objects remember. The kettle never boiled."
-- **VO 6 (1:27):** "Break one lie and she retreats to the next. A witness statement breaks that one."
-- **VO 7 (1:38):** "Like Clue, you can test a theory. The other suspects refute it, privately."
-- **VO 8 (1:52):** "When you're sure, accuse. The engine scores you against the shortest fully supported route."
-- **VO 9 (2:11):** "Under the hood, truth is compiled, not generated. A solver proves one unique answer; the language model writes lines through seven validation gates, with authored fallbacks. Four hundred and eleven tests, a thousand simulated players, five thousand generated cases."
-- **VO 10 (2:27):** "And it was built by coding agents: Codex and Claude Code, using Snap's CLAD skills and the Lens Studio MCP, with every step compiled, tested in Preview and committed."
+## Capture inventory / take log
 
-Word count is about 245. Record it after the picture lock and trim lines to fit. Keep VO off the objection (shot 8).
+No Run 7 take is certified by this document. Populate `docs/PROGRESS.md` / the Run 7 report with actual paths and outcomes; use this list for picture lock:
 
-## Title and end cards
+- Four suspects, all five poses; near/far interaction and one-panel UI.
+- Recorded-scan or authored-anchor sweep; live Dynamic sweep if passed.
+- Memory pull, lift, large slip objection, point/select accusation.
+- Letter, voicemail, flight, blackout/UV, reconstruction and route trail.
+- Correct/wrong/timeout ending stills; correct ending in main story.
+- Live free question and PlayerKnowledge-only Wren, if verified.
+- Continuous 60–90s crate-to-first-answer-plus-play clip.
+- New-cast hero performance tape and three Dynamic seed results.
 
-- **Title (0:04–0:10 overlay):** **ROOMSCRIPT**, with "A murder mystery staged in your room · Snap Spectacles". Ivory, coral and yellow on black, matching the Lens palette.
-- **End card (2:42–2:50):**
-  - **ROOMSCRIPT**, "Same case. Your room."
-  - github.com/TODO/roomscript · Built for *Learn AR with SPECS*
-  - Lens Studio 5.23.2 · CLAD · Lens Studio MCP · Codex · Claude Code
-  - small print: "Captured in Lens Studio Preview (simulated room). Not yet tested on Spectacles hardware. Most lines authored (Stage mode); the marked exchange is live AI. Voices are AI-generated. Music and SFX were generated with CLAD. Clue and L.A. Noire are trademarks of their owners; no affiliation."
+## Voiceover and sound
 
-## Music and sound
-- **First choice: the Lens's own score and SFX** (`Assets/GeneratedSFX/BackgroundMusic.wav` plus 10 SFX). They are procedurally generated with CLAD build-music/build-sfx, original and sample-free. That means no licence or Content ID risk, they're on-theme, and they're part of the CLAD story.
-- **Backup:** YouTube Audio Library (Studio → Audio Library). Pick a track with **no attribution required**, or credit it in the description. Avoid Pixabay/"free" tracks registered with Content ID.
-- **Never use:** commercial noir or jazz tracks, L.A. Noire or Ace Attorney audio or "Objection!" samples, or film clips.
-- **Mix:** VO at -14 to -16 LUFS integrated, music ducked about 12 dB under VO, SFX peaks at -3 dBFS. Export at -14 LUFS for YouTube.
+The Preset uses prerecorded synthetic ElevenLabs voices. Live or phrase-composed voices in Dynamic must be identified in the take log. No voice cloning or imitation of a real person. Use existing generated score/effects and verify the actual music-plan licence before public release; no claim that AI/procedural audio is automatically free of licence or Content ID risk.
 
-## Honesty rules (non-negotiable)
-1. A persistent **"Lens Studio Preview · simulated room"** badge on every Lens shot. No fake device footage, and no "on Spectacles" wording.
-2. Tag the **live AI** exchange; every other line is authored (Stage mode), and the end card says so.
-3. **⏩ tag** wherever waits or long actions are cut. Quote the real latency (text p50 2.4 s, first audio 5.1 s) in the Devpost text, not in a fake real-time shot.
-4. Don't say "it reads/scans your room"; say "you place the case, and the kettle, lamp and desk become evidence".
-5. Show only features that exist. No twist/luminol, bullet time, voice objection or multiplayer, except as "next" in the text.
-6. Disclose the AI voices (OpenAI policy) in the end card and the description.
+Mix to make dialogue intelligible: duck music under speech, keep the quiet before the objection, and use the Lens's spatial cues for attention. Export settings and loudness are editorial defaults to be checked by ear. Do not use copyrighted film/game samples. Wadood decides narrator voiceover after the picture is stable.
 
-## YouTube upload checklist
-- Title: "Roomscript: a murder mystery in your room (Snap Spectacles · Learn AR with SPECS)".
-- Visibility **Public** (required). Not "made for kids". Duration under 3:00. Captions uploaded (.srt).
-- Description: pitch, repo link, the honesty note, credits, music source if not in-Lens.
-- Check for Content ID claims 1–2 h after upload (Sun), so there's time to swap the music.
+## YouTube / Devpost copy
+
+Title: **Roomscript — a murder mystery that casts your room | Learn AR with SPECS**
+
+Description opening: **A one-player murder mystery for anyone who loves Clue and detective games. Meet voiced suspects, pull memories from furniture, and carry their words to the evidence that proves them wrong.**
+
+Disclosure: **Captured in Lens Studio Preview in a simulated room; not tested on physical Specs. The main story uses an authored Preset and prerecorded synthetic voices. Recorded scans and live AI/Dynamic moments are labelled where shown. No real person's voice was cloned.** Adjust the last sentence about modes to actual footage. Provider names belong in technical credits if useful, not mandatory overlays.
+
+Include the public repository link, full uncut source/playthrough link when available, AI-voice and music credits, and the exact final evidence report. Wadood makes the repo/video public and submits. Check the actual submission form, runtime, captions and music rights before that action. Public links remain TODO until they exist.

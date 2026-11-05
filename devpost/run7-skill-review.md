@@ -48,3 +48,7 @@ We began Roomscript's design before installing the Devpost Learn pack. During Ru
 ## Current outcome
 
 **R8 planning/review: complete. Runtime changes from findings: pending their individual gates.** This document records actions and criteria, not success of the scan, UI or final video. No paid model or audio requests were made by this documentation lane.
+
+## A2 evidence update
+
+After this baseline review, Run 7 A2 passed strict replacement-cast bundled playback in 11.836 s and the repaired hero in 169.471 s. Commit `b3f4144` preserves `Tooling/results/run7-a2-hero.json` and verification logs. Checklist item 1's baseline blocker is resolved; later Run 7 UI/casting/moment work still requires its own integrated gate and fresh capture review.

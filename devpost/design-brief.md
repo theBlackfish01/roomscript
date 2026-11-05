@@ -77,7 +77,7 @@ Each criterion has a Preview check; terminal-only evidence cannot pass its Lens 
 
 ## Risks and open questions
 
-- Run 6 proves 462 pure tests and replacement-cast bundle playback, but its replacement hero never dispatched. The fresh-process A2 gate is required before promotion.
+- Run 6 proves 462 pure tests. Run 7 A2 now passes strict replacement-cast bundle playback (11.836 s) and repaired hero (169.471 s), with a saved Preview tape at `b3f4144`. Later Run 7 features still require the final integrated gate.
 - The skill's Preview caution is deliberately retained: a camera stream is not object detection or 3D localisation. The room-scan spike must prove each stage independently.
 - Runtime art, UI diet, narration, distance changes and new physical moments need fresh captures; offline contact sheets do not pass Lens acceptance.
 - Safe free-text validation rejects some faithful lines. Keep permitted bank selection and authored fallbacks; do not relax truth safety for a more fluent demo.

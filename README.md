@@ -1,18 +1,25 @@
 # Roomscript
 
-**Clue meets L.A. Noire, in your room.** A murder mystery for Snap Specs: four suspects, a room full of evidence, and an accusation you must prove. A deterministic TypeScript engine decides the truth; AI performs only within the account the engine permits.
+**Clue meets L.A. Noire, in your room.** A one-player murder mystery for anyone who loves Clue and detective games. Question voiced suspects, pull memories from furniture, and carry their words to the evidence that proves them wrong. A deterministic TypeScript engine decides the truth; AI performs only within the account the engine permits.
 
-Built for *Learn AR with SPECS*, directed by Wadood and implemented with coding agents, CLAD and the Lens Studio MCP. The repository is currently private; public release is planned for November 8. A final demo video and hero GIF are pending. The [capture gallery](docs/captures/) contains development evidence, not a finished trailer.
+Built for *Learn AR with SPECS*, directed by Wadood and implemented with coding agents, CLAD and the Lens Studio MCP. The repository is currently private; Wadood controls public release before submission. A final demo video and hero GIF are pending. The [capture gallery](docs/captures/) contains development evidence, not a finished trailer.
 
 **Logic proven / feel unproven.** Work is verified in Lens Studio Preview with a simulated room. Physical Specs testing and the final integrated whole-case gate remain outstanding. The current checkpoint and blockers are in [PROGRESS](docs/PROGRESS.md).
 
-Run 6 full unit gate: **462/462 tests across 49 files**, pure-engine/tooling typecheck passed. The [Run 6 report](docs/RUN6_REPORT.md) distinguishes these results from the still-pending integrated Lens gate.
+Run 6 full unit gate: **462/462 tests across 49 files**, pure-engine/tooling typecheck passed. Run 7 A2 additionally passes strict current-cast bundled voices and the repaired hero route; the final integrated gate for the new features remains pending. See [PROGRESS](docs/PROGRESS.md).
 
 ## The case
 
 Edmund Harlow was found dead at 22:41. Qadir, Vale, Okafor and Pike each have something to hide. Ask a question, watch the suspect's tell, and compare their answer with what an object remembers. Drag a statement onto contradictory evidence to break the account. Make a who/where/with-what suggestion, collect independent proof, then hold the seal to accuse.
 
-The room is manually aligned to five named zones and thirteen evidence anchors. This build does **not** automatically scan or understand arbitrary furniture. Its hero case is HARLOW-1041; the case compiler is separately tested, with its Lens presentation still in progress.
+The Run 6 baseline uses five named zones and thirteen authored evidence anchors for HARLOW-1041. Run 7 is building two modes selectable from the crate:
+
+| Mode | Intended experience | Acceptance boundary |
+|---|---|---|
+| **Preset — The Harlow Trust** (default) | Authored HARLOW-1041, hand-tuned Evening Room anchors, prerecorded voices and a repeatable casting sweep | A real saved scan is labelled **recorded scan**; until one exists, the mapping is **authored anchors**. Current-cast hero and continuous capture gates are required. |
+| **Dynamic — Cast my room** | Live simulated-room scan, new seed, solver-verified case and phrase-composed voices; same room, new murder | At least five objects within about 25 cm, reviewed sweep, and three seeded terminal + LEAF verdicts before it is called complete. |
+
+These are Run 7 targets; consult [PROGRESS](docs/PROGRESS.md) for implemented and verified status. A camera-stream probe or a terminal compiler run alone does not prove a live scan or a playable Dynamic Lens. Vision only proposes fixtures; the engine compiles and verifies the case. Authored/prerecorded fallbacks keep the investigation playable when a model bridge is absent.
 
 Glasses make the evidence spatial: a suspect stands at a claimed location, their gaze leads toward an object, and an objection physically joins a statement to the room. Cards belong near the crate, leaving faces and evidence visible. Placement comfort, additive-display legibility and open-ear audio still need device evaluation.
 
@@ -24,7 +31,7 @@ flowchart LR
   Solver --> Engine[Action reducer: facts, lies, tells, verdict]
   Engine --> Sheet[Allowed current account]
   Sheet --> Director[Director and validated line banks]
-  Sheet --> Live[Optional Gemini via Snap RSG]
+  Sheet --> Live[Optional live model performance]
   Live --> Guard[Strict local validation and audit log]
   Guard --> Director
   Director --> Voice[Bundled AI voices or live TTS]
@@ -35,16 +42,16 @@ flowchart LR
 
 The engine owns every lie flag, refutation, objection result and verdict. Model output cannot edit those facts. Live outputs enter the action log, and rejected or late prose falls back to permitted authored text. Mapped questions use the director and validated banks so strict free-text rejection is uncommon in the main route.
 
-Stage mode avoids runtime network calls. Its bundled library contains 878 exact-text/take entries backed by 552 voice tracks, plus effects, music and five scripted dialogue assets. The Run 6 export is **9.95 MB of audio**, with word timing and shared sentence offsets. The repaired hero route passed strict LEAF on the earlier cast snapshot. After Vale's replacement, strict four-suspect playback passed; the next hero call failed during scenario registration, so the replacement snapshot's whole-case gate remains open. [Audio integration and limitations](Tooling/audio/INTEGRATION.md).
+Stage mode avoids runtime network calls. Its bundled library contains 878 exact-text/take entries backed by 552 voice tracks, plus effects, music and five scripted dialogue assets. The Run 6 export is **9.95 MB of audio**, with word timing and shared sentence offsets. The repaired hero route passed strict LEAF on the earlier cast snapshot. Run 7 A2 now passes on the replacement cast: strict bundled playback in 11.836 s and repaired hero in 169.471 s. The [new-cast Preview tape](Tooling/results/run7-a2-hero.json) is preserved at `b3f4144`. This establishes the baseline; it does not pass the final gate for later Run 7 features. [Audio integration and limitations](Tooling/audio/INTEGRATION.md).
 
-Voices are synthetic, generated by ElevenLabs for fictional characters; live speech uses OpenAI through Snap's gateway. Vale now uses the selected S2-1 designed voice. No real person's voice was cloned.
+Voices are synthetic, generated by ElevenLabs for fictional characters; the existing optional live speech path uses OpenAI through Snap's gateway. Run 7 permits local Preview model providers, with credentials confined to Tooling. Vale now uses the selected S2-1 designed voice. No real person's voice was cloned.
 
 ## Open the project
 
 1. Install Git LFS and clone the repository with its LFS objects. ZIP archives are reliable only if the host includes LFS content.
 2. Open `RoomScriptF.esproj` in Lens Studio. The recorded working toolchain is Lens Studio 5.23.2.26081320 with pinned project packages.
 3. Select the interactive SPECS 27 Preview room. Use the [ten-minute tour](docs/PREVIEW_TOUR.md): place the case, pull the tab, meet the suspects, inspect evidence, object, suggest and accuse.
-4. Stage mode uses bundled assets without provider keys. Optional live AI requires your own authorized Snap Remote Service Gateway credentials. Never commit populated scene credential fields.
+4. Stage mode uses bundled assets without provider keys. The existing gateway live path requires your own authorized Snap Remote Service Gateway credentials. The Run 7 local Preview bridge, when available, uses Tooling-only credentials; see its implementation/run instructions and PROGRESS before enabling it. Never commit populated scene credential fields.
 5. Install the repository hook with `git config core.hooksPath .githooks`; it rejects secrets before a commit.
 
 For pure-engine tests and terminal play:
@@ -62,22 +69,25 @@ Lens components compile through Lens Studio's `RecompileTypeScriptTool`, not Nod
 
 | Check | Recorded result |
 |---|---|
-| Last recorded full suite, October 30 | 411/411 tests in 37 files; 1,000 players / 29,081 actions; default 200 generated cases accepted |
+| Last full pure suite, Run 6 | 462/462 tests across 49 files, pure-engine/tooling typecheck passed |
+| Historical fuzz checkpoint, October 30 | 1,000 players / 29,081 actions; default 200 generated cases accepted |
 | Longer generator checkpoint, October 29 | 5,000/5,000 accepted; historical evidence, not a new Run 5 measurement |
-| Preview | Opening, cast, objection, clue and closing variants passed individually; final integrated acceptance pending |
+| Run 7 A2 Preview | Strict replacement bundle 11.836 s and hero 169.471 s; new-cast tape preserved. Final new-feature integration pending |
 | Run 5 audio tooling | 8/8 pipeline tests; 2/2 bundled-fallback/segment tests; published coverage, alignment and size checks passed |
 | Strict validator, Run 6 saved-corpus replay | 0/96 and 0/48 attack bypasses; 20/34 natural holdout answers rejected (58.8%, down from 70.6%); inspected holdout is regression evidence |
 | Historical live speech study | 30 samples, 18 audible and 12 subtitle fallbacks; audible first-audio p95 5,886 ms |
 
 These measurements describe specific checkpoints. They are not a claim that the current Lens passed the full final suite. See the [validator study](docs/validator-study-2026-10-30.md), [Run 4 revalidation](Tooling/results/run4-b-validator-report.json), [production study](docs/production-study-2026-10-30.md), and [latest progress](docs/PROGRESS.md).
 
-Remaining boundaries include the final Stage audio route, frame-time target, complete art/beat wiring, real-room placement, additive readability, spatial audio, ray-drop comfort, keyboard and ASR. Multiplayer is deferred. No `m3-case` or submission tag is claimed.
+At the Run 6 baseline, remaining boundaries include the final Stage audio route, frame-time target, complete art/beat wiring, room casting and Dynamic integration, additive readability, spatial audio, ray-drop comfort, keyboard and ASR. Feature freeze is Sun November 8 at 21:00 PKT. Multiplayer is deferred. No `m3-case` or submission tag is claimed.
 
 ## How it was built
 
 <!-- HERO GIF SLOT: replace this comment with the final verified Preview objection GIF. -->
 
 Codex implements the build and runs CLAD's cross-runtime procedures inline. Parallel workers handle disjoint engine, content, audio, art and publication work. Claude Code contributed planning and independent reviews; local Claude API output was used for validator studies and judged performance-bank drafting. Wadood directs scope, casting and release decisions.
+
+Run 7 installed the MIT Devpost Learn `plan-lens` pack project-locally under `Tooling/skills/plan-lens`. Planning predates the pack: it was used to formalise existing decisions, review AR placement/input/visibility and separate measured acceptance from ambitions. Its checklist produced an [actionable review](devpost/run7-skill-review.md), including the one-panel UI contract, recognition fallback and continuous-gameplay evidence. The [video plan](devpost/drafts/video-plan.md) leads with gameplay and includes the short Dynamic demonstration only if its gate passes.
 
 VirtualScene is the scene-writing surface. The MCP supplies compilation, runtime logs, LEAF, asset import and Preview inspection. Package failures, rendering defects and rejected approaches remain documented. [Chronological CLAD log](devpost/clad-log.md) · [Raw log](devpost/clad-log-raw.md) · [Design brief](devpost/design-brief.md) · [Decisions](docs/decisions.md).
 
