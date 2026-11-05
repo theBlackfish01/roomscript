@@ -1,0 +1,6 @@
+[Assets/Scripts/RoomscriptBundledVoiceLeafScenario.ts:14] BUNDLED_VOICE_CHECK|{"lines":4,"peak":0.8,"maxStart":0,"calls":0,"fallback":0}
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 11.836s]PASSED: roomscript-bundled-voices
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 11.836s][roomscript-bundled-voices] PASSED
+[Assets/Scripts/RoomscriptHeroDemoLeafScenario.ts:32] HERO_DEMO_CHECK|CASE CLOSED
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [169.471s]PASSED: roomscript-hero-demo
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [169.471s][roomscript-hero-demo] PASSED

@@ -177,3 +177,6 @@ V3: accept bounded grammatical equivalence and shared inflection vocabulary whil
 
 Latest owner instructions supersede historical freeze/provider/push restrictions. Use Preset plus Dynamic, engine-only truth, local Tooling bridge with graceful authored fallback. Preserve actual scan provenance; quota stops generation only. R8 applies the skill to existing design decisions without fabricating an interview. Install under Tooling/skills because the initial .agents directory disappeared across Lens restart (cause unproven). Git ownership mismatch resolved with command-local safe.directory; no global trust change. No GUI; planned restart completed 23:37:12 PKT.
 
+
+Run 7 A2: replacement bundle and hero both passed under fail-fast with Assets writes paused. Promote master as authorized. Preserve current-cast baseline tape separately from final feature acceptance.
+

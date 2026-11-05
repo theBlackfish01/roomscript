@@ -97,3 +97,6 @@ Raw-log SHA-256: `34820b09cc040b6dbe223def9e95c3649f5764cb9ec6f8016e6d5106e59b6b
 - Codex main loaded lens-studio-router (preflight_only), editor-api, lens-studio-field-notes, specs-project-init and live-lens-tester/specs-leaf-run-in-preview inline under FIRST_PASS 1b. MCP confirmed project/sign-in, read 226 scene objects, checked packages, restored Interactive Evening Room, saved and gracefully restarted from shell. Compile/runtime clean; 25 LEAF scenarios listed in 23 ms. Assets writes paused for A2.
 - skill-installer downloaded challengepost/learn-specs project-locally; plan-lens applied by Codex devpost worker to existing owner design. Initial .agents copy disappeared after restart; durable copy under Tooling/skills. No invented interview/sign-off. Findings tracked in devpost/run7-skill-review.md.
 
+
+- Run 7 A2 MCP: strict bundled-voices passed 11.836 s; hero-demo passed 169.471 s after fresh restart, no Asset writes. Saved scene through Editor API. Harvested sanitized current-cast evidence and replay-verified action tape; correct verdict, four deductions. Scenario registration at 0.498 s.
+

@@ -365,3 +365,8 @@ V3 engine improvement verified: holdout false rejection 24/34 to 20/34 (58.8%); 
 
 A4 audio preparation: deterministic NarrativeAudio selector and dialogueAllowed gate pass 10/10 tests; all exact speech matches shipped clips. Wren triggers, delayed voicemail fact admission, composure and distinct endings prepared. UNWIRED: existing RoomscriptAudio still needs corrected guard and serialization; see Tooling/audio/RUN6-WIRING.md. Final full pure suite 462/462 across 49 files, 89.20 s, one worker after renders/LEAF stopped. Pure Engine/Content/Tooling typecheck passed.
 
+
+## Run 7 A2 — passed, 23:43 PKT
+
+Strict fail-fast replacement bundle passed 11.836 s; repaired hero passed 169.471 s, correct verdict/four deductions, bundled requested answers, no network and exact replay. Scenario registration during hero reset at 0.498 s. Evidence: Tooling/results/run7-a2-verification.log and replay-checked run7-a2-hero.json. Scene saved and credentials confirmed blank. A2 permits master fast-forward; final integrated feature gate is still pending.
+
