@@ -1,5 +1,7 @@
 # Audio integration handoff
 
+**Run 6 supersedes the Vale status below:** see [RUN6.md](RUN6.md). S2-1 is saved, all 134 runtime Vale performances and her dialogue parts are replaced, and the published 9,954,375-byte snapshot passes exact-cast/segment verification. Runtime Lens acceptance belongs to the main session. Remaining moods are staged separately after this checkpoint.
+
 **Run 5 supersedes the size/segment details below:** see [RUN5.md](RUN5.md). Published audio is 9.91 MB; 878 entries share 552 voice tracks. Sentence entries have `startSeconds` and `endSeconds` into the original track, with alignment relative to the segment. Full-line entries have no offsets. Vale take 1 remains pending because the first save request was blocked by network access. No new paid generation succeeded.
 
 ## Historical Run 4 handoff

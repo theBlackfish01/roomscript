@@ -80,3 +80,6 @@ Raw-log SHA-256: `34820b09cc040b6dbe223def9e95c3649f5764cb9ec6f8016e6d5106e59b6b
 - Run 6 MCP hero-demo: fail-fast passed 171.752 s after bounded UIKit readiness repair; exact replay, correct ending, bundled questions, no network.
 
 - Codex art_polish worker: procedural GDI art pass, 27 contracts, 98 deterministic hashes, four labelled historical-room composites. Imported licensed Anton/Courier Prime via authorized GitHub download; no GUI. Main saved project through Editor API then performed requested process restart before post-import verification.
+
+- Main: post-import restart via process lifecycle (no GUI); MCP compile/log refresh clean. Strict bundled-voices passed replacement library. Hero tool failed before dispatch: Failed to get scenario list after 600 attempts. Stopped Lens operations; no runtime bypass, scene promotion, or m3-case.
+- Vale audio worker: 134 runtime source swaps, dialogue splices, source-priority/stale-cast regressions, 11 pipeline contracts, 878 entries/552 tracks/9,954,375 bytes. 4,900 confirmed credits including 40 unshipped optional masters. ElevenLabs forced-alignment permission unavailable; signal-based silence splice preserves Harlow.

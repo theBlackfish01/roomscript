@@ -1,4 +1,12 @@
 /** Runtime sentence aliases share their original MP3; no duplicated audio assets. */
+export function castMismatches(clips,voices){
+ const selected=new Map(voices.map(v=>[v.id,v.voiceId]));
+ return clips.filter(c=>selected.has(c.speaker)&&c.voiceId!==selected.get(c.speaker)).map(c=>c.key);
+}
+export function prioritizeRuntimeSources(clips,runtimeLines){
+ const keys=new Set(runtimeLines.map(l=>l.speaker+'|'+l.take+'|'+l.text));
+ return clips.filter(c=>!c.derivedFrom).sort((a,b)=>Number(keys.has(b.key))-Number(keys.has(a.key)));
+}
 export function trimWindow(clip){
  const a=clip.alignment;if(!a?.starts?.length||!a.ends?.length)throw Error('MISSING_ALIGNMENT '+clip.key);
  return {from:Math.max(0,a.starts[0]-.06),until:a.ends.at(-1)+.08};

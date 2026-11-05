@@ -6,14 +6,14 @@
   "sfx": 30,
   "music": 8,
   "dialogues": 5,
-  "bytes": 9907527,
-  "megabytes": 9.91,
+  "bytes": 9954375,
+  "megabytes": 9.95,
   "credits": {
     "budget": 180000,
-    "total": 82898,
-    "headerConfirmed": 21193,
+    "total": 86440,
+    "headerConfirmed": 24735,
     "estimatedOrReserved": 61705,
-    "unresolved": 1
+    "unresolved": 0
   },
   "errors": []
 }

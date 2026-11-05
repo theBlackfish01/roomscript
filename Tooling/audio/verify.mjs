@@ -1,4 +1,4 @@
-import {read,AUDIO,ROOT,total,CAP,save,parseManifestExport} from './lib.mjs';import {existsSync,statSync,readFileSync} from 'node:fs';import {resolve} from 'node:path';
+import {read,AUDIO,ROOT,total,CAP,save,parseManifestExport} from './lib.mjs';import {castMismatches} from './segments.mjs';import {existsSync,statSync,readFileSync} from 'node:fs';import {resolve} from 'node:path';
 const published=process.argv.includes('--published'),ship=process.argv.includes('--ship'),snapshot=published||ship,base=ship?resolve(AUDIO,'out/ship'):ROOT,exported=(file,name)=>parseManifestExport(readFileSync(resolve(base,'Assets/Scripts/Content',file),'utf8'),name);
 const m={clips:snapshot?exported('VoiceManifest.ts','VOICE_MANIFEST'):read(resolve(AUDIO,'voice-manifest.json'),{clips:[]}).clips},spec=read(resolve(AUDIO,snapshot?'voice-runtime-spec.json':'voice-spec.json'),{lines:[]}),cues={cues:snapshot?exported('AudioManifest.ts','AUDIO_MANIFEST'):read(resolve(AUDIO,'cue-manifest.json'),{cues:[]}).cues},dialogue={clips:snapshot?exported('DialogueManifest.ts','DIALOGUE_MANIFEST'):read(resolve(AUDIO,'dialogue-manifest.json'),{clips:[]}).clips},errors=[];
 const keys=new Set();let bytes=0;const paths=new Set();
@@ -6,6 +6,7 @@ for(const clip of [...m.clips,...cues.cues,...dialogue.clips]){const p=snapshot?
 for(const l of spec.lines)if(!keys.has(l.speaker+'|'+l.take+'|'+l.text))errors.push('unrendered '+l.speaker+' '+l.id+' '+l.take);
 if(snapshot)for(const key of spec.sentenceKeys||[])if(!keys.has(key))errors.push('missing sentence '+key);
 if(snapshot){
+ for(const key of castMismatches(m.clips,read(resolve(AUDIO,'cast.json'),{voices:[]}).voices))errors.push('stale cast '+key);
  if(bytes>10000000)errors.push('audio exceeds 10 MB');
  for(const c of m.clips)if(c.startSeconds!==undefined){const source=m.clips.find(s=>s.path===c.path&&s.startSeconds===undefined);if(!source||!Number.isFinite(c.endSeconds)||c.startSeconds<0||c.endSeconds<=c.startSeconds||c.endSeconds>source.alignment.ends.at(-1)+.1)errors.push('invalid sentence offset '+c.key);}
 }

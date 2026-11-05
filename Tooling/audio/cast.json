@@ -48,15 +48,14 @@
           "score": 91.52
         }
       ],
-      "selected": 1,
-      "voiceId": "ysTjlrxaU2pIe4zuixSo",
+      "selected": 0,
+      "voiceId": "Ajczv1caVKcFEG1TdJH0",
       "voiceSource": "designed",
-      "pendingSelection": {
-        "selected": 0,
-        "generatedVoiceId": "Ajczv1caVKcFEG1TdJH0",
-        "requestedBy": "Wadood Run 5",
-        "status": "save-voice-network-blocked; existing runtime voice retained until generation succeeds"
-      }
+      "previousSelection": {
+        "selected": 1,
+        "voiceId": "ysTjlrxaU2pIe4zuixSo"
+      },
+      "ownerSelectedAt": "2026-11-05T09:09:44.021Z"
     },
     {
       "id": "S1",

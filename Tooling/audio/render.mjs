@@ -1,5 +1,5 @@
 import {request,read,save,AUDIO,ROOT,hash,cleanAlignment} from './lib.mjs';import {resolve,dirname} from 'node:path';import {mkdirSync,writeFileSync,existsSync} from 'node:fs';import {execFileSync} from 'node:child_process';
-const cast=read(resolve(AUDIO,'cast.json'),null),spec=read(resolve(AUDIO,'voice-spec.json'),null),manifestPath=resolve(AUDIO,'voice-manifest.json'),manifest=read(manifestPath,{version:1,clips:[]});const ff=resolve(AUDIO,'out/bin/ffmpeg.exe');
+const cast=read(resolve(AUDIO,'cast.json'),null),spec=read(resolve(AUDIO,process.argv.includes('--runtime')?'voice-runtime-spec.json':'voice-spec.json'),null),manifestPath=resolve(AUDIO,'voice-manifest.json'),manifest=read(manifestPath,{version:1,clips:[]});const ff=resolve(AUDIO,'out/bin/ffmpeg.exe');
 const tags={steady:'[calm]',rattled:'[nervous]',broken:'[sad]',tell:'[hesitates]'};
 const option=name=>{const i=process.argv.indexOf(name);return i<0?undefined:process.argv[i+1];},speakerFilter=option('--speaker'),limit=Number(option('--limit')||100000);let rendered=0;const batchStart=Date.now();
 for(const line of process.argv.includes('--manifest-only')?[]:spec.lines){

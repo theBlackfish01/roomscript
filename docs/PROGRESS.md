@@ -321,3 +321,11 @@ Local checkpoints for the final packages: 1a47f14 (D6 offline availability, Prev
 Run 6 verified step: repaired hero-demo passed fail-fast in 171.752 s, bundled playback on all requested questions, zero network, correct verdict and replay equality. Vale replacement acceptance still pending.
 
 Run 6 offline art verified: thicker brighter ivory outlines (1.85x), larger faces, torso/head/expression contrast, 27 contracts and 98/98 repeat hashes. PNG/GLB 5,961,439 bytes plus OFL fonts 323,743 bytes. Review docs/captures/2026-11-05-art-after-poses.png and art-room-{Vale,Qadir,Okafor,Pike}.png (explicit historical-room offline composites, not fresh Preview). A3 runtime wiring remains pending. Removed 18 unused duplicate prototype files with authorized git rm; retained prototype remains.
+
+## Run 6 Lens blocker (14:29 PKT)
+
+After saving via Editor API, restarted process at 14:23:35 without GUI automation. Let imports settle before compilation/refresh; both passed, first activity 25 ms. Strict `roomscript-bundled-voices` passed on Vale S2-1 compressed export. Subsequent hero MCP call failed before scenario dispatch: `Tool execution failed: Failed to get scenario list after 600 attempts`. Lens work stopped per AGENTS hard rule. The first hero pass at 171.752 s was the earlier cast snapshot; it does not promote the replacement snapshot. Master remains bfaf5ff. No new scene commit/m3-case claimed. Engine validator files last changed 14:25:54 immediately before this gate; auto-import may have overlapped scenario registration. No further Lens calls or bypass attempted.
+
+Needs Wadood: restore/restart the LEAF bridge for a fresh post-import hero gate. Then commit the verified scene, fast-forward master and push as authorized. Continue independent work now. S2 probe still fails its clock-playing check; MP3 itself decodes cleanly (1 s). Frame target remains unmeasured, not passed.
+
+Audio step 1 complete offline: S2-1 saved, 134 runtime Vale sources replaced, scene parts rebuilt retaining other speakers, compression/export verifier clean. ElevenLabs 4,900 confirmed Run 6 credits including 40 optional preserved but unshipped takes; Claude $0; zero unresolved reservations. See Tooling/audio/RUN6.md. Harlow splice still needs listening review.

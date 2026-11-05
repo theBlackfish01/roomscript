@@ -22,8 +22,29 @@
         }
       ],
       "factIds": [],
-      "identity": "e57f1b501d43da4915f76da9555527bb41b3d6bb463ce02771f06ffcd9bd7a03",
-      "path": "Assets/Audio/Dialogue/ArrivalDialogue.mp3"
+      "identity": "33c7bff999e6f281ce41f509fae34bcd155bfcf099daf68464aa513719193e8b",
+      "path": "Assets/Audio/Dialogue/ArrivalDialogue.mp3",
+      "previousIdentity": "e57f1b501d43da4915f76da9555527bb41b3d6bb463ce02771f06ffcd9bd7a03",
+      "performanceSources": [
+        {
+          "speaker": "S2",
+          "sourceIdentity": "3a5989919ad7555647b796c0b899653cc3fc0169c8e60b3ab1b6f3530453f8c6"
+        },
+        {
+          "speaker": "S1",
+          "sourceIdentity": "f7c736bcfc45fbee8ae179a680dcbd22cb0bcf707507de45755b4ef96176041e"
+        },
+        {
+          "speaker": "S3",
+          "sourceIdentity": "e23d2c4926cff002fd567418ad266058c165bad7863877fb9638abef6ed79f50"
+        },
+        {
+          "speaker": "S4",
+          "sourceIdentity": "7c741208741f21d8540d0542d1522ca6da86fd36f75c10769330141afb97ada5"
+        }
+      ],
+      "valeVoiceId": "Ajczv1caVKcFEG1TdJH0",
+      "assembly": "Run6: Vale-only replacement; other speakers reuse recorded performances."
     },
     {
       "name": "HarlowVoicemail",
@@ -42,8 +63,24 @@
         "F_VALE_MOTIVE"
       ],
       "phone": true,
-      "identity": "76a3c1cdae4b3e8332cc2d6e3c2ad0bf8fc043aa5ebb91a58b109635f64806e3",
-      "path": "Assets/Audio/Dialogue/HarlowVoicemail.mp3"
+      "identity": "20436908dbe183a67fd015f6cf5c32098f75db42201c78f5c3e698dd7dc2857d",
+      "path": "Assets/Audio/Dialogue/HarlowVoicemail.mp3",
+      "previousIdentity": "76a3c1cdae4b3e8332cc2d6e3c2ad0bf8fc043aa5ebb91a58b109635f64806e3",
+      "performanceSources": [
+        {
+          "speaker": "S2",
+          "sourceIdentity": "7501cbc6d8db99ba9b405a420c872905ae1109e18b9965173dee1c06aa5caa17"
+        },
+        {
+          "speaker": "V",
+          "sourceIdentity": "76a3c1cdae4b3e8332cc2d6e3c2ad0bf8fc043aa5ebb91a58b109635f64806e3",
+          "preservedOriginal": true,
+          "startSeconds": 1.0599565,
+          "alignmentLoss": null
+        }
+      ],
+      "valeVoiceId": "Ajczv1caVKcFEG1TdJH0",
+      "assembly": "Run6: Vale-only replacement; other speakers reuse recorded performances."
     },
     {
       "name": "ValeConfession",
@@ -58,8 +95,17 @@
         "F_VALE_MOTIVE"
       ],
       "verdictOnly": true,
-      "identity": "fe6ddf6090f6152577f64fc7d5d58c7c18354e86fbaf62e4d45cbe6000cd55ee",
-      "path": "Assets/Audio/Dialogue/ValeConfession.mp3"
+      "identity": "6bbfdb4be0a68dcce4cf4941bd5fa4ffccfd96e3581430ed57977fe31df15a27",
+      "path": "Assets/Audio/Dialogue/ValeConfession.mp3",
+      "previousIdentity": "fe6ddf6090f6152577f64fc7d5d58c7c18354e86fbaf62e4d45cbe6000cd55ee",
+      "performanceSources": [
+        {
+          "speaker": "S2",
+          "sourceIdentity": "f35cfc05a4879a6b8ce25a48544ef1115dec12e1f58308bf3df413599fb1f0f0"
+        }
+      ],
+      "valeVoiceId": "Ajczv1caVKcFEG1TdJH0",
+      "assembly": "Run6: Vale-only replacement; other speakers reuse recorded performances."
     },
     {
       "name": "WrongEscape",
@@ -71,8 +117,17 @@
       ],
       "factIds": [],
       "verdictOnly": true,
-      "identity": "7efe6d26a6c1cee2bcc523c6b1629964b2eba113119cf8fda31d0c46067421d0",
-      "path": "Assets/Audio/Dialogue/WrongEscape.mp3"
+      "identity": "ae8c06224f7727647fc99ef737a086a1d87a80188cda887c005bb06f26286282",
+      "path": "Assets/Audio/Dialogue/WrongEscape.mp3",
+      "previousIdentity": "7efe6d26a6c1cee2bcc523c6b1629964b2eba113119cf8fda31d0c46067421d0",
+      "performanceSources": [
+        {
+          "speaker": "S2",
+          "sourceIdentity": "c78a97a7450a263e44bf4a54a45368fbb80a7eb790c6264c1010fd0e02e70c4d"
+        }
+      ],
+      "valeVoiceId": "Ajczv1caVKcFEG1TdJH0",
+      "assembly": "Run6: Vale-only replacement; other speakers reuse recorded performances."
     },
     {
       "name": "OpeningExchange",
