@@ -8,7 +8,7 @@
 A murder mystery staged in your room on Snap Spectacles. AI suspects improvise, but a solver-proven engine decides the truth. Break lies by dragging evidence across the room.
 
 **Video:** TODO YouTube link (public, under 3:00)
-**Try it out:** TODO GitHub repo link
+**Try it out:** https://github.com/theBlackfish01/roomscript (private until Wadood's release)
 **Built with (tags):** lens-studio, spectacles, snap-specs, clad, lens-studio-mcp, typescript, spectacles-interaction-kit, spectacles-ui-kit, leaf, remote-service-gateway, gemini, openai-tts, codex, claude-code, vitest <!-- add any required tags from the form -->
 
 **Gallery (3:2, about 1200×800):**
@@ -49,7 +49,7 @@ Roomscript turns your room into the crime scene for one complete case, *HARLOW-1
 <!-- Technical Implementation: CLAD + Lens Studio + MCP; be concrete -->
 **Agents did the building; Wadood directed.**
 - Codex was the main builder, applying CLAD skills as procedures, with parallel workers for pure engine and tooling packages. Claude Code handled design, planning and two independent review rounds (eight reports; confirm reviewer agent).
-- Every scene edit went through the **Lens Studio MCP**, and every package ended with a compile, a runtime log check, a strict LEAF scenario and a reviewed Preview capture:
+- Authored scene edits use **VirtualScene through the Lens Studio MCP**. Completed Lens gates record compilation, logs and LEAF results; visual packages additionally require reviewed captures. Partial packages and transport failures remain explicitly open:
   - VirtualScene, ExecuteEditorCode;
   - RecompileTypeScriptTool → RunAndCollectLogs;
   - run_leaf_scenario, PreviewPanelTool/CaptureRuntimeViewTool for see-and-fix;
@@ -59,20 +59,20 @@ Roomscript turns your room into the crime scene for one complete case, *HARLOW-1
   - A pure TypeScript engine owns every fact, lie, tell, refutation and verdict. A solver proves a unique solution with independent routes.
   - The LLM receives a truth-blind fact sheet, and its lines pass **seven validation gates** before they are spoken. Late or rejected lines fall back to an authored line bank within 6.5 s.
 - **Verification:**
-  - 411 Vitest tests;
-  - 1,000 fuzzed players (29,487 actions);
-  - 5,000 generated cases accepted by the solver;
-  - 21 LEAF scenarios;
+  - Run 5 full gate: 439 Vitest tests (Run 6 final result is in PROGRESS);
+  - historical 1,000-player fuzz run and 5,000 generated-case checkpoint;
+  - 25 registered LEAF scenarios at Run 6 preflight;
   - a 28-call live-AI study in Preview;
-  - a Claude-generated red-team of the validator (0/96 attacks accepted after fixes).
-- 49 commits, one per verified package, with milestone tags. The full trail is in `devpost/clad-log.md`.
+  - saved validator attacks: 0/96 development and 0/48 holdout accepted; Run 6 natural holdout rejection improved from 70.6% to 58.8% without paid rejudging. The inspected holdout is regression evidence.
+- Package commits retain real history and milestone tags. The full trail is in `devpost/clad-log.md`.
+- Run 6 added thicker luminous actor art, licensed OFL fonts, the selected Vale voice and aligned subtitle reveals. Art wiring, narration triggers and final visual acceptance are still incomplete.
 
 ## Challenges we ran into
 - **Package versions:** the MCP installed a Remote Service Gateway built for a newer Lens Studio, which broke the project. We pinned compatible versions and **wrote up the MCP bug** (`docs/mcp-bug-report.md`).
 - **Latency vs honesty:** live text p50 was 2.4 s, but first audio was 5.1 s and only 18 of 28 answers were voiced in time. We built a deadline-driven pipeline with caption fallback and a fully offline **Stage mode**.
 - **The validator** can't be both safe and permissive: an independent holdout still rejects about half of natural paraphrases. We chose safety, with authored fallbacks.
 - **Native VFX** came back null at runtime, so the objection shatter is 30 CPU-animated mesh shards.
-- **Preview stability:** long integrated LEAF runs hit JavaScript execution timeouts. <!-- update with the outcome of Run 1 -->
+- **Preview stability:** the repaired hero route passed strict LEAF in Run 6 on the earlier cast snapshot. New Vale compressed playback passed after restart, but the following hero call failed during scenario registration; final integration remains open.
 
 ## Accomplishments that we're proud of
 - A complete, fair, solver-proven mystery whose AI can't break its truth.
@@ -97,4 +97,4 @@ Roomscript turns your room into the crime scene for one complete case, *HARLOW-1
 - Clue Night: two detectives, one room (Sync Kit).
 
 ## Honesty note (put at the end of the story)
-All footage is Lens Studio Preview with a simulated room. Most dialogue in the video is Stage mode (authored lines); one labelled exchange is live AI. AI voices are synthetic. Not yet tested on Spectacles hardware.
+Planned footage uses Lens Studio Preview with a simulated room. Stage dialogue uses authored lines and synthetic ElevenLabs voices; it is not a live model exchange. The labelled live Gemini exchange is still to be captured. No real person's voice was cloned. Not yet tested on Specs hardware. Music-plan eligibility and the final submission form remain owner checks.

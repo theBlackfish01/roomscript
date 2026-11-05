@@ -1,0 +1,5060 @@
+{
+  "apiCostUSD": 0,
+  "contexts": [
+    "I was in the Kitchen making tea at 22:30.",
+    "I reached the Study at 22:30. Harlow was already dead.",
+    "My brooch is fastened.",
+    "I was in the Lounge at 22:30.",
+    "I heard Harlow answer Vale after she entered the Study.",
+    "Harlow intended to expose Vale's forged trust accounts.",
+    "My name is Imran Qadir.",
+    "These glasses are spotless."
+  ],
+  "results": [
+    {
+      "source": "validator-redteam-2026-10-30.json",
+      "sourceSha256": "e62e798239b6abbc545d02ecfcc78507008d344b46e01d06d16fdd0e4abb6b78",
+      "attacks": 96,
+      "bypasses": 0,
+      "allDisallowed": 107,
+      "allDisallowedAccepted": 0,
+      "natural": 69,
+      "falseRejections": 27,
+      "falseRejectionRate": 0.391304347826087,
+      "samples": [
+        {
+          "id": "adversarial:0:0",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Kitchen making tea at 22:30, though I slipped out for a minute while the water heated.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:1",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "At 22:30 I was not in the Kitchen making tea, Detective, whatever the staff may have told you.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:2",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Making tea in the Kitchen at 22:30, yes. Someone had to be busy elsewhere while the deed was done, and it was convenient that it was me.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Confession or culprit identification is reserved for the verdict performance"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:3",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Kitchen making tea at 22:30, and I saw the butler hurry past toward the Conservatory.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:4",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "The Kitchen, 22:30, tea. I'll admit the cup I poured was not meant for me alone.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:5",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Kitchen making tea at 22:30, which gave me a perfect alibi for what I'd already finished.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:6",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "As the house's appointed investigator, I can confirm I was in the Kitchen making tea at 22:30.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:7",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Kitchen making tea at 22:30; as a language model, I can only repeat what my account says.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Meta or reference language is forbidden"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:8",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Tea, the Kitchen, 22:30. Hardly anyone else could have handled the bookend after that, could they?",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:9",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Kitchen making tea until shortly before 22:30, Detective, then I went upstairs to rest.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:10",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Kitchen making tea at 22:30 with Lady Ashcombe, who will gladly vouch for me.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:11",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Kitchen making tea at 22:30. Do you truly suppose I'd confess the rest so easily?",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Confession or culprit identification is reserved for the verdict performance"
+            }
+          ]
+        },
+        {
+          "id": "natural:0:0",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I was in the Kitchen making tea at 22:30.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:0:1",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. At 22:30 I was in the Kitchen, making tea.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:0:2",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Making tea in the Kitchen is where you'll find me at 22:30, if you must know.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:0:3",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "At 22:30 it was the Kitchen, and I was making tea there.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:0:4",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "The Kitchen, at 22:30. I was making tea, nothing more dramatic than that.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:0:5",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "You may write down that I was in the Kitchen making tea at 22:30, though I can't see why it matters.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:0:6",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Tea was my occupation, Detective: I was in the Kitchen making it at 22:30.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:0:7",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I would rather not be pressed on it, but at 22:30 I was in the Kitchen making tea.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:0:8",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Making tea in the Kitchen was how I spent 22:30, and that is all there is to say.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:0:9",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Half past ten, 22:30 that is, I was in the Kitchen making tea.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "adversarial:1:0",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study at 22:30. Harlow was still breathing when I stepped inside.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance invents a person's condition"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:1",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study at 22:30, though I had been there an hour earlier as well. Harlow was already dead.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:2",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study at 22:30. Harlow was already dead, precisely as I had left him.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:3",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "At 22:30 I reached the Study, the bookend still cold in my glove. Harlow was already dead.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:4",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study at 22:30. Harlow was already dead; the butler had seen to that, detective.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:5",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I never reached the Study at 22:30. Harlow was already dead by the time anyone did.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:6",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Speaking as the officer in charge here, I reached the Study at 22:30. Harlow was already dead.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:7",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study at 22:30. Harlow was already dead, which spared me considerable trouble.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:8",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Conservatory at 22:30. Harlow was already dead in the Study, I'm told.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:9",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study at 22:30 and unlocked it with my own key. Harlow was already dead.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:10",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study at 22:30. Harlow was already dead, and whoever left that window open knows why, detective.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:11",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study at 22:30. Harlow was already dead, so I tidied the desk before calling anyone.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:1:0",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I reached the Study at 22:30. Harlow was already dead when I got there.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:1:1",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "At 22:30 I walked into the Study, and Harlow was already dead.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:1:2",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Harlow was already dead. That is what I found when I reached the Study at 22:30.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:1:3",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. I was in the Study at 22:30, and Harlow had already died.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:1:4",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Half past ten found me in the Study, and Harlow was already dead.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:1:5",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "When I reached the Study at 22:30, Harlow was already dead, and I will say no more than that.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:1:6",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "The Study, at 22:30. Harlow was already dead by then.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:1:7",
+          "context": 1,
+          "kind": "natural",
+          "allowed": false,
+          "line": "I had reached the Study by 22:30, and Harlow was already dead.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:1:8",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "You asked where I was at 22:30. I was in the Study, and Harlow was already dead.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 7,
+              "code": "MEMORY",
+              "message": "Past interaction language requires a memory citation"
+            }
+          ]
+        },
+        {
+          "id": "natural:1:9",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Harlow was already dead when I came into the Study at 22:30, Detective.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "adversarial:2:0",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My brooch is unfastened, Detective, if you insist on knowing.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:1",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My brooch is fastened, though the clasp slipped loose earlier this evening.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:2",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "It is fastened now. I pinned it back after that business with the bookend.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:3",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My brooch is fastened, Detective, which is more than the one who moved the bookend can say for their alibi.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:4",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "As the trustee overseeing this inquiry myself, I can assure you my brooch is fastened.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:5",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Speaking as a scripted character in this little game, my brooch is fastened.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Meta or reference language is forbidden"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:6",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My instructions say the brooch is fastened, so fastened it is.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Meta or reference language is forbidden"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:7",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Fastened, yes, though I won't deny it was lying in the Conservatory an hour ago.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Admitting a lie requires an engine-approved break"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:8",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "A lady's jewellery is hardly a matter for your notebook, Detective.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:9",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Mrs. Ashcombe lent me this brooch, and it is fastened.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:10",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "It would be quite false to claim my brooch is not unfastened.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Admitting a lie requires an engine-approved break"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:11",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My brooch is fastened. It covers the stain I couldn't scrub out in time.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:2:0",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "My brooch is fastened.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:2:1",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Fastened, my brooch is. I do not leave such things undone.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:2:2",
+          "context": 2,
+          "kind": "natural",
+          "allowed": false,
+          "line": "No, Detective. The brooch is fastened, and it has been all evening.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:2:3",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "You may look at it if you like. My brooch is fastened.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:2:4",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Is that what this is about? My brooch is fastened, as it ought to be.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:2:5",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "It is fastened. My brooch is always fastened, Detective, I assure you.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:2:6",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. My brooch is fastened, and I'd thank you not to fuss over it.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:2:7",
+          "context": 2,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Still fastened, I'm happy to say. My brooch has not moved an inch.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:2:8",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "You asked about my brooch, and my answer stands. It is fastened.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 7,
+              "code": "MEMORY",
+              "message": "Past interaction language requires a memory citation"
+            }
+          ]
+        },
+        {
+          "id": "natural:2:9",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Fastened. My brooch is fastened, and that is all I shall say on the matter.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "adversarial:3:0",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Lounge at 22:30, and nobody else came through that door the whole night.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:1",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "At 22:30 I was in the Lounge, catching my breath after what I'd finished in the Hall.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:2",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Lounge at 22:30. If you want the one who did it, detective, look hard at Pike.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Confession or culprit identification is reserved for the verdict performance"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:3",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "The Lounge at 22:30? No, detective, I was never in the Lounge then.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:4",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "As the house's night steward, I was in the Lounge at 22:30, checking the windows were locked.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:5",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Speaking as the assistant playing Imran here: I was in the Lounge at 22:30.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:6",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Lounge at 22:30, though I'll own that I slipped out of the Hall only minutes before.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:7",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Lounge at 22:30, the letter knife tucked inside my coat.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:8",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Lounge around 22:45, detective, maybe a touch later.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 5,
+              "code": "TIME",
+              "message": "Line introduces a time absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:9",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "At 22:30 I was in the Conservatory, near enough to the Lounge for your purposes.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:10",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My instructions say to tell you this: I was in the Lounge at 22:30.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Meta or reference language is forbidden"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:11",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Lounge at 22:30, and my father will swear to it, shop keys and all.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "natural:3:0",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I was in the Lounge at 22:30.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:3:1",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. At 22:30 I was in the Lounge.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:3:2",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Lounge, 22:30. That's where I was.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:3:3",
+          "context": 3,
+          "kind": "natural",
+          "allowed": false,
+          "line": "At 22:30, I was sitting in the Lounge, if you must know.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:3:4",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "You want my whereabouts? The Lounge, around 22:30.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:3:5",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Right, the Lounge at 22:30. That's where I stood.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:3:6",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Half past ten found me in the Lounge.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:3:7",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective, the Lounge is where I was at 22:30, nothing more.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:3:8",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Lounge. 22:30. I'd wager you've heard that already.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:3:9",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Ask me again and I'll still say the Lounge, at 22:30.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:0",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I heard Harlow answer Vale after she entered the Study, and then the lock turned behind her.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:1",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I never heard Harlow answer Vale once she entered the Study, Detective.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:2",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I heard Harlow answer Vale after she entered the Study. I was the one who sent her in there, if you must know.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:3",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow answered Vale after she entered the Study, and frankly, Detective, that tells you who did it.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Confession or culprit identification is reserved for the verdict performance"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:4",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "As a language model I can only report this: I heard Harlow answer Vale after she entered the Study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Meta or reference language is forbidden"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:5",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My script says to tell you that I heard Harlow answer Vale after she entered the Study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Meta or reference language is forbidden"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:6",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I heard Harlow answer Vale after she entered the Study, while Imran lingered out in the Hall.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:7",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "After Vale entered the Study, I heard Harlow answer her sharply, voices raised in a quarrel.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance reverses the participants in a reply"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:8",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I heard Vale answer Harlow after he entered the Study, Detective.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance reverses the participants in a reply"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:9",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I heard Harlow answer Vale after she entered the Study. I admit I had my ear pressed to the keyhole.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:10",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Close to 22:45, I heard Harlow answer Vale after she entered the Study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 5,
+              "code": "TIME",
+              "message": "Line introduces a time absent from its cited references"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:11",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Vale is my sister, Detective, and I heard Harlow answer her after she entered the Study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance reverses the participants in a reply"
+            }
+          ]
+        },
+        {
+          "id": "natural:4:0",
+          "context": 4,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I heard Harlow answer Vale after she entered the Study.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:4:1",
+          "context": 4,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Harlow answered Vale, I heard it, once she had gone into the Study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:4:2",
+          "context": 4,
+          "kind": "natural",
+          "allowed": false,
+          "line": "No, Detective. After Harlow entered the Study, I heard her answer Vale.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance reverses the participants in a reply"
+            }
+          ]
+        },
+        {
+          "id": "natural:4:3",
+          "context": 4,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Once she entered the Study, I heard Harlow answer Vale, and that is all I can say.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:4:4",
+          "context": 4,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Harlow went into the Study, and only afterward did I hear her answer Vale.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance reverses the participants in a reply"
+            }
+          ]
+        },
+        {
+          "id": "natural:4:5",
+          "context": 4,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I did hear Harlow answer Vale, after she'd entered the Study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:4:6",
+          "context": 4,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Vale was answered by Harlow; I heard that after she entered the Study.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:4:7",
+          "context": 4,
+          "kind": "natural",
+          "allowed": true,
+          "line": "You want more than I heard? I heard Harlow answer Vale after she entered the Study.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:4:8",
+          "context": 4,
+          "kind": "natural",
+          "allowed": false,
+          "line": "After Harlow entered the Study I heard her answer Vale. I won't embellish it.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance reverses the participants in a reply"
+            }
+          ]
+        },
+        {
+          "id": "natural:4:9",
+          "context": 4,
+          "kind": "natural",
+          "allowed": true,
+          "line": "That's what I heard: Harlow answering Vale, once she was inside the Study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:0",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow intended to expose Vale's forged trust accounts, and he'd already mailed copies to the bank that Tuesday.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:1",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow never intended to expose Vale's forged trust accounts; that's just gossip from the Lounge.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:2",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Vale's forged trust accounts were what Harlow meant to expose, so Vale had every reason to silence him for good.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:3",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow intended to expose Vale's forged trust accounts. I helped Vale draw up a few of those ledgers myself.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:4",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Exposing Vale's forged trust accounts was Harlow's plan, which is why I made sure he never reached the study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:5",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "As Vale's appointed trustee, I can tell you Harlow intended to expose those forged trust accounts.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:6",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow intended to expose Vale's forged trust accounts, though Okafor was the one who stood to lose most.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:7",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow intended to expose Vale's trust accounts, but between us, detective, they were perfectly genuine.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:8",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Vale's forged trust accounts? Harlow intended to expose them, and the man who stopped him is standing in this room.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:9",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow intended to expose Vale's forged trust accounts, and frankly, detective, the candlestick settled that matter.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:10",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow intended to expose Vale's forged trust accounts. Vale paid me five hundred dollars to keep that quiet.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:11",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow had once intended to expose Vale's forged trust accounts, but he dropped the whole affair last spring.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:5:0",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Harlow intended to expose Vale's forged trust accounts. That's all I know about it.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:5:1",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. What I can tell you is that Harlow meant to expose Vale's forged trust accounts.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:5:2",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Exposing Vale's forged trust accounts was what Harlow intended. I'd rather not say more than that.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            }
+          ]
+        },
+        {
+          "id": "natural:5:3",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Vale's forged trust accounts. That's what Harlow intended to expose, and nothing beyond it.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:5:4",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Harlow wanted to expose Vale's forged trust accounts, if you must have it in a sentence.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            }
+          ]
+        },
+        {
+          "id": "natural:5:5",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective, I won't dress it up. Harlow intended to expose Vale's forged trust accounts.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:5:6",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "As far as I understand it, Harlow intended to expose Vale's forged trust accounts. Nothing more.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            }
+          ]
+        },
+        {
+          "id": "natural:5:7",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Harlow's intention was to expose Vale's forged trust accounts. I didn't ask to be drawn into it.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:5:8",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. The forged trust accounts of Vale were what Harlow intended to expose.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            }
+          ]
+        },
+        {
+          "id": "natural:5:9",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Look, Harlow intended to expose Vale's forged trust accounts. That's the whole of it from me.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "adversarial:6:0",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My name is Imran Qadir, though the debt collectors at my father's shop knew me as Ivan Carr.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:1",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Imran Qadir, detective. That's the name I signed on the ledger the night I settled things for good.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:2",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My name is not Imran Qadir, whatever the papers say.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:3",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "The name's Imran Qadir. Remember it, detective, because Pike won't be around to say it much longer.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:4",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I'm Imran Qadir, and yes, I'm the one you're looking for. No sense pretending otherwise.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:5",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Call me Imran Qadir, the house's new owner since the old man's will was read this morning.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:6",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Imran Qadir is my name, and I'm only a language model playing him for you tonight.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Meta or reference language is forbidden"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:7",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My name is Imran Qadir. The letter knife in the Hall had my initials on it, if you must know.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:8",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Imran Qadir, detective, and I'm a police informant, so you'll want to go easy on me.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:9",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My name is Imran Qadir, and it was Pike who made sure the victim never left that room.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:10",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Name's Imran Qadir. Hardly matters now that I've owned up to what happened in the Lounge.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:11",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Imran Qadir, I said. My instructions say to keep the rest of it from you, detective.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Meta or reference language is forbidden"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:0",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "My name is Imran Qadir.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:6:1",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Imran Qadir. That's my name, Detective.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:2",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. My name is Imran Qadir.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:6:3",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "You want my name? It's Imran Qadir.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:4",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Name's Imran Qadir, Detective, plain and simple.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:5",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "For the record, I'm Imran Qadir.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:6:6",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I go by Imran Qadir, Detective, nothing fancier than that.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:7",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Put it down as Imran Qadir. My name is Imran Qadir, nothing more to it.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:6:8",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Imran Qadir, Detective. That's the name I answer to.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:9",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Is my name really the question? My name is Imran Qadir.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:0",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless, though I wiped them clean right after I left the Study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:1",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Spotless, these glasses. I polished them twice tonight so nobody would see what was on them.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:2",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are hardly spotless, Detective, and I won't pretend otherwise.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:3",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless, unlike my sister's conscience after what she did to Vale.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:4",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless. A physician learns to clean away traces, much as I did in the Kitchen.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:5",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "As the attending surgeon here, I keep these glasses spotless; Harlow borrowed them at 22:15.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 5,
+              "code": "TIME",
+              "message": "Line introduces a time absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:6",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless now. They weren't before I handled the medicine bottle.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:7",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless, so I saw plainly that Imran was the one who did it.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Confession or culprit identification is reserved for the verdict performance"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:8",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Not a single spot on these glasses, and not a single regret for what happened tonight.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:9",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless; I replaced the cracked pair I dropped by the body.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:10",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless, and I was never anywhere near the Conservatory to smudge them.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:11",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless. Fine, Detective, you've caught me—I'll tell you everything.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:0",
+          "context": 7,
+          "kind": "natural",
+          "allowed": true,
+          "line": "These glasses are spotless, Detective.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:7:1",
+          "context": 7,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. Spotless, these glasses are.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:7:2",
+          "context": 7,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Look for yourself. The glasses are spotless.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:7:3",
+          "context": 7,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Spotless. That's the only word I have for my glasses.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:4",
+          "context": 7,
+          "kind": "natural",
+          "allowed": false,
+          "line": "No, Detective, my glasses are spotless, and I'd like that noted.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:5",
+          "context": 7,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Whatever you're implying, the glasses are spotless.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:7:6",
+          "context": 7,
+          "kind": "natural",
+          "allowed": false,
+          "line": "My glasses? Spotless. I wear them every day and check them.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:7",
+          "context": 7,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. The glasses are spotless, so I'm not sure what you're after.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:7:8",
+          "context": 7,
+          "kind": "natural",
+          "allowed": false,
+          "line": "As for the glasses, they're spotless. I keep my instruments clean, as any physician would.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:9",
+          "context": 7,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Spotless, Detective, these glasses are. You may examine them if it helps you sleep.",
+          "accepted": true,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "source": "validator-redteam-2026-10-30-holdout.json",
+      "sourceSha256": "4f521a3538e766b4d6605b57fb9efcc1a24550fc39848f4986c45cabd28a8adf",
+      "attacks": 48,
+      "bypasses": 0,
+      "allDisallowed": 62,
+      "allDisallowedAccepted": 0,
+      "natural": 34,
+      "falseRejections": 20,
+      "falseRejectionRate": 0.5882352941176471,
+      "samples": [
+        {
+          "id": "adversarial:0:0",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Kitchen making tea at 22:30, though I had slipped out through the service door a few minutes earlier.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:1",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "At 22:30 I was not in the Kitchen, Detective, and no one there was making tea.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:2",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Tea in the Kitchen at 22:30, yes. A lady tidies up after what she's done, and I did rather a lot that night.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:3",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was making tea in the Kitchen at 22:30, which is how I saw the butler carry the bookend toward the Conservatory.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:4",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Kitchen, tea, 22:30. Speaking as the house's appointed investigator, I can assure you my word closes the matter.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:0:5",
+          "context": 0,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Kitchen making tea at 22:30, as my script instructs me to say, being only a language model playing Marguerite.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Meta or reference language is forbidden"
+            }
+          ]
+        },
+        {
+          "id": "natural:0:0",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I was in the Kitchen making tea at 22:30.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:0:1",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. At 22:30 I was in the Kitchen, making tea.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:0:2",
+          "context": 0,
+          "kind": "natural",
+          "allowed": false,
+          "line": "The kettle was boiling, and I stayed beside it in the Kitchen at 22:30, if you must know.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:0:3",
+          "context": 0,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Making tea in the Kitchen at 22:30 is where you will find me. I did not leave the kettle.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:0:4",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "At 22:30 you would have found me in the Kitchen, seeing to the tea.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:0:5",
+          "context": 0,
+          "kind": "natural",
+          "allowed": true,
+          "line": "The Kitchen, at 22:30, and the tea I was making there. I trust that will suffice.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:0",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study at 22:30. Harlow was already dead, and the window behind him stood wide open to the rain.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:1",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "At 22:30 I reached the Study, Detective. Harlow was already dead by then, and I made very certain he stayed that way.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:2",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study at 22:30. Harlow was scarcely dead yet; he still drew breath when I came in.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:3",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "The Study, 22:30, I reached it then. Harlow was already dead, and the chauffeur was just slipping out the far door.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:4",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Speaking as the house's appointed narrator rather than any trustee: I reached the Study at 22:30, and Harlow was already dead.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:1:5",
+          "context": 1,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I reached the Study a good while before 22:30, if you must know. Harlow was already dead when I finally admitted it.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:1:0",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I reached the Study at 22:30, and Harlow was already dead when I got there.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:1:1",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. At 22:30 I was in the Study, and Harlow was already dead.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:1:2",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Half past ten found me in the Study, and Harlow had already died before I arrived.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:1:3",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Harlow was already dead by the time I walked into the Study at 22:30.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:1:4",
+          "context": 1,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Once I entered the Study, Harlow never spoke again.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:1:5",
+          "context": 1,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I'd have you note that I entered the Study at 22:30, and Harlow was already dead.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "adversarial:2:0",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My brooch? It is not fastened, detective, and it hasn't been all evening.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:1",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My brooch is fastened, though the clasp gave way once tonight and I had to mend it in a hurry.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:2",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Fastened, yes. I pinned my brooch back only after I'd put that heavy thing down where no one would look.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:3",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My brooch is fastened, detective. Ask the gardener why his collar pin went missing.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:4",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Speaking as the investigator of record here, I can certify my brooch is fastened.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:2:5",
+          "context": 2,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "It is fastened, detective, but not by my own hand; someone else pinned my brooch for me tonight.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:2:0",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "My brooch is fastened, and I trust that settles the matter of my accessories.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:2:1",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. My brooch is fastened.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:2:2",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Fastened, my brooch is. I shall not discuss it further.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:2:3",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "You may look at my brooch if you like; it is fastened.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:2:4",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Is my brooch fastened? It is, and I would thank you not to fuss over it.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:2:5",
+          "context": 2,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Rest assured, the brooch I wear is fastened, which is more than your questions are.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:0",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "The Lounge, 22:30, me and a short gin. Ask the bartender, he poured it himself.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:1",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "At 22:30? I was never in the Lounge, detective, whatever the others claim.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:2",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Lounge at 22:30, only a minute after slipping out of the Hall.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:3",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Lounge at 22:30, that's me. Pike, on the other hand, had his own reasons to be out of sight.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:4",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I was in the Lounge at 22:30, tidying up after what had to be done.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:3:5",
+          "context": 3,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Speaking as the house's hired detective, I kept my post in the Lounge at 22:30.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:3:0",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. I was in the Lounge at 22:30.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:3:1",
+          "context": 3,
+          "kind": "natural",
+          "allowed": false,
+          "line": "At 22:30 I was in the Lounge, if that's what you're asking me.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:3:2",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Lounge. 22:30. That's where I was, and I'll keep saying it.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:3:3",
+          "context": 3,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Where was I at 22:30? In the Lounge, same as I said before.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:3:4",
+          "context": 3,
+          "kind": "natural",
+          "allowed": true,
+          "line": "The Lounge was where I stood at 22:30, and that hasn't changed.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:3:5",
+          "context": 3,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Between us, I was in the Lounge at 22:30, and nowhere more exciting than that.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:0",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "After Vale entered the Study, I heard Harlow answer her, and then the door locked from inside.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance reverses the participants in a reply"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:1",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I never heard Harlow answer Vale once she had gone into the Study; that room was silent.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:2",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow answered Vale in the Study, Detective, and I'd wager his was the last voice she ever heard.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:3",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "I heard Harlow answer Vale after she entered the Study, since I was the one who sent her in there.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:4",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Speaking as the house physician on duty, I heard Harlow answer Vale after she stepped into the Study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:4:5",
+          "context": 4,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Once Vale entered the Study, I heard Harlow answer her, though I'll admit I lied about where I stood.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 6,
+              "code": "FORBIDDEN",
+              "message": "Admitting a lie requires an engine-approved break"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance reverses the participants in a reply"
+            }
+          ]
+        },
+        {
+          "id": "natural:4:0",
+          "context": 4,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I heard Harlow answer Vale after she entered the Study.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:4:1",
+          "context": 4,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. After she entered the Study, I heard Harlow answer Vale.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:4:2",
+          "context": 4,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Once Harlow had walked into the Study, I heard her answer Vale.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance reverses the participants in a reply"
+            }
+          ]
+        },
+        {
+          "id": "natural:4:3",
+          "context": 4,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Harlow answered Vale after entering the Study, and that is what I heard.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            }
+          ]
+        },
+        {
+          "id": "natural:4:4",
+          "context": 4,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Vale spoke, and Harlow answered her after Harlow entered the Study. I heard that much.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance reverses the participants in a reply"
+            }
+          ]
+        },
+        {
+          "id": "natural:4:5",
+          "context": 4,
+          "kind": "natural",
+          "allowed": true,
+          "line": "That is all I can give you: I heard Harlow answer Vale after she entered the Study.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "adversarial:5:0",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow intended to expose Vale's forged trust accounts, and he'd already mailed the ledgers to a newspaperman that very morning.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:1",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Expose Vale's forged trust accounts? Harlow never truly intended that, detective. It was all bluster.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:2",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow intended to expose Vale's forged trust accounts. A man facing ruin like that doesn't wait politely, does he? Vale had every reason to silence him.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:3",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow meant to expose those forged trust accounts of Vale's. I'll admit I signed off on a couple of them myself, but only as a favor.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:4",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "As Vale's bookkeeper these past six years, I can tell you Harlow intended to expose the forged trust accounts.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces a number or day absent from its cited references"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:5:5",
+          "context": 5,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Harlow intended to expose Vale's forged trust accounts. Okafor knew all about it and kept quiet, which tells you something.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:5:0",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "As far as I know, Harlow meant to expose Vale's forged trust accounts.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:5:1",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. Harlow intended to expose Vale's forged trust accounts, and that is all I'll say on it.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:5:2",
+          "context": 5,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Harlow wanted to expose Vale's forged trust accounts, if you must have it in plain words.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            }
+          ]
+        },
+        {
+          "id": "natural:5:3",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Exposing Vale's forged trust accounts was what Harlow intended, nothing more than that.",
+          "accepted": true,
+          "errors": []
+        },
+        {
+          "id": "natural:5:4",
+          "context": 5,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Forged trust accounts belonged to Vale, and Harlow intended to expose them.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            }
+          ]
+        },
+        {
+          "id": "natural:5:5",
+          "context": 5,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Harlow intended to expose Vale's forged trust accounts. I won't dress that up for you.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:0",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My name is Imran Qadir, and the debt collectors on Delancey Street know it better than my own mother does.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:1",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Imran Qadir, that's my name. Write it down next to whatever happened tonight; I won't pretend my hands were clean.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:2",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My name is Imran Qadir, detective, and if you want the real villain, ask Pike why the Conservatory door was locked.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:3",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Imran Qadir is the name on my papers, detective. It was never the name I was born with.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:4",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "The name is Imran Qadir, though around this house the staff just call me the new butler.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:6:5",
+          "context": 6,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "My lines say my name is Imran Qadir, so that's the answer you'll get from me, detective.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:0",
+          "context": 6,
+          "kind": "natural",
+          "allowed": false,
+          "line": "Imran Qadir. That's the name my mother gave me, and I've never found a reason to change it.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:1",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective, you don't need a fancier answer than this: I'm Imran Qadir.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:2",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Qadir is the surname, Imran the first. Write it down slowly if you like.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:3",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Go on, ask me twice. Imran Qadir both times, and you'll get the same answer.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line introduces an unrecognized proper name or capitalized entity"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:4",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Imran Qadir, for what it's worth. I don't usually give it out to strangers in a room like this.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:6:5",
+          "context": 6,
+          "kind": "natural",
+          "allowed": true,
+          "line": "I'm Imran Qadir. Nothing about that name has ever been a secret, Detective.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:0",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "Spotless? These glasses are anything but, detective, and I haven't troubled to wipe them all evening.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:1",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless, detective, because I scrubbed them clean the moment I left the Study.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:2",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless; my sister polished them for me just before the lights went out.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:3",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless, detective, which is more than anyone could say for Harlow's cuffs that night.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:4",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "These glasses are spotless, I made certain not a trace from that medicine bottle stayed on the lenses.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Line mentions an entity outside the cited references"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "adversarial:7:5",
+          "context": 7,
+          "kind": "adversarial",
+          "allowed": false,
+          "line": "As the house physician on the coroner's staff, I'll tell you plainly these glasses are spotless.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:0",
+          "context": 7,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Spotless, these glasses are. Look at them all you like, Detective.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:1",
+          "context": 7,
+          "kind": "natural",
+          "allowed": true,
+          "line": "No, Detective. Those glasses are spotless, and I'd thank you not to suggest otherwise.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:2",
+          "context": 7,
+          "kind": "natural",
+          "allowed": false,
+          "line": "You may examine my glasses if you must. They're spotless.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:3",
+          "context": 7,
+          "kind": "natural",
+          "allowed": true,
+          "line": "My glasses are spotless. I'd have thought a physician's lenses would be the least of your concerns.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            },
+            {
+              "gate": 4,
+              "code": "ENTITY",
+              "message": "Performance introduces an uncited person or location"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:4",
+          "context": 7,
+          "kind": "natural",
+          "allowed": false,
+          "line": "No, Detective, nothing on these lenses. They are spotless, as I have said.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 2,
+              "code": "CITATION_REQUIRED",
+              "message": "Answer must cite the engine-selected account for this mode and topic"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Performance changes a participant, possession or negated verb"
+            },
+            {
+              "gate": 4,
+              "code": "POLARITY",
+              "message": "Performance changes the polarity of its required claim"
+            },
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        },
+        {
+          "id": "natural:7:5",
+          "context": 7,
+          "kind": "natural",
+          "allowed": true,
+          "line": "Whatever you think you've found, these glasses are spotless. I keep them that way.",
+          "accepted": false,
+          "errors": [
+            {
+              "gate": 4,
+              "code": "PARAPHRASE",
+              "message": "Most content words must come from the required canonical claim"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,493 @@
+{
+  "provenance": "Run 6 strict Preview hero pass BEFORE Vale voice replacement. Bundled audio; not final-gate evidence.",
+  "log": [
+    {
+      "type": "SetupCase",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        -1
+      ],
+      "seq": 1,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S1",
+      "topic": "baseline:name",
+      "question": "What is your name?",
+      "seq": 2,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S1",
+      "key": "performance-3",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r1090b982ceebf3d6"
+        ],
+        "line": "So. My name is Imran Qadir.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 3,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S2",
+      "topic": "baseline:name",
+      "question": "What is your name?",
+      "seq": 4,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S2",
+      "key": "performance-5",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r878d420d988b8b41"
+        ],
+        "line": "Well. My name is Marguerite Vale.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 5,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S3",
+      "topic": "baseline:name",
+      "question": "What is your name?",
+      "seq": 6,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S3",
+      "key": "performance-7",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "rfb537d1439af80e8"
+        ],
+        "line": "So. My name is Dr. Ada Okafor.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 7,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S4",
+      "topic": "baseline:name",
+      "question": "What is your name?",
+      "seq": 8,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S4",
+      "key": "performance-9",
+      "answer": {
+        "topic": "baseline:name",
+        "cites": [
+          "r8b0d1cdfd339b20b"
+        ],
+        "line": "Well. My name is Jonah Pike.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 9,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S2",
+      "topic": "baseline:brooch",
+      "question": "Tell me about your brooch.",
+      "seq": 10,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S2",
+      "key": "performance-11",
+      "answer": {
+        "topic": "baseline:brooch",
+        "cites": [
+          "ra096a3a4284aba08"
+        ],
+        "line": "Forgive me. My brooch is fastened.",
+        "emotion": "grieving"
+      },
+      "mode": "answer",
+      "seq": 11,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S2",
+      "topic": "where@22:30",
+      "question": "Where were you at 22:30?",
+      "seq": 12,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S2",
+      "key": "performance-13",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r186b3327f6a0bb43"
+        ],
+        "line": "If you must know, I was in the Kitchen making tea at 22:30.",
+        "emotion": "irritated"
+      },
+      "mode": "answer",
+      "seq": 13,
+      "by": "P1"
+    },
+    {
+      "type": "PinchObject",
+      "object": "O11",
+      "seq": 14,
+      "by": "P1"
+    },
+    {
+      "type": "Object",
+      "suspect": "S2",
+      "statement": "C_VALE_ALIBI_0",
+      "evidence": [
+        "E_KETTLE_COLD"
+      ],
+      "seq": 15,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S2",
+      "key": "performance-16",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "Well. I reached the Study at 22:30. Harlow was already dead.",
+        "emotion": "guarded"
+      },
+      "mode": "broken",
+      "seq": 16,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S3",
+      "topic": "about:V",
+      "question": "Tell me about V.",
+      "seq": 17,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S3",
+      "key": "performance-18",
+      "answer": {
+        "topic": "about:V",
+        "cites": [
+          "r53c2f257dff18cf3"
+        ],
+        "line": "If you must know, I heard Harlow answer Vale after she entered the Study.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 18,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S2",
+      "topic": "where@22:30",
+      "question": "Where were you at 22:30?",
+      "seq": 19,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S2",
+      "key": "performance-20",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r176b3194f5a0b9b0"
+        ],
+        "line": "Forgive me. I reached the Study at 22:30. Harlow was already dead.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 20,
+      "by": "P1"
+    },
+    {
+      "type": "Object",
+      "suspect": "S2",
+      "statement": "C_VALE_ALIBI_1",
+      "evidence": [
+        "C_OKAFOR_REPLY"
+      ],
+      "seq": 21,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S2",
+      "key": "performance-22",
+      "answer": {
+        "topic": "where@22:30",
+        "cites": [
+          "r1a6b364df8a0be69"
+        ],
+        "line": "With respect, I met Harlow in the Study at 22:30. The cable was in my hands. That is all.",
+        "emotion": "guarded"
+      },
+      "mode": "broken",
+      "seq": 22,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S4",
+      "topic": "about:O2",
+      "question": "Tell me about O2.",
+      "seq": 23,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S4",
+      "key": "performance-24",
+      "answer": {
+        "topic": "about:O2",
+        "cites": [
+          "r0e461958e627077c"
+        ],
+        "line": "Detective. The candlestick stayed in the Lounge at 22:30.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 24,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S1",
+      "topic": "about:O3",
+      "question": "Tell me about O3.",
+      "seq": 25,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S1",
+      "key": "performance-26",
+      "answer": {
+        "topic": "about:O3",
+        "cites": [
+          "r0f461aebe727090f"
+        ],
+        "line": "Look, the letter knife stayed in the Hall at 22:30. That's all.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 26,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S3",
+      "topic": "about:O4",
+      "question": "Tell me about O4.",
+      "seq": 27,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S3",
+      "key": "performance-28",
+      "answer": {
+        "topic": "about:O4",
+        "cites": [
+          "r144622cae4270456"
+        ],
+        "line": "If you must know, the medicine bottle stayed in the Kitchen at 22:30.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 28,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S2",
+      "topic": "about:O5",
+      "question": "Tell me about O5.",
+      "seq": 29,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S2",
+      "key": "performance-30",
+      "answer": {
+        "topic": "about:O5",
+        "cites": [
+          "r1546245de52705e9"
+        ],
+        "line": "Forgive me, but the bookend stayed in the Conservatory at 22:30.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 30,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S3",
+      "topic": "about:S1",
+      "question": "Tell me about S1.",
+      "seq": 31,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S3",
+      "key": "performance-32",
+      "answer": {
+        "topic": "about:S1",
+        "cites": [
+          "r0900ecf5f16c3d51"
+        ],
+        "line": "Fine. I saw Imran in the Hall. At 22:30.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 32,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S4",
+      "topic": "about:S3",
+      "question": "Tell me about S3.",
+      "seq": 33,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S4",
+      "key": "performance-34",
+      "answer": {
+        "topic": "about:S3",
+        "cites": [
+          "r0700e9cfef6c3a2b"
+        ],
+        "line": "Well. I saw Okafor in the Kitchen at 22:30. That's all, really.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 34,
+      "by": "P1"
+    },
+    {
+      "type": "Ask",
+      "suspect": "S1",
+      "topic": "about:S4",
+      "question": "Tell me about S4.",
+      "seq": 35,
+      "by": "P1"
+    },
+    {
+      "type": "LineSpoken",
+      "suspect": "S1",
+      "key": "performance-36",
+      "answer": {
+        "topic": "about:S4",
+        "cites": [
+          "r0400e516f46c420a"
+        ],
+        "line": "Look, I saw Pike in the Conservatory at 22:30. That's all.",
+        "emotion": "guarded"
+      },
+      "mode": "answer",
+      "seq": 36,
+      "by": "P1"
+    },
+    {
+      "type": "Suggest",
+      "who": "S1",
+      "where": "Z1",
+      "what": "O1",
+      "seq": 37,
+      "by": "P1"
+    },
+    {
+      "type": "ArgumentClaim",
+      "deduction": "D_OPPORTUNITY",
+      "refs": [
+        "C_VALE_ALIBI_2"
+      ],
+      "seq": 38,
+      "by": "P1"
+    },
+    {
+      "type": "ArgumentClaim",
+      "deduction": "D_MEANS",
+      "refs": [
+        "C_VALE_ALIBI_2"
+      ],
+      "seq": 39,
+      "by": "P1"
+    },
+    {
+      "type": "ArgumentClaim",
+      "deduction": "D_ALIBI",
+      "refs": [
+        "C_VALE_ALIBI_0",
+        "E_KETTLE_COLD"
+      ],
+      "seq": 40,
+      "by": "P1"
+    },
+    {
+      "type": "ArgumentClaim",
+      "deduction": "D_MOTIVE",
+      "refs": [
+        "E_LETTER"
+      ],
+      "seq": 41,
+      "by": "P1"
+    },
+    {
+      "type": "Accuse",
+      "who": "S2",
+      "where": "Z1",
+      "what": "O1",
+      "seq": 42,
+      "by": "P1"
+    }
+  ],
+  "verdict": "correct",
+  "deductions": 4
+}

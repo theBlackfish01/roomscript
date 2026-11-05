@@ -1,18 +1,28 @@
-﻿# Run 6 — active, 2026-11-05
+﻿# Run 6 — partial handoff, 2026-11-05
 
-## Current submission state
+## Current submission state (supersedes historical entries)
 
-Working on `run5-wip` from `6518394` (Run 5 preserved and pushed by Claude). Master stays at `bfaf5ff` until Phase A2 passes with the swapped compressed library and hero route. Private repository, MIT, real history, package commits/pushes authorized. Freeze: Nov 7, 21:00 PKT. Rule 15 permits normal sandbox escalations; only GUI automation is forbidden. Historical Run 5 approval blockers below are superseded.
+**Logic proven / feel unproven.** Private `run5-wip` commits pushed; `master` stays at `bfaf5ff` because Phase A2's replacement-voice hero gate did not complete. No scene promotion, new milestone, rename, export or public release. MIT, real history, normal sandbox escalations and package pushes authorized. Freeze Sat Nov 7 at 21:00 PKT; remaining features stay active until then, followed by fixes only.
 
-- Preflight: Lens 5.23.2.26081320, correct project, signed in; process log starts Nov 5 14:02:41. Compile and refresh passed. LEAF registration handshake 0.483 s; first refresh activity 29 ms.
-- Baseline compressed bundled voices passed (four actors, jaw peak 0.8, no network/fallback). This first invocation mistakenly used diagnostic policy `strict`, which this LEAF version maps to fallback. Subsequent strict gates use `fail-fast` and require rerun.
-- Hero baseline found a UIKit readiness race after opening: enabled control lookup ran before its interaction component resumed. Added a bounded wait for the real enabled control; rerun in progress. Run 5 mixed-root solver repair retained.
-- Two workers: Vale-only voice swap with ledger accounting; brighter thicker art and OFL fonts. No full suite during render/LEAF.
+Full per-item statuses, captures, costs, ten-minute tour and next-run instructions: [Run 6 final report](RUN6_REPORT.md).
+
+- Done offline: Vale S2-1 swap (134 runtime sources; other speakers retained), compressed 9.95 MB audio, brighter art/pose contrast and four room composites, OFL fonts, duplicate prototype cleanup, validator recall improvement.
+- Verified: 462/462 pure tests across 49 files (89.20 s), pure typecheck, 11 audio contracts, 27 art contracts, 98/98 art hashes. All 169 saved disallowed validator samples rejected; holdout false rejection 70.6% to 58.8% (inspected regression corpus, not unseen evidence).
+- Lens: initial handshake 0.483 s; earlier-cast hero passed fail-fast in 171.752 s. Restart 14:23:35 PKT, import settle, compile/refresh clean. New-Vale compressed bundle passed fail-fast in 11.975 s (jaw .8, no network/fallback). Next hero tool failed before dispatch: `Failed to get scenario list after 600 attempts`. Lens operations stopped under AGENTS. No GUI or raw HTTP fallback.
+- Partial: timed subtitle reveal compiled, four timing regressions and bundle playback pass; visual acceptance pending. Pure narration selector has ten passing tests but is UNWIRED; existing RoomscriptAudio still needs its tested confession/voicemail guard integrated. S2 clock probe unresolved; no new frame number.
+- Remaining Lens work: A3 actors/cards/props/ghosts, UI/fonts/angular sizing, voiced moments and reconstruction, VFX/UX, final integration/Director captures, live exchange, compiler page, camera rig, size export and rename. Existing packages remain as documented in Run 5; no new acceptance implied.
+- New review material: docs/captures/2026-11-05-art-after-poses.png and art-room-{Vale,Qadir,Okafor,Pike}.png. Explicit OFFLINE composites over historical Preview. No new UI/reconstruction/endings/objection Lens captures.
+- Costs: ElevenLabs 4,900 confirmed credits, including 40 preserved unshipped mood takes; Claude $0; no unresolved reservations. New ledger segment uses the existing 30,000-credit top-up.
+- Publication: NOTICE/font and synthetic-voice disclosures, README/GIF slot/build explanation, Devpost draft and scoped secret scans updated. Reachable-history text scan at code checkpoint: 925 blobs, zero findings; pre-commit hook enabled.
 
 ## Needs Wadood
 
-- D6 submission-form/rules review and actual Eleven Music subscription eligibility remain owner-only.
-- Physical Specs comfort, additive brightness, spatial audio, keyboard and ASR remain unverified.
+1. Restore/restart the LEAF bridge for a fresh post-import bundle + hero gate with Assets writes paused. Only after both pass: commit scene, fast-forward/push master, continue there. Scene's regenerated LEAF bridge IDs remain uncommitted. Existing KICKOFF_PROMPT edit is untouched.
+2. Listen to cast and Harlow splice (signal-based silence boundary; provider forced-alignment permission unavailable).
+3. Devpost rules/form and Eleven Music subscription eligibility; final video and public release/submission.
+4. Device-only comfort, additive brightness, spatial audio, hands/ray drops, keyboard and ASR.
+
+First next work: Phase A2 gate, clock/profiling diagnosis, narration queue/guard integration, then priority art/UI wiring. See Tooling/audio/RUN6-WIRING.md and Tooling/art/RUN6-HANDOFF.md.
 
 ---
 # Run 5 — handoff, 2026-11-04
@@ -335,3 +345,4 @@ E6 partial: bundled TTS now reveals whole admitted words from provider character
 V3 engine improvement verified: holdout false rejection 24/34 to 20/34 (58.8%); development 32/69 to 27/69. Saved attacks remain 0/96 and 0/48 accepted; all 169 judged-disallowed samples rejected. 55 focused tests pass; no paid API use. See docs/RUN6_VALIDATOR_RECALL.md. This inspected holdout is regression evidence. Final Lens compilation remains pending after transport failure.
 
 A4 audio preparation: deterministic NarrativeAudio selector and dialogueAllowed gate pass 10/10 tests; all exact speech matches shipped clips. Wren triggers, delayed voicemail fact admission, composure and distinct endings prepared. UNWIRED: existing RoomscriptAudio still needs corrected guard and serialization; see Tooling/audio/RUN6-WIRING.md. Final full pure suite 462/462 across 49 files, 89.20 s, one worker after renders/LEAF stopped. Pure Engine/Content/Tooling typecheck passed.
+

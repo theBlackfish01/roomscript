@@ -2,7 +2,7 @@
 
 Roomscript stages a fair murder mystery in your room on Snap Specs. Its deterministic engine decides the truth; synthetic characters perform validated accounts. Wadood directs the project; coding agents implement it with CLAD and the Lens Studio MCP.
 
-**Submission state, November 4: logic proven / feel unproven.** The repository remains private. The final integrated Preview gate, video, hardware evaluation and public submission are pending. This folder is a reviewable publication package, not evidence that submission has happened. [Current build state](../docs/PROGRESS.md).
+**Submission state, November 5: logic proven / feel unproven.** The repository remains private. The final integrated Preview gate, video, hardware evaluation and public submission are pending. Run 6's earlier-cast hero passed; new Vale playback passed, but its hero registration failed. This folder is a reviewable publication package, not evidence that submission has happened. [Current build state](../docs/PROGRESS.md).
 
 | File | Purpose |
 |---|---|
@@ -29,7 +29,7 @@ Roomscript stages a fair murder mystery in your room on Snap Specs. Its determin
 ## Release actions still owned by Wadood
 
 - Confirm the actual Devpost rules, resources, updates and submission form, plus the account's ElevenLabs music eligibility. Earlier automatic access to the rules returned HTTP 403.
-- Review the cast (Vale take 1 is requested but its new synthesis is network-blocked), the art sheets and the readable Stage route.
+- Review the cast (Vale now uses selected S2-1), the labelled offline art composites and the readable Stage route. Harlow's preserved voicemail splice needs listening review.
 - Finish the final 2:50 public video and capture credits. Add the video URL only when it exists.
 - Make the existing private repository public on November 8 after the final secret/history scan and LFS archive check. Preserve real history.
 - Check all links and submit. Target submission is November 9 at 21:00 PKT; the recorded deadline is November 10 at 03:00 PKT. Feature freeze remains November 7 at 21:00 PKT.

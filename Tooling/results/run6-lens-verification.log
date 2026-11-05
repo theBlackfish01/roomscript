@@ -1,0 +1,15 @@
+[Assets/Scripts/RoomscriptBundledVoiceLeafScenario.ts:14] BUNDLED_VOICE_CHECK|{"lines":4,"peak":0.8,"maxStart":0,"calls":0,"fallback":0}
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 11.559s]PASSED: roomscript-bundled-voices
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] E [DefaultLeafScenarioManager] [ 18.544s]FAILED: roomscript-hero-demo - AssertionError: Expected: "1" - Received: "0"
+[Assets/Scripts/RoomscriptHeroDemoLeafScenario.ts:32] HERO_DEMO_CHECK|CASE CLOSED
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [171.752s]PASSED: roomscript-hero-demo
+[Assets/Scripts/RoomscriptPolishLeafScenario.ts:11] POLISH_CACHE|{"same":true,"frozen":true}
+[Assets/Scripts/RoomscriptPolishLeafScenario.ts:14] POLISH_AUDIO|{"spatial":1,"flat":0,"tick":false}
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] E [DefaultLeafScenarioManager] [  1.666s]FAILED: roomscript-polish-foundation - AssertionError: Expected: "true" - Received: "false"
+[Assets/Scripts/RoomscriptPolishLeafScenario.ts:11] POLISH_CACHE|{"same":true,"frozen":true}
+[Assets/Scripts/RoomscriptPolishLeafScenario.ts:16] POLISH_AUDIO|{"spatial":1,"flat":0,"tick":false}
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] E [DefaultLeafScenarioManager] [  1.254s]FAILED: roomscript-polish-foundation - AssertionError: Expected: "true" - Received: "false"
+[Assets/Scripts/RoomscriptBundledVoiceLeafScenario.ts:14] BUNDLED_VOICE_CHECK|{"lines":4,"peak":0.8,"maxStart":0,"calls":0,"fallback":0}
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 12.002s]PASSED: roomscript-bundled-voices
+[Assets/Scripts/RoomscriptBundledVoiceLeafScenario.ts:14] BUNDLED_VOICE_CHECK|{"lines":4,"peak":0.8,"maxStart":0,"calls":0,"fallback":0}
+[Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 11.975s]PASSED: roomscript-bundled-voices
