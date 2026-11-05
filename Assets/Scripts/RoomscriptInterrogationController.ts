@@ -52,6 +52,7 @@ import {tellCue} from "./Engine/game/TellCue";
       const state=this.engine.dispatch({type:verb==="Press"?"Press":"Believe",suspect:this.selected});
       if(verb==="Press"&&!this.rejected(state))void this.perform("Answer the detective's challenge.","chip",this.topic(state));});
     this.tts.onAudioStarted.add(event=>{if(this.speaking){this.lastAudioMs=event.latencyMs;this.onSpeaking.invoke(this.speaking);this.speaking=null;}});
+    this.tts.onSubtitle.add(text=>this.subtitles.reveal(text));
     this.engine.onState.add(state=>this.render(state));this.selectSuspect(this.actor.suspect);
   }
   diagnostics():{busy:boolean;suspect:string;last:ChosenAnswer|null;audioMs:number|null;offline:boolean;level:number} {return {busy:this.busy,suspect:this.selected,last:this.last,audioMs:this.lastAudioMs,offline:this.client.isOffline()||this.availability?.level===0,level:this.client.stageMode?0:this.availability?.level??0};}

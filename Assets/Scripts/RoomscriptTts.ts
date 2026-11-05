@@ -13,6 +13,7 @@ import {validateLine} from "./Engine/perf/LineValidator";
 import {heroLineBank} from "./Content/HeroLineBank";
 import {RoomscriptVoiceLibrary} from "./RoomscriptVoiceLibrary";
 import {RoomscriptAudio} from "./RoomscriptAudio";
+import {subtitleCues,SubtitleCue} from "./Engine/perf/SubtitleTiming";
 
 /** Validated prose only. Parallel synthesis, ordered playback, shared first-audio deadline. */
 @component export class RoomscriptTts extends BaseScriptComponent {
@@ -22,11 +23,13 @@ import {RoomscriptAudio} from "./RoomscriptAudio";
   readonly onSubtitle=new Event<string>();
   private audio:AudioComponent;private cache=new Map<string,AudioTrackAsset>();private source:CancellationSource;
   private played=0;private fallback=0;private hit=0;
+  private caption:SubtitleCue[]=[];private captionIndex=0;private captionOffset=0;private captionText="";
   onAwake():void {
     this.createEvent("OnStartEvent").bind(()=>{this.audio=this.getSceneObject().createComponent("Component.AudioComponent") as AudioComponent;this.audio.playbackMode=Audio.PlaybackMode.LowLatency;this.audio.volume=0.9;});
     this.createEvent("OnDestroyEvent").bind(()=>this.stop());
+    this.createEvent("UpdateEvent").bind(()=>{if(!this.caption.length||!this.audio?.isPlaying())return;const time=this.audio.position-this.captionOffset;let text:string|undefined;while(this.captionIndex<this.caption.length&&this.caption[this.captionIndex].at<=time)text=this.caption[this.captionIndex++].text;if(text!==undefined)this.onSubtitle.invoke(text);});
   }
-  stop():void {this.source?.cancel();if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor?.setVoice(null);}
+  stop():void {this.source?.cancel();this.caption=[];if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor?.setVoice(null);}
   diagnostics():{played:number;fallback:number;cache:number;hits:number;playing:boolean} {return {played:this.played,fallback:this.fallback,cache:this.cache.size,hits:this.hit,playing:!!this.audio?.audioTrack&&this.audio.isPlaying()};}
   cached(line:string,voice=this.actor.voice()):boolean {return !!RoomscriptVoiceLibrary.clips(this.actor.suspect,line)||splitSentences(line).every(sentence=>this.cache.has(voice+"|"+sentence));}
   clearCacheForProbe():void {this.stop();this.cache.clear();}
@@ -67,10 +70,11 @@ import {RoomscriptAudio} from "./RoomscriptAudio";
     try {
       RoomscriptAudio.active?.duckSpeech(true);const bundled=RoomscriptVoiceLibrary.clips(this.actor.suspect,line,take,allowTell);
       if(bundled){for(const clip of bundled){source.token.throwIfCancelled();const record=clip.record;this.audio.audioTrack=clip.track;this.audio.play(1);if(record.startSeconds)this.audio.position=record.startSeconds;
+        this.caption=subtitleCues(record.text,record.alignment);this.captionIndex=0;this.captionOffset=record.startSeconds||0;this.captionText=record.text;this.onSubtitle.invoke(this.caption.length?"":record.text);
         this.played++;this.hit++;first=false;this.actor.setVoice(clip.track);this.actor.setAlignment(record.alignment,()=>this.audio.position-(record.startSeconds||0));
         const duration=(record.endSeconds??this.audio.duration)-(record.startSeconds||0);
         this.onAudioStarted.invoke({text:record.text,latencyMs:this.client.clock.nowMs()-began,voice:"bundle:"+record.speaker+":"+record.take,durationMs:duration*1000});
-        await delay(Math.max(100,duration*1000),this.client.clock,source.token);if(this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);
+        await delay(Math.max(100,duration*1000),this.client.clock,source.token);this.caption=[];this.onSubtitle.invoke(record.text);if(this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);
       }return true;}
       const clips=prepareSpeech(line,(sentence,index)=>this.synthesize(sentence,selectedVoice,"live",audioBudgetMs(began,this.client.clock.nowMs(),index),source.token));
       for(const clip of clips) {

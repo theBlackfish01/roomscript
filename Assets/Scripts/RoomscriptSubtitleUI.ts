@@ -8,5 +8,6 @@ import {PanelUI,wrapText} from "./RoomscriptPanelUI";
   build():void {if(this.view)return;this.view=new PanelUI(this.getSceneObject(),this.width,15,this.fontScale,this.ink,true);
     this.speaker=this.view.text("Speaker","",3,"title");this.line=this.view.text("Spoken subtitle","Choose a question.",9,"small");}
   set(speaker:string,line:string):void {this.build();this.speaker.text=speaker;this.current=line;this.line.text=wrapText(line,28);}
+  reveal(line:string):void {this.build();const wrapped=wrapText(line,28);if(this.line.text!==wrapped)this.line.text=wrapped;}
   text():string{return this.current;}
 }

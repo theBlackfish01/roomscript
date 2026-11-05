@@ -83,3 +83,5 @@ Raw-log SHA-256: `34820b09cc040b6dbe223def9e95c3649f5764cb9ec6f8016e6d5106e59b6b
 
 - Main: post-import restart via process lifecycle (no GUI); MCP compile/log refresh clean. Strict bundled-voices passed replacement library. Hero tool failed before dispatch: Failed to get scenario list after 600 attempts. Stopped Lens operations; no runtime bypass, scene promotion, or m3-case.
 - Vale audio worker: 134 runtime source swaps, dialogue splices, source-priority/stale-cast regressions, 11 pipeline contracts, 878 entries/552 tracks/9,954,375 bytes. 4,900 confirmed credits including 40 unshipped optional masters. ElevenLabs forced-alignment permission unavailable; signal-based silence splice preserves Harlow.
+
+- Main used CLAD lens-api and specs-build-ui context for E6: pure admitted-word timing, forward cursor on audio position, boundary-only Text updates. Four tests passed; MCP compile/refresh and fail-fast bundle passed; capture acceptance blocked.
