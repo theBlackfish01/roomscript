@@ -1,0 +1,115 @@
+const sessions: any[] = [];
+try {
+  // ---- edit these constants ----
+  const outputDir = "C:/Users/wadoo/Desktop/SPECS_Hackathon/RoomScriptF/Tooling/results/performance";
+  const filenamePrefix = "roomscript_s2";
+  const durationMs = 10000;
+  const previewCount: number | null = 1; // set null to capture all Preview panels
+  const stateKey = "__roomscriptRun7PerfCapture";
+  // ------------------------------
+
+  const Ui: any = await import("LensStudio:Ui");
+  const gui: any = (pluginSystem as any).findInterface(Ui.IGui);
+  const workspaces = gui.workspaces.all;
+  if (!workspaces || workspaces.length === 0) {
+    throw Error("No active workspace available");
+  }
+
+  const workspace = workspaces[workspaces.length - 1];
+  const previews = workspace.dockManager.panels.filter((panel: any) =>
+    String(panel.id).includes("Snap.Plugin.Gui.PreviewPanel")
+  );
+  const selectedPreviews = previewCount == null ? previews : previews.slice(0, previewCount);
+  if (selectedPreviews.length === 0) {
+    throw Error("No Preview panels found");
+  }
+  if (previewCount != null && selectedPreviews.length < previewCount) {
+    throw Error(`Expected ${previewCount} Preview panels, found ${selectedPreviews.length}`);
+  }
+
+  const previous = (globalThis as any)[stateKey];
+  if (previous?.timer) {
+    try { clearTimeout(previous.timer); } catch (_) {}
+  }
+  if (previous?.sessions) {
+    for (const s of previous.sessions) {
+      try { s.finish(); } catch (_) {}
+    }
+  }
+
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const normalizedOutputDir = outputDir.replace(/[/\\]+$/, "");
+  const outputPaths = selectedPreviews.map((_: any, i: number) =>
+    `${normalizedOutputDir}/${filenamePrefix}_${stamp}_preview${i}.pftrace`
+  );
+
+  const started: any[] = [];
+  const startedAt = Date.now();
+
+  for (let i = 0; i < selectedPreviews.length; i++) {
+    const preview = selectedPreviews[i];
+    if (!preview.profiling || typeof preview.profiling.startTrace !== "function") {
+      throw Error(`Preview ${i} does not expose profiling.startTrace`);
+    }
+    if (preview.profiling.activeTraceSession != null) {
+      try { preview.profiling.activeTraceSession.finish(); } catch (_) {}
+    }
+
+    const session = preview.profiling.startTrace(new Editor.Path(outputPaths[i]));
+    if (session == null) {
+      throw Error(`Preview ${i} startTrace returned null`);
+    }
+
+    sessions.push(session);
+    started.push({
+      index: i,
+      path: outputPaths[i],
+      activeAfterStart: preview.profiling.activeTraceSession != null,
+      startOffsetMs: Date.now() - startedAt,
+    });
+  }
+
+  const state: any = {
+    sessions,
+    outputPaths,
+    startedAt,
+    started,
+    durationMs,
+    finishedAt: null,
+    recordedMs: null,
+    finished: null,
+  };
+
+  state.timer = setTimeout(() => {
+    const finishedAt = Date.now();
+    const finished: any[] = [];
+    for (let i = 0; i < sessions.length; i++) {
+      try {
+        sessions[i].finish();
+        finished.push({ index: i, ok: true, finishOffsetMs: Date.now() - finishedAt });
+      } catch (e: any) {
+        finished.push({ index: i, ok: false, error: e?.message ?? String(e) });
+      }
+    }
+    state.finishedAt = finishedAt;
+    state.finished = finished;
+    state.recordedMs = finishedAt - startedAt;
+    state.timer = null;
+    state.sessions = [];
+  }, durationMs);
+
+  (globalThis as any)[stateKey] = state;
+
+  return {
+    ok: true,
+    scheduled: true,
+    durationMs,
+    previewCount: selectedPreviews.length,
+    startedAt,
+    started,
+    outputPaths,
+  };
+} catch (e: any) {
+  for (const s of sessions) { try { s.finish(); } catch (_) {} }
+  return { ok: false, error: e?.message ?? String(e), stack: e?.stack ?? "" };
+}

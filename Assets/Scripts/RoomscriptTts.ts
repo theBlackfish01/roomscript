@@ -1,3 +1,5 @@
+import {admittedFreeSpeech,speechStillAdmitted} from "./Engine/ai/LiveSpeechAdmission";
+import {synthesizeAdmittedSpeech} from "./RoomscriptLiveSpeech";
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import {OpenAI} from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
 import {RoomscriptLlmClient} from "./RoomscriptLlmClient";
@@ -25,7 +27,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
   readonly onAudioStarted=new Event<{text:string;latencyMs:number;voice:string;durationMs:number}>();
   readonly onSubtitle=new Event<string>();
   private audio:AudioComponent;private cache=new Map<string,AudioTrackAsset>();private source:CancellationSource;
-  private played=0;private fallback=0;private hit=0;
+  private played=0;private fallback=0;private hit=0;private liveAttempts=0;private livePlayed=0;
   private caption:SubtitleCue[]=[];private captionIndex=0;private captionOffset=0;private captionText="";
   private static phrases:Map<string,VoiceRecord>;
   onAwake():void {
@@ -35,6 +37,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
   }
   stop():void {this.source?.cancel();this.caption=[];if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor?.setVoice(null);}
   diagnostics():{played:number;fallback:number;cache:number;hits:number;playing:boolean} {return {played:this.played,fallback:this.fallback,cache:this.cache.size,hits:this.hit,playing:!!this.audio?.audioTrack&&this.audio.isPlaying()};}
+  liveDiagnostics():{attempts:number;played:number;fallback:number}{return {attempts:this.liveAttempts,played:this.livePlayed,fallback:this.fallback};}
   cached(line:string,voice=this.actor.voice()):boolean {return !!(this.actor.engine.mode()==="dynamic"?this.phraseClips(line):RoomscriptVoiceLibrary.clips(this.actor.suspect,line))||splitSentences(line).every(sentence=>this.cache.has(voice+"|"+sentence));}
   private phraseClips(line:string):{track:AudioTrackAsset;record:VoiceRecord;raw:string;prefix:string}[]|null {
     if(!RoomscriptTts.phrases){RoomscriptTts.phrases=new Map<string,VoiceRecord>();for(const record of RUN7_VOICE_MANIFEST)RoomscriptTts.phrases.set(phraseVoiceKey(record.speaker,record.text),record);}
@@ -73,7 +76,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
     parent?.throwIfCancelled();this.cache.set(key,track);if(this.cache.size>60)this.cache.delete(this.cache.keys().next().value);
     return track;
   }
-  async speak(line:string,voice?:string,parent?:CancellationToken,questionStartedAt?:number,take="steady",allowTell=false):Promise<boolean> {
+  async speak(line:string,voice?:string,parent?:CancellationToken,questionStartedAt?:number,take="steady",allowTell=false,scope:"standard"|"free"="standard"):Promise<boolean> {
     this.stop();const source=new CancellationSource();this.source=source;const selectedVoice=voice??this.actor.voice();
     const unsubscribe=parent?.onCancel(()=>{source.cancel();if(this.source===source){if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);}})||(()=>{});
     const began=questionStartedAt??this.client.clock.nowMs();this.onSubtitle.invoke(line);let first=true;
@@ -88,6 +91,16 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
         this.onAudioStarted.invoke({text:record.text,latencyMs:this.client.clock.nowMs()-began,voice:"bundle:"+record.speaker+":"+record.take,durationMs:duration*1000});
         await delay(Math.max(100,duration*1000),this.client.clock,source.token);source.token.throwIfCancelled();this.caption=[];this.onSubtitle.invoke(clip.prefix+clip.raw);if(this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);
       }this.onSubtitle.invoke(line);return true;}
+      if(scope==="free"){
+        const engine=this.actor.engine,graph=engine.graphRef(),ticket=admittedFreeSpeech(engine.snapshot(),this.actor.suspect,line,"free");
+        if(!ticket)throw new LlmError("invalid_response");
+        const allowed=()=>this.source===source&&engine.graphRef()===graph&&speechStillAdmitted(engine.snapshot(),ticket);
+        this.liveAttempts++;const track=await synthesizeAdmittedSpeech(this.client,ticket,selectedVoice,allowed,source.token);
+        source.token.throwIfCancelled();this.audio.audioTrack=track;this.audio.play(1);this.played++;this.livePlayed++;this.actor.setVoice(track);
+        const duration=(track.control as FileAudioTrackProvider).duration;this.onSubtitle.invoke(line);
+        this.onAudioStarted.invoke({text:line,latencyMs:this.client.clock.nowMs()-began,voice:selectedVoice,durationMs:duration*1000});
+        await delay(Math.max(100,Number.isFinite(duration)?duration*1000:line.length*75),this.client.clock,source.token);return true;
+      }
       const clips=prepareSpeech(line,(sentence,index)=>this.synthesize(sentence,selectedVoice,"live",audioBudgetMs(began,this.client.clock.nowMs(),index),source.token));
       for(const clip of clips) {
         const prepared=await clip.ready;source.token.throwIfCancelled();if(prepared.ok===false)throw prepared.error;

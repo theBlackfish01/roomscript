@@ -75,6 +75,10 @@ Each criterion has a Preview check; terminal-only evidence cannot pass its Lens 
 - A free-speaking voice agent unless its spike proves engine-only facts; prerecorded voices remain the video's main path.
 - Unrequested new mechanics. Feature freeze is **Sun November 8, 2026, 21:00 PKT**; then fixes only.
 
+## Run 7 implementation evidence — November 6 checkpoint
+
+At `338b0db`, Preset uses a saved seven-object scan from three distinct viewpoints. Dynamic's working Preview file handoff captures three CameraModule frames, processes them locally through Tooling, reloads Preview on reply import, locates surfaces with World Query and compiles a case. Strict `source=file` seeds 7/1041/2026 each reach a correct verdict with exact replay and zero binding errors. They reuse one completed live six-object scan, not three fresh scans. This is a working simulated-room capability with an explicit reload; physical Specs recognition and uninterrupted device transport remain unproven. The criteria above remain the design contract; new visual, live-answer and continuous-capture gates are still separate. [Evidence/checklist](run7-publication-checklist.md).
+
 ## Risks and open questions
 
 - Run 6 proves 462 pure tests. Run 7 A2 now passes strict replacement-cast bundle playback (11.836 s) and repaired hero (169.471 s), with a saved Preview tape at `b3f4144`. Later Run 7 features still require the final integrated gate.

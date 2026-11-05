@@ -14,7 +14,7 @@ import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjection
     const flow=cast.flow,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
     try {
       expect(cast.actors().length).toBe(4);const roots=cast.actors().map(a=>a.getSceneObject().uniqueIdentifier);expect(new Set(roots).size).toBe(4);
-      for(const id of ["S1","S3","S4","S2"]){const button=findInteractablesByName("Select "+id,undefined,true)[0];expect(!!button).toBe(true);await hand.trigger(button);await sleep(100);
+      for(const id of ["S1","S3","S4","S2"]){const button=findInteractablesByName("Question "+id,undefined,true)[0];expect(!!button).toBe(true);await hand.trigger(button);await sleep(100);
         expect(flow.actor.suspect).toBe(id);expect(flow.tts.actor.suspect).toBe(id);expect(flow.actor.getSceneObject().enabled).toBe(true);
         expect(!!flow.actor.getSceneObject().getComponent("Component.RenderMeshVisual")).toBe(true);
         await flow.askChip("baseline:name");expect(flow.engine.snapshot().activeSuspect).toBe(id);

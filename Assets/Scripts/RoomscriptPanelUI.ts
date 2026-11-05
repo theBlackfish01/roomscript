@@ -47,7 +47,7 @@ export class PanelUI {
     const o=uiObject(parent,"Label"),t=o.createComponent("Component.Text") as Text;
     t.text=value;applyTextRole(t,role,this.scale);t.depthTest=true;t.textFill.color=this.color;
     t.horizontalAlignment=HorizontalAlignment.Center;t.verticalAlignment=VerticalAlignment.Center;
-    t.horizontalOverflow=HorizontalOverflow.Overflow;t.verticalOverflow=VerticalOverflow.Overflow;
+    t.horizontalOverflow=HorizontalOverflow.Overflow;t.verticalOverflow=VerticalOverflow.Overflow;t.sizeToFit=true;
     t.layoutRect=Rect.create(-width/2,width/2,-height/2,height/2);return t;
   }
   text(name:string,value:string,height:number,role:"title"|"body"|"small"="body"):Text {

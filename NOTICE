@@ -82,10 +82,12 @@ Generated audio and AI services
   Remote Service Gateway. Their models are not redistributed. OpenAI speech is
   synthetic and is disclosed as such in the project. Offline Stage mode makes
   no ElevenLabs requests.
-- Anthropic Claude was used locally for validator red-teaming and drafting /
+- Anthropic Claude was used locally for simulated Evening Room vision casting,
+  validator red-teaming and drafting /
   independently judging performance-bank candidates. This generated content is
   labelled in its provenance. Anthropic credentials and SDK use stay in Tooling;
-  Claude is not a production Snap gateway provider in this build.
+  Claude runs through Preview-only Tooling for the working camera file handoff;
+  it is not embedded in the Lens or claimed as a deployed Specs service.
 - All facts, lies, tells, refutations and verdicts remain engine-owned. AI text
   and audio performance do not create truth. Audio request/cost provenance is in
   Tooling/results/elevenlabs-ledger.json and Tooling/audio/*.json.
@@ -115,3 +117,23 @@ Devpost Learn skill pack (Run 7)
   the Lens runtime. Its original licence is preserved beside SKILL.md.
   The brief template's Build notes and After the build checklist are retained
   in devpost/design-brief.md; see devpost/run7-skill-review.md for provenance.
+
+Run 7 profiling and supplemental audio
+- Tooling/perfetto/analyze_lens_trace.py, trace_server.py,
+  requirements-perfetto.txt and sql-recipes.md are copied from CLAD's
+  perfetto-trace-analysis skill, copyright 2026 Specs Inc., Apache-2.0.
+  The capture-start/status/cleanup snippets adapt specs-capture-perf-trace
+  under the same licence. Upstream source headers are retained; the local
+  processor-path adapters are Roomscript code. A full standard Apache-2.0
+  licence copy is in Tooling/perfetto/LICENSE-APACHE-2.0.txt. Source toolkit:
+  https://github.com/lens-studio-devs/ls-extensions
+- uv, Python, installed Python dependencies and the Perfetto trace processor
+  are separate local development tools under ignored Tooling/bin/perfetto.
+  Their executables are not redistributed in this repository or the lens.
+  Copied CLAD profiler scripts are distinct from these installed binaries.
+- Assets/Audio/Run7 phrase speech, casting narration, Wren tips and effects
+  are ElevenLabs-generated outputs under the audio terms described above.
+  Their text is authored or compiled from engine facts; synthetic performance
+  never determines case truth. The Run 7 cost and inventory record is
+  Tooling/audio/RUN7.md. Local Claude room-scan and live-language proposals
+  retain provenance in Tooling; no provider credentials ship in the lens.

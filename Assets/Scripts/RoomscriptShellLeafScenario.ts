@@ -1,3 +1,4 @@
+import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
 import {enterCase} from "./RoomscriptLeafSetup";
 // CLAD live-lens-tester procedure; UI dispatch, geometry and audio are exercised in Preview.
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
@@ -18,7 +19,7 @@ import {RoomscriptCaseCrate} from "./RoomscriptCaseCrate";
     expect(findSceneObjectByName("RoomscriptCaseLidUI").enabled).toBe(false);
     await tap("Statements");await tap("Close notebook");expect(notebook.enabled).toBe(false);
     await tap("Evidence");expect(wallet.enabled).toBe(true);await tap("Close evidence");expect(wallet.enabled).toBe(false);
-    expect(findSceneObjectByName("PreviewRoom").enabled).toBe(global.deviceInfoSystem.isEditor());
+    const opening=findSceneObjectByName("RoomscriptOpening").getComponent(RoomscriptOpeningController.getTypeName()) as RoomscriptOpeningController;expect(findSceneObjectByName("PreviewRoom").enabled).toBe(global.deviceInfoSystem.isEditor()&&!opening.filmMode);
     for(const name of ["DeskTop","BedBase","StandinDoor","StandinWindow","CrateLid"]) {
       const visual=findSceneObjectByName(name).getComponent("Component.RenderMeshVisual") as RenderMeshVisual;
       expect(!!visual).toBe(true);expect(!!visual.mesh).toBe(true);expect(visual.getMaterialsCount()).toBe(1);

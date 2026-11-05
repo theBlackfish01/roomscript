@@ -50,7 +50,7 @@ import {GameState} from "./Engine/core/Types";
     this.surface.mainPass.baseTex=texture||this.neutral;
   }
   /** Presentation-only Director capture hook. Never changes a tell, fact or account. */
-  capturePose(pose:string,seconds=2):void {if(!["neutral","listening","rattled","broken","smug"].includes(pose))return;this.captureOverride=pose;this.captureUntil=getTime()+Math.min(20,Math.max(.1,seconds));this.renderPose();}
+  capturePose(pose:string,seconds=2):void {if(!["neutral","listening","rattled","broken","smug"].includes(pose))return;this.captureOverride=pose;this.captureUntil=getTime()+Math.min(120,Math.max(.1,seconds));this.renderPose();}
   setListening(active:boolean):void {this.speaking=active;if(this.state)this.renderPose();}
   setFrozen(value:boolean):void {this.frozen=value;if(!value&&this.state)this.applyState(this.state);}
   voice():string {this.engine.initialize();return this.engine.graphRef().cast.suspects.find(s=>s.id===this.suspect)?.voice || "onyx";}
@@ -67,6 +67,7 @@ import {GameState} from "./Engine/core/Types";
     else if(this.track){const control=this.track.control as FileAudioTrackProvider;
       if(control.isOfType("Provider.FileAudioTrackProvider")){const shape=control.getAudioFrame(this.samples);const count=Math.min(this.samples.length,Math.max(0,shape.x*shape.y));let square=0;for(let i=0;i<count;i++)square+=this.samples[i]*this.samples[i];this.amplitude=count?Math.min(1,Math.sqrt(square/count)*5):0;}}
     this.jaw+=(this.amplitude-this.jaw)*Math.min(1,getDeltaTime()*18);
-    this.surface.mainPass.appearance=new vec4(this.stress,this.jaw,0,0);
+    const distanceDetail=this.captureOverride||this.speaking?0:Math.max(0,Math.min(1,(delta.length-200)/160));
+    this.surface.mainPass.appearance=new vec4(this.stress,this.jaw,distanceDetail,0);
   }
 }

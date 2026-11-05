@@ -43,9 +43,10 @@ import {walletEntries} from "./Engine/game/SpatialObjection";
       // Choose the displayed cold-kettle memory, not an unseen breaker or sealed fact.
       const entries=walletEntries(engine.graphRef(),engine.snapshot());
       const memory=entries.find(entry=>entry.text.includes("no heat"));expect(!!memory).toBe(true);
+      await tap("Expand evidence");
       const normalize=(text:string)=>text.replace(/\s+/g," ").trim();
       const shown=()=>normalize((findSceneObjectByName("Evidence card").getChild(0).getComponent("Component.Text") as Text).text);
-      for(let i=0;i<entries.length&&shown()!==normalize(memory!.text);i++)await tap("Next evidence");
+      for(let i=0;i<entries.length&&shown()!==normalize(memory!.text);i++){await tap("Next evidence");await tap("Expand evidence");}
       expect(shown()).toBe(normalize(memory!.text));await tap("Use evidence");
       const slip=await control("RoomscriptStatementSlip"),target=findSceneObjectByName("RoomscriptMemoryCard"),vector=new vec3(1,0,0);
       const remove=slip.onDragUpdate.add(()=>{const destination=vec3.lerp(flow.actor.camera.getTransform().getWorldPosition(),target.getTransform().getWorldPosition(),.25),delta=destination.sub(slip.getTransform().getWorldPosition()).uniformScale(.4);vector.x=delta.x;vector.y=delta.y;vector.z=delta.z;});

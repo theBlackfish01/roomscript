@@ -19,6 +19,8 @@ import {preferPreparedQuestions} from "./Engine/ai/ModelPolicy";
 
 /** Production adapter. Engine actions precede performance; validated output is logged before speech. */
 @component export class RoomscriptInterrogationController extends BaseScriptComponent {
+  /** Modal room UI owns focus; proximity cannot open questions over it. */
+  controlsBlocked=false;
   @input @hint("Deterministic case owner") engine:RoomscriptEngineBridge;
   @input @hint("Gateway transport") client:RoomscriptLlmClient;
   @input @hint("Sentence audio player") tts:RoomscriptTts;
@@ -73,14 +75,14 @@ import {preferPreparedQuestions} from "./Engine/ai/ModelPolicy";
   registerActor(actor:RoomscriptSuspectActor):void {this.actors.set(actor.suspect,actor);}
   prepareAudioProbe(warm:boolean):void {this.warming?.cancel();this.tts.clearCacheForProbe();if(warm){this.warming=new CancellationSource();void this.tts.precacheCurrent(this.warming.token);}}
   actorFor(id:string):RoomscriptSuspectActor|undefined {return this.actors.get(id);}
-  showQuestions():void {this.chips.show(true);this.verbs.show(false);}
+  showQuestions():void {this.controlsBlocked=false;this.chips.show(true);this.verbs.show(false);}
   showAnswerControls():void {this.chips.show(false);this.verbs.show(true);}
-  restoreControls():void {const state=this.engine.snapshot();if(state.activeStatement&&state.activeSuspect===this.selected)this.showAnswerControls();else this.showQuestions();}
+  restoreControls():void {this.controlsBlocked=false;const state=this.engine.snapshot();if(state.activeStatement&&state.activeSuspect===this.selected)this.showAnswerControls();else this.showQuestions();}
   private choices():{topic:string;label:string;question:string}[] {
     return presentedQuestions(this.engine.graphRef(),this.engine.snapshot(),this.selected).concat([{topic:"free",label:"Ask anything",question:""}]);
   }
   reviewQuestion(text:string):void {const graph=this.engine.graphRef();
-    this.questions.review(text,presentedIntent(graph,this.engine.snapshot(),this.selected,text).topic,this.choices().filter(c=>c.topic!=="free"));this.chips.show(false);this.verbs.show(false);}
+    this.controlsBlocked=true;this.questions.review(text,presentedIntent(graph,this.engine.snapshot(),this.selected,text).topic,this.choices().filter(c=>c.topic!=="free"));this.chips.show(false);this.verbs.show(false);}
   async askChip(topic:string):Promise<void> {if(topic==="free"){this.reviewQuestion("");return;}const choice=this.choices().find(c=>c.topic===topic);if(choice)await this.ask(choice.question,"chip",topic);}
   async askFree(question:string,topic?:string):Promise<void> {const graph=this.engine.graphRef();
     await this.ask(question,"free",topic??presentedIntent(graph,this.engine.snapshot(),this.selected,question).topic);}
@@ -108,7 +110,7 @@ import {preferPreparedQuestions} from "./Engine/ai/ModelPolicy";
       if(!this.admit(chosen.answer,chosen.mode))return;
       this.last=chosen;this.speaking={suspect,statement:state.activeStatement,mode:chosen.mode,seq:state.lastSeq};
       const person=state.suspects[suspect],take=person.layer>=2||person.composure<=0?"broken":person.layer>0||person.composure/person.composureMax<.7?"rattled":"steady";
-      const spoke=await this.tts.speak(chosen.answer.line,undefined,task.token,began,take,!!tellCue(graph,state,state.lastSeq,suspect,chosen.mode));
+      const spoke=await this.tts.speak(chosen.answer.line,undefined,task.token,began,take,!!tellCue(graph,state,state.lastSeq,suspect,chosen.mode),kind==="free"?"free":"standard");
       if(!spoke&&isCurrent()&&this.speaking){this.onSpeaking.invoke(this.speaking);this.speaking=null;}
       console.log("INTERROGATION|"+JSON.stringify({origin:chosen.origin,textMs:chosen.latencyMs,audioMs:this.lastAudioMs,rejections:chosen.rejectionCount,mode:chosen.mode}));
     } catch(error) {if(!(error instanceof LlmError)||error.code!=="cancelled")console.log("INTERROGATION|safe_fallback");}

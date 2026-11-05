@@ -1,0 +1,18 @@
+{
+  "path": "C:/Program Files/Snap Inc/Lens Studio/Lens Studio.exe",
+  "found": {
+    "profiling": {
+      "encoding": "utf8",
+      "offset": 310274182
+    },
+    "startTrace": {
+      "encoding": "utf8",
+      "offset": 324042792
+    },
+    "activeTraceSession": {
+      "encoding": "utf8",
+      "offset": 324042768
+    }
+  },
+  "interpretation": "Native string evidence only; actual callable capability still checked by the canonical EEC start snippet."
+}

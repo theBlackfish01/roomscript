@@ -1,0 +1,234 @@
+{
+  "schema": 1,
+  "provenance": "Exact identity-node GLB POSITION accessor bounds, import conversion already100x",
+  "props": [
+    {
+      "id": "O2",
+      "path": "Assets/Art/Props/BrassCandlestick.glb",
+      "heightMeters": 0.34,
+      "heightCm": 34,
+      "primaryAssetId": "bcaf8d7d-8f54-4192-855a-2f69880b5715",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ],
+      "primaryAssetType": "ObjectPrefab",
+      "primarySubasset": "Scene",
+      "primaryDataId": "4caf9118-dabc-470f-af60-783733d80b99",
+      "boundsCm": {
+        "min": [
+          -6,
+          0,
+          -6
+        ],
+        "max": [
+          6,
+          34,
+          6
+        ]
+      },
+      "supportOffsetCm": [
+        0,
+        0,
+        0
+      ],
+      "footprintCm": [
+        12,
+        12
+      ],
+      "note": "Preset authored virtual prop."
+    },
+    {
+      "id": "O9",
+      "path": "Assets/Art/Props/ChippedMug.glb",
+      "heightMeters": 0.092,
+      "heightCm": 9.2,
+      "primaryAssetId": "e8c08a07-4015-402d-ba1a-d63a56d5b3a6",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ],
+      "primaryAssetType": "ObjectPrefab",
+      "primarySubasset": "Scene",
+      "primaryDataId": "9e617151-3b41-4791-9558-a58181e325ba",
+      "boundsCm": {
+        "min": [
+          -4.3,
+          0,
+          -4.3
+        ],
+        "max": [
+          7.236304738420683,
+          9.2,
+          4.3
+        ]
+      },
+      "supportOffsetCm": [
+        0,
+        0,
+        0
+      ],
+      "footprintCm": [
+        11.536304738420682,
+        8.6
+      ],
+      "note": "Preset fictional visual proxy; source graph calls mug a fixture. Never show as a newly detected object."
+    },
+    {
+      "id": "O12",
+      "path": "Assets/Art/Props/DictationRecorder.glb",
+      "heightMeters": 0.087,
+      "heightCm": 8.7,
+      "primaryAssetId": "a34b6594-80c0-488c-aa01-5ba3f7ecfcae",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ],
+      "primaryAssetType": "ObjectPrefab",
+      "primarySubasset": "Scene",
+      "primaryDataId": "e444689c-f62e-4485-915f-22586095e298",
+      "boundsCm": {
+        "min": [
+          -11,
+          0,
+          -7.000000000000001
+        ],
+        "max": [
+          11,
+          8.700000000000001,
+          7.000000000000001
+        ]
+      },
+      "supportOffsetCm": [
+        0,
+        0,
+        0
+      ],
+      "footprintCm": [
+        22,
+        14.000000000000002
+      ],
+      "note": "Preset authored virtual prop."
+    },
+    {
+      "id": "O7",
+      "path": "Assets/Art/Props/EvidenceClock.glb",
+      "heightMeters": 0.19,
+      "heightCm": 19,
+      "primaryAssetId": "9cc9c1a5-845f-4d5f-ad60-8081d888429e",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ],
+      "primaryAssetType": "ObjectPrefab",
+      "primarySubasset": "Scene",
+      "primaryDataId": "ac784420-c99d-4cef-b47f-cd11de36d3fc",
+      "boundsCm": {
+        "min": [
+          -9,
+          0,
+          -2.75
+        ],
+        "max": [
+          9,
+          19,
+          4.300000000000001
+        ]
+      },
+      "supportOffsetCm": [
+        0,
+        0,
+        0
+      ],
+      "footprintCm": [
+        18,
+        7.050000000000001
+      ],
+      "note": "Preset authored virtual prop."
+    },
+    {
+      "id": "O3",
+      "path": "Assets/Art/Props/LetterKnife.glb",
+      "heightMeters": 0.32,
+      "heightCm": 32,
+      "primaryAssetId": "29446163-a97c-4998-90e4-a153f48bc0c3",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ],
+      "primaryAssetType": "ObjectPrefab",
+      "primarySubasset": "Scene",
+      "primaryDataId": "4ddd2a99-bd01-468e-8b66-ea93971cb075",
+      "boundsCm": {
+        "min": [
+          -1.25,
+          0,
+          -1.2
+        ],
+        "max": [
+          1.25,
+          32,
+          1.2
+        ]
+      },
+      "supportOffsetCm": [
+        0,
+        0,
+        0
+      ],
+      "footprintCm": [
+        2.5,
+        2.4
+      ],
+      "note": "Preset authored virtual prop."
+    },
+    {
+      "id": "O5",
+      "path": "Assets/Art/Props/MarbleBookend.glb",
+      "heightMeters": 0.178,
+      "heightCm": 17.8,
+      "primaryAssetId": "6dbb9db1-d1b8-46a2-a6b9-1d603ce0b0b3",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ],
+      "primaryAssetType": "ObjectPrefab",
+      "primarySubasset": "Scene",
+      "primaryDataId": "b665c4d6-bce4-47a5-9729-a54f9fef737b",
+      "boundsCm": {
+        "min": [
+          -8.6,
+          0,
+          -5.5
+        ],
+        "max": [
+          8,
+          17.750000000000004,
+          5.5
+        ]
+      },
+      "supportOffsetCm": [
+        0,
+        0,
+        0
+      ],
+      "footprintCm": [
+        16.6,
+        11
+      ],
+      "note": "Preset authored virtual prop."
+    }
+  ]
+}

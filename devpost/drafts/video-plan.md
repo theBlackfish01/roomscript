@@ -1,6 +1,6 @@
-﻿# Roomscript: 2:50 video plan — Run 7
+# Roomscript: 2:50 video plan — Run 7
 
-**Editorial target, not a capture inventory.** Use only shots verified by the final Run 7 report and actual recordings. The Preset carries the story; a short Dynamic segment shows **same room, new murder** if its scan and three seeded end-to-end gates pass. Gameplay starts immediately. Wadood handles recording/editing/upload; agent work uses Lens MCP only, never desktop/UI automation.
+**Editorial target, not a capture inventory.** Use only shots verified by the final Run 7 report and actual recordings. The Preset carries the story; a short Dynamic segment shows **same room, new murder** using the working Preview file-handoff scan and three seeded end-to-end gates at `338b0db`; the reload must remain visible or disclosed. Gameplay starts immediately. Wadood handles recording/editing/upload; agent work uses Lens MCP only, never desktop/UI automation.
 
 ## The promise
 
@@ -16,7 +16,7 @@ The audience sees voiced suspects, a physical contradiction, a complete flow and
 | 0:10–0:20 | Room-wide glimpse of furniture labels and four distinct suspects; then one clear face. | Exact audience/promise line above. | Director capture; no stand-in boxes or UI over the face. |
 | 0:20–1:30 | **UNCUT — one continuous 70-second take.** Begin at the crate, choose/default Preset, pull the tab, casting sweep, walk toward a suspect, ask the first question, hear the answer; continue naturally to the first memory if the answer finishes before 70s. | Actual Lens audio. No voiceover over dialogue. A first answer within about 30s remains the product target: do not delay it merely to fill the take. | One continuous source clip, no jump cuts, time compression, concealed reset or replaced audio. Capture 60–90s; edit this slot to the source duration and keep total <3:00. |
 | 1:30–1:50 | A pulled memory photograph; large carried objection; quick clue/refutation; seal; a brief truth reconstruction and stamp/stars. | A short bridge: “Her words are a claim. Your room can contradict them.” Let effects breathe. | Only completed moments; use fewer shots rather than mock unfinished features. |
-| 1:50–2:05 | Return to crate: **Cast my room**. Live scan brackets land on the same furniture, a different verified case opens, then one voiced generated statement or verdict evidence. Caption: **Same room. New murder.** | Narrator role-casting line, then the new suspect line. | Real scan + compiled case; at least 3 seeded Dynamic LEAF verdicts. If not passed, omit capability claim; show authored Preset casting instead. Never substitute terminal output as Lens gameplay. |
+| 1:50–2:05 | Return to crate: **Cast my room**. Live scan brackets land on the same furniture, a different verified case opens, then one voiced generated statement or verdict evidence. Caption: **Same room. New murder.** | Narrator role-casting line, then the new suspect line. | Passed at `338b0db`: one live six-object scan reused by seeds 7/1041/2026, correct verdicts and exact replay. Show the actual Preview reload or mark its cut; do not imply three fresh scans or seamless device scanning. The final shot still needs capture review. |
 | 2:05–2:20 | Type an actual free question, see the in-character answer, hear it. Briefly ask Wren “What do we know?” if both fit. Small **live AI** label on actual live beat. | Preserve original voice. No provider label needed. State or mark any cut wait. | Saved raw request/output and action tape; engine-authorised reply. Wren uses only PlayerKnowledge. If not live, label prerecorded and omit live claim. |
 | 2:20–2:35 | **AI voices, engine truth**: simple animated flow, 15 seconds. A closed case envelope -> engine's permitted account -> AI performance -> checked line -> voice; engine separately drives tells and verdict. | “The engine fixes the facts, proves the case and decides every lie, tell and verdict. AI gives the suspects a performance. It cannot rewrite the murder. If a response fails its checks, a permitted line takes over.” | Explain implemented path; don't imply validation makes arbitrary free conversation infallible. |
 | 2:35–2:45 | A real CLAD/MCP build-and-check moment; brief/design note beside resulting UI; strict LEAF outcome and dated test checkpoint. | “Built with coding agents, Snap's CLAD and Lens Studio MCP. The Devpost pack helped us test the design as an AR experience.” | Actual tool transcript and result, no staged green output. Counts match dated report. |
@@ -28,15 +28,15 @@ If the uncut segment needs 90 seconds, remove 20 seconds from the montage/build 
 
 - Show SIK hand/ray interactions supplied by Preview and clear object motion. Keep the active target large. Avoid small mouse-menu footage. No composited real hands or hardware footage that would imply device testing.
 - Use the actual Preview output, recorded by Wadood with audio. A recording tool may crop the Preview; it must not fabricate successful interaction or hide pauses within the uncut segment.
-- Record the Preset in Stage/bundled mode so every take uses the same authored case and voice timing. If a recorded scan exists, replay the frozen fixture and show that label. If it does not, use **authored anchors**.
-- Record Dynamic separately with a new seed, a real scan response and its verified case hash. Save capture, seed, scan fixture/provenance and action tape together. Note any fallback in the take log.
+- Record the Preset in Stage/bundled mode so every take uses the same authored case and voice timing. Replay the accepted seven-object fixture from three distinct saved viewpoints and show **recorded scan**. Authored replacements, if used in another take, must be labelled **authored anchors**.
+- Record Dynamic separately with a new seed, a real scan response and its verified case hash. The working path captures three CameraModule frames, lets the Tooling watcher process them, imports the file reply and reloads Preview before resuming. Show that transition, or label the edit as a cut during the Preview reload. Save capture, seed, scan fixture/provenance and action tape together. The existing three-seed gates reuse one completed live scan; never caption them as three fresh scans. Note any fallback in the take log.
 - Before long takes, restart Lens Studio, settle imports and pause asset writes. Main uses MCP camera poses and LEAF to prepare repeatable beats. No GUI automation.
 - Film mode hides diagnostics and stand-in geometry, never runtime warnings needed to understand an unsuccessful take. The Preview simulation disclosure remains.
 - Two or three candidate takes per beat (default). Retain original uncut source audio/video and annotate capture time and build commit. Never dub a prerecorded answer over a live response while labelling it live.
 
 ## Capture inventory / take log
 
-No Run 7 take is certified by this document. Populate `docs/PROGRESS.md` / the Run 7 report with actual paths and outcomes; use this list for picture lock:
+The saved scan has development captures listed in the publication checklist; none is a finished gameplay take. No final video take is certified by this document. Populate `docs/PROGRESS.md` / the Run 7 report with actual paths and outcomes; use this list for picture lock:
 
 - Four suspects, all five poses; near/far interaction and one-panel UI.
 - Recorded-scan or authored-anchor sweep; live Dynamic sweep if passed.
@@ -49,7 +49,7 @@ No Run 7 take is certified by this document. Populate `docs/PROGRESS.md` / the R
 
 ## Voiceover and sound
 
-The Preset uses prerecorded synthetic ElevenLabs voices. Live or phrase-composed voices in Dynamic must be identified in the take log. No voice cloning or imitation of a real person. Use existing generated score/effects and verify the actual music-plan licence before public release; no claim that AI/procedural audio is automatically free of licence or Content ID risk.
+The Preset uses prerecorded synthetic ElevenLabs voices. The direct ElevenLabs conversational voice-agent spike is no-go; do not describe a deployed voice agent or live microphone demonstration. Live or phrase-composed voices in Dynamic must be identified in the take log. No voice cloning or imitation of a real person. Use existing generated score/effects and verify the actual music-plan licence before public release; no claim that AI/procedural audio is automatically free of licence or Content ID risk.
 
 Mix to make dialogue intelligible: duck music under speech, keep the quiet before the objection, and use the Lens's spatial cues for attention. Export settings and loudness are editorial defaults to be checked by ear. Do not use copyrighted film/game samples. Wadood decides narrator voiceover after the picture is stable.
 

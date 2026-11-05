@@ -52,3 +52,9 @@ We began Roomscript's design before installing the Devpost Learn pack. During Ru
 ## A2 evidence update
 
 After this baseline review, Run 7 A2 passed strict replacement-cast bundled playback in 11.836 s and the repaired hero in 169.471 s. Commit `b3f4144` preserves `Tooling/results/run7-a2-hero.json` and verification logs. Checklist item 1's baseline blocker is resolved; later Run 7 UI/casting/moment work still requires its own integrated gate and fresh capture review.
+
+## Working scan and Dynamic evidence update — November 6
+
+At `338b0db`, the pack's recognition caution has been acted on rather than silently discarded. Preset's **recorded scan** contains seven objects from three distinct CameraModule viewpoints, with retained raw images/JSON/poses and World Query placement evidence. The live Preview path uses three CameraModule frames, Tooling Claude detection and a file reply that reloads Preview before World Query and compilation. Strict `source=file` seeds 7/1041/2026 each reached a correct verdict, exact replay and zero binding errors using one completed live six-object scan. Three case seeds are not three fresh scans. This supports a working Preview Dynamic capability, with the reload and simulated-room limits explicit.
+
+The pack did not invent the file transport or the two-mode design. Its contribution was the demand for observable sensing/placement/gameplay evidence, a stated fallback and a distinction between a recorded scan, authored mapping and live input. The chosen implementation meets those evidence boundaries without asserting a seamless device path. Dedicated art/UI/physical/ghost captures and the continuous voiced take remain pending; compilation is not visual acceptance. See [publication checklist](run7-publication-checklist.md).

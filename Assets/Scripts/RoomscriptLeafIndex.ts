@@ -1,3 +1,5 @@
+import {RoomscriptReconstructionDetailsLeafScenario} from "./RoomscriptReconstructionDetailsLeafScenario";
+import {RoomscriptStoryMomentsLeafScenario} from "./RoomscriptStoryMomentsLeafScenario";
 import {RoomscriptRoomScanLeafScenario} from "./RoomscriptRoomScanLeafScenario";
 import {RoomscriptProductionStudyLeafScenario} from "./RoomscriptProductionStudyLeafScenario";
 import {RoomscriptPolishLeafScenario} from "./RoomscriptPolishLeafScenario";
@@ -29,11 +31,25 @@ import {RoomscriptClosingLeafScenario} from "./RoomscriptClosingLeafScenario";
 import {RoomscriptGeneratedCaseLeafScenario} from "./RoomscriptGeneratedCaseLeafScenario";
 import {RoomscriptPhysicalMemoryLeafScenario} from "./RoomscriptPhysicalMemoryLeafScenario";
 import {RoomscriptNaivePlayerLeafScenario} from "./RoomscriptNaivePlayerLeafScenario";
+import {RoomscriptActorPoseCaptureLeafScenario} from "./RoomscriptActorPoseCaptureLeafScenario";
+import {RoomscriptContinuousCaptureLeafScenario} from "./RoomscriptContinuousCaptureLeafScenario";
+import {RoomscriptLiveAiBeatLeafScenario} from "./RoomscriptLiveAiBeatLeafScenario";
+import {RoomscriptPointAccuseLeafScenario} from "./RoomscriptPointAccuseLeafScenario";
+import {RoomscriptProximityLeafScenario} from "./RoomscriptProximityLeafScenario";
+import {RoomscriptMemoryCardLeafScenario} from "./RoomscriptMemoryCardLeafScenario";
 
 @component
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-story-moments",typename:RoomscriptStoryMomentsLeafScenario.getTypeName()},
+    {id:"roomscript-reconstruction-details",typename:RoomscriptReconstructionDetailsLeafScenario.getTypeName(),parameters:{shot:"both",hold:"2"}},
+    {id:"roomscript-proximity",typename:RoomscriptProximityLeafScenario.getTypeName()},
+    {id:"roomscript-memory-cards",typename:RoomscriptMemoryCardLeafScenario.getTypeName()},
+    {id:"roomscript-actor-pose-capture",typename:RoomscriptActorPoseCaptureLeafScenario.getTypeName(),parameters:{suspect:"S2",pose:"neutral",audit:"true"}},
+    {id:"roomscript-continuous-capture",typename:RoomscriptContinuousCaptureLeafScenario.getTypeName(),parameters:{seconds:"5",input:"default",source:"capture"}},
+    {id:"roomscript-live-ai-beat",typename:RoomscriptLiveAiBeatLeafScenario.getTypeName()},
+    {id:"roomscript-point-accuse",typename:RoomscriptPointAccuseLeafScenario.getTypeName()},
     {id:"roomscript-generated-cases",typename:RoomscriptGeneratedCaseLeafScenario.getTypeName(),parameters:{seed:"7",source:"recorded"}},
     {id:"roomscript-naive-player",typename:RoomscriptNaivePlayerLeafScenario.getTypeName()},
     {id:"roomscript-physical-memory",typename:RoomscriptPhysicalMemoryLeafScenario.getTypeName(),parameters:{ik:"false",hold:"false"}},

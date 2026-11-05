@@ -1,0 +1,76 @@
+{
+  "trace": "C:\\Users\\wadoo\\Desktop\\SPECS_Hackathon\\RoomScriptF\\Tooling\\results\\performance\\roomscript_s2_2026-11-05T21-01-02-702Z_preview0.pftrace",
+  "capture": "Lens Studio Preview, 10-second steady-state capture; not device or activation",
+  "processFrame": {
+    "count": 395,
+    "meanMs": 10.710889873417722,
+    "p50Ms": 9.8643,
+    "p90Ms": 14.5793,
+    "p99Ms": 17.9475,
+    "maxMs": 44.2642,
+    "over8ms": 389,
+    "over16_67ms": 17
+  },
+  "coreManagerRender": {
+    "count": 395,
+    "meanMs": 5.237532911392405,
+    "p50Ms": 5.1053,
+    "p90Ms": 6.2303,
+    "p99Ms": 8.6215,
+    "maxMs": 11.7671,
+    "over8ms": 7,
+    "over16_67ms": 0
+  },
+  "paired": {
+    "count": 394,
+    "nonoverlappingInstrumentedStages": {
+      "count": 394,
+      "meanMs": 15.949443147208127,
+      "p50Ms": 15.2269,
+      "p90Ms": 20.2976,
+      "p99Ms": 24.4386,
+      "maxMs": 49.9333,
+      "over8ms": 394,
+      "over16_67ms": 104
+    },
+    "startToRenderEnd": {
+      "count": 394,
+      "meanMs": 15.963752030456835,
+      "p50Ms": 15.2392,
+      "p90Ms": 20.3114,
+      "p99Ms": 24.454,
+      "maxMs": 49.9499,
+      "over8ms": 394,
+      "over16_67ms": 106
+    },
+    "processFrameStartCadence": {
+      "count": 394,
+      "meanMs": 25.26782385786799,
+      "p50Ms": 24.2586,
+      "p90Ms": 29.7477,
+      "p99Ms": 37.1066,
+      "maxMs": 65.1558,
+      "over8ms": 394,
+      "over16_67ms": 394
+    },
+    "betweenStageGap": {
+      "count": 394,
+      "meanMs": 0.014308883248730968,
+      "p50Ms": 0.0135,
+      "p90Ms": 0.018,
+      "p99Ms": 0.0279,
+      "maxMs": 0.0532,
+      "over8ms": 0,
+      "over16_67ms": 0
+    }
+  },
+  "interpretation": {
+    "target8ms": "Not met: ProcessFrame alone averages 10.71ms; paired nonoverlapping processing plus rendering costs more.",
+    "primary": "Confirmed inclusive Track stage: 9.13ms mean, 85.3% of ProcessFrame. Exposed FaceDetectPreprocess and FaceTrack children explain only ~0.54ms/frame; most tracking time is not attributed to children.",
+    "secondary": "CoreManagerRender 5.24ms mean, including Scene::Update 2.56ms. No per-script child instrumentation is available.",
+    "rendering": "RenderFrame 0.75ms mean; DrawCallNum peaks at 30. CPU drawing/shader work is not the dominant recorded cost.",
+    "limits": "Durations are wall-clock spans, not CPU scheduled time. sched is empty; no GPU timing. Cannot prove active CPU cost, resource starvation, exact script cost, or root cause of 25s MCP response delays. Preview profile only.",
+    "analyzerCaveat": "Ignore Phase1 FPS1305.9, mobile profile,33.3ms budget, and pooled790-slice percentiles. These are incorrect heuristics for this Preview trace.",
+    "next": "Compare matched Preview captures with tracking demand reduced safely; measure one controlled change. Do not remove SIK hand tracking blindly."
+  }
+}

@@ -12,7 +12,7 @@ import {RoomscriptTellVisual} from "./RoomscriptTellVisual";
     const flow=tells.flow,engine=flow.engine,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
     const tap=async(name:string)=>{const matches=findInteractablesByName(name,undefined,true);expect(matches.length).toBe(1);await hand.trigger(matches[0]);await sleep(150);};
     try {
-      await flow.askChip("baseline:name");await sleep(500);expect(tells.diagnostics().count).toBe(0);
+      await tap("Question S2");await flow.askChip("baseline:name");await sleep(500);expect(tells.diagnostics().count).toBe(0);
       await flow.askChip("baseline:brooch");await sleep(450);expect(tells.diagnostics().count).toBe(1);expect(tells.diagnostics().prop).toBe(true);
       expect(tells.diagnostics().delayMs>=290&&tells.diagnostics().delayMs<400).toBe(true);
       await flow.askFree("Could a dragon juggle the moon?");await sleep(450);expect(tells.diagnostics().count).toBe(1);expect(tells.diagnostics().prop).toBe(false);

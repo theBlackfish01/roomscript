@@ -1,6 +1,6 @@
 # Devpost submission draft — Run 7
 
-**Editorial draft; reconcile against the final Run 7 report before publishing.** Evidence below includes the Run 6 pure suite and Run 7 A2 baseline. Planned capabilities are not completion claims. The actual form and music-plan eligibility remain owner checks.
+**Editorial draft; reconcile against the final Run 7 report before publishing.** Evidence below includes the Run 6 pure suite, Run 7 A2 baseline and Dynamic checkpoint `338b0db`. Later presentation/live gates remain pending. Planned capabilities are not completion claims. The actual form and music-plan eligibility remain owner checks.
 
 **Project name:** Roomscript
 
@@ -16,7 +16,7 @@ Roomscript is a one-player murder mystery that casts your room as the crime scen
 
 The authored story, **The Harlow Trust**, concerns Edmund Harlow's death and four guests with secrets. You question them, inspect evidence, test a who/where/with-what theory, then seal an accusation. Truth, lies, tells, refutations, proof and the verdict come from a deterministic engine. AI performs the permitted account; it cannot change the murder.
 
-**Run 7's two-mode design:** Preset is the repeatable Harlow story with prerecorded voices and a saved-scan sweep; Dynamic scans the simulated room and compiles a new verified case on its furniture. The video should tell the Preset story, then show **same room, new murder** only if the Dynamic end-to-end gate passes. Until then, Dynamic is work in progress and authored anchors must not be called a recorded scan.
+**Two working modes:** Preset is the repeatable Harlow story with prerecorded voices and a saved-scan sweep. Its recorded scan contains seven objects from three distinct CameraModule viewpoints. Dynamic captures the simulated room, runs local model detection, locates furniture with World Query, and compiles a new verified case. The working Preview file handoff reloads the Lens when the reply arrives. Seeds 7, 1041 and 2026 each reached a correct verdict in strict LEAF with exact replay and zero binding errors, reusing one completed live six-object scan. This is three case gates, not three fresh independent scans. The video can now show **same room, new murder**, while showing or disclosing the reload. Final visual and continuous-film acceptance remain separate.
 
 ## Why glasses
 
@@ -45,7 +45,7 @@ Wadood directed the concept, scope and casting. Codex builds with CLAD's cross-r
 - **Truth engine:** plain deterministic TypeScript shared by Lens and Vitest. A case compiler, room substitutions and solver verify the case before play. The action log supports replay.
 - **Performance:** authored and validated banks, exact-text bundled voices, engine-authorised tells, and guarded live replies. Synthetic ElevenLabs voices give fictional suspects distinct performances.
 - **Lens:** SIK/ UIKit interactions, VirtualScene as the scene writer, Lens MCP compilation/logs, strict LEAF and runtime captures.
-- **Local model work:** Claude is used from Tooling for content/validator studies; Run 7 permits a Preview bridge for vision and performance. Provider keys never enter Assets or the saved scene. Provider choice is an implementation detail; fallback behaviour and truth safety are the product contract.
+- **Local model work:** Claude is used from Tooling for content/validator studies; Run 7 uses a local Preview file handoff for vision; live suspect/Wren performance has separate pending runtime gates. Provider keys never enter Assets or the saved scene. Provider choice is an implementation detail; fallback behaviour and truth safety are the product contract.
 - **Evidence:** [CLAD log](../clad-log.md), [decisions](../../docs/decisions.md), [current progress](../../docs/PROGRESS.md).
 
 ## Verified baseline and remaining gates
@@ -56,11 +56,15 @@ The saved validator corpora have zero accepted attacks out of 96 development and
 
 Run 6's audio export is 9.95 MB. Art/contact-sheet generation is verified offline, but that does not certify runtime wiring or visual acceptance. No exported Lens size, final frame target or physical Specs comfort result follows from these numbers.
 
-Before picture lock, update this section from the final report with the actual scan decision, generated-case seed results, current-cast hero tape, new UI/moment captures and continuous take. Omit any capability claim whose gate did not pass.
+The camera path is now working through a Preview file handoff: three logged CameraModule frames are processed by Claude Opus in Tooling, an imported reply reloads Preview, and World Query supplies physical surface hits before deterministic compilation. Preset replays its separate saved seven-object scan. Dynamic runtime tapes are `run7-file-seed7.json`, `run7-file-seed1041.json` and `run7-file-seed2026.json` under Tooling/results. These checks do not prove device scanning, universal furniture accuracy or an uninterrupted Dynamic interaction.
+
+Before picture lock, add the actual art/UI/moment captures, final integrated outcomes and continuous voiced take from the final report. Wren PlayerKnowledge and route logic are pure-tested; new live Wren/free-question gateway acceptance is still pending. Do not turn compiled runtime work into a passed visual claim.
 
 ## Challenges
 
 The main difficulties were keeping AI performances faithful, getting live voice within a useful deadline, preventing long Preview sessions from degrading, and moving from working prototype panels to a room-first experience. We retained authored/prerecorded fallbacks, restarted before long verification and capture sessions, and separated compilation from runtime acceptance. A provider quota stops only that generation lane; it does not stop the build.
+
+At checkpoint `338b0db`, local Claude vision cost is **$0.081204 estimated across seven calls**; ElevenLabs supplemental phrases/narration/effects cost **2,954 confirmed credits** for 304 voice clips and four effects. Direct ElevenLabs voice-agent speech is a **no-go** because streaming model audio cannot be guaranteed to match the engine-approved words; no live microphone/WebSocket trial or agent deployment is claimed. Prerecorded speech remains the demo main path.
 
 ## What comes next
 

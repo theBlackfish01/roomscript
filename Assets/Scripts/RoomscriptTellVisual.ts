@@ -36,7 +36,7 @@ import {caseExitPosition} from "./Engine/game/RoomPresentation";
     for(let segment=0;segment<6;segment++) {
       const vertices:number[]=[],indices:number[]=[];
       for(let step=0;step<=8;step++) {const angle=(segment/6+(step/8*.13))*Math.PI*2;
-        for(const radius of [23.5,24.4])vertices.push(Math.cos(angle)*radius,Math.sin(angle)*radius+126,-3,0,0,1,step/8,radius===23.5?0:1);
+        for(const radius of [4.5,5.2])vertices.push(Math.cos(angle)*radius-32,Math.sin(angle)*radius+92,5,0,0,1,step/8,radius===4.5?0:1);
         if(step<8){const n=step*2;indices.push(n,n+1,n+2,n+1,n+3,n+2);}}
       this.segments.push(this.visual(actor,"RoomscriptComposure"+segment,vertices,indices,this.lightMaterial));
     }
@@ -60,7 +60,7 @@ import {caseExitPosition} from "./Engine/game/RoomPresentation";
     const last=state.log[state.log.length-1];if(last&&!["LineSpoken","LlmOutput","PlayerMoved","WrenSpoken"].includes(last.type)){this.pending=null;this.prop.enabled=false;this.line.enabled=false;}
     const id=this.flow.diagnostics().suspect,suspect=state.suspects[id];this.shownSegments=suspect.composure;
     this.audio.setComposure(1-suspect.composure/Math.max(1,suspect.composureMax));
-    this.segments.forEach((segment,index)=>segment.enabled=index<suspect.composure);
+    this.segments.forEach(segment=>segment.enabled=false);
     const absent=isLawyered(suspect,state.elapsedMinutes);
     if(absent!==this.absent){this.absent=absent;this.from=this.flow.actor.getTransform().getWorldPosition();
       this.to=absent?this.room.toWorld(caseExitPosition(this.flow.engine.graphRef())):this.mark;
@@ -68,7 +68,7 @@ import {caseExitPosition} from "./Engine/game/RoomPresentation";
       if(!absent)this.audio.play("Knock");}
   }
   private update():void {
-    if(!this.prop)return;const now=getTime();
+    if(!this.prop)return;const now=getTime();this.segments.forEach(segment=>segment.enabled=false);
     if(this.moving){const t=Math.min(1,(now-this.moveStart)/1.5),ease=t*t*(3-2*t);this.flow.actor.getTransform().setWorldPosition(vec3.lerp(this.from,this.to,ease));
       if(t===1){this.moving=false;this.flow.actor.getSceneObject().enabled=!this.absent;}}
     if(!this.pending||now<this.due)return;
@@ -77,6 +77,7 @@ import {caseExitPosition} from "./Engine/game/RoomPresentation";
     if(window.started){this.count++;this.lastDelay=(now-this.started)*1000;this.audio.play(this.pending.kind==="flicker"?"Tink":"Shing");
       this.target=this.pending.targetObject?this.room.objectAnchor(this.pending.targetObject):null;
       console.log("TELL|"+JSON.stringify({statement:this.pending.statement,target:this.pending.targetObject,delayMs:this.lastDelay}));}
+    this.segments.forEach((segment,index)=>segment.enabled=index<this.shownSegments);
     this.prop.enabled=true;
     const phase=(now-this.due)*12,flash=this.pending.kind==="flicker"?(Math.sin(phase*3)>0?1:.2):.6+.4*Math.sin(phase);
     const kind=this.pending.prop,position=kind.indexOf("glasses")>=0?new vec3(0,132,5):kind.indexOf("glove")>=0?new vec3(-16,74,5):kind==="lighter"?new vec3(16,78,5):new vec3(14,97,5);
@@ -93,7 +94,7 @@ import {caseExitPosition} from "./Engine/game/RoomPresentation";
     points.forEach((point,index)=>{const local=inverse.multiplyPoint(point);vertices.push(local.x,local.y,local.z,0,0,1,index<2?0:1,index===0||index===3?0:1);});
     this.lineBuilder.eraseVertices(0,4);this.lineBuilder.appendVerticesInterleaved(vertices);this.lineBuilder.updateMesh();
   }
-  diagnostics():{count:number;delayMs:number;target:string|null;prop:boolean;line:boolean;segments:number;absent:boolean;moving:boolean} {
-    return {count:this.count,delayMs:this.lastDelay,target:this.pending?.targetObject??null,prop:!!this.prop?.enabled,line:!!this.line?.enabled,segments:this.shownSegments,absent:this.absent,moving:this.moving};
+  diagnostics():{count:number;delayMs:number;target:string|null;prop:boolean;line:boolean;segments:number;visibleSegments:number;absent:boolean;moving:boolean} {
+    return {count:this.count,delayMs:this.lastDelay,target:this.pending?.targetObject??null,prop:!!this.prop?.enabled,line:!!this.line?.enabled,segments:this.shownSegments,visibleSegments:this.segments.filter(segment=>segment.enabled).length,absent:this.absent,moving:this.moving};
   }
 }

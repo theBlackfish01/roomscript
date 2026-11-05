@@ -1,3 +1,4 @@
+import {RoomscriptRoomBinding} from "./RoomscriptRoomBinding";
 import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
@@ -17,8 +18,8 @@ import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
     engine.dispatch({type:"Ask",suspect:"S2",topic:"where@22:30"});engine.dispatch({type:"PinchObject",object:"O11"});
     engine.dispatch({type:"Object",suspect:"S2",statement:"C_VALE_ALIBI_0",evidence:["E_KETTLE_COLD"]});
     expect(actor.diagnostics().pose).toBe("rattled");expect(actor.diagnostics().stress).toBeGreaterThan(0);
-    expect(object.getTransform().getWorldPosition().y).toBe(-160);
-    const state=engine.snapshot();state.suspects.S2.layer=2;actor.applyState(state);expect(actor.diagnostics().pose).toBe("broken");
+    const room=findSceneObjectByName("RoomscriptCaseRoom").getComponent(RoomscriptRoomBinding.getTypeName()) as RoomscriptRoomBinding;expect(Math.abs(object.getTransform().getWorldPosition().y-room.toWorld([0,0,0]).y)<.01).toBe(true);
+    const state=JSON.parse(JSON.stringify(engine.snapshot()));state.suspects.S2.layer=2;actor.applyState(state);expect(actor.diagnostics().pose).toBe("broken");
     await sleep(10000);actor.applyState(engine.snapshot());
   }
 }

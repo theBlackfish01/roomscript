@@ -1,6 +1,7 @@
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {Vec3} from "./Engine/core/Types";
 import {EVENING_ROOM_FLOOR_Y} from "./Content/EveningRoomScan";
+import {presetProp} from "./RoomscriptArtLibrary";
 
 /** Case coordinates are floor-local centimeters. Authored anchors are the shared world mapping. */
 @component export class RoomscriptRoomBinding extends BaseScriptComponent {
@@ -27,11 +28,13 @@ import {EVENING_ROOM_FLOOR_Y} from "./Content/EveningRoomScan";
       const make=(name:string,pos:Vec3)=>{const o=global.scene.createSceneObject(name);o.setParent(root);o.getTransform().setLocalPosition(new vec3(pos[0],pos[1],pos[2]));this.generated.push(o);return o;};
       graph.room.objects.forEach(o=>this.objects.set(o.id,make("RoomscriptObject_"+o.id,o.pos)));graph.room.zones.forEach(z=>this.zones.set(z.id,make("RoomscriptZone_"+z.id,z.anchor)));
     }
+    if(preset)for(const object of graph.room.objects){const prefab=presetProp(graph,object.id);if(!prefab)continue;const visual=prefab.instantiate(this.objectAnchor(object.id));visual.name="RoomscriptPropVisual_"+object.id;visual.getTransform().setLocalPosition(vec3.zero());visual.getTransform().setLocalScale(vec3.one());if(object.id==="O3"){visual.getTransform().setLocalRotation(quat.fromEulerAngles(0,0,Math.PI/2));visual.getTransform().setLocalPosition(new vec3(16,1.25,0));}this.generated.push(visual);}
     this.boundCase=graph.caseId;if(!this.subscribed){this.subscribed=true;this.engine.onCaseChanged.add(()=>{this.boundCase="";this.initialize();});}
     const failures=this.audit();if(failures.length)throw new Error("Room binding: "+failures.join(", "));
   }
   objectAnchor(id:string):SceneObject {const anchor=this.objects.get(id);if(!anchor)throw new Error("Unbound object "+id);return anchor;}
   zoneAnchor(id:string):SceneObject {const anchor=this.zones.get(id);if(!anchor)throw new Error("Unbound zone "+id);return anchor;}
+  propCount():number{return this.generated.filter(o=>!isNull(o)&&o.name.startsWith("RoomscriptPropVisual_")).length;}
   toWorld(position:Vec3):vec3 {return this.getTransform().getWorldTransform().multiplyPoint(new vec3(position[0],position[1],position[2]));}
   audit():string[] {
     const graph=this.engine.graphRef(),failures:string[]=[];

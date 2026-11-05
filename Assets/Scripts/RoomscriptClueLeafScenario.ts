@@ -11,7 +11,7 @@ import {replayGame} from "./Engine/game/Reducer";
   async run():Promise<void> { await enterCase();
     await sleep(1800);const clue=findSceneObjectByName("RoomscriptClue").getComponent(RoomscriptClueController.getTypeName()) as RoomscriptClueController;
     const flow=clue.objection.flow,engine=flow.engine,room=clue.objection.tells.room,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
-    const audioOrigin=clue.objection.tells.audio.getTransform().getWorldPosition();
+    const audioOrigin=clue.objection.tells.audio.getTransform().getWorldPosition(),camera=flow.actor.camera.getTransform(),cameraHome=camera.getWorldPosition(),cameraRotation=camera.getWorldRotation();
     expect(!!flow.actor.camera.getComponent("Component.AudioListenerComponent")).toBe(true);
     const starts:{busy:boolean;card:string}[]=[];clue.onSelection.add(()=>{const view=clue.diagnostics();starts.push({busy:view.busy,card:view.card});});
     const finishSweep=async()=>{for(let i=0;i<150&&clue.diagnostics().busy;i++)await sleep(100);expect(clue.diagnostics().busy).toBe(false);await sleep(200);};
@@ -21,14 +21,19 @@ import {replayGame} from "./Engine/game/Reducer";
     try {
       await dragPawn("S1","Z1");expect(clue.diagnostics().pending).toBe("S1");expect(findSceneObjectByName("RoomscriptSuggestionGhost").enabled).toBe(true);expect(engine.snapshot().elapsedMinutes).toBe(0);
       await tap("RoomscriptObject_O1");expect(engine.snapshot().elapsedMinutes).toBe(15);expect(engine.snapshot().knowledge.evidenceIds.includes("E_CABLE")).toBe(false);expect(starts[0].busy).toBe(true);expect(starts[0].card).toBe("");
-      await finishSweep();expect(clue.diagnostics().refuter).toBe("O8");expect(clue.diagnostics().visited.slice(-1)[0]).toBe("O8");expect(clue.diagnostics().card.length>0).toBe(true);expect(engine.snapshot().grid.suspects.includes("S1")).toBe(false);
+      await finishSweep();expect(clue.diagnostics().refuter).toBe("O8");expect(clue.diagnostics().visited.slice(-1)[0]).toBe("O8");expect(clue.diagnostics().card.length>0).toBe(true);expect(engine.snapshot().grid.suspects.includes("S1")).toBe(false);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(false);
       expect(findSceneObjectByName("RoomscriptPawn_S1").getChildrenCount()>2).toBe(true);await tap("Close refutation");
       expect(findSceneObjectByName("RoomscriptCaseLidUI").getChild(0).getComponent("ColliderComponent").enabled).toBe(false);
       await tap("RoomscriptObject_O6");await tap("Close memory");expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);
+      // The exclusion stays certified while its room marker yields to a nearby speaker.
+      await tap("Question S2");const face=flow.actor.getTransform().getWorldPosition().add(new vec3(0,130,0));camera.setWorldPosition(face.add(new vec3(0,0,100)));camera.setWorldRotation(quat.quatIdentity());await sleep(350);
+      expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(false);expect(clue.objection.tells.diagnostics().visibleSegments).toBe(0);
+      camera.setWorldRotation(quat.fromEulerAngles(-Math.PI/3,0,0));await sleep(350);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(true);expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);
+      camera.setWorldPosition(cameraHome);camera.setWorldRotation(cameraRotation);await sleep(250);
       await dragPawn("S2","Z1");expect(clue.diagnostics().pending).toBe("S2");await tap("RoomscriptObject_O1");await finishSweep();expect(clue.diagnostics().refuter).toBe(null);expect(clue.diagnostics().breaths).toBe(0);expect(engine.snapshot().elapsedMinutes).toBe(40);expect(engine.snapshot().verdict).toBe(null);
       expect(JSON.stringify(replayGame(engine.caseGraph(),engine.snapshot().log))).toBe(JSON.stringify(engine.snapshot()));
       expect(clue.objection.tells.audio.getTransform().getWorldPosition().distance(audioOrigin)<.01).toBe(true);
       console.log("CLUE_CHECK|"+JSON.stringify({refuter:"O8",privateCard:true,noRefuter:true,pawnDrag:true,clock:40,replay:true}));
-    }finally{flow.cancel();flow.client.forceOffline=false;}
+    }finally{camera.setWorldPosition(cameraHome);camera.setWorldRotation(cameraRotation);flow.cancel();flow.client.forceOffline=false;}
   }
 }

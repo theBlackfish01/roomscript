@@ -1,17 +1,20 @@
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
-import {PanelUI,wrapText} from "./RoomscriptPanelUI";
+import {MemoryCardView,MemoryCardData} from "./RoomscriptMemoryCardView";
 /** Passive evidence wallet; selection IDs come from observed engine evidence only. */
 @component export class RoomscriptEvidenceWalletUI extends BaseScriptComponent {
   @input @hint("Panel width cm") @widget(new SliderWidget(40,60,1)) width:number=46;
   @input @hint("Text scale") @widget(new SliderWidget(1,2.5,0.1)) fontScale:number=1.6;
   @input('vec4','{1,0.42,0.35,1}') @hint("Truth lettering") @widget(new ColorWidget()) ink:vec4;
-  readonly onClose=new Event<void>();readonly onSelect=new Event<string>();private view:PanelUI;private body:Text;private entries:{id:string;text:string}[]=[];private index=0;
-  build():void {if(this.view)return;this.view=new PanelUI(this.getSceneObject(),this.width,54,this.fontScale,this.ink);
-    this.view.text("Wallet title","EVIDENCE & STATEMENTS",4,"title");this.body=this.view.text("Evidence card","No evidence collected.",30,"body");
-    this.view.buttons([{id:"Previous evidence",label:"Previous"},{id:"Use evidence",label:"Use evidence"},{id:"Next evidence",label:"Next"}],id=>{if(!this.entries.length)return;
-      if(id==="Use evidence")this.onSelect.invoke(this.entries[this.index].id);else {this.index=(this.index+(id==="Next evidence"?1:this.entries.length-1))%this.entries.length;this.render();}});
-    this.view.buttons([{id:"Close evidence",label:"Close"}],()=>this.onClose.invoke());this.show(false);}
-  setEntries(entries:{id:string;text:string}[]):void {this.entries=entries;this.index=Math.min(this.index,Math.max(0,entries.length-1));this.render();}
-  private render():void {if(this.body)this.body.text=this.entries.length?wrapText(this.entries[this.index].text,35):"No evidence collected.";}
-  show(value:boolean):void {this.view.show(value);}
+  readonly onClose=new Event<void>();readonly onSelect=new Event<string>();readonly onShown=new Event<void>();readonly onCardChanged=new Event<string>();private view:MemoryCardView;private entries:{id:string;text:string}[]=[];private index=0;
+  private resolveCard:((id:string)=>MemoryCardData|null)|null=null;
+  build():void {if(this.view)return;this.view=new MemoryCardView(this.getSceneObject(),{
+    textName:"Evidence card",expandName:"Expand evidence",closeName:"Close evidence",previousName:"Previous evidence",nextName:"Next evidence",useName:"Use evidence",
+    onPrevious:()=>this.next(-1),onNext:()=>this.next(1),onClose:()=>this.onClose.invoke(),onUse:()=>{const entry=this.entries[this.index];if(entry)this.onSelect.invoke(entry.id);}
+  });this.show(false);}
+  setCardResolver(resolve:(id:string)=>MemoryCardData|null):void {this.resolveCard=resolve;this.render();}
+  setEntries(entries:{id:string;text:string}[]):void {const old=this.entries[this.index]?.id;this.entries=entries;const retained=entries.findIndex(entry=>entry.id===old);this.index=retained>=0?retained:Math.min(this.index,Math.max(0,entries.length-1));this.render();}
+  private next(delta:number):void {if(!this.entries.length)return;this.index=(this.index+delta+this.entries.length)%this.entries.length;this.render();this.onCardChanged.invoke(this.entries[this.index].id);}
+  private render():void {const entry=this.entries[this.index];this.view?.set(entry?this.resolveCard?.(entry.id)||null:null);}
+  show(value:boolean):void {if(value){this.render();this.view?.expand(false);}this.getSceneObject().enabled=value;if(value)this.onShown.invoke();}
+  cardDiagnostics():{id:string|null;expanded:boolean;authored:boolean}{return this.view?.diagnostics()||{id:null,expanded:false,authored:false};}
 }

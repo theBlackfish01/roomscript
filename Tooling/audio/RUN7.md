@@ -18,10 +18,8 @@ V1-v3 include authored and synthetic room vocabulary; v4 adds the accepted seven
 
 ## Verification
 
-- 
-ode Tooling/audio/run7-verify.mjs`: all inventory rows covered, selected voices match, manifest/import order matches, every MP3 decodes, timestamps remain within playback bounds, four effects present. Machine evidence: `run7-verification.json`.
-- 
-ode --test Tooling/audio/audio-window.test.mjs Tooling/audio/voice-agent-gate.test.mjs`: six focused tests pass. Audio regression: provider timestamps exceeded decoded duration for some short fragments; export now preserves those full clips and bounds reveal times. Truth-gate tests reject invented/additional words, stale requests, absent IDs and partial/corrected/interrupted turns; no provider audio is returned.
+- `node Tooling/audio/run7-verify.mjs`: all inventory rows covered, selected voices match, manifest/import order matches, every MP3 decodes, timestamps remain within playback bounds, four effects present. Machine evidence: `run7-verification.json`.
+- `node --test Tooling/audio/audio-window.test.mjs Tooling/audio/voice-agent-gate.test.mjs`: six focused tests pass. Audio regression: provider timestamps exceeded decoded duration for some short fragments; export now preserves those full clips and bounds reveal times. Truth-gate tests reject invented/additional words, stale requests, absent IDs and partial/corrected/interrupted turns; no provider audio is returned.
 - No full test suite, GUI automation, Chromium, scene edits or Lens MCP calls were used by this lane.
 
 ## Costs
@@ -39,12 +37,15 @@ No estimates, failed requests, unresolved reservations or provider block in this
 
 No missing requested audio due to quota. Remaining historical variant-bank expansion from earlier runs is outside this supplemental inventory. Preserve existing fallbacks and do not turn a future quota error into a development blocker.
 
+Final offline audit (Nov 6 PKT): `run7-audit-published.mjs` compared all 312 published files against staging byte for byte: zero mismatches, zero missing inventory rows, unchanged 2,954 credits across 298 completed ledger entries, no estimates or incomplete requests. Evidence: `run7-published-audit.json`. No new paid generation or full decode pass was needed. Subjective audition and any future unseen furniture vocabulary remain the only audio follow-ups; no quota top-up is currently required for this inventory.
+
+Native Preview latency remains a separate runtime issue. Main measured a 3,010ms native `score.play:MainTheme` call. Production clock restarts were replaced by one loop; redundant startup Interrogation and silent Tension playback were removed, with tension starting only when needed. Native-call timing and S2 playback regressions were added. These changes preserve shipped speech and require main's Lens verification; the ledger/inventory audit does not prove latency resolved.
+
 ## Provenance and skill contribution
 
 All new audio uses ElevenLabs and the already selected Roomscript fictional voices. No voice clones or new character casting were introduced. Text comes from deterministic compiled statements or authored narration; model prose cannot alter case truth. E8 used primary ElevenLabs WebSocket/client-tool/authentication docs plus CLAD `specs-websocket`, `specs-audio` and `specs-asr` guidance to identify available Lens API shapes and the unverified Preview microphone dependency. That review changed the ship decision to no-go for direct generated agent speech.
 
-Publish only after imports are released: 
-ode Tooling/audio/run7-publish.mjs --imports-allowed`. It copies the staged supplemental Assets additively. Commit the resulting assets, manifests, Tooling sources, verification and ledger with the main verified package. Keep the Tooling `.env`, raw cache and signed credentials ignored.
+Publish only after imports are released: `node Tooling/audio/run7-publish.mjs --imports-allowed`. It copies the staged supplemental Assets additively. Commit the resulting assets, manifests, Tooling sources, verification and ledger with the main verified package. Keep the Tooling `.env`, raw cache and signed credentials ignored.
 
 
 Live-register supplement (published and byte-verified): all S1–S4 voices now cover exact engine prefixes `Well, detective.` and suffixes `Write that down.`. Updated verification covers 304 voice clips and four effects, 2,391,876 audio bytes, 553.68 decoded voice seconds, and zero missing inventory rows. Eight clips were added (two reused existing takes, six newly rendered), costing 66 header-confirmed credits. The runtime import list and manifest were published together; the original hero library remains unchanged.

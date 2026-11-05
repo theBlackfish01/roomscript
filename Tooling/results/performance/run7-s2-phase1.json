@@ -1,0 +1,344 @@
+﻿{
+  "lensActivationTimeMs": null,
+  "fpsEstimate": 1305.9,
+  "totalDurationMs": 9981.37,
+  "slowFrames": [
+    {
+      "name": "ProcessFrame",
+      "trackName": "(unnamed)",
+      "durationMs": 44.26,
+      "phase": "late",
+      "severity": "overPrimaryBudget",
+      "label": "44.26ms exceeds 33.3ms frame budget"
+    }
+  ],
+  "topSlices": [
+    {
+      "name": "ProcessFrame",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 4230.8,
+      "avgDurationMs": 10.71,
+      "maxDurationMs": 44.26,
+      "minDepth": 0,
+      "dominantChildHint": {
+        "childName": "Track",
+        "childTotalMs": 3608.13,
+        "pctOfParent": 85.3
+      },
+      "severity": "ok",
+      "label": "avg 10.71ms/call; 395 calls; total 4230.8ms"
+    },
+    {
+      "name": "Track",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 3608.13,
+      "avgDurationMs": 9.13,
+      "maxDurationMs": 17.47,
+      "minDepth": 1,
+      "severity": "ok",
+      "label": "avg 9.13ms/call; 395 calls; total 3608.13ms"
+    },
+    {
+      "name": "CoreManagerRender",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 2068.83,
+      "avgDurationMs": 5.24,
+      "maxDurationMs": 11.77,
+      "minDepth": 0,
+      "dominantChildHint": {
+        "childName": "ScnFrame",
+        "childTotalMs": 2042.23,
+        "pctOfParent": 98.7
+      },
+      "severity": "ok",
+      "label": "avg 5.24ms/call; 395 calls; total 2068.83ms"
+    },
+    {
+      "name": "ScnFrame",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 2042.23,
+      "avgDurationMs": 5.17,
+      "maxDurationMs": 11.67,
+      "minDepth": 1,
+      "severity": "ok",
+      "label": "avg 5.17ms/call; 395 calls; total 2042.23ms"
+    },
+    {
+      "name": "Scene::Update",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 1009.99,
+      "avgDurationMs": 2.56,
+      "maxDurationMs": 5.01,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 2.56ms/call; 395 calls; total 1009.99ms"
+    },
+    {
+      "name": "RenderFrame",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 297.52,
+      "avgDurationMs": 0.75,
+      "maxDurationMs": 1.4,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 0.75ms/call; 395 calls; total 297.52ms"
+    },
+    {
+      "name": "Camera",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 264.43,
+      "avgDurationMs": 0.67,
+      "maxDurationMs": 1.25,
+      "minDepth": 3,
+      "severity": "ok",
+      "label": "avg 0.67ms/call; 395 calls; total 264.43ms"
+    },
+    {
+      "name": "RenderPass",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 790,
+      "totalDurationMs": 253.4,
+      "avgDurationMs": 0.32,
+      "maxDurationMs": 0.77,
+      "minDepth": 4,
+      "severity": "ok",
+      "label": "avg 0.32ms/call; 790 calls; total 253.4ms"
+    },
+    {
+      "name": "FaceDetectPreprocess",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 225,
+      "totalDurationMs": 208.04,
+      "avgDurationMs": 0.92,
+      "maxDurationMs": 1.49,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 0.92ms/call; 225 calls; total 208.04ms"
+    },
+    {
+      "name": "Scene::LateUpdate",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 149.33,
+      "avgDurationMs": 0.38,
+      "maxDurationMs": 1.67,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 0.38ms/call; 395 calls; total 149.33ms"
+    },
+    {
+      "name": "Visual",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 11850,
+      "totalDurationMs": 132.45,
+      "avgDurationMs": 0.01,
+      "maxDurationMs": 0.23,
+      "minDepth": 5,
+      "severity": "ok",
+      "label": "avg 0.01ms/call; 11850 calls; total 132.45ms"
+    },
+    {
+      "name": "DrawCall",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 11850,
+      "totalDurationMs": 54.85,
+      "avgDurationMs": 0.0,
+      "maxDurationMs": 0.2,
+      "minDepth": 5,
+      "severity": "ok",
+      "label": "avg 0.0ms/call; 11850 calls; total 54.85ms"
+    },
+    {
+      "name": "Scene::PhysicsUpdate",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 39.92,
+      "avgDurationMs": 0.1,
+      "maxDurationMs": 0.25,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 0.1ms/call; 395 calls; total 39.92ms"
+    },
+    {
+      "name": "PfttThrottle",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 7.41,
+      "avgDurationMs": 0.02,
+      "maxDurationMs": 0.31,
+      "minDepth": 1,
+      "severity": "ok",
+      "label": "avg 0.02ms/call; 395 calls; total 7.41ms"
+    },
+    {
+      "name": "Scene::Start",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 5.42,
+      "avgDurationMs": 0.01,
+      "maxDurationMs": 0.05,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 0.01ms/call; 395 calls; total 5.42ms"
+    },
+    {
+      "name": "GetShader",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 9902,
+      "totalDurationMs": 4.18,
+      "avgDurationMs": 0.0,
+      "maxDurationMs": 0.03,
+      "minDepth": 5,
+      "severity": "ok",
+      "label": "avg 0.0ms/call; 9902 calls; total 4.18ms"
+    },
+    {
+      "name": "FaceTrack",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 396,
+      "totalDurationMs": 3.33,
+      "avgDurationMs": 0.01,
+      "maxDurationMs": 0.03,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 0.01ms/call; 396 calls; total 3.33ms"
+    },
+    {
+      "name": "Scene::ScriptCallbacks",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 0.63,
+      "avgDurationMs": 0.0,
+      "maxDurationMs": 0.05,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 0.0ms/call; 395 calls; total 0.63ms"
+    },
+    {
+      "name": "Scene::TrackingSystem",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 0.4,
+      "avgDurationMs": 0.0,
+      "maxDurationMs": 0.01,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 0.0ms/call; 395 calls; total 0.4ms"
+    },
+    {
+      "name": "Scene::CurveSystem",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 0.33,
+      "avgDurationMs": 0.0,
+      "maxDurationMs": 0.02,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 0.0ms/call; 395 calls; total 0.33ms"
+    },
+    {
+      "name": "Scene::AnimationSystem",
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "callCount": 395,
+      "totalDurationMs": 0.3,
+      "avgDurationMs": 0.0,
+      "maxDurationMs": 0.0,
+      "minDepth": 2,
+      "severity": "ok",
+      "label": "avg 0.0ms/call; 395 calls; total 0.3ms"
+    }
+  ],
+  "threadActivity": [
+    {
+      "trackId": 0,
+      "trackName": "(unnamed)",
+      "sliceCount": 40938,
+      "totalDurationMs": 14381.92,
+      "maxDurationMs": 44.26
+    }
+  ],
+  "frameTimingStats": {
+    "threadName": "(unnamed)",
+    "trackId": 0,
+    "sampleCount": 790,
+    "p50Ms": 8.11,
+    "p90Ms": 11.69,
+    "p99Ms": 17.5,
+    "maxMs": 44.26,
+    "minMs": 4.06
+  },
+  "tracks": [
+    "DrawCallNum",
+    "PrimitiveNum",
+    "RenderToInterTextureNum",
+    "ShaderBindNum",
+    "TextureBindNum"
+  ],
+  "textureAttributions": [],
+  "notes": [
+    "FPS estimate may be unreliable (raw heuristic).",
+    "captureProfile auto-detect had low confidence\u2014verify against known capture device or tune heuristics in analyze_lens_trace.py (_infer_capture_profile)."
+  ],
+  "captureProfile": "mobile",
+  "captureProfileConfidence": "low",
+  "captureProfileSignals": [
+    "default_mobile_ambiguous"
+  ],
+  "captureProfileScores": {
+    "spectacles": 0,
+    "mobile": 0
+  },
+  "captureProfileQueryErrors": [
+    "SELECT name, string_value FROM metadata WHERE name:  --> query:1:14\n  |\n1 | SELECT name, string_value FROM metadata WHERE name IS NOT NULL OR string_value IS NOT NULL LIMIT 80\n  |              ^\nerror: no such column: string_value",
+    "SELECT key, string_value FROM meta WHERE key IS NO:  --> query:1:1\n  |\n1 | SELECT key, string_value FROM meta WHERE key IS NOT NULL OR string_value IS NOT NULL LIMIT 80\n  | ^\nerror: no such table: meta"
+  ],
+  "slowFrameBudgetMs": 33.3,
+  "thresholds": {
+    "latTargetMs": 200,
+    "frameBudget60fpsMs": 16.7,
+    "frameBudget30fpsMs": 33.3,
+    "slowFrameDetectionBudgetMs": 33.3
+  },
+  "longestFrameMs": 44.26,
+  "slowFrameCount": {
+    "over30fpsBudget": 0,
+    "over60fpsBudget": 0,
+    "overPrimaryBudget": 1
+  },
+  "fpsEstimateUnreliable": true,
+  "earlyHitchCount": 0,
+  "lateHitchCount": 1,
+  "timingInterpretation": "Hitches in the first 500ms suggest activation-time issues; hitches later in the trace may be interaction-related.",
+  "captureContext": "Mobile Lens Profiler traces typically start when the lens is pushed to the device with profiling enabled\u2014the beginning of the file reflects lens open and activation. Do not ask the user whether the trace 'starts at open'; assume activation unless they say they reproduced a hitch only after interacting later.",
+  "suggestedActions": [
+    "Use topSlices (totalDurationMs to find recurring bottlenecks, avgDurationMs for per-call cost) and slowFrames (depth-0 spans on render/main threads exceeding frame budget) to infer CPU vs GPU-ish work from slice names (e.g. Scene Update, ML, draw). Check frameTimingStats p50 vs p90 gap: a large gap means spikes rather than a consistently slow path."
+  ]
+}
