@@ -9,6 +9,8 @@ export type ValidationCode = "JSON" | "SCHEMA" | "CITATION_REQUIRED" | "UNKNOWN_
 export interface ValidationIssue {gate: number; code: ValidationCode; message: string;}
 export interface LineValidation {ok: boolean; answer?: Answer; errors: ValidationIssue[];}
 const modes: readonly AnswerMode[] = ["answer", "press", "deflect", "broken", "lawyered", "filler", "confession"];
+const contentStems:Record<string,string>={preparing:"making",prepared:"making",making:"making",arrived:"reached",entered:"reached",reached:"reached",came:"reached",walked:"reached",gone:"reached",went:"reached",inside:"in",into:"in",holding:"handled",held:"handled",handled:"handled",stayed:"was",stood:"was",remained:"was",found:"was",spent:"was",was:"was",reply:"answer",replied:"answer",answered:"answer",answering:"answer",answer:"answer",respond:"answer",responded:"answer",responding:"answer",died:"dead",dead:"dead",wanted:"intended",meant:"intended",intention:"intended",exposing:"expose",fibers:"fibres"};
+const contentStem=(word:string)=>contentStems[word]||word;
 const openers = new Set(("i am around a an the this that these those it its he she they we you your my our his her their "
   + "yes no fine well look listen detective sir madam perhaps really honestly actually please "
   + "nothing something everything everyone someone nobody everybody why who what when where how "
@@ -76,8 +78,12 @@ export function validateLine(input: unknown, sheet: FactSheet, graph: CaseGraph,
   for (const entry of gazetteer) for (const alias of entry.aliases) for (const word of alias.split(/[^a-z]+/)) vocabulary.add(word);
   for (const ref of cited) for (const word of normalizedWords(ref.text).split(/[^a-z]+/)) vocabulary.add(word);
   const capitalized = answer.line.match(/\b[A-Z][A-Za-z]*(?:'[A-Za-z]+)?\b/g) ?? [];
+  // A cited verb at the start of a sentence is not a new proper name merely
+  // because it is an inflected form. Use the same closed equivalence map as
+  // the content gate, without admitting arbitrary capitalized vocabulary.
+  const equivalentVocabulary=new Set([...vocabulary].map(contentStem));
   const timeWords=new Set(["half","quarter","past","ten","thirty","right","whatever","put"]);
-  if (capitalized.some(word => !vocabulary.has(word.toLowerCase().replace(/'s$/, ""))&&!timeWords.has(word.toLowerCase())&&!normalizedWords(word).split(" ").every(w=>openers.has(w)))) reject(4, "ENTITY", "Line introduces an unrecognized proper name or capitalized entity");
+  if (capitalized.some(word => !equivalentVocabulary.has(contentStem(word.toLowerCase().replace(/'s$/, "")))&&!timeWords.has(word.toLowerCase())&&!normalizedWords(word).split(" ").every(w=>openers.has(w)))) reject(4, "ENTITY", "Line introduces an unrecognized proper name or capitalized entity");
   const referencedText = cited.map(ref => ref.text + " " + ref.entities.join(" ")).join(" ");
   const allowedTimes = new Set(findTimes(referencedText).map(time => time.value));
   if (findTimes(answer.line).some(time => time.value === "invalid_time" || !allowedTimes.has(time.value))) reject(5, "TIME", "Line introduces a time absent from its cited references");
@@ -96,9 +102,7 @@ export function validateLine(input: unknown, sheet: FactSheet, graph: CaseGraph,
   if(!neutral&&!deflecting&&required&&mode!=="confession") {
     // Conservative vocabulary guard, not semantic entailment. Remove recognized times before scoring.
     const content=(text:string)=>{let words=claimWords(text);for(const time of findTimes(words).slice().reverse())words=words.slice(0,time.start)+" "+words.slice(time.end);return words.match(/[a-z]+/g)?.filter(w=>!openers.has(w)&&!new Set(["s","m","p","half","past","ten","thirty","right","say","rather","may","be","than","more","ought","shall"]).has(w))||[];};
-    const stems:Record<string,string>={preparing:"making",prepared:"making",making:"making",arrived:"reached",entered:"reached",reached:"reached",came:"reached",walked:"reached",gone:"reached",inside:"in",into:"in",holding:"handled",held:"handled",handled:"handled",stayed:"was",stood:"was",remained:"was",found:"was",spent:"was",was:"was",reply:"answer",replied:"answer",answered:"answer",answering:"answer",answer:"answer",died:"dead",dead:"dead",wanted:"intended",intention:"intended",exposing:"expose",fibers:"fibres"};
-    Object.assign(stems,{went:"reached",respond:"answer",responded:"answer",responding:"answer"});
-    const stem=(w:string)=>stems[w]||w,allowed=new Set((normalizedWords(required.text).match(/[a-z]+/g)||[]).map(stem));
+    const stem=contentStem,allowed=new Set((normalizedWords(required.text).match(/[a-z]+/g)||[]).map(stem));
     // Other cited memories may support interaction language, but cannot replace the required claim.
     for(const ref of cited.filter(r=>sheet.memory.concat(sheet.heard).some(m=>m.ref===r.ref)))for(const word of content(ref.text))allowed.add(stem(word));
     if(mode==="broken")for(const word of ["lied","wrong","false","account"])allowed.add(word);

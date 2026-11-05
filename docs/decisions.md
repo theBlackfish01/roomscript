@@ -170,3 +170,5 @@ Use run5-wip until the swapped compressed bundle and repaired hero pass; only th
 Run 6 art: preserve original procedural direction; use 1.85x ivory structure, two-ring halo, larger faces and posture contrast. Anton/Courier Prime bundled with OFL licenses. Select runtime textures; do not confuse 5.96 MB source size with resident texture memory. Remove only unused duplicate web/specs folders; history and prototype retain them.
 
 Run 6 post-import hero registration failure blocks Phase A2 and master promotion. Preserve the verified offline audio checkpoint separately from scene acceptance. Never label the old-cast hero pass as proof for the new cast. Stop Lens tooling after MCP transport failure; resume independent engine/publication work.
+
+V3: accept bounded grammatical equivalence and shared inflection vocabulary while retaining roles, negation, citations, entities and times. No sentence allowlist or acceptance threshold reduction. Report 58.8% honestly; do not claim the earlier 25% aspiration is met or treat inspected holdout as unseen.
