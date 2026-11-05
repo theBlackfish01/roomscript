@@ -50,7 +50,7 @@ export class TerminalPlayer {
       case "objectionWrong":return ["OBJECTION OVERRULED: "+event.text];
       case "refuted":return ["REFUTED by "+who+": "+this.name(refs[0])+" — "+(this.graph.facts.find(f=>f.id===refs[1])?.canonical??refs[1])];
       case "breathesIn":return ["No one can refute that suggestion. The room breathes in."];
-      case "verdict":return ["VERDICT: "+event.text,...endingSummary(this.graph,this.state).map(s=>s.text),...(event.text==="correct"?["Vale: "+heroFinalConfession.answer.line]:[])];
+      case "verdict":return ["VERDICT: "+event.text,...endingSummary(this.graph,this.state).map(s=>s.text),...(event.text==="correct"&&this.graph.caseId===createHeroCase().caseId?["Vale: "+heroFinalConfession.answer.line]:[])];
       case "beat":return ["BEAT: "+event.text];
       case "hunch":return ["HUNCH: investigate "+refs.join(", ")];
       case "argumentSupported":return ["ARGUMENT SUPPORTED: "+refs[0]];
@@ -92,8 +92,10 @@ export class TerminalPlayer {
         ...(["suspects","zones","weapons"] as const).map(kind=>kind+" crossed out: "+(solution.eliminated[kind].map(id=>id+" "+this.name(id)).join(", ")||"none"))]);
     }
     if(command==="arguments") return result(this.graph.requiredDeductions.map(d=>d.id+" — "+d.type+(this.state.arguments.some(a=>a.deduction===d.id)?" [SUPPORTED]":" [needs observed refs]")));
-    const id=(index:number)=>parts[index]?.toUpperCase();
-    const refs=(start:number)=>parts.slice(start).flatMap(part=>part.split(",")).filter(Boolean).map(value=>value.toUpperCase());
+    const identifiers=[...this.graph.cast.suspects,...this.graph.room.objects,...this.graph.room.zones,...this.graph.statements,...this.graph.evidence,...this.graph.requiredDeductions].map(item=>item.id);
+    const canonicalId=(value:string)=>{if(identifiers.includes(value))return value;const matches=identifiers.filter(id=>id.toLowerCase()===value.toLowerCase());return matches.length===1?matches[0]:value;};
+    const id=(index:number)=>parts[index]===undefined?undefined:canonicalId(parts[index]);
+    const refs=(start:number)=>parts.slice(start).flatMap(part=>part.split(",")).filter(Boolean).map(canonicalId);
     const suspect=(value:string|undefined)=>!!value&&this.graph.cast.suspects.some(s=>s.id===value);
     if(command==="chips") {
       const speaker=id(0)??this.state.activeSuspect??this.graph.cast.suspects[0].id;

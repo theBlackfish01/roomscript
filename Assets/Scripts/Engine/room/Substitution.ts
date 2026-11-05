@@ -3,6 +3,8 @@ import {affordancesFor, compareIds, isWeapon, isWitness, OBJECT_TYPES, RoleReque
 
 export interface SubstitutionOptions {
   minZones?: number; minWeapons?: number; minWitnesses?: number;
+  /** Fictional case memories may inhabit furniture; this is not a sensor capability. */
+  fictionalMemories?: boolean;
   requiredTypes?: readonly ObjectType[];
   roles?: readonly RoleRequest[];
   /** Required only for a completely untagged room; must be supplied by the caller in cm. */
@@ -82,7 +84,7 @@ export function withSubstitutions(room: RoomScan, options: SubstitutionOptions =
     add(type);
   }
   const witnessTypes: ObjectType[] = ["light", "clock", "door", "cup", "kettle"];
-  while (objects.filter(isWitness).length < minWitnesses) {
+  while ((options.fictionalMemories ? objects.length : objects.filter(isWitness).length) < minWitnesses) {
     add(witnessTypes.find(type => !objects.some(object => object.type === type)) ?? "clock");
   }
   return {source: room.source, zones, objects};

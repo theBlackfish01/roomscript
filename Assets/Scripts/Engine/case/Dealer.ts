@@ -13,8 +13,9 @@ export function dealEvidence(sim:Simulation):void {
     const holders=sim.witnesses[zone||g.envelope.where];
     const chosen=rng.fork(f.id).shuffle(holders).slice(0,2);
     chosen.forEach((holder,i)=>{
-      const e:Evidence={id:evidenceForFact(f.id,i),holder,kind:"object_memory",proves:[f.id],canonical:f.canonical||f.id,entities:f.entities?.slice()||[],costMinutes:10};
-      g.evidence.push(e);g.witnessing.push({witness:holder,fact:f.id,channel:"record"});
+      const object=g.room.objects.find(o=>o.id===holder)!,memory=object.affordances.includes("case:fictional-memory");
+      const e:Evidence={id:evidenceForFact(f.id,i),holder,kind:"object_memory",proves:[f.id],canonical:memory?"A fictional memory in the "+object.label+": "+(f.canonical||f.id):f.canonical||f.id,entities:f.entities?.slice()||[],costMinutes:10};
+      g.evidence.push(e);g.witnessing.push({witness:holder,fact:f.id,channel:memory?"state":"record"});
     });
   }
   const cards:Record<string,{eliminates:Id;via:Id}[]>={};

@@ -9,7 +9,7 @@ import {verifyCase,minimumCostRoute} from "./Solver";
 import {planRepairs,RepairPlan} from "./RepairPlanner";
 export interface CompileTrace {stage:"pitch"|"bind"|"simulate"|"solver"|"accepted"|"repair";attempt:number;ok:boolean;details:string;}
 export interface CompileResult {ok:boolean;graph?:CaseGraph;attempts:number;trace:CompileTrace[];errors:PitchIssue[];solverIssues:SolverIssue[];repair:RepairPlan;bindings?:Record<string,string>;timeline?:TimelineEntry[];}
-export interface CompileOptions {maxAttempts?:number;}
+export interface CompileOptions {maxAttempts?:number;fictionalMemories?:boolean;}
 /** Pure deterministic compiler. Model-provided narrative cannot select or overwrite the envelope. */
 export function compileCase(seed:number,room:RoomScan,input:unknown,options:CompileOptions={}):CompileResult {
   const trace:CompileTrace[]=[];
@@ -22,7 +22,7 @@ export function compileCase(seed:number,room:RoomScan,input:unknown,options:Comp
   const pitch=validation.pitch as CasePitch;let last:SolverIssue[]=[];
   for(let attempt=0;attempt<(options.maxAttempts??50);attempt++) {
     try {
-      const simulation=simulateCase(seed,room,pitch,attempt);
+      const simulation=simulateCase(seed,room,pitch,attempt,options.fictionalMemories===true);
       trace.push({stage:"bind",attempt:attempt+1,ok:true,details:Object.keys(simulation.bindings).length+" roles bound to physical or explicit virtual objects."});
       trace.push({stage:"simulate",attempt:attempt+1,ok:true,details:simulation.timeline.length+" actor-slot observations generated."});
       dealEvidence(simulation);buildStatements(simulation,pitch);planBeats(simulation,pitch);

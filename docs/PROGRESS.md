@@ -370,3 +370,8 @@ A4 audio preparation: deterministic NarrativeAudio selector and dialogueAllowed 
 
 Strict fail-fast replacement bundle passed 11.836 s; repaired hero passed 169.471 s, correct verdict/four deductions, bundled requested answers, no network and exact replay. Scenario registration during hero reset at 0.498 s. Evidence: Tooling/results/run7-a2-verification.log and replay-checked run7-a2-hero.json. Scene saved and credentials confirmed blank. A2 permits master fast-forward; final integrated feature gate is still pending.
 
+
+Run 7 camera spike began ~23:45 PKT. First real CameraModule encode reached loopback request, but LEAF failed at 1.107 s: URL is not secure (Experimental API must be enabled to access insecure URLs). No provider request/cost. Assets writes paused; recovery restart 1/3 next. VirtualScene first input path failed validation (applied=0), corrected with exact component UUID on same surface.
+
+
+Run 7 checkpoint (Nov 6): see docs/RUN7_PROGRESS.md. A2 passed; master promoted and pushed7a8cf35. Generated cases/Wren/route pure engine verified29focused tests, pure typecheck and3authored-room terminal seeds. Audio v3 additive delivery verified273voices+4effects,2599credits. Camera spike uses actual CameraModule frames+Claude+World Query;7candidate furniture anchors, visual gate pending. Local HTTP security restriction recovered/retried then offline fallback;1of3recovery restarts used. No m3 or Dynamiclive claim yet.

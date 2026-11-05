@@ -27,12 +27,12 @@ export function buildStatements(sim:Simulation,pitch:CasePitch):void {
     for(const weapon of g.weapons.filter(id=>id!==g.envelope.what))statements.push(truth(s.slot,"weapon_"+weapon,`F_IN_${weapon}_${murder}`));
     statements.push(truth(s.slot,"motive",`F_MOTIVE_${s.slot}`));
     for(const [topic,source] of [["visit",sim.secretFacts[s.slot]],["borrowed_item",sim.baselineFacts[s.slot]]] as [string,string][]) {
-      const actual=fact(source);const denial=falseFact(actual,source+"_DENIAL",{...actual.args,value:"denied"},`${topic==="visit"?"I was attending to my own business.":"I did not borrow the item."}`);
+      const actual=fact(source);const denial=falseFact(actual,source+"_DENIAL",{...actual.args,value:"denied"},topic==="visit"?"I was attending to my own business.":actual.args.key==="touched_fixture"?"I did not touch the item.":"I did not borrow the item.");
       const original=truth(s.slot,topic,source);
       const replacement={...original,id:original.id+"_REPLY",replacementFor:original.id};
       statements.push({...original,asserts:denial.id,canonical:denial.canonical!,stance:"cover",breakers:proofs(source),onBreak:replacement.id},replacement);
     }
   }
-  for(const statement of statements){const name=g.cast.suspects.find(s=>s.id===statement.speaker)!.name;statement.canonical=statement.canonical.split(name+"'s").join("my").split(name).join("I");}
+  for(const statement of statements){const name=g.cast.suspects.find(s=>s.id===statement.speaker)!.name;statement.canonical=statement.canonical.split(name+"'s").join("my").split(name).join("I");statement.pressed={canonical:statement.canonical,entities:statement.entities.slice()};}
   g.requiredDeductions=[{id:"D_OPPORTUNITY",type:"opportunity",subject:culprit,supports:proofs(`F_AT_${culprit}_${murder}`),canonical:"The suspect occupied the murder zone."},{id:"D_MEANS",type:"means",subject:culprit,supports:proofs("F_MURDER_TOUCH"),canonical:"The suspect handled the murder weapon."},{id:"D_ALIBI",type:"alibi_broken",subject:culprit,supports:proofs(`F_AT_${culprit}_${murder}`),canonical:"The initial whereabouts account was contradicted."},{id:"D_MOTIVE",type:"motive",subject:culprit,supports:proofs(`F_MOTIVE_${culprit}`),canonical:fact(`F_MOTIVE_${culprit}`).canonical!}];
 }

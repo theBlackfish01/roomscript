@@ -180,3 +180,5 @@ Latest owner instructions supersede historical freeze/provider/push restrictions
 
 Run 7 A2: replacement bundle and hero both passed under fail-fast with Assets writes paused. Promote master as authorized. Preserve current-cast baseline tape separately from final feature acceptance.
 
+
+2026-11-06 Run7: choose compact three-zone generated cases on observed furniture with explicitly fictional memories. This keeps two independent local evidence roots and all solver checks without filling the real room with synthetic recorder props. Models propose observations/performance only. Direct ElevenLabs voice-agent streaming is no-go until every spoken response passes exact engine admission; client tool access is insufficient. Camera spike uses supported MCP log export/offline Tooling after insecure localhost was rejected twice; no undocumented Editor setting or raw Lens HTTP workaround.

@@ -100,3 +100,5 @@ Raw-log SHA-256: `34820b09cc040b6dbe223def9e95c3649f5764cb9ec6f8016e6d5106e59b6b
 
 - Run 7 A2 MCP: strict bundled-voices passed 11.836 s; hero-demo passed 169.471 s after fresh restart, no Asset writes. Saved scene through Editor API. Harvested sanitized current-cast evidence and replay-verified action tape; correct verdict, four deductions. Scenario registration at 0.498 s.
 
+
+2026-11-06 Run7: CLAD specs-camera/world-query/internet + Lens MCP compiled RoomscriptRoomScanner, exported real CameraModule Evening Room frames and ran3strict WorldQuery box-centre probes successfully. API security failure recorded, gracefully restarted once, retried, selected offline authorized transport. Main loaded specs-build-ui for upcoming UI diet; audio worker used specs-websocket/audio/asr for E8 feasibility and fail-closed gate. Worker engine produced generated banks, PlayerKnowledge Wren and route replay;29focused tests/typecheck/3terminal seeds passed. Runtime/visual acceptance is separate and pending.

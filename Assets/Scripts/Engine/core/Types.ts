@@ -90,6 +90,8 @@ export interface NotebookClaim { statement: Id; speaker: Id; topic: string; laye
 export interface ArgumentClaim { deduction: Id; refs: Id[]; span?: string; }
 export type ActionPayload =
   | {type: "SetupCase"; origin: Vec3; forward: Vec3}
+  | {type: "PlayerMoved"; position: Vec3; atMs: number}
+  | {type: "WrenSpoken"; key: string; optionId: string}
   | {type: "Ask"; suspect: Id; topic: string; question?: string}
   | {type: "Press"; suspect: Id; statement?: Id}
   | {type: "Believe"; suspect: Id; statement?: Id}

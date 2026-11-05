@@ -12,10 +12,10 @@ export function culpritForSeed(seed:number):SuspectSlot {return new Prng(seed,"c
 const roleTypes:Record<string,ObjectType>={WEAPON_CORD:"cord",WEAPON_BLUNT:"blunt",WEAPON_SHARP:"sharp",WEAPON_POISON:"poison",WEAPON_HEAVY:"heavy",WITNESS_LIGHT:"light",WITNESS_CLOCK:"clock",WITNESS_DOOR:"door",WITNESS_SCREEN:"screen",WITNESS_MIRROR:"mirror",WITNESS_PLANT:"plant",WITNESS_KETTLE:"kettle",WITNESS_CUP:"cup",CONTAINER_BOX:"container",CONTAINER_CLOTH:"soft"};
 
 /** Preserve observed furniture. Missing witnesses are explicit, positioned virtual case recorders. */
-export function bindCaseRoom(input:RoomScan,pitch:CasePitch):{room:RoomScan;bindings:Record<string,Id>;witnesses:Record<Id,Id[]>} {
+export function bindCaseRoom(input:RoomScan,pitch:CasePitch,memoryWitnesses=false):{room:RoomScan;bindings:Record<string,Id>;witnesses:Record<Id,Id[]>} {
   const requested=Array.from(new Set(pitch.roleNarratives.map(r=>r.roleSlot).concat(pitch.suspects.flatMap(s=>[s.secret.roleSlot,s.baseline.trivialLieRoleSlot])))).sort();
   const requests:RoleRequest[]=requested.filter(role=>!!roleTypes[role]).map(role=>({role,type:roleTypes[role]}));
-  let room=buildRoom(input,{roles:requests,minWeapons:3,minWitnesses:2});
+  let room=buildRoom(input,{roles:requests,minWeapons:3,minWitnesses:2,fictionalMemories:memoryWitnesses});
   const binding=bindRoles(room,requests);if(binding.missing.length)throw new Error("Unbound roles: "+binding.missing.join(","));
   const bindings=binding.bindings;
   const zones=room.zones;
@@ -26,7 +26,9 @@ export function bindCaseRoom(input:RoomScan,pitch:CasePitch):{room:RoomScan;bind
   const witnesses:Record<Id,Id[]>={};
   for(const zone of room.zones) {
     // A clock/state-only witness cannot independently prove who occupied a zone.
-    const existing=room.objects.filter(o=>o.zone===zone.id&&isWitness(o)&&o.affordances.some(a=>["witness:sight","witness:presence","witness:record","witness:reflection","witness:passage"].includes(a)));
+    // Dynamic's disclosed fictional memories are authored into real furniture;
+    // this is not a claim that a sofa is a real sensor or that vision proved a crime.
+    const existing=room.objects.filter(o=>o.zone===zone.id&&(memoryWitnesses?!o.virtual:isWitness(o)&&o.affordances.some(a=>["witness:sight","witness:presence","witness:record","witness:reflection","witness:passage"].includes(a))));
     while(existing.length<2) {
       let id="REC_"+zone.id+"_"+(existing.length+1);while(room.objects.some(o=>o.id===id))id+="x";
       const occupied=room.objects.filter(o=>o.zone===zone.id);
@@ -37,12 +39,13 @@ export function bindCaseRoom(input:RoomScan,pitch:CasePitch):{room:RoomScan;bind
     witnesses[zone.id]=existing.map(o=>o.id);
   }
   room=normalizeRoom(room);
+  if(memoryWitnesses)for(const object of room.objects)if(!object.virtual)object.affordances.push("case:fictional-memory");
   return {room,bindings,witnesses};
 }
 
 /** Samples a complete actor/object history; prose supplies character, never event truth. */
-export function simulateCase(seed:number,input:RoomScan,pitch:CasePitch,attempt=0):Simulation {
-  const bound=bindCaseRoom(input,pitch);const room=bound.room;
+export function simulateCase(seed:number,input:RoomScan,pitch:CasePitch,attempt=0,memoryWitnesses=false):Simulation {
+  const bound=bindCaseRoom(input,pitch,memoryWitnesses);const room=bound.room;
   const rng=new Prng(seed,"compile").fork("attempt:"+attempt);const paths=rng.fork("paths"),weaponStream=rng.fork("weapons");
   const culprit=culpritForSeed(seed);const weapons=weaponStream.shuffle(room.objects.filter(isWeapon).map(o=>o.id)).slice(0,5).sort();
   const weapon=weaponStream.pick(weapons);const murderZone=room.objects.find(o=>o.id===weapon)!.zone;
@@ -89,7 +92,7 @@ export function simulateCase(seed:number,input:RoomScan,pitch:CasePitch,attempt=
     const roleName=room.objects.find(o=>o.id===role)?.label||room.zones.find(z=>z.id===role)?.clueName||"case item";
     secretFacts[s.slot]=add({id:`F_SECRET_${s.slot}`,pred:"state",args:{obj:s.slot,key:"secret",value:s.secret.type},slot:secretSlot,truth:true,suspicious:s.slot!==culprit,canonical:`${s.name} concealed ${s.secret.type} involving the ${roleName} at ${slots[secretSlot]}.`,entities:[s.slot,...(role?[role]:[])]},true);
     const baseRole=bound.bindings[s.baseline.trivialLieRoleSlot];
-    baselineFacts[s.slot]=add({id:`F_BASE_${s.slot}`,pred:"state",args:{obj:s.slot,key:"borrowed",value:baseRole},slot:secretSlot,truth:true,canonical:`${s.name} borrowed the ${room.objects.find(o=>o.id===baseRole)?.label||room.zones.find(z=>z.id===baseRole)?.clueName}.`,entities:[s.slot,baseRole]},true);
+    baselineFacts[s.slot]=add({id:`F_BASE_${s.slot}`,pred:"state",args:{obj:s.slot,key:memoryWitnesses?"touched_fixture":"borrowed",value:baseRole},slot:secretSlot,truth:true,canonical:`${s.name} ${memoryWitnesses?"touched":"borrowed"} the ${room.objects.find(o=>o.id===baseRole)?.label||room.zones.find(z=>z.id===baseRole)?.clueName}.`,entities:[s.slot,baseRole]},true);
     add({id:`F_MOTIVE_${s.slot}`,pred:"motive",args:{who:s.slot,type:s.motive.type,strength:s.motive.strength},truth:true,canonical:`${s.name} had a dispute with ${pitch.victim.name} over ${s.motive.type}.`,entities:[s.slot,"V"]},true);
     const touchSlot=SUSPECT_SLOTS.filter(id=>id!==culprit).indexOf(s.slot);
     const entry=timeline.find(e=>e.actor===s.slot&&e.slot===touchSlot);
@@ -102,6 +105,8 @@ export function simulateCase(seed:number,input:RoomScan,pitch:CasePitch,attempt=
     bound.witnesses[s.slot]=bound.witnesses[zone];
   }
   add({id:"F_MURDER_TOUCH",pred:"touched",args:{who:culprit,obj:weapon},slot:murderSlot,truth:true,canonical:`${names[culprit]} handled the ${room.objects.find(o=>o.id===weapon)!.label} at ${slots[murderSlot]}.`,entities:[culprit,weapon]},true);
-  const graph:CaseGraph={schema:1,caseId:"RS-"+hashHex(canonicalJson({seed,attempt,room:room.roomId,pitch})),seed,pitchHash:hashHex(canonicalJson(pitch)),compilerVersion:"roomscript-compiler-2",era:pitch.era,room,slots,murderSlot,bodyFound:slots[murderSlot].slice(0,3)+String(Number(slots[murderSlot].slice(3))+11).padStart(2,"0"),envelope:{who:culprit,where:murderZone,what:weapon},cast:{victim:{id:"V",name:pitch.victim.name},suspects:cast},weapons,facts,witnessing:[],evidence:[],statements:[],refutation:{order:[],cards:{}},beats:[],requiredDeductions:[],clockMinutes:180};
+  const compilerVersion=memoryWitnesses?"roomscript-compiler-3-memory":"roomscript-compiler-2";
+  const identity={seed,attempt,room:room.roomId,pitch,...(memoryWitnesses?{compilerVersion}: {})};
+  const graph:CaseGraph={schema:1,caseId:"RS-"+hashHex(canonicalJson(identity)),seed,pitchHash:hashHex(canonicalJson(pitch)),compilerVersion,era:pitch.era,room,slots,murderSlot,bodyFound:slots[murderSlot].slice(0,3)+String(Number(slots[murderSlot].slice(3))+11).padStart(2,"0"),envelope:{who:culprit,where:murderZone,what:weapon},cast:{victim:{id:"V",name:pitch.victim.name},suspects:cast},weapons,facts,witnessing:[],evidence:[],statements:[],refutation:{order:[],cards:{}},beats:[],requiredDeductions:[],clockMinutes:180};
   return {graph,bindings:bound.bindings,timeline,observedFacts,witnesses:bound.witnesses,murderSlot,secretFacts,baselineFacts};
 }

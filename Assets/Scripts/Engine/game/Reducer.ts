@@ -11,6 +11,8 @@ import {createGameState} from "./GameState";
 import {buildFactSheet} from "../perf/FactSheetBuilder";
 import {validateLine} from "../perf/LineValidator";
 import {clockwiseRefuters} from "./CluePresentation";
+import {buildKnowledgeBrief,admitWrenChoice} from "./WrenKnowledge";
+import {routeSample} from "./RouteReplay";
 
 function uniquePush(list: Id[], id: Id): void {if (!list.includes(id)) list.push(id);}
 function ids(value: unknown): value is string[] {return Array.isArray(value) && value.every(x => typeof x === "string");}
@@ -19,7 +21,7 @@ function clone<T>(value: T): T {return JSON.parse(JSON.stringify(value)) as T;}
 /** Speech permissions come from the latest gameplay cue, never provider/caller metadata. */
 export function performanceMode(graph: CaseGraph, state: GameState, suspect: Id, topic: string): AnswerMode {
   if (state.verdict === "correct" && suspect === graph.envelope.who) return "confession";
-  const auditOnly = ["LlmOutput", "LineSpoken", "GossipSpoken", "PitchReceived", "ArgumentClaim", "ArgumentExtracted"];
+  const auditOnly = ["LlmOutput", "LineSpoken", "GossipSpoken", "PitchReceived", "ArgumentClaim", "ArgumentExtracted", "PlayerMoved", "WrenSpoken"];
   const trigger = state.log.slice().reverse().find(action => !auditOnly.includes(action.type));
   const cue = trigger && state.events.slice().reverse().find(event => event.seq === trigger.seq && event.actor === suspect &&
     ["claim", "pressed", "lawyered", "deflection"].includes(event.type));
@@ -41,6 +43,19 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
   if (action.type === "LlmOutput") return state;
   const emit = (type: string, fields: Omit<GameEvent,"seq"|"type"> = {}) => {state.events.push({seq:action.seq,type,...fields});};
   const reject = (reason: string) => {emit("rejected",{text:reason});};
+  // Presentation-only actions cannot trigger clock, beats, grid, claims or tells.
+  if(action.type==="PlayerMoved") {
+    const sample=routeSample(previous,action.position,action.atMs);
+    if(sample)emit("routeSample",{data:{position:action.position.slice(),atMs:action.atMs}});
+    else reject("invalid_route_sample");
+    return state;
+  }
+  if(action.type==="WrenSpoken") {
+    const option=admitWrenChoice(buildKnowledgeBrief(graph,previous.knowledge),{optionId:action.optionId});
+    if(option)emit("wrenSpoken",{actor:"WREN",refs:[...option.factIds,...option.statementIds],text:option.text,data:{key:action.key,optionId:option.id}});
+    else reject("unknown_wren_option");
+    return state;
+  }
   const suspectExists = (id: Id) => graph.cast.suspects.some(s => s.id === id);
   const learnFact = (id: Id) => {
     const facts=graph.facts.concat(...graph.beats.filter(b=>state.beatsFired.includes(b.id)).map(b=>b.addsFacts || []));
