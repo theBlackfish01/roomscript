@@ -6192,6 +6192,150 @@ export const RUN7_VOICE_MANIFEST = [
     "alignmentBounded": false
   },
   {
+    "id": "live-S1-opener",
+    "key": "S1|steady|Well, detective.",
+    "identity": "83be34ccc450cd2358e5420cd2569238ca68d73fe95869a4a135fa8b8627d797",
+    "speaker": "S1",
+    "text": "Well, detective.",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/83be34ccc450cd2358e5.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "W",
+        "e",
+        "l",
+        "l",
+        ",",
+        " ",
+        "d",
+        "e",
+        "t",
+        "e",
+        "c",
+        "t",
+        "i",
+        "v",
+        "e",
+        "."
+      ],
+      "starts": [
+        0.06,
+        0.06899999999999998,
+        0.07899999999999999,
+        0.088,
+        0.09799999999999998,
+        0.178,
+        0.25,
+        0.322,
+        0.394,
+        0.46599999999999997,
+        0.538,
+        0.61,
+        0.6819999999999999,
+        0.754,
+        0.826,
+        0.898
+      ],
+      "ends": [
+        0.06899999999999998,
+        0.07899999999999999,
+        0.088,
+        0.09799999999999998,
+        0.178,
+        0.25,
+        0.322,
+        0.394,
+        0.46599999999999997,
+        0.538,
+        0.61,
+        0.6819999999999999,
+        0.754,
+        0.826,
+        0.898,
+        1.0579999999999998
+      ]
+    },
+    "group": "phrases",
+    "index": 86,
+    "audioSeconds": 1.2,
+    "startSeconds": 0.14200000000000002,
+    "endSeconds": 1.2,
+    "alignmentBounded": false
+  },
+  {
+    "id": "live-S1-tail",
+    "key": "S1|steady|Write that down.",
+    "identity": "3b716167fd32f756e04b6b36ad9b9de4f55e060ce78faab85cb785886facf839",
+    "speaker": "S1",
+    "text": "Write that down.",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/3b716167fd32f756e04b.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "W",
+        "r",
+        "i",
+        "t",
+        "e",
+        " ",
+        "t",
+        "h",
+        "a",
+        "t",
+        " ",
+        "d",
+        "o",
+        "w",
+        "n",
+        "."
+      ],
+      "starts": [
+        0.06,
+        0.06799999999999998,
+        0.07599999999999998,
+        0.08399999999999999,
+        0.092,
+        0.09999999999999998,
+        0.132,
+        0.16399999999999998,
+        0.196,
+        0.22799999999999998,
+        0.26,
+        0.33999999999999997,
+        0.42000000000000004,
+        0.5,
+        0.58,
+        0.66
+      ],
+      "ends": [
+        0.06799999999999998,
+        0.07599999999999998,
+        0.08399999999999999,
+        0.092,
+        0.09999999999999998,
+        0.132,
+        0.16399999999999998,
+        0.196,
+        0.22799999999999998,
+        0.26,
+        0.33999999999999997,
+        0.42000000000000004,
+        0.5,
+        0.58,
+        0.66,
+        1.54
+      ]
+    },
+    "group": "phrases",
+    "index": 87,
+    "audioSeconds": 1.68,
+    "startSeconds": 0.14,
+    "endSeconds": 1.68,
+    "alignmentBounded": false
+  },
+  {
     "id": "phrase:S2:56634f75",
     "key": "S2|steady|21:45",
     "identity": "d986ab3fe1358acf000e23427108d5dfc0878b320dcd39caebb0a2d4ccef92a9",
@@ -6224,7 +6368,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 86,
+    "index": 88,
     "audioSeconds": 2.08,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.08,
@@ -6263,7 +6407,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 87,
+    "index": 89,
     "audioSeconds": 2.48,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.48,
@@ -6302,7 +6446,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 88,
+    "index": 90,
     "audioSeconds": 2.32,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.32,
@@ -6341,7 +6485,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 89,
+    "index": 91,
     "audioSeconds": 1.68,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 1.68,
@@ -6380,7 +6524,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 90,
+    "index": 92,
     "audioSeconds": 2.32,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.32,
@@ -6419,7 +6563,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 91,
+    "index": 93,
     "audioSeconds": 2.48,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.48,
@@ -6476,7 +6620,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 92,
+    "index": 94,
     "audioSeconds": 1.92,
     "startSeconds": 0.46,
     "endSeconds": 1.92,
@@ -6530,7 +6674,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 93,
+    "index": 95,
     "audioSeconds": 1.36,
     "startSeconds": 0.148,
     "endSeconds": 1.36,
@@ -6648,7 +6792,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 94,
+    "index": 96,
     "audioSeconds": 2.08,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 2.08,
@@ -6678,7 +6822,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 95,
+    "index": 97,
     "audioSeconds": 2.56,
     "startSeconds": 0.353,
     "endSeconds": 2.56,
@@ -6744,7 +6888,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 96,
+    "index": 98,
     "audioSeconds": 1.76,
     "startSeconds": 0.276,
     "endSeconds": 1.76,
@@ -6795,7 +6939,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 97,
+    "index": 99,
     "audioSeconds": 2.24,
     "startSeconds": 0.21500000000000002,
     "endSeconds": 2.24,
@@ -6870,7 +7014,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 98,
+    "index": 100,
     "audioSeconds": 2.4,
     "startSeconds": 0.273,
     "endSeconds": 2.4,
@@ -6930,7 +7074,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 99,
+    "index": 101,
     "audioSeconds": 1.84,
     "startSeconds": 0.144,
     "endSeconds": 1.84,
@@ -6993,7 +7137,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 100,
+    "index": 102,
     "audioSeconds": 1.36,
     "startSeconds": 0.395,
     "endSeconds": 1.36,
@@ -7050,7 +7194,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 101,
+    "index": 103,
     "audioSeconds": 3.12,
     "startSeconds": 0.20700000000000002,
     "endSeconds": 3.12,
@@ -7104,7 +7248,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 102,
+    "index": 104,
     "audioSeconds": 1.36,
     "startSeconds": 0.273,
     "endSeconds": 1.36,
@@ -7164,7 +7308,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 103,
+    "index": 105,
     "audioSeconds": 2.56,
     "startSeconds": 0.271,
     "endSeconds": 2.56,
@@ -7224,7 +7368,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 104,
+    "index": 106,
     "audioSeconds": 1.28,
     "startSeconds": 0.402,
     "endSeconds": 1.28,
@@ -7302,7 +7446,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 105,
+    "index": 107,
     "audioSeconds": 1.68,
     "startSeconds": 0.14200000000000002,
     "endSeconds": 1.68,
@@ -7338,7 +7482,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 106,
+    "index": 108,
     "audioSeconds": 1.92,
     "startSeconds": 0.343,
     "endSeconds": 1.92,
@@ -7395,7 +7539,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 107,
+    "index": 109,
     "audioSeconds": 2.4,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.4,
@@ -7452,7 +7596,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 108,
+    "index": 110,
     "audioSeconds": 1.52,
     "startSeconds": 0.4,
     "endSeconds": 1.52,
@@ -7509,7 +7653,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 109,
+    "index": 111,
     "audioSeconds": 1.6,
     "startSeconds": 0.271,
     "endSeconds": 1.6,
@@ -7569,7 +7713,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 110,
+    "index": 112,
     "audioSeconds": 2.08,
     "startSeconds": 0.456,
     "endSeconds": 2.08,
@@ -7632,7 +7776,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 111,
+    "index": 113,
     "audioSeconds": 2.32,
     "startSeconds": 0.456,
     "endSeconds": 2.32,
@@ -7762,7 +7906,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 112,
+    "index": 114,
     "audioSeconds": 2.08,
     "startSeconds": 0.07400000000000001,
     "endSeconds": 2.08,
@@ -7843,7 +7987,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 113,
+    "index": 115,
     "audioSeconds": 1.52,
     "startSeconds": 0.14200000000000002,
     "endSeconds": 1.52,
@@ -7879,7 +8023,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 114,
+    "index": 116,
     "audioSeconds": 0.88,
     "startSeconds": 0.276,
     "endSeconds": 0.88,
@@ -7936,7 +8080,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 115,
+    "index": 117,
     "audioSeconds": 1.2,
     "startSeconds": 0.273,
     "endSeconds": 1.2,
@@ -8002,7 +8146,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 116,
+    "index": 118,
     "audioSeconds": 1.52,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.52,
@@ -8119,7 +8263,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 117,
+    "index": 119,
     "audioSeconds": 2.48,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 2.48,
@@ -8221,7 +8365,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 118,
+    "index": 120,
     "audioSeconds": 2.16,
     "startSeconds": 0.16,
     "endSeconds": 2.16,
@@ -8305,7 +8449,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 119,
+    "index": 121,
     "audioSeconds": 1.68,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.68,
@@ -8404,7 +8548,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 120,
+    "index": 122,
     "audioSeconds": 2.32,
     "startSeconds": 0.16,
     "endSeconds": 2.32,
@@ -8488,7 +8632,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 121,
+    "index": 123,
     "audioSeconds": 2.4,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.4,
@@ -8551,7 +8695,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 122,
+    "index": 124,
     "audioSeconds": 1.04,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.04,
@@ -8644,7 +8788,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 123,
+    "index": 125,
     "audioSeconds": 1.44,
     "startSeconds": 0.09,
     "endSeconds": 1.44,
@@ -8707,7 +8851,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 124,
+    "index": 126,
     "audioSeconds": 1.2,
     "startSeconds": 0.156,
     "endSeconds": 1.2,
@@ -8836,7 +8980,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 125,
+    "index": 127,
     "audioSeconds": 2.16,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.16,
@@ -8884,7 +9028,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 126,
+    "index": 128,
     "audioSeconds": 0.88,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 0.88,
@@ -8938,7 +9082,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 127,
+    "index": 129,
     "audioSeconds": 1.2,
     "startSeconds": 0.34,
     "endSeconds": 1.2,
@@ -8992,7 +9136,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 128,
+    "index": 130,
     "audioSeconds": 1.2,
     "startSeconds": 0.337,
     "endSeconds": 1.2,
@@ -9037,7 +9181,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 129,
+    "index": 131,
     "audioSeconds": 0.56,
     "startSeconds": 0.336,
     "endSeconds": 0.56,
@@ -9097,7 +9241,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 130,
+    "index": 132,
     "audioSeconds": 2.48,
     "startSeconds": 0.276,
     "endSeconds": 2.48,
@@ -9148,7 +9292,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 131,
+    "index": 133,
     "audioSeconds": 1.6,
     "startSeconds": 0.343,
     "endSeconds": 1.6,
@@ -9208,7 +9352,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 132,
+    "index": 134,
     "audioSeconds": 2.32,
     "startSeconds": 0.271,
     "endSeconds": 2.32,
@@ -9250,7 +9394,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 133,
+    "index": 135,
     "audioSeconds": 1.52,
     "startSeconds": 0.649,
     "endSeconds": 1.52,
@@ -9304,7 +9448,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 134,
+    "index": 136,
     "audioSeconds": 1.12,
     "startSeconds": 0.273,
     "endSeconds": 1.12,
@@ -9370,7 +9514,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 135,
+    "index": 137,
     "audioSeconds": 2.32,
     "startSeconds": 0.338,
     "endSeconds": 2.32,
@@ -9433,7 +9577,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 136,
+    "index": 138,
     "audioSeconds": 2.24,
     "startSeconds": 0.273,
     "endSeconds": 2.24,
@@ -9502,7 +9646,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 137,
+    "index": 139,
     "audioSeconds": 2.08,
     "startSeconds": 0.456,
     "endSeconds": 2.08,
@@ -9556,7 +9700,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 138,
+    "index": 140,
     "audioSeconds": 1.2,
     "startSeconds": 0.07900000000000001,
     "endSeconds": 1.2,
@@ -9610,7 +9754,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 139,
+    "index": 141,
     "audioSeconds": 1.12,
     "startSeconds": 0.34,
     "endSeconds": 1.12,
@@ -9667,7 +9811,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 140,
+    "index": 142,
     "audioSeconds": 1.84,
     "startSeconds": 0.144,
     "endSeconds": 1.84,
@@ -9721,7 +9865,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 141,
+    "index": 143,
     "audioSeconds": 1.68,
     "startSeconds": 0.34,
     "endSeconds": 1.68,
@@ -9784,7 +9928,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 142,
+    "index": 144,
     "audioSeconds": 2.48,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 2.48,
@@ -9841,7 +9985,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 143,
+    "index": 145,
     "audioSeconds": 1.44,
     "startSeconds": 0.20700000000000002,
     "endSeconds": 1.44,
@@ -9904,7 +10048,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 144,
+    "index": 146,
     "audioSeconds": 2.48,
     "startSeconds": 0.334,
     "endSeconds": 2.48,
@@ -9958,7 +10102,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 145,
+    "index": 147,
     "audioSeconds": 0.96,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 0.96,
@@ -10021,7 +10165,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 146,
+    "index": 148,
     "audioSeconds": 1.12,
     "startSeconds": 0.273,
     "endSeconds": 1.12,
@@ -10078,7 +10222,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 147,
+    "index": 149,
     "audioSeconds": 1.84,
     "startSeconds": 0.338,
     "endSeconds": 1.84,
@@ -10114,7 +10258,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 148,
+    "index": 150,
     "audioSeconds": 1.6,
     "startSeconds": 0.313,
     "endSeconds": 1.6,
@@ -10153,7 +10297,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 149,
+    "index": 151,
     "audioSeconds": 1.92,
     "startSeconds": 0.34,
     "endSeconds": 1.92,
@@ -10207,7 +10351,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 150,
+    "index": 152,
     "audioSeconds": 1.2,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.2,
@@ -10240,7 +10384,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 151,
+    "index": 153,
     "audioSeconds": 1.12,
     "startSeconds": 0.28,
     "endSeconds": 1.12,
@@ -10294,7 +10438,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 152,
+    "index": 154,
     "audioSeconds": 1.36,
     "startSeconds": 0.276,
     "endSeconds": 1.36,
@@ -10336,10 +10480,155 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 153,
+    "index": 155,
     "audioSeconds": 2.08,
     "startSeconds": 0.21500000000000002,
     "endSeconds": 2.08,
+    "alignmentBounded": false
+  },
+  {
+    "key": "S2|steady|Well, detective.",
+    "identity": "67c092d33843a36b5ce97a5cd1e680fa0e1097baf7ce9a9139564ca5065ab6b0",
+    "speaker": "S2",
+    "text": "Well, detective.",
+    "take": "steady",
+    "id": "S2:opener:0",
+    "path": "Assets/Audio/Run7/S2/67c092d33843a36b5ce9.mp3",
+    "voiceId": "Ajczv1caVKcFEG1TdJH0",
+    "alignment": {
+      "characters": [
+        "W",
+        "e",
+        "l",
+        "l",
+        ",",
+        " ",
+        "d",
+        "e",
+        "t",
+        "e",
+        "c",
+        "t",
+        "i",
+        "v",
+        "e",
+        "."
+      ],
+      "starts": [
+        0.06,
+        0.06899999999999998,
+        0.07899999999999999,
+        0.088,
+        0.09799999999999998,
+        0.178,
+        0.23399999999999999,
+        0.29,
+        0.346,
+        0.402,
+        0.45799999999999996,
+        0.514,
+        0.57,
+        0.626,
+        0.6819999999999999,
+        0.738
+      ],
+      "ends": [
+        0.06899999999999998,
+        0.07899999999999999,
+        0.088,
+        0.09799999999999998,
+        0.178,
+        0.23399999999999999,
+        0.29,
+        0.346,
+        0.402,
+        0.45799999999999996,
+        0.514,
+        0.57,
+        0.626,
+        0.6819999999999999,
+        0.738,
+        0.898
+      ]
+    },
+    "group": "phrases",
+    "reused": true,
+    "index": 156,
+    "audioSeconds": 1.04,
+    "startSeconds": 0.14200000000000002,
+    "endSeconds": 1.04,
+    "alignmentBounded": false
+  },
+  {
+    "id": "live-S2-tail",
+    "key": "S2|steady|Write that down.",
+    "identity": "65c4352b007e0a3708721a3e01a4adcbb59a23599ab7a2e2a223fe709e7951c0",
+    "speaker": "S2",
+    "text": "Write that down.",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S2/65c4352b007e0a370872.mp3",
+    "voiceId": "Ajczv1caVKcFEG1TdJH0",
+    "alignment": {
+      "characters": [
+        "W",
+        "r",
+        "i",
+        "t",
+        "e",
+        " ",
+        "t",
+        "h",
+        "a",
+        "t",
+        " ",
+        "d",
+        "o",
+        "w",
+        "n",
+        "."
+      ],
+      "starts": [
+        0.06,
+        0.07,
+        0.08099999999999996,
+        0.09199999999999997,
+        0.10199999999999998,
+        0.11299999999999999,
+        0.16099999999999998,
+        0.20899999999999996,
+        0.257,
+        0.305,
+        0.35300000000000004,
+        0.449,
+        0.5449999999999999,
+        0.641,
+        0.7369999999999999,
+        0.833
+      ],
+      "ends": [
+        0.07,
+        0.08099999999999996,
+        0.09199999999999997,
+        0.10199999999999998,
+        0.11299999999999999,
+        0.16099999999999998,
+        0.20899999999999996,
+        0.257,
+        0.305,
+        0.35300000000000004,
+        0.449,
+        0.5449999999999999,
+        0.641,
+        0.7369999999999999,
+        0.833,
+        2.353
+      ]
+    },
+    "group": "phrases",
+    "index": 157,
+    "audioSeconds": 2.56,
+    "startSeconds": 0.20700000000000002,
+    "endSeconds": 2.56,
     "alignmentBounded": false
   },
   {
@@ -10375,7 +10664,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 154,
+    "index": 158,
     "audioSeconds": 1.68,
     "startSeconds": 0.1,
     "endSeconds": 1.68,
@@ -10414,7 +10703,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 155,
+    "index": 159,
     "audioSeconds": 2.48,
     "startSeconds": 0.468,
     "endSeconds": 2.48,
@@ -10453,7 +10742,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 156,
+    "index": 160,
     "audioSeconds": 1.6,
     "startSeconds": 0.468,
     "endSeconds": 1.6,
@@ -10492,7 +10781,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 157,
+    "index": 161,
     "audioSeconds": 2.64,
     "startSeconds": 0.1,
     "endSeconds": 1.52,
@@ -10531,7 +10820,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 158,
+    "index": 162,
     "audioSeconds": 1.92,
     "startSeconds": 0.5960000000000001,
     "endSeconds": 1.92,
@@ -10570,7 +10859,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 159,
+    "index": 163,
     "audioSeconds": 2.16,
     "startSeconds": 0.468,
     "endSeconds": 2.16,
@@ -10624,7 +10913,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 160,
+    "index": 164,
     "audioSeconds": 1.12,
     "startSeconds": 0.28,
     "endSeconds": 1.12,
@@ -10681,7 +10970,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 161,
+    "index": 165,
     "audioSeconds": 2.32,
     "startSeconds": 0.404,
     "endSeconds": 2.32,
@@ -10735,7 +11024,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 162,
+    "index": 166,
     "audioSeconds": 2.08,
     "startSeconds": 0.148,
     "endSeconds": 2.08,
@@ -10853,7 +11142,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 163,
+    "index": 167,
     "audioSeconds": 1.92,
     "startSeconds": 0.144,
     "endSeconds": 1.92,
@@ -10883,7 +11172,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 164,
+    "index": 168,
     "audioSeconds": 1.6,
     "startSeconds": 0.353,
     "endSeconds": 1.6,
@@ -10940,7 +11229,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 165,
+    "index": 169,
     "audioSeconds": 1.68,
     "startSeconds": 0.273,
     "endSeconds": 1.68,
@@ -11006,7 +11295,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 166,
+    "index": 170,
     "audioSeconds": 2.24,
     "startSeconds": 0.276,
     "endSeconds": 2.24,
@@ -11057,7 +11346,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 167,
+    "index": 171,
     "audioSeconds": 2.16,
     "startSeconds": 0.144,
     "endSeconds": 0.96,
@@ -11132,7 +11421,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 168,
+    "index": 172,
     "audioSeconds": 1.52,
     "startSeconds": 0.34,
     "endSeconds": 1.52,
@@ -11192,7 +11481,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 169,
+    "index": 173,
     "audioSeconds": 1.28,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 1.28,
@@ -11255,7 +11544,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 170,
+    "index": 174,
     "audioSeconds": 1.36,
     "startSeconds": 0.27,
     "endSeconds": 1.36,
@@ -11315,7 +11604,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 171,
+    "index": 175,
     "audioSeconds": 1.28,
     "startSeconds": 0.191,
     "endSeconds": 1.28,
@@ -11375,7 +11664,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 172,
+    "index": 176,
     "audioSeconds": 1.04,
     "startSeconds": 0.336,
     "endSeconds": 1.04,
@@ -11432,7 +11721,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 173,
+    "index": 177,
     "audioSeconds": 2.16,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 2.16,
@@ -11489,7 +11778,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 174,
+    "index": 178,
     "audioSeconds": 1.92,
     "startSeconds": 0.273,
     "endSeconds": 1.36,
@@ -11549,7 +11838,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 175,
+    "index": 179,
     "audioSeconds": 1.28,
     "startSeconds": 0.4,
     "endSeconds": 1.28,
@@ -11612,7 +11901,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 176,
+    "index": 180,
     "audioSeconds": 1.2,
     "startSeconds": 0.4,
     "endSeconds": 1.2,
@@ -11666,7 +11955,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 177,
+    "index": 181,
     "audioSeconds": 1.36,
     "startSeconds": 0.463,
     "endSeconds": 1.36,
@@ -11720,7 +12009,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 178,
+    "index": 182,
     "audioSeconds": 1.36,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.36,
@@ -11850,7 +12139,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 179,
+    "index": 183,
     "audioSeconds": 2.08,
     "startSeconds": 0.07400000000000001,
     "endSeconds": 2.08,
@@ -11931,7 +12220,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 180,
+    "index": 184,
     "audioSeconds": 1.68,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 1.68,
@@ -11967,7 +12256,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 181,
+    "index": 185,
     "audioSeconds": 1.2,
     "startSeconds": 0.343,
     "endSeconds": 0.64,
@@ -12024,7 +12313,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 182,
+    "index": 186,
     "audioSeconds": 2.48,
     "startSeconds": 0.34,
     "endSeconds": 2.48,
@@ -12078,7 +12367,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 183,
+    "index": 187,
     "audioSeconds": 1.68,
     "startSeconds": 0.276,
     "endSeconds": 1.68,
@@ -12144,7 +12433,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 184,
+    "index": 188,
     "audioSeconds": 1.2,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.2,
@@ -12258,7 +12547,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 185,
+    "index": 189,
     "audioSeconds": 2.4,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 2.4,
@@ -12360,7 +12649,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 186,
+    "index": 190,
     "audioSeconds": 2.4,
     "startSeconds": 0.1,
     "endSeconds": 2.4,
@@ -12444,7 +12733,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 187,
+    "index": 191,
     "audioSeconds": 1.76,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.76,
@@ -12543,7 +12832,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 188,
+    "index": 192,
     "audioSeconds": 1.92,
     "startSeconds": 0.16,
     "endSeconds": 1.92,
@@ -12627,7 +12916,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 189,
+    "index": 193,
     "audioSeconds": 1.6,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.6,
@@ -12690,7 +12979,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 190,
+    "index": 194,
     "audioSeconds": 1.2,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.2,
@@ -12783,7 +13072,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 191,
+    "index": 195,
     "audioSeconds": 1.68,
     "startSeconds": 0.09,
     "endSeconds": 1.68,
@@ -12846,7 +13135,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 192,
+    "index": 196,
     "audioSeconds": 1.12,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.12,
@@ -12975,7 +13264,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 193,
+    "index": 197,
     "audioSeconds": 2.32,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.32,
@@ -13023,7 +13312,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 194,
+    "index": 198,
     "audioSeconds": 0.96,
     "startSeconds": 0.1,
     "endSeconds": 0.96,
@@ -13068,7 +13357,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 195,
+    "index": 199,
     "audioSeconds": 1.92,
     "startSeconds": 0.402,
     "endSeconds": 1.92,
@@ -13128,7 +13417,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 196,
+    "index": 200,
     "audioSeconds": 2.56,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 2.56,
@@ -13179,7 +13468,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 197,
+    "index": 201,
     "audioSeconds": 2.16,
     "startSeconds": 0.343,
     "endSeconds": 2.16,
@@ -13239,7 +13528,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 198,
+    "index": 202,
     "audioSeconds": 1.2,
     "startSeconds": 0.271,
     "endSeconds": 1.2,
@@ -13281,7 +13570,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 199,
+    "index": 203,
     "audioSeconds": 2.16,
     "startSeconds": 0.11100000000000002,
     "endSeconds": 2.16,
@@ -13335,7 +13624,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 200,
+    "index": 204,
     "audioSeconds": 1.84,
     "startSeconds": 0.337,
     "endSeconds": 1.28,
@@ -13401,7 +13690,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 201,
+    "index": 205,
     "audioSeconds": 1.2,
     "startSeconds": 0.271,
     "endSeconds": 1.2,
@@ -13464,7 +13753,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 202,
+    "index": 206,
     "audioSeconds": 1.44,
     "startSeconds": 0.337,
     "endSeconds": 1.44,
@@ -13533,7 +13822,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 203,
+    "index": 207,
     "audioSeconds": 1.04,
     "startSeconds": 0.335,
     "endSeconds": 1.04,
@@ -13587,7 +13876,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 204,
+    "index": 208,
     "audioSeconds": 1.6,
     "startSeconds": 0.07900000000000001,
     "endSeconds": 1.04,
@@ -13641,7 +13930,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 205,
+    "index": 209,
     "audioSeconds": 2.32,
     "startSeconds": 0.34,
     "endSeconds": 2.32,
@@ -13695,7 +13984,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 206,
+    "index": 210,
     "audioSeconds": 1.2,
     "startSeconds": 0.343,
     "endSeconds": 1.2,
@@ -13749,7 +14038,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 207,
+    "index": 211,
     "audioSeconds": 0.96,
     "startSeconds": 0.14200000000000002,
     "endSeconds": 0.96,
@@ -13806,7 +14095,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 208,
+    "index": 212,
     "audioSeconds": 1.68,
     "startSeconds": 0.273,
     "endSeconds": 1.68,
@@ -13869,7 +14158,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 209,
+    "index": 213,
     "audioSeconds": 1.36,
     "startSeconds": 0.46,
     "endSeconds": 1.36,
@@ -13923,7 +14212,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 210,
+    "index": 214,
     "audioSeconds": 2.56,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.36,
@@ -13986,7 +14275,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 211,
+    "index": 215,
     "audioSeconds": 1.04,
     "startSeconds": 0.21000000000000002,
     "endSeconds": 1.04,
@@ -14043,7 +14332,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 212,
+    "index": 216,
     "audioSeconds": 1.12,
     "startSeconds": 0.404,
     "endSeconds": 1.12,
@@ -14097,7 +14386,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 213,
+    "index": 217,
     "audioSeconds": 2.16,
     "startSeconds": 0.34,
     "endSeconds": 2.16,
@@ -14133,7 +14422,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 214,
+    "index": 218,
     "audioSeconds": 1.6,
     "startSeconds": 0.404,
     "endSeconds": 0.7999999999999999,
@@ -14172,7 +14461,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 215,
+    "index": 219,
     "audioSeconds": 0.72,
     "startSeconds": 0.1,
     "endSeconds": 0.72,
@@ -14205,7 +14494,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 216,
+    "index": 220,
     "audioSeconds": 1.12,
     "startSeconds": 0.28,
     "endSeconds": 1.12,
@@ -14259,7 +14548,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 217,
+    "index": 221,
     "audioSeconds": 1.36,
     "startSeconds": 0.34,
     "endSeconds": 1.36,
@@ -14301,10 +14590,155 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 218,
+    "index": 222,
     "audioSeconds": 2.16,
     "startSeconds": 0.144,
     "endSeconds": 0.96,
+    "alignmentBounded": false
+  },
+  {
+    "key": "S3|steady|Well, detective.",
+    "identity": "83377d470603a73204dcdffe97a9254c00f2e577b98048349803f420c8ec899a",
+    "speaker": "S3",
+    "text": "Well, detective.",
+    "take": "steady",
+    "id": "S3:opener:0",
+    "path": "Assets/Audio/Run7/S3/83377d470603a73204dc.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "alignment": {
+      "characters": [
+        "W",
+        "e",
+        "l",
+        "l",
+        ",",
+        " ",
+        "d",
+        "e",
+        "t",
+        "e",
+        "c",
+        "t",
+        "i",
+        "v",
+        "e",
+        "."
+      ],
+      "starts": [
+        0.06,
+        0.07299999999999995,
+        0.08499999999999996,
+        0.09799999999999998,
+        0.11099999999999999,
+        0.191,
+        0.27099999999999996,
+        0.35100000000000003,
+        0.431,
+        0.5109999999999999,
+        0.591,
+        0.671,
+        0.7509999999999999,
+        0.831,
+        0.911,
+        0.9909999999999999
+      ],
+      "ends": [
+        0.07299999999999995,
+        0.08499999999999996,
+        0.09799999999999998,
+        0.11099999999999999,
+        0.191,
+        0.27099999999999996,
+        0.35100000000000003,
+        0.431,
+        0.5109999999999999,
+        0.591,
+        0.671,
+        0.7509999999999999,
+        0.831,
+        0.911,
+        0.9909999999999999,
+        1.071
+      ]
+    },
+    "group": "phrases",
+    "reused": true,
+    "index": 223,
+    "audioSeconds": 1.92,
+    "startSeconds": 0.20900000000000002,
+    "endSeconds": 1.36,
+    "alignmentBounded": false
+  },
+  {
+    "id": "live-S3-tail",
+    "key": "S3|steady|Write that down.",
+    "identity": "5836b7000da9132a5af217d61756f2573be0521e6aea966c1f07ada33a1e78c3",
+    "speaker": "S3",
+    "text": "Write that down.",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S3/5836b7000da9132a5af2.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "alignment": {
+      "characters": [
+        "W",
+        "r",
+        "i",
+        "t",
+        "e",
+        " ",
+        "t",
+        "h",
+        "a",
+        "t",
+        " ",
+        "d",
+        "o",
+        "w",
+        "n",
+        "."
+      ],
+      "starts": [
+        0.06,
+        0.06799999999999998,
+        0.07599999999999998,
+        0.08399999999999999,
+        0.092,
+        0.09999999999999998,
+        0.132,
+        0.16399999999999998,
+        0.196,
+        0.22799999999999998,
+        0.26,
+        0.356,
+        0.45199999999999996,
+        0.5479999999999999,
+        0.644,
+        0.74
+      ],
+      "ends": [
+        0.06799999999999998,
+        0.07599999999999998,
+        0.08399999999999999,
+        0.092,
+        0.09999999999999998,
+        0.132,
+        0.16399999999999998,
+        0.196,
+        0.22799999999999998,
+        0.26,
+        0.356,
+        0.45199999999999996,
+        0.5479999999999999,
+        0.644,
+        0.74,
+        0.9
+      ]
+    },
+    "group": "phrases",
+    "index": 224,
+    "audioSeconds": 1.04,
+    "startSeconds": 0.14,
+    "endSeconds": 1.04,
     "alignmentBounded": false
   },
   {
@@ -14340,7 +14774,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 219,
+    "index": 225,
     "audioSeconds": 2.08,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.08,
@@ -14379,7 +14813,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 220,
+    "index": 226,
     "audioSeconds": 2,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2,
@@ -14418,7 +14852,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 221,
+    "index": 227,
     "audioSeconds": 2.08,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.08,
@@ -14457,7 +14891,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 222,
+    "index": 228,
     "audioSeconds": 2.16,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.16,
@@ -14496,7 +14930,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 223,
+    "index": 229,
     "audioSeconds": 2.24,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.24,
@@ -14535,7 +14969,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 224,
+    "index": 230,
     "audioSeconds": 2.32,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.32,
@@ -14589,7 +15023,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 225,
+    "index": 231,
     "audioSeconds": 2,
     "startSeconds": 0.34500000000000003,
     "endSeconds": 2,
@@ -14646,7 +15080,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 226,
+    "index": 232,
     "audioSeconds": 1.52,
     "startSeconds": 0.46,
     "endSeconds": 1.52,
@@ -14700,7 +15134,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 227,
+    "index": 233,
     "audioSeconds": 1.68,
     "startSeconds": 0.287,
     "endSeconds": 1.68,
@@ -14818,7 +15252,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 228,
+    "index": 234,
     "audioSeconds": 2.56,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 2.56,
@@ -14848,7 +15282,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 229,
+    "index": 235,
     "audioSeconds": 1.68,
     "startSeconds": 0.353,
     "endSeconds": 1.68,
@@ -14905,7 +15339,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 230,
+    "index": 236,
     "audioSeconds": 1.76,
     "startSeconds": 0.337,
     "endSeconds": 1.76,
@@ -14971,7 +15405,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 231,
+    "index": 237,
     "audioSeconds": 1.92,
     "startSeconds": 0.34,
     "endSeconds": 1.92,
@@ -15022,7 +15456,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 232,
+    "index": 238,
     "audioSeconds": 1.2,
     "startSeconds": 0.28,
     "endSeconds": 1.2,
@@ -15097,7 +15531,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 233,
+    "index": 239,
     "audioSeconds": 1.92,
     "startSeconds": 0.273,
     "endSeconds": 1.92,
@@ -15157,7 +15591,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 234,
+    "index": 240,
     "audioSeconds": 3.2,
     "startSeconds": 1.385,
     "endSeconds": 3.2,
@@ -15220,7 +15654,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 235,
+    "index": 241,
     "audioSeconds": 2.08,
     "startSeconds": 0.5820000000000001,
     "endSeconds": 2.08,
@@ -15277,7 +15711,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 236,
+    "index": 242,
     "audioSeconds": 2.48,
     "startSeconds": 0.20700000000000002,
     "endSeconds": 2.48,
@@ -15331,7 +15765,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 237,
+    "index": 243,
     "audioSeconds": 2.16,
     "startSeconds": 0.4,
     "endSeconds": 2.16,
@@ -15391,7 +15825,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 238,
+    "index": 244,
     "audioSeconds": 1.68,
     "startSeconds": 0.334,
     "endSeconds": 1.68,
@@ -15451,7 +15885,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 239,
+    "index": 245,
     "audioSeconds": 1.36,
     "startSeconds": 0.458,
     "endSeconds": 1.36,
@@ -15487,7 +15921,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 240,
+    "index": 246,
     "audioSeconds": 1.92,
     "startSeconds": 0.343,
     "endSeconds": 1.92,
@@ -15541,7 +15975,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 241,
+    "index": 247,
     "audioSeconds": 2.32,
     "startSeconds": 0.276,
     "endSeconds": 2.32,
@@ -15598,7 +16032,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 242,
+    "index": 248,
     "audioSeconds": 2.08,
     "startSeconds": 0.40700000000000003,
     "endSeconds": 2.08,
@@ -15655,7 +16089,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 243,
+    "index": 249,
     "audioSeconds": 2.08,
     "startSeconds": 0.5369999999999999,
     "endSeconds": 2.08,
@@ -15715,7 +16149,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 244,
+    "index": 250,
     "audioSeconds": 2.08,
     "startSeconds": 0.5800000000000001,
     "endSeconds": 2.08,
@@ -15778,7 +16212,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 245,
+    "index": 251,
     "audioSeconds": 1.52,
     "startSeconds": 0.456,
     "endSeconds": 1.52,
@@ -15832,7 +16266,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 246,
+    "index": 252,
     "audioSeconds": 1.84,
     "startSeconds": 0.34,
     "endSeconds": 1.84,
@@ -15886,7 +16320,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 247,
+    "index": 253,
     "audioSeconds": 2.4,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 2.4,
@@ -16016,7 +16450,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 248,
+    "index": 254,
     "audioSeconds": 2.08,
     "startSeconds": 0.07400000000000001,
     "endSeconds": 2.08,
@@ -16097,7 +16531,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 249,
+    "index": 255,
     "audioSeconds": 1.84,
     "startSeconds": 0.148,
     "endSeconds": 1.84,
@@ -16133,7 +16567,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 250,
+    "index": 256,
     "audioSeconds": 1.44,
     "startSeconds": 0.6599999999999999,
     "endSeconds": 1.04,
@@ -16190,7 +16624,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 251,
+    "index": 257,
     "audioSeconds": 1.2,
     "startSeconds": 0.273,
     "endSeconds": 1.2,
@@ -16244,7 +16678,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 252,
+    "index": 258,
     "audioSeconds": 2.08,
     "startSeconds": 0.532,
     "endSeconds": 2.08,
@@ -16310,7 +16744,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 253,
+    "index": 259,
     "audioSeconds": 1.2,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.2,
@@ -16439,7 +16873,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 254,
+    "index": 260,
     "audioSeconds": 3.12,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 3.12,
@@ -16541,7 +16975,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 255,
+    "index": 261,
     "audioSeconds": 2.56,
     "startSeconds": 0.156,
     "endSeconds": 2.56,
@@ -16625,7 +17059,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 256,
+    "index": 262,
     "audioSeconds": 1.52,
     "startSeconds": 0.22799999999999998,
     "endSeconds": 1.52,
@@ -16724,7 +17158,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 257,
+    "index": 263,
     "audioSeconds": 2.24,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.24,
@@ -16808,7 +17242,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 258,
+    "index": 264,
     "audioSeconds": 1.92,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.92,
@@ -16871,7 +17305,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 259,
+    "index": 265,
     "audioSeconds": 1.12,
     "startSeconds": 0.156,
     "endSeconds": 1.12,
@@ -16964,7 +17398,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 260,
+    "index": 266,
     "audioSeconds": 2.64,
     "startSeconds": 0.16,
     "endSeconds": 2.64,
@@ -17027,7 +17461,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 261,
+    "index": 267,
     "audioSeconds": 1.6,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.6,
@@ -17156,7 +17590,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 262,
+    "index": 268,
     "audioSeconds": 2.72,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.72,
@@ -17204,7 +17638,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 263,
+    "index": 269,
     "audioSeconds": 1.04,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.04,
@@ -17258,7 +17692,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 264,
+    "index": 270,
     "audioSeconds": 2,
     "startSeconds": 0.468,
     "endSeconds": 2,
@@ -17312,7 +17746,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 265,
+    "index": 271,
     "audioSeconds": 2.16,
     "startSeconds": 0.607,
     "endSeconds": 2.16,
@@ -17357,7 +17791,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 266,
+    "index": 272,
     "audioSeconds": 1.84,
     "startSeconds": 1.498,
     "endSeconds": 1.84,
@@ -17417,7 +17851,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 267,
+    "index": 273,
     "audioSeconds": 1.76,
     "startSeconds": 0.34,
     "endSeconds": 1.76,
@@ -17468,7 +17902,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 268,
+    "index": 274,
     "audioSeconds": 2,
     "startSeconds": 0.47800000000000004,
     "endSeconds": 2,
@@ -17528,7 +17962,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 269,
+    "index": 275,
     "audioSeconds": 1.6,
     "startSeconds": 0.334,
     "endSeconds": 1.6,
@@ -17570,7 +18004,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 270,
+    "index": 276,
     "audioSeconds": 1.36,
     "startSeconds": 0.98,
     "endSeconds": 1.36,
@@ -17624,7 +18058,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 271,
+    "index": 277,
     "audioSeconds": 1.84,
     "startSeconds": 0.40700000000000003,
     "endSeconds": 1.84,
@@ -17690,7 +18124,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 272,
+    "index": 278,
     "audioSeconds": 2.08,
     "startSeconds": 0.5229999999999999,
     "endSeconds": 2.08,
@@ -17753,7 +18187,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 273,
+    "index": 279,
     "audioSeconds": 2.32,
     "startSeconds": 0.463,
     "endSeconds": 2.32,
@@ -17822,7 +18256,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 274,
+    "index": 280,
     "audioSeconds": 1.76,
     "startSeconds": 0.456,
     "endSeconds": 1.76,
@@ -17879,7 +18313,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 275,
+    "index": 281,
     "audioSeconds": 1.92,
     "startSeconds": 0.144,
     "endSeconds": 1.92,
@@ -17933,7 +18367,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 276,
+    "index": 282,
     "audioSeconds": 2.16,
     "startSeconds": 0.404,
     "endSeconds": 2.16,
@@ -17996,7 +18430,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 277,
+    "index": 283,
     "audioSeconds": 2.4,
     "startSeconds": 0.276,
     "endSeconds": 2.4,
@@ -18053,7 +18487,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 278,
+    "index": 284,
     "audioSeconds": 2,
     "startSeconds": 0.4,
     "endSeconds": 2,
@@ -18116,7 +18550,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 279,
+    "index": 285,
     "audioSeconds": 2.24,
     "startSeconds": 0.397,
     "endSeconds": 2.24,
@@ -18170,7 +18604,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 280,
+    "index": 286,
     "audioSeconds": 2.56,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.56,
@@ -18233,7 +18667,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 281,
+    "index": 287,
     "audioSeconds": 1.36,
     "startSeconds": 0.273,
     "endSeconds": 1.36,
@@ -18287,7 +18721,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 282,
+    "index": 288,
     "audioSeconds": 1.52,
     "startSeconds": 0.463,
     "endSeconds": 1.52,
@@ -18323,7 +18757,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 283,
+    "index": 289,
     "audioSeconds": 2.4,
     "startSeconds": 0.532,
     "endSeconds": 2.4,
@@ -18362,7 +18796,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 284,
+    "index": 290,
     "audioSeconds": 0.64,
     "startSeconds": 0,
     "endSeconds": 0.64,
@@ -18416,7 +18850,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 285,
+    "index": 291,
     "audioSeconds": 2.56,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.56,
@@ -18449,7 +18883,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 286,
+    "index": 292,
     "audioSeconds": 0.64,
     "startSeconds": 0.348,
     "endSeconds": 0.64,
@@ -18503,7 +18937,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 287,
+    "index": 293,
     "audioSeconds": 2.48,
     "startSeconds": 0.41,
     "endSeconds": 2.48,
@@ -18545,10 +18979,154 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 288,
+    "index": 294,
     "audioSeconds": 1.6,
     "startSeconds": 0.21500000000000002,
     "endSeconds": 1.6,
+    "alignmentBounded": false
+  },
+  {
+    "id": "live-S4-opener",
+    "key": "S4|steady|Well, detective.",
+    "identity": "e65466b4ce67a28aa0872e68a3ceceb0b951142284c0e3a5894f862d29d92912",
+    "speaker": "S4",
+    "text": "Well, detective.",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S4/e65466b4ce67a28aa087.mp3",
+    "voiceId": "ipGBytZBT2jD1vT0wKyK",
+    "alignment": {
+      "characters": [
+        "W",
+        "e",
+        "l",
+        "l",
+        ",",
+        " ",
+        "d",
+        "e",
+        "t",
+        "e",
+        "c",
+        "t",
+        "i",
+        "v",
+        "e",
+        "."
+      ],
+      "starts": [
+        0.06,
+        0.06899999999999998,
+        0.07899999999999999,
+        0.088,
+        0.09799999999999998,
+        0.178,
+        0.25,
+        0.322,
+        0.394,
+        0.46599999999999997,
+        0.538,
+        0.61,
+        0.6819999999999999,
+        0.754,
+        0.826,
+        0.898
+      ],
+      "ends": [
+        0.06899999999999998,
+        0.07899999999999999,
+        0.088,
+        0.09799999999999998,
+        0.178,
+        0.25,
+        0.322,
+        0.394,
+        0.46599999999999997,
+        0.538,
+        0.61,
+        0.6819999999999999,
+        0.754,
+        0.826,
+        0.898,
+        1.0579999999999998
+      ]
+    },
+    "group": "phrases",
+    "index": 295,
+    "audioSeconds": 1.2,
+    "startSeconds": 0.14200000000000002,
+    "endSeconds": 1.2,
+    "alignmentBounded": false
+  },
+  {
+    "id": "live-S4-tail",
+    "key": "S4|steady|Write that down.",
+    "identity": "1dd0b49f28334f72bce53abb0cde8c93818d460ecc2064c28dcf7c6a9d5a377e",
+    "speaker": "S4",
+    "text": "Write that down.",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S4/1dd0b49f28334f72bce5.mp3",
+    "voiceId": "ipGBytZBT2jD1vT0wKyK",
+    "alignment": {
+      "characters": [
+        "W",
+        "r",
+        "i",
+        "t",
+        "e",
+        " ",
+        "t",
+        "h",
+        "a",
+        "t",
+        " ",
+        "d",
+        "o",
+        "w",
+        "n",
+        "."
+      ],
+      "starts": [
+        0.06,
+        0.06799999999999998,
+        0.07599999999999998,
+        0.08399999999999999,
+        0.092,
+        0.09999999999999998,
+        0.14799999999999996,
+        0.196,
+        0.244,
+        0.292,
+        0.33999999999999997,
+        0.43599999999999994,
+        0.532,
+        0.628,
+        0.724,
+        0.82
+      ],
+      "ends": [
+        0.06799999999999998,
+        0.07599999999999998,
+        0.08399999999999999,
+        0.092,
+        0.09999999999999998,
+        0.14799999999999996,
+        0.196,
+        0.244,
+        0.292,
+        0.33999999999999997,
+        0.43599999999999994,
+        0.532,
+        0.628,
+        0.724,
+        0.82,
+        0.9800000000000001
+      ]
+    },
+    "group": "phrases",
+    "index": 296,
+    "audioSeconds": 1.12,
+    "startSeconds": 0.14,
+    "endSeconds": 1.12,
     "alignmentBounded": false
   },
   {
@@ -18671,7 +19249,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 289,
+    "index": 297,
     "audioSeconds": 1.76,
     "startSeconds": 0.07300000000000001,
     "endSeconds": 1.76,
@@ -18797,7 +19375,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 290,
+    "index": 298,
     "audioSeconds": 1.6,
     "startSeconds": 0.07300000000000001,
     "endSeconds": 1.6,
@@ -18911,7 +19489,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 291,
+    "index": 299,
     "audioSeconds": 1.52,
     "startSeconds": 0.148,
     "endSeconds": 1.52,
@@ -19028,7 +19606,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 292,
+    "index": 300,
     "audioSeconds": 1.52,
     "startSeconds": 0.07400000000000001,
     "endSeconds": 1.52,
@@ -19145,7 +19723,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 293,
+    "index": 301,
     "audioSeconds": 2,
     "startSeconds": 0.07600000000000001,
     "endSeconds": 2,
@@ -19268,7 +19846,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 294,
+    "index": 302,
     "audioSeconds": 1.6,
     "startSeconds": 0.07600000000000001,
     "endSeconds": 1.6,
@@ -19418,7 +19996,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 295,
+    "index": 303,
     "audioSeconds": 2.32,
     "startSeconds": 0.07300000000000001,
     "endSeconds": 2.32,

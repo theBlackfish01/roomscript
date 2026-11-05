@@ -7,6 +7,7 @@ import {RoomscriptEvidenceWalletUI} from "./RoomscriptEvidenceWalletUI";
 import {RoomscriptCaseLidUI} from "./RoomscriptCaseLidUI";
 import {objectDropEvidence,provenMark,walletEntries} from "./Engine/game/SpatialObjection";
 import {spatialDrop} from "./Engine/game/SpatialDrop";
+import {worldLines} from "./RoomscriptWorldLines";
 
 /** Spatial presentation of engine judgements. The drop contains observed IDs only. */
 @component export class RoomscriptSpatialObjectionController extends BaseScriptComponent {
@@ -25,11 +26,16 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
   private memories:{id:string;canonical:string}[]=[];private memoryIndex=0;
   private controls:SceneObject;private burstAt=0;private burstCount=0;private jitterFrame=0;private evidencePoint:vec3;
   private shards:{object:SceneObject;start:vec3;velocity:vec3;spin:number}[]=[];
+  private targets:{collider:ColliderComponent;interaction:Interactable}[]=[];
+  private photo:SceneObject;private photoLabel:Text;private photoSymbols=new Map<string,SceneObject>();
+  private pullObject:string|null=null;private pullOrigin:vec3;private pullDelta:vec3;private pullingLift=false;private pullCommitted=false;
+  private suppressTapObject="";private suppressTapUntil=0;private pullCount=0;private liftCount=0;
   objectHandler:((id:string)=>boolean)|null=null;
   /** LEAF-only inspection hold; empty in production. */
   captureAt="";
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
   private build():void {
+    if(this.slip)return;
     this.flow.initialize();this.tells.room.initialize();this.wallet.build();this.stateCache=this.flow.engine.snapshot();this.flow.engine.onState.add(state=>this.stateCache=state);this.cyan=this.tells.lightMaterial.clone();this.cyan.mainPass.baseColor=new vec4(.247,.89,1,1);this.coral=this.tells.lightMaterial.clone();this.coral.mainPass.baseColor=new vec4(1,.42,.35,1);
     const root=this.getSceneObject();
     this.slip=uiObject(root,"RoomscriptStatementSlip");this.slip.getTransform().setLocalPosition(new vec3(-20,0,0));
@@ -48,18 +54,38 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     this.particles.emitting=false;this.particles.clear();this.shatterObject.enabled=false;
     if(!this.particles.asset)this.buildShards();
     this.ribbon=global.scene.createSceneObject("RoomscriptObjectionPaths");this.ribbon.enabled=false;
+    this.buildPullPhoto();
     this.flow.onObjectRequested.add(()=>this.open());
     this.wallet.onSelect.add(id=>{this.wallet.show(false);this.selected=id;this.open(id);});
     this.wallet.onClose.add(()=>{if(this.opened)this.close();});
+    this.flow.engine.onState.add(()=>this.refreshWallet());this.flow.engine.onCaseChanged.add(()=>this.resetForCase());this.resetForCase();
+  }
+  resetForCase():void {
+    if(!this.slip)return;this.tells.room.initialize();this.flow.cancel();this.stateCache=this.flow.engine.snapshot();
+    this.phase="idle";this.opened=false;this.selected=null;this.claim="";this.memories=[];this.memoryIndex=0;this.destination=null;this.correct=false;this.develops=0;this.burstAt=0;this.burstCount=0;this.phaseHistory=[];this.captureAt="";
+    this.pullObject=null;this.pullCommitted=false;this.pullCount=0;this.liftCount=0;this.suppressTapObject="";this.suppressTapUntil=0;this.photo.enabled=false;
+    this.wallet.show(false);this.stamp.enabled=false;this.memory.enabled=false;this.slip.enabled=false;this.controls.enabled=true;this.ribbon.enabled=false;
+    this.slip.getTransform().setLocalPosition(this.home);this.memory.getTransform().setLocalScale(vec3.one());
+    this.pathMeshes.forEach(v=>{if(!isNull(v))v.getSceneObject().destroy();});this.pathMeshes=[];
+    this.particles.paused=false;this.particles.emitting=false;this.particles.clear();this.shatterObject.enabled=false;this.tells.audio.silence(false);
+    for(const target of this.targets){if(!isNull(target.interaction))target.interaction.destroy();if(!isNull(target.collider))target.collider.destroy();}this.targets=[];
     const graph=this.flow.engine.graphRef();
+    for(const person of graph.cast.suspects)this.flow.actorFor(person.id)?.setFrozen(false);
     graph.room.objects.forEach(object=>{const anchor=this.tells.room.objectAnchor(object.id),shape=Shape.createBoxShape();shape.size=new vec3(16,16,16);
       const collider=anchor.createComponent("Physics.ColliderComponent");collider.shape=shape;
-      const interaction=anchor.createComponent(Interactable.getTypeName()) as Interactable;interaction.targetingMode=3;interaction.onTriggerEnd.add(()=>{if(this.objectHandler?.(object.id))return;if(!this.opened)this.inspect(object.id);});});
-    this.flow.engine.onState.add(()=>this.refreshWallet());this.refreshWallet();this.getSceneObject().enabled=this.shatterPreview;
+      const interaction=anchor.createComponent(Interactable.getTypeName()) as Interactable;interaction.targetingMode=3;
+      interaction.onTriggerEnd.add(()=>{if(this.pullObject===object.id||(this.suppressTapObject===object.id&&getTime()<this.suppressTapUntil))return;if(this.objectHandler?.(object.id))return;if(!this.opened)this.inspect(object.id);});
+      interaction.onDragStart.add(()=>this.beginPull(object.id,object.label,object.type));
+      interaction.onDragUpdate.add(event=>this.movePull(object.id,event.dragVector));
+      interaction.onDragEnd.add(()=>this.endPull(object.id));
+      interaction.onTriggerCanceled.add(()=>{if(this.pullObject===object.id)this.cancelPull();});
+      this.targets.push({collider,interaction});
+    });
+    this.refreshWallet();this.modal(false);this.getSceneObject().enabled=this.shatterPreview;
   }
   private refreshWallet():void {this.wallet.setEntries(walletEntries(this.flow.engine.graphRef(),this.stateCache));}
-  inspect(object:string):void {
-    if(this.phase!=="idle")return;this.flow.cancel();const state=this.flow.engine.dispatch({type:"PinchObject",object});
+  inspect(object:string,collected=false):void {
+    if(this.phase!=="idle"||!this.flow.engine.graphRef().room.objects.some(o=>o.id===object))return;this.flow.cancel();const state=collected?this.stateCache:this.flow.engine.dispatch({type:"PinchObject",object});
     const entries=this.flow.engine.graphRef().evidence.filter(e=>e.holder===object&&state.knowledge.evidenceIds.includes(e.id));
     this.getSceneObject().enabled=true;this.controls.enabled=true;this.opened=true;this.slip.enabled=false;this.memory.enabled=true;this.selected=entries.length===1?entries[0].id:null;
     this.memories=entries;this.memoryIndex=0;this.memory.getTransform().setLocalPosition(new vec3(0,0,0));this.memoryText.text=wrapText(entries[0]?.canonical||"No memory has surfaced yet.",26);this.hint.text=entries.length+" memories filed in your evidence wallet.";
@@ -76,7 +102,56 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     this.hint.text="Drag the statement onto an object or memory.";this.modal(true);
   }
   close():void {if(this.phase!=="idle")return;this.opened=false;this.getSceneObject().enabled=false;this.modal(false);}
-  private modal(active:boolean):void {this.flow.chips.show(!active);this.flow.verbs.show(!active);this.caseLid.show(!active);}
+  private modal(active:boolean):void {if(active){this.flow.chips.show(false);this.flow.verbs.show(false);}else this.flow.restoreControls();this.caseLid.show(!active);}
+  /** SIK supplies the same drag events in Preview and on glasses. The real anchor never moves. */
+  private buildPullPhoto():void {
+    this.photo=uiObject(this.getSceneObject(),"RoomscriptPulledMemory");const paper=this.tells.lightMaterial.clone();paper.mainPass.baseColor=new vec4(1,.94,.84,1);
+    const border:[vec3,vec3][]=[[new vec3(-15,-12,0),new vec3(15,-12,0)],[new vec3(15,-12,0),new vec3(15,12,0)],[new vec3(15,12,0),new vec3(-15,12,0)],[new vec3(-15,12,0),new vec3(-15,-12,0)],[new vec3(-13,-5,0),new vec3(13,-5,0)]];
+    worldLines(this.photo,"Photograph border",border,paper,.7);
+    const symbols:{kind:string;lines:[vec3,vec3][]}[]=[
+      {kind:"memory",lines:[[new vec3(-8,-1,.4),new vec3(-3,6,.4)],[new vec3(-3,6,.4),new vec3(2,0,.4)],[new vec3(2,0,.4),new vec3(6,4,.4)],[new vec3(6,4,.4),new vec3(10,-1,.4)]]},
+      {kind:"cup",lines:[[new vec3(-5,7,.4),new vec3(-4,-2,.4)],[new vec3(-4,-2,.4),new vec3(4,-2,.4)],[new vec3(4,-2,.4),new vec3(5,7,.4)],[new vec3(5,7,.4),new vec3(-5,7,.4)],[new vec3(5,5,.4),new vec3(9,4,.4)],[new vec3(9,4,.4),new vec3(9,0,.4)],[new vec3(9,0,.4),new vec3(5,-1,.4)]]},
+      {kind:"cord",lines:[[new vec3(-10,5,.4),new vec3(-4,5,.4)],[new vec3(-4,5,.4),new vec3(-4,-1,.4)],[new vec3(-4,-1,.4),new vec3(4,-1,.4)],[new vec3(4,-1,.4),new vec3(4,7,.4)],[new vec3(4,7,.4),new vec3(10,7,.4)]]}
+    ];
+    for(const symbol of symbols)this.photoSymbols.set(symbol.kind,worldLines(this.photo,"Memory symbol "+symbol.kind,symbol.lines,this.cyan,.7).getSceneObject());
+    const label=uiObject(this.photo,"Memory photograph caption");label.getTransform().setLocalPosition(new vec3(0,-8,1));
+    this.photoLabel=new PanelUI(label,29,7,1.2,new vec4(1,.94,.84,1),true,true).text("Memory object","PULL A MEMORY",5,"small");this.photo.enabled=false;
+  }
+  private beginPull(id:string,label:string,kind:string):void {
+    if(this.phase!=="idle"||this.opened||this.stateCache.verdict)return;
+    const lift=kind==="cup"||kind==="cord";this.flow.cancel();this.pullObject=id;this.pullCommitted=false;this.pullingLift=lift;this.pullDelta=vec3.zero();
+    this.pullOrigin=this.tells.room.objectAnchor(id).getTransform().getWorldPosition();this.suppressTapObject=id;this.suppressTapUntil=getTime()+1;
+    this.opened=true;this.getSceneObject().enabled=true;this.slip.enabled=false;this.memory.enabled=false;this.controls.enabled=false;this.stamp.enabled=false;this.modal(true);
+    this.photo.enabled=true;this.photoLabel.text=label.split(/\s+/).slice(0,3).join(" ").toUpperCase();
+    this.photoSymbols.forEach((symbol,symbolKind)=>symbol.enabled=symbolKind===(lift?kind:"memory"));this.placePullPhoto();
+  }
+  private placePullPhoto():void {
+    const position=this.pullOrigin.add(this.pullDelta),camera=this.flow.actor.camera.getTransform().getWorldPosition(),towards=camera.sub(position);
+    this.photo.getTransform().setWorldPosition(position);if(towards.length>.01)this.photo.getTransform().setWorldRotation(quat.lookAt(towards.normalize(),vec3.up()));
+    this.photo.getTransform().setWorldScale(vec3.one().uniformScale(.35+.65*Math.min(1,this.pullDelta.length/12)));
+  }
+  private movePull(id:string,delta:vec3):void {
+    if(this.pullObject!==id||!delta||![delta.x,delta.y,delta.z].every(Number.isFinite))return;
+    this.pullDelta=this.pullDelta.add(delta);if(this.pullDelta.length>65)this.pullDelta=this.pullDelta.normalize().uniformScale(65);this.placePullPhoto();
+    const towards=this.flow.actor.camera.getTransform().getWorldPosition().sub(this.pullOrigin);
+    const towardDistance=towards.length>.01?this.pullDelta.dot(towards.normalize()):0;
+    const ready=this.pullingLift?this.pullDelta.y>=8:this.pullDelta.length>=8&&(towardDistance>=4||this.pullDelta.y>=6);
+    if(ready&&!this.pullCommitted){
+      const state=this.flow.engine.dispatch({type:"PinchObject",object:id});this.pullCommitted=true;
+      if(state.events.some(e=>e.seq===state.lastSeq&&e.type==="rejected")||state.verdict){this.cancelPull(false);return;}
+      this.pullCount++;if(this.pullingLift)this.liftCount++;this.photoLabel.text=this.pullingLift?"LIFTED MEMORY":"MEMORY FOUND";
+      this.tells.audio.playAt(this.pullingLift?"LiftInspect":"PullMemory",this.photo.getTransform().getWorldPosition());
+    }
+  }
+  private endPull(id:string):void {
+    if(this.pullObject!==id)return;const collected=this.pullCommitted;this.suppressTapObject=id;this.suppressTapUntil=getTime()+.25;
+    this.pullObject=null;this.photo.enabled=false;this.opened=false;
+    if(collected)this.inspect(id,true);else{this.getSceneObject().enabled=false;this.modal(false);}
+  }
+  private cancelPull(restore=true):void {
+    if(this.pullObject){this.suppressTapObject=this.pullObject;this.suppressTapUntil=getTime()+.25;}
+    this.pullObject=null;this.pullCommitted=false;this.opened=false;this.photo.enabled=false;this.getSceneObject().enabled=false;if(restore)this.modal(false);
+  }
   private drop():void {
     if(!this.opened||this.phase!=="idle"||!this.slip.enabled)return;const point=this.slip.getTransform().getWorldPosition(),graph=this.flow.engine.graphRef(),state=this.stateCache;let evidence:string[]=[];
     const hit=this.dropTarget(point);if(hit==="selected"&&this.selected)evidence=[this.selected];else if(hit)evidence=objectDropEvidence(graph,state,hit);
@@ -84,7 +159,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     this.flow.cancel();this.flow.actor.setFrozen(true);this.oldMark=this.flow.actor.getTransform().getWorldPosition();
     const proof=graph.evidence.find(e=>e.id===evidence[0]),witness=graph.statements.find(s=>s.id===evidence[0]);
     const proofObject=proof&&graph.room.objects.find(o=>o.id===proof.holder);
-    const witnessClaim=witness&&graph.statements.find(s=>s.speaker===witness.speaker&&s.topic.startsWith("where@"));
+    const witnessClaim=witness&&graph.statements.find(s=>s.speaker===witness.speaker&&(s.topic.startsWith("where@")||s.topic==="whereabouts"));
     const witnessMark=witnessClaim&&provenMark(graph,witnessClaim.id);
     this.evidencePoint=proofObject?this.tells.room.objectAnchor(proofObject.id).getTransform().getWorldPosition():witnessMark?this.tells.room.toWorld(witnessMark):point;
     const result=this.flow.engine.dispatch({type:"Object",suspect:this.flow.diagnostics().suspect,statement:this.claim,evidence});
@@ -133,5 +208,5 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     if(t>=1.2&&this.phase==="shatter") {this.setPhase("walk");this.particles.paused=false;this.flow.actor.setFrozen(false);this.stamp.enabled=false;if(this.destination)this.tells.relocateMark(this.destination);}
     if(t>=2.8&&this.phase==="walk") {this.pathMeshes.forEach(v=>v.getSceneObject().destroy());this.pathMeshes=[];const origin=this.flow.actor.getTransform().getWorldPosition().add(new vec3(0,65,0));if(origin.distance(this.evidencePoint)>1)this.path(origin,this.evidencePoint,new vec4(1,.42,.35,1));this.particles.emitting=false;this.particles.clear();this.shatterObject.enabled=false;this.burstAt=0;this.setPhase("idle");this.close();const state=this.stateCache,topic=this.flow.engine.graphRef().statements.find(s=>s.id===state.activeStatement)?.topic||"unclear";void this.flow.perform("Explain the evidence.","chip",topic);}
   }
-  diagnostics():{phase:string;correct:boolean;history:string[];opened:boolean;selected:string|null;shatterReady:boolean;bursts:number;shatterEnabled:boolean;proofThreads:number} {return {phase:this.phase,correct:this.correct,history:this.phaseHistory.slice(),opened:this.opened,selected:this.selected,shatterReady:!!this.particles?.asset||this.shards.length===30,bursts:this.burstCount,shatterEnabled:this.shatterObject.enabled,proofThreads:this.pathMeshes.length};}
+  diagnostics():{phase:string;correct:boolean;history:string[];opened:boolean;selected:string|null;shatterReady:boolean;bursts:number;shatterEnabled:boolean;proofThreads:number;pulling:string|null;pulls:number;lifts:number} {return {phase:this.phase,correct:this.correct,history:this.phaseHistory.slice(),opened:this.opened,selected:this.selected,shatterReady:!!this.particles?.asset||this.shards.length===30,bursts:this.burstCount,shatterEnabled:this.shatterObject.enabled,proofThreads:this.pathMeshes.length,pulling:this.pullObject,pulls:this.pullCount,lifts:this.liftCount};}
 }

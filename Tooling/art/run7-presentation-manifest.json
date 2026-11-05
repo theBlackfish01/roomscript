@@ -1,0 +1,95 @@
+{
+  "provenance": "Original procedural vectors; transparent, text-free presentation frames; no case facts",
+  "assets": [
+    {
+      "name": "CastingTag",
+      "path": "Assets/Art/Run7/CastingTag.png",
+      "width": 512,
+      "height": 128,
+      "bytes": 3461,
+      "sha256": "f67ef1d8e057de34115fed6012f54195234530833adff8f12de2fda560abf1b6",
+      "usage": "Runtime label and role icon; no baked object names or facts."
+    },
+    {
+      "name": "ToastTick",
+      "path": "Assets/Art/Run7/ToastTick.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 6103,
+      "sha256": "c96d7b60ded3629b28ca5e7e5f474a11d61630f6f48be8d210d075f8cb14b076",
+      "usage": "Peripheral success acknowledgement; supply actual event text at runtime."
+    },
+    {
+      "name": "MemoryPhoto",
+      "path": "Assets/Art/Run7/MemoryPhoto.png",
+      "width": 512,
+      "height": 640,
+      "bytes": 7565,
+      "sha256": "6cc2783d35bd92b91b37dce5cfa0e824f5893316117544115729bb5588945a32",
+      "usage": "Empty photograph frame; fill with engine-admitted evidence art and progressive caption."
+    },
+    {
+      "name": "VerdictStamp",
+      "path": "Assets/Art/Run7/VerdictStamp.png",
+      "width": 512,
+      "height": 256,
+      "bytes": 3615,
+      "sha256": "882985a510819f0d6269fb52818fd68d80257ac09021a02cc4993acb3a651174",
+      "usage": "Blank stamp framing runtime verdict and earned stars; no case truth baked in."
+    },
+    {
+      "name": "RouteTrail",
+      "path": "Assets/Art/Run7/RouteTrail.png",
+      "width": 256,
+      "height": 64,
+      "bytes": 2687,
+      "sha256": "476247fce34072a9d801225b515420011fc6c4fb998099ce4b0fe80c05899b3f",
+      "usage": "Optional soft trail texture; geometry and distance come from accepted route samples."
+    },
+    {
+      "name": "RoleWitness",
+      "path": "Assets/Art/Run7/RoleWitness.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 5439,
+      "sha256": "73355918bd398c1e02118dce2bb5ab62300b57acf235be0c38353812bfc47400",
+      "usage": "Witness affordance icon; role chosen by compiler."
+    },
+    {
+      "name": "RoleWeapon",
+      "path": "Assets/Art/Run7/RoleWeapon.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1798,
+      "sha256": "f90c5e17fec34dd07e5926898d44dc7eec114be0c56f001a372788d812b0ccfc",
+      "usage": "Fictional weapon-role icon, never proof by itself."
+    },
+    {
+      "name": "RoleHiding",
+      "path": "Assets/Art/Run7/RoleHiding.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1873,
+      "sha256": "78cfd279a684fa4dffd7a4a948176fedab3c4cbb980c4d2af6ffb6da82174198",
+      "usage": "Hiding-place affordance icon."
+    },
+    {
+      "name": "RoleTimekeeper",
+      "path": "Assets/Art/Run7/RoleTimekeeper.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 5117,
+      "sha256": "9a5b248c9702061b59a592f49f0d2672c591f1859e774a221508e108b658b716",
+      "usage": "Timekeeper affordance icon; decorative hands are not case time."
+    },
+    {
+      "name": "More",
+      "path": "Assets/Art/Run7/More.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 666,
+      "sha256": "3b4b25442c2e734cfdb90b60a5240c770b585eb1c333d290a0a06bfd7158cede",
+      "usage": "Progressive disclosure chip icon."
+    }
+  ]
+}

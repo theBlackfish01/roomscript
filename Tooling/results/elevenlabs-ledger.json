@@ -10428,9 +10428,63 @@
       "estimate": false,
       "at": "2026-11-05T19:36:37.039Z",
       "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "69d40e694628b41b9fd793615a2609e66e6d3e706a0f6958a0efd3a3a0d185c3",
+      "label": "run7:phrases:S1:live-S1-opener",
+      "status": "complete",
+      "credits": 11,
+      "estimate": false,
+      "at": "2026-11-05T19:50:55.980Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "29f98ffa7dd5b048b17b8adee18527920600fb8f7bedeff9269836ba590d5f09",
+      "label": "run7:phrases:S1:live-S1-tail",
+      "status": "complete",
+      "credits": 11,
+      "estimate": false,
+      "at": "2026-11-05T19:50:58.118Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "4d1b1a2e420a760e796fd44728a702c246dda5313a88fedce6f40394b49dce7b",
+      "label": "run7:phrases:S2:live-S2-tail",
+      "status": "complete",
+      "credits": 11,
+      "estimate": false,
+      "at": "2026-11-05T19:51:00.056Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "ce700525c23152c0341e0e62e5adcd65ca85c45d01abfe732cc02d65d47f5934",
+      "label": "run7:phrases:S3:live-S3-tail",
+      "status": "complete",
+      "credits": 11,
+      "estimate": false,
+      "at": "2026-11-05T19:51:01.834Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "10c81088aae2220e011e247eb267305926daec2d25a6c69527f4a8a8ec0d1f0d",
+      "label": "run7:phrases:S4:live-S4-opener",
+      "status": "complete",
+      "credits": 11,
+      "estimate": false,
+      "at": "2026-11-05T19:51:02.845Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "f150f7c78b37fc7fe43e6bc630a863cc4c796a3bd8c140c56e97601c1115e23c",
+      "label": "run7:phrases:S4:live-S4-tail",
+      "status": "complete",
+      "credits": 11,
+      "estimate": false,
+      "at": "2026-11-05T19:51:04.116Z",
+      "segment": "run7-2026-11-05"
     }
   ],
-  "totalCredits": 90686,
+  "totalCredits": 90752,
   "segments": [
     {
       "id": "run5-2026-11-04",

@@ -22,7 +22,7 @@ import {RoomscriptClosingController} from "./RoomscriptClosingController";
       // A zero-distance drag maintains a real SIK trigger for the required hold interval.
       await hand.drag(findInteractablesByName("Break seal",undefined,true)[0],new vec3(.001,0,0),1200);
       expect(engine.snapshot().verdict).toBe(mode==="wrong"?"wrong":"correct");expect(closing.diagnostics().phase).toBe("reconstruction");
-      for(let i=0;i<200&&closing.diagnostics().phase!=="ending";i++)await sleep(100);
+      for(let i=0;i<350&&closing.diagnostics().phase!=="ending";i++)await sleep(100);
       expect(closing.diagnostics().phase).toBe("ending");expect(closing.diagnostics().result.indexOf("Holmes rating")>=0).toBe(true);
       const verdict=engine.snapshot().verdict;engine.dispatch({type:"Accuse",who:"S1",where:"Z2",what:"O2"});expect(engine.snapshot().verdict).toBe(verdict);
       console.log("CLOSING_CHECK|"+JSON.stringify({mode,verdict,result:closing.diagnostics().result}));

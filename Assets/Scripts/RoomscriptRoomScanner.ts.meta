@@ -1,0 +1,49 @@
+- !<AssetImportMetadata/1e15b335-8785-4867-b3de-601d0c8a7847>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 44a2da65-730b-4a87-9a6c-426a38e85657
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 44a2da65-730b-4a87-9a6c-426a38e85657
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ffe3808e-3365-4e0d-9254-025e13d61686
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ffe3808e-3365-4e0d-9254-025e13d61686>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: beb1b2ff-a9a5-48de-8453-54c00d55a815
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    camera: false
+    previewBridge: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      previewBridge: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.Camera camera {"hint":"Tracked view used for ray projection"}'
+    - '// @input bool previewBridge = true {"hint":"Enable local Tooling bridge only in Lens Studio Preview"}'

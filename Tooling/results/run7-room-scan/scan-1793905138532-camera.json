@@ -1,0 +1,18 @@
+{
+  "id": "scan-1793905138532",
+  "width": 512,
+  "height": 585,
+  "position": [
+    -130,
+    0,
+    -100
+  ],
+  "rotation": [
+    0,
+    0,
+    0,
+    1
+  ],
+  "at": 1793905138532,
+  "source": "Preview CameraModule Default_Color"
+}

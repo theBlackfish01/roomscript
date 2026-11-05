@@ -1,0 +1,345 @@
+{
+  "provenance": "Supplied room input; terminal validation only",
+  "runs": [
+    {
+      "seed": 7,
+      "caseId": "RS-62b45785",
+      "roomId": "r_f51304f4",
+      "verdict": "correct",
+      "minutes": 60,
+      "attempts": 1,
+      "physicalObjects": 7,
+      "virtualObjects": 0,
+      "replayExact": true,
+      "stateHash": "83be79c9",
+      "commands": [
+        "pinch SCAN_5",
+        "pinch SCAN_7",
+        "pinch SCAN_7",
+        "pinch SCAN_2",
+        "pinch SCAN_7",
+        "pinch SCAN_7",
+        "pinch SCAN_5",
+        "accuse S3 Z1 SCAN_3"
+      ],
+      "transcript": [
+        "[E_F_AT_S1_8_0] A fictional memory in the woven chair: Lydia Fern was in Conservatory at 23:00.",
+        "[E_F_IN_SCAN_6_8_1] A fictional memory in the woven chair: The coffee table was in Conservatory at 23:00.",
+        "[E_F_MOTIVE_S1_0] A fictional memory in the woven chair: Lydia Fern had a dispute with Henry Alder over ambition.",
+        "Clock 20/180 case minutes | credibility 5 | Hunches 0 | open",
+        "[E_F_AT_S2_8_0] A fictional memory in the sofa: Simon Vale was in Lounge at 23:00.",
+        "[E_F_AT_S4_8_1] A fictional memory in the sofa: Rupert Hale was in Lounge at 23:00.",
+        "[E_F_IN_SCAN_2_8_1] A fictional memory in the sofa: The record player was in Lounge at 23:00.",
+        "[E_F_IN_SCAN_4_8_0] A fictional memory in the sofa: The right speaker was in Lounge at 23:00.",
+        "[E_F_MOTIVE_S2_1] A fictional memory in the sofa: Simon Vale had a dispute with Henry Alder over revenge.",
+        "[E_F_SECRET_S3_1] A fictional memory in the sofa: Esther Wren concealed debt involving the Lounge at 22:30.",
+        "[E_F_BASE_S3_0] A fictional memory in the sofa: Esther Wren touched the media console.",
+        "[E_F_MOTIVE_S4_0] A fictional memory in the sofa: Rupert Hale had a dispute with Henry Alder over coverup.",
+        "[E_LATENT_0] Lydia Fern had a dispute with Henry Alder over ambition.",
+        "BEAT: A new record confirms: Lydia Fern had a dispute with Henry Alder over ambition.",
+        "Clock 40/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 40/180 case minutes | credibility 5 | Hunches 0 | open",
+        "[E_F_AT_V_8_0] A fictional memory in the record player: Henry Alder was in Study at 23:00.",
+        "[E_F_AT_S3_8_0] A fictional memory in the record player: Esther Wren was in Study at 23:00.",
+        "[E_F_IN_SCAN_3_8_0] A fictional memory in the record player: The left speaker was in Study at 23:00.",
+        "[E_F_SECRET_S1_0] A fictional memory in the record player: Lydia Fern concealed forgery involving the media console at 22:30.",
+        "[E_F_BASE_S1_0] A fictional memory in the record player: Lydia Fern touched the media console.",
+        "[E_F_MOTIVE_S3_0] A fictional memory in the record player: Esther Wren had a dispute with Henry Alder over debt.",
+        "[E_F_MURDER_TOUCH_1] A fictional memory in the record player: Esther Wren handled the left speaker at 23:00.",
+        "[E_LATENT_1] Esther Wren concealed debt involving the Lounge at 22:30.",
+        "BEAT: A new record confirms: Esther Wren concealed debt involving the Lounge at 22:30.",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "VERDICT: correct",
+        "Henry Alder was in Study at 23:00.",
+        "Esther Wren was in Study at 23:00.",
+        "Esther Wren handled the left speaker at 23:00.",
+        "Esther Wren had a dispute with Henry Alder over debt.",
+        "Lydia Fern concealed forgery involving the media console at 22:30.",
+        "Simon Vale concealed theft involving the media console at 22:30.",
+        "Rupert Hale concealed eavesdrop involving the media console at 22:30.",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | correct"
+      ],
+      "log": [
+        {
+          "type": "PinchObject",
+          "object": "SCAN_5",
+          "seq": 1,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_7",
+          "seq": 2,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_7",
+          "seq": 3,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_2",
+          "seq": 4,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_7",
+          "seq": 5,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_7",
+          "seq": 6,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_5",
+          "seq": 7,
+          "by": "terminal"
+        },
+        {
+          "type": "Accuse",
+          "who": "S3",
+          "where": "Z1",
+          "what": "SCAN_3",
+          "seq": 8,
+          "by": "terminal"
+        }
+      ]
+    },
+    {
+      "seed": 1041,
+      "caseId": "RS-3f8172ee",
+      "roomId": "r_f51304f4",
+      "verdict": "correct",
+      "minutes": 60,
+      "attempts": 1,
+      "physicalObjects": 7,
+      "virtualObjects": 0,
+      "replayExact": true,
+      "stateHash": "7c386df3",
+      "commands": [
+        "pinch SCAN_6",
+        "pinch SCAN_6",
+        "pinch SCAN_6",
+        "pinch SCAN_3",
+        "pinch SCAN_6",
+        "pinch SCAN_6",
+        "pinch SCAN_6",
+        "accuse S1 Z1 SCAN_3"
+      ],
+      "transcript": [
+        "[E_F_AT_S2_6_1] A fictional memory in the coffee table: Basil Crane was in Lounge at 22:30.",
+        "[E_F_AT_S3_6_1] A fictional memory in the coffee table: Clara Moss was in Lounge at 22:30.",
+        "[E_F_AT_S4_6_0] A fictional memory in the coffee table: Dorian West was in Lounge at 22:30.",
+        "[E_F_IN_SCAN_2_6_0] A fictional memory in the coffee table: The record player was in Lounge at 22:30.",
+        "[E_F_IN_SCAN_4_6_1] A fictional memory in the coffee table: The right speaker was in Lounge at 22:30.",
+        "[E_F_IN_SCAN_6_6_1] A fictional memory in the coffee table: The coffee table was in Lounge at 22:30.",
+        "[E_F_MOTIVE_S2_1] A fictional memory in the coffee table: Basil Crane had a dispute with Cecily March over revenge.",
+        "[E_F_SECRET_S3_1] A fictional memory in the coffee table: Clara Moss concealed debt involving the Lounge at 22:00.",
+        "[E_F_BASE_S3_0] A fictional memory in the coffee table: Clara Moss touched the media console.",
+        "[E_F_MOTIVE_S3_1] A fictional memory in the coffee table: Clara Moss had a dispute with Cecily March over debt.",
+        "[E_F_MOTIVE_S4_1] A fictional memory in the coffee table: Dorian West had a dispute with Cecily March over coverup.",
+        "[E_LATENT_0] Agnes Reed had a dispute with Cecily March over ambition.",
+        "BEAT: A new record confirms: Agnes Reed had a dispute with Cecily March over ambition.",
+        "Clock 30/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 30/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 30/180 case minutes | credibility 5 | Hunches 0 | open",
+        "[E_F_AT_V_6_0] A fictional memory in the left speaker: Cecily March was in Study at 22:30.",
+        "[E_F_AT_S1_6_0] A fictional memory in the left speaker: Agnes Reed was in Study at 22:30.",
+        "[E_F_IN_SCAN_3_6_1] A fictional memory in the left speaker: The left speaker was in Study at 22:30.",
+        "[E_F_SECRET_S1_1] A fictional memory in the left speaker: Agnes Reed concealed forgery involving the media console at 22:00.",
+        "[E_F_BASE_S1_1] A fictional memory in the left speaker: Agnes Reed touched the media console.",
+        "[E_F_SECRET_S2_0] A fictional memory in the left speaker: Basil Crane concealed theft involving the media console at 22:00.",
+        "[E_F_BASE_S4_0] A fictional memory in the left speaker: Dorian West touched the media console.",
+        "[E_LATENT_1] Clara Moss concealed debt involving the Lounge at 22:00.",
+        "BEAT: A new record confirms: Clara Moss concealed debt involving the Lounge at 22:00.",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "VERDICT: correct",
+        "Cecily March was in Study at 22:30.",
+        "Agnes Reed was in Study at 22:30.",
+        "Agnes Reed handled the left speaker at 22:30.",
+        "Agnes Reed had a dispute with Cecily March over ambition.",
+        "Basil Crane concealed theft involving the media console at 22:00.",
+        "Clara Moss concealed debt involving the Lounge at 22:00.",
+        "Dorian West concealed eavesdrop involving the media console at 22:00.",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | correct"
+      ],
+      "log": [
+        {
+          "type": "PinchObject",
+          "object": "SCAN_6",
+          "seq": 1,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_6",
+          "seq": 2,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_6",
+          "seq": 3,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_3",
+          "seq": 4,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_6",
+          "seq": 5,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_6",
+          "seq": 6,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_6",
+          "seq": 7,
+          "by": "terminal"
+        },
+        {
+          "type": "Accuse",
+          "who": "S1",
+          "where": "Z1",
+          "what": "SCAN_3",
+          "seq": 8,
+          "by": "terminal"
+        }
+      ]
+    },
+    {
+      "seed": 2026,
+      "caseId": "RS-537d4092",
+      "roomId": "r_f51304f4",
+      "verdict": "correct",
+      "minutes": 60,
+      "attempts": 1,
+      "physicalObjects": 7,
+      "virtualObjects": 0,
+      "replayExact": true,
+      "stateHash": "d130e38e",
+      "commands": [
+        "pinch SCAN_5",
+        "pinch SCAN_5",
+        "pinch SCAN_5",
+        "pinch SCAN_6",
+        "pinch SCAN_5",
+        "pinch SCAN_5",
+        "pinch SCAN_5",
+        "accuse S2 Z3 SCAN_6"
+      ],
+      "transcript": [
+        "[E_F_AT_S1_5_0] A fictional memory in the woven chair: Pavel Stone was in Conservatory at 22:15.",
+        "[E_F_AT_S3_5_0] A fictional memory in the woven chair: Jonas Lake was in Conservatory at 22:15.",
+        "[E_F_AT_S4_5_0] A fictional memory in the woven chair: Meera Dawn was in Conservatory at 22:15.",
+        "[E_F_IN_SCAN_2_5_0] A fictional memory in the woven chair: The record player was in Conservatory at 22:15.",
+        "[E_F_IN_SCAN_3_5_0] A fictional memory in the woven chair: The left speaker was in Conservatory at 22:15.",
+        "[E_F_IN_SCAN_4_5_1] A fictional memory in the woven chair: The right speaker was in Conservatory at 22:15.",
+        "[E_F_MOTIVE_S1_0] A fictional memory in the woven chair: Pavel Stone had a dispute with Elena Frost over ambition.",
+        "[E_F_MOTIVE_S3_1] A fictional memory in the woven chair: Jonas Lake had a dispute with Elena Frost over debt.",
+        "[E_F_MOTIVE_S4_0] A fictional memory in the woven chair: Meera Dawn had a dispute with Elena Frost over coverup.",
+        "[E_LATENT_0] Pavel Stone had a dispute with Elena Frost over ambition.",
+        "BEAT: A new record confirms: Pavel Stone had a dispute with Elena Frost over ambition.",
+        "Clock 30/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 30/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 30/180 case minutes | credibility 5 | Hunches 0 | open",
+        "[E_F_AT_V_5_0] A fictional memory in the coffee table: Elena Frost was in Lounge at 22:15.",
+        "[E_F_AT_S2_5_0] A fictional memory in the coffee table: Ada Rivers was in Lounge at 22:15.",
+        "[E_F_IN_SCAN_6_5_0] A fictional memory in the coffee table: The coffee table was in Lounge at 22:15.",
+        "[E_F_MOTIVE_S2_0] A fictional memory in the coffee table: Ada Rivers had a dispute with Elena Frost over revenge.",
+        "[E_F_SECRET_S3_0] A fictional memory in the coffee table: Jonas Lake concealed debt involving the Lounge at 21:45.",
+        "[E_F_BASE_S3_0] A fictional memory in the coffee table: Jonas Lake touched the media console.",
+        "[E_F_MURDER_TOUCH_0] A fictional memory in the coffee table: Ada Rivers handled the coffee table at 22:15.",
+        "[E_LATENT_1] Jonas Lake concealed debt involving the Lounge at 21:45.",
+        "BEAT: A new record confirms: Jonas Lake concealed debt involving the Lounge at 21:45.",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | open",
+        "VERDICT: correct",
+        "Elena Frost was in Lounge at 22:15.",
+        "Ada Rivers was in Lounge at 22:15.",
+        "Ada Rivers handled the coffee table at 22:15.",
+        "Ada Rivers had a dispute with Elena Frost over revenge.",
+        "Pavel Stone concealed forgery involving the media console at 21:45.",
+        "Jonas Lake concealed debt involving the Lounge at 21:45.",
+        "Meera Dawn concealed eavesdrop involving the media console at 21:45.",
+        "Clock 60/180 case minutes | credibility 5 | Hunches 0 | correct"
+      ],
+      "log": [
+        {
+          "type": "PinchObject",
+          "object": "SCAN_5",
+          "seq": 1,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_5",
+          "seq": 2,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_5",
+          "seq": 3,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_6",
+          "seq": 4,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_5",
+          "seq": 5,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_5",
+          "seq": 6,
+          "by": "terminal"
+        },
+        {
+          "type": "PinchObject",
+          "object": "SCAN_5",
+          "seq": 7,
+          "by": "terminal"
+        },
+        {
+          "type": "Accuse",
+          "who": "S2",
+          "where": "Z3",
+          "what": "SCAN_6",
+          "seq": 8,
+          "by": "terminal"
+        }
+      ]
+    }
+  ]
+}

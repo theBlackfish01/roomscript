@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "provenance": "Exact non-factual register pieces from GeneratedPerformance.generatedPerformances; engine-selected performances only.",
+  "lines": [
+    {"id":"live-S1-opener","speaker":"S1","text":"Well, detective."},
+    {"id":"live-S1-tail","speaker":"S1","text":"Write that down."},
+    {"id":"live-S2-opener","speaker":"S2","text":"Well, detective."},
+    {"id":"live-S2-tail","speaker":"S2","text":"Write that down."},
+    {"id":"live-S3-opener","speaker":"S3","text":"Well, detective."},
+    {"id":"live-S3-tail","speaker":"S3","text":"Write that down."},
+    {"id":"live-S4-opener","speaker":"S4","text":"Well, detective."},
+    {"id":"live-S4-tail","speaker":"S4","text":"Write that down."}
+  ]
+}

@@ -1,0 +1,22 @@
+/** Tiny text-free presentation sprites using the existing original vector renderer. */
+import {resolve,dirname} from 'node:path';import {fileURLToPath} from 'node:url';
+import {mkdirSync,writeFileSync,readFileSync} from 'node:fs';import {execFileSync} from 'node:child_process';import {createHash} from 'node:crypto';
+import {palette as P,path,ellipse,line,M,L,C,Z} from '../lib/vectors.mjs';import {decodePng} from '../lib/png.mjs';
+const art=resolve(dirname(fileURLToPath(import.meta.url)),'..'),out=resolve(art,'out/run7'),jobs=[];
+const rect=(x,y,w,h,color,width=3)=>path([M(x,y),L(x+w,y),L(x+w,y+h),L(x,y+h),Z()],color,width);
+const add=(name,width,height,items,usage)=>jobs.push({name,width,height,items,usage,output:resolve(out,'Assets/Art/Run7/'+name+'.png')});
+add('CastingTag',512,128,[path([M(25,10),L(502,10),L(502,118),L(25,118),L(10,64),Z()],P.brass,4),line(112,26,112,102,P.brass,2)],'Runtime label and role icon; no baked object names or facts.');
+add('ToastTick',128,128,[ellipse(12,12,104,104,P.brass,3),path([M(32,64),L(54,86),L(96,39)],P.ivory,7)],'Peripheral success acknowledgement; supply actual event text at runtime.');
+add('MemoryPhoto',512,640,[rect(12,12,488,616,P.coral,5),rect(34,34,444,420,P.ivory,3),line(34,492,352,492,P.ivory,4),line(34,529,284,529,P.brass,3)],'Empty photograph frame; fill with engine-admitted evidence art and progressive caption.');
+add('VerdictStamp',512,256,[rect(12,12,488,232,P.coral,8),rect(25,25,462,206,P.coral,2),line(45,64,467,64,P.coral,3),line(45,190,467,190,P.coral,3)],'Blank stamp framing runtime verdict and earned stars; no case truth baked in.');
+add('RouteTrail',256,64,[path([M(10,32),C(70,10,170,55,246,30)],P.cyan,4,{alpha:.38}),ellipse(10,27,10,10,P.cyan,2,{alpha:.6})],'Optional soft trail texture; geometry and distance come from accepted route samples.');
+add('RoleWitness',128,128,[path([M(10,64),C(40,19,88,19,118,64),C(88,109,40,109,10,64)],P.ivory,5),ellipse(46,46,36,36,P.ivory,5)],'Witness affordance icon; role chosen by compiler.');
+add('RoleWeapon',128,128,[path([M(28,105),L(105,28),L(110,14),L(96,19),L(19,96),Z()],P.coral,5),line(23,76,51,104,P.coral,6)],'Fictional weapon-role icon, never proof by itself.');
+add('RoleHiding',128,128,[rect(20,43,88,64,P.brass,5),path([M(20,43),L(42,21),L(87,21),L(108,43)],P.brass,5),line(64,48,64,79,P.ivory,5)],'Hiding-place affordance icon.');
+add('RoleTimekeeper',128,128,[ellipse(17,17,94,94,P.ivory,5),line(64,30,64,65,P.ivory,5),line(64,65,85,77,P.brass,5)],'Timekeeper affordance icon; decorative hands are not case time.');
+add('More',128,128,[...Array.from({length:3},(_,i)=>ellipse(21+i*36,57,14,14,P.ivory,2,{fill:true}))],'Progressive disclosure chip icon.');
+mkdirSync(out,{recursive:true});const batch=resolve(out,'presentation-batch.json');writeFileSync(batch,JSON.stringify(jobs));
+execFileSync('powershell.exe',['-NoProfile','-ExecutionPolicy','Bypass','-File',resolve(art,'scripts/render.ps1'),'-Batch',batch],{timeout:120000,windowsHide:true,stdio:'pipe'});
+const assets=jobs.map(j=>{const bytes=readFileSync(j.output),image=decodePng(bytes);if(image.width!==j.width||image.height!==j.height||image.colorType!==6)throw Error('SPRITE_CONTRACT '+j.name);return {name:j.name,path:'Assets/Art/Run7/'+j.name+'.png',width:j.width,height:j.height,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex'),usage:j.usage};});
+writeFileSync(resolve(art,'run7-presentation-manifest.json'),JSON.stringify({provenance:'Original procedural vectors; transparent, text-free presentation frames; no case facts',assets},null,2)+'\n');
+console.log(JSON.stringify({sprites:assets.length,bytes:assets.reduce((n,a)=>n+a.bytes,0),stage:out}));

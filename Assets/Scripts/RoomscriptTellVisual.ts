@@ -5,6 +5,7 @@ import {tellCue,TellCue} from "./Engine/game/TellCue";
 import {tellWindow} from "./Engine/game/TellWindow";
 import {GameState} from "./Engine/core/Types";
 import {isLawyered} from "./Engine/game/Composure";
+import {caseExitPosition} from "./Engine/game/RoomPresentation";
 
 /** Engine-authorized tells and composure only; this adapter never infers a lie from prose. */
 @component export class RoomscriptTellVisual extends BaseScriptComponent {
@@ -27,6 +28,7 @@ import {isLawyered} from "./Engine/game/Composure";
     visual.mesh=builder.getMesh();visual.mainMaterial=material;builder.updateMesh();return visual;
   }
   private build():void {
+    if(this.prop)return;
     this.room.initialize();const actor=this.flow.actor.getSceneObject();this.mark=actor.getTransform().getWorldPosition();
     this.propSurface=this.lightMaterial.clone();
     this.prop=this.visual(actor,"RoomscriptTellProp",[-3,0,0,0,0,1,0,0,0,-4,0,0,0,1,1,0,3,0,0,0,0,1,1,1,0,4,0,0,0,1,0,1],[0,1,2,0,2,3],this.propSurface).getSceneObject();
@@ -46,16 +48,22 @@ import {isLawyered} from "./Engine/game/Composure";
     this.flow.onSpeaking.add(event=>{const cue=tellCue(this.flow.engine.graphRef(),this.flow.engine.snapshot(),event.seq,event.suspect,event.mode);
       if(!cue)return;this.pending=cue;this.started=getTime();this.due=this.started+cue.delayMs/1000;this.until=null;});
     this.flow.engine.onState.add(state=>this.render(state));this.render(this.flow.engine.snapshot());
+    this.flow.engine.onCaseChanged.add(()=>this.resetForCase());
     this.flow.onSuspectSelected.add(()=>{const actor=this.flow.actor.getSceneObject();this.pending=null;this.prop.enabled=false;this.line.enabled=false;this.moving=false;this.absent=false;this.mark=actor.getTransform().getWorldPosition();this.prop.setParent(actor);this.segments.forEach(s=>s.getSceneObject().setParent(actor));this.render(this.flow.engine.snapshot());});
   }
+  resetForCase():void {
+    if(!this.prop)return;this.room.initialize();this.pending=null;this.until=null;this.target=null;this.moving=false;this.absent=false;this.count=0;this.lastDelay=0;
+    this.prop.enabled=false;this.line.enabled=false;const actor=this.flow.actor.getSceneObject();this.mark=actor.getTransform().getWorldPosition();
+    this.prop.setParent(actor);this.segments.forEach(s=>s.getSceneObject().setParent(actor));actor.enabled=true;this.render(this.flow.engine.snapshot());
+  }
   private render(state:GameState):void {
-    const last=state.log[state.log.length-1];if(last&&!["LineSpoken","LlmOutput"].includes(last.type)){this.pending=null;this.prop.enabled=false;this.line.enabled=false;}
+    const last=state.log[state.log.length-1];if(last&&!["LineSpoken","LlmOutput","PlayerMoved","WrenSpoken"].includes(last.type)){this.pending=null;this.prop.enabled=false;this.line.enabled=false;}
     const id=this.flow.diagnostics().suspect,suspect=state.suspects[id];this.shownSegments=suspect.composure;
     this.audio.setComposure(1-suspect.composure/Math.max(1,suspect.composureMax));
     this.segments.forEach((segment,index)=>segment.enabled=index<suspect.composure);
     const absent=isLawyered(suspect,state.elapsedMinutes);
     if(absent!==this.absent){this.absent=absent;this.from=this.flow.actor.getTransform().getWorldPosition();
-      this.to=absent?this.room.objectAnchor("O8").getTransform().getWorldPosition().add(new vec3(0,-110,0)):this.mark;
+      this.to=absent?this.room.toWorld(caseExitPosition(this.flow.engine.graphRef())):this.mark;
       this.moveStart=getTime();this.moving=true;this.flow.actor.getSceneObject().enabled=true;
       if(!absent)this.audio.play("Knock");}
   }

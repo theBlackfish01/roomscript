@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/8b6b24db-44b3-4e3a-8a57-0fd367a4e430>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a2a24c3f-7251-49cc-8782-aa2022bdf917
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a2a24c3f-7251-49cc-8782-aa2022bdf917
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> fc8789de-4606-4031-a335-df71c3d62c57
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/fc8789de-4606-4031-a335-df71c3d62c57>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 8ffb2a76-c6f4-4ece-9e0c-46ecade1b697
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    casting: false
+    opening: false
+    scanner: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - opening: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      scanner: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      casting: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType_1 opening {"hint":"Opening and crate mode buttons"}'
+    - '// @input AssignableType_2 scanner {"hint":"Preview camera and World Query"}'
+    - '// @input AssignableType_3 casting {"hint":"Furniture casting labels"}'

@@ -9,8 +9,24 @@ import {buildFactSheet} from "../../../Assets/Scripts/Engine/perf/FactSheetBuild
 import {lookupLine} from "../../../Assets/Scripts/Engine/perf/LineBank";
 import {getCurrentStatements} from "../../../Assets/Scripts/Engine/game/Actions";
 import {generatedLineBank} from "../../../Assets/Scripts/Engine/perf/GeneratedPerformance";
+import {EVENING_ROOM_SCAN} from "../../../Assets/Scripts/Content/EveningRoomScan";
 
 describe("generated case product boundary",()=>{
+  for(const seed of [7,1041,2026])it("supports the runtime smoke's question-plus-inspection sequence on accepted room seed "+seed,()=>{
+    const result=prepareDynamicCase(seed,EVENING_ROOM_SCAN);expect(result.ok).toBe(true);
+    const graph=result.graph!,player=new TerminalPlayer(graph);
+    player.execute("chip "+graph.cast.suspects[0].id+" whereabouts");
+    for(const ref of minimumCostRoute(graph).refs){
+      const evidence=graph.evidence.find(e=>e.id===ref),statement=graph.statements.find(s=>s.id===ref);
+      if(evidence&&!player.state.knowledge.evidenceIds.includes(ref))player.execute("pinch "+evidence.holder);
+      if(statement&&!player.state.knowledge.statementIds.includes(ref))player.execute("chip "+statement.speaker+" "+statement.topic);
+    }
+    const hypotheses=solvePlayerKnowledge(graph,player.state.knowledge).hypotheses;
+    expect(hypotheses).toHaveLength(1);expect(player.state.verdict).toBeNull();
+    const h=hypotheses[0];player.execute(`accuse ${h.who} ${h.where} ${h.what}`);
+    expect(player.state.verdict).toBe("correct");expect(graph.room.objects.filter(o=>o.virtual)).toHaveLength(0);
+    expect(replayGame(graph,player.state.log)).toEqual(player.state);
+  });
   for(const seed of [7,1041,2026])it("plays authored room seed "+seed+" to a replayable terminal verdict",()=>{
     const room=createHeroCase().room,before=JSON.stringify(room),result=prepareDynamicCase(seed,room);
     expect(result.ok,JSON.stringify(result)).toBe(true);expect(JSON.stringify(room)).toBe(before);

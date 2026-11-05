@@ -4,12 +4,16 @@ import {RemoteServiceGatewayCredentials,AvaliableApiTypes} from "RemoteServiceGa
 import {CancellationToken,ClockPort,LlmError,LlmPort,LlmRequest,LlmResponse} from "./Engine/ai/LlmPort";
 import {Scheduler} from "./Engine/ai/Scheduler";
 import {geminiRequest,openAIRequest,providerError} from "./Engine/ai/ProviderRequests";
-/** Gateway-only transport. Authentication stays in RSG; deadlines never release pending transport slots. */
+import {localBridgeAvailable as hasLocalBridge,localBridgePost} from "./RoomscriptLocalBridge";
+import {allowModelTransport} from "./Engine/ai/ModelPolicy";
+/** Scoped Preview transport plus gateway fallback; provider credentials never enter this component. */
 @component export class RoomscriptLlmClient extends BaseScriptComponent implements LlmPort {
-  @input @hint("Offline stage demo: bundled hero and authored captions; no gateway requests") stageMode:boolean=false;
+  @input @hint("Prepared Stage questions use bundled voices; explicit free questions may use live models") stageMode:boolean=false;
   forceOffline=false;private requests=0;
   private expired=new Set<string>();
   isOffline():boolean{return this.stageMode||this.forceOffline;}
+  localBridgeAvailable():boolean{return !this.forceOffline&&hasLocalBridge();}
+  canAnswerFree():boolean{return allowModelTransport("free",this.stageMode,this.forceOffline)&&(this.localBridgeAvailable()||this.hasCredentials("gemini")||this.hasCredentials("openai"));}
   readonly clock:ClockPort={nowMs:()=>getTime()*1000,after:(ms,callback)=>{
     const e=this.createEvent("DelayedCallbackEvent");let pending=true;
     e.bind(()=>{pending=false;this.removeEvent(e);callback();});e.reset(ms/1000);
@@ -23,8 +27,28 @@ import {geminiRequest,openAIRequest,providerError} from "./Engine/ai/ProviderReq
     const token=RemoteServiceGatewayCredentials.getApiToken(provider==="openai"?AvaliableApiTypes.OpenAI:AvaliableApiTypes.Google);
     return !!token && token.length>20 && !token.includes("[INSERT");
   }
+  /** Only explicitly free/dynamic pipelines use this path. Never mutates stageMode. */
+  async completeFree(request:LlmRequest,cancellation?:CancellationToken):Promise<LlmResponse> {
+    cancellation?.throwIfCancelled();if(!allowModelTransport("free",this.stageMode,this.forceOffline))throw new LlmError("unavailable");
+    if(this.localBridgeAvailable()){
+      this.requests++;
+      try{
+        const response=await localBridgePost("complete",request);cancellation?.throwIfCancelled();
+        if(typeof response?.content!=="string"||!response.content.trim())throw new LlmError("invalid_response");
+        return {content:response.content,model:typeof response.model==="string"?response.model:"local-preview"};
+      }catch(error){
+        cancellation?.throwIfCancelled();
+        // Explicit free questions may fall back to authenticated RSG, including in Stage.
+      }
+    }
+    return this.completeGateway(request,cancellation);
+  }
   async complete(request:LlmRequest,cancellation?:CancellationToken):Promise<LlmResponse> {
-    cancellation?.throwIfCancelled();if(this.isOffline())throw new LlmError("unavailable");
+    cancellation?.throwIfCancelled();if(!allowModelTransport("standard",this.stageMode,this.forceOffline))throw new LlmError("unavailable");
+    return this.completeGateway(request,cancellation);
+  }
+  private async completeGateway(request:LlmRequest,cancellation?:CancellationToken):Promise<LlmResponse> {
+    cancellation?.throwIfCancelled();if(this.forceOffline)throw new LlmError("unavailable");
     if(!this.hasCredentials(request.provider))throw new LlmError("unauthenticated");this.requests++;
     try {
       let content:string;

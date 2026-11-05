@@ -19,6 +19,7 @@ function flex(o:SceneObject,width:number,height:number,horizontal=false):FlexLay
 export function applyTextRole(text:Text,role:"title"|"body"|"small",scale:number):void {
   const roles={title:{size:96,weight:700},body:{size:78,weight:500},small:{size:64,weight:500}};
   text.size=roles[role].size*scale;(text as Text&{weight?:number}).weight=roles[role].weight;
+  text.font=(role==="title"?requireAsset("../Art/Fonts/Anton-Regular.ttf"):requireAsset("../Art/Fonts/CourierPrime-Regular.ttf")) as Font;
 }
 export function wrapText(text:string,columns=42):string {
   return text.split("\n").map(paragraph=>{const rows:string[]=[];let row="";for(const word of paragraph.split(" ")){
@@ -57,7 +58,7 @@ export class PanelUI {
     const width=(this.width-3-(items.length-1))/items.length;
     return items.map(spec=>{
       const o=this.item(row,layout,width,height,spec.id),button=o.createComponent(RectangleButton.getTypeName()) as RectangleButton;
-      button.onInitialized.add(()=>button.size=new vec3(width,height,1));button.onTriggerUp.add(()=>onAction(spec.id));
+      button.size=new vec3(width,height,1);button.onTriggerUp.add(()=>onAction(spec.id));
       if(onDown)button.onTriggerDown.add(()=>onDown(spec.id));
       if(onHover){button.onHoverEnter.add(()=>onHover(spec.id));button.onHoverExit.add(()=>onHover(null));}
       return this.label(o,spec.label,width,height,"small");

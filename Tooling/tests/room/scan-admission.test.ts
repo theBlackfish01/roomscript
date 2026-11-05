@@ -1,0 +1,4 @@
+import {it,expect} from "vitest";
+import {roomFromObservations,LocatedObservation} from "../../../Assets/Scripts/Engine/room/ScanAdmission";
+const row=(label:string,type:string,x=0):LocatedObservation=>({label,type,confidence:.8,box:[.1,.1,.9,.9],hit:{position:[x,-140,-400+x],normal:[0,1,0]}});
+it("rejects forced art types, no hits and invalid boxes; merges repeated furniture",()=>{const rows=[row("media console","container"),row("record player","heavy",10),row("left speaker","blunt",20),row("right speaker","blunt",30),row("sofa","soft",40),row("framed art","mirror"),row("media console","container")];const room=roomFromObservations(rows,-176);expect(room.objects).toHaveLength(5);expect(room.zones).toHaveLength(3);expect(room.objects.every(o=>o.pos[1]===36)).toBe(true);expect(()=>roomFromObservations(rows.map(o=>({...o,hit:null})),-176)).toThrow();expect(()=>roomFromObservations(rows.map(o=>({...o,box:[0,0,2,1]})),-176)).toThrow();});

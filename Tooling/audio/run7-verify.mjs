@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import {readFileSync,statSync,writeFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 const stage=resolve(AUDIO,'out/run7'),manifest=read(resolve(AUDIO,'run7-voice-manifest.json'),{clips:[]});
-const expected=['run7-phrase-spec.json','run7-phrase-spec-v2.json','run7-phrase-spec-v3.json','run7-phrase-spec-v4.json','run7-narration-spec.json','run7-scan-narration-spec.json'].flatMap(p=>read(resolve(AUDIO,p),{lines:[]}).lines);
+const expected=['run7-phrase-spec.json','run7-phrase-spec-v2.json','run7-phrase-spec-v3.json','run7-phrase-spec-v4.json','run7-narration-spec.json','run7-scan-narration-spec.json','run7-live-register-spec.json'].flatMap(p=>read(resolve(AUDIO,p),{lines:[]}).lines);
 const key=r=>r.speaker+'|steady|'+r.text.trim().replace(/\s+/g,' '),keys=new Set(manifest.clips.map(key));
 const missing=expected.filter(r=>/[\p{L}\p{N}]/u.test(r.text)&&!keys.has(key(r))).map(key);
 const exported=parseManifestExport(readFileSync(resolve(stage,'Assets/Scripts/Content/Run7VoiceManifest.ts'),'utf8'),'RUN7_VOICE_MANIFEST');

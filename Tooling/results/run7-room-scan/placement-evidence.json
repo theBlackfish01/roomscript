@@ -1,0 +1,685 @@
+{
+  "schema": 1,
+  "recordedAt": "2026-11-05T19:32:21.183Z",
+  "source": "Actual Evening Room CameraModule + Claude Opus + World Query",
+  "coordinateFrame": "Floor-local centimeters; original World Query positions retained in observations",
+  "floorY": -176,
+  "room": {
+    "source": "vision",
+    "zones": [
+      {
+        "id": "Z1",
+        "label": "console",
+        "clueName": "Study",
+        "anchor": [
+          -86.93900044759114,
+          0,
+          -458.1166585286458
+        ]
+      },
+      {
+        "id": "Z2",
+        "label": "reading corner",
+        "clueName": "Conservatory",
+        "anchor": [
+          120.31467056274414,
+          0,
+          -419.88304138183594
+        ]
+      },
+      {
+        "id": "Z3",
+        "label": "lounge",
+        "clueName": "Lounge",
+        "anchor": [
+          5.350500106811523,
+          0,
+          -255.024658203125
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "SCAN_1",
+        "label": "media console",
+        "type": "container",
+        "zone": "Z1",
+        "pos": [
+          0,
+          26.481414794921875,
+          -447.2526550292969
+        ],
+        "affordances": [],
+        "origin": "vision",
+        "confidence": 0.9,
+        "virtual": false
+      },
+      {
+        "id": "SCAN_2",
+        "label": "record player",
+        "type": "heavy",
+        "zone": "Z1",
+        "pos": [
+          -97.73124694824219,
+          40.55580139160156,
+          -457.34381103515625
+        ],
+        "affordances": [],
+        "origin": "vision",
+        "confidence": 0.88,
+        "virtual": false
+      },
+      {
+        "id": "SCAN_3",
+        "label": "left speaker",
+        "type": "blunt",
+        "zone": "Z1",
+        "pos": [
+          -163.08575439453125,
+          48.15392303466797,
+          -469.7535095214844
+        ],
+        "affordances": [],
+        "origin": "vision",
+        "confidence": 0.82,
+        "virtual": false
+      },
+      {
+        "id": "SCAN_4",
+        "label": "right speaker",
+        "type": "blunt",
+        "zone": "Z2",
+        "pos": [
+          119.51427459716797,
+          48.519126892089844,
+          -469.6797790527344
+        ],
+        "affordances": [],
+        "origin": "vision",
+        "confidence": 0.85,
+        "virtual": false
+      },
+      {
+        "id": "SCAN_5",
+        "label": "woven chair",
+        "type": "soft",
+        "zone": "Z2",
+        "pos": [
+          121.11506652832031,
+          34.412139892578125,
+          -370.0863037109375
+        ],
+        "affordances": [],
+        "origin": "vision",
+        "confidence": 0.85,
+        "virtual": false
+      },
+      {
+        "id": "SCAN_6",
+        "label": "coffee table",
+        "type": "heavy",
+        "zone": "Z3",
+        "pos": [
+          10.701000213623047,
+          31.316497802734375,
+          -314.01275634765625
+        ],
+        "affordances": [],
+        "origin": "vision",
+        "confidence": 0.85,
+        "virtual": false
+      },
+      {
+        "id": "SCAN_7",
+        "label": "sofa",
+        "type": "soft",
+        "zone": "Z3",
+        "pos": [
+          0,
+          30.571380615234375,
+          -196.03656005859375
+        ],
+        "affordances": [],
+        "origin": "vision",
+        "confidence": 0.8,
+        "virtual": false
+      }
+    ]
+  },
+  "observations": [
+    {
+      "label": "media console",
+      "type": "container",
+      "role": "hiding place",
+      "box": [
+        0,
+        0.39,
+        1,
+        0.53
+      ],
+      "confidence": 0.9,
+      "hit": {
+        "position": [
+          0,
+          -149.51858520507812,
+          -447.2526550292969
+        ],
+        "normal": [
+          0.02521764114499092,
+          0.7663618326187134,
+          0.6419141888618469
+        ]
+      },
+      "view": 0,
+      "scanId": "scan-1793905828522-1",
+      "observations": [
+        {
+          "label": "media console",
+          "type": "container",
+          "role": "hiding place",
+          "box": [
+            0,
+            0.39,
+            1,
+            0.53
+          ],
+          "confidence": 0.9,
+          "hit": {
+            "position": [
+              0,
+              -149.51858520507812,
+              -447.2526550292969
+            ],
+            "normal": [
+              0.02521764114499092,
+              0.7663618326187134,
+              0.6419141888618469
+            ]
+          },
+          "view": 0,
+          "scanId": "scan-1793905828522-1"
+        },
+        {
+          "label": "media console",
+          "type": "container",
+          "role": "hiding place",
+          "box": [
+            0,
+            0.57,
+            0.773,
+            0.855
+          ],
+          "confidence": 0.9,
+          "hit": {
+            "position": [
+              35.03715896606445,
+              -153.29302978515625,
+              -446.5223693847656
+            ],
+            "normal": [
+              -0.00023517009685747325,
+              -1.1920927533992653e-7,
+              1
+            ]
+          },
+          "view": 1,
+          "scanId": "scan-1793905833439-2"
+        },
+        {
+          "label": "media console",
+          "type": "container",
+          "role": "hiding place",
+          "box": [
+            0.015,
+            0.555,
+            1,
+            0.845
+          ],
+          "confidence": 0.9,
+          "hit": {
+            "position": [
+              -48.145687103271484,
+              -152.2169189453125,
+              -445.1158142089844
+            ],
+            "normal": [
+              0.04385283589363098,
+              0.7672799825668335,
+              0.6398111581802368
+            ]
+          },
+          "view": 2,
+          "scanId": "scan-1793905836714-3"
+        }
+      ]
+    },
+    {
+      "label": "record player",
+      "type": "heavy",
+      "role": "weapon",
+      "box": [
+        0.233,
+        0.568,
+        0.453,
+        0.638
+      ],
+      "confidence": 0.88,
+      "hit": {
+        "position": [
+          -97.73124694824219,
+          -135.44419860839844,
+          -457.34381103515625
+        ],
+        "normal": [
+          2.116323116752028e-8,
+          1,
+          -5.464779295749622e-9
+        ]
+      },
+      "view": 2,
+      "scanId": "scan-1793905836714-3",
+      "observations": [
+        {
+          "label": "record player",
+          "type": "heavy",
+          "role": "weapon",
+          "box": [
+            0.233,
+            0.568,
+            0.453,
+            0.638
+          ],
+          "confidence": 0.88,
+          "hit": {
+            "position": [
+              -97.73124694824219,
+              -135.44419860839844,
+              -457.34381103515625
+            ],
+            "normal": [
+              2.116323116752028e-8,
+              1,
+              -5.464779295749622e-9
+            ]
+          },
+          "view": 2,
+          "scanId": "scan-1793905836714-3"
+        },
+        {
+          "label": "record player",
+          "type": "heavy",
+          "role": "weapon",
+          "box": [
+            0.04,
+            0.28,
+            0.23,
+            0.43
+          ],
+          "confidence": 0.85,
+          "hit": {
+            "position": [
+              -105.47985076904297,
+              -125.77236938476562,
+              -485.4996337890625
+            ],
+            "normal": [
+              0.020370252430438995,
+              0.005107581615447998,
+              0.9997795224189758
+            ]
+          },
+          "view": 0,
+          "scanId": "scan-1793905828522-1"
+        }
+      ]
+    },
+    {
+      "label": "left speaker",
+      "type": "blunt",
+      "role": "weapon",
+      "box": [
+        0.105,
+        0.493,
+        0.193,
+        0.588
+      ],
+      "confidence": 0.82,
+      "hit": {
+        "position": [
+          -163.08575439453125,
+          -127.84607696533203,
+          -469.7535095214844
+        ],
+        "normal": [
+          0.744695782661438,
+          0.04124027490615845,
+          0.6661288142204285
+        ]
+      },
+      "view": 2,
+      "scanId": "scan-1793905836714-3",
+      "observations": [
+        {
+          "label": "left speaker",
+          "type": "blunt",
+          "role": "weapon",
+          "box": [
+            0.105,
+            0.493,
+            0.193,
+            0.588
+          ],
+          "confidence": 0.82,
+          "hit": {
+            "position": [
+              -163.08575439453125,
+              -127.84607696533203,
+              -469.7535095214844
+            ],
+            "normal": [
+              0.744695782661438,
+              0.04124027490615845,
+              0.6661288142204285
+            ]
+          },
+          "view": 2,
+          "scanId": "scan-1793905836714-3"
+        }
+      ]
+    },
+    {
+      "label": "right speaker",
+      "type": "blunt",
+      "role": "weapon",
+      "box": [
+        0.59,
+        0.51,
+        0.674,
+        0.605
+      ],
+      "confidence": 0.85,
+      "hit": {
+        "position": [
+          119.51427459716797,
+          -127.48087310791016,
+          -469.6797790527344
+        ],
+        "normal": [
+          -0.6370341181755066,
+          0.005671143066138029,
+          0.7708147168159485
+        ]
+      },
+      "view": 1,
+      "scanId": "scan-1793905833439-2",
+      "observations": [
+        {
+          "label": "right speaker",
+          "type": "blunt",
+          "role": "weapon",
+          "box": [
+            0.59,
+            0.51,
+            0.674,
+            0.605
+          ],
+          "confidence": 0.85,
+          "hit": {
+            "position": [
+              119.51427459716797,
+              -127.48087310791016,
+              -469.6797790527344
+            ],
+            "normal": [
+              -0.6370341181755066,
+              0.005671143066138029,
+              0.7708147168159485
+            ]
+          },
+          "view": 1,
+          "scanId": "scan-1793905833439-2"
+        },
+        {
+          "label": "right speaker",
+          "type": "blunt",
+          "role": "weapon",
+          "box": [
+            0.895,
+            0.33,
+            0.97,
+            0.42
+          ],
+          "confidence": 0.8,
+          "hit": {
+            "position": [
+              121.00537872314453,
+              -127.77237701416016,
+              -467.84954833984375
+            ],
+            "normal": [
+              -0.6107761859893799,
+              0.00722187664359808,
+              0.7917703986167908
+            ]
+          },
+          "view": 0,
+          "scanId": "scan-1793905828522-1"
+        }
+      ]
+    },
+    {
+      "label": "woven chair",
+      "type": "soft",
+      "role": "witness",
+      "box": [
+        0.775,
+        0.54,
+        1,
+        0.87
+      ],
+      "confidence": 0.85,
+      "hit": {
+        "position": [
+          121.11506652832031,
+          -141.58786010742188,
+          -370.0863037109375
+        ],
+        "normal": [
+          -2.9763874920263333e-8,
+          1,
+          -1.1698931601245022e-8
+        ]
+      },
+      "view": 1,
+      "scanId": "scan-1793905833439-2",
+      "observations": [
+        {
+          "label": "woven chair",
+          "type": "soft",
+          "role": "witness",
+          "box": [
+            0.775,
+            0.54,
+            1,
+            0.87
+          ],
+          "confidence": 0.85,
+          "hit": {
+            "position": [
+              121.11506652832031,
+              -141.58786010742188,
+              -370.0863037109375
+            ],
+            "normal": [
+              -2.9763874920263333e-8,
+              1,
+              -1.1698931601245022e-8
+            ]
+          },
+          "view": 1,
+          "scanId": "scan-1793905833439-2"
+        },
+        {
+          "label": "woven chair",
+          "type": "soft",
+          "role": "hiding place",
+          "box": [
+            0.86,
+            0.44,
+            1,
+            0.66
+          ],
+          "confidence": 0.7,
+          "hit": {
+            "position": [
+              98.2721176147461,
+              -147.29940795898438,
+              -366.5392150878906
+            ],
+            "normal": [
+              -0.49156737327575684,
+              0.6332107782363892,
+              0.5978341698646545
+            ]
+          },
+          "view": 0,
+          "scanId": "scan-1793905828522-1"
+        }
+      ]
+    },
+    {
+      "label": "coffee table",
+      "type": "heavy",
+      "role": "weapon",
+      "box": [
+        0.27,
+        0.85,
+        0.94,
+        1
+      ],
+      "confidence": 0.85,
+      "hit": {
+        "position": [
+          10.701000213623047,
+          -144.68350219726562,
+          -314.01275634765625
+        ],
+        "normal": [
+          -2.4012965837982847e-8,
+          1,
+          -7.1865620121513984e-9
+        ]
+      },
+      "view": 1,
+      "scanId": "scan-1793905833439-2",
+      "observations": [
+        {
+          "label": "coffee table",
+          "type": "heavy",
+          "role": "weapon",
+          "box": [
+            0.27,
+            0.85,
+            0.94,
+            1
+          ],
+          "confidence": 0.85,
+          "hit": {
+            "position": [
+              10.701000213623047,
+              -144.68350219726562,
+              -314.01275634765625
+            ],
+            "normal": [
+              -2.4012965837982847e-8,
+              1,
+              -7.1865620121513984e-9
+            ]
+          },
+          "view": 1,
+          "scanId": "scan-1793905833439-2"
+        },
+        {
+          "label": "coffee table",
+          "type": "heavy",
+          "role": "hiding place",
+          "box": [
+            0.08,
+            0.868,
+            0.775,
+            1
+          ],
+          "confidence": 0.75,
+          "hit": {
+            "position": [
+              -8.123052597045898,
+              -144.43646240234375,
+              -319.9311218261719
+            ],
+            "normal": [
+              1.9284980723455192e-8,
+              1,
+              -4.4841663715544655e-9
+            ]
+          },
+          "view": 2,
+          "scanId": "scan-1793905836714-3"
+        }
+      ]
+    },
+    {
+      "label": "sofa",
+      "type": "soft",
+      "role": "hiding place",
+      "box": [
+        0,
+        0.9,
+        1,
+        1
+      ],
+      "confidence": 0.8,
+      "hit": {
+        "position": [
+          0,
+          -145.42861938476562,
+          -196.03656005859375
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      "view": 0,
+      "scanId": "scan-1793905828522-1",
+      "observations": [
+        {
+          "label": "sofa",
+          "type": "soft",
+          "role": "hiding place",
+          "box": [
+            0,
+            0.9,
+            1,
+            1
+          ],
+          "confidence": 0.8,
+          "hit": {
+            "position": [
+              0,
+              -145.42861938476562,
+              -196.03656005859375
+            ],
+            "normal": [
+              0,
+              1,
+              0
+            ]
+          },
+          "view": 0,
+          "scanId": "scan-1793905828522-1"
+        }
+      ]
+    }
+  ]
+}

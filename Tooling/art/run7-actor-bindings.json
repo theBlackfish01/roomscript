@@ -1,0 +1,35 @@
+{
+  "command": "apply",
+  "instructions": {
+    "modify": {
+      "@id:6d87ba73-7b02-4bf7-9681-fe1bad9c2007": {
+        "neutral": "@asset:Art/Actors/Vale/Vale-neutral.png",
+        "listening": "@asset:Art/Actors/Vale/Vale-listening.png",
+        "rattled": "@asset:Art/Actors/Vale/Vale-rattled.png",
+        "broken": "@asset:Art/Actors/Vale/Vale-broken.png",
+        "smug": "@asset:Art/Actors/Vale/Vale-smug.png"
+      },
+      "@id:fa0064f8-7269-4ca2-9135-435b52ed14dd": {
+        "neutral": "@asset:Art/Actors/Qadir/Qadir-neutral.png",
+        "listening": "@asset:Art/Actors/Qadir/Qadir-listening.png",
+        "rattled": "@asset:Art/Actors/Qadir/Qadir-rattled.png",
+        "broken": "@asset:Art/Actors/Qadir/Qadir-broken.png",
+        "smug": "@asset:Art/Actors/Qadir/Qadir-smug.png"
+      },
+      "@id:9bebe4da-0c64-481f-813a-4418420941ab": {
+        "neutral": "@asset:Art/Actors/Okafor/Okafor-neutral.png",
+        "listening": "@asset:Art/Actors/Okafor/Okafor-listening.png",
+        "rattled": "@asset:Art/Actors/Okafor/Okafor-rattled.png",
+        "broken": "@asset:Art/Actors/Okafor/Okafor-broken.png",
+        "smug": "@asset:Art/Actors/Okafor/Okafor-smug.png"
+      },
+      "@id:5ae92447-5f49-4387-9150-d9df1f94e7f8": {
+        "neutral": "@asset:Art/Actors/Pike/Pike-neutral.png",
+        "listening": "@asset:Art/Actors/Pike/Pike-listening.png",
+        "rattled": "@asset:Art/Actors/Pike/Pike-rattled.png",
+        "broken": "@asset:Art/Actors/Pike/Pike-broken.png",
+        "smug": "@asset:Art/Actors/Pike/Pike-smug.png"
+      }
+    }
+  }
+}

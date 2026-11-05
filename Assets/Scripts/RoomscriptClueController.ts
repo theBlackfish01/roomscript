@@ -23,34 +23,47 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
   private busy=false;private began=0;private endAngle=0;private visited=0;private seq=0;private refuter:string|null=null;private resultText="";
   private order:{id:string;angle:number;position:vec3}[]=[];private lastVisited:string[]=[];private envelopeScale:vec3;private breathing=0;private breaths=0;
   private ivory:Material;private chalk:Material;private cyan:Material;
+  private generated:SceneObject[]=[];
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
   private build():void {
+    if(this.ivory)return;
     const flow=this.objection.flow,engine=flow.engine,room=this.objection.tells.room;engine.initialize();room.initialize();this.notebook.build();
     const tint=(color:vec4)=>{const material=this.objection.tells.lightMaterial.clone();material.mainPass.baseColor=color;return material;};
     this.ivory=tint(new vec4(1,.94,.84,1));this.chalk=tint(new vec4(.93,.96,1,1));this.cyan=tint(new vec4(.247,.89,1,1));
+    this.envelopeScale=this.envelope.getTransform().getLocalScale();
+    engine.onState.add(()=>{if(!this.busy)this.renderKnowledge();});
+    engine.onCaseChanged.add(()=>this.resetForCase());this.resetForCase();
+  }
+  resetForCase():void {
+    if(!this.ivory)return;const flow=this.objection.flow,engine=flow.engine,room=this.objection.tells.room;room.initialize();
+    this.busy=false;this.breathing=0;this.breaths=0;this.selectedWho=null;this.selectedZone=null;this.hypothesis=null;this.refuter=null;this.resultText="";this.lastVisited=[];this.order=[];this.visited=0;this.seq=0;
+    this.notebook.show(false);this.envelope.getTransform().setLocalScale(this.envelopeScale);this.envelope.enabled=true;
+    for(const object of this.generated)if(!isNull(object))object.destroy();this.generated=[];
+    this.pawns.clear();this.pawnHomes.clear();this.crosses.clear();this.gridMarks.clear();
     const graph=engine.graphRef(),inverse=room.getTransform().getInvertedWorldTransform(),camera=flow.actor.camera.getTransform();
     const origin=inverse.multiplyPoint(camera.getWorldPosition()),forward=inverse.multiplyDirection(camera.getWorldRotation().multiplyVec3(vec3.back()));
     this.localOrigin=[origin.x,0,origin.z];this.localForward=[forward.x,0,forward.z];this.origin=room.toWorld([origin.x,3,origin.z]);this.startingYaw=Math.atan2(forward.x,-forward.z);
     const marks=refuterMarks(graph);this.order=graph.refutation.order.map(id=>({id,angle:clockwiseAngle(this.localOrigin,this.localForward,marks[id]),position:room.toWorld(marks[id])}));
     graph.cast.suspects.forEach((person,index)=>{
       const pawn=uiObject(this.tray,"RoomscriptPawn_"+person.id);pawn.getTransform().setLocalPosition(new vec3((index-1.5)*12,14,3));pawn.getTransform().setWorldScale(vec3.one());
+      this.generated.push(pawn);
       new PanelUI(pawn,7,12,1.6,new vec4(1,.94,.84,1),true).text("Pawn name",person.name.split(" ").slice(-1)[0][0],3,"small");
       worldLines(pawn,"Pawn silhouette",[[new vec3(-2,-4,2),new vec3(0,2,2)],[new vec3(0,2,2),new vec3(2,-4,2)],[new vec3(-2,-4,2),new vec3(2,-4,2)]],this.ivory,.65);
       const drag=pawn.createComponent(RoomscriptDragInteraction.getTypeName()) as RoomscriptDragInteraction;const shape=Shape.createBoxShape();shape.size=new vec3(7,12,3);pawn.getComponent("Physics.ColliderComponent").shape=shape;
       this.pawns.set(person.id,pawn);this.pawnHomes.set(person.id,pawn.getTransform().getLocalPosition());
       const cross=worldLines(pawn,"Pawn chalk X",[[new vec3(-2,-2,3),new vec3(2,2,3)],[new vec3(-2,2,3),new vec3(2,-2,3)]],this.chalk,.7).getSceneObject();cross.enabled=false;this.crosses.set(person.id,cross);
       drag.onDragStart.add(()=>{if(!this.busy)flow.subtitles.set("SUGGESTION",person.name+". Drag this pawn into a zone.");});drag.onDragEnd.add(()=>this.dropPawn(person.id));});
-    for(const zone of graph.room.zones){const mark=worldLines(room.zoneAnchor(zone.id),"RoomscriptZoneGrid_"+zone.id,[[new vec3(-28,1,-28),new vec3(28,1,-28)],[new vec3(28,1,-28),new vec3(28,1,28)],[new vec3(28,1,28),new vec3(-28,1,28)],[new vec3(-28,1,28),new vec3(-28,1,-28)]],this.cyan.clone(),.8,vec3.up());this.gridMarks.set(zone.id,mark);}
-    for(const id of graph.weapons){const mark=worldLines(room.objectAnchor(id),"RoomscriptWeaponGrid_"+id,[[new vec3(-5,4,4),new vec3(5,4,4)],[new vec3(5,4,4),new vec3(0,10,4)],[new vec3(0,10,4),new vec3(-5,4,4)]],this.cyan.clone(),.7);this.gridMarks.set(id,mark);}
+    for(const zone of graph.room.zones){const mark=worldLines(room.zoneAnchor(zone.id),"RoomscriptZoneGrid_"+zone.id,[[new vec3(-28,1,-28),new vec3(28,1,-28)],[new vec3(28,1,-28),new vec3(28,1,28)],[new vec3(28,1,28),new vec3(-28,1,28)],[new vec3(-28,1,28),new vec3(-28,1,-28)]],this.cyan.clone(),.8,vec3.up());this.gridMarks.set(zone.id,mark);this.generated.push(mark.getSceneObject());}
+    for(const id of graph.weapons){const mark=worldLines(room.objectAnchor(id),"RoomscriptWeaponGrid_"+id,[[new vec3(-5,4,4),new vec3(5,4,4)],[new vec3(5,4,4),new vec3(0,10,4)],[new vec3(0,10,4),new vec3(-5,4,4)]],this.cyan.clone(),.7);this.gridMarks.set(id,mark);this.generated.push(mark.getSceneObject());}
     this.ghost=global.scene.createSceneObject("RoomscriptSuggestionGhost");this.ghost.setParent(this.getSceneObject());const outline:[vec3,vec3][]=[];
     const path=[new vec3(-14,0,0),new vec3(-25,90,0),new vec3(-16,125,0),new vec3(-12,160,0),new vec3(12,160,0),new vec3(16,125,0),new vec3(25,90,0),new vec3(14,0,0)];for(let i=0;i<path.length-1;i++)outline.push(...dottedSegment(path[i],path[i+1],8));
     worldLines(this.ghost,"Dotted hypothesis",outline,this.ivory,1.1);this.ghost.enabled=false;
     this.blade=worldLines(this.getSceneObject(),"RoomscriptRefutationBlade",[[new vec3(0,0,0),new vec3(0,0,-380)]],this.cyan,2).getSceneObject();this.blade.enabled=false;
     this.panel=uiObject(this.objection.wallet.getSceneObject().getParent(),"RoomscriptRefutationCard");this.panel.getTransform().setLocalPosition(this.objection.wallet.getTransform().getLocalPosition());const view=new PanelUI(this.panel,54,36,2.2,new vec4(1,.42,.35,1));view.text("Private card title","PRIVATE REFUTATION",4,"small");this.cardText=view.text("Private card","",19);
     view.buttons([{id:"Close refutation",label:"File card"}],()=>{this.panel.enabled=false;flow.chips.show(true);flow.verbs.show(true);this.objection.caseLid.show(true);});this.panel.enabled=false;
-    this.envelopeScale=this.envelope.getTransform().getLocalScale();
-    this.objection.objectHandler=id=>{if(this.busy)return true;if(!this.selectedWho)return false;if(!graph.weapons.includes(id)){flow.subtitles.set("WREN","Touch one of the five marked possible weapons.");return true;}this.suggest(id);return true;};
-    engine.onState.add(()=>{if(!this.busy)this.renderKnowledge();});this.renderKnowledge();
+    this.generated.push(this.ghost,this.blade,this.panel);
+    this.objection.objectHandler=id=>{if(this.busy)return true;if(!this.selectedWho)return false;if(!engine.graphRef().weapons.includes(id)){flow.subtitles.set("WREN","Touch a marked possible weapon.");return true;}this.suggest(id);return true;};
+    this.renderKnowledge();
   }
   syncSetupPose():void {const state=this.objection.flow.engine.snapshot(),room=this.objection.tells.room,pose=state.setupPose;if(pose){this.localOrigin=pose.origin;this.localForward=pose.forward;}this.origin=room.toWorld([this.localOrigin[0],3,this.localOrigin[2]]);const direction=room.getTransform().getWorldTransform().multiplyDirection(new vec3(this.localForward[0],0,this.localForward[2]));this.startingYaw=Math.atan2(direction.x,-direction.z);const marks=refuterMarks(this.objection.flow.engine.graphRef());this.order=state.refuterOrder.map(id=>({id,angle:clockwiseAngle(this.localOrigin,this.localForward,marks[id]),position:room.toWorld(marks[id])}));}
   private dropPawn(id:string):void {

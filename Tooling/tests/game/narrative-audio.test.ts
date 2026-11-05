@@ -1,5 +1,5 @@
 import {describe,it,expect} from "vitest";
-import {NarrativeAudio,NarrativeCue,dialogueAllowed,composureTension} from "../../../Assets/Scripts/Engine/game/NarrativeAudio";
+import {NarrativeAudio,NarrativeCue,dialogueAllowed,composureTension,isHarlowPreset} from "../../../Assets/Scripts/Engine/game/NarrativeAudio";
 import {createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {createGameState} from "../../../Assets/Scripts/Engine/game/GameState";
 import {reduceGame} from "../../../Assets/Scripts/Engine/game/Reducer";
@@ -12,6 +12,11 @@ const names=(cues:NarrativeCue[])=>cues.filter(c=>c.kind==="dialogue").map(c=>c.
 const voicemail=DIALOGUE_MANIFEST.find(c=>c.name==="HarlowVoicemail")!;
 
 describe("deterministic narrative audio selection",()=>{
+  it("recognizes the actual room-bound hero identity without treating generated IDs as Preset",()=>{
+    const graph=createHeroCase();expect(graph.caseId).not.toBe("HARLOW-1041");expect(isHarlowPreset(graph)).toBe(true);
+    expect(isHarlowPreset({caseId:"CASE-1041@evening"})).toBe(false);expect(isHarlowPreset({caseId:"HARLOW-10410@evening"})).toBe(false);
+    const state=createGameState(graph);state.verdict="correct";expect(dialogueAllowed(graph,state,DIALOGUE_MANIFEST.find(d=>d.name==="ValeConfession")!)).toBe(true);
+  });
   it("plays first tell and first correct objection once across cumulative state notifications",()=>{
     const s=session(),audio=new NarrativeAudio();
     s.act({type:"Ask",suspect:"S2",topic:"where@22:30"});

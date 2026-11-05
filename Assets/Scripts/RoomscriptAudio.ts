@@ -1,51 +1,140 @@
+import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import {ROOMScriptCueAssets,ROOMScriptDialogueAssets} from "./RoomscriptVoiceAssets";
-import {RoomscriptVoiceLibrary} from "./RoomscriptVoiceLibrary";
+import {RoomscriptVoiceLibrary,BundledVoice} from "./RoomscriptVoiceLibrary";
+import {ROOMScriptRun7VoiceAssets} from "./RoomscriptRun7VoiceAssets";
+import {ROOMScriptRun7CueAssets} from "./RoomscriptRun7CueAssets";
+import {RUN7_VOICE_MANIFEST} from "./Content/Run7VoiceManifest";
 import {DIALOGUE_MANIFEST} from "./Content/DialogueManifest";
+import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
+import {NarrativeAudio,NarrativeCue,dialogueAllowed,composureTension,isHarlowPreset} from "./Engine/game/NarrativeAudio";
+import {subtitleCues,SubtitleCue} from "./Engine/perf/SubtitleTiming";
 import {CaseGraph,GameState} from "./Engine/core/Types";
-/** Presentation only. Dialogue fact gates read deterministic knowledge and verdict. */
+type SpeechJob={kind:"voice"|"dialogue";speaker?:string;text?:string;name?:string;allowed:()=>boolean;resolve:(played:boolean)=>void};
+/** Presentation only. Deterministic knowledge/verdict gates are checked again at playback. */
 @component export class RoomscriptAudio extends BaseScriptComponent {
   @input @hint("Interactive sound volume") @widget(new SliderWidget(0,1,0.05)) sfxVolume:number=0.45;
   @input @hint("Quiet background music volume") @widget(new SliderWidget(0,0.5,0.01)) musicVolume:number=0.10;
   static active:RoomscriptAudio;
+  readonly onNarrationSubtitle=new Event<{speaker:string;text:string}>();
   private music:AudioComponent;private tension:AudioComponent;private narration:AudioComponent;private cueIndex=0;private stress=0;private duck=1;private muted=false;private narrationRevision=0;
-  private clips:Record<string,AudioTrackAsset>={
-    Knock:requireAsset("../GeneratedSFX/Knock.wav") as AudioTrackAsset,
-    TapeZip:requireAsset("../GeneratedSFX/TapeZip.wav") as AudioTrackAsset,
-    CrateThud:requireAsset("../GeneratedSFX/CrateThud.wav") as AudioTrackAsset,
-    ClockTick:requireAsset("../GeneratedSFX/ClockTick.wav") as AudioTrackAsset,
-    Tink:requireAsset("../GeneratedSFX/Tink.wav") as AudioTrackAsset,
-    Shing:requireAsset("../GeneratedSFX/Shing.wav") as AudioTrackAsset,
-    Objection:requireAsset("../GeneratedSFX/Objection.wav") as AudioTrackAsset,
-    Ratchet:requireAsset("../GeneratedSFX/Ratchet.wav") as AudioTrackAsset,
-    Chime:requireAsset("../GeneratedSFX/Chime.wav") as AudioTrackAsset,
-    ChalkScratch:requireAsset("../GeneratedSFX/ChalkScratch.wav") as AudioTrackAsset
-  };
+  private clips:Record<string,AudioTrackAsset>={};
   private spatialPool:AudioComponent[]=[];private flatPool:AudioComponent[]=[];private tick:AudioComponent;private spatialIndex=0;private flatIndex=0;
-  onAwake():void {this.createEvent("OnStartEvent").bind(()=>{
-    RoomscriptAudio.active=this;this.clips=ROOMScriptCueAssets;
-    const make=(name:string,spatial:boolean)=>{const root=global.scene.createSceneObject(name);root.setParent(this.getSceneObject());const audio=root.createComponent("Component.AudioComponent") as AudioComponent;audio.spatialAudio.enabled=spatial;audio.playbackMode=Audio.PlaybackMode.LowLatency;return audio;};
-    this.spatialPool=Array.from({length:4},(_,i)=>make("RoomscriptSpatialAudio_"+i,true));
-    this.flatPool=Array.from({length:2},(_,i)=>make("RoomscriptCueAudio_"+i,false));this.tick=make("RoomscriptQuietClock",true);
-    this.music=make("RoomscriptScore",false);this.music.playbackMode=Audio.PlaybackMode.LowPower;this.music.audioTrack=this.clips.Interrogation;this.music.volume=this.musicVolume;this.music.play(-1);
-    this.tension=make("RoomscriptTension",false);this.tension.audioTrack=this.clips.Tension;this.tension.volume=0;this.tension.play(-1);this.narration=make("RoomscriptNarration",false);
-  });this.createEvent("UpdateEvent").bind(()=>{if(!this.music||!this.tension)return;const gain=this.muted?0:this.musicVolume*this.duck,step=Math.min(1,getDeltaTime()*3);this.music.volume+=(gain*(1-this.stress)-this.music.volume)*step;this.tension.volume+=(gain*this.stress-this.tension.volume)*step;});}
+  private loops=new Map<string,AudioComponent>();private scoreName="Interrogation";private suspectDucking=false;private narratorDucking=false;
+  private selector=new NarrativeAudio();private graph:CaseGraph;private state:GameState;private unsubscribe:(()=>void)[]=[];
+  private busy:()=>boolean=()=>false;private anchor:(id:string)=>vec3|undefined=()=>undefined;
+  private queue:SpeechJob[]=[];private pumping=false;private destroyed=false;private wakeSpeech:(()=>void)|undefined;private waits=new Set<()=>void>();
+  private tips=new Set<string>();private fallbackCount=0;private playedNarrations=0;private rejectedDialogues=0;
+  private supplemental=new Map<string,BundledVoice>();
+  private caption:SubtitleCue[]=[];private captionIndex=0;private captionOffset=0;private captionSpeaker="";
+  private cueStarts=0;private tickStarts=0;private tickStartedAt=-1;private tickDuration=0;
+  onAwake():void {
+    this.createEvent("OnStartEvent").bind(()=>{
+      RoomscriptAudio.active=this;this.clips={...ROOMScriptCueAssets,...ROOMScriptRun7CueAssets};
+      for(const record of RUN7_VOICE_MANIFEST)this.supplemental.set(record.key,{record,track:ROOMScriptRun7VoiceAssets[record.index]});
+      this.spatialPool=Array.from({length:4},(_,i)=>this.makeAudio("RoomscriptSpatialAudio_"+i,true));
+      this.flatPool=Array.from({length:2},(_,i)=>this.makeAudio("RoomscriptCueAudio_"+i,false));this.tick=this.makeAudio("RoomscriptQuietClock",true);
+      this.music=this.makeAudio("RoomscriptScore",false);this.music.playbackMode=Audio.PlaybackMode.LowPower;this.music.audioTrack=this.clips.Interrogation;this.music.volume=this.musicVolume;this.music.play(-1);
+      this.tension=this.makeAudio("RoomscriptTension",false);this.tension.playbackMode=Audio.PlaybackMode.LowPower;this.tension.audioTrack=this.clips.Tension;this.tension.volume=0;this.tension.play(-1);
+      this.narration=this.makeAudio("RoomscriptNarration",false);void this.pump();
+    });
+    this.createEvent("UpdateEvent").bind(()=>{
+      if(!this.music||!this.tension)return;
+      const gain=this.muted?0:this.musicVolume*this.duck,stress=this.scoreName==="Interrogation"?this.stress:0,step=Math.min(1,getDeltaTime()*3);
+      this.music.volume+=(gain*(1-stress)-this.music.volume)*step;this.tension.volume+=(gain*stress-this.tension.volume)*step;
+      for(const [name,audio] of this.loops)audio.volume=(this.muted?0:this.duck)*(name==="UvHum"?.04:.035);
+      if(this.caption.length&&this.narration?.isPlaying()){const at=this.narration.position-this.captionOffset;let text:string|undefined;while(this.captionIndex<this.caption.length&&this.caption[this.captionIndex].at<=at)text=this.caption[this.captionIndex++].text;if(text!==undefined)this.onNarrationSubtitle.invoke({speaker:this.captionSpeaker,text});}
+    });
+    this.createEvent("OnDestroyEvent").bind(()=>{this.destroyed=true;this.unsubscribe.forEach(fn=>fn());this.resetNarrative();for(const finish of [...this.waits])finish();if(RoomscriptAudio.active===this)RoomscriptAudio.active=null;});
+  }
+  private makeAudio(name:string,spatial:boolean):AudioComponent {const root=global.scene.createSceneObject(name);root.setParent(this.getSceneObject());const audio=root.createComponent("Component.AudioComponent") as AudioComponent;audio.spatialAudio.enabled=spatial;audio.playbackMode=Audio.PlaybackMode.LowLatency;return audio;}
+  /** Call once from the owning controller; no additional required scene inputs. */
+  bindNarrative(engine:RoomscriptEngineBridge,busy?:()=>boolean,anchor?:(id:string)=>vec3|undefined):void {
+    this.unsubscribe.forEach(fn=>fn());this.unsubscribe=[];this.resetNarrative();this.busy=busy||(()=>false);this.anchor=anchor||(()=>undefined);engine.initialize();this.graph=engine.graphRef();
+    this.unsubscribe.push(engine.onCaseChanged.add(change=>{this.resetNarrative();this.graph=change.graph;this.state=undefined;}));
+    this.unsubscribe.push(engine.onState.add(state=>this.acceptState(state)));this.acceptState(engine.snapshot());
+  }
+  private acceptState(state:GameState):void {if(this.state&&(state.caseId!==this.state.caseId||state.lastSeq<this.state.lastSeq))this.resetNarrative();this.state=state;this.setComposure(composureTension(state));this.enqueueCues(this.selector.consume(this.graph,state));}
+  private resetNarrative():void {this.selector.reset();this.tips.clear();this.narrationRevision++;this.caption=[];this.wakeSpeech?.();if(this.narration?.audioTrack)this.narration.stop(false);for(const job of this.queue.splice(0))job.resolve(false);this.narratorDucking=false;this.updateDuck();for(const audio of this.loops.values())if(audio.audioTrack)audio.stop(false);}
+  openingBeat(stage:string):void {if(this.graph&&this.state)this.enqueueCues(this.selector.opening(this.graph,this.state,stage));}
+  beforeSeal():void {if(this.graph&&this.state)this.enqueueCues(this.selector.beforeSeal(this.graph,this.state));}
+  idleTip():void {if(this.graph&&this.state)this.enqueueCues(this.selector.idle(this.graph,this.state));}
+  reconstructionBeat(kind:string):void {if(this.graph&&this.state)this.enqueueCues(this.selector.reconstruction(this.graph,this.state,kind));}
+  endingBeat():void {if(this.graph&&this.state)this.enqueueCues(this.selector.ending(this.graph,this.state));}
+  private enqueueCues(cues:NarrativeCue[]):void {
+    for(const cue of cues){
+      if(cue.kind==="voice"){const caseId=this.state?.caseId;void this.enqueue({kind:"voice",speaker:cue.speaker,text:cue.text,allowed:()=>!!this.state&&this.state.caseId===caseId&&cue.factIds.every(id=>this.state.knowledge.factIds.includes(id)||(cue.speaker!=="WREN"&&(this.state.verdict==="correct"||this.state.verdict==="wrong")&&this.graph.facts.some(f=>f.id===id&&f.truth)))});}
+      else if(cue.kind==="dialogue")this.dialogue(cue.name,this.graph,this.state);
+      else if(cue.kind==="score")this.score(cue.name);
+      else if(cue.kind==="ambience")this.ambience(cue.name,cue.enabled);
+      else {const point=cue.anchor?this.anchor(cue.anchor):undefined;if(point)this.playAt(cue.name,point);else this.play(cue.name);}
+    }
+  }
+  /** These guards inspect observed evidence/statements and public object types, never the envelope. */
+  contextualTip(id:string):boolean {
+    if(this.tips.has(id)||!this.tipAllowed(id))return false;
+    const text:Record<string,string>={"casting-fallback":"Shall we open the case we brought?","tip-memory":"What would the kettle remember?","tip-pull":"Could you pull that memory closer?","tip-object":"Would her words hold up beside the kettle?","tip-suggest":"Who would you place in that room?","tip-lift":"What changes when you lift it?","tip-accuse":"Who can you point to and prove?"};
+    if(!text[id])return false;this.tips.add(id);void this.enqueue({kind:"voice",speaker:"WREN",text:text[id],allowed:()=>this.tipAllowed(id)});return true;
+  }
+  private tipAllowed(id:string):boolean {
+    if(!this.state||!this.graph||this.state.verdict)return false;
+    const knowledge=this.state.knowledge,knownEvidence=this.graph.evidence.filter(e=>knowledge.evidenceIds.includes(e.id));
+    const kettle=knownEvidence.some(e=>this.graph.room.objects.some(o=>o.id===e.holder&&o.type==="kettle"));
+    if(id==="casting-fallback")return true;
+    if(id==="tip-memory")return kettle;
+    if(id==="tip-object")return isHarlowPreset(this.graph)&&this.state.activeSuspect==="S2"&&kettle&&knowledge.statementIds.length>0;
+    if(id==="tip-pull"||id==="tip-lift")return knowledge.evidenceIds.length>0;
+    if(id==="tip-suggest")return knowledge.statementIds.length>0;
+    if(id==="tip-accuse")return knowledge.factIds.length>0&&knowledge.statementIds.length>0;
+    return false;
+  }
   setComposure(value:number):void {this.stress=Math.max(0,Math.min(1,value));}
-  duckSpeech(value:boolean):void {this.duck=value?.3:1;}
-  score(name:string):void {const track=this.clips[name];if(!track||!this.music)return;this.music.stop(false);this.music.audioTrack=track;this.music.play(["Interrogation","MainTheme","BlackoutDrone","Reconstruction"].includes(name)?-1:1);}
-  dialogue(name:string,graph:CaseGraph,state:GameState):boolean {const spec=DIALOGUE_MANIFEST.find(d=>d.name===name),sealed=state.verdict==="correct"||state.verdict==="wrong";
-    if(!spec||((spec as {verdictOnly?:boolean}).verdictOnly&&!sealed)||!spec.factIds.every(id=>sealed?graph.facts.some(f=>f.id===id&&f.truth):state.knowledge.factIds.includes(id)))return false;
-    const track=ROOMScriptDialogueAssets[name];if(!track||!this.narration)return false;this.narrationRevision++;this.narration.stop(false);this.narration.audioTrack=track;this.narration.volume=.9;this.narration.play(1);return true;
+  private updateDuck():void {this.duck=(this.suspectDucking||this.narratorDucking)?0.3:1;}
+  duckSpeech(value:boolean):void {this.suspectDucking=value;this.updateDuck();if(value&&this.narration?.audioTrack&&this.narration.isPlaying())this.narration.pause();if(!value)void this.pump();}
+  score(name:string):void {const track=this.clips[name];if(!track||!this.music)return;this.scoreName=name;this.music.stop(false);this.music.audioTrack=track;this.music.volume=this.muted?0:this.musicVolume*this.duck;this.music.play(["Interrogation","MainTheme","BlackoutDrone","Reconstruction"].includes(name)?-1:1);}
+  ambience(name:string,enabled:boolean):void {if(!["Rain","RoomTone","UvHum"].includes(name)||!this.clips[name])return;let audio=this.loops.get(name);if(!enabled){if(audio?.audioTrack)audio.stop(false);return;}if(!audio){audio=this.makeAudio("RoomscriptAmbience_"+name,false);audio.playbackMode=Audio.PlaybackMode.LowPower;audio.audioTrack=this.clips[name];this.loops.set(name,audio);}if(!audio.isPlaying()){audio.volume=this.muted?0:.035*this.duck;audio.play(-1);}}
+  private allowedDialogue(name:string,graph:CaseGraph,state:GameState):boolean {const spec=DIALOGUE_MANIFEST.find(d=>d.name===name);if(!spec)return false;if(!isHarlowPreset(graph)&&name!=="ArrivalDialogue")return false;return dialogueAllowed(graph,state,spec);}
+  dialogue(name:string,graph:CaseGraph,state:GameState):boolean {
+    if(!this.allowedDialogue(name,graph,state)||!ROOMScriptDialogueAssets[name]){this.rejectedDialogues++;return false;}
+    const caseId=state.caseId;void this.enqueue({kind:"dialogue",name,allowed:()=>{const current=this.state||state,g=this.graph||graph;return current.caseId===caseId&&this.allowedDialogue(name,g,current);}});return true;
   }
-  async narrate(speaker:string,text:string):Promise<boolean> {const clips=RoomscriptVoiceLibrary.clips(speaker,text);if(!clips||!this.narration)return false;const revision=++this.narrationRevision;this.narration.stop(false);
-    for(const clip of clips){if(revision!==this.narrationRevision)return false;this.narration.audioTrack=clip.track;this.narration.volume=.9;this.narration.play(1);if(clip.record.startSeconds)this.narration.position=clip.record.startSeconds;const seconds=(clip.record.endSeconds??this.narration.duration)-(clip.record.startSeconds||0);
-      await new Promise<void>(resolve=>{const event=this.createEvent("DelayedCallbackEvent");event.bind(()=>{this.removeEvent(event);resolve();});event.reset(Math.max(.1,seconds));});
-      if(revision===this.narrationRevision)this.narration.stop(false);
-    }return true;
+  /** Caller supplies engine-admitted or authored performance text. Missing audio keeps full subtitles. */
+  narrate(speaker:string,text:string):Promise<boolean> {return this.enqueue({kind:"voice",speaker,text,allowed:()=>true});}
+  private enqueue(job:Omit<SpeechJob,"resolve">):Promise<boolean> {if(this.destroyed)return Promise.resolve(false);return new Promise(resolve=>{this.queue.push({...job,resolve});void this.pump();});}
+  private async pump():Promise<void> {
+    if(this.pumping||!this.narration||this.destroyed)return;this.pumping=true;
+    try {while(this.queue.length&&!this.destroyed){if(this.suspectDucking||this.busy()){await this.wait(.1);continue;}const job=this.queue.shift()!;if(!job.allowed()){if(job.kind==="dialogue")this.rejectedDialogues++;job.resolve(false);continue;}
+      try{job.resolve(job.kind==="voice"?await this.playVoice(job.speaker!,job.text!):await this.playDialogue(job.name!));}catch{this.fallbackCount++;job.resolve(false);console.log("NARRATION|subtitle_fallback");}
+    }}finally{this.pumping=false;this.narratorDucking=false;this.updateDuck();}
   }
-  private playOn(audio:AudioComponent,name:string,volume:number):void {if(!audio||!this.clips[name])return;if(audio.audioTrack&&audio.isPlaying())audio.stop(false);audio.audioTrack=this.clips[name];audio.volume=volume;audio.play(1);}
+  private wait(seconds:number,speech=false):Promise<void> {return new Promise(resolve=>{const event=this.createEvent("DelayedCallbackEvent");let done=false;const finish=()=>{if(done)return;done=true;this.removeEvent(event);this.waits.delete(finish);if(this.wakeSpeech===finish)this.wakeSpeech=undefined;resolve();};this.waits.add(finish);if(speech)this.wakeSpeech=finish;event.bind(finish);event.reset(Math.max(.01,seconds));});}
+  private async waitForNarration(end:number,revision:number):Promise<void> {
+    const duration=Math.max(.1,end-this.narration.position);let activeSeconds=0,previous=getTime();
+    while(!this.destroyed&&revision===this.narrationRevision){
+      if(this.suspectDucking||this.busy()){if(this.narration.isPlaying())this.narration.pause();await this.wait(.1,true);previous=getTime();continue;}
+      if(this.narration.isPaused())this.narration.resume();
+      activeSeconds+=Math.max(0,getTime()-previous);previous=getTime();
+      if(this.narration.position>=end-.01||activeSeconds>=duration+.5)return;
+      await this.wait(.05,true);
+    }
+  }
+  private async playVoice(speaker:string,text:string):Promise<boolean> {
+    const supplemental=this.supplemental.get(speaker+"|steady|"+text.trim().replace(/\s+/g," "));
+    const clips=RoomscriptVoiceLibrary.clips(speaker,text)||(supplemental?[supplemental]:null);
+    if(!clips){this.fallbackCount++;this.onNarrationSubtitle.invoke({speaker,text});console.log("NARRATION|subtitle_fallback");await this.wait(Math.min(5,Math.max(1,text.length/22)),true);return false;}
+    const revision=++this.narrationRevision;this.narratorDucking=true;this.updateDuck();
+    try{for(const clip of clips){if(this.destroyed||revision!==this.narrationRevision)return false;this.narration.audioTrack=clip.track;this.narration.volume=.9;this.narration.play(1);if(clip.record.startSeconds)this.narration.position=clip.record.startSeconds;
+      const seconds=(clip.record.endSeconds??this.narration.duration)-(clip.record.startSeconds||0);this.caption=subtitleCues(clip.record.text,clip.record.alignment);this.captionIndex=0;this.captionOffset=clip.record.startSeconds||0;this.captionSpeaker=speaker;
+      this.onNarrationSubtitle.invoke({speaker,text:this.caption.length?"":clip.record.text});await this.waitForNarration((clip.record.startSeconds||0)+Math.max(.1,seconds),revision);if(revision!==this.narrationRevision)return false;this.narration.stop(false);this.caption=[];this.onNarrationSubtitle.invoke({speaker,text:clip.record.text});
+    }this.playedNarrations++;return true;}finally{if(revision===this.narrationRevision){this.caption=[];this.narratorDucking=false;this.updateDuck();}}
+  }
+  private async playDialogue(name:string):Promise<boolean> {const track=ROOMScriptDialogueAssets[name];if(!track)return false;const revision=++this.narrationRevision;this.caption=[];this.narratorDucking=true;this.updateDuck();this.narration.audioTrack=track;this.narration.volume=.9;this.narration.play(1);
+    try{await this.waitForNarration(Math.max(.1,this.narration.duration),revision);if(revision!==this.narrationRevision)return false;this.narration.stop(false);this.playedNarrations++;return true;}finally{if(revision===this.narrationRevision){this.narratorDucking=false;this.updateDuck();}}
+  }
+  private playOn(audio:AudioComponent,name:string,volume:number):void {if(this.muted||!audio||!this.clips[name])return;if(audio.audioTrack&&audio.isPlaying())audio.stop(false);audio.audioTrack=this.clips[name];audio.volume=volume;audio.play(1);this.cueStarts++;if(name==="ClockTick"){this.tickStarts++;this.tickStartedAt=getTime();this.tickDuration=audio.duration;}}
   play(name:string):void {if(name==="ClockTick"){this.playOn(this.tick,name,.08);return;}const audio=this.flatPool.find(a=>!a.audioTrack||!a.isPlaying())||this.flatPool[this.flatIndex++%2];this.playOn(audio,name,this.sfxVolume);}
   previewNext():string {const names=Object.keys(this.clips),name=names[this.cueIndex++%names.length];this.play(name);return name;}
-  silence(value:boolean):void {this.muted=value;if(this.music)this.music.volume=value?0:this.musicVolume;if(value)for(const audio of [...this.flatPool,...this.spatialPool,this.tick])if(audio?.audioTrack&&audio.isPlaying())audio.stop(false);}
+  silence(value:boolean):void {this.muted=value;if(this.music)this.music.volume=value?0:this.musicVolume*this.duck;if(this.tension)this.tension.volume=0;for(const audio of this.loops.values())audio.volume=value?0:.035*this.duck;if(value)for(const audio of [...this.flatPool,...this.spatialPool,this.tick])if(audio?.audioTrack&&audio.isPlaying())audio.stop(false);}
   playAt(name:string,position:vec3):void {const audio=name==="ClockTick"?this.tick:this.spatialPool.find(a=>!a.audioTrack||!a.isPlaying())||this.spatialPool[this.spatialIndex++%4];if(!audio)return;audio.getTransform().setWorldPosition(position);this.playOn(audio,name,name==="ClockTick"?.08:this.sfxVolume);}
   diagnostics():{spatial:number;flat:number;tick:boolean} {return {spatial:this.spatialPool.filter(a=>a.audioTrack&&a.isPlaying()).length,flat:this.flatPool.filter(a=>a.audioTrack&&a.isPlaying()).length,tick:!!this.tick?.audioTrack&&this.tick.isPlaying()};}
+  narrativeDiagnostics():{queued:number;playing:boolean;played:number;fallback:number;rejectedDialogue:number;cueStarts:number;tickStarts:number;tickAge:number;tickDuration:number;tickPosition:number} {return {queued:this.queue.length,playing:!!this.narration?.audioTrack&&this.narration.isPlaying(),played:this.playedNarrations,fallback:this.fallbackCount,rejectedDialogue:this.rejectedDialogues,cueStarts:this.cueStarts,tickStarts:this.tickStarts,tickAge:this.tickStartedAt<0?-1:getTime()-this.tickStartedAt,tickDuration:this.tickDuration,tickPosition:this.tick?.audioTrack?this.tick.position:0};}
 }

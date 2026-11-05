@@ -1,0 +1,145 @@
+/** Recorded real Preview scan. Fictional roles are compiled separately. */
+import {RoomInput} from "../Engine/room/RoomModel";
+export const EVENING_ROOM_FLOOR_Y = -176;
+export const EVENING_ROOM_SCAN:RoomInput = {
+  "source": "vision",
+  "zones": [
+    {
+      "id": "Z1",
+      "label": "console",
+      "clueName": "Study",
+      "anchor": [
+        -86.93900044759114,
+        0,
+        -458.1166585286458
+      ]
+    },
+    {
+      "id": "Z2",
+      "label": "reading corner",
+      "clueName": "Conservatory",
+      "anchor": [
+        120.31467056274414,
+        0,
+        -419.88304138183594
+      ]
+    },
+    {
+      "id": "Z3",
+      "label": "lounge",
+      "clueName": "Lounge",
+      "anchor": [
+        5.350500106811523,
+        0,
+        -255.024658203125
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "SCAN_1",
+      "label": "media console",
+      "type": "container",
+      "zone": "Z1",
+      "pos": [
+        0,
+        26.481414794921875,
+        -447.2526550292969
+      ],
+      "affordances": [],
+      "origin": "vision",
+      "confidence": 0.9,
+      "virtual": false
+    },
+    {
+      "id": "SCAN_2",
+      "label": "record player",
+      "type": "heavy",
+      "zone": "Z1",
+      "pos": [
+        -97.73124694824219,
+        40.55580139160156,
+        -457.34381103515625
+      ],
+      "affordances": [],
+      "origin": "vision",
+      "confidence": 0.88,
+      "virtual": false
+    },
+    {
+      "id": "SCAN_3",
+      "label": "left speaker",
+      "type": "blunt",
+      "zone": "Z1",
+      "pos": [
+        -163.08575439453125,
+        48.15392303466797,
+        -469.7535095214844
+      ],
+      "affordances": [],
+      "origin": "vision",
+      "confidence": 0.82,
+      "virtual": false
+    },
+    {
+      "id": "SCAN_4",
+      "label": "right speaker",
+      "type": "blunt",
+      "zone": "Z2",
+      "pos": [
+        119.51427459716797,
+        48.519126892089844,
+        -469.6797790527344
+      ],
+      "affordances": [],
+      "origin": "vision",
+      "confidence": 0.85,
+      "virtual": false
+    },
+    {
+      "id": "SCAN_5",
+      "label": "woven chair",
+      "type": "soft",
+      "zone": "Z2",
+      "pos": [
+        121.11506652832031,
+        34.412139892578125,
+        -370.0863037109375
+      ],
+      "affordances": [],
+      "origin": "vision",
+      "confidence": 0.85,
+      "virtual": false
+    },
+    {
+      "id": "SCAN_6",
+      "label": "coffee table",
+      "type": "heavy",
+      "zone": "Z3",
+      "pos": [
+        10.701000213623047,
+        31.316497802734375,
+        -314.01275634765625
+      ],
+      "affordances": [],
+      "origin": "vision",
+      "confidence": 0.85,
+      "virtual": false
+    },
+    {
+      "id": "SCAN_7",
+      "label": "sofa",
+      "type": "soft",
+      "zone": "Z3",
+      "pos": [
+        0,
+        30.571380615234375,
+        -196.03656005859375
+      ],
+      "affordances": [],
+      "origin": "vision",
+      "confidence": 0.8,
+      "virtual": false
+    }
+  ]
+};

@@ -10,6 +10,8 @@ export type NarrativeCue =
   | {kind:"score";key:string;name:string}
   | {kind:"ambience";key:string;name:string;enabled:boolean};
 export interface DialogueGate {name:string;factIds:readonly string[];verdictOnly?:boolean;}
+/** Authored IDs include their bound room suffix; an exact HARLOW-1041 comparison rejects Preset. */
+export function isHarlowPreset(graph:Pick<CaseGraph,"caseId">):boolean {return graph.caseId.startsWith("HARLOW-1041@");}
 const dialogues:Record<string,DialogueGate>={
   OpeningExchange:{name:"OpeningExchange",factIds:["F_BODY_FOUND"]},
   ArrivalDialogue:{name:"ArrivalDialogue",factIds:[]},

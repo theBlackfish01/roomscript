@@ -1,0 +1,2648 @@
+{
+  "schema": 1,
+  "provenance": "Run6 deterministic art audited from committed source; current snapshot bindings only, not applied or Preview-verified",
+  "actors": [
+    {
+      "id": "S2",
+      "name": "Vale",
+      "anchor": [
+        340,
+        440
+      ],
+      "poses": {
+        "neutral": "Assets/Art/Actors/Vale/Vale-neutral.png",
+        "listening": "Assets/Art/Actors/Vale/Vale-listening.png",
+        "rattled": "Assets/Art/Actors/Vale/Vale-rattled.png",
+        "broken": "Assets/Art/Actors/Vale/Vale-broken.png",
+        "smug": "Assets/Art/Actors/Vale/Vale-smug.png"
+      },
+      "mouthAtlas": "Assets/Art/Actors/Vale/Vale-mouth-atlas.png",
+      "blinkAtlas": "Assets/Art/Actors/Vale/Vale-blink-atlas.png",
+      "atlasFrames": 4,
+      "sceneObject": "RoomscriptSuspectSlot",
+      "componentId": "6d87ba73-7b02-4bf7-9681-fe1bad9c2007",
+      "bindings": {
+        "neutral": "@asset:Art/Actors/Vale/Vale-neutral.png",
+        "listening": "@asset:Art/Actors/Vale/Vale-listening.png",
+        "rattled": "@asset:Art/Actors/Vale/Vale-rattled.png",
+        "broken": "@asset:Art/Actors/Vale/Vale-broken.png",
+        "smug": "@asset:Art/Actors/Vale/Vale-smug.png"
+      },
+      "localTellAnchorCm": [
+        13.9453125,
+        96.953125,
+        5
+      ]
+    },
+    {
+      "id": "S1",
+      "name": "Qadir",
+      "anchor": [
+        352,
+        554
+      ],
+      "poses": {
+        "neutral": "Assets/Art/Actors/Qadir/Qadir-neutral.png",
+        "listening": "Assets/Art/Actors/Qadir/Qadir-listening.png",
+        "rattled": "Assets/Art/Actors/Qadir/Qadir-rattled.png",
+        "broken": "Assets/Art/Actors/Qadir/Qadir-broken.png",
+        "smug": "Assets/Art/Actors/Qadir/Qadir-smug.png"
+      },
+      "mouthAtlas": "Assets/Art/Actors/Qadir/Qadir-mouth-atlas.png",
+      "blinkAtlas": "Assets/Art/Actors/Qadir/Qadir-blink-atlas.png",
+      "atlasFrames": 4,
+      "sceneObject": "RoomscriptActor_S1",
+      "componentId": "fa0064f8-7269-4ca2-9135-435b52ed14dd",
+      "bindings": {
+        "neutral": "@asset:Art/Actors/Qadir/Qadir-neutral.png",
+        "listening": "@asset:Art/Actors/Qadir/Qadir-listening.png",
+        "rattled": "@asset:Art/Actors/Qadir/Qadir-rattled.png",
+        "broken": "@asset:Art/Actors/Qadir/Qadir-broken.png",
+        "smug": "@asset:Art/Actors/Qadir/Qadir-smug.png"
+      },
+      "localTellAnchorCm": [
+        15.9375,
+        78.02734375,
+        5
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "Okafor",
+      "anchor": [
+        256,
+        229
+      ],
+      "poses": {
+        "neutral": "Assets/Art/Actors/Okafor/Okafor-neutral.png",
+        "listening": "Assets/Art/Actors/Okafor/Okafor-listening.png",
+        "rattled": "Assets/Art/Actors/Okafor/Okafor-rattled.png",
+        "broken": "Assets/Art/Actors/Okafor/Okafor-broken.png",
+        "smug": "Assets/Art/Actors/Okafor/Okafor-smug.png"
+      },
+      "mouthAtlas": "Assets/Art/Actors/Okafor/Okafor-mouth-atlas.png",
+      "blinkAtlas": "Assets/Art/Actors/Okafor/Okafor-blink-atlas.png",
+      "atlasFrames": 4,
+      "sceneObject": "RoomscriptActor_S3",
+      "componentId": "9bebe4da-0c64-481f-813a-4418420941ab",
+      "bindings": {
+        "neutral": "@asset:Art/Actors/Okafor/Okafor-neutral.png",
+        "listening": "@asset:Art/Actors/Okafor/Okafor-listening.png",
+        "rattled": "@asset:Art/Actors/Okafor/Okafor-rattled.png",
+        "broken": "@asset:Art/Actors/Okafor/Okafor-broken.png",
+        "smug": "@asset:Art/Actors/Okafor/Okafor-smug.png"
+      },
+      "localTellAnchorCm": [
+        0,
+        131.982421875,
+        5
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "Pike",
+      "anchor": [
+        160,
+        578
+      ],
+      "poses": {
+        "neutral": "Assets/Art/Actors/Pike/Pike-neutral.png",
+        "listening": "Assets/Art/Actors/Pike/Pike-listening.png",
+        "rattled": "Assets/Art/Actors/Pike/Pike-rattled.png",
+        "broken": "Assets/Art/Actors/Pike/Pike-broken.png",
+        "smug": "Assets/Art/Actors/Pike/Pike-smug.png"
+      },
+      "mouthAtlas": "Assets/Art/Actors/Pike/Pike-mouth-atlas.png",
+      "blinkAtlas": "Assets/Art/Actors/Pike/Pike-blink-atlas.png",
+      "atlasFrames": 4,
+      "sceneObject": "RoomscriptActor_S4",
+      "componentId": "5ae92447-5f49-4387-9150-d9df1f94e7f8",
+      "bindings": {
+        "neutral": "@asset:Art/Actors/Pike/Pike-neutral.png",
+        "listening": "@asset:Art/Actors/Pike/Pike-listening.png",
+        "rattled": "@asset:Art/Actors/Pike/Pike-rattled.png",
+        "broken": "@asset:Art/Actors/Pike/Pike-broken.png",
+        "smug": "@asset:Art/Actors/Pike/Pike-smug.png"
+      },
+      "localTellAnchorCm": [
+        -15.9375,
+        74.04296875,
+        5
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "id": "E_CABLE",
+      "path": "Assets/Art/Cards/Card_E_CABLE.png",
+      "facts": [
+        "F_VALE_CABLE",
+        "F_CABLE_CONTACT"
+      ]
+    },
+    {
+      "id": "E_CLOCK_FOUND",
+      "path": "Assets/Art/Cards/Card_E_CLOCK_FOUND.png",
+      "facts": [
+        "F_BODY_FOUND"
+      ]
+    },
+    {
+      "id": "E_KETTLE_COLD",
+      "path": "Assets/Art/Cards/Card_E_KETTLE_COLD.png",
+      "facts": [
+        "F_KETTLE_COLD"
+      ]
+    },
+    {
+      "id": "E_LETTER",
+      "path": "Assets/Art/Cards/Card_E_LETTER.png",
+      "facts": [
+        "F_VALE_MOTIVE"
+      ]
+    },
+    {
+      "id": "E_O2_LOCATION",
+      "path": "Assets/Art/Cards/Card_E_O2_LOCATION.png",
+      "facts": [
+        "F_O2_LOCATION_OBJECT"
+      ]
+    },
+    {
+      "id": "E_O3_LOCATION",
+      "path": "Assets/Art/Cards/Card_E_O3_LOCATION.png",
+      "facts": [
+        "F_O3_LOCATION_OBJECT"
+      ]
+    },
+    {
+      "id": "E_O4_LOCATION",
+      "path": "Assets/Art/Cards/Card_E_O4_LOCATION.png",
+      "facts": [
+        "F_O4_LOCATION_OBJECT"
+      ]
+    },
+    {
+      "id": "E_O5_LOCATION",
+      "path": "Assets/Art/Cards/Card_E_O5_LOCATION.png",
+      "facts": [
+        "F_O5_LOCATION_OBJECT"
+      ]
+    },
+    {
+      "id": "E_RECORDING",
+      "path": "Assets/Art/Cards/Card_E_RECORDING.png",
+      "facts": [
+        "F_RECORDER_ORDER"
+      ]
+    },
+    {
+      "id": "E_S1_ALIBI",
+      "path": "Assets/Art/Cards/Card_E_S1_ALIBI.png",
+      "facts": [
+        "F_S1_ALIBI_OBJECT"
+      ]
+    },
+    {
+      "id": "E_S1_BASELINE",
+      "path": "Assets/Art/Cards/Card_E_S1_BASELINE.png",
+      "facts": [
+        "F_S1_BASELINE"
+      ]
+    },
+    {
+      "id": "E_S2_BASELINE_MUG",
+      "path": "Assets/Art/Cards/Card_E_S2_BASELINE_MUG.png",
+      "facts": [
+        "F_S2_BASELINE"
+      ]
+    },
+    {
+      "id": "E_S2_BASELINE",
+      "path": "Assets/Art/Cards/Card_E_S2_BASELINE.png",
+      "facts": [
+        "F_S2_BASELINE"
+      ]
+    },
+    {
+      "id": "E_S3_ALIBI",
+      "path": "Assets/Art/Cards/Card_E_S3_ALIBI.png",
+      "facts": [
+        "F_S3_ALIBI_OBJECT"
+      ]
+    },
+    {
+      "id": "E_S3_BASELINE",
+      "path": "Assets/Art/Cards/Card_E_S3_BASELINE.png",
+      "facts": [
+        "F_S3_BASELINE"
+      ]
+    },
+    {
+      "id": "E_S4_ALIBI",
+      "path": "Assets/Art/Cards/Card_E_S4_ALIBI.png",
+      "facts": [
+        "F_S4_ALIBI_OBJECT"
+      ]
+    },
+    {
+      "id": "E_S4_BASELINE",
+      "path": "Assets/Art/Cards/Card_E_S4_BASELINE.png",
+      "facts": [
+        "F_S4_BASELINE"
+      ]
+    },
+    {
+      "id": "E_TRUST_NOTE",
+      "path": "Assets/Art/Cards/Card_E_TRUST_NOTE.png",
+      "facts": [
+        "F_VALE_MOTIVE"
+      ]
+    },
+    {
+      "id": "E_UV_DRAG",
+      "path": "Assets/Art/Cards/Card_E_UV_DRAG.png",
+      "facts": [
+        "F_BODY_MOVED"
+      ]
+    },
+    {
+      "id": "E_VALE_LAMP",
+      "path": "Assets/Art/Cards/Card_E_VALE_LAMP.png",
+      "facts": [
+        "F_VALE_STUDY"
+      ]
+    },
+    {
+      "id": "E_VICTIM_LAMP",
+      "path": "Assets/Art/Cards/Card_E_VICTIM_LAMP.png",
+      "facts": [
+        "F_VICTIM_STUDY_LAMP"
+      ]
+    },
+    {
+      "id": "E_VICTIM_MUG",
+      "path": "Assets/Art/Cards/Card_E_VICTIM_MUG.png",
+      "facts": [
+        "F_VICTIM_STUDY_MUG"
+      ]
+    },
+    {
+      "id": "E_VOICEMAIL",
+      "path": "Assets/Art/Cards/Card_E_VOICEMAIL.png",
+      "facts": [
+        "F_REPLY_AFTER_ARRIVAL"
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "O2",
+      "path": "Assets/Art/Props/BrassCandlestick.glb",
+      "heightMeters": 0.34,
+      "heightCm": 34,
+      "primaryAssetId": "bcaf8d7d-8f54-4192-855a-2f69880b5715",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "O9",
+      "path": "Assets/Art/Props/ChippedMug.glb",
+      "heightMeters": 0.092,
+      "heightCm": 9.2,
+      "primaryAssetId": "e8c08a07-4015-402d-ba1a-d63a56d5b3a6",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "O12",
+      "path": "Assets/Art/Props/DictationRecorder.glb",
+      "heightMeters": 0.087,
+      "heightCm": 8.7,
+      "primaryAssetId": "a34b6594-80c0-488c-aa01-5ba3f7ecfcae",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "O7",
+      "path": "Assets/Art/Props/EvidenceClock.glb",
+      "heightMeters": 0.19,
+      "heightCm": 19,
+      "primaryAssetId": "9cc9c1a5-845f-4d5f-ad60-8081d888429e",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "O3",
+      "path": "Assets/Art/Props/LetterKnife.glb",
+      "heightMeters": 0.32,
+      "heightCm": 32,
+      "primaryAssetId": "29446163-a97c-4998-90e4-a153f48bc0c3",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "O5",
+      "path": "Assets/Art/Props/MarbleBookend.glb",
+      "heightMeters": 0.178,
+      "heightCm": 17.8,
+      "primaryAssetId": "6dbb9db1-d1b8-46a2-a6b9-1d603ce0b0b3",
+      "importAlreadyConvertsMeters": true,
+      "instanceScale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "ghosts": [
+    {
+      "id": "S2",
+      "name": "Vale",
+      "preset": {
+        "claim": "Assets/Art/Ghosts/Vale-claim.png",
+        "truth": "Assets/Art/Ghosts/Vale-truth.png",
+        "suggestion": "Assets/Art/Ghosts/Vale-suggestion.png"
+      },
+      "dynamicTintable": "Assets/Art/Actors/Vale/Vale-neutral.png"
+    },
+    {
+      "id": "S1",
+      "name": "Qadir",
+      "preset": {
+        "claim": "Assets/Art/Ghosts/Qadir-claim.png",
+        "truth": "Assets/Art/Ghosts/Qadir-truth.png",
+        "suggestion": "Assets/Art/Ghosts/Qadir-suggestion.png"
+      },
+      "dynamicTintable": "Assets/Art/Actors/Qadir/Qadir-neutral.png"
+    },
+    {
+      "id": "S3",
+      "name": "Okafor",
+      "preset": {
+        "claim": "Assets/Art/Ghosts/Okafor-claim.png",
+        "truth": "Assets/Art/Ghosts/Okafor-truth.png",
+        "suggestion": "Assets/Art/Ghosts/Okafor-suggestion.png"
+      },
+      "dynamicTintable": "Assets/Art/Actors/Okafor/Okafor-neutral.png"
+    },
+    {
+      "id": "S4",
+      "name": "Pike",
+      "preset": {
+        "claim": "Assets/Art/Ghosts/Pike-claim.png",
+        "truth": "Assets/Art/Ghosts/Pike-truth.png",
+        "suggestion": "Assets/Art/Ghosts/Pike-suggestion.png"
+      },
+      "dynamicTintable": "Assets/Art/Actors/Pike/Pike-neutral.png"
+    }
+  ],
+  "victim": {
+    "standing": "Assets/Art/Actors/Harlow/Harlow-standing.png",
+    "falling": "Assets/Art/Actors/Harlow/Harlow-falling.png"
+  },
+  "heroWords": [
+    {
+      "id": "CASE CLOSED",
+      "path": "Assets/Art/UI/Hero/CASE_CLOSED.png"
+    },
+    {
+      "id": "OBJECTION",
+      "path": "Assets/Art/UI/Hero/OBJECTION.png"
+    },
+    {
+      "id": "THE TRUTH",
+      "path": "Assets/Art/UI/Hero/THE_TRUTH.png"
+    }
+  ],
+  "assets": [
+    {
+      "path": "Assets/Art/Actors/Harlow/Harlow-falling.png",
+      "kind": "victim",
+      "pose": "falling",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.020200729370117188
+      },
+      "bytes": 117825,
+      "sha256": "7c2629ce346b8618c9a891738773138ee49b0293ce277a4a230af0cd7bcdf7ce",
+      "assetRef": "@asset:Art/Actors/Harlow/Harlow-falling.png",
+      "primaryAssetId": "7a50f501-9574-4a92-919a-1b34d36a93ef",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Harlow/Harlow-standing.png",
+      "kind": "victim",
+      "pose": "standing",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.02141571044921875
+      },
+      "bytes": 109068,
+      "sha256": "e5257c2927766c90aec67779bf8f55170ff19083c71a0ea18b8e96b4cc60f638",
+      "assetRef": "@asset:Art/Actors/Harlow/Harlow-standing.png",
+      "primaryAssetId": "ba38a7ca-16d4-4c3e-bd7e-764a60ca933c",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Okafor/Okafor-blink-atlas.png",
+      "kind": "blink-atlas",
+      "suspect": "S3",
+      "frames": 4,
+      "columns": 4,
+      "metrics": {
+        "width": 512,
+        "height": 64,
+        "brightFraction": 0.02056884765625
+      },
+      "bytes": 1762,
+      "sha256": "991d1ee53e0e357245bc52ef6b55897762a144303de0322001571ad27c2dc1c3",
+      "assetRef": "@asset:Art/Actors/Okafor/Okafor-blink-atlas.png",
+      "primaryAssetId": "30a3b5de-8243-4c98-982c-76a0174b2c2c",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 131072,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Okafor/Okafor-broken.png",
+      "kind": "portrait",
+      "suspect": "S3",
+      "pose": "broken",
+      "anchor": [
+        256,
+        229
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 805,
+        "centroid": [
+          256.6447204968944,
+          227.51180124223603
+        ],
+        "bottomVisible": 0,
+        "mouth": 2661,
+        "brightFraction": 0.04505729675292969
+      },
+      "bytes": 182034,
+      "sha256": "d21f1e3d7c466f7755e969b50b4d2d10f2cd01762ca3728f2802b865b4cf8b17",
+      "assetRef": "@asset:Art/Actors/Okafor/Okafor-broken.png",
+      "primaryAssetId": "260fe8bc-e87d-4c15-909c-752018b23f73",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Okafor/Okafor-listening.png",
+      "kind": "portrait",
+      "suspect": "S3",
+      "pose": "listening",
+      "anchor": [
+        256,
+        229
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 796,
+        "centroid": [
+          257.0326633165829,
+          226.05276381909547
+        ],
+        "bottomVisible": 0,
+        "mouth": 2517,
+        "brightFraction": 0.04522705078125
+      },
+      "bytes": 177636,
+      "sha256": "930aea8026cf5132d77757ed4282ffd90f41f8e6a76bb2db0661306903e1ed8a",
+      "assetRef": "@asset:Art/Actors/Okafor/Okafor-listening.png",
+      "primaryAssetId": "25d3f640-5157-4f4d-b07d-005a01f638ad",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Okafor/Okafor-mouth-atlas.png",
+      "kind": "mouth-atlas",
+      "suspect": "S3",
+      "frames": 4,
+      "columns": 4,
+      "metrics": {
+        "width": 512,
+        "height": 64,
+        "brightFraction": 0.0318603515625
+      },
+      "bytes": 4611,
+      "sha256": "09daab8ec6b8bf6ec2977505b5b1dbf26840ac520b0e348acfa0be688917c2cf",
+      "assetRef": "@asset:Art/Actors/Okafor/Okafor-mouth-atlas.png",
+      "primaryAssetId": "8e2da4b7-2367-4272-884e-5490b31545b8",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 131072,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Okafor/Okafor-neutral.png",
+      "kind": "portrait",
+      "suspect": "S3",
+      "pose": "neutral",
+      "anchor": [
+        256,
+        229
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 780,
+        "centroid": [
+          257.13589743589745,
+          226.6076923076923
+        ],
+        "bottomVisible": 0,
+        "mouth": 2482,
+        "brightFraction": 0.04669952392578125
+      },
+      "bytes": 177849,
+      "sha256": "277f817449c42dac3ca3b8f750fe11aada85746709227cc207e284aaa25ef8f6",
+      "assetRef": "@asset:Art/Actors/Okafor/Okafor-neutral.png",
+      "primaryAssetId": "26d59f0c-336f-494a-95ea-0aa54b4d6290",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Okafor/Okafor-rattled.png",
+      "kind": "portrait",
+      "suspect": "S3",
+      "pose": "rattled",
+      "anchor": [
+        256,
+        229
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 803,
+        "centroid": [
+          256.85803237858033,
+          226.47571606475717
+        ],
+        "bottomVisible": 0,
+        "mouth": 3253,
+        "brightFraction": 0.046436309814453125
+      },
+      "bytes": 177003,
+      "sha256": "8be5efef8ffdd33557932379068dd03300e695c4771e6341649c4614bfa00219",
+      "assetRef": "@asset:Art/Actors/Okafor/Okafor-rattled.png",
+      "primaryAssetId": "415f4213-70c0-4550-8a1b-f860159f7470",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Okafor/Okafor-smug.png",
+      "kind": "portrait",
+      "suspect": "S3",
+      "pose": "smug",
+      "anchor": [
+        256,
+        229
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 757,
+        "centroid": [
+          256.1453104359313,
+          227.13870541611624
+        ],
+        "bottomVisible": 0,
+        "mouth": 2648,
+        "brightFraction": 0.04856300354003906
+      },
+      "bytes": 190626,
+      "sha256": "a0f15315f42c81350ef1d14c09e71401f0bd9014e4ab1c90cd43a4b17c14cc8f",
+      "assetRef": "@asset:Art/Actors/Okafor/Okafor-smug.png",
+      "primaryAssetId": "72e51b81-1400-4716-b610-9f806499933d",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Pike/Pike-blink-atlas.png",
+      "kind": "blink-atlas",
+      "suspect": "S4",
+      "frames": 4,
+      "columns": 4,
+      "metrics": {
+        "width": 512,
+        "height": 64,
+        "brightFraction": 0.02056884765625
+      },
+      "bytes": 1762,
+      "sha256": "991d1ee53e0e357245bc52ef6b55897762a144303de0322001571ad27c2dc1c3",
+      "assetRef": "@asset:Art/Actors/Pike/Pike-blink-atlas.png",
+      "primaryAssetId": "f3dc2e8c-da71-4c9e-900e-ad5abd22234c",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 131072,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Pike/Pike-broken.png",
+      "kind": "portrait",
+      "suspect": "S4",
+      "pose": "broken",
+      "anchor": [
+        160,
+        578
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1027,
+        "centroid": [
+          155.56085686465434,
+          577.664070107108
+        ],
+        "bottomVisible": 0,
+        "mouth": 3506,
+        "brightFraction": 0.04119110107421875
+      },
+      "bytes": 171942,
+      "sha256": "927b9e6ce833c44176672c570641e035b7f68a1c7b91a29db9f8b9f5e88298e2",
+      "assetRef": "@asset:Art/Actors/Pike/Pike-broken.png",
+      "primaryAssetId": "33ad28e7-ce10-4ded-a551-ae5878fd2cd6",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Pike/Pike-listening.png",
+      "kind": "portrait",
+      "suspect": "S4",
+      "pose": "listening",
+      "anchor": [
+        160,
+        578
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1042,
+        "centroid": [
+          159.54702495201536,
+          577.4827255278311
+        ],
+        "bottomVisible": 0,
+        "mouth": 3275,
+        "brightFraction": 0.04100608825683594
+      },
+      "bytes": 166348,
+      "sha256": "68ced68e58c8f5f0d24bf94f333931296e5cd403fb084170def6ae59a80ddb22",
+      "assetRef": "@asset:Art/Actors/Pike/Pike-listening.png",
+      "primaryAssetId": "28008ba7-1d51-4f74-aee3-bdd35ef79c4a",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Pike/Pike-mouth-atlas.png",
+      "kind": "mouth-atlas",
+      "suspect": "S4",
+      "frames": 4,
+      "columns": 4,
+      "metrics": {
+        "width": 512,
+        "height": 64,
+        "brightFraction": 0.0318603515625
+      },
+      "bytes": 4611,
+      "sha256": "09daab8ec6b8bf6ec2977505b5b1dbf26840ac520b0e348acfa0be688917c2cf",
+      "assetRef": "@asset:Art/Actors/Pike/Pike-mouth-atlas.png",
+      "primaryAssetId": "d4e4399b-a752-4f06-ac24-4b57d8c590ac",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 131072,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Pike/Pike-neutral.png",
+      "kind": "portrait",
+      "suspect": "S4",
+      "pose": "neutral",
+      "anchor": [
+        160,
+        578
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1160,
+        "centroid": [
+          158.74396551724138,
+          576.4689655172414
+        ],
+        "bottomVisible": 0,
+        "mouth": 3341,
+        "brightFraction": 0.042392730712890625
+      },
+      "bytes": 173060,
+      "sha256": "dfa2932f6d34414a8e5fce5deaee3217e3b51b396b1503f6e462a0680118b42a",
+      "assetRef": "@asset:Art/Actors/Pike/Pike-neutral.png",
+      "primaryAssetId": "d0a7a213-8af2-4cc8-a393-e5ff00695d56",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Pike/Pike-rattled.png",
+      "kind": "portrait",
+      "suspect": "S4",
+      "pose": "rattled",
+      "anchor": [
+        160,
+        578
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 999,
+        "centroid": [
+          156.54354354354354,
+          577.3263263263264
+        ],
+        "bottomVisible": 0,
+        "mouth": 3916,
+        "brightFraction": 0.04095649719238281
+      },
+      "bytes": 165224,
+      "sha256": "ce44143c6fd2ebedfc7322accd1dd2472aa1ca438427acb9ba75baf0e8d83311",
+      "assetRef": "@asset:Art/Actors/Pike/Pike-rattled.png",
+      "primaryAssetId": "a8b75d00-b1ae-48f0-95e1-e3c74c59e8fe",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Pike/Pike-smug.png",
+      "kind": "portrait",
+      "suspect": "S4",
+      "pose": "smug",
+      "anchor": [
+        160,
+        578
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1007,
+        "centroid": [
+          157.0953326713009,
+          577.6752730883813
+        ],
+        "bottomVisible": 0,
+        "mouth": 2943,
+        "brightFraction": 0.04364585876464844
+      },
+      "bytes": 176492,
+      "sha256": "6dcc459fe50569b12ac3cd77552d5a984e2c11190957d6527f37d1760ef141ab",
+      "assetRef": "@asset:Art/Actors/Pike/Pike-smug.png",
+      "primaryAssetId": "4891a9bd-9403-467e-9e1c-26b3df3d0ddf",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Qadir/Qadir-blink-atlas.png",
+      "kind": "blink-atlas",
+      "suspect": "S1",
+      "frames": 4,
+      "columns": 4,
+      "metrics": {
+        "width": 512,
+        "height": 64,
+        "brightFraction": 0.02056884765625
+      },
+      "bytes": 1762,
+      "sha256": "991d1ee53e0e357245bc52ef6b55897762a144303de0322001571ad27c2dc1c3",
+      "assetRef": "@asset:Art/Actors/Qadir/Qadir-blink-atlas.png",
+      "primaryAssetId": "578fcd9d-527a-4d1e-a09b-dfed8dbca8ca",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 131072,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Qadir/Qadir-broken.png",
+      "kind": "portrait",
+      "suspect": "S1",
+      "pose": "broken",
+      "anchor": [
+        352,
+        554
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1180,
+        "centroid": [
+          349.9415254237288,
+          552.2915254237288
+        ],
+        "bottomVisible": 0,
+        "mouth": 2843,
+        "brightFraction": 0.04251861572265625
+      },
+      "bytes": 186655,
+      "sha256": "27f9c885b31a80e0cc8cde4366ca322bc4e0756ee86ca36d4c366a9027ca6db7",
+      "assetRef": "@asset:Art/Actors/Qadir/Qadir-broken.png",
+      "primaryAssetId": "fbbf3092-8fe9-4b07-aa4a-85dbf6cdd454",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Qadir/Qadir-listening.png",
+      "kind": "portrait",
+      "suspect": "S1",
+      "pose": "listening",
+      "anchor": [
+        352,
+        554
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1221,
+        "centroid": [
+          349.7821457821458,
+          552.4676494676495
+        ],
+        "bottomVisible": 0,
+        "mouth": 2785,
+        "brightFraction": 0.04178428649902344
+      },
+      "bytes": 175996,
+      "sha256": "09a383a969f2d39da3a2e26c57a36746d4306fa8424623e440700214c309ee3e",
+      "assetRef": "@asset:Art/Actors/Qadir/Qadir-listening.png",
+      "primaryAssetId": "5adab518-3a15-4283-a4b0-249a54ad6bee",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Qadir/Qadir-mouth-atlas.png",
+      "kind": "mouth-atlas",
+      "suspect": "S1",
+      "frames": 4,
+      "columns": 4,
+      "metrics": {
+        "width": 512,
+        "height": 64,
+        "brightFraction": 0.0318603515625
+      },
+      "bytes": 4611,
+      "sha256": "09daab8ec6b8bf6ec2977505b5b1dbf26840ac520b0e348acfa0be688917c2cf",
+      "assetRef": "@asset:Art/Actors/Qadir/Qadir-mouth-atlas.png",
+      "primaryAssetId": "8f34c598-28f9-461f-8620-655509069eb4",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 131072,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Qadir/Qadir-neutral.png",
+      "kind": "portrait",
+      "suspect": "S1",
+      "pose": "neutral",
+      "anchor": [
+        352,
+        554
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1293,
+        "centroid": [
+          348.7339520494973,
+          552.2289249806652
+        ],
+        "bottomVisible": 0,
+        "mouth": 3084,
+        "brightFraction": 0.04391288757324219
+      },
+      "bytes": 184971,
+      "sha256": "15b51eb362a403f368e47d58c5f6abd0b79c15c4bf1b76235e07e1eec072cf3f",
+      "assetRef": "@asset:Art/Actors/Qadir/Qadir-neutral.png",
+      "primaryAssetId": "f7f29e28-e444-44db-9419-93a22337639d",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Qadir/Qadir-rattled.png",
+      "kind": "portrait",
+      "suspect": "S1",
+      "pose": "rattled",
+      "anchor": [
+        352,
+        554
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1182,
+        "centroid": [
+          349.917089678511,
+          552.269035532995
+        ],
+        "bottomVisible": 0,
+        "mouth": 4015,
+        "brightFraction": 0.04332542419433594
+      },
+      "bytes": 180522,
+      "sha256": "f1ae2553d0e2812dc2af769e1d604692b29469049a2525fb9999877b2085eeae",
+      "assetRef": "@asset:Art/Actors/Qadir/Qadir-rattled.png",
+      "primaryAssetId": "1f6fbd9c-e256-4332-86af-8185c0e7b365",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Qadir/Qadir-smug.png",
+      "kind": "portrait",
+      "suspect": "S1",
+      "pose": "smug",
+      "anchor": [
+        352,
+        554
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1263,
+        "centroid": [
+          350.0728424386382,
+          552.4520981789391
+        ],
+        "bottomVisible": 0,
+        "mouth": 3042,
+        "brightFraction": 0.04428672790527344
+      },
+      "bytes": 186686,
+      "sha256": "1073f3ce3be2ba744197e431862ebd62ae2da9532240732284fceb7c6d7a6992",
+      "assetRef": "@asset:Art/Actors/Qadir/Qadir-smug.png",
+      "primaryAssetId": "2ed8ad62-9f70-4e9a-8621-6403f518640c",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Vale/Vale-blink-atlas.png",
+      "kind": "blink-atlas",
+      "suspect": "S2",
+      "frames": 4,
+      "columns": 4,
+      "metrics": {
+        "width": 512,
+        "height": 64,
+        "brightFraction": 0.02056884765625
+      },
+      "bytes": 1762,
+      "sha256": "991d1ee53e0e357245bc52ef6b55897762a144303de0322001571ad27c2dc1c3",
+      "assetRef": "@asset:Art/Actors/Vale/Vale-blink-atlas.png",
+      "primaryAssetId": "2f97ab78-5c01-4601-8bdc-e4bfb0c9294f",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 131072,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Vale/Vale-broken.png",
+      "kind": "portrait",
+      "suspect": "S2",
+      "pose": "broken",
+      "anchor": [
+        340,
+        440
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 954,
+        "centroid": [
+          335.8825995807128,
+          441.4392033542977
+        ],
+        "bottomVisible": 0,
+        "mouth": 2926,
+        "brightFraction": 0.04992485046386719
+      },
+      "bytes": 214747,
+      "sha256": "e1ff1f80ae00e35004615f3e69b38d367b23120eb56a54077b900d1c1b34c6c5",
+      "assetRef": "@asset:Art/Actors/Vale/Vale-broken.png",
+      "primaryAssetId": "7e7c39d4-a9d6-4600-b186-30a25ba36460",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Vale/Vale-listening.png",
+      "kind": "portrait",
+      "suspect": "S2",
+      "pose": "listening",
+      "anchor": [
+        340,
+        440
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 942,
+        "centroid": [
+          342.16029723991505,
+          439.3577494692144
+        ],
+        "bottomVisible": 0,
+        "mouth": 2511,
+        "brightFraction": 0.049213409423828125
+      },
+      "bytes": 209496,
+      "sha256": "e72e20288222ef6aef57d16b3c904cbe9343309c9945641272273f4ac19d5cf5",
+      "assetRef": "@asset:Art/Actors/Vale/Vale-listening.png",
+      "primaryAssetId": "fd520f50-c427-4e3d-8ff0-068f235a4014",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Vale/Vale-mouth-atlas.png",
+      "kind": "mouth-atlas",
+      "suspect": "S2",
+      "frames": 4,
+      "columns": 4,
+      "metrics": {
+        "width": 512,
+        "height": 64,
+        "brightFraction": 0.0318603515625
+      },
+      "bytes": 4611,
+      "sha256": "09daab8ec6b8bf6ec2977505b5b1dbf26840ac520b0e348acfa0be688917c2cf",
+      "assetRef": "@asset:Art/Actors/Vale/Vale-mouth-atlas.png",
+      "primaryAssetId": "4964afc9-c333-4ed1-860a-2cd3afe74fe3",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 131072,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Vale/Vale-neutral.png",
+      "kind": "portrait",
+      "suspect": "S2",
+      "pose": "neutral",
+      "anchor": [
+        340,
+        440
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1123,
+        "centroid": [
+          344.0507569011576,
+          439.42831700801423
+        ],
+        "bottomVisible": 0,
+        "mouth": 2720,
+        "brightFraction": 0.05126380920410156
+      },
+      "bytes": 211519,
+      "sha256": "97b68d2cf162086764167250f3b675e7cc9503414f0745c9bd6368a209f5bb31",
+      "assetRef": "@asset:Art/Actors/Vale/Vale-neutral.png",
+      "primaryAssetId": "2eddd843-5cbf-4ba9-86bf-ffd97f34fbf0",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Vale/Vale-rattled.png",
+      "kind": "portrait",
+      "suspect": "S2",
+      "pose": "rattled",
+      "anchor": [
+        340,
+        440
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 1182,
+        "centroid": [
+          335.65143824027075,
+          437.51269035532994
+        ],
+        "bottomVisible": 0,
+        "mouth": 3438,
+        "brightFraction": 0.049747467041015625
+      },
+      "bytes": 208935,
+      "sha256": "5707ff078f994ed0d88726c9a1e52e660fd8c6fa22d812f5a3cf67f7a39577c9",
+      "assetRef": "@asset:Art/Actors/Vale/Vale-rattled.png",
+      "primaryAssetId": "456eccce-14aa-4e44-b820-91c4fd6fbd2f",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Actors/Vale/Vale-smug.png",
+      "kind": "portrait",
+      "suspect": "S2",
+      "pose": "smug",
+      "anchor": [
+        340,
+        440
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "anchorBright": 780,
+        "centroid": [
+          342.28205128205127,
+          439.54615384615386
+        ],
+        "bottomVisible": 0,
+        "mouth": 2639,
+        "brightFraction": 0.053783416748046875
+      },
+      "bytes": 223589,
+      "sha256": "2b5864e0301494eac34e1c7b1e877ddf9c938cc27d2987c62bcde2b19faf69eb",
+      "assetRef": "@asset:Art/Actors/Vale/Vale-smug.png",
+      "primaryAssetId": "adea7e37-af0c-4a40-bec9-4c571ce87db9",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_CABLE.png",
+      "kind": "card",
+      "evidence": "E_CABLE",
+      "caption": "The cable remembers Vale's hands. Harlow's collar fibres remain caught in it.",
+      "captionLines": [
+        "The cable remembers Vale's hands.",
+        "Harlow's collar fibres remain",
+        "caught in it."
+      ],
+      "facts": [
+        "F_VALE_CABLE",
+        "F_CABLE_CONTACT"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0393218994140625
+      },
+      "bytes": 40144,
+      "sha256": "c0bcf77621c2c4e102a43b1ebdbe404493179c9504607a1bcc49b6964f53bed0",
+      "assetRef": "@asset:Art/Cards/Card_E_CABLE.png",
+      "primaryAssetId": "79ca22b0-c999-425a-87d2-24f09e9f1d94",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_CLOCK_FOUND.png",
+      "kind": "card",
+      "evidence": "E_CLOCK_FOUND",
+      "caption": "The clock remembers the alarm raised at 22:41.",
+      "captionLines": [
+        "The clock remembers the alarm",
+        "raised at 22:41."
+      ],
+      "facts": [
+        "F_BODY_FOUND"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0317108154296875
+      },
+      "bytes": 32542,
+      "sha256": "797dccc778c77af6b445182526eb3911d308ebd49af8e281917c038254440e8b",
+      "assetRef": "@asset:Art/Cards/Card_E_CLOCK_FOUND.png",
+      "primaryAssetId": "88e39be8-cad7-4b5f-9ecd-86725f3b6551",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_KETTLE_COLD.png",
+      "kind": "card",
+      "evidence": "E_KETTLE_COLD",
+      "caption": "The kettle remembers no heat during the murder window. There was no boiling tea.",
+      "captionLines": [
+        "The kettle remembers no heat",
+        "during the murder window. There",
+        "was no boiling tea."
+      ],
+      "facts": [
+        "F_KETTLE_COLD"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.03868408203125
+      },
+      "bytes": 40021,
+      "sha256": "3f26eb6bf279382f57b43c991f70f0d7fbcbdb542d55e125bedd0dac766f5266",
+      "assetRef": "@asset:Art/Cards/Card_E_KETTLE_COLD.png",
+      "primaryAssetId": "4c06963c-e40b-40e9-b00e-678e444d8306",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_LETTER.png",
+      "kind": "card",
+      "evidence": "E_LETTER",
+      "caption": "Harlow's sealed letter names Vale's forged trust accounts and his intended report to the police.",
+      "captionLines": [
+        "Harlow's sealed letter names",
+        "Vale's forged trust accounts and",
+        "his intended report to the police."
+      ],
+      "facts": [
+        "F_VALE_MOTIVE"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0411895751953125
+      },
+      "bytes": 36700,
+      "sha256": "3c8826a8e1e8199a1d19304c177a5af22ee0380d7947c54fcccddd44a5282d65",
+      "assetRef": "@asset:Art/Cards/Card_E_LETTER.png",
+      "primaryAssetId": "28abc8aa-ff28-4b76-a510-cfaf5791415c",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_O2_LOCATION.png",
+      "kind": "card",
+      "evidence": "E_O2_LOCATION",
+      "caption": "The candlestick remembers remaining in the Lounge at 22:30.",
+      "captionLines": [
+        "The candlestick remembers",
+        "remaining in the Lounge at 22:30."
+      ],
+      "facts": [
+        "F_O2_LOCATION_OBJECT"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.035491943359375
+      },
+      "bytes": 29815,
+      "sha256": "d2c623b19d67c2f39324547b6012500108ef4dea335cbcf4208a3665210a3c42",
+      "assetRef": "@asset:Art/Cards/Card_E_O2_LOCATION.png",
+      "primaryAssetId": "453b92c9-e4b0-4f07-800b-d255d99ac7de",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_O3_LOCATION.png",
+      "kind": "card",
+      "evidence": "E_O3_LOCATION",
+      "caption": "The letter knife remembers remaining in the Hall at 22:30.",
+      "captionLines": [
+        "The letter knife remembers",
+        "remaining in the Hall at 22:30."
+      ],
+      "facts": [
+        "F_O3_LOCATION_OBJECT"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0346466064453125
+      },
+      "bytes": 27959,
+      "sha256": "784d7d57527b3773ed300f1ea489637e416c7a461829394fd80312c12e06594a",
+      "assetRef": "@asset:Art/Cards/Card_E_O3_LOCATION.png",
+      "primaryAssetId": "78116306-9367-4edf-9b73-cd7e120d2b51",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_O4_LOCATION.png",
+      "kind": "card",
+      "evidence": "E_O4_LOCATION",
+      "caption": "The medicine bottle remembers remaining in the Kitchen at 22:30.",
+      "captionLines": [
+        "The medicine bottle remembers",
+        "remaining in the Kitchen at 22:30."
+      ],
+      "facts": [
+        "F_O4_LOCATION_OBJECT"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0359588623046875
+      },
+      "bytes": 29883,
+      "sha256": "6f23f1fa748abede4148fee5e58a2e92edad7a75ea85ea54076ddb1ebed25130",
+      "assetRef": "@asset:Art/Cards/Card_E_O4_LOCATION.png",
+      "primaryAssetId": "414632ca-7777-4cc9-a0ca-d278aa275d34",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_O5_LOCATION.png",
+      "kind": "card",
+      "evidence": "E_O5_LOCATION",
+      "caption": "The bookend remembers remaining in the Conservatory at 22:30.",
+      "captionLines": [
+        "The bookend remembers remaining in",
+        "the Conservatory at 22:30."
+      ],
+      "facts": [
+        "F_O5_LOCATION_OBJECT"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0355224609375
+      },
+      "bytes": 29522,
+      "sha256": "1b1569b559b0cef95cd3c7a85eaad4a39e9c99c7e9bea4e7d94114f36245a80b",
+      "assetRef": "@asset:Art/Cards/Card_E_O5_LOCATION.png",
+      "primaryAssetId": "27ed9cb8-929d-47c0-997e-600e84153568",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_RECORDING.png",
+      "kind": "card",
+      "evidence": "E_RECORDING",
+      "caption": "The recorder preserves Harlow answering Vale after she entered. He was alive when she arrived.",
+      "captionLines": [
+        "The recorder preserves Harlow",
+        "answering Vale after she entered.",
+        "He was alive when she arrived."
+      ],
+      "facts": [
+        "F_RECORDER_ORDER"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0427581787109375
+      },
+      "bytes": 41632,
+      "sha256": "572c25d9c46c2f4678dbba12e02278c732737b775c05ffc2da29ef18f5723e2e",
+      "assetRef": "@asset:Art/Cards/Card_E_RECORDING.png",
+      "primaryAssetId": "12e5ad49-969c-4820-9f8e-ae44b21c3aae",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_S1_ALIBI.png",
+      "kind": "card",
+      "evidence": "E_S1_ALIBI",
+      "caption": "Imran remained in the Hall at 22:30.",
+      "captionLines": [
+        "Imran remained in the Hall at",
+        "22:30."
+      ],
+      "facts": [
+        "F_S1_ALIBI_OBJECT"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.030987548828125
+      },
+      "bytes": 21891,
+      "sha256": "fd9a22f760d567aa2fd9349546664d718e1795f6bdf0ac5dde6d5b69b3b70100",
+      "assetRef": "@asset:Art/Cards/Card_E_S1_ALIBI.png",
+      "primaryAssetId": "3894db41-ce4c-4520-a54d-04dbbe2d9606",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_S1_BASELINE.png",
+      "kind": "card",
+      "evidence": "E_S1_BASELINE",
+      "caption": "The door remembers Imran's lighter catching a flame.",
+      "captionLines": [
+        "The door remembers Imran's lighter",
+        "catching a flame."
+      ],
+      "facts": [
+        "F_S1_BASELINE"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0350555419921875
+      },
+      "bytes": 28333,
+      "sha256": "c963ce63658b553e7639583864d0aab5c205db3083682fad06930eb462111d7b",
+      "assetRef": "@asset:Art/Cards/Card_E_S1_BASELINE.png",
+      "primaryAssetId": "591d846b-e8de-44a8-95b9-b5d7c8b5ded8",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_S2_BASELINE_MUG.png",
+      "kind": "card",
+      "evidence": "E_S2_BASELINE_MUG",
+      "caption": "The mug remembers Vale leaning close: the brooch clasp hung open.",
+      "captionLines": [
+        "The mug remembers Vale leaning",
+        "close: the brooch clasp hung open."
+      ],
+      "facts": [
+        "F_S2_BASELINE"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.035308837890625
+      },
+      "bytes": 36429,
+      "sha256": "21b50873dc0475bcf2fc4336aa5a030a21f1118d46748ca9f00236a9dce8fc8d",
+      "assetRef": "@asset:Art/Cards/Card_E_S2_BASELINE_MUG.png",
+      "primaryAssetId": "9952518d-2ad4-46e6-ba7c-7966a5bf7017",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_S2_BASELINE.png",
+      "kind": "card",
+      "evidence": "E_S2_BASELINE",
+      "caption": "The mug catches the open clasp on Vale's brooch.",
+      "captionLines": [
+        "The mug catches the open clasp on",
+        "Vale's brooch."
+      ],
+      "facts": [
+        "F_S2_BASELINE"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.032537841796875
+      },
+      "bytes": 33162,
+      "sha256": "d0a723fa8ab31510249602eba36bf2453e0beec5ed177820b8396ddec1627795",
+      "assetRef": "@asset:Art/Cards/Card_E_S2_BASELINE.png",
+      "primaryAssetId": "131464cf-6a25-4607-a0d7-58e6682a14cf",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_S3_ALIBI.png",
+      "kind": "card",
+      "evidence": "E_S3_ALIBI",
+      "caption": "Okafor remained in the Kitchen at 22:30.",
+      "captionLines": [
+        "Okafor remained in the Kitchen at",
+        "22:30."
+      ],
+      "facts": [
+        "F_S3_ALIBI_OBJECT"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.03133544921875
+      },
+      "bytes": 28833,
+      "sha256": "547d5775f747484a8c05b7f338a376d391969ff643aa0fc223f7f3728a5abce6",
+      "assetRef": "@asset:Art/Cards/Card_E_S3_ALIBI.png",
+      "primaryAssetId": "734322d2-d269-46fc-ac37-981633c63e5c",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_S3_BASELINE.png",
+      "kind": "card",
+      "evidence": "E_S3_BASELINE",
+      "caption": "The kettle reflects a smudge across Okafor's glasses.",
+      "captionLines": [
+        "The kettle reflects a smudge",
+        "across Okafor's glasses."
+      ],
+      "facts": [
+        "F_S3_BASELINE"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.034649658203125
+      },
+      "bytes": 33630,
+      "sha256": "9beecda5dffceaae0e85d01245f40ce8cab22b728569f4e13d1e2234caec0db4",
+      "assetRef": "@asset:Art/Cards/Card_E_S3_BASELINE.png",
+      "primaryAssetId": "c88a496f-1a62-4294-b481-253a7893f972",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_S4_ALIBI.png",
+      "kind": "card",
+      "evidence": "E_S4_ALIBI",
+      "caption": "Pike remained in the Conservatory at 22:30.",
+      "captionLines": [
+        "Pike remained in the Conservatory",
+        "at 22:30."
+      ],
+      "facts": [
+        "F_S4_ALIBI_OBJECT"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0322967529296875
+      },
+      "bytes": 24428,
+      "sha256": "dba6edf9252617fa51eb0cb4625cc877acdbb32110b3e05698eb2955de867592",
+      "assetRef": "@asset:Art/Cards/Card_E_S4_ALIBI.png",
+      "primaryAssetId": "f52c1599-b906-47af-bd32-d652f71c59f3",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_S4_BASELINE.png",
+      "kind": "card",
+      "evidence": "E_S4_BASELINE",
+      "caption": "The window remembers water dripping from Pike's gloves.",
+      "captionLines": [
+        "The window remembers water",
+        "dripping from Pike's gloves."
+      ],
+      "facts": [
+        "F_S4_BASELINE"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.03602294921875
+      },
+      "bytes": 29704,
+      "sha256": "e110999f850e3905532c6294b1f4fabb6a4549f8d9be7d747c8c4c238e203be3",
+      "assetRef": "@asset:Art/Cards/Card_E_S4_BASELINE.png",
+      "primaryAssetId": "d9cc41f3-af69-4098-8459-cffd06d4ed92",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_TRUST_NOTE.png",
+      "kind": "card",
+      "evidence": "E_TRUST_NOTE",
+      "caption": "A carbon impression in the bed cover reads: Harlow will expose Vale's forged trust accounts.",
+      "captionLines": [
+        "A carbon impression in the bed",
+        "cover reads: Harlow will expose",
+        "Vale's forged trust accounts."
+      ],
+      "facts": [
+        "F_VALE_MOTIVE"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0408660888671875
+      },
+      "bytes": 36381,
+      "sha256": "a004b4faf12df961456f25cf181b7aaebe0ca5980d3d819258afdd7a21604f8d",
+      "assetRef": "@asset:Art/Cards/Card_E_TRUST_NOTE.png",
+      "primaryAssetId": "6a55e0ec-5e8c-4541-94ad-89e10cced383",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_UV_DRAG.png",
+      "kind": "card",
+      "evidence": "E_UV_DRAG",
+      "caption": "The UV trace shows Harlow was moved from the Study chair to the floor.",
+      "captionLines": [
+        "The UV trace shows Harlow was",
+        "moved from the Study chair to the",
+        "floor."
+      ],
+      "facts": [
+        "F_BODY_MOVED"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0370574951171875
+      },
+      "bytes": 31079,
+      "sha256": "189d04ff3a611b141b41c214dd730ee34f067b3024e03d4e32f9afdacd7a94cb",
+      "assetRef": "@asset:Art/Cards/Card_E_UV_DRAG.png",
+      "primaryAssetId": "186104f5-3c28-4d2f-b292-7e5ae154d10c",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_VALE_LAMP.png",
+      "kind": "card",
+      "evidence": "E_VALE_LAMP",
+      "caption": "The recorder places Vale beside the Study desk at 22:30.",
+      "captionLines": [
+        "The recorder places Vale beside",
+        "the Study desk at 22:30."
+      ],
+      "facts": [
+        "F_VALE_STUDY"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0357513427734375
+      },
+      "bytes": 32624,
+      "sha256": "943c0d8076d8291d9ce8907bf888c3e6459b09a102c4ac98e25adeed7a45b044",
+      "assetRef": "@asset:Art/Cards/Card_E_VALE_LAMP.png",
+      "primaryAssetId": "638c8888-0dfd-49a5-a2ba-7abc9e360715",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_VICTIM_LAMP.png",
+      "kind": "card",
+      "evidence": "E_VICTIM_LAMP",
+      "caption": "The lamp remembers Harlow at the Study desk at 22:30.",
+      "captionLines": [
+        "The lamp remembers Harlow at the",
+        "Study desk at 22:30."
+      ],
+      "facts": [
+        "F_VICTIM_STUDY_LAMP"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.033038330078125
+      },
+      "bytes": 27473,
+      "sha256": "c024dc9e19e6d27c98ceb3ac3d3bf5f3a0b980a7d37a8d5f57f022d11e3e6161",
+      "assetRef": "@asset:Art/Cards/Card_E_VICTIM_LAMP.png",
+      "primaryAssetId": "24e3ed12-3f4d-4790-9f7b-258a51e83cec",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_VICTIM_MUG.png",
+      "kind": "card",
+      "evidence": "E_VICTIM_MUG",
+      "caption": "The mug remembers Harlow's sleeve knocking it from the Study desk at 22:30.",
+      "captionLines": [
+        "The mug remembers Harlow's sleeve",
+        "knocking it from the Study desk at",
+        "22:30."
+      ],
+      "facts": [
+        "F_VICTIM_STUDY_MUG"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0355804443359375
+      },
+      "bytes": 37572,
+      "sha256": "d84030de83836dea9547c02acdea1785ec772ba487e2f505bb51cd8cb9b35d45",
+      "assetRef": "@asset:Art/Cards/Card_E_VICTIM_MUG.png",
+      "primaryAssetId": "3cbdd02d-9f01-4339-b562-93ba551ab354",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Cards/Card_E_VOICEMAIL.png",
+      "kind": "card",
+      "evidence": "E_VOICEMAIL",
+      "caption": "A delayed voicemail preserves Harlow answering Vale in the Study.",
+      "captionLines": [
+        "A delayed voicemail preserves",
+        "Harlow answering Vale in the",
+        "Study."
+      ],
+      "facts": [
+        "F_REPLY_AFTER_ARRIVAL"
+      ],
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0386993408203125
+      },
+      "bytes": 37039,
+      "sha256": "79748a402e0586e1951f61e058ee5b49d11b79bc8d7220e0da0f778092e13c2e",
+      "assetRef": "@asset:Art/Cards/Card_E_VOICEMAIL.png",
+      "primaryAssetId": "357cd8fd-5130-45aa-9849-e5130618f94b",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/FX/BlackoutEyes.png",
+      "kind": "fx",
+      "metrics": {
+        "width": 256,
+        "height": 64,
+        "brightFraction": 0.0194091796875
+      },
+      "bytes": 1170,
+      "sha256": "bc2e3ed670ee206c6f913898780c291b0a2b5d2f04747e0849689f3f923e7b72",
+      "assetRef": "@asset:Art/FX/BlackoutEyes.png",
+      "primaryAssetId": "f8f22386-844d-4f67-86f5-060b6f5cf8c2",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/FX/ClaimSpark.png",
+      "kind": "fx",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.04522705078125
+      },
+      "bytes": 6740,
+      "sha256": "3d0cbbdbefe89231542fea973eb601ee1162122db94e36675a4adc8540b5e925",
+      "assetRef": "@asset:Art/FX/ClaimSpark.png",
+      "primaryAssetId": "403fa24b-7d31-4fa9-becc-84c9fd281811",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/FX/CupBead.png",
+      "kind": "fx",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.03125
+      },
+      "bytes": 2710,
+      "sha256": "6fa6abeae00e70e8760555e967e78e6db2d277ee81a41c68720b989a80f22c57",
+      "assetRef": "@asset:Art/FX/CupBead.png",
+      "primaryAssetId": "543d7496-8640-41da-b570-d5e8e9da69ec",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/FX/GhostDust.png",
+      "kind": "fx",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.0543212890625
+      },
+      "bytes": 7543,
+      "sha256": "87bf7321f86447aeb84eafe6d4e46575b07cb0b8082a7547135a1a30df76aeb9",
+      "assetRef": "@asset:Art/FX/GhostDust.png",
+      "primaryAssetId": "090b9ba4-2972-467a-b60f-479b6fe0f7d7",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/FX/Shard.png",
+      "kind": "fx",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.03369140625
+      },
+      "bytes": 2971,
+      "sha256": "1696e85e73ec3bbe6c1d350a6b278f973aeb5ec5b9287c67ab915279cf95de40",
+      "assetRef": "@asset:Art/FX/Shard.png",
+      "primaryAssetId": "6aab1b42-ed55-4815-bbf2-bd855fb657a4",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/FX/StarFlare.png",
+      "kind": "fx",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.04779052734375
+      },
+      "bytes": 6500,
+      "sha256": "876df88f6bc4ee81a0e5e6a40362d388b73386fcfe337ad9a7e5960b3a1fcf06",
+      "assetRef": "@asset:Art/FX/StarFlare.png",
+      "primaryAssetId": "1158713c-1c87-4677-bd5b-3daa58bbea6a",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/FX/TruthSpark.png",
+      "kind": "fx",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.02606201171875
+      },
+      "bytes": 6446,
+      "sha256": "444b3b1788b25856ecd0200f275e54d16676f09e7cd533f9c22dddcfe7de696f",
+      "assetRef": "@asset:Art/FX/TruthSpark.png",
+      "primaryAssetId": "443910ac-17f4-4937-a23a-5481246fec18",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/FX/UVDrag.png",
+      "kind": "fx",
+      "metrics": {
+        "width": 512,
+        "height": 128,
+        "brightFraction": 0
+      },
+      "bytes": 16221,
+      "sha256": "09c19e69bbb17ddf7acb99e4a429b321fc06208660c7a02446c8385ac039025b",
+      "assetRef": "@asset:Art/FX/UVDrag.png",
+      "primaryAssetId": "1fcefbec-6091-48f2-bc91-b216cbe53354",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 262144,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Okafor-claim.png",
+      "kind": "ghost",
+      "suspect": "S3",
+      "mode": "claim",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.026086807250976562
+      },
+      "bytes": 81905,
+      "sha256": "ec508aea51145cc4b49f5dabf62b7bbcfcb53ab78791b483a4dc6a856abe3724",
+      "assetRef": "@asset:Art/Ghosts/Okafor-claim.png",
+      "primaryAssetId": "1f65dd75-1a14-4045-a981-e31f3d3c4e74",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Okafor-suggestion.png",
+      "kind": "ghost",
+      "suspect": "S3",
+      "mode": "suggestion",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.0047817230224609375
+      },
+      "bytes": 76965,
+      "sha256": "e8d6d46a6a884623672f639f5a11308a43a6efa130488bbe23789347e157eee7",
+      "assetRef": "@asset:Art/Ghosts/Okafor-suggestion.png",
+      "primaryAssetId": "4a49a9a8-407c-402e-8625-30f6f641782b",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Okafor-truth.png",
+      "kind": "ghost",
+      "suspect": "S3",
+      "mode": "truth",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.029676437377929688
+      },
+      "bytes": 83764,
+      "sha256": "7bf9cb862555f79b92553e23761afbcd9542082c75ce915cbf3219bebc4ae945",
+      "assetRef": "@asset:Art/Ghosts/Okafor-truth.png",
+      "primaryAssetId": "3b7a5ec0-9b65-4c27-8d0c-97304e734c3c",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Pike-claim.png",
+      "kind": "ghost",
+      "suspect": "S4",
+      "mode": "claim",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.024305343627929688
+      },
+      "bytes": 72308,
+      "sha256": "6e2b4271a0aff149d75fc9125603bf15df8cc780713636489e2cbbbad20990f9",
+      "assetRef": "@asset:Art/Ghosts/Pike-claim.png",
+      "primaryAssetId": "a6555d46-9f03-4cf0-92fd-3c3900be4118",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Pike-suggestion.png",
+      "kind": "ghost",
+      "suspect": "S4",
+      "mode": "suggestion",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.0044651031494140625
+      },
+      "bytes": 68238,
+      "sha256": "db13f5d8faad080f16490d666ec5f888cc588d64aefa9a49ed56872ac1b198ec",
+      "assetRef": "@asset:Art/Ghosts/Pike-suggestion.png",
+      "primaryAssetId": "d5f8683f-1a72-49bd-ab90-fb515e6b02bc",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Pike-truth.png",
+      "kind": "ghost",
+      "suspect": "S4",
+      "mode": "truth",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.027101516723632812
+      },
+      "bytes": 73467,
+      "sha256": "40851b973ad25fe02e3901ab6bd770e4df6fa10314e218f57c1edccfdd39eb07",
+      "assetRef": "@asset:Art/Ghosts/Pike-truth.png",
+      "primaryAssetId": "14be3a20-bb12-4b86-ad57-472e82e5c532",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Qadir-claim.png",
+      "kind": "ghost",
+      "suspect": "S1",
+      "mode": "claim",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.024959564208984375
+      },
+      "bytes": 80358,
+      "sha256": "1587f8c3a4b4bdf0649a57125735075c2a6bfee26623d39099fa4b15a5e2c5e8",
+      "assetRef": "@asset:Art/Ghosts/Qadir-claim.png",
+      "primaryAssetId": "530ba1ba-bee7-4b6a-8252-35ea3a2cf0de",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Qadir-suggestion.png",
+      "kind": "ghost",
+      "suspect": "S1",
+      "mode": "suggestion",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.0045146942138671875
+      },
+      "bytes": 75416,
+      "sha256": "27ec754c9a3955ce53eff781323d6d3e8ffc012742e681beea874eb041131236",
+      "assetRef": "@asset:Art/Ghosts/Qadir-suggestion.png",
+      "primaryAssetId": "f1c0b747-a203-4ca5-9168-7ae8ae972f00",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Qadir-truth.png",
+      "kind": "ghost",
+      "suspect": "S1",
+      "mode": "truth",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.027719497680664062
+      },
+      "bytes": 80235,
+      "sha256": "06f5873a7d774c5389ea8b584fedba55563f090ad44712a547f58fb02f719b93",
+      "assetRef": "@asset:Art/Ghosts/Qadir-truth.png",
+      "primaryAssetId": "4f82482a-dc44-401c-b20b-6cda8d14a170",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Vale-claim.png",
+      "kind": "ghost",
+      "suspect": "S2",
+      "mode": "claim",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.0292205810546875
+      },
+      "bytes": 89957,
+      "sha256": "8ebc7c233448c5b3dc53141ef958823d9eca9119cc212a74e8eb5c038b15bb64",
+      "assetRef": "@asset:Art/Ghosts/Vale-claim.png",
+      "primaryAssetId": "cc15a587-f2d9-4ff8-bafe-f2e508206930",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Vale-suggestion.png",
+      "kind": "ghost",
+      "suspect": "S2",
+      "mode": "suggestion",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.007909774780273438
+      },
+      "bytes": 86161,
+      "sha256": "9cb9fbc2a8daae0527de5e535c603fb5244d50d45642adc96f645544ceb7d10e",
+      "assetRef": "@asset:Art/Ghosts/Vale-suggestion.png",
+      "primaryAssetId": "54780f2b-16ca-4d53-8db1-a0c8cbde9bb8",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Ghosts/Vale-truth.png",
+      "kind": "ghost",
+      "suspect": "S2",
+      "mode": "truth",
+      "metrics": {
+        "width": 512,
+        "height": 1024,
+        "brightFraction": 0.002307891845703125
+      },
+      "bytes": 94331,
+      "sha256": "403c9203972a65883c608145caade14f4cc249d79b8a4aa83c4866cb98e62609",
+      "assetRef": "@asset:Art/Ghosts/Vale-truth.png",
+      "primaryAssetId": "734eb3f1-f944-4549-9287-3091d46b7617",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 2097152,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/Props/BrassCandlestick.glb",
+      "kind": "glb",
+      "object": "O2",
+      "heightMeters": 0.34,
+      "triangles": 912,
+      "units": "meters",
+      "bytes": 13284,
+      "sha256": "a7b31e8a7ac9b2a7fa21df1ddd489c7813b72698bcff48b8e221cb5366207f2f",
+      "assetRef": "@asset:Art/Props/BrassCandlestick.glb",
+      "primaryAssetId": "bcaf8d7d-8f54-4192-855a-2f69880b5715",
+      "compression": null,
+      "mipmap": false,
+      "decodedRgbaBytes": 0,
+      "convertMetersToCentimeters": true
+    },
+    {
+      "path": "Assets/Art/Props/ChippedMug.glb",
+      "kind": "glb",
+      "object": "O9",
+      "heightMeters": 0.092,
+      "triangles": 672,
+      "units": "meters",
+      "bytes": 10520,
+      "sha256": "5f791599d5ee56f77633f49d3ee17cda0fd0c83e7bec12557cd0e9988a05387a",
+      "assetRef": "@asset:Art/Props/ChippedMug.glb",
+      "primaryAssetId": "e8c08a07-4015-402d-ba1a-d63a56d5b3a6",
+      "compression": null,
+      "mipmap": false,
+      "decodedRgbaBytes": 0,
+      "convertMetersToCentimeters": true
+    },
+    {
+      "path": "Assets/Art/Props/DictationRecorder.glb",
+      "kind": "glb",
+      "object": "O12",
+      "heightMeters": 0.087,
+      "triangles": 444,
+      "units": "meters",
+      "bytes": 8312,
+      "sha256": "5e8510f97d533108b7968a9470c13acc4214f1f88c6de629534a21f6f35ee9d7",
+      "assetRef": "@asset:Art/Props/DictationRecorder.glb",
+      "primaryAssetId": "a34b6594-80c0-488c-aa01-5ba3f7ecfcae",
+      "compression": null,
+      "mipmap": false,
+      "decodedRgbaBytes": 0,
+      "convertMetersToCentimeters": true
+    },
+    {
+      "path": "Assets/Art/Props/EvidenceClock.glb",
+      "kind": "glb",
+      "object": "O7",
+      "heightMeters": 0.19,
+      "triangles": 468,
+      "units": "meters",
+      "bytes": 9900,
+      "sha256": "3c1ef4e65b8b94c6e49221710273b66292143026bc84df418488dbf66faff646",
+      "assetRef": "@asset:Art/Props/EvidenceClock.glb",
+      "primaryAssetId": "9cc9c1a5-845f-4d5f-ad60-8081d888429e",
+      "compression": null,
+      "mipmap": false,
+      "decodedRgbaBytes": 0,
+      "convertMetersToCentimeters": true
+    },
+    {
+      "path": "Assets/Art/Props/LetterKnife.glb",
+      "kind": "glb",
+      "object": "O3",
+      "heightMeters": 0.32,
+      "triangles": 210,
+      "units": "meters",
+      "bytes": 4316,
+      "sha256": "6a0efba46c761e84fdd0b66b7ff5342c99d0cf98263fc296065f31153521e9b4",
+      "assetRef": "@asset:Art/Props/LetterKnife.glb",
+      "primaryAssetId": "29446163-a97c-4998-90e4-a153f48bc0c3",
+      "compression": null,
+      "mipmap": false,
+      "decodedRgbaBytes": 0,
+      "convertMetersToCentimeters": true
+    },
+    {
+      "path": "Assets/Art/Props/MarbleBookend.glb",
+      "kind": "glb",
+      "object": "O5",
+      "heightMeters": 0.178,
+      "triangles": 36,
+      "units": "meters",
+      "bytes": 2004,
+      "sha256": "7afa031a26dbd3476b7867387cf80950efb09a0627686d33413199a04a1254a2",
+      "assetRef": "@asset:Art/Props/MarbleBookend.glb",
+      "primaryAssetId": "6dbb9db1-d1b8-46a2-a6b9-1d603ce0b0b3",
+      "compression": null,
+      "mipmap": false,
+      "decodedRgbaBytes": 0,
+      "convertMetersToCentimeters": true
+    },
+    {
+      "path": "Assets/Art/UI/ForensicBracket.png",
+      "kind": "frame",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.04815673828125
+      },
+      "bytes": 1140,
+      "sha256": "f2f2e14264d8b9fcf432d9574e74f62ce76a3fd3854149c39870fb5767f5c1bd",
+      "assetRef": "@asset:Art/UI/ForensicBracket.png",
+      "primaryAssetId": "ab889139-66f7-4d22-a387-abe7bfebb406",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Hero/CASE_CLOSED.png",
+      "kind": "hero-word",
+      "word": "CASE CLOSED",
+      "metrics": {
+        "width": 1024,
+        "height": 256,
+        "brightFraction": 0.06650924682617188
+      },
+      "bytes": 45847,
+      "sha256": "7979990623c43c7a258f0ef5d079a4662f0603de5607b1154a1c29ca248fe171",
+      "assetRef": "@asset:Art/UI/Hero/CASE_CLOSED.png",
+      "primaryAssetId": "f5c4971b-833f-4202-a9f9-30281b093946",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1048576,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Hero/OBJECTION.png",
+      "kind": "hero-word",
+      "word": "OBJECTION",
+      "metrics": {
+        "width": 1024,
+        "height": 256,
+        "brightFraction": 0.09497833251953125
+      },
+      "bytes": 43613,
+      "sha256": "3bd7aef68083dceccdc39f47a60e6b4a12bd3a2d7070037975fffe696277325c",
+      "assetRef": "@asset:Art/UI/Hero/OBJECTION.png",
+      "primaryAssetId": "21eb56d0-db10-48a1-8f5b-1ffb6312a5ed",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1048576,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Hero/THE_TRUTH.png",
+      "kind": "hero-word",
+      "word": "THE TRUTH",
+      "metrics": {
+        "width": 1024,
+        "height": 256,
+        "brightFraction": 0.07641220092773438
+      },
+      "bytes": 30268,
+      "sha256": "0ad7d0228b4ca77e071811270b3dc17e2b6cb70df887b193894e4b636e559427",
+      "assetRef": "@asset:Art/UI/Hero/THE_TRUTH.png",
+      "primaryAssetId": "c52504e6-22bf-411b-b535-cd699b28de9b",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1048576,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Accuse.png",
+      "kind": "icon",
+      "id": "Accuse",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.037841796875
+      },
+      "bytes": 2767,
+      "sha256": "a676159bdd976b172f99b817a0c9f26eb674894a07a99df9a70dd378648708b3",
+      "assetRef": "@asset:Art/UI/Icons/Accuse.png",
+      "primaryAssetId": "ba612ffc-28a7-4410-bd3d-b6e3f2172018",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Ask.png",
+      "kind": "icon",
+      "id": "Ask",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.05572509765625
+      },
+      "bytes": 1475,
+      "sha256": "05702caf4f35593ca6e9f8e1dc2ffb51ad73cf497efa8b539ca73942c303dc0c",
+      "assetRef": "@asset:Art/UI/Icons/Ask.png",
+      "primaryAssetId": "ce1c2d6f-f57c-4864-bda4-022ddbe3268f",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Composure.png",
+      "kind": "icon",
+      "id": "Composure",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.05804443359375
+      },
+      "bytes": 3944,
+      "sha256": "00f113b30a60b870ecd7b28dfa1c53a493a595a9b76847ec5f06e9ae873bb216",
+      "assetRef": "@asset:Art/UI/Icons/Composure.png",
+      "primaryAssetId": "71525e3d-3ca4-4c3a-b0cf-52994fceb2de",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Credibility.png",
+      "kind": "icon",
+      "id": "Credibility",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.04736328125
+      },
+      "bytes": 4448,
+      "sha256": "b9355d50df8b2e9d001213238a67d8168e32fc779101948ba74a84d329114663",
+      "assetRef": "@asset:Art/UI/Icons/Credibility.png",
+      "primaryAssetId": "c523493c-9116-49bf-8779-0369190c2acf",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Glare.png",
+      "kind": "icon",
+      "id": "Glare",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.04388427734375
+      },
+      "bytes": 2119,
+      "sha256": "458eafd0e55d219a51736d1f502574aa9f68f9cc395f694dfda62bb74774004e",
+      "assetRef": "@asset:Art/UI/Icons/Glare.png",
+      "primaryAssetId": "66277e9b-e214-4ab1-8a08-deb63840f302",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Glint.png",
+      "kind": "icon",
+      "id": "Glint",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.06085205078125
+      },
+      "bytes": 2986,
+      "sha256": "d43124bd51d0d4382f45e7dff1c2ccd06cfdc0b15dbec6e36b7e874cffd282f4",
+      "assetRef": "@asset:Art/UI/Icons/Glint.png",
+      "primaryAssetId": "8fb2c42c-c522-41ff-8d8f-abe3a111023e",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Glove.png",
+      "kind": "icon",
+      "id": "Glove",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.053955078125
+      },
+      "bytes": 3273,
+      "sha256": "44cd25480ea35f57279021ff96769051ee05abc143292a0aaa4040df157ecb1f",
+      "assetRef": "@asset:Art/UI/Icons/Glove.png",
+      "primaryAssetId": "4be25f27-f6cb-4b74-b019-d2c4775c6f5e",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Hunch.png",
+      "kind": "icon",
+      "id": "Hunch",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.05596923828125
+      },
+      "bytes": 2981,
+      "sha256": "b1a3ca9117efe2c389aba3517ba41d4c5a07f05f78cd41cfc3381d9391cdd763",
+      "assetRef": "@asset:Art/UI/Icons/Hunch.png",
+      "primaryAssetId": "7c89838a-7333-44a9-afff-2910f323751d",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Object.png",
+      "kind": "icon",
+      "id": "Object",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.077880859375
+      },
+      "bytes": 1189,
+      "sha256": "df8db2ed9da3f0e7a0917112182e510cb9bfe18f002f34de7ea6c5d9badfeb8b",
+      "assetRef": "@asset:Art/UI/Icons/Object.png",
+      "primaryAssetId": "010eff8a-e9f5-42f5-aa14-eed24a8327b9",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Present.png",
+      "kind": "icon",
+      "id": "Present",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.07232666015625
+      },
+      "bytes": 953,
+      "sha256": "4bb6fbb7ed204561c9642ea3959a57a4eca3f00cdb2b3b697c6ec9d537b6ca5f",
+      "assetRef": "@asset:Art/UI/Icons/Present.png",
+      "primaryAssetId": "f1bef6d2-36b0-491a-a26c-c1287eab6089",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Press.png",
+      "kind": "icon",
+      "id": "Press",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.07196044921875
+      },
+      "bytes": 842,
+      "sha256": "5150b8ec40abfe693beca937be943d35f71f5457aeb0d9f965dd9cf72ecb1398",
+      "assetRef": "@asset:Art/UI/Icons/Press.png",
+      "primaryAssetId": "449d2947-16ce-4584-b0f2-9104d36c07b3",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Still.png",
+      "kind": "icon",
+      "id": "Still",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.0836181640625
+      },
+      "bytes": 899,
+      "sha256": "6652a7a667f381aafb42e2aefaf5a2d55899049c1cd825d5fe5495ce9b92f17a",
+      "assetRef": "@asset:Art/UI/Icons/Still.png",
+      "primaryAssetId": "97439f64-e845-463f-9ab3-503964ee5118",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/Icons/Suggest.png",
+      "kind": "icon",
+      "id": "Suggest",
+      "metrics": {
+        "width": 128,
+        "height": 128,
+        "brightFraction": 0.0533447265625
+      },
+      "bytes": 3665,
+      "sha256": "b7e2325cd7a65c1fc207a0094222d959ea2676b7e1d1f86b8520cf8ba4a3e3e4",
+      "assetRef": "@asset:Art/UI/Icons/Suggest.png",
+      "primaryAssetId": "0e4d97e0-97d7-40ac-bf4e-e5e93fdd1d4a",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 65536,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/RefutationFrame.png",
+      "kind": "frame",
+      "metrics": {
+        "width": 512,
+        "height": 640,
+        "brightFraction": 0.0165557861328125
+      },
+      "bytes": 4664,
+      "sha256": "2d6ddff3dc832aa0be3565b9f44dcd07b1c71cc0423b4f42643bc448e2e62e7c",
+      "assetRef": "@asset:Art/UI/RefutationFrame.png",
+      "primaryAssetId": "25c2e89f-1f8b-4c2a-8c93-1ad1ea3f8b77",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 1310720,
+      "convertMetersToCentimeters": false
+    },
+    {
+      "path": "Assets/Art/UI/TapeTile.png",
+      "kind": "tile",
+      "metrics": {
+        "width": 512,
+        "height": 64,
+        "brightFraction": 0.205841064453125
+      },
+      "bytes": 2113,
+      "sha256": "635737b7aa502ae8446ab0280fc8831a8c712365901cf5553820049de2234646",
+      "assetRef": "@asset:Art/UI/TapeTile.png",
+      "primaryAssetId": "af398239-93d1-468c-9367-2654deab1f97",
+      "compression": "Medium",
+      "mipmap": false,
+      "decodedRgbaBytes": 131072,
+      "convertMetersToCentimeters": false
+    }
+  ],
+  "totals": {
+    "files": 98,
+    "sourceBytes": 5961439,
+    "decodedRgbaBytes": 108724224,
+    "portraitDecodedRgbaBytes": 41943040
+  }
+}

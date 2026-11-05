@@ -43,4 +43,4 @@
     -
       {}
   InputLines:
-    - '// @input bool stageMode {"hint":"Offline stage demo: bundled hero and authored captions; no gateway requests"}'
+    - '// @input bool stageMode {"hint":"Prepared Stage questions use bundled voices; explicit free questions may use live models"}'

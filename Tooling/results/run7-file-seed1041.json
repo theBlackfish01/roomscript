@@ -1,0 +1,6363 @@
+{
+  "version": 2,
+  "provenance": "Preview LEAF generated file seed 1041 action log with its captured case graph; not a continuous player video",
+  "caseId": "RS-72d38772",
+  "seal": "075b3ea6",
+  "graphHash": "b445a2da",
+  "graph": {
+    "beats": [
+      {
+        "canonical": "A new record confirms: Agnes Reed had a dispute with Cecily March over ambition.",
+        "guaranteed": true,
+        "id": "B_LATENT_0",
+        "minute": 30,
+        "reveals": [
+          "E_LATENT_0"
+        ],
+        "type": "latent_letter",
+        "validated": true
+      },
+      {
+        "canonical": "A new record confirms: Clara Moss concealed debt involving the Lounge at 22:00.",
+        "guaranteed": true,
+        "id": "B_LATENT_1",
+        "minute": 50,
+        "reveals": [
+          "E_LATENT_1"
+        ],
+        "type": "voicemail",
+        "validated": true
+      },
+      {
+        "canonical": "A suspect asks to leave. The clock advances five minutes.",
+        "guaranteed": true,
+        "id": "B_FLIGHT",
+        "minute": 100,
+        "pressureMinutes": 5,
+        "reveals": [],
+        "type": "suspect_wants_to_leave",
+        "validated": true
+      }
+    ],
+    "bodyFound": "22:41",
+    "caseId": "RS-72d38772",
+    "cast": {
+      "suspects": [
+        {
+          "actingNotes": "Measured, warm, then clipped under pressure.",
+          "baseline": {
+            "lieTopic": "borrowed_item",
+            "truthTopic": "background"
+          },
+          "composureMax": 3,
+          "id": "S1",
+          "name": "Agnes Reed",
+          "nicknames": [],
+          "persona": "restorer. Careful with words; fiercely protective of colleagues.",
+          "relations": [
+            {
+              "to": "S2",
+              "type": "rival"
+            }
+          ],
+          "secret": "Agnes forged a restoration certificate to save her apprenticeship.",
+          "tell": "gaze_snap",
+          "tellProp": "brooch",
+          "voice": "alloy"
+        },
+        {
+          "actingNotes": "Low and direct, with short pauses.",
+          "baseline": {
+            "lieTopic": "borrowed_item",
+            "truthTopic": "background"
+          },
+          "composureMax": 2,
+          "id": "S2",
+          "name": "Basil Crane",
+          "nicknames": [],
+          "persona": "porter. Practical and impatient with ceremony.",
+          "relations": [
+            {
+              "to": "S1",
+              "type": "rival"
+            }
+          ],
+          "secret": "Basil took a silver button to settle a small debt.",
+          "tell": "flicker",
+          "tellProp": "lighter",
+          "voice": "ash"
+        },
+        {
+          "actingNotes": "Precise diction and controlled breath.",
+          "baseline": {
+            "lieTopic": "borrowed_item",
+            "truthTopic": "background"
+          },
+          "composureMax": 2,
+          "id": "S3",
+          "name": "Clara Moss",
+          "nicknames": [],
+          "persona": "collector. Polite, proud, and anxious about money.",
+          "relations": [
+            {
+              "to": "S4",
+              "type": "rival"
+            }
+          ],
+          "secret": "Clara concealed a loan secured against her family home.",
+          "tell": "hesitation",
+          "tellProp": "glasses",
+          "voice": "ballad"
+        },
+        {
+          "actingNotes": "Quiet wit; the smile fades when challenged.",
+          "baseline": {
+            "lieTopic": "borrowed_item",
+            "truthTopic": "background"
+          },
+          "composureMax": 2,
+          "id": "S4",
+          "name": "Dorian West",
+          "nicknames": [],
+          "persona": "cataloguer. Observant and dryly humorous.",
+          "relations": [
+            {
+              "to": "S3",
+              "type": "rival"
+            }
+          ],
+          "secret": "Dorian copied a bidder's private letter without permission.",
+          "tell": "ring_spike",
+          "tellProp": "glove",
+          "voice": "coral"
+        }
+      ],
+      "victim": {
+        "id": "V",
+        "name": "Cecily March"
+      }
+    },
+    "clockMinutes": 180,
+    "compilerVersion": "roomscript-compiler-3-memory",
+    "envelope": {
+      "what": "SCAN_1",
+      "where": "Z1",
+      "who": "S1"
+    },
+    "era": "victorian",
+    "evidence": [
+      {
+        "canonical": "A fictional memory in the right speaker: Cecily March was in Study at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "holder": "SCAN_2",
+        "id": "E_F_AT_V_6_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_AT_V_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the record player: Cecily March was in Study at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "holder": "SCAN_1",
+        "id": "E_F_AT_V_6_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_AT_V_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the record player: Agnes Reed was in Study at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "S1",
+          "Z1"
+        ],
+        "holder": "SCAN_1",
+        "id": "E_F_AT_S1_6_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_AT_S1_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the right speaker: Agnes Reed was in Study at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "S1",
+          "Z1"
+        ],
+        "holder": "SCAN_2",
+        "id": "E_F_AT_S1_6_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_AT_S1_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the sofa: Basil Crane was in Lounge at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "S2",
+          "Z3"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_F_AT_S2_6_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_AT_S2_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the coffee table: Basil Crane was in Lounge at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "S2",
+          "Z3"
+        ],
+        "holder": "SCAN_5",
+        "id": "E_F_AT_S2_6_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_AT_S2_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the sofa: Clara Moss was in Lounge at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_F_AT_S3_6_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_AT_S3_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the coffee table: Clara Moss was in Lounge at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "holder": "SCAN_5",
+        "id": "E_F_AT_S3_6_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_AT_S3_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the coffee table: Dorian West was in Lounge at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "S4",
+          "Z3"
+        ],
+        "holder": "SCAN_5",
+        "id": "E_F_AT_S4_6_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_AT_S4_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the sofa: Dorian West was in Lounge at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "S4",
+          "Z3"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_F_AT_S4_6_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_AT_S4_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the right speaker: The record player was in Study at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "SCAN_1",
+          "Z1"
+        ],
+        "holder": "SCAN_2",
+        "id": "E_F_IN_SCAN_1_6_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_IN_SCAN_1_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the record player: The record player was in Study at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "SCAN_1",
+          "Z1"
+        ],
+        "holder": "SCAN_1",
+        "id": "E_F_IN_SCAN_1_6_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_IN_SCAN_1_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the coffee table: The right speaker was in Lounge at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "holder": "SCAN_5",
+        "id": "E_F_IN_SCAN_2_6_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_IN_SCAN_2_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the sofa: The right speaker was in Lounge at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_F_IN_SCAN_2_6_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_IN_SCAN_2_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the coffee table: The coffee table was in Lounge at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "holder": "SCAN_5",
+        "id": "E_F_IN_SCAN_5_6_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_IN_SCAN_5_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the sofa: The coffee table was in Lounge at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_F_IN_SCAN_5_6_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_IN_SCAN_5_6"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the woven chair: Agnes Reed concealed forgery involving the media console at 22:00.",
+        "costMinutes": 30,
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_4",
+        "id": "E_F_SECRET_S1_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_SECRET_S1"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the media console: Agnes Reed concealed forgery involving the media console at 22:00.",
+        "costMinutes": 30,
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_3",
+        "id": "E_F_SECRET_S1_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_SECRET_S1"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the woven chair: Agnes Reed touched the media console.",
+        "costMinutes": 30,
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_4",
+        "id": "E_F_BASE_S1_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_BASE_S1"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the media console: Agnes Reed touched the media console.",
+        "costMinutes": 30,
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_3",
+        "id": "E_F_BASE_S1_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_BASE_S1"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the record player: Agnes Reed had a dispute with Cecily March over ambition.",
+        "costMinutes": 30,
+        "entities": [
+          "S1",
+          "V"
+        ],
+        "holder": "SCAN_1",
+        "id": "E_F_MOTIVE_S1_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_MOTIVE_S1"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the right speaker: Agnes Reed had a dispute with Cecily March over ambition.",
+        "costMinutes": 30,
+        "entities": [
+          "S1",
+          "V"
+        ],
+        "holder": "SCAN_2",
+        "id": "E_F_MOTIVE_S1_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_MOTIVE_S1"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the media console: Basil Crane concealed theft involving the media console at 22:00.",
+        "costMinutes": 30,
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_3",
+        "id": "E_F_SECRET_S2_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_SECRET_S2"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the woven chair: Basil Crane concealed theft involving the media console at 22:00.",
+        "costMinutes": 30,
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_4",
+        "id": "E_F_SECRET_S2_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_SECRET_S2"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the woven chair: Basil Crane touched the media console.",
+        "costMinutes": 30,
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_4",
+        "id": "E_F_BASE_S2_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_BASE_S2"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the media console: Basil Crane touched the media console.",
+        "costMinutes": 30,
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_3",
+        "id": "E_F_BASE_S2_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_BASE_S2"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the sofa: Basil Crane had a dispute with Cecily March over revenge.",
+        "costMinutes": 30,
+        "entities": [
+          "S2",
+          "V"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_F_MOTIVE_S2_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_MOTIVE_S2"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the coffee table: Basil Crane had a dispute with Cecily March over revenge.",
+        "costMinutes": 30,
+        "entities": [
+          "S2",
+          "V"
+        ],
+        "holder": "SCAN_5",
+        "id": "E_F_MOTIVE_S2_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_MOTIVE_S2"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the sofa: Clara Moss concealed debt involving the Lounge at 22:00.",
+        "costMinutes": 30,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_F_SECRET_S3_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_SECRET_S3"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the coffee table: Clara Moss concealed debt involving the Lounge at 22:00.",
+        "costMinutes": 30,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "holder": "SCAN_5",
+        "id": "E_F_SECRET_S3_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_SECRET_S3"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the coffee table: Clara Moss touched the media console.",
+        "costMinutes": 30,
+        "entities": [
+          "S3",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_5",
+        "id": "E_F_BASE_S3_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_BASE_S3"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the sofa: Clara Moss touched the media console.",
+        "costMinutes": 30,
+        "entities": [
+          "S3",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_F_BASE_S3_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_BASE_S3"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the sofa: Clara Moss had a dispute with Cecily March over debt.",
+        "costMinutes": 30,
+        "entities": [
+          "S3",
+          "V"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_F_MOTIVE_S3_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_MOTIVE_S3"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the coffee table: Clara Moss had a dispute with Cecily March over debt.",
+        "costMinutes": 30,
+        "entities": [
+          "S3",
+          "V"
+        ],
+        "holder": "SCAN_5",
+        "id": "E_F_MOTIVE_S3_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_MOTIVE_S3"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the media console: Dorian West concealed eavesdrop involving the media console at 22:00.",
+        "costMinutes": 30,
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_3",
+        "id": "E_F_SECRET_S4_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_SECRET_S4"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the woven chair: Dorian West concealed eavesdrop involving the media console at 22:00.",
+        "costMinutes": 30,
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_4",
+        "id": "E_F_SECRET_S4_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_SECRET_S4"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the media console: Dorian West touched the media console.",
+        "costMinutes": 30,
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_3",
+        "id": "E_F_BASE_S4_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_BASE_S4"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the woven chair: Dorian West touched the media console.",
+        "costMinutes": 30,
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "holder": "SCAN_4",
+        "id": "E_F_BASE_S4_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_BASE_S4"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the sofa: Dorian West had a dispute with Cecily March over coverup.",
+        "costMinutes": 30,
+        "entities": [
+          "S4",
+          "V"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_F_MOTIVE_S4_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_MOTIVE_S4"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the coffee table: Dorian West had a dispute with Cecily March over coverup.",
+        "costMinutes": 30,
+        "entities": [
+          "S4",
+          "V"
+        ],
+        "holder": "SCAN_5",
+        "id": "E_F_MOTIVE_S4_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_MOTIVE_S4"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the record player: Agnes Reed handled the record player at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "S1",
+          "SCAN_1"
+        ],
+        "holder": "SCAN_1",
+        "id": "E_F_MURDER_TOUCH_0",
+        "kind": "object_memory",
+        "proves": [
+          "F_MURDER_TOUCH"
+        ]
+      },
+      {
+        "canonical": "A fictional memory in the right speaker: Agnes Reed handled the record player at 22:30.",
+        "costMinutes": 30,
+        "entities": [
+          "S1",
+          "SCAN_1"
+        ],
+        "holder": "SCAN_2",
+        "id": "E_F_MURDER_TOUCH_1",
+        "kind": "object_memory",
+        "proves": [
+          "F_MURDER_TOUCH"
+        ]
+      },
+      {
+        "beat": "B_LATENT_0",
+        "canonical": "Agnes Reed had a dispute with Cecily March over ambition.",
+        "costMinutes": 0,
+        "entities": [
+          "S1",
+          "V"
+        ],
+        "holder": "SCAN_1",
+        "id": "E_LATENT_0",
+        "kind": "letter",
+        "latent": true,
+        "proves": [
+          "F_MOTIVE_S1"
+        ]
+      },
+      {
+        "beat": "B_LATENT_1",
+        "canonical": "Clara Moss concealed debt involving the Lounge at 22:00.",
+        "costMinutes": 0,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "holder": "SCAN_6",
+        "id": "E_LATENT_1",
+        "kind": "voicemail",
+        "latent": true,
+        "proves": [
+          "F_SECRET_S3"
+        ]
+      }
+    ],
+    "facts": [
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z2"
+        },
+        "canonical": "Cecily March was in Conservatory at 21:00.",
+        "entities": [
+          "V",
+          "Z2"
+        ],
+        "id": "F_AT_V_0",
+        "pred": "at",
+        "slot": 0,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z2"
+        },
+        "canonical": "Cecily March was in Conservatory at 21:15.",
+        "entities": [
+          "V",
+          "Z2"
+        ],
+        "id": "F_AT_V_1",
+        "pred": "at",
+        "slot": 1,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z2"
+        },
+        "canonical": "Cecily March was in Conservatory at 21:30.",
+        "entities": [
+          "V",
+          "Z2"
+        ],
+        "id": "F_AT_V_2",
+        "pred": "at",
+        "slot": 2,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z1"
+        },
+        "canonical": "Cecily March was in Study at 21:45.",
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "F_AT_V_3",
+        "pred": "at",
+        "slot": 3,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z2"
+        },
+        "canonical": "Cecily March was in Conservatory at 22:00.",
+        "entities": [
+          "V",
+          "Z2"
+        ],
+        "id": "F_AT_V_4",
+        "pred": "at",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z1"
+        },
+        "canonical": "Cecily March was in Study at 22:15.",
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "F_AT_V_5",
+        "pred": "at",
+        "slot": 5,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z1"
+        },
+        "canonical": "Cecily March was in Study at 22:30.",
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "F_AT_V_6",
+        "pred": "at",
+        "slot": 6,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z1"
+        },
+        "canonical": "Cecily March was in Study at 22:45.",
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "F_AT_V_7",
+        "pred": "at",
+        "slot": 7,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z1"
+        },
+        "canonical": "Cecily March was in Study at 23:00.",
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "F_AT_V_8",
+        "pred": "at",
+        "slot": 8,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z1"
+        },
+        "canonical": "Cecily March was in Study at 23:15.",
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "F_AT_V_9",
+        "pred": "at",
+        "slot": 9,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z1"
+        },
+        "canonical": "Cecily March was in Study at 23:30.",
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "F_AT_V_10",
+        "pred": "at",
+        "slot": 10,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "V",
+          "zone": "Z1"
+        },
+        "canonical": "Cecily March was in Study at 23:45.",
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "F_AT_V_11",
+        "pred": "at",
+        "slot": 11,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z3"
+        },
+        "canonical": "Agnes Reed was in Lounge at 21:00.",
+        "entities": [
+          "S1",
+          "Z3"
+        ],
+        "id": "F_AT_S1_0",
+        "pred": "at",
+        "slot": 0,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z1"
+        },
+        "canonical": "Agnes Reed was in Study at 21:15.",
+        "entities": [
+          "S1",
+          "Z1"
+        ],
+        "id": "F_AT_S1_1",
+        "pred": "at",
+        "slot": 1,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z3"
+        },
+        "canonical": "Agnes Reed was in Lounge at 21:30.",
+        "entities": [
+          "S1",
+          "Z3"
+        ],
+        "id": "F_AT_S1_2",
+        "pred": "at",
+        "slot": 2,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z3"
+        },
+        "canonical": "Agnes Reed was in Lounge at 21:45.",
+        "entities": [
+          "S1",
+          "Z3"
+        ],
+        "id": "F_AT_S1_3",
+        "pred": "at",
+        "slot": 3,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z2"
+        },
+        "canonical": "Agnes Reed was in Conservatory at 22:00.",
+        "entities": [
+          "S1",
+          "Z2"
+        ],
+        "id": "F_AT_S1_4",
+        "pred": "at",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z1"
+        },
+        "canonical": "Agnes Reed was in Study at 22:15.",
+        "entities": [
+          "S1",
+          "Z1"
+        ],
+        "id": "F_AT_S1_5",
+        "pred": "at",
+        "slot": 5,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z1"
+        },
+        "canonical": "Agnes Reed was in Study at 22:30.",
+        "entities": [
+          "S1",
+          "Z1"
+        ],
+        "id": "F_AT_S1_6",
+        "pred": "at",
+        "slot": 6,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z3"
+        },
+        "canonical": "Agnes Reed was in Lounge at 22:45.",
+        "entities": [
+          "S1",
+          "Z3"
+        ],
+        "id": "F_AT_S1_7",
+        "pred": "at",
+        "slot": 7,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z2"
+        },
+        "canonical": "Agnes Reed was in Conservatory at 23:00.",
+        "entities": [
+          "S1",
+          "Z2"
+        ],
+        "id": "F_AT_S1_8",
+        "pred": "at",
+        "slot": 8,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z2"
+        },
+        "canonical": "Agnes Reed was in Conservatory at 23:15.",
+        "entities": [
+          "S1",
+          "Z2"
+        ],
+        "id": "F_AT_S1_9",
+        "pred": "at",
+        "slot": 9,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z1"
+        },
+        "canonical": "Agnes Reed was in Study at 23:30.",
+        "entities": [
+          "S1",
+          "Z1"
+        ],
+        "id": "F_AT_S1_10",
+        "pred": "at",
+        "slot": 10,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z2"
+        },
+        "canonical": "Agnes Reed was in Conservatory at 23:45.",
+        "entities": [
+          "S1",
+          "Z2"
+        ],
+        "id": "F_AT_S1_11",
+        "pred": "at",
+        "slot": 11,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z1"
+        },
+        "canonical": "Basil Crane was in Study at 21:00.",
+        "entities": [
+          "S2",
+          "Z1"
+        ],
+        "id": "F_AT_S2_0",
+        "pred": "at",
+        "slot": 0,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z3"
+        },
+        "canonical": "Basil Crane was in Lounge at 21:15.",
+        "entities": [
+          "S2",
+          "Z3"
+        ],
+        "id": "F_AT_S2_1",
+        "pred": "at",
+        "slot": 1,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z2"
+        },
+        "canonical": "Basil Crane was in Conservatory at 21:30.",
+        "entities": [
+          "S2",
+          "Z2"
+        ],
+        "id": "F_AT_S2_2",
+        "pred": "at",
+        "slot": 2,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z2"
+        },
+        "canonical": "Basil Crane was in Conservatory at 21:45.",
+        "entities": [
+          "S2",
+          "Z2"
+        ],
+        "id": "F_AT_S2_3",
+        "pred": "at",
+        "slot": 3,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z2"
+        },
+        "canonical": "Basil Crane was in Conservatory at 22:00.",
+        "entities": [
+          "S2",
+          "Z2"
+        ],
+        "id": "F_AT_S2_4",
+        "pred": "at",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z3"
+        },
+        "canonical": "Basil Crane was in Lounge at 22:15.",
+        "entities": [
+          "S2",
+          "Z3"
+        ],
+        "id": "F_AT_S2_5",
+        "pred": "at",
+        "slot": 5,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z3"
+        },
+        "canonical": "Basil Crane was in Lounge at 22:30.",
+        "entities": [
+          "S2",
+          "Z3"
+        ],
+        "id": "F_AT_S2_6",
+        "pred": "at",
+        "slot": 6,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z3"
+        },
+        "canonical": "Basil Crane was in Lounge at 22:45.",
+        "entities": [
+          "S2",
+          "Z3"
+        ],
+        "id": "F_AT_S2_7",
+        "pred": "at",
+        "slot": 7,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z1"
+        },
+        "canonical": "Basil Crane was in Study at 23:00.",
+        "entities": [
+          "S2",
+          "Z1"
+        ],
+        "id": "F_AT_S2_8",
+        "pred": "at",
+        "slot": 8,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z2"
+        },
+        "canonical": "Basil Crane was in Conservatory at 23:15.",
+        "entities": [
+          "S2",
+          "Z2"
+        ],
+        "id": "F_AT_S2_9",
+        "pred": "at",
+        "slot": 9,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z1"
+        },
+        "canonical": "Basil Crane was in Study at 23:30.",
+        "entities": [
+          "S2",
+          "Z1"
+        ],
+        "id": "F_AT_S2_10",
+        "pred": "at",
+        "slot": 10,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S2",
+          "zone": "Z2"
+        },
+        "canonical": "Basil Crane was in Conservatory at 23:45.",
+        "entities": [
+          "S2",
+          "Z2"
+        ],
+        "id": "F_AT_S2_11",
+        "pred": "at",
+        "slot": 11,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z2"
+        },
+        "canonical": "Clara Moss was in Conservatory at 21:00.",
+        "entities": [
+          "S3",
+          "Z2"
+        ],
+        "id": "F_AT_S3_0",
+        "pred": "at",
+        "slot": 0,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z2"
+        },
+        "canonical": "Clara Moss was in Conservatory at 21:15.",
+        "entities": [
+          "S3",
+          "Z2"
+        ],
+        "id": "F_AT_S3_1",
+        "pred": "at",
+        "slot": 1,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z2"
+        },
+        "canonical": "Clara Moss was in Conservatory at 21:30.",
+        "entities": [
+          "S3",
+          "Z2"
+        ],
+        "id": "F_AT_S3_2",
+        "pred": "at",
+        "slot": 2,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z1"
+        },
+        "canonical": "Clara Moss was in Study at 21:45.",
+        "entities": [
+          "S3",
+          "Z1"
+        ],
+        "id": "F_AT_S3_3",
+        "pred": "at",
+        "slot": 3,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z3"
+        },
+        "canonical": "Clara Moss was in Lounge at 22:00.",
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "F_AT_S3_4",
+        "pred": "at",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z3"
+        },
+        "canonical": "Clara Moss was in Lounge at 22:15.",
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "F_AT_S3_5",
+        "pred": "at",
+        "slot": 5,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z3"
+        },
+        "canonical": "Clara Moss was in Lounge at 22:30.",
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "F_AT_S3_6",
+        "pred": "at",
+        "slot": 6,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z2"
+        },
+        "canonical": "Clara Moss was in Conservatory at 22:45.",
+        "entities": [
+          "S3",
+          "Z2"
+        ],
+        "id": "F_AT_S3_7",
+        "pred": "at",
+        "slot": 7,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z2"
+        },
+        "canonical": "Clara Moss was in Conservatory at 23:00.",
+        "entities": [
+          "S3",
+          "Z2"
+        ],
+        "id": "F_AT_S3_8",
+        "pred": "at",
+        "slot": 8,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z2"
+        },
+        "canonical": "Clara Moss was in Conservatory at 23:15.",
+        "entities": [
+          "S3",
+          "Z2"
+        ],
+        "id": "F_AT_S3_9",
+        "pred": "at",
+        "slot": 9,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z1"
+        },
+        "canonical": "Clara Moss was in Study at 23:30.",
+        "entities": [
+          "S3",
+          "Z1"
+        ],
+        "id": "F_AT_S3_10",
+        "pred": "at",
+        "slot": 10,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S3",
+          "zone": "Z2"
+        },
+        "canonical": "Clara Moss was in Conservatory at 23:45.",
+        "entities": [
+          "S3",
+          "Z2"
+        ],
+        "id": "F_AT_S3_11",
+        "pred": "at",
+        "slot": 11,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z1"
+        },
+        "canonical": "Dorian West was in Study at 21:00.",
+        "entities": [
+          "S4",
+          "Z1"
+        ],
+        "id": "F_AT_S4_0",
+        "pred": "at",
+        "slot": 0,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z2"
+        },
+        "canonical": "Dorian West was in Conservatory at 21:15.",
+        "entities": [
+          "S4",
+          "Z2"
+        ],
+        "id": "F_AT_S4_1",
+        "pred": "at",
+        "slot": 1,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z3"
+        },
+        "canonical": "Dorian West was in Lounge at 21:30.",
+        "entities": [
+          "S4",
+          "Z3"
+        ],
+        "id": "F_AT_S4_2",
+        "pred": "at",
+        "slot": 2,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z1"
+        },
+        "canonical": "Dorian West was in Study at 21:45.",
+        "entities": [
+          "S4",
+          "Z1"
+        ],
+        "id": "F_AT_S4_3",
+        "pred": "at",
+        "slot": 3,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z2"
+        },
+        "canonical": "Dorian West was in Conservatory at 22:00.",
+        "entities": [
+          "S4",
+          "Z2"
+        ],
+        "id": "F_AT_S4_4",
+        "pred": "at",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z3"
+        },
+        "canonical": "Dorian West was in Lounge at 22:15.",
+        "entities": [
+          "S4",
+          "Z3"
+        ],
+        "id": "F_AT_S4_5",
+        "pred": "at",
+        "slot": 5,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z3"
+        },
+        "canonical": "Dorian West was in Lounge at 22:30.",
+        "entities": [
+          "S4",
+          "Z3"
+        ],
+        "id": "F_AT_S4_6",
+        "pred": "at",
+        "slot": 6,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z2"
+        },
+        "canonical": "Dorian West was in Conservatory at 22:45.",
+        "entities": [
+          "S4",
+          "Z2"
+        ],
+        "id": "F_AT_S4_7",
+        "pred": "at",
+        "slot": 7,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z1"
+        },
+        "canonical": "Dorian West was in Study at 23:00.",
+        "entities": [
+          "S4",
+          "Z1"
+        ],
+        "id": "F_AT_S4_8",
+        "pred": "at",
+        "slot": 8,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z2"
+        },
+        "canonical": "Dorian West was in Conservatory at 23:15.",
+        "entities": [
+          "S4",
+          "Z2"
+        ],
+        "id": "F_AT_S4_9",
+        "pred": "at",
+        "slot": 9,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z1"
+        },
+        "canonical": "Dorian West was in Study at 23:30.",
+        "entities": [
+          "S4",
+          "Z1"
+        ],
+        "id": "F_AT_S4_10",
+        "pred": "at",
+        "slot": 10,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S4",
+          "zone": "Z1"
+        },
+        "canonical": "Dorian West was in Study at 23:45.",
+        "entities": [
+          "S4",
+          "Z1"
+        ],
+        "id": "F_AT_S4_11",
+        "pred": "at",
+        "slot": 11,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z1"
+        },
+        "canonical": "The record player was in Study at 21:00.",
+        "entities": [
+          "SCAN_1",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_1_0",
+        "pred": "in",
+        "slot": 0,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z2"
+        },
+        "canonical": "The record player was in Conservatory at 21:15.",
+        "entities": [
+          "SCAN_1",
+          "Z2"
+        ],
+        "id": "F_IN_SCAN_1_1",
+        "pred": "in",
+        "slot": 1,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z3"
+        },
+        "canonical": "The record player was in Lounge at 21:30.",
+        "entities": [
+          "SCAN_1",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_1_2",
+        "pred": "in",
+        "slot": 2,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z3"
+        },
+        "canonical": "The record player was in Lounge at 21:45.",
+        "entities": [
+          "SCAN_1",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_1_3",
+        "pred": "in",
+        "slot": 3,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z3"
+        },
+        "canonical": "The record player was in Lounge at 22:00.",
+        "entities": [
+          "SCAN_1",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_1_4",
+        "pred": "in",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z1"
+        },
+        "canonical": "The record player was in Study at 22:15.",
+        "entities": [
+          "SCAN_1",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_1_5",
+        "pred": "in",
+        "slot": 5,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z1"
+        },
+        "canonical": "The record player was in Study at 22:30.",
+        "entities": [
+          "SCAN_1",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_1_6",
+        "pred": "in",
+        "slot": 6,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z1"
+        },
+        "canonical": "The record player was in Study at 22:45.",
+        "entities": [
+          "SCAN_1",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_1_7",
+        "pred": "in",
+        "slot": 7,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z1"
+        },
+        "canonical": "The record player was in Study at 23:00.",
+        "entities": [
+          "SCAN_1",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_1_8",
+        "pred": "in",
+        "slot": 8,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z1"
+        },
+        "canonical": "The record player was in Study at 23:15.",
+        "entities": [
+          "SCAN_1",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_1_9",
+        "pred": "in",
+        "slot": 9,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z1"
+        },
+        "canonical": "The record player was in Study at 23:30.",
+        "entities": [
+          "SCAN_1",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_1_10",
+        "pred": "in",
+        "slot": 10,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "zone": "Z1"
+        },
+        "canonical": "The record player was in Study at 23:45.",
+        "entities": [
+          "SCAN_1",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_1_11",
+        "pred": "in",
+        "slot": 11,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z1"
+        },
+        "canonical": "The right speaker was in Study at 21:00.",
+        "entities": [
+          "SCAN_2",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_2_0",
+        "pred": "in",
+        "slot": 0,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z1"
+        },
+        "canonical": "The right speaker was in Study at 21:15.",
+        "entities": [
+          "SCAN_2",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_2_1",
+        "pred": "in",
+        "slot": 1,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z1"
+        },
+        "canonical": "The right speaker was in Study at 21:30.",
+        "entities": [
+          "SCAN_2",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_2_2",
+        "pred": "in",
+        "slot": 2,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z1"
+        },
+        "canonical": "The right speaker was in Study at 21:45.",
+        "entities": [
+          "SCAN_2",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_2_3",
+        "pred": "in",
+        "slot": 3,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z1"
+        },
+        "canonical": "The right speaker was in Study at 22:00.",
+        "entities": [
+          "SCAN_2",
+          "Z1"
+        ],
+        "id": "F_IN_SCAN_2_4",
+        "pred": "in",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z3"
+        },
+        "canonical": "The right speaker was in Lounge at 22:15.",
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_2_5",
+        "pred": "in",
+        "slot": 5,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z3"
+        },
+        "canonical": "The right speaker was in Lounge at 22:30.",
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_2_6",
+        "pred": "in",
+        "slot": 6,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z3"
+        },
+        "canonical": "The right speaker was in Lounge at 22:45.",
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_2_7",
+        "pred": "in",
+        "slot": 7,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z3"
+        },
+        "canonical": "The right speaker was in Lounge at 23:00.",
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_2_8",
+        "pred": "in",
+        "slot": 8,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z3"
+        },
+        "canonical": "The right speaker was in Lounge at 23:15.",
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_2_9",
+        "pred": "in",
+        "slot": 9,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z3"
+        },
+        "canonical": "The right speaker was in Lounge at 23:30.",
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_2_10",
+        "pred": "in",
+        "slot": 10,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_2",
+          "zone": "Z3"
+        },
+        "canonical": "The right speaker was in Lounge at 23:45.",
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_2_11",
+        "pred": "in",
+        "slot": 11,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 21:00.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_0",
+        "pred": "in",
+        "slot": 0,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 21:15.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_1",
+        "pred": "in",
+        "slot": 1,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 21:30.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_2",
+        "pred": "in",
+        "slot": 2,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 21:45.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_3",
+        "pred": "in",
+        "slot": 3,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 22:00.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_4",
+        "pred": "in",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 22:15.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_5",
+        "pred": "in",
+        "slot": 5,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 22:30.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_6",
+        "pred": "in",
+        "slot": 6,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 22:45.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_7",
+        "pred": "in",
+        "slot": 7,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 23:00.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_8",
+        "pred": "in",
+        "slot": 8,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 23:15.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_9",
+        "pred": "in",
+        "slot": 9,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 23:30.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_10",
+        "pred": "in",
+        "slot": 10,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_5",
+          "zone": "Z3"
+        },
+        "canonical": "The coffee table was in Lounge at 23:45.",
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "F_IN_SCAN_5_11",
+        "pred": "in",
+        "slot": 11,
+        "truth": true
+      },
+      {
+        "args": {
+          "key": "secret",
+          "obj": "S1",
+          "value": "forgery"
+        },
+        "canonical": "Agnes Reed concealed forgery involving the media console at 22:00.",
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "id": "F_SECRET_S1",
+        "pred": "state",
+        "slot": 4,
+        "suspicious": false,
+        "truth": true
+      },
+      {
+        "args": {
+          "key": "touched_fixture",
+          "obj": "S1",
+          "value": "SCAN_3"
+        },
+        "canonical": "Agnes Reed touched the media console.",
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "id": "F_BASE_S1",
+        "pred": "state",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "strength": 3,
+          "type": "ambition",
+          "who": "S1"
+        },
+        "canonical": "Agnes Reed had a dispute with Cecily March over ambition.",
+        "entities": [
+          "S1",
+          "V"
+        ],
+        "id": "F_MOTIVE_S1",
+        "pred": "motive",
+        "truth": true
+      },
+      {
+        "args": {
+          "key": "secret",
+          "obj": "S2",
+          "value": "theft"
+        },
+        "canonical": "Basil Crane concealed theft involving the media console at 22:00.",
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "id": "F_SECRET_S2",
+        "pred": "state",
+        "slot": 4,
+        "suspicious": true,
+        "truth": true
+      },
+      {
+        "args": {
+          "key": "touched_fixture",
+          "obj": "S2",
+          "value": "SCAN_3"
+        },
+        "canonical": "Basil Crane touched the media console.",
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "id": "F_BASE_S2",
+        "pred": "state",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "strength": 2,
+          "type": "revenge",
+          "who": "S2"
+        },
+        "canonical": "Basil Crane had a dispute with Cecily March over revenge.",
+        "entities": [
+          "S2",
+          "V"
+        ],
+        "id": "F_MOTIVE_S2",
+        "pred": "motive",
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "who": "S2"
+        },
+        "canonical": "Basil Crane handled the record player before the final interval.",
+        "entities": [
+          "S2",
+          "SCAN_1"
+        ],
+        "id": "F_HANDLED_S2",
+        "pred": "touched",
+        "slot": 0,
+        "truth": true
+      },
+      {
+        "args": {
+          "key": "secret",
+          "obj": "S3",
+          "value": "debt"
+        },
+        "canonical": "Clara Moss concealed debt involving the Lounge at 22:00.",
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "F_SECRET_S3",
+        "pred": "state",
+        "slot": 4,
+        "suspicious": true,
+        "truth": true
+      },
+      {
+        "args": {
+          "key": "touched_fixture",
+          "obj": "S3",
+          "value": "SCAN_3"
+        },
+        "canonical": "Clara Moss touched the media console.",
+        "entities": [
+          "S3",
+          "SCAN_3"
+        ],
+        "id": "F_BASE_S3",
+        "pred": "state",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "strength": 2,
+          "type": "debt",
+          "who": "S3"
+        },
+        "canonical": "Clara Moss had a dispute with Cecily March over debt.",
+        "entities": [
+          "S3",
+          "V"
+        ],
+        "id": "F_MOTIVE_S3",
+        "pred": "motive",
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "who": "S3"
+        },
+        "canonical": "Clara Moss handled the record player before the final interval.",
+        "entities": [
+          "S3",
+          "SCAN_1"
+        ],
+        "id": "F_HANDLED_S3",
+        "pred": "touched",
+        "slot": 1,
+        "truth": true
+      },
+      {
+        "args": {
+          "key": "secret",
+          "obj": "S4",
+          "value": "eavesdrop"
+        },
+        "canonical": "Dorian West concealed eavesdrop involving the media console at 22:00.",
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "id": "F_SECRET_S4",
+        "pred": "state",
+        "slot": 4,
+        "suspicious": true,
+        "truth": true
+      },
+      {
+        "args": {
+          "key": "touched_fixture",
+          "obj": "S4",
+          "value": "SCAN_3"
+        },
+        "canonical": "Dorian West touched the media console.",
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "id": "F_BASE_S4",
+        "pred": "state",
+        "slot": 4,
+        "truth": true
+      },
+      {
+        "args": {
+          "strength": 2,
+          "type": "coverup",
+          "who": "S4"
+        },
+        "canonical": "Dorian West had a dispute with Cecily March over coverup.",
+        "entities": [
+          "S4",
+          "V"
+        ],
+        "id": "F_MOTIVE_S4",
+        "pred": "motive",
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "who": "S4"
+        },
+        "canonical": "Dorian West handled the record player before the final interval.",
+        "entities": [
+          "S4",
+          "SCAN_1"
+        ],
+        "id": "F_HANDLED_S4",
+        "pred": "touched",
+        "slot": 2,
+        "truth": true
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "who": "S1"
+        },
+        "canonical": "Agnes Reed handled the record player at 22:30.",
+        "entities": [
+          "S1",
+          "SCAN_1"
+        ],
+        "id": "F_MURDER_TOUCH",
+        "pred": "touched",
+        "slot": 6,
+        "truth": true
+      },
+      {
+        "args": {
+          "who": "S1",
+          "zone": "Z2"
+        },
+        "canonical": "Agnes Reed was in Conservatory at 22:30.",
+        "entities": [
+          "S1",
+          "Z1"
+        ],
+        "id": "F_COVER_S1",
+        "pred": "at",
+        "slot": 6,
+        "truth": false
+      },
+      {
+        "args": {
+          "obj": "SCAN_1",
+          "who": "S1"
+        },
+        "canonical": "Agnes Reed did not handle the record player at 22:30.",
+        "entities": [
+          "S1",
+          "SCAN_1"
+        ],
+        "id": "F_DENIED_TOUCH",
+        "pred": "not_touched",
+        "slot": 6,
+        "truth": false
+      },
+      {
+        "args": {
+          "key": "secret",
+          "obj": "S1",
+          "value": "denied"
+        },
+        "canonical": "I was attending to my own business.",
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "id": "F_SECRET_S1_DENIAL",
+        "pred": "state",
+        "slot": 4,
+        "suspicious": false,
+        "truth": false
+      },
+      {
+        "args": {
+          "key": "touched_fixture",
+          "obj": "S1",
+          "value": "denied"
+        },
+        "canonical": "I did not touch the item.",
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "id": "F_BASE_S1_DENIAL",
+        "pred": "state",
+        "slot": 4,
+        "truth": false
+      },
+      {
+        "args": {
+          "key": "secret",
+          "obj": "S2",
+          "value": "denied"
+        },
+        "canonical": "I was attending to my own business.",
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "id": "F_SECRET_S2_DENIAL",
+        "pred": "state",
+        "slot": 4,
+        "suspicious": true,
+        "truth": false
+      },
+      {
+        "args": {
+          "key": "touched_fixture",
+          "obj": "S2",
+          "value": "denied"
+        },
+        "canonical": "I did not touch the item.",
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "id": "F_BASE_S2_DENIAL",
+        "pred": "state",
+        "slot": 4,
+        "truth": false
+      },
+      {
+        "args": {
+          "key": "secret",
+          "obj": "S3",
+          "value": "denied"
+        },
+        "canonical": "I was attending to my own business.",
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "F_SECRET_S3_DENIAL",
+        "pred": "state",
+        "slot": 4,
+        "suspicious": true,
+        "truth": false
+      },
+      {
+        "args": {
+          "key": "touched_fixture",
+          "obj": "S3",
+          "value": "denied"
+        },
+        "canonical": "I did not touch the item.",
+        "entities": [
+          "S3",
+          "SCAN_3"
+        ],
+        "id": "F_BASE_S3_DENIAL",
+        "pred": "state",
+        "slot": 4,
+        "truth": false
+      },
+      {
+        "args": {
+          "key": "secret",
+          "obj": "S4",
+          "value": "denied"
+        },
+        "canonical": "I was attending to my own business.",
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "id": "F_SECRET_S4_DENIAL",
+        "pred": "state",
+        "slot": 4,
+        "suspicious": true,
+        "truth": false
+      },
+      {
+        "args": {
+          "key": "touched_fixture",
+          "obj": "S4",
+          "value": "denied"
+        },
+        "canonical": "I did not touch the item.",
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "id": "F_BASE_S4_DENIAL",
+        "pred": "state",
+        "slot": 4,
+        "truth": false
+      }
+    ],
+    "murderSlot": 6,
+    "performances": {
+      "register": [
+        {
+          "id": "S1:opener",
+          "kind": "opener",
+          "suspect": "S1",
+          "text": "Well, detective."
+        },
+        {
+          "id": "S1:tail",
+          "kind": "tail",
+          "suspect": "S1",
+          "text": "Write that down."
+        },
+        {
+          "id": "S2:opener",
+          "kind": "opener",
+          "suspect": "S2",
+          "text": "Well, detective."
+        },
+        {
+          "id": "S2:tail",
+          "kind": "tail",
+          "suspect": "S2",
+          "text": "Write that down."
+        },
+        {
+          "id": "S3:opener",
+          "kind": "opener",
+          "suspect": "S3",
+          "text": "Well, detective."
+        },
+        {
+          "id": "S3:tail",
+          "kind": "tail",
+          "suspect": "S3",
+          "text": "Write that down."
+        },
+        {
+          "id": "S4:opener",
+          "kind": "opener",
+          "suspect": "S4",
+          "text": "Well, detective."
+        },
+        {
+          "id": "S4:tail",
+          "kind": "tail",
+          "suspect": "S4",
+          "text": "Write that down."
+        }
+      ],
+      "variants": [
+        {
+          "emotion": "guarded",
+          "id": "generated:a712fded",
+          "mode": "answer",
+          "ref": "rf17ff2a1d235c70d",
+          "suspect": "S1",
+          "text": "I was in Conservatory at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:ea5c0a2a",
+          "mode": "broken",
+          "ref": "rf17ff2a1d235c70d",
+          "suspect": "S1",
+          "text": "I was in Conservatory at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:4ed291c6",
+          "mode": "press",
+          "ref": "r92301678f9c1b9f4",
+          "suspect": "S1",
+          "text": "I was in Conservatory at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:e0ed5515",
+          "mode": "answer",
+          "ref": "rf07ff10ed135c57a",
+          "suspect": "S1",
+          "text": "I was in Study at 22:30. I did not handle the record player at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:c607f952",
+          "mode": "broken",
+          "ref": "rf07ff10ed135c57a",
+          "suspect": "S1",
+          "text": "I was in Study at 22:30. I did not handle the record player at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:d1ee649c",
+          "mode": "press",
+          "ref": "r9330180bfac1bb87",
+          "suspect": "S1",
+          "text": "I was in Study at 22:30. I did not handle the record player at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:9c0017b9",
+          "mode": "answer",
+          "ref": "ref7fef7bd035c3e7",
+          "suspect": "S1",
+          "text": "I was in Study at 22:30. I handled the record player at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:13e08606",
+          "mode": "broken",
+          "ref": "ref7fef7bd035c3e7",
+          "suspect": "S1",
+          "text": "I was in Study at 22:30. I handled the record player at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:82e30ee6",
+          "mode": "press",
+          "ref": "r9430199efbc1bd1a",
+          "suspect": "S1",
+          "text": "I was in Study at 22:30. I handled the record player at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:d2b96d8f",
+          "mode": "answer",
+          "ref": "r50e16b262230af92",
+          "suspect": "S1",
+          "text": "I had a dispute with Cecily March over ambition."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:50ace410",
+          "mode": "broken",
+          "ref": "r50e16b262230af92",
+          "suspect": "S1",
+          "text": "I had a dispute with Cecily March over ambition."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:89a8cef1",
+          "mode": "press",
+          "ref": "r9e7b87b197e6081d",
+          "suspect": "S1",
+          "text": "I had a dispute with Cecily March over ambition."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:d2ce9676",
+          "mode": "answer",
+          "ref": "rddfd7b3ddb875191",
+          "suspect": "S1",
+          "text": "Basil Crane was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:abbbdd51",
+          "mode": "broken",
+          "ref": "rddfd7b3ddb875191",
+          "suspect": "S1",
+          "text": "Basil Crane was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:3a53b382",
+          "mode": "press",
+          "ref": "r5ee64cf6f18cbf5a",
+          "suspect": "S1",
+          "text": "Basil Crane was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:34bad915",
+          "mode": "answer",
+          "ref": "rb9243872b6103e06",
+          "suspect": "S1",
+          "text": "Clara Moss was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:19d57d52",
+          "mode": "broken",
+          "ref": "rb9243872b6103e06",
+          "suspect": "S1",
+          "text": "Clara Moss was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:fc8a8b53",
+          "mode": "press",
+          "ref": "r03bec64176650645",
+          "suspect": "S1",
+          "text": "Clara Moss was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:5f8d3593",
+          "mode": "answer",
+          "ref": "rbcee7e3faff9f91b",
+          "suspect": "S1",
+          "text": "Dorian West was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:c75ae314",
+          "mode": "broken",
+          "ref": "rbcee7e3faff9f91b",
+          "suspect": "S1",
+          "text": "Dorian West was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:5be40650",
+          "mode": "press",
+          "ref": "rb3582b004fdf281c",
+          "suspect": "S1",
+          "text": "Dorian West was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:860eed3f",
+          "mode": "answer",
+          "ref": "r3f53862e3d9b315a",
+          "suspect": "S1",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:5e33fb00",
+          "mode": "broken",
+          "ref": "r3f53862e3d9b315a",
+          "suspect": "S1",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:26a3f870",
+          "mode": "press",
+          "ref": "r0758314179ec4a8d",
+          "suspect": "S1",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:51eb9f5c",
+          "mode": "answer",
+          "ref": "raf792ebde0eeffa1",
+          "suspect": "S1",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:fdbc8ebb",
+          "mode": "broken",
+          "ref": "raf792ebde0eeffa1",
+          "suspect": "S1",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:7e87da83",
+          "mode": "press",
+          "ref": "r52d0b1906d29b0a4",
+          "suspect": "S1",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:bd8cc4cc",
+          "mode": "answer",
+          "ref": "r08f2871490886460",
+          "suspect": "S1",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:78c094eb",
+          "mode": "broken",
+          "ref": "r08f2871490886460",
+          "suspect": "S1",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:f6b28396",
+          "mode": "press",
+          "ref": "ra3d51d9114ed8ccd",
+          "suspect": "S1",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:407fdedb",
+          "mode": "answer",
+          "ref": "r09c406dc352969c8",
+          "suspect": "S1",
+          "text": "I had a dispute with Cecily March over ambition."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:70d3539c",
+          "mode": "broken",
+          "ref": "r09c406dc352969c8",
+          "suspect": "S1",
+          "text": "I had a dispute with Cecily March over ambition."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:70f256da",
+          "mode": "press",
+          "ref": "rc2e1ec07ea2f53c3",
+          "suspect": "S1",
+          "text": "I had a dispute with Cecily March over ambition."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:d4cdf9c2",
+          "mode": "answer",
+          "ref": "r48dd401f89e3621b",
+          "suspect": "S1",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:7942f14d",
+          "mode": "broken",
+          "ref": "r48dd401f89e3621b",
+          "suspect": "S1",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:9412cace",
+          "mode": "press",
+          "ref": "raa4031723382ac2e",
+          "suspect": "S1",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:c91ab681",
+          "mode": "answer",
+          "ref": "rd4207764b0738798",
+          "suspect": "S1",
+          "text": "I concealed forgery involving the media console at 22:00."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:214a9bee",
+          "mode": "broken",
+          "ref": "rd4207764b0738798",
+          "suspect": "S1",
+          "text": "I concealed forgery involving the media console at 22:00."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:8fc11c0a",
+          "mode": "press",
+          "ref": "re0a418e1e6956c45",
+          "suspect": "S1",
+          "text": "I concealed forgery involving the media console at 22:00."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:82cb7726",
+          "mode": "answer",
+          "ref": "r2e48ecca976fe13e",
+          "suspect": "S1",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:fb6eba41",
+          "mode": "broken",
+          "ref": "r2e48ecca976fe13e",
+          "suspect": "S1",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:e27652a0",
+          "mode": "press",
+          "ref": "r99a50d1b5990b71f",
+          "suspect": "S1",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:973649a2",
+          "mode": "answer",
+          "ref": "r3e4c914952488f95",
+          "suspect": "S1",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:67ebe52d",
+          "mode": "broken",
+          "ref": "r3e4c914952488f95",
+          "suspect": "S1",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:81767035",
+          "mode": "press",
+          "ref": "ra6cfda98bd803664",
+          "suspect": "S1",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:62018879",
+          "mode": "answer",
+          "ref": "r89d692b8a9893494",
+          "suspect": "S2",
+          "text": "I was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:1bc7e7c6",
+          "mode": "broken",
+          "ref": "r89d692b8a9893494",
+          "suspect": "S2",
+          "text": "I was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:5adb2e10",
+          "mode": "press",
+          "ref": "r81c77c6137cafc6d",
+          "suspect": "S2",
+          "text": "I was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:5057975a",
+          "mode": "answer",
+          "ref": "ref9be5f10a647d3d",
+          "suspect": "S2",
+          "text": "I had a dispute with Cecily March over revenge."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:abef8045",
+          "mode": "broken",
+          "ref": "ref9be5f10a647d3d",
+          "suspect": "S2",
+          "text": "I had a dispute with Cecily March over revenge."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:91c537c2",
+          "mode": "press",
+          "ref": "r5a54b6e664187f72",
+          "suspect": "S2",
+          "text": "I had a dispute with Cecily March over revenge."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:993514da",
+          "mode": "answer",
+          "ref": "r6978eb019a4f7665",
+          "suspect": "S2",
+          "text": "Clara Moss was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:f4ccfdc5",
+          "mode": "broken",
+          "ref": "r6978eb019a4f7665",
+          "suspect": "S2",
+          "text": "Clara Moss was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:0cb56be7",
+          "mode": "press",
+          "ref": "r3b0ed7b231969166",
+          "suspect": "S2",
+          "text": "Clara Moss was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:5f88d01b",
+          "mode": "answer",
+          "ref": "r1b8cb8c0f28b9a3c",
+          "suspect": "S2",
+          "text": "Dorian West was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:65dbeedc",
+          "mode": "broken",
+          "ref": "r1b8cb8c0f28b9a3c",
+          "suspect": "S2",
+          "text": "Dorian West was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:6ddaa4e5",
+          "mode": "press",
+          "ref": "r3ed91d7facbe4a7b",
+          "suspect": "S2",
+          "text": "Dorian West was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:11d55a72",
+          "mode": "answer",
+          "ref": "re5c5b481143190ad",
+          "suspect": "S2",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:4aa613bd",
+          "mode": "broken",
+          "ref": "re5c5b481143190ad",
+          "suspect": "S2",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:ff7e37e4",
+          "mode": "press",
+          "ref": "ra6f4b9eeba7109ba",
+          "suspect": "S2",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:86744494",
+          "mode": "answer",
+          "ref": "r3c6de750d3bfdd44",
+          "suspect": "S2",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:558f7b73",
+          "mode": "broken",
+          "ref": "r3c6de750d3bfdd44",
+          "suspect": "S2",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:89d0cbe4",
+          "mode": "press",
+          "ref": "r0b6a6cfd4146e401",
+          "suspect": "S2",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:7db5dd85",
+          "mode": "answer",
+          "ref": "r8af7ea517a4684ed",
+          "suspect": "S2",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:130bb002",
+          "mode": "broken",
+          "ref": "r8af7ea517a4684ed",
+          "suspect": "S2",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:6484b891",
+          "mode": "press",
+          "ref": "r64e3c554f35ab1c0",
+          "suspect": "S2",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:8ac8f473",
+          "mode": "answer",
+          "ref": "rdd5fb54731d7e2e3",
+          "suspect": "S2",
+          "text": "I had a dispute with Cecily March over revenge."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:0be356f4",
+          "mode": "broken",
+          "ref": "rdd5fb54731d7e2e3",
+          "suspect": "S2",
+          "text": "I had a dispute with Cecily March over revenge."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:015311a5",
+          "mode": "press",
+          "ref": "re9f3839c8ab848a8",
+          "suspect": "S2",
+          "text": "I had a dispute with Cecily March over revenge."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:7cc68b4f",
+          "mode": "answer",
+          "ref": "r443390b2364320ce",
+          "suspect": "S2",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:3a2589d0",
+          "mode": "broken",
+          "ref": "r443390b2364320ce",
+          "suspect": "S2",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:2ff14687",
+          "mode": "press",
+          "ref": "re7c191dfa26953fb",
+          "suspect": "S2",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:5afd224b",
+          "mode": "answer",
+          "ref": "r965f1f214a347c65",
+          "suspect": "S2",
+          "text": "I concealed theft involving the media console at 22:00."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:2184380c",
+          "mode": "broken",
+          "ref": "r965f1f214a347c65",
+          "suspect": "S2",
+          "text": "I concealed theft involving the media console at 22:00."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:e1653a74",
+          "mode": "press",
+          "ref": "r00b8e324f9627cf8",
+          "suspect": "S2",
+          "text": "I concealed theft involving the media console at 22:00."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:942ba7a3",
+          "mode": "answer",
+          "ref": "ra60d1e5bf482afff",
+          "suspect": "S2",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:0e2f3724",
+          "mode": "broken",
+          "ref": "ra60d1e5bf482afff",
+          "suspect": "S2",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:16473889",
+          "mode": "press",
+          "ref": "r88204e8a67d0c45e",
+          "suspect": "S2",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:68ab4f04",
+          "mode": "answer",
+          "ref": "r805164d86ad899c4",
+          "suspect": "S2",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:7b757563",
+          "mode": "broken",
+          "ref": "r805164d86ad899c4",
+          "suspect": "S2",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:0f509849",
+          "mode": "press",
+          "ref": "re036e10997877a35",
+          "suspect": "S2",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:a0b9af96",
+          "mode": "answer",
+          "ref": "r9ca490fbb0023b57",
+          "suspect": "S3",
+          "text": "I was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:a36d3171",
+          "mode": "broken",
+          "ref": "r9ca490fbb0023b57",
+          "suspect": "S3",
+          "text": "I was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:a4444632",
+          "mode": "press",
+          "ref": "r5c83549e9f20426a",
+          "suspect": "S3",
+          "text": "I was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:81bafc7e",
+          "mode": "answer",
+          "ref": "r2b1a0fd4712539d0",
+          "suspect": "S3",
+          "text": "I had a dispute with Cecily March over debt."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:fd26cfd9",
+          "mode": "broken",
+          "ref": "r2b1a0fd4712539d0",
+          "suspect": "S3",
+          "text": "I had a dispute with Cecily March over debt."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:4811d311",
+          "mode": "press",
+          "ref": "rfdb943836b7d526f",
+          "suspect": "S3",
+          "text": "I had a dispute with Cecily March over debt."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:7d4a68ad",
+          "mode": "answer",
+          "ref": "rd9e9945b8372ae7f",
+          "suspect": "S3",
+          "text": "Basil Crane was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:1bc61aea",
+          "mode": "broken",
+          "ref": "rd9e9945b8372ae7f",
+          "suspect": "S3",
+          "text": "Basil Crane was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:c8446d59",
+          "mode": "press",
+          "ref": "rf4f65650da9ea434",
+          "suspect": "S3",
+          "text": "Basil Crane was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:94d344da",
+          "mode": "answer",
+          "ref": "r02fc83d1a481ab7d",
+          "suspect": "S3",
+          "text": "Dorian West was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:f06b2dc5",
+          "mode": "broken",
+          "ref": "r02fc83d1a481ab7d",
+          "suspect": "S3",
+          "text": "Dorian West was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:aba3d9e4",
+          "mode": "press",
+          "ref": "r1e0945c65c4c0912",
+          "suspect": "S3",
+          "text": "Dorian West was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:54db9708",
+          "mode": "answer",
+          "ref": "r9710b6c81571bd54",
+          "suspect": "S3",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:b7802c27",
+          "mode": "broken",
+          "ref": "r9710b6c81571bd54",
+          "suspect": "S3",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:3cc85ae1",
+          "mode": "press",
+          "ref": "rb3cbe377038b7f03",
+          "suspect": "S3",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:307617f1",
+          "mode": "answer",
+          "ref": "r38febbaf65da6b23",
+          "suspect": "S3",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:b44cfcde",
+          "mode": "broken",
+          "ref": "r38febbaf65da6b23",
+          "suspect": "S3",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:74358f9a",
+          "mode": "press",
+          "ref": "rf57f9f6eccc18062",
+          "suspect": "S3",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:c46e17cc",
+          "mode": "answer",
+          "ref": "r353475e20bf018ee",
+          "suspect": "S3",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:7fa1e7eb",
+          "mode": "broken",
+          "ref": "r353475e20bf018ee",
+          "suspect": "S3",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:bbbacdab",
+          "mode": "press",
+          "ref": "r4f69f1a3d08bc62f",
+          "suspect": "S3",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:6cfc38dd",
+          "mode": "answer",
+          "ref": "ra031def6b188c192",
+          "suspect": "S3",
+          "text": "I had a dispute with Cecily March over debt."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:93e7d61a",
+          "mode": "broken",
+          "ref": "ra031def6b188c192",
+          "suspect": "S3",
+          "text": "I had a dispute with Cecily March over debt."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:d0692459",
+          "mode": "press",
+          "ref": "rdda3416503f8f871",
+          "suspect": "S3",
+          "text": "I had a dispute with Cecily March over debt."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:bf241188",
+          "mode": "answer",
+          "ref": "rb972673d852de3a9",
+          "suspect": "S3",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:21c8a6a7",
+          "mode": "broken",
+          "ref": "rb972673d852de3a9",
+          "suspect": "S3",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:70292c74",
+          "mode": "press",
+          "ref": "rb67e2aa4468a2010",
+          "suspect": "S3",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:a3db773c",
+          "mode": "answer",
+          "ref": "r2f10e07a8edf4d1e",
+          "suspect": "S3",
+          "text": "I concealed debt involving the Lounge at 22:00."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:f96e929b",
+          "mode": "broken",
+          "ref": "r2f10e07a8edf4d1e",
+          "suspect": "S3",
+          "text": "I concealed debt involving the Lounge at 22:00."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:a3450d99",
+          "mode": "press",
+          "ref": "r4c48ee0b2ca87c4f",
+          "suspect": "S3",
+          "text": "I concealed debt involving the Lounge at 22:00."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:87f6b20f",
+          "mode": "answer",
+          "ref": "r851b1b2cfc3ddf40",
+          "suspect": "S3",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:05ea2890",
+          "mode": "broken",
+          "ref": "r851b1b2cfc3ddf40",
+          "suspect": "S3",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:d94ef978",
+          "mode": "press",
+          "ref": "r346e6bf146d27ef5",
+          "suspect": "S3",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:7766bb5b",
+          "mode": "answer",
+          "ref": "r0d79f603b15c9abf",
+          "suspect": "S3",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:a7ba301c",
+          "mode": "broken",
+          "ref": "r0d79f603b15c9abf",
+          "suspect": "S3",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:04cb96bc",
+          "mode": "press",
+          "ref": "r8afff6f62798af62",
+          "suspect": "S3",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:02b561ba",
+          "mode": "answer",
+          "ref": "r4b70080230c9a6e6",
+          "suspect": "S4",
+          "text": "I was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:18c317a5",
+          "mode": "broken",
+          "ref": "r4b70080230c9a6e6",
+          "suspect": "S4",
+          "text": "I was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:c9c80274",
+          "mode": "press",
+          "ref": "rdd77536f1b378163",
+          "suspect": "S4",
+          "text": "I was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:fdc5df2b",
+          "mode": "answer",
+          "ref": "r09e57b27f00f27eb",
+          "suspect": "S4",
+          "text": "I had a dispute with Cecily March over coverup."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:3cdcd0ec",
+          "mode": "broken",
+          "ref": "r09e57b27f00f27eb",
+          "suspect": "S4",
+          "text": "I had a dispute with Cecily March over coverup."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:be390de4",
+          "mode": "press",
+          "ref": "r4453eca80e75ccbc",
+          "suspect": "S4",
+          "text": "I had a dispute with Cecily March over coverup."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:fc49c574",
+          "mode": "answer",
+          "ref": "r1bcbca1c5d5f25c8",
+          "suspect": "S4",
+          "text": "Basil Crane was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:b2184753",
+          "mode": "broken",
+          "ref": "r1bcbca1c5d5f25c8",
+          "suspect": "S4",
+          "text": "Basil Crane was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:870ed592",
+          "mode": "press",
+          "ref": "raade43670c8f91f3",
+          "suspect": "S4",
+          "text": "Basil Crane was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:da0d845d",
+          "mode": "answer",
+          "ref": "r4142dda762383633",
+          "suspect": "S4",
+          "text": "Clara Moss was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:00f9219a",
+          "mode": "broken",
+          "ref": "r4142dda762383633",
+          "suspect": "S4",
+          "text": "Clara Moss was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:e0229e20",
+          "mode": "press",
+          "ref": "r85672fdc07b68188",
+          "suspect": "S4",
+          "text": "Clara Moss was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:e4c6710a",
+          "mode": "answer",
+          "ref": "r8d565a7be4e2219f",
+          "suspect": "S4",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:be15d0b5",
+          "mode": "broken",
+          "ref": "r8d565a7be4e2219f",
+          "suspect": "S4",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:aa3e8d78",
+          "mode": "press",
+          "ref": "rd7f9a16ceff6a710",
+          "suspect": "S4",
+          "text": "Cecily March was in Study at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:d805c1ba",
+          "mode": "answer",
+          "ref": "r452bac8aa064a006",
+          "suspect": "S4",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:ee1377a5",
+          "mode": "broken",
+          "ref": "r452bac8aa064a006",
+          "suspect": "S4",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:f65098b3",
+          "mode": "press",
+          "ref": "rd4caceab47cfdae7",
+          "suspect": "S4",
+          "text": "The right speaker was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:4e2277fa",
+          "mode": "answer",
+          "ref": "r48f5f2579a4e5b1b",
+          "suspect": "S4",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:a9ba60e5",
+          "mode": "broken",
+          "ref": "r48f5f2579a4e5b1b",
+          "suspect": "S4",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:711a1855",
+          "mode": "press",
+          "ref": "r5a427956c4065e9a",
+          "suspect": "S4",
+          "text": "The coffee table was in Lounge at 22:30."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:be7118f9",
+          "mode": "answer",
+          "ref": "rae5e14e97afd938d",
+          "suspect": "S4",
+          "text": "I had a dispute with Cecily March over coverup."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:78377846",
+          "mode": "broken",
+          "ref": "rae5e14e97afd938d",
+          "suspect": "S4",
+          "text": "I had a dispute with Cecily March over coverup."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:f41c687d",
+          "mode": "press",
+          "ref": "r7d3112ea9df5e77e",
+          "suspect": "S4",
+          "text": "I had a dispute with Cecily March over coverup."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:b7938e5b",
+          "mode": "answer",
+          "ref": "r2a356e88d0be5b8c",
+          "suspect": "S4",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:e7e7031c",
+          "mode": "broken",
+          "ref": "r2a356e88d0be5b8c",
+          "suspect": "S4",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:da009aef",
+          "mode": "press",
+          "ref": "r65ecc8c1bdd85025",
+          "suspect": "S4",
+          "text": "I was attending to my own business."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:290ef545",
+          "mode": "answer",
+          "ref": "r20e2ac7717228763",
+          "suspect": "S4",
+          "text": "I concealed eavesdrop involving the media console at 22:00."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:78d901c2",
+          "mode": "broken",
+          "ref": "r20e2ac7717228763",
+          "suspect": "S4",
+          "text": "I concealed eavesdrop involving the media console at 22:00."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:977f09d2",
+          "mode": "press",
+          "ref": "rffb7d206fc077412",
+          "suspect": "S4",
+          "text": "I concealed eavesdrop involving the media console at 22:00."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:c1f884a1",
+          "mode": "answer",
+          "ref": "r582f9fddd3653ba9",
+          "suspect": "S4",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:eb6ef00e",
+          "mode": "broken",
+          "ref": "r582f9fddd3653ba9",
+          "suspect": "S4",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:85fe922d",
+          "mode": "press",
+          "ref": "r9ef74c0850642e04",
+          "suspect": "S4",
+          "text": "I did not touch the item."
+        },
+        {
+          "emotion": "guarded",
+          "id": "generated:fac92d32",
+          "mode": "answer",
+          "ref": "r33e32c9a409be51e",
+          "suspect": "S4",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "rattled",
+          "id": "generated:0759427d",
+          "mode": "broken",
+          "ref": "r33e32c9a409be51e",
+          "suspect": "S4",
+          "text": "I touched the media console."
+        },
+        {
+          "emotion": "irritated",
+          "id": "generated:f3edb325",
+          "mode": "press",
+          "ref": "r49a99df72aca5beb",
+          "suspect": "S4",
+          "text": "I touched the media console."
+        }
+      ]
+    },
+    "pitchHash": "075b3ea6",
+    "refutation": {
+      "cards": {
+        "SCAN_1": [
+          {
+            "eliminates": "Z2",
+            "via": "F_AT_V_6"
+          },
+          {
+            "eliminates": "Z3",
+            "via": "F_AT_V_6"
+          }
+        ],
+        "SCAN_2": [
+          {
+            "eliminates": "Z2",
+            "via": "F_AT_V_6"
+          },
+          {
+            "eliminates": "Z3",
+            "via": "F_AT_V_6"
+          }
+        ],
+        "SCAN_5": [
+          {
+            "eliminates": "S2",
+            "via": "F_AT_S2_6"
+          },
+          {
+            "eliminates": "S3",
+            "via": "F_AT_S3_6"
+          },
+          {
+            "eliminates": "S4",
+            "via": "F_AT_S4_6"
+          },
+          {
+            "eliminates": "SCAN_2",
+            "via": "F_IN_SCAN_2_6"
+          },
+          {
+            "eliminates": "SCAN_5",
+            "via": "F_IN_SCAN_5_6"
+          }
+        ],
+        "SCAN_6": [
+          {
+            "eliminates": "S2",
+            "via": "F_AT_S2_6"
+          },
+          {
+            "eliminates": "S3",
+            "via": "F_AT_S3_6"
+          },
+          {
+            "eliminates": "S4",
+            "via": "F_AT_S4_6"
+          },
+          {
+            "eliminates": "SCAN_2",
+            "via": "F_IN_SCAN_2_6"
+          },
+          {
+            "eliminates": "SCAN_5",
+            "via": "F_IN_SCAN_5_6"
+          }
+        ]
+      },
+      "order": [
+        "SCAN_5",
+        "SCAN_6",
+        "SCAN_2",
+        "SCAN_1"
+      ]
+    },
+    "requiredDeductions": [
+      {
+        "canonical": "The suspect occupied the murder zone.",
+        "id": "D_OPPORTUNITY",
+        "subject": "S1",
+        "supports": [
+          [
+            "E_F_AT_S1_6_0"
+          ],
+          [
+            "E_F_AT_S1_6_1"
+          ]
+        ],
+        "type": "opportunity"
+      },
+      {
+        "canonical": "The suspect handled the murder weapon.",
+        "id": "D_MEANS",
+        "subject": "S1",
+        "supports": [
+          [
+            "E_F_MURDER_TOUCH_0"
+          ],
+          [
+            "E_F_MURDER_TOUCH_1"
+          ]
+        ],
+        "type": "means"
+      },
+      {
+        "canonical": "The initial whereabouts account was contradicted.",
+        "id": "D_ALIBI",
+        "subject": "S1",
+        "supports": [
+          [
+            "E_F_AT_S1_6_0"
+          ],
+          [
+            "E_F_AT_S1_6_1"
+          ]
+        ],
+        "type": "alibi_broken"
+      },
+      {
+        "canonical": "Agnes Reed had a dispute with Cecily March over ambition.",
+        "id": "D_MOTIVE",
+        "subject": "S1",
+        "supports": [
+          [
+            "E_F_MOTIVE_S1_0"
+          ],
+          [
+            "E_F_MOTIVE_S1_1"
+          ]
+        ],
+        "type": "motive"
+      }
+    ],
+    "room": {
+      "objects": [
+        {
+          "affordances": [
+            "weapon:heavy",
+            "case:fictional-memory"
+          ],
+          "confidence": 0.85,
+          "id": "SCAN_1",
+          "label": "record player",
+          "origin": "vision",
+          "pos": [
+            -105.4054946899414,
+            61.16515350341797,
+            -489.1059265136719
+          ],
+          "type": "heavy",
+          "virtual": false,
+          "zone": "Z1"
+        },
+        {
+          "affordances": [
+            "weapon:blunt",
+            "case:fictional-memory"
+          ],
+          "confidence": 0.8,
+          "id": "SCAN_2",
+          "label": "right speaker",
+          "origin": "vision",
+          "pos": [
+            121.07520294189453,
+            48.15386962890625,
+            -468.11962890625
+          ],
+          "type": "blunt",
+          "virtual": false,
+          "zone": "Z1"
+        },
+        {
+          "affordances": [
+            "hiding:container",
+            "case:fictional-memory"
+          ],
+          "confidence": 0.9,
+          "id": "SCAN_3",
+          "label": "media console",
+          "origin": "vision",
+          "pos": [
+            -0.000009638850315241143,
+            26.35858154296875,
+            -447.6201477050781
+          ],
+          "type": "container",
+          "virtual": false,
+          "zone": "Z2"
+        },
+        {
+          "affordances": [
+            "hiding:soft",
+            "case:fictional-memory"
+          ],
+          "confidence": 0.7,
+          "id": "SCAN_4",
+          "label": "woven chair",
+          "origin": "vision",
+          "pos": [
+            98.2648696899414,
+            28.711441040039062,
+            -366.5122375488281
+          ],
+          "type": "soft",
+          "virtual": false,
+          "zone": "Z2"
+        },
+        {
+          "affordances": [
+            "weapon:heavy",
+            "case:fictional-memory"
+          ],
+          "confidence": 0.9,
+          "id": "SCAN_5",
+          "label": "coffee table",
+          "origin": "vision",
+          "pos": [
+            1.7575366497039795,
+            31.595245361328125,
+            -270.5512390136719
+          ],
+          "type": "heavy",
+          "virtual": false,
+          "zone": "Z3"
+        },
+        {
+          "affordances": [
+            "hiding:soft",
+            "case:fictional-memory"
+          ],
+          "confidence": 0.8,
+          "id": "SCAN_6",
+          "label": "sofa",
+          "origin": "vision",
+          "pos": [
+            -0.000009870203030004632,
+            30.5819091796875,
+            -196.02235412597656
+          ],
+          "type": "soft",
+          "virtual": false,
+          "zone": "Z3"
+        }
+      ],
+      "roomId": "r_6b216fe9",
+      "schema": 1,
+      "source": "vision",
+      "zones": [
+        {
+          "anchor": [
+            7.8348541259765625,
+            0,
+            -478.61277770996094
+          ],
+          "clueName": "Study",
+          "id": "Z1",
+          "label": "study"
+        },
+        {
+          "anchor": [
+            49.132430025545546,
+            0,
+            -407.0661926269531
+          ],
+          "clueName": "Conservatory",
+          "id": "Z2",
+          "label": "conservatory"
+        },
+        {
+          "anchor": [
+            0.8787633897504747,
+            0,
+            -233.28679656982422
+          ],
+          "clueName": "Lounge",
+          "id": "Z3",
+          "label": "lounge"
+        }
+      ]
+    },
+    "schema": 1,
+    "seed": 1041,
+    "slots": [
+      "21:00",
+      "21:15",
+      "21:30",
+      "21:45",
+      "22:00",
+      "22:15",
+      "22:30",
+      "22:45",
+      "23:00",
+      "23:15",
+      "23:30",
+      "23:45"
+    ],
+    "solver": {
+      "clockMinutes": 180,
+      "hypotheses": [
+        {
+          "what": "SCAN_1",
+          "where": "Z1",
+          "who": "S1"
+        }
+      ],
+      "issues": [],
+      "lieBreakable": {
+        "C_S1_borrowed_item_0": 2,
+        "C_S1_visit_0": 2,
+        "C_S1_whereabouts_0": 2,
+        "C_S1_whereabouts_1": 2,
+        "C_S2_borrowed_item_0": 2,
+        "C_S2_visit_0": 2,
+        "C_S3_borrowed_item_0": 2,
+        "C_S3_visit_0": 2,
+        "C_S4_borrowed_item_0": 2,
+        "C_S4_visit_0": 2
+      },
+      "minRoute": [
+        "E_F_AT_S2_6_1",
+        "E_F_AT_S3_6_1",
+        "E_F_AT_S4_6_0",
+        "E_F_AT_V_6_0",
+        "E_F_IN_SCAN_2_6_0",
+        "E_F_IN_SCAN_5_6_0"
+      ],
+      "minRouteMinutes": 60,
+      "ok": true,
+      "routesPerElimination": {
+        "S2": 2,
+        "S3": 2,
+        "S4": 2,
+        "SCAN_2": 2,
+        "SCAN_5": 2,
+        "Z2": 2,
+        "Z3": 2
+      },
+      "slack": 0.6666666666666667,
+      "unique": true
+    },
+    "statements": [
+      {
+        "asserts": "F_COVER_S1",
+        "breakers": [
+          [
+            "E_F_AT_S1_6_0"
+          ],
+          [
+            "E_F_AT_S1_6_1"
+          ]
+        ],
+        "canonical": "I was in Conservatory at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S1",
+          "Z2"
+        ],
+        "id": "C_S1_whereabouts_0",
+        "layer": 0,
+        "onBreak": "C_S1_whereabouts_1",
+        "pressed": {
+          "canonical": "I was in Conservatory at 22:30.",
+          "entities": [
+            "S1",
+            "Z2"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "cover",
+        "topic": "whereabouts"
+      },
+      {
+        "asserts": [
+          "F_AT_S1_6",
+          "F_DENIED_TOUCH"
+        ],
+        "breakers": [
+          [
+            "E_F_MURDER_TOUCH_0"
+          ],
+          [
+            "E_F_MURDER_TOUCH_1"
+          ]
+        ],
+        "canonical": "I was in Study at 22:30. I did not handle the record player at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S1",
+          "Z1",
+          "SCAN_1"
+        ],
+        "id": "C_S1_whereabouts_1",
+        "layer": 1,
+        "onBreak": "C_S1_whereabouts_2",
+        "pressed": {
+          "canonical": "I was in Study at 22:30. I did not handle the record player at 22:30.",
+          "entities": [
+            "S1",
+            "Z1",
+            "SCAN_1"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "cover",
+        "topic": "whereabouts"
+      },
+      {
+        "asserts": [
+          "F_AT_S1_6",
+          "F_MURDER_TOUCH"
+        ],
+        "breakers": [],
+        "canonical": "I was in Study at 22:30. I handled the record player at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S1",
+          "Z1",
+          "SCAN_1"
+        ],
+        "id": "C_S1_whereabouts_2",
+        "layer": 2,
+        "pressed": {
+          "canonical": "I was in Study at 22:30. I handled the record player at 22:30.",
+          "entities": [
+            "S1",
+            "Z1",
+            "SCAN_1"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "whereabouts"
+      },
+      {
+        "asserts": "F_MOTIVE_S1",
+        "breakers": [],
+        "canonical": "I had a dispute with Cecily March over ambition.",
+        "costMinutes": 45,
+        "entities": [
+          "S1",
+          "V"
+        ],
+        "id": "C_S1_background_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I had a dispute with Cecily March over ambition.",
+          "entities": [
+            "S1",
+            "V"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "background"
+      },
+      {
+        "asserts": "F_AT_S2_6",
+        "breakers": [],
+        "canonical": "Basil Crane was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S2",
+          "Z3"
+        ],
+        "id": "C_S1_about_S2_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Basil Crane was in Lounge at 22:30.",
+          "entities": [
+            "S2",
+            "Z3"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "about_S2"
+      },
+      {
+        "asserts": "F_AT_S3_6",
+        "breakers": [],
+        "canonical": "Clara Moss was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "C_S1_about_S3_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Clara Moss was in Lounge at 22:30.",
+          "entities": [
+            "S3",
+            "Z3"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "about_S3"
+      },
+      {
+        "asserts": "F_AT_S4_6",
+        "breakers": [],
+        "canonical": "Dorian West was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S4",
+          "Z3"
+        ],
+        "id": "C_S1_about_S4_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Dorian West was in Lounge at 22:30.",
+          "entities": [
+            "S4",
+            "Z3"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "about_S4"
+      },
+      {
+        "asserts": "F_AT_V_6",
+        "breakers": [],
+        "canonical": "Cecily March was in Study at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "C_S1_victim_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Cecily March was in Study at 22:30.",
+          "entities": [
+            "V",
+            "Z1"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "victim"
+      },
+      {
+        "asserts": "F_IN_SCAN_2_6",
+        "breakers": [],
+        "canonical": "The right speaker was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "C_S1_weapon_SCAN_2_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "The right speaker was in Lounge at 22:30.",
+          "entities": [
+            "SCAN_2",
+            "Z3"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "weapon_SCAN_2"
+      },
+      {
+        "asserts": "F_IN_SCAN_5_6",
+        "breakers": [],
+        "canonical": "The coffee table was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "C_S1_weapon_SCAN_5_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "The coffee table was in Lounge at 22:30.",
+          "entities": [
+            "SCAN_5",
+            "Z3"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "weapon_SCAN_5"
+      },
+      {
+        "asserts": "F_MOTIVE_S1",
+        "breakers": [],
+        "canonical": "I had a dispute with Cecily March over ambition.",
+        "costMinutes": 45,
+        "entities": [
+          "S1",
+          "V"
+        ],
+        "id": "C_S1_motive_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I had a dispute with Cecily March over ambition.",
+          "entities": [
+            "S1",
+            "V"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "motive"
+      },
+      {
+        "asserts": "F_SECRET_S1_DENIAL",
+        "breakers": [
+          [
+            "E_F_SECRET_S1_0"
+          ],
+          [
+            "E_F_SECRET_S1_1"
+          ]
+        ],
+        "canonical": "I was attending to my own business.",
+        "costMinutes": 45,
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "id": "C_S1_visit_0",
+        "layer": 0,
+        "onBreak": "C_S1_visit_0_REPLY",
+        "pressed": {
+          "canonical": "I was attending to my own business.",
+          "entities": [
+            "S1",
+            "SCAN_3"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "cover",
+        "topic": "visit"
+      },
+      {
+        "asserts": "F_SECRET_S1",
+        "breakers": [],
+        "canonical": "I concealed forgery involving the media console at 22:00.",
+        "costMinutes": 45,
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "id": "C_S1_visit_0_REPLY",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I concealed forgery involving the media console at 22:00.",
+          "entities": [
+            "S1",
+            "SCAN_3"
+          ]
+        },
+        "replacementFor": "C_S1_visit_0",
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "visit"
+      },
+      {
+        "asserts": "F_BASE_S1_DENIAL",
+        "breakers": [
+          [
+            "E_F_BASE_S1_0"
+          ],
+          [
+            "E_F_BASE_S1_1"
+          ]
+        ],
+        "canonical": "I did not touch the item.",
+        "costMinutes": 45,
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "id": "C_S1_borrowed_item_0",
+        "layer": 0,
+        "onBreak": "C_S1_borrowed_item_0_REPLY",
+        "pressed": {
+          "canonical": "I did not touch the item.",
+          "entities": [
+            "S1",
+            "SCAN_3"
+          ]
+        },
+        "speaker": "S1",
+        "stance": "cover",
+        "topic": "borrowed_item"
+      },
+      {
+        "asserts": "F_BASE_S1",
+        "breakers": [],
+        "canonical": "I touched the media console.",
+        "costMinutes": 45,
+        "entities": [
+          "S1",
+          "SCAN_3"
+        ],
+        "id": "C_S1_borrowed_item_0_REPLY",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I touched the media console.",
+          "entities": [
+            "S1",
+            "SCAN_3"
+          ]
+        },
+        "replacementFor": "C_S1_borrowed_item_0",
+        "speaker": "S1",
+        "stance": "truth",
+        "topic": "borrowed_item"
+      },
+      {
+        "asserts": "F_AT_S2_6",
+        "breakers": [],
+        "canonical": "I was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S2",
+          "Z3"
+        ],
+        "id": "C_S2_whereabouts_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I was in Lounge at 22:30.",
+          "entities": [
+            "S2",
+            "Z3"
+          ]
+        },
+        "speaker": "S2",
+        "stance": "truth",
+        "topic": "whereabouts"
+      },
+      {
+        "asserts": "F_MOTIVE_S2",
+        "breakers": [],
+        "canonical": "I had a dispute with Cecily March over revenge.",
+        "costMinutes": 45,
+        "entities": [
+          "S2",
+          "V"
+        ],
+        "id": "C_S2_background_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I had a dispute with Cecily March over revenge.",
+          "entities": [
+            "S2",
+            "V"
+          ]
+        },
+        "speaker": "S2",
+        "stance": "truth",
+        "topic": "background"
+      },
+      {
+        "asserts": "F_AT_S3_6",
+        "breakers": [],
+        "canonical": "Clara Moss was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "C_S2_about_S3_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Clara Moss was in Lounge at 22:30.",
+          "entities": [
+            "S3",
+            "Z3"
+          ]
+        },
+        "speaker": "S2",
+        "stance": "truth",
+        "topic": "about_S3"
+      },
+      {
+        "asserts": "F_AT_S4_6",
+        "breakers": [],
+        "canonical": "Dorian West was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S4",
+          "Z3"
+        ],
+        "id": "C_S2_about_S4_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Dorian West was in Lounge at 22:30.",
+          "entities": [
+            "S4",
+            "Z3"
+          ]
+        },
+        "speaker": "S2",
+        "stance": "truth",
+        "topic": "about_S4"
+      },
+      {
+        "asserts": "F_AT_V_6",
+        "breakers": [],
+        "canonical": "Cecily March was in Study at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "C_S2_victim_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Cecily March was in Study at 22:30.",
+          "entities": [
+            "V",
+            "Z1"
+          ]
+        },
+        "speaker": "S2",
+        "stance": "truth",
+        "topic": "victim"
+      },
+      {
+        "asserts": "F_IN_SCAN_2_6",
+        "breakers": [],
+        "canonical": "The right speaker was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "C_S2_weapon_SCAN_2_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "The right speaker was in Lounge at 22:30.",
+          "entities": [
+            "SCAN_2",
+            "Z3"
+          ]
+        },
+        "speaker": "S2",
+        "stance": "truth",
+        "topic": "weapon_SCAN_2"
+      },
+      {
+        "asserts": "F_IN_SCAN_5_6",
+        "breakers": [],
+        "canonical": "The coffee table was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "C_S2_weapon_SCAN_5_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "The coffee table was in Lounge at 22:30.",
+          "entities": [
+            "SCAN_5",
+            "Z3"
+          ]
+        },
+        "speaker": "S2",
+        "stance": "truth",
+        "topic": "weapon_SCAN_5"
+      },
+      {
+        "asserts": "F_MOTIVE_S2",
+        "breakers": [],
+        "canonical": "I had a dispute with Cecily March over revenge.",
+        "costMinutes": 45,
+        "entities": [
+          "S2",
+          "V"
+        ],
+        "id": "C_S2_motive_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I had a dispute with Cecily March over revenge.",
+          "entities": [
+            "S2",
+            "V"
+          ]
+        },
+        "speaker": "S2",
+        "stance": "truth",
+        "topic": "motive"
+      },
+      {
+        "asserts": "F_SECRET_S2_DENIAL",
+        "breakers": [
+          [
+            "E_F_SECRET_S2_0"
+          ],
+          [
+            "E_F_SECRET_S2_1"
+          ]
+        ],
+        "canonical": "I was attending to my own business.",
+        "costMinutes": 45,
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "id": "C_S2_visit_0",
+        "layer": 0,
+        "onBreak": "C_S2_visit_0_REPLY",
+        "pressed": {
+          "canonical": "I was attending to my own business.",
+          "entities": [
+            "S2",
+            "SCAN_3"
+          ]
+        },
+        "speaker": "S2",
+        "stance": "cover",
+        "topic": "visit"
+      },
+      {
+        "asserts": "F_SECRET_S2",
+        "breakers": [],
+        "canonical": "I concealed theft involving the media console at 22:00.",
+        "costMinutes": 45,
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "id": "C_S2_visit_0_REPLY",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I concealed theft involving the media console at 22:00.",
+          "entities": [
+            "S2",
+            "SCAN_3"
+          ]
+        },
+        "replacementFor": "C_S2_visit_0",
+        "speaker": "S2",
+        "stance": "truth",
+        "topic": "visit"
+      },
+      {
+        "asserts": "F_BASE_S2_DENIAL",
+        "breakers": [
+          [
+            "E_F_BASE_S2_0"
+          ],
+          [
+            "E_F_BASE_S2_1"
+          ]
+        ],
+        "canonical": "I did not touch the item.",
+        "costMinutes": 45,
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "id": "C_S2_borrowed_item_0",
+        "layer": 0,
+        "onBreak": "C_S2_borrowed_item_0_REPLY",
+        "pressed": {
+          "canonical": "I did not touch the item.",
+          "entities": [
+            "S2",
+            "SCAN_3"
+          ]
+        },
+        "speaker": "S2",
+        "stance": "cover",
+        "topic": "borrowed_item"
+      },
+      {
+        "asserts": "F_BASE_S2",
+        "breakers": [],
+        "canonical": "I touched the media console.",
+        "costMinutes": 45,
+        "entities": [
+          "S2",
+          "SCAN_3"
+        ],
+        "id": "C_S2_borrowed_item_0_REPLY",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I touched the media console.",
+          "entities": [
+            "S2",
+            "SCAN_3"
+          ]
+        },
+        "replacementFor": "C_S2_borrowed_item_0",
+        "speaker": "S2",
+        "stance": "truth",
+        "topic": "borrowed_item"
+      },
+      {
+        "asserts": "F_AT_S3_6",
+        "breakers": [],
+        "canonical": "I was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "C_S3_whereabouts_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I was in Lounge at 22:30.",
+          "entities": [
+            "S3",
+            "Z3"
+          ]
+        },
+        "speaker": "S3",
+        "stance": "truth",
+        "topic": "whereabouts"
+      },
+      {
+        "asserts": "F_MOTIVE_S3",
+        "breakers": [],
+        "canonical": "I had a dispute with Cecily March over debt.",
+        "costMinutes": 45,
+        "entities": [
+          "S3",
+          "V"
+        ],
+        "id": "C_S3_background_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I had a dispute with Cecily March over debt.",
+          "entities": [
+            "S3",
+            "V"
+          ]
+        },
+        "speaker": "S3",
+        "stance": "truth",
+        "topic": "background"
+      },
+      {
+        "asserts": "F_AT_S2_6",
+        "breakers": [],
+        "canonical": "Basil Crane was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S2",
+          "Z3"
+        ],
+        "id": "C_S3_about_S2_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Basil Crane was in Lounge at 22:30.",
+          "entities": [
+            "S2",
+            "Z3"
+          ]
+        },
+        "speaker": "S3",
+        "stance": "truth",
+        "topic": "about_S2"
+      },
+      {
+        "asserts": "F_AT_S4_6",
+        "breakers": [],
+        "canonical": "Dorian West was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S4",
+          "Z3"
+        ],
+        "id": "C_S3_about_S4_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Dorian West was in Lounge at 22:30.",
+          "entities": [
+            "S4",
+            "Z3"
+          ]
+        },
+        "speaker": "S3",
+        "stance": "truth",
+        "topic": "about_S4"
+      },
+      {
+        "asserts": "F_AT_V_6",
+        "breakers": [],
+        "canonical": "Cecily March was in Study at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "C_S3_victim_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Cecily March was in Study at 22:30.",
+          "entities": [
+            "V",
+            "Z1"
+          ]
+        },
+        "speaker": "S3",
+        "stance": "truth",
+        "topic": "victim"
+      },
+      {
+        "asserts": "F_IN_SCAN_2_6",
+        "breakers": [],
+        "canonical": "The right speaker was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "C_S3_weapon_SCAN_2_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "The right speaker was in Lounge at 22:30.",
+          "entities": [
+            "SCAN_2",
+            "Z3"
+          ]
+        },
+        "speaker": "S3",
+        "stance": "truth",
+        "topic": "weapon_SCAN_2"
+      },
+      {
+        "asserts": "F_IN_SCAN_5_6",
+        "breakers": [],
+        "canonical": "The coffee table was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "C_S3_weapon_SCAN_5_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "The coffee table was in Lounge at 22:30.",
+          "entities": [
+            "SCAN_5",
+            "Z3"
+          ]
+        },
+        "speaker": "S3",
+        "stance": "truth",
+        "topic": "weapon_SCAN_5"
+      },
+      {
+        "asserts": "F_MOTIVE_S3",
+        "breakers": [],
+        "canonical": "I had a dispute with Cecily March over debt.",
+        "costMinutes": 45,
+        "entities": [
+          "S3",
+          "V"
+        ],
+        "id": "C_S3_motive_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I had a dispute with Cecily March over debt.",
+          "entities": [
+            "S3",
+            "V"
+          ]
+        },
+        "speaker": "S3",
+        "stance": "truth",
+        "topic": "motive"
+      },
+      {
+        "asserts": "F_SECRET_S3_DENIAL",
+        "breakers": [
+          [
+            "E_F_SECRET_S3_0"
+          ],
+          [
+            "E_F_SECRET_S3_1"
+          ]
+        ],
+        "canonical": "I was attending to my own business.",
+        "costMinutes": 45,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "C_S3_visit_0",
+        "layer": 0,
+        "onBreak": "C_S3_visit_0_REPLY",
+        "pressed": {
+          "canonical": "I was attending to my own business.",
+          "entities": [
+            "S3",
+            "Z3"
+          ]
+        },
+        "speaker": "S3",
+        "stance": "cover",
+        "topic": "visit"
+      },
+      {
+        "asserts": "F_SECRET_S3",
+        "breakers": [],
+        "canonical": "I concealed debt involving the Lounge at 22:00.",
+        "costMinutes": 45,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "C_S3_visit_0_REPLY",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I concealed debt involving the Lounge at 22:00.",
+          "entities": [
+            "S3",
+            "Z3"
+          ]
+        },
+        "replacementFor": "C_S3_visit_0",
+        "speaker": "S3",
+        "stance": "truth",
+        "topic": "visit"
+      },
+      {
+        "asserts": "F_BASE_S3_DENIAL",
+        "breakers": [
+          [
+            "E_F_BASE_S3_0"
+          ],
+          [
+            "E_F_BASE_S3_1"
+          ]
+        ],
+        "canonical": "I did not touch the item.",
+        "costMinutes": 45,
+        "entities": [
+          "S3",
+          "SCAN_3"
+        ],
+        "id": "C_S3_borrowed_item_0",
+        "layer": 0,
+        "onBreak": "C_S3_borrowed_item_0_REPLY",
+        "pressed": {
+          "canonical": "I did not touch the item.",
+          "entities": [
+            "S3",
+            "SCAN_3"
+          ]
+        },
+        "speaker": "S3",
+        "stance": "cover",
+        "topic": "borrowed_item"
+      },
+      {
+        "asserts": "F_BASE_S3",
+        "breakers": [],
+        "canonical": "I touched the media console.",
+        "costMinutes": 45,
+        "entities": [
+          "S3",
+          "SCAN_3"
+        ],
+        "id": "C_S3_borrowed_item_0_REPLY",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I touched the media console.",
+          "entities": [
+            "S3",
+            "SCAN_3"
+          ]
+        },
+        "replacementFor": "C_S3_borrowed_item_0",
+        "speaker": "S3",
+        "stance": "truth",
+        "topic": "borrowed_item"
+      },
+      {
+        "asserts": "F_AT_S4_6",
+        "breakers": [],
+        "canonical": "I was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S4",
+          "Z3"
+        ],
+        "id": "C_S4_whereabouts_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I was in Lounge at 22:30.",
+          "entities": [
+            "S4",
+            "Z3"
+          ]
+        },
+        "speaker": "S4",
+        "stance": "truth",
+        "topic": "whereabouts"
+      },
+      {
+        "asserts": "F_MOTIVE_S4",
+        "breakers": [],
+        "canonical": "I had a dispute with Cecily March over coverup.",
+        "costMinutes": 45,
+        "entities": [
+          "S4",
+          "V"
+        ],
+        "id": "C_S4_background_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I had a dispute with Cecily March over coverup.",
+          "entities": [
+            "S4",
+            "V"
+          ]
+        },
+        "speaker": "S4",
+        "stance": "truth",
+        "topic": "background"
+      },
+      {
+        "asserts": "F_AT_S2_6",
+        "breakers": [],
+        "canonical": "Basil Crane was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S2",
+          "Z3"
+        ],
+        "id": "C_S4_about_S2_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Basil Crane was in Lounge at 22:30.",
+          "entities": [
+            "S2",
+            "Z3"
+          ]
+        },
+        "speaker": "S4",
+        "stance": "truth",
+        "topic": "about_S2"
+      },
+      {
+        "asserts": "F_AT_S3_6",
+        "breakers": [],
+        "canonical": "Clara Moss was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "S3",
+          "Z3"
+        ],
+        "id": "C_S4_about_S3_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Clara Moss was in Lounge at 22:30.",
+          "entities": [
+            "S3",
+            "Z3"
+          ]
+        },
+        "speaker": "S4",
+        "stance": "truth",
+        "topic": "about_S3"
+      },
+      {
+        "asserts": "F_AT_V_6",
+        "breakers": [],
+        "canonical": "Cecily March was in Study at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "V",
+          "Z1"
+        ],
+        "id": "C_S4_victim_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "Cecily March was in Study at 22:30.",
+          "entities": [
+            "V",
+            "Z1"
+          ]
+        },
+        "speaker": "S4",
+        "stance": "truth",
+        "topic": "victim"
+      },
+      {
+        "asserts": "F_IN_SCAN_2_6",
+        "breakers": [],
+        "canonical": "The right speaker was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "SCAN_2",
+          "Z3"
+        ],
+        "id": "C_S4_weapon_SCAN_2_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "The right speaker was in Lounge at 22:30.",
+          "entities": [
+            "SCAN_2",
+            "Z3"
+          ]
+        },
+        "speaker": "S4",
+        "stance": "truth",
+        "topic": "weapon_SCAN_2"
+      },
+      {
+        "asserts": "F_IN_SCAN_5_6",
+        "breakers": [],
+        "canonical": "The coffee table was in Lounge at 22:30.",
+        "costMinutes": 45,
+        "entities": [
+          "SCAN_5",
+          "Z3"
+        ],
+        "id": "C_S4_weapon_SCAN_5_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "The coffee table was in Lounge at 22:30.",
+          "entities": [
+            "SCAN_5",
+            "Z3"
+          ]
+        },
+        "speaker": "S4",
+        "stance": "truth",
+        "topic": "weapon_SCAN_5"
+      },
+      {
+        "asserts": "F_MOTIVE_S4",
+        "breakers": [],
+        "canonical": "I had a dispute with Cecily March over coverup.",
+        "costMinutes": 45,
+        "entities": [
+          "S4",
+          "V"
+        ],
+        "id": "C_S4_motive_0",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I had a dispute with Cecily March over coverup.",
+          "entities": [
+            "S4",
+            "V"
+          ]
+        },
+        "speaker": "S4",
+        "stance": "truth",
+        "topic": "motive"
+      },
+      {
+        "asserts": "F_SECRET_S4_DENIAL",
+        "breakers": [
+          [
+            "E_F_SECRET_S4_0"
+          ],
+          [
+            "E_F_SECRET_S4_1"
+          ]
+        ],
+        "canonical": "I was attending to my own business.",
+        "costMinutes": 45,
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "id": "C_S4_visit_0",
+        "layer": 0,
+        "onBreak": "C_S4_visit_0_REPLY",
+        "pressed": {
+          "canonical": "I was attending to my own business.",
+          "entities": [
+            "S4",
+            "SCAN_3"
+          ]
+        },
+        "speaker": "S4",
+        "stance": "cover",
+        "topic": "visit"
+      },
+      {
+        "asserts": "F_SECRET_S4",
+        "breakers": [],
+        "canonical": "I concealed eavesdrop involving the media console at 22:00.",
+        "costMinutes": 45,
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "id": "C_S4_visit_0_REPLY",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I concealed eavesdrop involving the media console at 22:00.",
+          "entities": [
+            "S4",
+            "SCAN_3"
+          ]
+        },
+        "replacementFor": "C_S4_visit_0",
+        "speaker": "S4",
+        "stance": "truth",
+        "topic": "visit"
+      },
+      {
+        "asserts": "F_BASE_S4_DENIAL",
+        "breakers": [
+          [
+            "E_F_BASE_S4_0"
+          ],
+          [
+            "E_F_BASE_S4_1"
+          ]
+        ],
+        "canonical": "I did not touch the item.",
+        "costMinutes": 45,
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "id": "C_S4_borrowed_item_0",
+        "layer": 0,
+        "onBreak": "C_S4_borrowed_item_0_REPLY",
+        "pressed": {
+          "canonical": "I did not touch the item.",
+          "entities": [
+            "S4",
+            "SCAN_3"
+          ]
+        },
+        "speaker": "S4",
+        "stance": "cover",
+        "topic": "borrowed_item"
+      },
+      {
+        "asserts": "F_BASE_S4",
+        "breakers": [],
+        "canonical": "I touched the media console.",
+        "costMinutes": 45,
+        "entities": [
+          "S4",
+          "SCAN_3"
+        ],
+        "id": "C_S4_borrowed_item_0_REPLY",
+        "layer": 0,
+        "pressed": {
+          "canonical": "I touched the media console.",
+          "entities": [
+            "S4",
+            "SCAN_3"
+          ]
+        },
+        "replacementFor": "C_S4_borrowed_item_0",
+        "speaker": "S4",
+        "stance": "truth",
+        "topic": "borrowed_item"
+      }
+    ],
+    "story": {
+      "secrets": {
+        "S2": [
+          "F_SECRET_S2"
+        ],
+        "S3": [
+          "F_SECRET_S3"
+        ],
+        "S4": [
+          "F_SECRET_S4"
+        ]
+      },
+      "spine": [
+        "F_AT_V_6",
+        "F_AT_S1_6",
+        "F_MURDER_TOUCH",
+        "F_MOTIVE_S1"
+      ]
+    },
+    "weapons": [
+      "SCAN_1",
+      "SCAN_2",
+      "SCAN_5"
+    ],
+    "witnessing": [
+      {
+        "channel": "state",
+        "fact": "F_AT_V_6",
+        "witness": "SCAN_2"
+      },
+      {
+        "channel": "state",
+        "fact": "F_AT_V_6",
+        "witness": "SCAN_1"
+      },
+      {
+        "channel": "state",
+        "fact": "F_AT_S1_6",
+        "witness": "SCAN_1"
+      },
+      {
+        "channel": "state",
+        "fact": "F_AT_S1_6",
+        "witness": "SCAN_2"
+      },
+      {
+        "channel": "state",
+        "fact": "F_AT_S2_6",
+        "witness": "SCAN_6"
+      },
+      {
+        "channel": "state",
+        "fact": "F_AT_S2_6",
+        "witness": "SCAN_5"
+      },
+      {
+        "channel": "state",
+        "fact": "F_AT_S3_6",
+        "witness": "SCAN_6"
+      },
+      {
+        "channel": "state",
+        "fact": "F_AT_S3_6",
+        "witness": "SCAN_5"
+      },
+      {
+        "channel": "state",
+        "fact": "F_AT_S4_6",
+        "witness": "SCAN_5"
+      },
+      {
+        "channel": "state",
+        "fact": "F_AT_S4_6",
+        "witness": "SCAN_6"
+      },
+      {
+        "channel": "state",
+        "fact": "F_IN_SCAN_1_6",
+        "witness": "SCAN_2"
+      },
+      {
+        "channel": "state",
+        "fact": "F_IN_SCAN_1_6",
+        "witness": "SCAN_1"
+      },
+      {
+        "channel": "state",
+        "fact": "F_IN_SCAN_2_6",
+        "witness": "SCAN_5"
+      },
+      {
+        "channel": "state",
+        "fact": "F_IN_SCAN_2_6",
+        "witness": "SCAN_6"
+      },
+      {
+        "channel": "state",
+        "fact": "F_IN_SCAN_5_6",
+        "witness": "SCAN_5"
+      },
+      {
+        "channel": "state",
+        "fact": "F_IN_SCAN_5_6",
+        "witness": "SCAN_6"
+      },
+      {
+        "channel": "state",
+        "fact": "F_SECRET_S1",
+        "witness": "SCAN_4"
+      },
+      {
+        "channel": "state",
+        "fact": "F_SECRET_S1",
+        "witness": "SCAN_3"
+      },
+      {
+        "channel": "state",
+        "fact": "F_BASE_S1",
+        "witness": "SCAN_4"
+      },
+      {
+        "channel": "state",
+        "fact": "F_BASE_S1",
+        "witness": "SCAN_3"
+      },
+      {
+        "channel": "state",
+        "fact": "F_MOTIVE_S1",
+        "witness": "SCAN_1"
+      },
+      {
+        "channel": "state",
+        "fact": "F_MOTIVE_S1",
+        "witness": "SCAN_2"
+      },
+      {
+        "channel": "state",
+        "fact": "F_SECRET_S2",
+        "witness": "SCAN_3"
+      },
+      {
+        "channel": "state",
+        "fact": "F_SECRET_S2",
+        "witness": "SCAN_4"
+      },
+      {
+        "channel": "state",
+        "fact": "F_BASE_S2",
+        "witness": "SCAN_4"
+      },
+      {
+        "channel": "state",
+        "fact": "F_BASE_S2",
+        "witness": "SCAN_3"
+      },
+      {
+        "channel": "state",
+        "fact": "F_MOTIVE_S2",
+        "witness": "SCAN_6"
+      },
+      {
+        "channel": "state",
+        "fact": "F_MOTIVE_S2",
+        "witness": "SCAN_5"
+      },
+      {
+        "channel": "state",
+        "fact": "F_SECRET_S3",
+        "witness": "SCAN_6"
+      },
+      {
+        "channel": "state",
+        "fact": "F_SECRET_S3",
+        "witness": "SCAN_5"
+      },
+      {
+        "channel": "state",
+        "fact": "F_BASE_S3",
+        "witness": "SCAN_5"
+      },
+      {
+        "channel": "state",
+        "fact": "F_BASE_S3",
+        "witness": "SCAN_6"
+      },
+      {
+        "channel": "state",
+        "fact": "F_MOTIVE_S3",
+        "witness": "SCAN_6"
+      },
+      {
+        "channel": "state",
+        "fact": "F_MOTIVE_S3",
+        "witness": "SCAN_5"
+      },
+      {
+        "channel": "state",
+        "fact": "F_SECRET_S4",
+        "witness": "SCAN_3"
+      },
+      {
+        "channel": "state",
+        "fact": "F_SECRET_S4",
+        "witness": "SCAN_4"
+      },
+      {
+        "channel": "state",
+        "fact": "F_BASE_S4",
+        "witness": "SCAN_3"
+      },
+      {
+        "channel": "state",
+        "fact": "F_BASE_S4",
+        "witness": "SCAN_4"
+      },
+      {
+        "channel": "state",
+        "fact": "F_MOTIVE_S4",
+        "witness": "SCAN_6"
+      },
+      {
+        "channel": "state",
+        "fact": "F_MOTIVE_S4",
+        "witness": "SCAN_5"
+      },
+      {
+        "channel": "state",
+        "fact": "F_MURDER_TOUCH",
+        "witness": "SCAN_1"
+      },
+      {
+        "channel": "state",
+        "fact": "F_MURDER_TOUCH",
+        "witness": "SCAN_2"
+      }
+    ]
+  },
+  "log": [
+    {
+      "by": "P1",
+      "forward": [
+        0,
+        0,
+        -0.9396926164627075
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "seq": 1,
+      "type": "SetupCase"
+    },
+    {
+      "at": 1793910305485,
+      "by": "P1",
+      "key": "room-scan:live-1793910305305-0",
+      "latencyMs": 0,
+      "occurrence": 1,
+      "response": {
+        "content": "{\"objects\":[{\"label\":\"media console\",\"type\":\"container\",\"role\":\"hiding place\",\"box\":[0.0,0.39,1.0,0.53],\"confidence\":0.9},{\"label\":\"record player\",\"type\":\"heavy\",\"role\":\"weapon\",\"box\":[0.04,0.28,0.23,0.43],\"confidence\":0.85},{\"label\":\"right speaker\",\"type\":\"blunt\",\"role\":\"weapon\",\"box\":[0.895,0.33,0.97,0.42],\"confidence\":0.8},{\"label\":\"coffee table\",\"type\":\"heavy\",\"role\":\"hiding place\",\"box\":[0.23,0.57,0.79,0.86],\"confidence\":0.9},{\"label\":\"woven chair\",\"type\":\"soft\",\"role\":\"hiding place\",\"box\":[0.86,0.44,1.0,0.66],\"confidence\":0.7},{\"label\":\"sofa\",\"type\":\"soft\",\"role\":\"hiding place\",\"box\":[0.0,0.9,1.0,1.0],\"confidence\":0.75}]}",
+        "model": "claude-opus-5-5"
+      },
+      "seq": 2,
+      "source": "live",
+      "type": "LlmOutput"
+    },
+    {
+      "at": 1793910307074,
+      "by": "P1",
+      "key": "room-scan:live-1793910305305-1",
+      "latencyMs": 0,
+      "occurrence": 1,
+      "response": {
+        "content": "{\"objects\":[{\"label\":\"media console\",\"type\":\"container\",\"role\":\"hiding place\",\"box\":[0.0,0.39,1.0,0.53],\"confidence\":0.9},{\"label\":\"record player\",\"type\":\"heavy\",\"role\":\"weapon\",\"box\":[0.04,0.28,0.23,0.43],\"confidence\":0.85},{\"label\":\"right speaker\",\"type\":\"blunt\",\"role\":\"weapon\",\"box\":[0.895,0.33,0.97,0.42],\"confidence\":0.8},{\"label\":\"coffee table\",\"type\":\"heavy\",\"role\":\"hiding place\",\"box\":[0.23,0.57,0.79,0.86],\"confidence\":0.9},{\"label\":\"woven chair\",\"type\":\"soft\",\"role\":\"witness\",\"box\":[0.86,0.44,1.0,0.66],\"confidence\":0.7},{\"label\":\"sofa\",\"type\":\"soft\",\"role\":\"hiding place\",\"box\":[0.0,0.9,1.0,1.0],\"confidence\":0.8}]}",
+        "model": "claude-opus-5-5"
+      },
+      "seq": 3,
+      "source": "live",
+      "type": "LlmOutput"
+    },
+    {
+      "at": 1793910308683,
+      "by": "P1",
+      "key": "room-scan:live-1793910305305-2",
+      "latencyMs": 0,
+      "occurrence": 1,
+      "response": {
+        "content": "{\"objects\":[{\"label\":\"media console\",\"type\":\"container\",\"role\":\"hiding place\",\"box\":[0.0,0.39,1.0,0.53],\"confidence\":0.9},{\"label\":\"record player\",\"type\":\"heavy\",\"role\":\"weapon\",\"box\":[0.04,0.28,0.23,0.43],\"confidence\":0.85},{\"label\":\"right speaker\",\"type\":\"blunt\",\"role\":\"weapon\",\"box\":[0.895,0.33,0.97,0.42],\"confidence\":0.8},{\"label\":\"coffee table\",\"type\":\"heavy\",\"role\":\"hiding place\",\"box\":[0.23,0.57,0.79,0.86],\"confidence\":0.9},{\"label\":\"woven chair\",\"type\":\"soft\",\"role\":\"hiding place\",\"box\":[0.86,0.44,1.0,0.66],\"confidence\":0.7},{\"label\":\"sofa\",\"type\":\"soft\",\"role\":\"hiding place\",\"box\":[0.0,0.9,1.0,1.0],\"confidence\":0.8}]}",
+        "model": "claude-opus-5-5"
+      },
+      "seq": 4,
+      "source": "live",
+      "type": "LlmOutput"
+    },
+    {
+      "atMs": 55221,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 5,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 56269,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 6,
+      "type": "PlayerMoved"
+    },
+    {
+      "by": "P1",
+      "question": "Where were you at 22:30?",
+      "seq": 7,
+      "suspect": "S1",
+      "topic": "whereabouts",
+      "type": "Ask"
+    },
+    {
+      "answer": {
+        "cites": [
+          "rf17ff2a1d235c70d"
+        ],
+        "emotion": "guarded",
+        "line": "I was in Conservatory at 22:30.",
+        "topic": "whereabouts"
+      },
+      "by": "P1",
+      "key": "performance-10",
+      "mode": "answer",
+      "seq": 8,
+      "suspect": "S1",
+      "type": "LineSpoken"
+    },
+    {
+      "atMs": 60310,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 9,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 62548,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 10,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 66307,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 11,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 67383,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 12,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 69097,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 13,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 70252,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 14,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 71318,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 15,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 73232,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 16,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 74456,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 17,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 75476,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 18,
+      "type": "PlayerMoved"
+    },
+    {
+      "by": "P1",
+      "object": "SCAN_5",
+      "seq": 19,
+      "type": "PinchObject"
+    },
+    {
+      "atMs": 76559,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 20,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 79198,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 21,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 82425,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 22,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 84607,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 23,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 85661,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 24,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 86709,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 25,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 87750,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 26,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 88790,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 27,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 89867,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 28,
+      "type": "PlayerMoved"
+    },
+    {
+      "by": "P1",
+      "object": "SCAN_2",
+      "seq": 29,
+      "type": "PinchObject"
+    },
+    {
+      "atMs": 91022,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 30,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 95828,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 31,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 96933,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 32,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 97936,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 33,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 99132,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 34,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 100421,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 35,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 101599,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 36,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 102845,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 37,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 104009,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 38,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 105160,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 39,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 106307,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 40,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 107433,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 41,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 108437,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 42,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 109526,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 43,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 110592,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 44,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 111656,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 45,
+      "type": "PlayerMoved"
+    },
+    {
+      "by": "P1",
+      "deduction": "D_OPPORTUNITY",
+      "refs": [
+        "E_F_AT_S1_6_1"
+      ],
+      "seq": 46,
+      "type": "ArgumentClaim"
+    },
+    {
+      "by": "P1",
+      "deduction": "D_MEANS",
+      "refs": [
+        "E_F_MURDER_TOUCH_1"
+      ],
+      "seq": 47,
+      "type": "ArgumentClaim"
+    },
+    {
+      "by": "P1",
+      "deduction": "D_ALIBI",
+      "refs": [
+        "E_F_AT_S1_6_1"
+      ],
+      "seq": 48,
+      "type": "ArgumentClaim"
+    },
+    {
+      "by": "P1",
+      "deduction": "D_MOTIVE",
+      "refs": [
+        "E_F_MOTIVE_S1_1"
+      ],
+      "seq": 49,
+      "type": "ArgumentClaim"
+    },
+    {
+      "atMs": 112760,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 50,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 120326,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 51,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 121392,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 52,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 122424,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 53,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 123442,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 54,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 124517,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 55,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 125665,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 56,
+      "type": "PlayerMoved"
+    },
+    {
+      "atMs": 126882,
+      "by": "P1",
+      "position": [
+        0,
+        176,
+        0
+      ],
+      "seq": 57,
+      "type": "PlayerMoved"
+    },
+    {
+      "by": "P1",
+      "seq": 58,
+      "type": "Accuse",
+      "what": "SCAN_1",
+      "where": "Z1",
+      "who": "S1"
+    }
+  ],
+  "expected": {
+    "stateHash": "a13fb8c4",
+    "verdict": "correct",
+    "score": {
+      "rating": 2,
+      "deductions": 4,
+      "required": 4,
+      "minutes": 110,
+      "minimumMinutes": 60,
+      "stars": [
+        {
+          "name": "Solved",
+          "earned": true
+        },
+        {
+          "name": "Proven",
+          "earned": true
+        },
+        {
+          "name": "Broke the culprit",
+          "earned": false
+        }
+      ]
+    }
+  }
+}

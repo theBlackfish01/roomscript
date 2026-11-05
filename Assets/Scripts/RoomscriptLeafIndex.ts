@@ -1,3 +1,4 @@
+import {RoomscriptRoomScanLeafScenario} from "./RoomscriptRoomScanLeafScenario";
 import {RoomscriptProductionStudyLeafScenario} from "./RoomscriptProductionStudyLeafScenario";
 import {RoomscriptPolishLeafScenario} from "./RoomscriptPolishLeafScenario";
 import {RoomscriptBundledVoiceLeafScenario} from "./RoomscriptBundledVoiceLeafScenario";
@@ -25,11 +26,18 @@ import {RoomscriptObjectionLeafScenario} from "./RoomscriptObjectionLeafScenario
 import {RoomscriptClueLeafScenario} from "./RoomscriptClueLeafScenario";
 import {RoomscriptCastLeafScenario} from "./RoomscriptCastLeafScenario";
 import {RoomscriptClosingLeafScenario} from "./RoomscriptClosingLeafScenario";
+import {RoomscriptGeneratedCaseLeafScenario} from "./RoomscriptGeneratedCaseLeafScenario";
+import {RoomscriptPhysicalMemoryLeafScenario} from "./RoomscriptPhysicalMemoryLeafScenario";
+import {RoomscriptNaivePlayerLeafScenario} from "./RoomscriptNaivePlayerLeafScenario";
 
 @component
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-generated-cases",typename:RoomscriptGeneratedCaseLeafScenario.getTypeName(),parameters:{seed:"7",source:"recorded"}},
+    {id:"roomscript-naive-player",typename:RoomscriptNaivePlayerLeafScenario.getTypeName()},
+    {id:"roomscript-physical-memory",typename:RoomscriptPhysicalMemoryLeafScenario.getTypeName(),parameters:{ik:"false",hold:"false"}},
+    {id:"roomscript-room-scan-probe",typename:RoomscriptRoomScanLeafScenario.getTypeName(),parameters:{view:"-1"}},
     {id:"roomscript-bundled-voices",typename:RoomscriptBundledVoiceLeafScenario.getTypeName()},
     {id:"roomscript-polish-foundation",typename:RoomscriptPolishLeafScenario.getTypeName()},
     {id:"roomscript-hero-demo",typename:RoomscriptHeroDemoLeafScenario.getTypeName()},

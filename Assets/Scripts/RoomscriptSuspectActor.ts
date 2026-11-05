@@ -8,6 +8,7 @@ import {GameState} from "./Engine/core/Types";
   @input @hint("Speaking portrait") listening:Texture;
   @input @hint("Rattled portrait") rattled:Texture;
   @input @hint("Broken portrait") broken:Texture;
+  @input @allowUndefined @hint("Smug reaction after an engine-rejected objection; neutral fallback") smug:Texture;
   @input @hint("Deterministic case owner") engine:RoomscriptEngineBridge;
   @input @hint("Player camera for facing") camera:SceneObject;
   @ui.group_end
@@ -15,6 +16,8 @@ import {GameState} from "./Engine/core/Types";
   private surface:Material;private visual:RenderMeshVisual;
   private stress=0;private jaw=0;private amplitude=0;private speaking=false;
   private pose="neutral";private track:AudioTrackAsset;private frozen=false;
+  private state:GameState;private smugUntil=0;private smugSeq=-1;
+  private captureOverride:string|null=null;private captureUntil=0;
   private samples=new Float32Array(1024);
   private alignment:{characters:string[];starts:number[];ends:number[]}|undefined;private playhead:(()=>number)|undefined;private character=0;
   setAlignment(alignment:{characters:string[];starts:number[];ends:number[]}|undefined,playhead:()=>number):void {this.alignment=alignment;this.playhead=playhead;this.character=0;}
@@ -33,20 +36,31 @@ import {GameState} from "./Engine/core/Types";
     this.engine.initialize();this.engine.onState.add(state=>this.applyState(state));this.applyState(this.engine.snapshot());
   }
   applyState(state:GameState):void {
+    this.state=state;
     if(this.frozen)return;
     const s=state.suspects[this.suspect];if(!s||!this.surface)return;
     this.stress=1-s.composure/Math.max(1,s.composureMax);
-    this.pose=s.layer>=2||s.composure<=0?"broken":s.layer>0||this.stress>=0.3?"rattled":this.speaking?"listening":"neutral";
-    this.surface.mainPass.baseTex=this.pose==="broken"?this.broken:this.pose==="rattled"?this.rattled:this.pose==="listening"?this.listening:this.neutral;
+    if(state.events.some(event=>event.seq===state.lastSeq&&event.type==="objectionWrong"&&event.actor===this.suspect)&&state.lastSeq!==this.smugSeq){this.smugSeq=state.lastSeq;this.smugUntil=getTime()+1.8;}
+    this.renderPose();
   }
-  setListening(active:boolean):void {this.speaking=active;this.applyState(this.engine.snapshot());}
-  setFrozen(value:boolean):void {this.frozen=value;if(!value)this.applyState(this.engine.snapshot());}
+  private renderPose():void {
+    const s=this.state?.suspects[this.suspect];if(!s||!this.surface||this.frozen)return;
+    this.pose=this.captureOverride||(s.layer>=2||s.composure<=0?"broken":s.layer>0||this.stress>=0.3?"rattled":getTime()<this.smugUntil?"smug":this.speaking?"listening":"neutral");
+    const texture=this.pose==="broken"?this.broken:this.pose==="rattled"?this.rattled:this.pose==="listening"?this.listening:this.pose==="smug"?this.smug:this.neutral;
+    this.surface.mainPass.baseTex=texture||this.neutral;
+  }
+  /** Presentation-only Director capture hook. Never changes a tell, fact or account. */
+  capturePose(pose:string,seconds=2):void {if(!["neutral","listening","rattled","broken","smug"].includes(pose))return;this.captureOverride=pose;this.captureUntil=getTime()+Math.min(20,Math.max(.1,seconds));this.renderPose();}
+  setListening(active:boolean):void {this.speaking=active;if(this.state)this.renderPose();}
+  setFrozen(value:boolean):void {this.frozen=value;if(!value&&this.state)this.applyState(this.state);}
   voice():string {this.engine.initialize();return this.engine.graphRef().cast.suspects.find(s=>s.id===this.suspect)?.voice || "onyx";}
   setVoice(track:AudioTrackAsset|null):void {this.track=track;this.setListening(!!track);this.alignment=undefined;if(!track)this.amplitude=0;}
   setAudioAmplitude(value:number):void {this.amplitude=Math.max(0,Math.min(1,value));}
   diagnostics():{pose:string;stress:number;jaw:number} {return {pose:this.pose,stress:this.stress,jaw:this.jaw};}
   private update():void {
     if(!this.surface||this.frozen)return;
+    if(this.captureOverride&&getTime()>=this.captureUntil){this.captureOverride=null;this.renderPose();}
+    if(this.pose==="smug"&&!this.captureOverride&&getTime()>=this.smugUntil)this.renderPose();
     const root=this.getTransform(),delta=this.camera.getTransform().getWorldPosition().sub(root.getWorldPosition());delta.y=0;
     if(delta.length>0.01)root.setWorldRotation(quat.lookAt(delta.normalize(),vec3.up()));
     if(this.track&&this.alignment&&this.playhead){const a=this.alignment,t=this.playhead();while(this.character<a.ends.length-1&&a.ends[this.character]<t)this.character++;this.amplitude=t>=a.starts[this.character]&&t<=a.ends[this.character]&&/[a-z0-9]/i.test(a.characters[this.character])?.8:0;}

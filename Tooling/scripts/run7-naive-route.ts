@@ -1,0 +1,20 @@
+/** Public authored object tour used by the LEAF accessibility gate; never consults the envelope. */
+import {createHeroCase} from '../../Assets/Scripts/Content/HeroCaseHarlow1041';
+import {createGameState} from '../../Assets/Scripts/Engine/game/GameState';
+import {reduceGame} from '../../Assets/Scripts/Engine/game/Reducer';
+import {solvePlayerKnowledge} from '../../Assets/Scripts/Engine/case/Solver';
+import {availableArguments} from '../../Assets/Scripts/Engine/game/Closing';
+import {ActionPayload} from '../../Assets/Scripts/Engine/core/Types';
+const graph=createHeroCase();let state=createGameState(graph);
+const act=(action:ActionPayload)=>state=reduceGame(graph,state,{...action,seq:state.lastSeq+1,by:'P1'});
+act({type:'Ask',suspect:'S2',topic:'where@22:30'});
+act({type:'PinchObject',object:'O11'});
+act({type:'Object',suspect:'S2',statement:'C_VALE_ALIBI_0',evidence:['E_KETTLE_COLD']});
+for(const object of ['O6','O12','O1','O8','O10','O2','O3','O4','O5'])act({type:'PinchObject',object});
+const possibilities=solvePlayerKnowledge(graph,state.knowledge).hypotheses;
+if(possibilities.length!==1)throw Error('PUBLIC_KNOWLEDGE_NOT_UNIQUE: '+possibilities.length);
+for(const claim of availableArguments(graph,state))act({type:'ArgumentClaim',...claim});
+if(state.arguments.length!==4)throw Error('PROOF_INCOMPLETE');
+act({type:'Accuse',...possibilities[0]});
+if(state.verdict!=='correct')throw Error('PUBLIC_VERDICT_FAILED');
+console.log(JSON.stringify({verdict:state.verdict,minutes:state.elapsedMinutes,arguments:state.arguments.length,knownEvidence:state.knowledge.evidenceIds.length,possible:possibilities.length}));

@@ -14,7 +14,7 @@ import {PanelUI,wrapText} from "./RoomscriptPanelUI";
     this.topicText=this.view.text("Topic review","Asking about: unclear",3,"small");
     this.correctionLabels=this.view.buttons([{id:"Correct topic 1",label:"Whereabouts"},{id:"Correct topic 2",label:"Name"},{id:"Correct topic 3",label:"Personal item"}],id=>{const choice=this.choices[Number(id.slice(-1))-1];if(choice){this.topic=choice.topic;this.topicText.text="Asking about: "+choice.label;}});
     this.view.buttons([{id:"Free whereabouts",label:"Where were you?"},{id:"Free weird",label:"A strange question"}],id=>this.onDraft.invoke(id==="Free weird"?"Could a dragon juggle the moon?":"Where were you at 22:30?"));
-    this.view.buttons([{id:"Type a question",label:"Type on Specs"},{id:"Submit question",label:"Ask"},{id:"Close question",label:"Cancel"}],id=>{if(id==="Type a question")this.keyboard();else if(id==="Submit question"&&this.question.trim())this.onSubmit.invoke({question:this.question,topic:this.topic});else if(id==="Close question"){this.show(false);this.onClose.invoke();}});
+    this.view.buttons([{id:"Type a question",label:"Type question"},{id:"Submit question",label:"Ask"},{id:"Close question",label:"Cancel"}],id=>{if(id==="Type a question")this.keyboard();else if(id==="Submit question"&&this.question.trim())this.onSubmit.invoke({question:this.question,topic:this.topic});else if(id==="Close question"){this.show(false);this.onClose.invoke();}});
     this.view.show(false);
   }
   review(question:string,topic:string,choices:{topic:string;label:string}[]):void {this.build();this.question=question;this.topic=topic;this.choices=choices;
@@ -22,7 +22,6 @@ import {PanelUI,wrapText} from "./RoomscriptPanelUI";
     choices.slice(0,3).forEach((choice,i)=>this.correctionLabels[i].text=choice.label);this.show(true);}
   show(value:boolean):void {this.build();this.view.show(value);}
   private keyboard():void {
-    if(global.deviceInfoSystem.isEditor()){this.questionText.text="Use a Preview question above. On Specs, type any question here.";return;}
     require("LensStudio:TextInputModule");const options=new TextInputSystem.KeyboardOptions();
     options.enablePreview=true;options.keyboardType=TextInputSystem.KeyboardType.Text;options.returnKeyType=TextInputSystem.ReturnKeyType.Done;
     let text=this.question;options.initialText=text;

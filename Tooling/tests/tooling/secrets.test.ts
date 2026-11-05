@@ -12,6 +12,7 @@ afterEach(() => {
 });
 
 describe("secret guard", () => {
+  it("rejects live Preview bridge capabilities and permits an empty session",()=>{expect(inspectFile("LocalBridgeSession.ts","rsb_"+"a".repeat(64))).toEqual(["live Preview bridge session"]);expect(inspectFile("LocalBridgeSession.ts",'export const SESSION={token:""};')).toEqual([]);});
   it.each(["sk-", "sk-ant-", "sk-proj-", "AIza"])("rejects %s API keys in any file without exposing values", prefix => {
     const credential = prefix + "x".repeat(40);
     for (const path of ["fixture.txt", "asset.meta", "asset.prefab"]) {
