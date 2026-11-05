@@ -6,8 +6,9 @@ import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {decodePng,region} from '../lib/png.mjs';
 import {CAST,POSES} from '../lib/vectors.mjs';
-const root=resolve(dirname(fileURLToPath(import.meta.url)),'../../..');
-const art=resolve(root,'Tooling/art'),manifest=JSON.parse(readFileSync(resolve(art,'manifest.json'),'utf8')).assets;
+const sourceRoot=resolve(dirname(fileURLToPath(import.meta.url)),'../../..');
+const root=process.env.ROOMSCRIPT_ART_STAGE?resolve(sourceRoot,'Tooling/art/out/run6'):sourceRoot;
+const art=resolve(sourceRoot,'Tooling/art'),manifest=JSON.parse(readFileSync(resolve(process.env.ROOMSCRIPT_ART_STAGE?root:art,'manifest.json'),'utf8')).assets;
 for(const c of CAST)for(const pose of POSES)test(`${c.key}/${pose}: actual RGBA pixels, jaw window, anchored tell and luminance`,()=>{
   const m=manifest.find(a=>a.kind==='portrait'&&a.suspect===c.id&&a.pose===pose);assert.ok(m);
   const p=decodePng(readFileSync(resolve(root,m.path)));assert.equal(p.width,512);assert.equal(p.height,1024);assert.equal(p.colorType,6);
@@ -37,7 +38,23 @@ test('mouth/blink atlases, truth/claim ghosts and hero words are complete',()=>{
   assert.ok(manifest.reduce((n,a)=>n+a.bytes,0)<6*1024*1024,'source-art budget below 6 MiB');
 });
 test('before/after sheets exist and provenance does not imply a Lens capture',()=>{
-  for(const file of ['2026-11-04-art-before.jpg','2026-11-04-art-after-poses.png','2026-11-04-art-after-thumbnails.png'])assert.ok(existsSync(resolve(root,'docs/captures',file)));
+  for(const file of ['2026-11-04-art-before.jpg','2026-11-05-art-after-poses.png','2026-11-05-art-after-thumbnails.png'])assert.ok(existsSync(resolve(root,'docs/captures',file)));
+});
+test('v3 stroke brightness and torso poses remain readable without the hands',()=>{
+  for(const c of CAST){
+    const portraits=POSES.map(pose=>decodePng(readFileSync(resolve(root,`Assets/Art/Actors/${c.key}/${c.key}-${pose}.png`))));
+    for(const p of portraits)assert.ok(region(p,0,0,512,1024).bright/(512*1024)>.03,'strong ivory stroke core');
+    const neutral=portraits[0];
+    for(let i=1;i<portraits.length;i++){
+      let changes=0;
+      // Neck/shoulder band excludes the expressive hands in the central torso.
+      for(let y=350;y<415;y++)for(let x=100;x<395;x++){
+        const a=neutral.pixels[(y*512+x)*4+3]>150,b=portraits[i].pixels[(y*512+x)*4+3]>150;
+        if(a!==b)changes++;
+      }
+      assert.ok(changes>600,`${c.key}/${POSES[i]} needs visible shoulder/posture contrast`);
+    }
+  }
 });
 test('neutral silhouette profiles remain distinct after thumbnail downsampling',()=>{
   const profiles=CAST.map(c=>{const p=decodePng(readFileSync(resolve(root,`Assets/Art/Actors/${c.key}/${c.key}-neutral.png`))),rows=[];

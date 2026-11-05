@@ -46,6 +46,9 @@ function Path($spec) {
   return ,$path
 }
 $batchData=Get-Content -LiteralPath $Batch -Raw -Encoding UTF8 | ConvertFrom-Json
+$fontCollection=[System.Drawing.Text.PrivateFontCollection]::new()
+$fontDirectory=Join-Path $PSScriptRoot '../../../Assets/Art/Fonts'
+if(Test-Path -LiteralPath $fontDirectory){Get-ChildItem -LiteralPath $fontDirectory -Filter '*.ttf' | ForEach-Object {$fontCollection.AddFontFile($_.FullName)}}
 $stats=@()
 foreach($job in $batchData) {
   $scale=if($job.scale){[int]$job.scale}else{2}
@@ -64,7 +67,9 @@ foreach($job in $batchData) {
         $p=Path $item.path
         if($item.fill){$brush=[System.Drawing.SolidBrush]::new($color);$g.FillPath($brush,$p);$brush.Dispose()}
         else {
-          if($item.glow){$pen=[System.Drawing.Pen]::new((Color $item.color ($alpha*0.12)),[single]($item.width+6));$g.DrawPath($pen,$p);$pen.Dispose()}
+          if($item.glow){
+            foreach($ring in @(@(12,0.055),@(6,0.11))){$pen=[System.Drawing.Pen]::new((Color $item.color ($alpha*$ring[1])),[single]($item.width+$ring[0]));$pen.LineJoin='Round';$pen.StartCap='Round';$pen.EndCap='Round';$g.DrawPath($pen,$p);$pen.Dispose()}
+          }
           $pen=[System.Drawing.Pen]::new($color,[single]$item.width);$pen.StartCap='Round';$pen.EndCap='Round';$pen.LineJoin='Round'
           if($item.dash){$pen.DashStyle='Dash'}
           $g.DrawPath($pen,$p);$pen.Dispose()
@@ -79,10 +84,15 @@ foreach($job in $batchData) {
       }
       ellipse {
         if($item.fill){$brush=[System.Drawing.SolidBrush]::new($color);$g.FillEllipse($brush,[single]$item.x,[single]$item.y,[single]$item.w,[single]$item.h);$brush.Dispose()}
-        else{$pen=[System.Drawing.Pen]::new($color,[single]$item.width);$g.DrawEllipse($pen,[single]$item.x,[single]$item.y,[single]$item.w,[single]$item.h);$pen.Dispose()}
+        else{
+          if($item.glow){foreach($ring in @(@(12,0.055),@(6,0.11))){$pen=[System.Drawing.Pen]::new((Color $item.color ($alpha*$ring[1])),[single]($item.width+$ring[0]));$g.DrawEllipse($pen,[single]$item.x,[single]$item.y,[single]$item.w,[single]$item.h);$pen.Dispose()}}
+          $pen=[System.Drawing.Pen]::new($color,[single]$item.width);$g.DrawEllipse($pen,[single]$item.x,[single]$item.y,[single]$item.w,[single]$item.h);$pen.Dispose()
+        }
       }
       text {
-        $font=[System.Drawing.Font]::new($item.font,[single]$item.size,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Pixel)
+        $family=$fontCollection.Families | Where-Object {$_.Name -eq $item.font} | Select-Object -First 1
+        if($family){$font=[System.Drawing.Font]::new($family,[single]$item.size,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Pixel)}
+        else{$font=[System.Drawing.Font]::new($item.font,[single]$item.size,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Pixel)}
         $brush=[System.Drawing.SolidBrush]::new($color)
         $format=[System.Drawing.StringFormat]::GenericTypographic.Clone()
         if($item.align -eq 'center'){$format.Alignment='Center'}
@@ -91,7 +101,9 @@ foreach($job in $batchData) {
       }
       image {
         $im=[System.Drawing.Image]::FromFile($item.path)
-        $g.DrawImage($im,[single]$item.x,[single]$item.y,[single]$item.w,[single]$item.h);$im.Dispose()
+        if($item.source){$r=$item.source;$dest=[System.Drawing.Rectangle]::new([int]$item.x,[int]$item.y,[int]$item.w,[int]$item.h);$g.DrawImage($im,$dest,[int]$r[0],[int]$r[1],[int]$r[2],[int]$r[3],[System.Drawing.GraphicsUnit]::Pixel)}
+        else{$g.DrawImage($im,[single]$item.x,[single]$item.y,[single]$item.w,[single]$item.h)}
+        $im.Dispose()
       }
     }
     $g.Restore($state)
@@ -115,3 +127,4 @@ foreach($job in $batchData) {
 }
 $stats | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath ($Batch+'.metrics.json') -Encoding UTF8
 Write-Output ('Rendered '+$stats.Count+' assets')
+$fontCollection.Dispose()

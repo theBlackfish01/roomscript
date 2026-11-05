@@ -1,0 +1,169 @@
+- !<AssetImportMetadata/186950cf-2898-4644-916e-fee98082088c>
+  ImportedAssetIds:
+    .hidden/Handle_Material: !<reference> 0806999b-c7b9-44a1-a80e-17db8516cf42
+    01d8b96b0b1cf282: !<reference> 94368acc-c4fe-4e01-be8a-3ce00e7be4c1
+    26ba073d67b9d0dd: !<reference> 768d6d0e-d5a7-4ace-9875-9f8c48129037
+    63956a959bd38553: !<reference> ca0b5125-318b-400c-a851-7fd5cd1401e7
+    6eb10d35666fd013: !<reference> a25b7469-b4b7-4fad-9684-de424986251c
+    88ab437fd121cc69: !<reference> 08f0619c-9b6a-4726-9656-7455926a5909
+    8c2c6f3cf8d060fd: !<reference> a7b3daf7-383e-4de8-ad68-4e3d265fda5b
+    Materials/Handle_Material: !<reference> 07b09aa8-f2ab-4d8a-a6e4-9fcf4d818bf4
+    Materials/Handle_Material|Handle_Material|GraphPassInfo: !<reference> d5091329-761a-4b68-b063-3abd13958c6f
+    Materials/PorcelainCup_Material: !<reference> 22bd5cf3-e775-48b7-856d-d13d9195d360
+    Materials/PorcelainCup_Material|PorcelainCup_Material|GraphPassInfo: !<reference> 4f04afe9-f027-4b75-a964-39efe8f56abb
+    Meshes/Handle: !<reference> 368dd9eb-d323-426a-b103-c387567402f6
+    Meshes/PorcelainCup: !<reference> 2d9369d5-4216-4b68-867f-109d3aa36ed2
+    Scene: !<reference> e8c08a07-4015-402d-ba1a-d63a56d5b3a6
+    d4ab86dbff28e1f7: !<reference> 45bed009-26ff-41e6-ab9d-515ef04aee32
+  ImporterName: GltfImporter
+  PrimaryAsset: !<reference> e8c08a07-4015-402d-ba1a-d63a56d5b3a6
+  PackageType: LegacyPackage
+  LegacyPackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> 9e617151-3b41-4791-9558-a58181e325ba
+  DependentFiles:
+    []
+  ImporterSettings: !<GltfImporterSettings>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBasedV2
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangents: true
+    ImportMorphTargetAnimation: true
+    ConvertMetersToCentimeters: true
+    RegenerateTangents: false
+    OptimizeMesh: true
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<FileCompressionSettings>
+        {}
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<SceneObject/08f0619c-9b6a-4726-69a9-8baa6d95a6f6>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> a7b3daf7-383e-4de8-5297-b1c2d9a025a4
+  Components:
+    []
+- !<RenderMeshVisual/45bed009-26ff-41e6-5462-aea10fb511cd>
+  PrefabRemaps:
+    []
+  Name: PorcelainCup
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 22bd5cf3-e775-48b7-856d-d13d9195d360
+  Mesh: !<reference> 2d9369d5-4216-4b68-867f-109d3aa36ed2
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/768d6d0e-d5a7-4ace-678a-6073b7ed6fc8>
+  PrefabRemaps:
+    []
+  Name: ChippedMug
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 08f0619c-9b6a-4726-69a9-8baa6d95a6f6
+  Components:
+    []
+- !<SceneObject/94368acc-c4fe-4e01-4175-c31ff1841b3e>
+  PrefabRemaps:
+    []
+  Name: Handle
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a25b7469-b4b7-4fad-697b-21bdb679dae3
+- !<ObjectPrefabAssetData/9e617151-3b41-4791-9558-a58181e325ba>
+  Prototype: !<ObjectOwner/4ba302e8-78b7-4f74-8bdb-fa4577584f3c>
+    PackagePath: ""
+    objects:
+      - !<own> 768d6d0e-d5a7-4ace-678a-6073b7ed6fc8
+- !<RenderMeshVisual/a25b7469-b4b7-4fad-697b-21bdb679dae3>
+  PrefabRemaps:
+    []
+  Name: Handle
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 07b09aa8-f2ab-4d8a-a6e4-9fcf4d818bf4
+  Mesh: !<reference> 368dd9eb-d323-426a-b103-c387567402f6
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/a7b3daf7-383e-4de8-5297-b1c2d9a025a4>
+  PrefabRemaps:
+    []
+  Name: Scene0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> ca0b5125-318b-400c-57ae-802a32ebfe18
+    - !<own> 94368acc-c4fe-4e01-4175-c31ff1841b3e
+  Components:
+    []
+- !<SceneObject/ca0b5125-318b-400c-57ae-802a32ebfe18>
+  PrefabRemaps:
+    []
+  Name: PorcelainCup
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 45bed009-26ff-41e6-5462-aea10fb511cd

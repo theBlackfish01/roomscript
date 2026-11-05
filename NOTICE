@@ -56,15 +56,16 @@ Original artwork and fonts
   Okafor and Pike portraits (Tooling/scripts/draw-cast.mjs), and Run 5 procedural
   line art, GLB props, cards, icon geometry and monoline hero-letter alphabet
   (Tooling/art/) are original Roomscript work generated from code by Codex.
-- Production Run 5 rasterization uses the installed Windows System.Drawing
-  implementation and Courier New for card/contact-sheet text. No Windows font
-  files or System.Drawing binaries are redistributed. OFL font integration is
-  still pending, not represented as complete.
+- Production rasterization uses the installed Windows System.Drawing implementation.
+  No Windows font files or System.Drawing binaries are redistributed.
+- Anton Regular: Copyright 2020 The Anton Project Authors; SIL Open Font License 1.1.
+- Courier Prime Regular/Bold: Copyright 2015 The Courier Prime Project Authors;
+  SIL Open Font License 1.1. Used for Run 6 cards and contact sheets.
+  Full licenses are in Assets/Art/Fonts; sources and hashes in Tooling/art/FONTS.md.
 - The retained art prototype declares Fontsource Anton, Alfa Slab One and
   Courier Prime (SIL Open Font License) and Special Elite (Apache-2.0), Three.js
   (MIT) and playwright-core (Apache-2.0). The new production fallback does not
-  use those dependencies. Font files have not been imported into Lens assets.
-  Preserve the applicable font licence files when adding any of them later.
+  use those JavaScript dependencies. Run 6 bundles the licensed fonts listed above.
 
 Generated audio and AI services
 - Assets/Audio/Voice, Dialogue, Music and Sfx, the Tooling/audio/library masters,

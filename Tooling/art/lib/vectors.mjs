@@ -1,9 +1,9 @@
 // Original procedural engraving. No raster references, downloaded art, or browser required.
-export const palette={ivory:'#FFF0D6',brass:'#E8B04A',yellow:'#FFD60A',coral:'#FF6B5A',cyan:'#3FE3FF',violet:'#8F7CFF'};
+export const palette={ivory:'#FFF8E7',brass:'#E8B04A',yellow:'#FFD60A',coral:'#FF6B5A',cyan:'#3FE3FF',violet:'#8F7CFF'};
 export const M=(x,y)=>['M',x,y],L=(x,y)=>['L',x,y],C=(...v)=>['C',...v],Z=()=>['Z'];
 export function path(points,color=palette.ivory,width=2,extra={}){return {type:'path',path:points,color,width,...extra}}
 export function ellipse(x,y,w,h,color=palette.ivory,width=2,extra={}){return {type:'ellipse',x,y,w,h,color,width,...extra}}
-export function text(value,x,y,size=18,color=palette.ivory,extra={}){return {type:'text',text:value,x,y,size,color,font:'Courier New',...extra}}
+export function text(value,x,y,size=18,color=palette.ivory,extra={}){return {type:'text',text:value,x,y,size,color,font:'Courier Prime',...extra}}
 export const line=(x,y,X,Y,color=palette.ivory,width=2,extra={})=>path([M(x,y),L(X,Y)],color,width,extra);
 export function transform(items,dx,dy,rot=0){return items.map(i=>({...i,transform:[dx,dy,rot]}))}
 export const POSES=['neutral','listening','rattled','broken','smug'];
@@ -42,7 +42,10 @@ function face(key,pose){
     :[M(254,231),C(251,249,247,260,249,266),L(262,268),L(267,263)];
   items.push(path(nose,P.ivory,1.9));
   const my=(key==='Vale'?283:key==='Okafor'?289:292)+(broken?8:0),s=smug?-6:rattled?4:0;
-  const mouth=key==='Vale'?[M(236,my),C(246,my-1,263,my-1,275,my)]
+  const mouth=broken?[M(233,my+6),C(247,my-3,263,my-3,279,my+5)]
+    :rattled?[M(239,my),C(246,my-7,269,my-5,276,my+3),C(270,my+12,247,my+12,239,my)]
+    :smug?[M(232,my+5),C(247,my+9,267,my+4,282,my-8)]
+    :key==='Vale'?[M(236,my),C(246,my-1,263,my-1,275,my)]
     :key==='Pike'?[M(237,my+4),L(250,my-1),L(266,my+5)]
     :key==='Qadir'?[M(229,my+3+s),C(244,my+13,264,my+11,283,my-6-s)]
     :[M(235,my),L(253,my+1),L(276,my)];
@@ -73,7 +76,7 @@ function face(key,pose){
 }
 export function portrait(character,pose='neutral',mode='normal'){
   const key=character.key,P=palette,items=[],b=pose==='broken',r=pose==='rattled',l=pose==='listening',s=pose==='smug';
-  const drop=b?22:r?10:0,lean=key==='Pike'?22:key==='Qadir'?-16:0;
+  const drop=0,lean=key==='Pike'?22:key==='Qadir'?-16:0;
   // Every torso is separately drawn: silhouette identity survives a tiny thumbnail.
   let body;
   if(key==='Vale'){
@@ -111,20 +114,30 @@ export function portrait(character,pose='neutral',mode='normal'){
     for(let i=0;i<3;i++){items.push(ellipse(229,557+i*54,6,6,P.brass,1.7),ellipse(286,555+i*54,6,6,P.brass,1.7))}
     items.push(path([M(305,660),L(359,643),L(358,659),L(306,677),Z()],P.ivory,1.5));
   }
-  // Shoulder droop/lean move only clothing, preserving facial shader and tell anchors.
-  let out=items.map(i=>({...i,transform:[lean,drop,0]}));
-  const headAngle=(b?9:r?-6:l?-5:s?-8:0)+(key==='Pike'?14:key==='Qadir'?-9:key==='Vale'?-4:0);
-  const angle=headAngle*Math.PI/180,cx=256,cy=229,dx=(key==='Pike'?17:key==='Qadir'?-7:0)+(key==='Okafor'?0:b?-7:r?5:0),dy=(key==='Pike'?13:key==='Vale'?-5:0)+(key==='Okafor'?0:b?14:s?-6:0);
-  out.push(...face(key,pose).map(i=>({...i,transform:[cx-Math.cos(angle)*cx+Math.sin(angle)*cy+dx,cy-Math.sin(angle)*cx-Math.cos(angle)*cy+dy,headAngle]})));
-  out.push(line(224,318,220,351,P.ivory,1.7),line(282,321,286,351,P.ivory,1.7));
+  // Pose is expressed in the shoulders and spine, as well as the free arm.
+  // Hip positions stay stable and tell landmarks are painted separately below.
+  const posture=([x,y])=>{
+    const upper=Math.max(0,Math.min(1,(810-y)/475));
+    const shift=b?-34:r?-24:l?29:s?21:0,spread=b?.88:r?.86:l?.95:s?1.13:1;
+    const shoulder=b?30:r?-10:l?-6:s?-19:0;
+    return [256+(x-256)*(1+(spread-1)*upper)+lean+shift*upper,
+      y+drop+shoulder*upper+(s?(x-256)*.07*upper:0)];
+  };
+  let out=items.map(i=>mapGeometry(i,posture));
+  const headAngle=(b?16:r?-15:l?-13:s?-17:0)+(key==='Pike'?14:key==='Qadir'?-9:key==='Vale'?-4:0);
+  const angle=headAngle*Math.PI/180,cx=256,cy=229,dx=(key==='Pike'?17:key==='Qadir'?-7:0)+(key==='Okafor'?0:b?-17:r?-9:l?13:s?9:0),dy=(key==='Pike'?13:key==='Vale'?-5:0)+(key==='Okafor'?0:b?16:s?-8:0);
+  const headPoint=([x,y])=>[cx+(x-cx)*1.12,cy+(y-cy)*1.10];
+  out.push(...face(key,pose).map(i=>({...mapGeometry(i,headPoint),transform:[cx-Math.cos(angle)*cx+Math.sin(angle)*cy+dx,cy-Math.sin(angle)*cx-Math.cos(angle)*cy+dy,headAngle]})));
+  const neckPoint=(x,y)=>{const [X,Y]=headPoint([x,y]);return [cx+Math.cos(angle)*(X-cx)-Math.sin(angle)*(Y-cy)+dx,cy+Math.sin(angle)*(X-cx)+Math.cos(angle)*(Y-cy)+dy];};
+  out.push(line(...neckPoint(224,310),...posture([220,351]),P.ivory,1.7),line(...neckPoint(282,310),...posture([286,351]),P.ivory,1.7));
   // One arm remains anchored to the tell; the free arm performs the emotional pose.
   const ax=key==='Pike'?160:key==='Qadir'?352:key==='Okafor'?126:226,ay=key==='Pike'?578:key==='Qadir'?574:key==='Okafor'?610:554;
-  out.push(path([M(key==='Pike'?128:key==='Qadir'?355:key==='Okafor'?141:135,421+drop),C(ax-35,489,ax-30,ay-39,ax-12,ay-18)],P.ivory,2.4));
+  out.push(path([M(...posture([key==='Pike'?128:key==='Qadir'?355:key==='Okafor'?141:135,421])),C(ax-35,489,ax-30,ay-39,ax-12,ay-18)],P.ivory,2.4));
   if(key!=='Pike')out.push(...hands(ax,ay,key==='Qadir'?-18:8));
   const fx=key==='Qadir'?(l?154:r?219:b?173:s?213:169):key==='Pike'?(l?286:r?278:b?300:s?202:190):(l?347:r?294:b?326:s?201:300);
   const fy=key==='Qadir'?(l?442:r?355:b?686:s?493:633):key==='Pike'?(l?410:r?360:b?674:s?503:562):(l?406:r?351:b?674:s?503:574);
   const sh=key==='Qadir'?130:352;
-  out.push(path([M(sh+lean,422+drop),C(key==='Qadir'?92:389,500,fx+43,fy+32,fx+15,fy+16),M(sh-21+lean,447+drop),C(key==='Qadir'?112:357,511,fx+22,fy+55,fx-4,fy+25)],P.ivory,2.1));
+  out.push(path([M(...posture([sh,422])),C(key==='Qadir'?92:389,500,fx+43,fy+32,fx+15,fy+16),M(...posture([sh-21,447])),C(key==='Qadir'?112:357,511,fx+22,fy+55,fx-4,fy+25)],P.ivory,2.1));
   out.push(...hands(fx,fy,l?28:r?-16:b?8:s?-60:-20));
   // Anchors are solved in image space, never shifted by pose or body transforms.
   if(key==='Vale'){
@@ -132,16 +145,33 @@ export function portrait(character,pose='neutral',mode='normal'){
   }else if(key==='Qadir'){
     out.push(path([M(343,540),L(361,540),L(361,568),L(343,568),Z()],P.yellow,3,{glow:true}),line(343,546,361,546,'#FFFFFF',3),line(347,536,357,536,'#FFFFFF',2),line(352,549,352,565,'#FFFFFF',3));
   }else if(key==='Okafor'){
-    out.push(ellipse(203,215,40,27,'#FFFFFF',2.5),ellipse(270,215,40,27,'#FFFFFF',2.5),path([M(243,227),C(251,222,262,222,270,227)],'#FFFFFF',3.4,{glow:true}),line(195,220,204,223,'#FFFFFF',2),line(310,223,321,218,'#FFFFFF',2),line(239,228,273,228,'#FFFFFF',2.6,{glow:true}));
+    const glasses=[ellipse(203,215,40,27,'#FFFFFF',2.5),ellipse(270,215,40,27,'#FFFFFF',2.5),path([M(243,227),C(251,222,262,222,270,227)],'#FFFFFF',3.4,{glow:true}),line(195,220,204,223,'#FFFFFF',2),line(310,223,321,218,'#FFFFFF',2),line(239,228,273,228,'#FFFFFF',2.6,{glow:true})];
+    out.push(...glasses.map(i=>({...mapGeometry(i,headPoint),transform:[cx-Math.cos(angle)*cx+Math.sin(angle)*cy,cy-Math.sin(angle)*cx-Math.cos(angle)*cy,headAngle]})));
   }else{
     out.push(...hands(160,577,-5,true),line(146,595,174,597,'#FFFFFF',3));
     out.push(line(152,578,168,578,'#FFFFFF',3,{glow:true}));
   }
+  // Ivory is the structural colour. Thin gold outlines disappeared over the room.
+  // Keep yellow reserved for the fixed tell landmarks, and use a soft two-ring halo.
+  out=out.map(i=>({...i,color:i.color===P.brass?P.ivory:i.color,
+    width:i.type==='hatch'?1.0:Math.max(2.0,(i.width||1)*1.85),
+    alpha:i.type==='hatch'?.34:Math.max(.8,i.alpha??1),
+    glow:i.type!=='hatch'&&!i.fill}));
   if(mode!=='normal'){
     const color=mode==='claim'?P.cyan:mode==='truth'?P.coral:P.ivory;
     out=out.filter(i=>i.type!=='hatch').map(i=>({...i,color,alpha:mode==='suggestion'?.48:.8,dash:true,glow:false}));
   }
-  return {width:512,height:1024,fade:[640,860],items:out,contract:mode==='normal'?{anchor:character.anchor}:undefined};
+  return {width:512,height:1024,fade:[620,815],items:out,contract:mode==='normal'?{anchor:character.anchor}:undefined};
+}
+
+function mapGeometry(item,point){
+  if(item.path)return {...item,path:item.path.map(c=>{
+    if(c[0]==='Z')return c;
+    const v=[];for(let j=1;j<c.length;j+=2)v.push(...point([c[j],c[j+1]]));
+    return [c[0],...v];
+  })};
+  if(item.x!==undefined){const [x,y]=point([item.x,item.y]),[X,Y]=point([item.x+item.w,item.y+item.h]);return {...item,x,y,w:X-x,h:Y-y};}
+  return item;
 }
 
 export function victim(pose='standing'){
@@ -157,8 +187,9 @@ export function victim(pose='standing'){
   for(let i=0;i<4;i++)items.push(ellipse(252,440+i*43,5,5,col,1.6));
   items.push(path([M(267,544),C(295,590,326,586,337,545)],col,1.6,{dash:true}),ellipse(324,530,22,28,col,1.8));
   for(let i=0;i<64;i++){const x=130+(i*53)%255,y=388+(i*77)%425;items.push(ellipse(x,y,1.6,1.6,col,1,{fill:true,alpha:.5}))}
-  if(pose==='falling')return {width:512,height:1024,fade:[650,860],items:items.map(i=>({...i,transform:[-113,211,-23]}))};
-  return {width:512,height:1024,fade:[640,860],items};
+  const luminous=items.map(i=>({...i,width:(i.width||1)*1.85,glow:!i.fill}));
+  if(pose==='falling')return {width:512,height:1024,fade:[620,815],items:luminous.map(i=>({...i,transform:[-113,211,-23]}))};
+  return {width:512,height:1024,fade:[620,815],items:luminous};
 }
 
 // Original monoline display alphabet. Rasterized hero words carry no external font dependency.

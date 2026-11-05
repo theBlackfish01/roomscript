@@ -166,3 +166,5 @@ The synchronous player-fuzz test exceeded its 60-second deadline under current l
 ## 2026-11-05 — Run 6 recovery and acceptance
 
 Use run5-wip until the swapped compressed bundle and repaired hero pass; only then fast-forward/push master. User explicitly authorizes package pushes and normal sandbox escalations, superseding old no-push/no-approval guidance. Keep two workers max, no GUI, serial LEAF and no full suite during renders. LEAF strict policy is `fail-fast` (not `strict`). Initial compressed baseline passed under fallback and is not the strict acceptance result. UIKit controls need a bounded readiness wait after visibility changes; do not replace UI interactions with direct callbacks in the hero test.
+
+Run 6 art: preserve original procedural direction; use 1.85x ivory structure, two-ring halo, larger faces and posture contrast. Anton/Courier Prime bundled with OFL licenses. Select runtime textures; do not confuse 5.96 MB source size with resident texture memory. Remove only unused duplicate web/specs folders; history and prototype retain them.

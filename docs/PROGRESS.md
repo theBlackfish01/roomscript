@@ -319,3 +319,5 @@ Local checkpoints for the final packages: 1a47f14 (D6 offline availability, Prev
 
 
 Run 6 verified step: repaired hero-demo passed fail-fast in 171.752 s, bundled playback on all requested questions, zero network, correct verdict and replay equality. Vale replacement acceptance still pending.
+
+Run 6 offline art verified: thicker brighter ivory outlines (1.85x), larger faces, torso/head/expression contrast, 27 contracts and 98/98 repeat hashes. PNG/GLB 5,961,439 bytes plus OFL fonts 323,743 bytes. Review docs/captures/2026-11-05-art-after-poses.png and art-room-{Vale,Qadir,Okafor,Pike}.png (explicit historical-room offline composites, not fresh Preview). A3 runtime wiring remains pending. Removed 18 unused duplicate prototype files with authorized git rm; retained prototype remains.

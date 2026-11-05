@@ -78,3 +78,5 @@ Raw-log SHA-256: `34820b09cc040b6dbe223def9e95c3649f5764cb9ec6f8016e6d5106e59b6b
 - Codex workers: Vale audio save/synthesis and offline art/font polish (maximum two; no GUI tools).
 
 - Run 6 MCP hero-demo: fail-fast passed 171.752 s after bounded UIKit readiness repair; exact replay, correct ending, bundled questions, no network.
+
+- Codex art_polish worker: procedural GDI art pass, 27 contracts, 98 deterministic hashes, four labelled historical-room composites. Imported licensed Anton/Courier Prime via authorized GitHub download; no GUI. Main saved project through Editor API then performed requested process restart before post-import verification.

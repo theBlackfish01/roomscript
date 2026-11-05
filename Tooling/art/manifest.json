@@ -1,6 +1,6 @@
 {
-  "schema": 2,
-  "renderer": "native-gdi-engraving-v2",
+  "schema": 3,
+  "renderer": "native-gdi-engraving-v3",
   "assets": [
     {
       "path": "Assets/Art/Actors/Harlow/Harlow-falling.png",
@@ -9,10 +9,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.010326385498046875
+        "brightFraction": 0.020200729370117188
       },
-      "bytes": 48745,
-      "sha256": "6301ccaa4f42caf1e3629e027284da134e8fadc4dd96cfd115d5e7f765f50a51"
+      "bytes": 117825,
+      "sha256": "7c2629ce346b8618c9a891738773138ee49b0293ce277a4a230af0cd7bcdf7ce"
     },
     {
       "path": "Assets/Art/Actors/Harlow/Harlow-standing.png",
@@ -21,10 +21,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.01078033447265625
+        "brightFraction": 0.02141571044921875
       },
-      "bytes": 44725,
-      "sha256": "14a6327d5389d39e14214e2ad4c5b98a83ac12c324f955be3d22bd881b7ff062"
+      "bytes": 109068,
+      "sha256": "e5257c2927766c90aec67779bf8f55170ff19083c71a0ea18b8e96b4cc60f638"
     },
     {
       "path": "Assets/Art/Actors/Okafor/Okafor-blink-atlas.png",
@@ -35,10 +35,10 @@
       "metrics": {
         "width": 512,
         "height": 64,
-        "brightFraction": 0.02032470703125
+        "brightFraction": 0.02056884765625
       },
-      "bytes": 1822,
-      "sha256": "984a42d2a2a60e5df535175e8e8c95596c92712a0db62e828ce5bdacc23b91ef"
+      "bytes": 1762,
+      "sha256": "991d1ee53e0e357245bc52ef6b55897762a144303de0322001571ad27c2dc1c3"
     },
     {
       "path": "Assets/Art/Actors/Okafor/Okafor-broken.png",
@@ -52,17 +52,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 468,
+        "anchorBright": 805,
         "centroid": [
-          256.2606837606838,
-          226.758547008547
+          256.6447204968944,
+          227.51180124223603
         ],
         "bottomVisible": 0,
-        "mouth": 825,
-        "brightFraction": 0.022434234619140625
+        "mouth": 2661,
+        "brightFraction": 0.04505729675292969
       },
-      "bytes": 87936,
-      "sha256": "25855ce5de0dd2677f70a5152478db4e6dd5b8e3443ddd884d8fb6dd9f7798f0"
+      "bytes": 182034,
+      "sha256": "d21f1e3d7c466f7755e969b50b4d2d10f2cd01762ca3728f2802b865b4cf8b17"
     },
     {
       "path": "Assets/Art/Actors/Okafor/Okafor-listening.png",
@@ -76,17 +76,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 444,
+        "anchorBright": 796,
         "centroid": [
-          257.10360360360363,
-          226.29504504504504
+          257.0326633165829,
+          226.05276381909547
         ],
         "bottomVisible": 0,
-        "mouth": 854,
-        "brightFraction": 0.02188873291015625
+        "mouth": 2517,
+        "brightFraction": 0.04522705078125
       },
-      "bytes": 82894,
-      "sha256": "4f90731ab80ccdb2b1eed1385cdfb869e50da2d4fc988f675d99ed01fc11273e"
+      "bytes": 177636,
+      "sha256": "930aea8026cf5132d77757ed4282ffd90f41f8e6a76bb2db0661306903e1ed8a"
     },
     {
       "path": "Assets/Art/Actors/Okafor/Okafor-mouth-atlas.png",
@@ -97,10 +97,10 @@
       "metrics": {
         "width": 512,
         "height": 64,
-        "brightFraction": 0.0313720703125
+        "brightFraction": 0.0318603515625
       },
-      "bytes": 4826,
-      "sha256": "eb58e37192ecba927328d5ae19ffc27cfb4db9af5092f9e9e357115c363f9bdf"
+      "bytes": 4611,
+      "sha256": "09daab8ec6b8bf6ec2977505b5b1dbf26840ac520b0e348acfa0be688917c2cf"
     },
     {
       "path": "Assets/Art/Actors/Okafor/Okafor-neutral.png",
@@ -114,17 +114,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 439,
+        "anchorBright": 780,
         "centroid": [
-          257.02733485193625,
-          226.43963553530753
+          257.13589743589745,
+          226.6076923076923
         ],
         "bottomVisible": 0,
-        "mouth": 842,
-        "brightFraction": 0.022577285766601562
+        "mouth": 2482,
+        "brightFraction": 0.04669952392578125
       },
-      "bytes": 83915,
-      "sha256": "79f5739a697ddcaa15c58226c7e9bacbcc6e53d9033a0ddfe7390224f6479308"
+      "bytes": 177849,
+      "sha256": "277f817449c42dac3ca3b8f750fe11aada85746709227cc207e284aaa25ef8f6"
     },
     {
       "path": "Assets/Art/Actors/Okafor/Okafor-rattled.png",
@@ -138,17 +138,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 456,
+        "anchorBright": 803,
         "centroid": [
-          256.76973684210526,
-          226.41228070175438
+          256.85803237858033,
+          226.47571606475717
         ],
         "bottomVisible": 0,
-        "mouth": 983,
-        "brightFraction": 0.021976470947265625
+        "mouth": 3253,
+        "brightFraction": 0.046436309814453125
       },
-      "bytes": 84072,
-      "sha256": "9ea271d495a125b5936556cf1b6c9b190be4b9beaa5d8c3f71cab2ff26bdec63"
+      "bytes": 177003,
+      "sha256": "8be5efef8ffdd33557932379068dd03300e695c4771e6341649c4614bfa00219"
     },
     {
       "path": "Assets/Art/Actors/Okafor/Okafor-smug.png",
@@ -162,17 +162,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 445,
+        "anchorBright": 757,
         "centroid": [
-          257.12808988764044,
-          225.67415730337078
+          256.1453104359313,
+          227.13870541611624
         ],
         "bottomVisible": 0,
-        "mouth": 794,
-        "brightFraction": 0.02263641357421875
+        "mouth": 2648,
+        "brightFraction": 0.04856300354003906
       },
-      "bytes": 84956,
-      "sha256": "18a189cc864422da55f049a6b4c16aa154af50beb2fcf672d80356f814860697"
+      "bytes": 190626,
+      "sha256": "a0f15315f42c81350ef1d14c09e71401f0bd9014e4ab1c90cd43a4b17c14cc8f"
     },
     {
       "path": "Assets/Art/Actors/Pike/Pike-blink-atlas.png",
@@ -183,10 +183,10 @@
       "metrics": {
         "width": 512,
         "height": 64,
-        "brightFraction": 0.02032470703125
+        "brightFraction": 0.02056884765625
       },
-      "bytes": 1822,
-      "sha256": "984a42d2a2a60e5df535175e8e8c95596c92712a0db62e828ce5bdacc23b91ef"
+      "bytes": 1762,
+      "sha256": "991d1ee53e0e357245bc52ef6b55897762a144303de0322001571ad27c2dc1c3"
     },
     {
       "path": "Assets/Art/Actors/Pike/Pike-broken.png",
@@ -200,17 +200,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 611,
+        "anchorBright": 1027,
         "centroid": [
-          157.1554828150573,
-          577.8559738134206
+          155.56085686465434,
+          577.664070107108
         ],
         "bottomVisible": 0,
-        "mouth": 1057,
-        "brightFraction": 0.020654678344726562
+        "mouth": 3506,
+        "brightFraction": 0.04119110107421875
       },
-      "bytes": 87563,
-      "sha256": "777063f5abc505f389452c4f2d6281aa33fa36aa0e878cb1ce8cfb5661d1842a"
+      "bytes": 171942,
+      "sha256": "927b9e6ce833c44176672c570641e035b7f68a1c7b91a29db9f8b9f5e88298e2"
     },
     {
       "path": "Assets/Art/Actors/Pike/Pike-listening.png",
@@ -224,17 +224,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 602,
+        "anchorBright": 1042,
         "centroid": [
-          157.2325581395349,
-          578.2009966777408
+          159.54702495201536,
+          577.4827255278311
         ],
         "bottomVisible": 0,
-        "mouth": 1194,
-        "brightFraction": 0.020099639892578125
+        "mouth": 3275,
+        "brightFraction": 0.04100608825683594
       },
-      "bytes": 82901,
-      "sha256": "c4476ec7415d95a2f664f6882102b26286299df36a92f682cddbe0fc179dc9bd"
+      "bytes": 166348,
+      "sha256": "68ced68e58c8f5f0d24bf94f333931296e5cd403fb084170def6ae59a80ddb22"
     },
     {
       "path": "Assets/Art/Actors/Pike/Pike-mouth-atlas.png",
@@ -245,10 +245,10 @@
       "metrics": {
         "width": 512,
         "height": 64,
-        "brightFraction": 0.0313720703125
+        "brightFraction": 0.0318603515625
       },
-      "bytes": 4826,
-      "sha256": "eb58e37192ecba927328d5ae19ffc27cfb4db9af5092f9e9e357115c363f9bdf"
+      "bytes": 4611,
+      "sha256": "09daab8ec6b8bf6ec2977505b5b1dbf26840ac520b0e348acfa0be688917c2cf"
     },
     {
       "path": "Assets/Art/Actors/Pike/Pike-neutral.png",
@@ -262,17 +262,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 673,
+        "anchorBright": 1160,
         "centroid": [
-          158.85438335809806,
-          577.0178306092125
+          158.74396551724138,
+          576.4689655172414
         ],
         "bottomVisible": 0,
-        "mouth": 1246,
-        "brightFraction": 0.020967483520507812
+        "mouth": 3341,
+        "brightFraction": 0.042392730712890625
       },
-      "bytes": 84695,
-      "sha256": "57be308c25f05ab5cd454628dddd8fc99b490655a9d7632e38830f48be663a40"
+      "bytes": 173060,
+      "sha256": "dfa2932f6d34414a8e5fce5deaee3217e3b51b396b1503f6e462a0680118b42a"
     },
     {
       "path": "Assets/Art/Actors/Pike/Pike-rattled.png",
@@ -286,17 +286,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 612,
+        "anchorBright": 999,
         "centroid": [
-          157.2467320261438,
-          577.8415032679738
+          156.54354354354354,
+          577.3263263263264
         ],
         "bottomVisible": 0,
-        "mouth": 1249,
-        "brightFraction": 0.020076751708984375
+        "mouth": 3916,
+        "brightFraction": 0.04095649719238281
       },
-      "bytes": 83445,
-      "sha256": "e99f67163b5643dddb8b1c587fed4867e6cf3ebe0b8791c3d4f83bddfb9ce770"
+      "bytes": 165224,
+      "sha256": "ce44143c6fd2ebedfc7322accd1dd2472aa1ca438427acb9ba75baf0e8d83311"
     },
     {
       "path": "Assets/Art/Actors/Pike/Pike-smug.png",
@@ -310,17 +310,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 602,
+        "anchorBright": 1007,
         "centroid": [
-          157.2325581395349,
-          578.2009966777408
+          157.0953326713009,
+          577.6752730883813
         ],
         "bottomVisible": 0,
-        "mouth": 1079,
-        "brightFraction": 0.020719528198242188
+        "mouth": 2943,
+        "brightFraction": 0.04364585876464844
       },
-      "bytes": 84441,
-      "sha256": "4c27b963d3f5a5c900d8983fc107f52d1357168b5cc6b9c4117d863675a15f10"
+      "bytes": 176492,
+      "sha256": "6dcc459fe50569b12ac3cd77552d5a984e2c11190957d6527f37d1760ef141ab"
     },
     {
       "path": "Assets/Art/Actors/Qadir/Qadir-blink-atlas.png",
@@ -331,10 +331,10 @@
       "metrics": {
         "width": 512,
         "height": 64,
-        "brightFraction": 0.02032470703125
+        "brightFraction": 0.02056884765625
       },
-      "bytes": 1822,
-      "sha256": "984a42d2a2a60e5df535175e8e8c95596c92712a0db62e828ce5bdacc23b91ef"
+      "bytes": 1762,
+      "sha256": "991d1ee53e0e357245bc52ef6b55897762a144303de0322001571ad27c2dc1c3"
     },
     {
       "path": "Assets/Art/Actors/Qadir/Qadir-broken.png",
@@ -348,17 +348,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 796,
+        "anchorBright": 1180,
         "centroid": [
-          348.50879396984925,
-          552.5741206030151
+          349.9415254237288,
+          552.2915254237288
         ],
         "bottomVisible": 0,
-        "mouth": 964,
-        "brightFraction": 0.020977020263671875
+        "mouth": 2843,
+        "brightFraction": 0.04251861572265625
       },
-      "bytes": 86928,
-      "sha256": "3618df4530aa7fb411a81cd1eed67cb076e2a3c288b033bfb2896c56d5461750"
+      "bytes": 186655,
+      "sha256": "27f9c885b31a80e0cc8cde4366ca322bc4e0756ee86ca36d4c366a9027ca6db7"
     },
     {
       "path": "Assets/Art/Actors/Qadir/Qadir-listening.png",
@@ -372,17 +372,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 800,
+        "anchorBright": 1221,
         "centroid": [
-          348.4875,
-          552.55125
+          349.7821457821458,
+          552.4676494676495
         ],
         "bottomVisible": 0,
-        "mouth": 999,
-        "brightFraction": 0.020526885986328125
+        "mouth": 2785,
+        "brightFraction": 0.04178428649902344
       },
-      "bytes": 83382,
-      "sha256": "9e7b5d0d9b545a124faa9f896d3a46785f602dae0457df0e1c3b25f5fcff5366"
+      "bytes": 175996,
+      "sha256": "09a383a969f2d39da3a2e26c57a36746d4306fa8424623e440700214c309ee3e"
     },
     {
       "path": "Assets/Art/Actors/Qadir/Qadir-mouth-atlas.png",
@@ -393,10 +393,10 @@
       "metrics": {
         "width": 512,
         "height": 64,
-        "brightFraction": 0.0313720703125
+        "brightFraction": 0.0318603515625
       },
-      "bytes": 4826,
-      "sha256": "eb58e37192ecba927328d5ae19ffc27cfb4db9af5092f9e9e357115c363f9bdf"
+      "bytes": 4611,
+      "sha256": "09daab8ec6b8bf6ec2977505b5b1dbf26840ac520b0e348acfa0be688917c2cf"
     },
     {
       "path": "Assets/Art/Actors/Qadir/Qadir-neutral.png",
@@ -410,17 +410,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 800,
+        "anchorBright": 1293,
         "centroid": [
-          348.4875,
-          552.55125
+          348.7339520494973,
+          552.2289249806652
         ],
         "bottomVisible": 0,
-        "mouth": 1062,
-        "brightFraction": 0.021533966064453125
+        "mouth": 3084,
+        "brightFraction": 0.04391288757324219
       },
-      "bytes": 86624,
-      "sha256": "57c22eacadd01ce1d84048372b7a4753f11f0bae15e002215dd4aa548eb7d892"
+      "bytes": 184971,
+      "sha256": "15b51eb362a403f368e47d58c5f6abd0b79c15c4bf1b76235e07e1eec072cf3f"
     },
     {
       "path": "Assets/Art/Actors/Qadir/Qadir-rattled.png",
@@ -434,17 +434,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 797,
+        "anchorBright": 1182,
         "centroid": [
-          348.4805520702635,
-          552.5633626097867
+          349.917089678511,
+          552.269035532995
         ],
         "bottomVisible": 0,
-        "mouth": 1094,
-        "brightFraction": 0.020772933959960938
+        "mouth": 4015,
+        "brightFraction": 0.04332542419433594
       },
-      "bytes": 85044,
-      "sha256": "f74a138a2324adb5f382e7dccacc47896e00ed68a77a8d7b86281b1101a87a2a"
+      "bytes": 180522,
+      "sha256": "f1ae2553d0e2812dc2af769e1d604692b29469049a2525fb9999877b2085eeae"
     },
     {
       "path": "Assets/Art/Actors/Qadir/Qadir-smug.png",
@@ -458,17 +458,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 800,
+        "anchorBright": 1263,
         "centroid": [
-          348.4875,
-          552.55125
+          350.0728424386382,
+          552.4520981789391
         ],
         "bottomVisible": 0,
-        "mouth": 950,
-        "brightFraction": 0.020971298217773438
+        "mouth": 3042,
+        "brightFraction": 0.04428672790527344
       },
-      "bytes": 84173,
-      "sha256": "4329b29c309f82c377798ca3e3bf0f331c63511957015a5dfb51fc89e65cbb50"
+      "bytes": 186686,
+      "sha256": "1073f3ce3be2ba744197e431862ebd62ae2da9532240732284fceb7c6d7a6992"
     },
     {
       "path": "Assets/Art/Actors/Vale/Vale-blink-atlas.png",
@@ -479,10 +479,10 @@
       "metrics": {
         "width": 512,
         "height": 64,
-        "brightFraction": 0.02032470703125
+        "brightFraction": 0.02056884765625
       },
-      "bytes": 1822,
-      "sha256": "984a42d2a2a60e5df535175e8e8c95596c92712a0db62e828ce5bdacc23b91ef"
+      "bytes": 1762,
+      "sha256": "991d1ee53e0e357245bc52ef6b55897762a144303de0322001571ad27c2dc1c3"
     },
     {
       "path": "Assets/Art/Actors/Vale/Vale-broken.png",
@@ -496,17 +496,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 588,
+        "anchorBright": 954,
         "centroid": [
-          341.0221088435374,
-          439.05442176870747
+          335.8825995807128,
+          441.4392033542977
         ],
         "bottomVisible": 0,
-        "mouth": 917,
-        "brightFraction": 0.022670745849609375
+        "mouth": 2926,
+        "brightFraction": 0.04992485046386719
       },
-      "bytes": 105549,
-      "sha256": "fea3081edc3ac24adc2a416ed7c084bffbe739aa108856412ca810e3bd115b65"
+      "bytes": 214747,
+      "sha256": "e1ff1f80ae00e35004615f3e69b38d367b23120eb56a54077b900d1c1b34c6c5"
     },
     {
       "path": "Assets/Art/Actors/Vale/Vale-listening.png",
@@ -520,17 +520,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 746,
+        "anchorBright": 942,
         "centroid": [
-          343.1219839142091,
-          439.3632707774799
+          342.16029723991505,
+          439.3577494692144
         ],
         "bottomVisible": 0,
-        "mouth": 789,
-        "brightFraction": 0.021589279174804688
+        "mouth": 2511,
+        "brightFraction": 0.049213409423828125
       },
-      "bytes": 100182,
-      "sha256": "8ed93dea0318554606469650f87f8f07215900d10471aa6555155d8d9f058456"
+      "bytes": 209496,
+      "sha256": "e72e20288222ef6aef57d16b3c904cbe9343309c9945641272273f4ac19d5cf5"
     },
     {
       "path": "Assets/Art/Actors/Vale/Vale-mouth-atlas.png",
@@ -541,10 +541,10 @@
       "metrics": {
         "width": 512,
         "height": 64,
-        "brightFraction": 0.0313720703125
+        "brightFraction": 0.0318603515625
       },
-      "bytes": 4826,
-      "sha256": "eb58e37192ecba927328d5ae19ffc27cfb4db9af5092f9e9e357115c363f9bdf"
+      "bytes": 4611,
+      "sha256": "09daab8ec6b8bf6ec2977505b5b1dbf26840ac520b0e348acfa0be688917c2cf"
     },
     {
       "path": "Assets/Art/Actors/Vale/Vale-neutral.png",
@@ -558,17 +558,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 654,
+        "anchorBright": 1123,
         "centroid": [
-          343.15443425076455,
-          440.1743119266055
+          344.0507569011576,
+          439.42831700801423
         ],
         "bottomVisible": 0,
-        "mouth": 828,
-        "brightFraction": 0.022520065307617188
+        "mouth": 2720,
+        "brightFraction": 0.05126380920410156
       },
-      "bytes": 102578,
-      "sha256": "fa1530bdb4c8ae1eba381a990cb42758eddef0e5ab8fe91711645dadb166ce0a"
+      "bytes": 211519,
+      "sha256": "97b68d2cf162086764167250f3b675e7cc9503414f0745c9bd6368a209f5bb31"
     },
     {
       "path": "Assets/Art/Actors/Vale/Vale-rattled.png",
@@ -582,17 +582,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 791,
+        "anchorBright": 1182,
         "centroid": [
-          341.48546144121366,
-          440.8533501896334
+          335.65143824027075,
+          437.51269035532994
         ],
         "bottomVisible": 0,
-        "mouth": 956,
-        "brightFraction": 0.022029876708984375
+        "mouth": 3438,
+        "brightFraction": 0.049747467041015625
       },
-      "bytes": 102406,
-      "sha256": "322e45b416c4a492d28c1c30ae991fdd39cb3fedf82927f39c10abea0024c83b"
+      "bytes": 208935,
+      "sha256": "5707ff078f994ed0d88726c9a1e52e660fd8c6fa22d812f5a3cf67f7a39577c9"
     },
     {
       "path": "Assets/Art/Actors/Vale/Vale-smug.png",
@@ -606,17 +606,17 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "anchorBright": 676,
+        "anchorBright": 780,
         "centroid": [
-          343.5177514792899,
-          440.6686390532544
+          342.28205128205127,
+          439.54615384615386
         ],
         "bottomVisible": 0,
-        "mouth": 715,
-        "brightFraction": 0.022548675537109375
+        "mouth": 2639,
+        "brightFraction": 0.053783416748046875
       },
-      "bytes": 102925,
-      "sha256": "0a8df0ff951792b074d65db31b36b88d63e626c5e663b891c4f9c120e24d24ba"
+      "bytes": 223589,
+      "sha256": "2b5864e0301494eac34e1c7b1e877ddf9c938cc27d2987c62bcde2b19faf69eb"
     },
     {
       "path": "Assets/Art/Cards/Card_E_CABLE.png",
@@ -635,10 +635,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.0318572998046875
+        "brightFraction": 0.0393218994140625
       },
-      "bytes": 29197,
-      "sha256": "6ca84b3324ac1a404c1c0151974dc0a1fa7b80d11533356d382c65304543d1d6"
+      "bytes": 40144,
+      "sha256": "c0bcf77621c2c4e102a43b1ebdbe404493179c9504607a1bcc49b6964f53bed0"
     },
     {
       "path": "Assets/Art/Cards/Card_E_CLOCK_FOUND.png",
@@ -655,10 +655,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.0272552490234375
+        "brightFraction": 0.0317108154296875
       },
-      "bytes": 26241,
-      "sha256": "3d3ec778c387d6f5bbbb019d785da3c981c4bb830181e444a147563ca8880145"
+      "bytes": 32542,
+      "sha256": "797dccc778c77af6b445182526eb3911d308ebd49af8e281917c038254440e8b"
     },
     {
       "path": "Assets/Art/Cards/Card_E_KETTLE_COLD.png",
@@ -676,10 +676,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.031329345703125
+        "brightFraction": 0.03868408203125
       },
-      "bytes": 29140,
-      "sha256": "5df473e7fff56dd060c9d428f61281c2951a4e893da4ce3162f23c64ae270182"
+      "bytes": 40021,
+      "sha256": "3f26eb6bf279382f57b43c991f70f0d7fbcbdb542d55e125bedd0dac766f5266"
     },
     {
       "path": "Assets/Art/Cards/Card_E_LETTER.png",
@@ -697,10 +697,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.0328277587890625
+        "brightFraction": 0.0411895751953125
       },
-      "bytes": 23489,
-      "sha256": "31438640841b8f0f05b291f4ab6b0bbd1e64720f3c7e5472aad0aa7502a455bd"
+      "bytes": 36700,
+      "sha256": "3c8826a8e1e8199a1d19304c177a5af22ee0380d7947c54fcccddd44a5282d65"
     },
     {
       "path": "Assets/Art/Cards/Card_E_O2_LOCATION.png",
@@ -717,10 +717,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.029498291015625
+        "brightFraction": 0.035491943359375
       },
-      "bytes": 20844,
-      "sha256": "6841a22ba5665e8bb58e8c589c4e2a7c643393125eede1359b18ecfe3fbdc5d7"
+      "bytes": 29815,
+      "sha256": "d2c623b19d67c2f39324547b6012500108ef4dea335cbcf4208a3665210a3c42"
     },
     {
       "path": "Assets/Art/Cards/Card_E_O3_LOCATION.png",
@@ -737,10 +737,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.029278564453125
+        "brightFraction": 0.0346466064453125
       },
-      "bytes": 19534,
-      "sha256": "b26bf99cf2deb55deefcc05d77918e6369cfd750757fecfc1cf3a9b5f33aafcf"
+      "bytes": 27959,
+      "sha256": "784d7d57527b3773ed300f1ea489637e416c7a461829394fd80312c12e06594a"
     },
     {
       "path": "Assets/Art/Cards/Card_E_O4_LOCATION.png",
@@ -757,10 +757,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.0298797607421875
+        "brightFraction": 0.0359588623046875
       },
-      "bytes": 20656,
-      "sha256": "da675ec04f8d5a675992ae1d8f16d002396e63ce55318dff44a8fdefa7b34db4"
+      "bytes": 29883,
+      "sha256": "6f23f1fa748abede4148fee5e58a2e92edad7a75ea85ea54076ddb1ebed25130"
     },
     {
       "path": "Assets/Art/Cards/Card_E_O5_LOCATION.png",
@@ -777,10 +777,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.02967529296875
+        "brightFraction": 0.0355224609375
       },
-      "bytes": 21076,
-      "sha256": "f5032eb950f934c3bc75b6d331434c454e5dfaa3c851570f1625b00bfda877b6"
+      "bytes": 29522,
+      "sha256": "1b1569b559b0cef95cd3c7a85eaad4a39e9c99c7e9bea4e7d94114f36245a80b"
     },
     {
       "path": "Assets/Art/Cards/Card_E_RECORDING.png",
@@ -798,10 +798,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.03375244140625
+        "brightFraction": 0.0427581787109375
       },
-      "bytes": 29211,
-      "sha256": "5deb11cd5acde3ead16573b5410f21f51c2393dd1737537a59e476b89e89954f"
+      "bytes": 41632,
+      "sha256": "572c25d9c46c2f4678dbba12e02278c732737b775c05ffc2da29ef18f5723e2e"
     },
     {
       "path": "Assets/Art/Cards/Card_E_S1_ALIBI.png",
@@ -818,10 +818,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.0274993896484375
+        "brightFraction": 0.030987548828125
       },
-      "bytes": 16734,
-      "sha256": "310ce96d4f8ad2968e58b9d1b9929088c5802dbb6689bcc94627b243719980ed"
+      "bytes": 21891,
+      "sha256": "fd9a22f760d567aa2fd9349546664d718e1795f6bdf0ac5dde6d5b69b3b70100"
     },
     {
       "path": "Assets/Art/Cards/Card_E_S1_BASELINE.png",
@@ -838,10 +838,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.029595947265625
+        "brightFraction": 0.0350555419921875
       },
-      "bytes": 20118,
-      "sha256": "334e9404ad929a14789dd12b5171ac868f5b7f7a559c35416429df61c95c2496"
+      "bytes": 28333,
+      "sha256": "c963ce63658b553e7639583864d0aab5c205db3083682fad06930eb462111d7b"
     },
     {
       "path": "Assets/Art/Cards/Card_E_S2_BASELINE_MUG.png",
@@ -858,10 +858,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.0288421630859375
+        "brightFraction": 0.035308837890625
       },
-      "bytes": 26629,
-      "sha256": "eefd1da682c3dd7cff6bb775327542968ffd896f80f2dc1e9b75ce87422ca53e"
+      "bytes": 36429,
+      "sha256": "21b50873dc0475bcf2fc4336aa5a030a21f1118d46748ca9f00236a9dce8fc8d"
     },
     {
       "path": "Assets/Art/Cards/Card_E_S2_BASELINE.png",
@@ -878,10 +878,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.02733154296875
+        "brightFraction": 0.032537841796875
       },
-      "bytes": 25534,
-      "sha256": "895a816f8a0b7a39f041ab8801b0a9db95c214f98b521c712f5b16338c4ae071"
+      "bytes": 33162,
+      "sha256": "d0a723fa8ab31510249602eba36bf2453e0beec5ed177820b8396ddec1627795"
     },
     {
       "path": "Assets/Art/Cards/Card_E_S3_ALIBI.png",
@@ -898,10 +898,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.0275421142578125
+        "brightFraction": 0.03133544921875
       },
-      "bytes": 23020,
-      "sha256": "27809f754f80d4cf4f593e3b808b742ef531c74d623e04f04ca1d07557ce31a5"
+      "bytes": 28833,
+      "sha256": "547d5775f747484a8c05b7f338a376d391969ff643aa0fc223f7f3728a5abce6"
     },
     {
       "path": "Assets/Art/Cards/Card_E_S3_BASELINE.png",
@@ -918,10 +918,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.029296875
+        "brightFraction": 0.034649658203125
       },
-      "bytes": 25904,
-      "sha256": "6b68ce904510e8d804d3f5d53c36409ba4738078a0c978000a3dc2f95f35dc1c"
+      "bytes": 33630,
+      "sha256": "9beecda5dffceaae0e85d01245f40ce8cab22b728569f4e13d1e2234caec0db4"
     },
     {
       "path": "Assets/Art/Cards/Card_E_S4_ALIBI.png",
@@ -938,10 +938,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.028057861328125
+        "brightFraction": 0.0322967529296875
       },
-      "bytes": 18658,
-      "sha256": "eeaf80a961bda3ac6924c59d2a3f82d6ebdfa2fa6a061d529e157a0c0a22b0b8"
+      "bytes": 24428,
+      "sha256": "dba6edf9252617fa51eb0cb4625cc877acdbb32110b3e05698eb2955de867592"
     },
     {
       "path": "Assets/Art/Cards/Card_E_S4_BASELINE.png",
@@ -958,10 +958,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.029986572265625
+        "brightFraction": 0.03602294921875
       },
-      "bytes": 21597,
-      "sha256": "72d605ecadd0784e79c33329f43dd280d844c55c2206978a87458b0f78270058"
+      "bytes": 29704,
+      "sha256": "e110999f850e3905532c6294b1f4fabb6a4549f8d9be7d747c8c4c238e203be3"
     },
     {
       "path": "Assets/Art/Cards/Card_E_TRUST_NOTE.png",
@@ -979,10 +979,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.032476806640625
+        "brightFraction": 0.0408660888671875
       },
-      "bytes": 24950,
-      "sha256": "f45e50bae7afb1a1d1850d9a054a9aa6ba03c68e5ecebf0acfabc5ac5fc7c0a1"
+      "bytes": 36381,
+      "sha256": "a004b4faf12df961456f25cf181b7aaebe0ca5980d3d819258afdd7a21604f8d"
     },
     {
       "path": "Assets/Art/Cards/Card_E_UV_DRAG.png",
@@ -1000,10 +1000,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.03072509765625
+        "brightFraction": 0.0370574951171875
       },
-      "bytes": 21569,
-      "sha256": "8538acaa4354bc0cae1b0bc0e8cb780ad917eebbcbabc3aae5fc75d6d1187835"
+      "bytes": 31079,
+      "sha256": "189d04ff3a611b141b41c214dd730ee34f067b3024e03d4e32f9afdacd7a94cb"
     },
     {
       "path": "Assets/Art/Cards/Card_E_VALE_LAMP.png",
@@ -1020,10 +1020,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.030035400390625
+        "brightFraction": 0.0357513427734375
       },
-      "bytes": 25043,
-      "sha256": "86eb510a80f4a2cbef7be1abcc45ab93d68807f045600bf56de2e51aa3ac8fda"
+      "bytes": 32624,
+      "sha256": "943c0d8076d8291d9ce8907bf888c3e6459b09a102c4ac98e25adeed7a45b044"
     },
     {
       "path": "Assets/Art/Cards/Card_E_VICTIM_LAMP.png",
@@ -1040,10 +1040,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.0281524658203125
+        "brightFraction": 0.033038330078125
       },
-      "bytes": 20458,
-      "sha256": "08f664ee7cd3c62cce50de9cfb2c90736c26c8889088e6dc9227a01f405be8cb"
+      "bytes": 27473,
+      "sha256": "c024dc9e19e6d27c98ceb3ac3d3bf5f3a0b980a7d37a8d5f57f022d11e3e6161"
     },
     {
       "path": "Assets/Art/Cards/Card_E_VICTIM_MUG.png",
@@ -1061,10 +1061,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.0288543701171875
+        "brightFraction": 0.0355804443359375
       },
-      "bytes": 27347,
-      "sha256": "ece408504653d1952a04198b19a3cfbb8e3c8959ef73afdbd53de701a6dee980"
+      "bytes": 37572,
+      "sha256": "d84030de83836dea9547c02acdea1785ec772ba487e2f505bb51cd8cb9b35d45"
     },
     {
       "path": "Assets/Art/Cards/Card_E_VOICEMAIL.png",
@@ -1082,10 +1082,10 @@
       "metrics": {
         "width": 512,
         "height": 640,
-        "brightFraction": 0.0315826416015625
+        "brightFraction": 0.0386993408203125
       },
-      "bytes": 27580,
-      "sha256": "64a99298f5e8021b6fd90c9a323f64bd5d2e2c51d65595281b4e838b57a694d8"
+      "bytes": 37039,
+      "sha256": "79748a402e0586e1951f61e058ee5b49d11b79bc8d7220e0da0f778092e13c2e"
     },
     {
       "path": "Assets/Art/FX/BlackoutEyes.png",
@@ -1093,10 +1093,10 @@
       "metrics": {
         "width": 256,
         "height": 64,
-        "brightFraction": 0.01922607421875
+        "brightFraction": 0.0194091796875
       },
-      "bytes": 1219,
-      "sha256": "f8c82062c7a6c053655a3789f2efb328e66f18431de8ec0531b6805221d2dbbd"
+      "bytes": 1170,
+      "sha256": "bc2e3ed670ee206c6f913898780c291b0a2b5d2f04747e0849689f3f923e7b72"
     },
     {
       "path": "Assets/Art/FX/ClaimSpark.png",
@@ -1104,10 +1104,10 @@
       "metrics": {
         "width": 128,
         "height": 128,
-        "brightFraction": 0.04437255859375
+        "brightFraction": 0.04522705078125
       },
-      "bytes": 5761,
-      "sha256": "747ea44522f5226fcdabed8d6b82536bcfe170bd54fb674d21ef8caf9cc3ae58"
+      "bytes": 6740,
+      "sha256": "3d0cbbdbefe89231542fea973eb601ee1162122db94e36675a4adc8540b5e925"
     },
     {
       "path": "Assets/Art/FX/CupBead.png",
@@ -1115,10 +1115,10 @@
       "metrics": {
         "width": 128,
         "height": 128,
-        "brightFraction": 0.03070068359375
+        "brightFraction": 0.03125
       },
-      "bytes": 2791,
-      "sha256": "750ae38284c00a33dbf7b3c543d1d939e77030d2a5456694224a4817860acdb3"
+      "bytes": 2710,
+      "sha256": "6fa6abeae00e70e8760555e967e78e6db2d277ee81a41c68720b989a80f22c57"
     },
     {
       "path": "Assets/Art/FX/GhostDust.png",
@@ -1126,10 +1126,10 @@
       "metrics": {
         "width": 128,
         "height": 128,
-        "brightFraction": 0.0528564453125
+        "brightFraction": 0.0543212890625
       },
-      "bytes": 6588,
-      "sha256": "8bacd7f4c22b89ce0facdbaea749b62e06e9f1226bf76ef4fe463aa4b10a04b9"
+      "bytes": 7543,
+      "sha256": "87bf7321f86447aeb84eafe6d4e46575b07cb0b8082a7547135a1a30df76aeb9"
     },
     {
       "path": "Assets/Art/FX/Shard.png",
@@ -1137,10 +1137,10 @@
       "metrics": {
         "width": 128,
         "height": 128,
-        "brightFraction": 0.032958984375
+        "brightFraction": 0.03369140625
       },
-      "bytes": 3074,
-      "sha256": "dddf4757cb47268b6826b3797f47eb17cb7ee3383b25e0df5c52535d3d20f509"
+      "bytes": 2971,
+      "sha256": "1696e85e73ec3bbe6c1d350a6b278f973aeb5ec5b9287c67ab915279cf95de40"
     },
     {
       "path": "Assets/Art/FX/StarFlare.png",
@@ -1148,10 +1148,10 @@
       "metrics": {
         "width": 128,
         "height": 128,
-        "brightFraction": 0.04644775390625
+        "brightFraction": 0.04779052734375
       },
-      "bytes": 5648,
-      "sha256": "1648f7fd4b51e82c291336594008cdc47ab73588af492efcd2b7aa9c264add03"
+      "bytes": 6500,
+      "sha256": "876df88f6bc4ee81a0e5e6a40362d388b73386fcfe337ad9a7e5960b3a1fcf06"
     },
     {
       "path": "Assets/Art/FX/TruthSpark.png",
@@ -1159,10 +1159,10 @@
       "metrics": {
         "width": 128,
         "height": 128,
-        "brightFraction": 0.02581787109375
+        "brightFraction": 0.02606201171875
       },
-      "bytes": 5625,
-      "sha256": "906f925fadf4bc7a0b487aa8a7cfb68e4c23ac527740756353c5a43707a630e8"
+      "bytes": 6446,
+      "sha256": "444b3b1788b25856ecd0200f275e54d16676f09e7cd533f9c22dddcfe7de696f"
     },
     {
       "path": "Assets/Art/FX/UVDrag.png",
@@ -1183,10 +1183,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.0114288330078125
+        "brightFraction": 0.026086807250976562
       },
-      "bytes": 65375,
-      "sha256": "76ee3707277b25ffdb13f4b2d6b31878e6b21dcd6cf5ffb5a0c585bba4ad866d"
+      "bytes": 81905,
+      "sha256": "ec508aea51145cc4b49f5dabf62b7bbcfcb53ab78791b483a4dc6a856abe3724"
     },
     {
       "path": "Assets/Art/Ghosts/Okafor-suggestion.png",
@@ -1196,10 +1196,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.002094268798828125
+        "brightFraction": 0.0047817230224609375
       },
-      "bytes": 62673,
-      "sha256": "4424709fb9ba9c34b92d174d2a0c7b59a072fc4d799e3ba7da428a736a3ee0e9"
+      "bytes": 76965,
+      "sha256": "e8d6d46a6a884623672f639f5a11308a43a6efa130488bbe23789347e157eee7"
     },
     {
       "path": "Assets/Art/Ghosts/Okafor-truth.png",
@@ -1209,10 +1209,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.014471054077148438
+        "brightFraction": 0.029676437377929688
       },
-      "bytes": 68468,
-      "sha256": "75da1cb8f9066575482f27f2dc3887071c55053839d202da2539fe4758989cfc"
+      "bytes": 83764,
+      "sha256": "7bf9cb862555f79b92553e23761afbcd9542082c75ce915cbf3219bebc4ae945"
     },
     {
       "path": "Assets/Art/Ghosts/Pike-claim.png",
@@ -1222,10 +1222,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.01071929931640625
+        "brightFraction": 0.024305343627929688
       },
-      "bytes": 59779,
-      "sha256": "00066772c1020533c6040726319de9c96e882309ba3124e7bfbbfff43c1bd95b"
+      "bytes": 72308,
+      "sha256": "6e2b4271a0aff149d75fc9125603bf15df8cc780713636489e2cbbbad20990f9"
     },
     {
       "path": "Assets/Art/Ghosts/Pike-suggestion.png",
@@ -1235,10 +1235,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.001857757568359375
+        "brightFraction": 0.0044651031494140625
       },
-      "bytes": 57074,
-      "sha256": "a4ca74351f4b3ad53098a41d4d720ed237c6a65c6711a02a74b2997807981645"
+      "bytes": 68238,
+      "sha256": "db13f5d8faad080f16490d666ec5f888cc588d64aefa9a49ed56872ac1b198ec"
     },
     {
       "path": "Assets/Art/Ghosts/Pike-truth.png",
@@ -1248,10 +1248,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.013326644897460938
+        "brightFraction": 0.027101516723632812
       },
-      "bytes": 61821,
-      "sha256": "2db6c3c17c143748e00c2cb2d7cc4106fc51bdf6b94b8ce7110dc7ad3d4561e0"
+      "bytes": 73467,
+      "sha256": "40851b973ad25fe02e3901ab6bd770e4df6fa10314e218f57c1edccfdd39eb07"
     },
     {
       "path": "Assets/Art/Ghosts/Qadir-claim.png",
@@ -1261,10 +1261,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.0106201171875
+        "brightFraction": 0.024959564208984375
       },
-      "bytes": 65625,
-      "sha256": "aad0bdec3e7e1ef297204c4ff86d351d3fe1bf512fca38a08ff8963f806a3183"
+      "bytes": 80358,
+      "sha256": "1587f8c3a4b4bdf0649a57125735075c2a6bfee26623d39099fa4b15a5e2c5e8"
     },
     {
       "path": "Assets/Art/Ghosts/Qadir-suggestion.png",
@@ -1274,10 +1274,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.002239227294921875
+        "brightFraction": 0.0045146942138671875
       },
-      "bytes": 62885,
-      "sha256": "5be6330c62bed74250e99b1f97baefe0301abeb265c6643af426fb3f173ab054"
+      "bytes": 75416,
+      "sha256": "27ec754c9a3955ce53eff781323d6d3e8ffc012742e681beea874eb041131236"
     },
     {
       "path": "Assets/Art/Ghosts/Qadir-truth.png",
@@ -1287,10 +1287,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.013284683227539062
+        "brightFraction": 0.027719497680664062
       },
-      "bytes": 66165,
-      "sha256": "9ea5253fe020155562cbb55c0a90a95ce2c6659f8890a32d533cd3e9a1d384be"
+      "bytes": 80235,
+      "sha256": "06f5873a7d774c5389ea8b584fedba55563f090ad44712a547f58fb02f719b93"
     },
     {
       "path": "Assets/Art/Ghosts/Vale-claim.png",
@@ -1300,10 +1300,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.012546539306640625
+        "brightFraction": 0.0292205810546875
       },
-      "bytes": 74885,
-      "sha256": "4d407986f9a11792916ddc587e1e348e20f82b8a2c8fd49f5d867454f00fb5e0"
+      "bytes": 89957,
+      "sha256": "8ebc7c233448c5b3dc53141ef958823d9eca9119cc212a74e8eb5c038b15bb64"
     },
     {
       "path": "Assets/Art/Ghosts/Vale-suggestion.png",
@@ -1313,10 +1313,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.0024280548095703125
+        "brightFraction": 0.007909774780273438
       },
-      "bytes": 72052,
-      "sha256": "4acdecebf595a4bc7f7fe7fb1f7e7c11c296243fec2cd181d2f87acc726c042c"
+      "bytes": 86161,
+      "sha256": "9cb9fbc2a8daae0527de5e535c603fb5244d50d45642adc96f645544ceb7d10e"
     },
     {
       "path": "Assets/Art/Ghosts/Vale-truth.png",
@@ -1326,10 +1326,10 @@
       "metrics": {
         "width": 512,
         "height": 1024,
-        "brightFraction": 0.000705718994140625
+        "brightFraction": 0.002307891845703125
       },
-      "bytes": 76055,
-      "sha256": "c16890c2f2b6b7cf2118414b1c2fa9fc298bebf0a9362ee4624f4755fba3bbc8"
+      "bytes": 94331,
+      "sha256": "403c9203972a65883c608145caade14f4cc249d79b8a4aa83c4866cb98e62609"
     },
     {
       "path": "Assets/Art/Props/BrassCandlestick.glb",
@@ -1409,10 +1409,10 @@
       "metrics": {
         "width": 1024,
         "height": 256,
-        "brightFraction": 0.0657958984375
+        "brightFraction": 0.06650924682617188
       },
-      "bytes": 36345,
-      "sha256": "39f7b19933d6a0a4379f831cfe0cbb1e51962549c1424b200b8c80220793824d"
+      "bytes": 45847,
+      "sha256": "7979990623c43c7a258f0ef5d079a4662f0603de5607b1154a1c29ca248fe171"
     },
     {
       "path": "Assets/Art/UI/Hero/OBJECTION.png",
@@ -1421,10 +1421,10 @@
       "metrics": {
         "width": 1024,
         "height": 256,
-        "brightFraction": 0.09482955932617188
+        "brightFraction": 0.09497833251953125
       },
-      "bytes": 35910,
-      "sha256": "5f0d15015e161e3bf27c2c53971025e926dfbdc3b4979e62b9915836743fab07"
+      "bytes": 43613,
+      "sha256": "3bd7aef68083dceccdc39f47a60e6b4a12bd3a2d7070037975fffe696277325c"
     },
     {
       "path": "Assets/Art/UI/Hero/THE_TRUTH.png",
@@ -1433,10 +1433,10 @@
       "metrics": {
         "width": 1024,
         "height": 256,
-        "brightFraction": 0.07627487182617188
+        "brightFraction": 0.07641220092773438
       },
-      "bytes": 21608,
-      "sha256": "122c9bed16fb7f7fa3a87dfab9b229a639f24788c96f7f1d15d007585fb248e0"
+      "bytes": 30268,
+      "sha256": "0ad7d0228b4ca77e071811270b3dc17e2b6cb70df887b193894e4b636e559427"
     },
     {
       "path": "Assets/Art/UI/Icons/Accuse.png",

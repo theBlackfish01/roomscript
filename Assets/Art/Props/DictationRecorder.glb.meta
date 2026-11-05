@@ -1,0 +1,210 @@
+- !<AssetImportMetadata/7f12d55e-a58c-4ebf-a045-d7032fa1c6d0>
+  ImportedAssetIds:
+    .hidden/BakeliteCase_Material: !<reference> 0b7b35d5-f862-4317-87f9-8b010bc89b37
+    26ba073d67b9d0dd: !<reference> 2580d413-11aa-432f-858f-a77e506578d3
+    45eeac7076c8c5f4: !<reference> e1980ea6-6dac-4e0d-9bab-273d45b09da5
+    49852071a5b4fe58: !<reference> 9750f7fe-c7da-489c-98c4-c1ccdc42d20a
+    5ec69e6a98b135ce: !<reference> 4cfa1f87-f4e9-461a-b79d-3c0c05969098
+    5f30b7abec93f4b1: !<reference> 2f129bae-4e74-46f2-bb5d-b02b97e9b074
+    88ab437fd121cc69: !<reference> 65266375-bda1-4394-9a00-e51d47af4b6e
+    8c2c6f3cf8d060fd: !<reference> 18ea9532-3059-4c5a-9908-7151c81a5cf6
+    Materials/BakeliteCase_Material: !<reference> 4db31093-740a-4842-999d-9efebe6ccb86
+    Materials/BakeliteCase_Material|BakeliteCase_Material|GraphPassInfo: !<reference> dffa56a3-68bb-48d5-b69c-b05bcc1139b2
+    Materials/IvoryKeys_Material: !<reference> 82dd0882-5722-4ecd-a9d6-ac0327f8d568
+    Materials/IvoryKeys_Material|IvoryKeys_Material|GraphPassInfo: !<reference> 17141da7-990d-4e80-a7ce-4c7f39b5caaa
+    Materials/TwinReels_Material: !<reference> 47887686-c9eb-463c-9b1e-3855aa8b247e
+    Materials/TwinReels_Material|TwinReels_Material|GraphPassInfo: !<reference> 7c2c9aca-21ae-452a-80ec-953836a8f8da
+    Meshes/BakeliteCase: !<reference> cf6ea4a6-194e-45dc-a379-1e01ec7a1a01
+    Meshes/IvoryKeys: !<reference> 294d4062-00ad-4075-a828-435a9c8a0e79
+    Meshes/TwinReels: !<reference> 693cf498-1d09-42b3-9ba3-c0ed4604a1f3
+    Scene: !<reference> a34b6594-80c0-488c-aa01-5ba3f7ecfcae
+    cf66ccf01ccb18b7: !<reference> d2f17a1b-a41b-42aa-84a0-1a9b16bad1f6
+    d4cd1e2aac68c3f9: !<reference> ce9e4af9-6c18-4193-889c-c125aa24d35a
+  ImporterName: GltfImporter
+  PrimaryAsset: !<reference> a34b6594-80c0-488c-aa01-5ba3f7ecfcae
+  PackageType: LegacyPackage
+  LegacyPackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> e444689c-f62e-4485-915f-22586095e298
+  DependentFiles:
+    []
+  ImporterSettings: !<GltfImporterSettings>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBasedV2
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangents: true
+    ImportMorphTargetAnimation: true
+    ConvertMetersToCentimeters: true
+    RegenerateTangents: false
+    OptimizeMesh: true
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<FileCompressionSettings>
+        {}
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<SceneObject/18ea9532-3059-4c5a-66f7-8eae37e5a309>
+  PrefabRemaps:
+    []
+  Name: Scene0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 2f129bae-4e74-46f2-44a2-4fd468164f8b
+    - !<own> e1980ea6-6dac-4e0d-6454-d8c2ba4f625a
+    - !<own> ce9e4af9-6c18-4193-7763-3eda55db2ca5
+  Components:
+    []
+- !<SceneObject/2580d413-11aa-432f-7a70-5881af9a872c>
+  PrefabRemaps:
+    []
+  Name: DictationRecorder
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 65266375-bda1-4394-65ff-1ae2b850b491
+  Components:
+    []
+- !<SceneObject/2f129bae-4e74-46f2-44a2-4fd468164f8b>
+  PrefabRemaps:
+    []
+  Name: BakeliteCase
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 9750f7fe-c7da-489c-673b-3e3323bd2df5
+- !<RenderMeshVisual/4cfa1f87-f4e9-461a-4862-c3f3fa696f67>
+  PrefabRemaps:
+    []
+  Name: IvoryKeys
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 82dd0882-5722-4ecd-a9d6-ac0327f8d568
+  Mesh: !<reference> 294d4062-00ad-4075-a828-435a9c8a0e79
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/65266375-bda1-4394-65ff-1ae2b850b491>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 18ea9532-3059-4c5a-66f7-8eae37e5a309
+  Components:
+    []
+- !<RenderMeshVisual/9750f7fe-c7da-489c-673b-3e3323bd2df5>
+  PrefabRemaps:
+    []
+  Name: BakeliteCase
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 4db31093-740a-4842-999d-9efebe6ccb86
+  Mesh: !<reference> cf6ea4a6-194e-45dc-a379-1e01ec7a1a01
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/ce9e4af9-6c18-4193-7763-3eda55db2ca5>
+  PrefabRemaps:
+    []
+  Name: IvoryKeys
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4cfa1f87-f4e9-461a-4862-c3f3fa696f67
+- !<RenderMeshVisual/d2f17a1b-a41b-42aa-7b5f-e564e9452e09>
+  PrefabRemaps:
+    []
+  Name: TwinReels
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 47887686-c9eb-463c-9b1e-3855aa8b247e
+  Mesh: !<reference> 693cf498-1d09-42b3-9ba3-c0ed4604a1f3
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/e1980ea6-6dac-4e0d-6454-d8c2ba4f625a>
+  PrefabRemaps:
+    []
+  Name: TwinReels
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d2f17a1b-a41b-42aa-7b5f-e564e9452e09
+- !<ObjectPrefabAssetData/e444689c-f62e-4485-915f-22586095e298>
+  Prototype: !<ObjectOwner/4a64163c-1a2a-420a-9c39-c403e814aba0>
+    PackagePath: ""
+    objects:
+      - !<own> 2580d413-11aa-432f-7a70-5881af9a872c

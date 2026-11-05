@@ -9,5 +9,5 @@ const first=read();
 execFileSync(process.execPath,[resolve(root,'run.mjs')],{timeout:300000,stdio:'inherit'});
 const second=read();assert.deepEqual(second,first,'full production regeneration must be byte-identical');
 execFileSync(process.execPath,['--test',resolve(root,'tests/contracts.test.mjs')],{timeout:60000,stdio:'inherit'});
-writeFileSync(resolve(root,'out/determinism.json'),JSON.stringify({renderer:'native-gdi-engraving-v2',assetsCompared:first.length,identical:true,hashes:second},null,2)+'\n');
+writeFileSync(resolve(root,'out/determinism.json'),JSON.stringify({renderer:'native-gdi-engraving-v3',assetsCompared:first.length,identical:true,hashes:second},null,2)+'\n');
 console.log(`Full deterministic repeat: ${first.length}/${first.length} PNG/GLB hashes identical`);
