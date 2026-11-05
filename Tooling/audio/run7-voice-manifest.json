@@ -2771,6 +2771,40 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-5",
+      "key": "S1|steady|cable",
+      "identity": "c773e7d9d9630d0022187199f5525a26377d6e521a7c0054f06399bf5fbd677a",
+      "speaker": "S1",
+      "text": "cable",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S1/c773e7d9d9630d002218.mp3",
+      "voiceId": "QefbtgMIZqMEV81ZifAz",
+      "alignment": {
+        "characters": [
+          "c",
+          "a",
+          "b",
+          "l",
+          "e"
+        ],
+        "starts": [
+          0.397,
+          0.413,
+          0.43,
+          0.447,
+          0.463
+        ],
+        "ends": [
+          0.413,
+          0.43,
+          0.447,
+          0.463,
+          1.6
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S1:4f4cdfad",
       "key": "S1|steady|Cecily March",
       "identity": "fc869e56798f9fc6cb1997efa96b646399a14152259eb00c1a8dc4404cf3ac5a",
@@ -3038,6 +3072,37 @@
           1.024,
           1.152,
           1.36
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-21",
+      "key": "S1|steady|door",
+      "identity": "e8650c96b7d30f96e4833e06d7b47bdc8e7e2d469cc45ff53183a5fe200bc98d",
+      "speaker": "S1",
+      "text": "door",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S1/e8650c96b7d30f96e483.mp3",
+      "voiceId": "QefbtgMIZqMEV81ZifAz",
+      "alignment": {
+        "characters": [
+          "d",
+          "o",
+          "o",
+          "r"
+        ],
+        "starts": [
+          0.47,
+          0.493,
+          0.515,
+          0.538
+        ],
+        "ends": [
+          0.493,
+          0.515,
+          0.538,
+          1.68
         ]
       },
       "group": "phrases"
@@ -4740,6 +4805,43 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-27",
+      "key": "S1|steady|kettle",
+      "identity": "00f5dafb33b9556a636bf676a2c29f503843b051b112194a95d8bbbe2d6231d9",
+      "speaker": "S1",
+      "text": "kettle",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S1/00f5dafb33b9556a636b.mp3",
+      "voiceId": "QefbtgMIZqMEV81ZifAz",
+      "alignment": {
+        "characters": [
+          "k",
+          "e",
+          "t",
+          "t",
+          "l",
+          "e"
+        ],
+        "starts": [
+          0.331,
+          0.343,
+          0.354,
+          0.366,
+          0.377,
+          0.389
+        ],
+        "ends": [
+          0.343,
+          0.354,
+          0.366,
+          0.377,
+          0.389,
+          1.12
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S1:ba872bcf",
       "key": "S1|steady|Kitchen",
       "identity": "6ca90f9cf5ea885299c213fc6392985ded6cfbb86790015519b984aaede06c8d",
@@ -4775,6 +4877,37 @@
           0.456,
           0.468,
           1.04
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-13",
+      "key": "S1|steady|lamp",
+      "identity": "012414bd585ee2cf239ac4d4e628968d7d72850063d76945212ea907a3c959c9",
+      "speaker": "S1",
+      "text": "lamp",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S1/012414bd585ee2cf239a.mp3",
+      "voiceId": "QefbtgMIZqMEV81ZifAz",
+      "alignment": {
+        "characters": [
+          "l",
+          "a",
+          "m",
+          "p"
+        ],
+        "starts": [
+          0.4,
+          0.42,
+          0.44,
+          0.46
+        ],
+        "ends": [
+          0.42,
+          0.44,
+          0.46,
+          1.6
         ]
       },
       "group": "phrases"
@@ -5306,6 +5439,34 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-23",
+      "key": "S1|steady|mug",
+      "identity": "eb43d771fdb8a61d2b743ef6cf00092e78b61f9c18cedfb03fcccde3e625b214",
+      "speaker": "S1",
+      "text": "mug",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S1/eb43d771fdb8a61d2b74.mp3",
+      "voiceId": "QefbtgMIZqMEV81ZifAz",
+      "alignment": {
+        "characters": [
+          "m",
+          "u",
+          "g"
+        ],
+        "starts": [
+          0.405,
+          0.43,
+          0.455
+        ],
+        "ends": [
+          0.43,
+          0.455,
+          1.44
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S1:f17fad12",
       "key": "S1|steady|over ambition.",
       "identity": "ee88c9d0cdd41b1b6b1952e39e7531411d76dfe0108e9ba6c398148fdc75372e",
@@ -5362,6 +5523,40 @@
           0.96,
           1.04,
           2.16
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-17",
+      "key": "S1|steady|plant",
+      "identity": "677668f7ceadf9a3b9d92ed7a2fb46c877e7dda3e156948b70e9ce7cf43f1a8e",
+      "speaker": "S1",
+      "text": "plant",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S1/677668f7ceadf9a3b9d9.mp3",
+      "voiceId": "QefbtgMIZqMEV81ZifAz",
+      "alignment": {
+        "characters": [
+          "p",
+          "l",
+          "a",
+          "n",
+          "t"
+        ],
+        "starts": [
+          0.467,
+          0.485,
+          0.504,
+          0.523,
+          0.541
+        ],
+        "ends": [
+          0.485,
+          0.504,
+          0.523,
+          0.541,
+          1.76
         ]
       },
       "group": "phrases"
@@ -5535,6 +5730,43 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-31",
+      "key": "S1|steady|screen",
+      "identity": "e551be399e7dfb664e36ee0a755611d187a744410c469f976160e06c3d99d622",
+      "speaker": "S1",
+      "text": "screen",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S1/e551be399e7dfb664e36.mp3",
+      "voiceId": "QefbtgMIZqMEV81ZifAz",
+      "alignment": {
+        "characters": [
+          "s",
+          "c",
+          "r",
+          "e",
+          "e",
+          "n"
+        ],
+        "starts": [
+          0.583,
+          0.606,
+          0.629,
+          0.651,
+          0.674,
+          0.697
+        ],
+        "ends": [
+          0.606,
+          0.629,
+          0.651,
+          0.674,
+          0.697,
+          2.16
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S1:ea7cadc1",
       "key": "S1|steady|Simon Vale",
       "identity": "792e1e616bf470c5fda1dc80c47e0b073bfbe20aa16bb57bbadd5f97266bc9a8",
@@ -5610,6 +5842,46 @@
           0.44,
           0.46,
           1.6
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-0",
+      "key": "S1|steady|speaker",
+      "identity": "e6251cd01c751e6a71ef722d0f21722fe7631e705fb504bbb5a37fd747de8cd8",
+      "speaker": "S1",
+      "text": "speaker",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S1/e6251cd01c751e6a71ef.mp3",
+      "voiceId": "QefbtgMIZqMEV81ZifAz",
+      "alignment": {
+        "characters": [
+          "s",
+          "p",
+          "e",
+          "a",
+          "k",
+          "e",
+          "r"
+        ],
+        "starts": [
+          0.396,
+          0.408,
+          0.42,
+          0.432,
+          0.444,
+          0.456,
+          0.468
+        ],
+        "ends": [
+          0.408,
+          0.42,
+          0.432,
+          0.444,
+          0.456,
+          0.468,
+          1.92
         ]
       },
       "group": "phrases"
@@ -5825,6 +6097,58 @@
           0.968,
           1.04,
           1.2
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-9",
+      "key": "S1|steady|woven chair",
+      "identity": "f420d747f360527ef21fcae2ae78211be5902c4992671d1e487a01ebc98428b6",
+      "speaker": "S1",
+      "text": "woven chair",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S1/f420d747f360527ef21f.mp3",
+      "voiceId": "QefbtgMIZqMEV81ZifAz",
+      "alignment": {
+        "characters": [
+          "w",
+          "o",
+          "v",
+          "e",
+          "n",
+          " ",
+          "c",
+          "h",
+          "a",
+          "i",
+          "r"
+        ],
+        "starts": [
+          0.65,
+          0.68,
+          0.71,
+          0.74,
+          0.77,
+          0.8,
+          0.947,
+          1.093,
+          1.24,
+          1.387,
+          1.533
+        ],
+        "ends": [
+          0.68,
+          0.71,
+          0.74,
+          0.77,
+          0.8,
+          0.947,
+          1.093,
+          1.24,
+          1.387,
+          1.533,
+          1.92
         ]
       },
       "group": "phrases"
@@ -6512,6 +6836,40 @@
           1.2,
           1.28,
           2.4
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-6",
+      "key": "S2|steady|cable",
+      "identity": "37b0e9adb7abca1ba6664a07f0fd82cb80dbb1ba86932291acd87a80f4983ae5",
+      "speaker": "S2",
+      "text": "cable",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S2/37b0e9adb7abca1ba666.mp3",
+      "voiceId": "Ajczv1caVKcFEG1TdJH0",
+      "alignment": {
+        "characters": [
+          "c",
+          "a",
+          "b",
+          "l",
+          "e"
+        ],
+        "starts": [
+          0.449,
+          0.471,
+          0.493,
+          0.516,
+          0.538
+        ],
+        "ends": [
+          0.471,
+          0.493,
+          0.516,
+          0.538,
+          1.84
         ]
       },
       "group": "phrases"
@@ -8489,6 +8847,43 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-28",
+      "key": "S2|steady|kettle",
+      "identity": "025670f05da9a10601037b45429bad865b0e655cfd7bd785fe63dd084d6cc96b",
+      "speaker": "S2",
+      "text": "kettle",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S2/025670f05da9a1060103.mp3",
+      "voiceId": "Ajczv1caVKcFEG1TdJH0",
+      "alignment": {
+        "characters": [
+          "k",
+          "e",
+          "t",
+          "t",
+          "l",
+          "e"
+        ],
+        "starts": [
+          0.398,
+          0.411,
+          0.425,
+          0.439,
+          0.453,
+          0.466
+        ],
+        "ends": [
+          0.411,
+          0.425,
+          0.439,
+          0.453,
+          0.466,
+          1.92
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S2:ba872bcf",
       "key": "S2|steady|Kitchen",
       "identity": "ba38f037938d6a0364860eab2fb155b400bcb01e191cc3188d2ebdc459bf8747",
@@ -8524,6 +8919,37 @@
           0.456,
           0.468,
           0.56
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-14",
+      "key": "S2|steady|lamp",
+      "identity": "27b5b18ba12180c416da57af89f6f15cfbe14a2522ce46026ab83561449f7c65",
+      "speaker": "S2",
+      "text": "lamp",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S2/27b5b18ba12180c416da.mp3",
+      "voiceId": "Ajczv1caVKcFEG1TdJH0",
+      "alignment": {
+        "characters": [
+          "l",
+          "a",
+          "m",
+          "p"
+        ],
+        "starts": [
+          0.464,
+          0.488,
+          0.512,
+          0.536
+        ],
+        "ends": [
+          0.488,
+          0.512,
+          0.536,
+          2.56
         ]
       },
       "group": "phrases"
@@ -9104,6 +9530,34 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-24",
+      "key": "S2|steady|mug",
+      "identity": "1dce5ecbe56c77c353560c711e8a2deda7e87f005996196905fb4b64add640af",
+      "speaker": "S2",
+      "text": "mug",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S2/1dce5ecbe56c77c35356.mp3",
+      "voiceId": "Ajczv1caVKcFEG1TdJH0",
+      "alignment": {
+        "characters": [
+          "m",
+          "u",
+          "g"
+        ],
+        "starts": [
+          0.405,
+          0.43,
+          0.455
+        ],
+        "ends": [
+          0.43,
+          0.455,
+          1.6
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S2:ba782f9d",
       "key": "S2|steady|Nora Finch",
       "identity": "30dca3e5e7e43afbd085d53958d1c93fe30a9a4dc8557c19467c190c875d96fc",
@@ -9258,6 +9712,40 @@
           0.747,
           0.853,
           1.44
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-18",
+      "key": "S2|steady|plant",
+      "identity": "c9be77780101914a89398ddc54885f5a11ac07f3ef18e9e445b1733aae4df3ac",
+      "speaker": "S2",
+      "text": "plant",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S2/c9be77780101914a8939.mp3",
+      "voiceId": "Ajczv1caVKcFEG1TdJH0",
+      "alignment": {
+        "characters": [
+          "p",
+          "l",
+          "a",
+          "n",
+          "t"
+        ],
+        "starts": [
+          0.369,
+          0.391,
+          0.413,
+          0.436,
+          0.458
+        ],
+        "ends": [
+          0.391,
+          0.413,
+          0.436,
+          0.458,
+          2.08
         ]
       },
       "group": "phrases"
@@ -9480,6 +9968,43 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-2",
+      "key": "S2|steady|screen",
+      "identity": "21cbac16fd2b75e244c5e86fca51c9fa1a9bb2b79e64da02d562479447ef77ea",
+      "speaker": "S2",
+      "text": "screen",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S2/21cbac16fd2b75e244c5.mp3",
+      "voiceId": "Ajczv1caVKcFEG1TdJH0",
+      "alignment": {
+        "characters": [
+          "s",
+          "c",
+          "r",
+          "e",
+          "e",
+          "n"
+        ],
+        "starts": [
+          0.457,
+          0.474,
+          0.491,
+          0.509,
+          0.526,
+          0.543
+        ],
+        "ends": [
+          0.474,
+          0.491,
+          0.509,
+          0.526,
+          0.543,
+          2.56
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S2:df49a3a6",
       "key": "S2|steady|sofa",
       "identity": "aa76fa52feed13c9911e11dc7d3fb4931d27458e23653448b9ea165431d73d6a",
@@ -9506,6 +10031,46 @@
           0.427,
           0.453,
           1.6
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-1",
+      "key": "S2|steady|speaker",
+      "identity": "2d9ed0f6c02d74539f5f4381f4bd507a36488fba6f94c1b4b0fe5b53cc45add6",
+      "speaker": "S2",
+      "text": "speaker",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S2/2d9ed0f6c02d74539f5f.mp3",
+      "voiceId": "Ajczv1caVKcFEG1TdJH0",
+      "alignment": {
+        "characters": [
+          "s",
+          "p",
+          "e",
+          "a",
+          "k",
+          "e",
+          "r"
+        ],
+        "starts": [
+          0.396,
+          0.408,
+          0.42,
+          0.432,
+          0.444,
+          0.456,
+          0.468
+        ],
+        "ends": [
+          0.408,
+          0.42,
+          0.432,
+          0.444,
+          0.456,
+          0.468,
+          1.92
         ]
       },
       "group": "phrases"
@@ -9774,6 +10339,58 @@
       },
       "group": "phrases",
       "reused": true
+    },
+    {
+      "id": "audit-gap-10",
+      "key": "S2|steady|woven chair",
+      "identity": "576b0519d5835048ec89d9b3e49f0ba6b297697f12c5ddbfc2643509deaeb14a",
+      "speaker": "S2",
+      "text": "woven chair",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S2/576b0519d5835048ec89.mp3",
+      "voiceId": "Ajczv1caVKcFEG1TdJH0",
+      "alignment": {
+        "characters": [
+          "w",
+          "o",
+          "v",
+          "e",
+          "n",
+          " ",
+          "c",
+          "h",
+          "a",
+          "i",
+          "r"
+        ],
+        "starts": [
+          0.523,
+          0.547,
+          0.57,
+          0.593,
+          0.617,
+          0.64,
+          0.747,
+          0.853,
+          0.96,
+          1.067,
+          1.173
+        ],
+        "ends": [
+          0.547,
+          0.57,
+          0.593,
+          0.617,
+          0.64,
+          0.747,
+          0.853,
+          0.96,
+          1.067,
+          1.173,
+          2.08
+        ]
+      },
+      "group": "phrases"
     },
     {
       "id": "live-S2-tail",
@@ -10564,6 +11181,40 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-7",
+      "key": "S3|steady|cable",
+      "identity": "86f1bccad1547da1ab9c2de43faf0fb9faaa4a72fe3afb39c3e1e3055fdec741",
+      "speaker": "S3",
+      "text": "cable",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S3/86f1bccad1547da1ab9c.mp3",
+      "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+      "alignment": {
+        "characters": [
+          "c",
+          "a",
+          "b",
+          "l",
+          "e"
+        ],
+        "starts": [
+          0.391,
+          0.409,
+          0.427,
+          0.444,
+          0.462
+        ],
+        "ends": [
+          0.409,
+          0.427,
+          0.444,
+          0.462,
+          0.8
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S3:4f4cdfad",
       "key": "S3|steady|Cecily March",
       "identity": "47345e129a94c5b60337adf6cb9a1b1e4126d414dde70ac6dd3e1f087596ae25",
@@ -10782,6 +11433,37 @@
           0.72,
           0.8,
           1.04
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-22",
+      "key": "S3|steady|door",
+      "identity": "d30535f710d659e0999ce1beb123dd6b1c2466b68d0fcec8d758968f6f222c7b",
+      "speaker": "S3",
+      "text": "door",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S3/d30535f710d659e0999c.mp3",
+      "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+      "alignment": {
+        "characters": [
+          "d",
+          "o",
+          "o",
+          "r"
+        ],
+        "starts": [
+          0.403,
+          0.422,
+          0.442,
+          0.461
+        ],
+        "ends": [
+          0.422,
+          0.442,
+          0.461,
+          1.2
         ]
       },
       "group": "phrases"
@@ -12325,6 +13007,43 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-29",
+      "key": "S3|steady|kettle",
+      "identity": "bd275863c79b9a5376a1666f39ba8305d35cc977e74b5a50753140bb2a63bc54",
+      "speaker": "S3",
+      "text": "kettle",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S3/bd275863c79b9a5376a1.mp3",
+      "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+      "alignment": {
+        "characters": [
+          "k",
+          "e",
+          "t",
+          "t",
+          "l",
+          "e"
+        ],
+        "starts": [
+          0.398,
+          0.411,
+          0.425,
+          0.439,
+          0.453,
+          0.466
+        ],
+        "ends": [
+          0.411,
+          0.425,
+          0.439,
+          0.453,
+          0.466,
+          0.64
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S3:ba872bcf",
       "key": "S3|steady|Kitchen",
       "identity": "6f4e634f3f1c88797c597ef1ebc2ddc06387e847793751600aad69b8c0b8f269",
@@ -12360,6 +13079,37 @@
           0.532,
           0.546,
           1.92
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-15",
+      "key": "S3|steady|lamp",
+      "identity": "4e9d773556bb15cb5136b9bcbe30e301791791ef824dfa26ce1caca1a0de1df5",
+      "speaker": "S3",
+      "text": "lamp",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S3/4e9d773556bb15cb5136.mp3",
+      "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+      "alignment": {
+        "characters": [
+          "l",
+          "a",
+          "m",
+          "p"
+        ],
+        "starts": [
+          0.373,
+          0.4,
+          0.427,
+          0.453
+        ],
+        "ends": [
+          0.4,
+          0.427,
+          0.453,
+          0.64
         ]
       },
       "group": "phrases"
@@ -12888,6 +13638,34 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-25",
+      "key": "S3|steady|mug",
+      "identity": "1627c66964e0d4f208bc5eb28a7d82dd26843532ae5e48ac4640bcd57a3ded22",
+      "speaker": "S3",
+      "text": "mug",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S3/1627c66964e0d4f208bc.mp3",
+      "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+      "alignment": {
+        "characters": [
+          "m",
+          "u",
+          "g"
+        ],
+        "starts": [
+          0.405,
+          0.43,
+          0.455
+        ],
+        "ends": [
+          0.43,
+          0.455,
+          0.64
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S3:ba782f9d",
       "key": "S3|steady|Nora Finch",
       "identity": "b0d72570d64283c45f919e2c4c9abb7c5803600854209e32c931f67d24433e52",
@@ -13032,6 +13810,40 @@
           0.68,
           0.773,
           0.867,
+          1.68
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-19",
+      "key": "S3|steady|plant",
+      "identity": "81f67c53536982540f7ecf2eed82b22f993e3ac6d92a83272ff6b7840f85288d",
+      "speaker": "S3",
+      "text": "plant",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S3/81f67c53536982540f7e.mp3",
+      "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+      "alignment": {
+        "characters": [
+          "p",
+          "l",
+          "a",
+          "n",
+          "t"
+        ],
+        "starts": [
+          0.467,
+          0.485,
+          0.504,
+          0.523,
+          0.541
+        ],
+        "ends": [
+          0.485,
+          0.504,
+          0.523,
+          0.541,
           1.68
         ]
       },
@@ -13255,6 +14067,43 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-32",
+      "key": "S3|steady|screen",
+      "identity": "c614719e14b95d003ad178eed58733eea15ea32a27677015ea71a1be2aeca7a8",
+      "speaker": "S3",
+      "text": "screen",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S3/c614719e14b95d003ad1.mp3",
+      "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+      "alignment": {
+        "characters": [
+          "s",
+          "c",
+          "r",
+          "e",
+          "e",
+          "n"
+        ],
+        "starts": [
+          0.583,
+          0.606,
+          0.629,
+          0.651,
+          0.674,
+          0.697
+        ],
+        "ends": [
+          0.606,
+          0.629,
+          0.651,
+          0.674,
+          0.697,
+          0.88
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S3:ea7cadc1",
       "key": "S3|steady|Simon Vale",
       "identity": "a55c87f2f1873cd089f484f78fe79ffc92358538c0fd015daa6f11d305e7e479",
@@ -13333,6 +14182,53 @@
         ]
       },
       "group": "phrases"
+    },
+    {
+      "id": "audit-gap-3-derived",
+      "key": "S3|steady|speaker",
+      "identity": "7f4d379ef3ee00a31cf7bfea6e838f463c94971448ee1f20c1f2483520b1426c",
+      "speaker": "S3",
+      "text": "speaker",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S3/7f4d379ef3ee00a31cf7.mp3",
+      "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+      "group": "phrases",
+      "reused": true,
+      "derivedFrom": "b2555008e181c75714b49ec408e6917ac3af2f0b2bc61cff9efaa69dd91cd50e",
+      "derivedWindow": {
+        "sourceText": "left speaker",
+        "from": 0.39,
+        "until": 2.56
+      },
+      "alignment": {
+        "characters": [
+          "s",
+          "p",
+          "e",
+          "a",
+          "k",
+          "e",
+          "r"
+        ],
+        "starts": [
+          0,
+          0.07,
+          0.14,
+          0.20999999999999996,
+          0.28,
+          0.35000000000000003,
+          0.4200000000000001
+        ],
+        "ends": [
+          0.07,
+          0.14,
+          0.20999999999999996,
+          0.28,
+          0.35000000000000003,
+          0.4200000000000001,
+          2.17
+        ]
+      }
     },
     {
       "id": "phrase:S3:94070a8e",
@@ -13549,6 +14445,58 @@
       },
       "group": "phrases",
       "reused": true
+    },
+    {
+      "id": "audit-gap-11",
+      "key": "S3|steady|woven chair",
+      "identity": "df5892c4162cd697eee5daa10dadeee7ee071f0f37bbb15e67d103deb2fd9d64",
+      "speaker": "S3",
+      "text": "woven chair",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S3/df5892c4162cd697eee5.mp3",
+      "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+      "alignment": {
+        "characters": [
+          "w",
+          "o",
+          "v",
+          "e",
+          "n",
+          " ",
+          "c",
+          "h",
+          "a",
+          "i",
+          "r"
+        ],
+        "starts": [
+          0.523,
+          0.547,
+          0.57,
+          0.593,
+          0.617,
+          0.64,
+          0.747,
+          0.853,
+          0.96,
+          1.067,
+          1.173
+        ],
+        "ends": [
+          0.547,
+          0.57,
+          0.593,
+          0.617,
+          0.64,
+          0.747,
+          0.853,
+          0.96,
+          1.067,
+          1.173,
+          1.36
+        ]
+      },
+      "group": "phrases"
     },
     {
       "id": "live-S3-tail",
@@ -14334,6 +15282,40 @@
           1.2,
           1.28,
           1.92
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-8",
+      "key": "S4|steady|cable",
+      "identity": "1c852bfda4795a5872a35df01887533122cb6caca02d5f6b0402da601ec3ceda",
+      "speaker": "S4",
+      "text": "cable",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S4/1c852bfda4795a5872a3.mp3",
+      "voiceId": "ipGBytZBT2jD1vT0wKyK",
+      "alignment": {
+        "characters": [
+          "c",
+          "a",
+          "b",
+          "l",
+          "e"
+        ],
+        "starts": [
+          0.449,
+          0.471,
+          0.493,
+          0.516,
+          0.538
+        ],
+        "ends": [
+          0.471,
+          0.493,
+          0.516,
+          0.538,
+          1.6
         ]
       },
       "group": "phrases"
@@ -16394,6 +17376,43 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-30",
+      "key": "S4|steady|kettle",
+      "identity": "d16d65678357c0a2162bca3b83794f63d9a71bba5db5100daec81e21f11e139e",
+      "speaker": "S4",
+      "text": "kettle",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S4/d16d65678357c0a2162b.mp3",
+      "voiceId": "ipGBytZBT2jD1vT0wKyK",
+      "alignment": {
+        "characters": [
+          "k",
+          "e",
+          "t",
+          "t",
+          "l",
+          "e"
+        ],
+        "starts": [
+          0.394,
+          0.409,
+          0.423,
+          0.437,
+          0.451,
+          0.466
+        ],
+        "ends": [
+          0.409,
+          0.423,
+          0.437,
+          0.451,
+          0.466,
+          1.6
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S4:ba872bcf",
       "key": "S4|steady|Kitchen",
       "identity": "dce6bb26ed3eb32c4cbcf7c21f779aa2cbe8f62fc2d6ca885a67d4eaeadd0cb8",
@@ -16429,6 +17448,37 @@
           1.645,
           1.662,
           1.84
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-16",
+      "key": "S4|steady|lamp",
+      "identity": "91c6e22318c13a249e08a90a2c7a7f1e704b862c626e80d3d9dd66aea9a0fba9",
+      "speaker": "S4",
+      "text": "lamp",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S4/91c6e22318c13a249e08.mp3",
+      "voiceId": "ipGBytZBT2jD1vT0wKyK",
+      "alignment": {
+        "characters": [
+          "l",
+          "a",
+          "m",
+          "p"
+        ],
+        "starts": [
+          0.592,
+          0.624,
+          0.656,
+          0.688
+        ],
+        "ends": [
+          0.624,
+          0.656,
+          0.688,
+          2.4
         ]
       },
       "group": "phrases"
@@ -16911,6 +17961,34 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-26",
+      "key": "S4|steady|mug",
+      "identity": "e7e0eff40053965fa67ddaf6a55d225d6a4b1f0b7bef1708da716986c381711e",
+      "speaker": "S4",
+      "text": "mug",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S4/e7e0eff40053965fa67d.mp3",
+      "voiceId": "ipGBytZBT2jD1vT0wKyK",
+      "alignment": {
+        "characters": [
+          "m",
+          "u",
+          "g"
+        ],
+        "starts": [
+          0.405,
+          0.43,
+          0.455
+        ],
+        "ends": [
+          0.43,
+          0.455,
+          1.6
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S4:ba782f9d",
       "key": "S4|steady|Nora Finch",
       "identity": "3d076f447872ab022ab1134c40c4b12d264555bfb7f262439fc52d8515aff587",
@@ -17065,6 +18143,40 @@
           1.093,
           1.227,
           2
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-20",
+      "key": "S4|steady|plant",
+      "identity": "cc31a9cc4bbd473b4ab815e78a3cd23bcf05907962cbd49f50447eabe3def8dd",
+      "speaker": "S4",
+      "text": "plant",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S4/cc31a9cc4bbd473b4ab8.mp3",
+      "voiceId": "ipGBytZBT2jD1vT0wKyK",
+      "alignment": {
+        "characters": [
+          "p",
+          "l",
+          "a",
+          "n",
+          "t"
+        ],
+        "starts": [
+          0.6,
+          0.624,
+          0.648,
+          0.672,
+          0.696
+        ],
+        "ends": [
+          0.624,
+          0.648,
+          0.672,
+          0.696,
+          1.76
         ]
       },
       "group": "phrases"
@@ -17235,6 +18347,43 @@
       "group": "phrases"
     },
     {
+      "id": "audit-gap-33",
+      "key": "S4|steady|screen",
+      "identity": "4373fbae865cfd7a77a1d8f6dcc4fe565c33d28a2c35c43dcba21e7212ee10e9",
+      "speaker": "S4",
+      "text": "screen",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S4/4373fbae865cfd7a77a1.mp3",
+      "voiceId": "ipGBytZBT2jD1vT0wKyK",
+      "alignment": {
+        "characters": [
+          "s",
+          "c",
+          "r",
+          "e",
+          "e",
+          "n"
+        ],
+        "starts": [
+          0.726,
+          0.751,
+          0.777,
+          0.803,
+          0.829,
+          0.854
+        ],
+        "ends": [
+          0.751,
+          0.777,
+          0.803,
+          0.829,
+          0.854,
+          1.76
+        ]
+      },
+      "group": "phrases"
+    },
+    {
       "id": "phrase:S4:ea7cadc1",
       "key": "S4|steady|Simon Vale",
       "identity": "8e6d615eb76dc68ef9366c6766952fe74fb6daba23a53e543ffc6873903c936f",
@@ -17310,6 +18459,46 @@
           0.656,
           0.688,
           2.4
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-4",
+      "key": "S4|steady|speaker",
+      "identity": "77f7e3895ed14a86f3b0ef139148aff4940259443222fb857e3fe28e726d221a",
+      "speaker": "S4",
+      "text": "speaker",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S4/77f7e3895ed14a86f3b0.mp3",
+      "voiceId": "ipGBytZBT2jD1vT0wKyK",
+      "alignment": {
+        "characters": [
+          "s",
+          "p",
+          "e",
+          "a",
+          "k",
+          "e",
+          "r"
+        ],
+        "starts": [
+          0.66,
+          0.68,
+          0.7,
+          0.72,
+          0.74,
+          0.76,
+          0.78
+        ],
+        "ends": [
+          0.68,
+          0.7,
+          0.72,
+          0.74,
+          0.76,
+          0.78,
+          2.24
         ]
       },
       "group": "phrases"
@@ -17574,6 +18763,58 @@
           0.968,
           1.04,
           1.2
+        ]
+      },
+      "group": "phrases"
+    },
+    {
+      "id": "audit-gap-12",
+      "key": "S4|steady|woven chair",
+      "identity": "3301c2104ce14af83887736274b345fe761531e7f3f07ca9c9358cae1dabbf7e",
+      "speaker": "S4",
+      "text": "woven chair",
+      "take": "steady",
+      "path": "Assets/Audio/Run7/S4/3301c2104ce14af83887.mp3",
+      "voiceId": "ipGBytZBT2jD1vT0wKyK",
+      "alignment": {
+        "characters": [
+          "w",
+          "o",
+          "v",
+          "e",
+          "n",
+          " ",
+          "c",
+          "h",
+          "a",
+          "i",
+          "r"
+        ],
+        "starts": [
+          0.523,
+          0.547,
+          0.57,
+          0.593,
+          0.617,
+          0.64,
+          0.747,
+          0.853,
+          0.96,
+          1.067,
+          1.173
+        ],
+        "ends": [
+          0.547,
+          0.57,
+          0.593,
+          0.617,
+          0.64,
+          0.747,
+          0.853,
+          0.96,
+          1.067,
+          1.173,
+          2.32
         ]
       },
       "group": "phrases"

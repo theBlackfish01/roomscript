@@ -5,7 +5,12 @@ import {EVENING_ROOM_SCAN} from "./EveningRoomScan";
  * Surface heights are measured; lateral offsets require the main Director capture gate.
  * GLBs are bottom-origin and already imported from meters to centimeters: scale one.
  */
-export const PRESET_EVENING_LAYOUT="evening-v1";
+export const PRESET_EVENING_LAYOUT="evening-v2";
+/** Median upward-facing World Query support, Nov6 view11. Saved scan remains unchanged.
+ * This right-hand tabletop observation supports a hand-tuned flat Preset surface;
+ * it is not a claim that every prop footprint was separately scanned.
+ */
+export const PRESET_CONSOLE_TOP:Vec3=[0,34.70074462890625,-462.97406005859375];
 export const PRESET_EVENING_SUPPORTS:Record<string,{surfaceId:string;offset:Vec3}>={
   O1:{surfaceId:"SCAN_1",offset:[-12,0,0]},
   O2:{surfaceId:"SCAN_7",offset:[-24,0,0]},
@@ -13,7 +18,7 @@ export const PRESET_EVENING_SUPPORTS:Record<string,{surfaceId:string;offset:Vec3
   O4:{surfaceId:"SCAN_6",offset:[20,0,0]},
   O5:{surfaceId:"SCAN_1",offset:[95,0,0]},
   O6:{surfaceId:"SCAN_1",offset:[-45,0,0]},
-  O7:{surfaceId:"SCAN_1",offset:[-112,0,0]},
+  O7:{surfaceId:"SCAN_1",offset:[-30,0,0]},
   O8:{surfaceId:"SCAN_1",offset:[-145,0,0]},
   O9:{surfaceId:"SCAN_1",offset:[20,0,0]},
   O10:{surfaceId:"SCAN_4",offset:[0,0,0]},
@@ -46,7 +51,8 @@ export function applyPresetEveningRoom(source:CaseGraph):CaseGraph {
     const support=PRESET_EVENING_SUPPORTS[object.id];
     const surface=support&&EVENING_ROOM_SCAN.objects.find(item=>item.id===support.surfaceId);
     if(!surface)throw new Error("Unmapped Preset support "+object.id);
-    object.pos=surface.pos.map((value,axis)=>value+support.offset[axis]) as Vec3;
+    const base=support.surfaceId==="SCAN_1"?PRESET_CONSOLE_TOP:surface.pos;
+    object.pos=base.map((value,axis)=>value+support.offset[axis]) as Vec3;
   }
   return graph;
 }

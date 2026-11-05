@@ -1,0 +1,55 @@
+{
+  "failures": [
+    {
+      "identity": "ff849cbe9bf777ea1d46e15c658e87d85c6fe68d6a0934fdf05762a3dfef3ecf",
+      "id": "audit-gap-3",
+      "speaker": "S3",
+      "seed": 1041,
+      "reason": "provider_empty_audio",
+      "chargedRequestRetainedInLedger": true
+    },
+    {
+      "identity": "d4d81ce65f3f7d642cc0b8460bcfbe6d8318dbe178a8e9f6d51f7715ad9ef354",
+      "id": "audit-gap-3",
+      "speaker": "S3",
+      "seed": 1042,
+      "reason": "provider_empty_audio",
+      "chargedRequestRetainedInLedger": true
+    },
+    {
+      "identity": "1992921d2f5c26243bddb57db303a48d3b31fb3bed6eae1b37b8571449eb0f9c",
+      "id": "audit-gap-3",
+      "speaker": "S3",
+      "seed": 1043,
+      "reason": "provider_empty_audio",
+      "chargedRequestRetainedInLedger": true
+    },
+    {
+      "identity": "a2fe1aca906b7abc2f75305fec1344dc9f2bf1185c541fddc0c15f7c7839f894",
+      "id": "audit-gap-3",
+      "speaker": "S3",
+      "seed": 1041,
+      "punctuationVariant": true,
+      "reason": "provider_empty_audio",
+      "chargedRequestRetainedInLedger": true
+    },
+    {
+      "identity": "b7b40caae2dd47b0d379387985187cdc53aa12c93463ea8234d661d99f74ac58",
+      "id": "audit-gap-3",
+      "speaker": "S3",
+      "seed": 1042,
+      "punctuationVariant": true,
+      "reason": "provider_empty_audio",
+      "chargedRequestRetainedInLedger": true
+    },
+    {
+      "identity": "345196765926e0b687986e6bfe7daa5b311db0ba6a73a5fb5ab33e0408f03454",
+      "id": "audit-gap-3",
+      "speaker": "S3",
+      "seed": 1043,
+      "punctuationVariant": true,
+      "reason": "provider_empty_audio",
+      "chargedRequestRetainedInLedger": true
+    }
+  ]
+}

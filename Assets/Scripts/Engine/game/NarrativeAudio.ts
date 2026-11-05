@@ -87,7 +87,7 @@ export class NarrativeAudio {
       if(event.type==="evidence"){
         const evidence=graph.evidence.find(e=>e.id===event.refs?.[0]);
         const name=evidence?.kind==="photo"?"Polaroid":evidence?.kind==="receipt"?"PaperSlip":evidence?.holder==="O11"?"Kettle":null;
-        if(name)this.once({kind:"sfx",key,name,anchor:event.actor},out);
+        if(name)this.once({kind:"sfx",key:"evidence:"+event.seq+":"+name+":"+(event.actor||""),name,anchor:event.actor},out);
       }
       if(event.type==="argumentSupported")this.once({kind:"sfx",key,name:"Typewriter"},out);
       if(event.type==="beat"){

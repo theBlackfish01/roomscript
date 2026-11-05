@@ -1,0 +1,57 @@
+{
+  "trace": "C:\\Users\\wadoo\\Desktop\\SPECS_Hackathon\\RoomScriptF\\Tooling\\results\\performance\\roomscript_leaf_startup_2026-11-05T22-06-29-933Z_preview0.pftrace",
+  "queries": [
+    {
+      "name": "bounds",
+      "sql": "SELECT start_ts,end_ts,(end_ts-start_ts)/1e9 AS seconds FROM trace_bounds",
+      "csv": "start_ts,end_ts,seconds\r\r\n20842800,342697594200,342.6767514"
+    },
+    {
+      "name": "tracks",
+      "sql": "SELECT id,name,type FROM track LIMIT 20",
+      "csv": "id,name,type\r\r\n0,,thread_execution\r\r\n1,RenderToInterTextureNum,global_counter_track_event\r\r\n2,DrawCallNum,global_counter_track_event\r\r\n3,PrimitiveNum,global_counter_track_event\r\r\n4,ShaderBindNum,global_counter_track_event\r\r\n5,TextureBindNum,global_counter_track_event"
+    },
+    {
+      "name": "topLevel",
+      "sql": "SELECT name,COUNT(*) AS calls,AVG(dur)/1e6 AS avg_ms,MAX(dur)/1e6 AS max_ms,SUM(dur)/1e9 AS sum_seconds FROM slice WHERE track_id=0 AND depth=0 AND dur>=0 GROUP BY name ORDER BY sum_seconds DESC LIMIT 15",
+      "csv": "name,calls,avg_ms,max_ms,sum_seconds\r\r\nCoreManagerRender,3,6996.995466666667,15946.8466,20.9909864\r\r\nLensTurnOnTime,1,1515.3823,1515.3823,1.5153823\r\r\nProcessFrame,4,43.12975,50.723,0.172519\r\r\nScene::init,1,1.1236,1.1236,0.0011236\r\r\nScene::turnOff,1,0.5423,0.5423,0.0005423"
+    },
+    {
+      "name": "pairSummary",
+      "sql": "WITH p AS (SELECT id,ts,dur,LEAD(ts) OVER (ORDER BY ts) AS next_ts FROM slice WHERE track_id=0 AND depth=0 AND name='ProcessFrame' AND dur>=0), r AS (SELECT p.id,p.ts,p.dur,p.next_ts,COUNT(c.id) AS renders,COALESCE(SUM(c.dur),0) AS render_dur,MIN(c.ts) AS render_start,MAX(c.ts+c.dur) AS render_end FROM p LEFT JOIN slice c ON c.track_id=0 AND c.depth=0 AND c.name='CoreManagerRender' AND c.dur>=0 AND c.ts>=p.ts AND c.ts<p.next_ts WHERE p.next_ts IS NOT NULL GROUP BY p.id), pairs AS (SELECT *, (dur+render_dur)/1e6 AS paired_ms,(next_ts-ts)/1e6 AS interval_ms,(next_ts-MAX(ts+dur,COALESCE(render_end,ts+dur)))/1e6 AS gap_ms FROM r) SELECT COUNT(*) AS pairs,AVG(paired_ms) AS paired_mean_ms,MAX(paired_ms) AS paired_max_ms,AVG(interval_ms) AS interval_mean_ms,MAX(interval_ms) AS interval_max_ms,MAX(gap_ms) AS max_unaccounted_gap_ms,SUM(CASE WHEN renders<>1 THEN 1 ELSE 0 END) AS non_single_render_pairs,SUM(CASE WHEN render_start<ts+dur THEN 1 ELSE 0 END) AS overlap_pairs,SUM(CASE WHEN paired_ms<=8 THEN 1 ELSE 0 END) AS pairs_within_8ms FROM pairs",
+      "csv": "pairs,paired_mean_ms,paired_max_ms,interval_mean_ms,interval_max_ms,max_unaccounted_gap_ms,non_single_render_pairs,overlap_pairs,pairs_within_8ms\r\r\n3,7041.5351666666675,15997.5696,113523.74626666667,245137.1746,242847.898,0,0,0"
+    },
+    {
+      "name": "percentiles",
+      "sql": "WITH p AS (SELECT id,ts,dur,LEAD(ts) OVER (ORDER BY ts) AS next_ts FROM slice WHERE track_id=0 AND depth=0 AND name='ProcessFrame' AND dur>=0), r AS (SELECT p.id,p.ts,p.dur,p.next_ts,COUNT(c.id) AS renders,COALESCE(SUM(c.dur),0) AS render_dur,MIN(c.ts) AS render_start,MAX(c.ts+c.dur) AS render_end FROM p LEFT JOIN slice c ON c.track_id=0 AND c.depth=0 AND c.name='CoreManagerRender' AND c.dur>=0 AND c.ts>=p.ts AND c.ts<p.next_ts WHERE p.next_ts IS NOT NULL GROUP BY p.id), pairs AS (SELECT *, (dur+render_dur)/1e6 AS paired_ms,(next_ts-ts)/1e6 AS interval_ms,(next_ts-MAX(ts+dur,COALESCE(render_end,ts+dur)))/1e6 AS gap_ms FROM r), ranked AS (SELECT paired_ms,ROW_NUMBER() OVER (ORDER BY paired_ms) AS rn,COUNT(*) OVER () AS n FROM pairs) SELECT paired_ms,rn,n FROM ranked WHERE rn=CAST((n*0.5+0.999999) AS INT) OR rn=CAST((n*0.9+0.999999) AS INT) OR rn=CAST((n*0.99+0.999999) AS INT)",
+      "csv": "paired_ms,rn,n\r\r\n2837.7707,2,3\r\r\n15997.5696,3,3"
+    },
+    {
+      "name": "worstGaps",
+      "sql": "WITH p AS (SELECT id,ts,dur,LEAD(ts) OVER (ORDER BY ts) AS next_ts FROM slice WHERE track_id=0 AND depth=0 AND name='ProcessFrame' AND dur>=0), r AS (SELECT p.id,p.ts,p.dur,p.next_ts,COUNT(c.id) AS renders,COALESCE(SUM(c.dur),0) AS render_dur,MIN(c.ts) AS render_start,MAX(c.ts+c.dur) AS render_end FROM p LEFT JOIN slice c ON c.track_id=0 AND c.depth=0 AND c.name='CoreManagerRender' AND c.dur>=0 AND c.ts>=p.ts AND c.ts<p.next_ts WHERE p.next_ts IS NOT NULL GROUP BY p.id), pairs AS (SELECT *, (dur+render_dur)/1e6 AS paired_ms,(next_ts-ts)/1e6 AS interval_ms,(next_ts-MAX(ts+dur,COALESCE(render_end,ts+dur)))/1e6 AS gap_ms FROM r) SELECT (ts-(SELECT start_ts FROM trace_bounds))/1e9 AS trace_seconds,paired_ms,interval_ms,gap_ms,renders FROM pairs ORDER BY gap_ms DESC LIMIT 10",
+      "csv": "trace_seconds,paired_ms,interval_ms,gap_ms,renders\r\r\n97.500662,2289.2652,245137.1746,242847.898,1\r\r\n4.9218732,15997.5696,92578.7888,76581.2064,1\r\r\n2.0665978,2837.7707,2855.2754,17.4907,1"
+    },
+    {
+      "name": "longestSlices",
+      "sql": "SELECT name,depth,(ts-(SELECT start_ts FROM trace_bounds))/1e9 AS trace_seconds,dur/1e6 AS ms,parent_id FROM slice WHERE track_id=0 AND dur>=0 ORDER BY dur DESC LIMIT 20",
+      "csv": "name,depth,trace_seconds,ms,parent_id\r\r\nCoreManagerRender,0,4.972609,15946.8466,\r\r\nScnFrame,1,4.9732875,15946.1032,170\r\r\nScene::Update,2,4.9773967,15933.0458,171\r\r\nCoreManagerRender,0,2.1074846,2796.8979,\r\r\nScnFrame,1,2.1082272,2796.0177,9\r\r\nScene::Start,2,2.1110072,2669.6105,10\r\r\nCoreManagerRender,0,97.5426967,2247.2419,\r\r\nScnFrame,1,97.5433271,2246.4864,245\r\r\nScene::Update,2,97.5473435,2207.2191,246\r\r\nLensTurnOnTime,0,0.5450284,1515.3823,\r\r\nScene::turnOn,1,0.5677343,1492.6494,3\r\r\nProcessFrame,0,4.9218732,50.723,\r\r\nProcessFrame,0,97.500662,42.0233,\r\r\nProcessFrame,0,2.0665978,40.8728,\r\r\nProcessFrame,0,342.6378366,38.8999,\r\r\nTrack,1,97.5105453,32.1091,241\r\r\nTrack,1,4.9426774,29.8846,166\r\r\nRenderFrame,2,4.8536844,29.0927,10\r\r\nTrack,1,2.0794594,27.9709,5\r\r\nTrack,1,342.6514283,25.2688,324"
+    },
+    {
+      "name": "renderChildren",
+      "sql": "SELECT name,depth,dur/1e6 AS ms FROM slice WHERE parent_id=(SELECT id FROM slice WHERE track_id=0 AND name='CoreManagerRender' AND dur>=0 ORDER BY dur DESC LIMIT 1) ORDER BY dur DESC LIMIT 20",
+      "csv": "name,depth,ms\r\r\nScnFrame,1,15946.1032\r\r\nPfttThrottle,1,0.0474"
+    },
+    {
+      "name": "unclosed",
+      "sql": "SELECT name,depth,COUNT(*) AS slices FROM slice WHERE dur<0 GROUP BY name,depth ORDER BY slices DESC LIMIT 10",
+      "csv": "name,depth,slices\r\r\nCoreManagerRender,0,1"
+    },
+    {
+      "name": "scheduling",
+      "sql": "SELECT COUNT(*) AS sched_count FROM sched",
+      "csv": "sched_count\r\r\n0"
+    }
+  ],
+  "exitCode": 0,
+  "stderr": "Loading trace: C:\\Users\\wadoo\\Desktop\\SPECS_Hackathon\\RoomScriptF\\Tooling\\results\\performance\\roomscript_leaf_startup_2026-11-05T22-06-29-933Z_preview0.pftrace\r\nReady.\r\nShutdown complete.\r\n"
+}

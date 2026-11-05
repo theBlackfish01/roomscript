@@ -2945,6 +2945,45 @@ export const RUN7_VOICE_MANIFEST = [
     "alignmentBounded": false
   },
   {
+    "id": "audit-gap-5",
+    "key": "S1|steady|cable",
+    "identity": "c773e7d9d9630d0022187199f5525a26377d6e521a7c0054f06399bf5fbd677a",
+    "speaker": "S1",
+    "text": "cable",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/c773e7d9d9630d002218.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "c",
+        "a",
+        "b",
+        "l",
+        "e"
+      ],
+      "starts": [
+        0.06,
+        0.07599999999999996,
+        0.09299999999999997,
+        0.10999999999999999,
+        0.126
+      ],
+      "ends": [
+        0.07599999999999996,
+        0.09299999999999997,
+        0.10999999999999999,
+        0.126,
+        1.2630000000000001
+      ]
+    },
+    "group": "phrases",
+    "index": 35,
+    "audioSeconds": 1.68,
+    "startSeconds": 0.337,
+    "endSeconds": 1.68,
+    "alignmentBounded": false
+  },
+  {
     "id": "phrase:S1:4f4cdfad",
     "key": "S1|steady|Cecily March",
     "identity": "fc869e56798f9fc6cb1997efa96b646399a14152259eb00c1a8dc4404cf3ac5a",
@@ -2998,7 +3037,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 35,
+    "index": 36,
     "audioSeconds": 1.92,
     "startSeconds": 0.144,
     "endSeconds": 1.92,
@@ -3061,7 +3100,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 36,
+    "index": 37,
     "audioSeconds": 1.68,
     "startSeconds": 0.402,
     "endSeconds": 1.68,
@@ -3115,7 +3154,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 37,
+    "index": 38,
     "audioSeconds": 1.76,
     "startSeconds": 0.273,
     "endSeconds": 1.76,
@@ -3175,7 +3214,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 38,
+    "index": 39,
     "audioSeconds": 2,
     "startSeconds": 0.20900000000000002,
     "endSeconds": 2,
@@ -3235,10 +3274,46 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 39,
+    "index": 40,
     "audioSeconds": 1.36,
     "startSeconds": 0.458,
     "endSeconds": 1.36,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-21",
+    "key": "S1|steady|door",
+    "identity": "e8650c96b7d30f96e4833e06d7b47bdc8e7e2d469cc45ff53183a5fe200bc98d",
+    "speaker": "S1",
+    "text": "door",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/e8650c96b7d30f96e483.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "d",
+        "o",
+        "o",
+        "r"
+      ],
+      "starts": [
+        0.06,
+        0.08300000000000002,
+        0.10500000000000004,
+        0.12800000000000006
+      ],
+      "ends": [
+        0.08300000000000002,
+        0.10500000000000004,
+        0.12800000000000006,
+        1.27
+      ]
+    },
+    "group": "phrases",
+    "index": 41,
+    "audioSeconds": 1.68,
+    "startSeconds": 0.41,
+    "endSeconds": 1.68,
     "alignmentBounded": false
   },
   {
@@ -3292,7 +3367,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 40,
+    "index": 42,
     "audioSeconds": 1.92,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.92,
@@ -3349,7 +3424,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 41,
+    "index": 43,
     "audioSeconds": 1.92,
     "startSeconds": 0.40700000000000003,
     "endSeconds": 1.92,
@@ -3406,7 +3481,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 42,
+    "index": 44,
     "audioSeconds": 2.08,
     "startSeconds": 0.271,
     "endSeconds": 2.08,
@@ -3466,7 +3541,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 43,
+    "index": 45,
     "audioSeconds": 2.16,
     "startSeconds": 0.5980000000000001,
     "endSeconds": 2.16,
@@ -3529,7 +3604,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 44,
+    "index": 46,
     "audioSeconds": 2.16,
     "startSeconds": 0.5980000000000001,
     "endSeconds": 2.16,
@@ -3583,7 +3658,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 45,
+    "index": 47,
     "audioSeconds": 1.68,
     "startSeconds": 0.337,
     "endSeconds": 1.68,
@@ -3637,7 +3712,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 46,
+    "index": 48,
     "audioSeconds": 1.92,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.92,
@@ -3767,7 +3842,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 47,
+    "index": 49,
     "audioSeconds": 1.6,
     "startSeconds": 0.07400000000000001,
     "endSeconds": 1.6,
@@ -3848,7 +3923,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 48,
+    "index": 50,
     "audioSeconds": 1.52,
     "startSeconds": 0.07400000000000001,
     "endSeconds": 1.52,
@@ -3884,7 +3959,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 49,
+    "index": 51,
     "audioSeconds": 1.68,
     "startSeconds": 0.41,
     "endSeconds": 1.68,
@@ -3941,7 +4016,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 50,
+    "index": 52,
     "audioSeconds": 1.6,
     "startSeconds": 0.273,
     "endSeconds": 1.6,
@@ -3995,7 +4070,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 51,
+    "index": 53,
     "audioSeconds": 1.84,
     "startSeconds": 0.343,
     "endSeconds": 1.84,
@@ -4061,7 +4136,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 52,
+    "index": 54,
     "audioSeconds": 1.04,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.04,
@@ -4184,7 +4259,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 53,
+    "index": 55,
     "audioSeconds": 2.4,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 2.4,
@@ -4286,7 +4361,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 54,
+    "index": 56,
     "audioSeconds": 2.24,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 2.24,
@@ -4370,7 +4445,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 55,
+    "index": 57,
     "audioSeconds": 1.6,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.6,
@@ -4469,7 +4544,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 56,
+    "index": 58,
     "audioSeconds": 1.68,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.68,
@@ -4553,7 +4628,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 57,
+    "index": 59,
     "audioSeconds": 1.68,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.68,
@@ -4616,7 +4691,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 58,
+    "index": 60,
     "audioSeconds": 0.64,
     "startSeconds": 0,
     "endSeconds": 0.64,
@@ -4709,7 +4784,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 59,
+    "index": 61,
     "audioSeconds": 2.24,
     "startSeconds": 0.09,
     "endSeconds": 2.24,
@@ -4772,7 +4847,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 60,
+    "index": 62,
     "audioSeconds": 1.12,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.12,
@@ -4901,7 +4976,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 61,
+    "index": 63,
     "audioSeconds": 2.08,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.08,
@@ -4949,7 +5024,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 62,
+    "index": 64,
     "audioSeconds": 1.12,
     "startSeconds": 0.156,
     "endSeconds": 1.12,
@@ -5003,7 +5078,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 63,
+    "index": 65,
     "audioSeconds": 1.36,
     "startSeconds": 0.276,
     "endSeconds": 1.36,
@@ -5057,10 +5132,52 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 64,
+    "index": 66,
     "audioSeconds": 1.6,
     "startSeconds": 0.273,
     "endSeconds": 1.6,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-27",
+    "key": "S1|steady|kettle",
+    "identity": "00f5dafb33b9556a636bf676a2c29f503843b051b112194a95d8bbbe2d6231d9",
+    "speaker": "S1",
+    "text": "kettle",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/00f5dafb33b9556a636b.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "k",
+        "e",
+        "t",
+        "t",
+        "l",
+        "e"
+      ],
+      "starts": [
+        0.06,
+        0.07200000000000001,
+        0.08299999999999996,
+        0.09499999999999997,
+        0.10599999999999998,
+        0.118
+      ],
+      "ends": [
+        0.07200000000000001,
+        0.08299999999999996,
+        0.09499999999999997,
+        0.10599999999999998,
+        0.118,
+        0.8490000000000001
+      ]
+    },
+    "group": "phrases",
+    "index": 67,
+    "audioSeconds": 1.12,
+    "startSeconds": 0.271,
+    "endSeconds": 1.12,
     "alignmentBounded": false
   },
   {
@@ -5102,10 +5219,46 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 65,
+    "index": 68,
     "audioSeconds": 1.04,
     "startSeconds": 0.336,
     "endSeconds": 1.04,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-13",
+    "key": "S1|steady|lamp",
+    "identity": "012414bd585ee2cf239ac4d4e628968d7d72850063d76945212ea907a3c959c9",
+    "speaker": "S1",
+    "text": "lamp",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/012414bd585ee2cf239a.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "l",
+        "a",
+        "m",
+        "p"
+      ],
+      "starts": [
+        0.06,
+        0.07999999999999996,
+        0.09999999999999998,
+        0.12
+      ],
+      "ends": [
+        0.07999999999999996,
+        0.09999999999999998,
+        0.12,
+        1.26
+      ]
+    },
+    "group": "phrases",
+    "index": 69,
+    "audioSeconds": 1.6,
+    "startSeconds": 0.34,
+    "endSeconds": 1.6,
     "alignmentBounded": false
   },
   {
@@ -5162,7 +5315,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 66,
+    "index": 70,
     "audioSeconds": 2.48,
     "startSeconds": 0.276,
     "endSeconds": 2.48,
@@ -5213,7 +5366,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 67,
+    "index": 71,
     "audioSeconds": 1.68,
     "startSeconds": 0.276,
     "endSeconds": 1.68,
@@ -5273,7 +5426,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 68,
+    "index": 72,
     "audioSeconds": 2,
     "startSeconds": 0.271,
     "endSeconds": 2,
@@ -5315,7 +5468,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 69,
+    "index": 73,
     "audioSeconds": 1.52,
     "startSeconds": 0.649,
     "endSeconds": 1.52,
@@ -5381,7 +5534,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 70,
+    "index": 74,
     "audioSeconds": 2,
     "startSeconds": 0.47000000000000003,
     "endSeconds": 2,
@@ -5444,7 +5597,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 71,
+    "index": 75,
     "audioSeconds": 1.92,
     "startSeconds": 0.463,
     "endSeconds": 1.92,
@@ -5513,7 +5666,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 72,
+    "index": 76,
     "audioSeconds": 1.6,
     "startSeconds": 0.5800000000000001,
     "endSeconds": 1.6,
@@ -5567,7 +5720,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 73,
+    "index": 77,
     "audioSeconds": 1.6,
     "startSeconds": 0.07900000000000001,
     "endSeconds": 1.6,
@@ -5621,7 +5774,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 74,
+    "index": 78,
     "audioSeconds": 1.52,
     "startSeconds": 0.273,
     "endSeconds": 1.52,
@@ -5678,10 +5831,43 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 75,
+    "index": 79,
     "audioSeconds": 1.92,
     "startSeconds": 0.144,
     "endSeconds": 1.92,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-23",
+    "key": "S1|steady|mug",
+    "identity": "eb43d771fdb8a61d2b743ef6cf00092e78b61f9c18cedfb03fcccde3e625b214",
+    "speaker": "S1",
+    "text": "mug",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/eb43d771fdb8a61d2b74.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "m",
+        "u",
+        "g"
+      ],
+      "starts": [
+        0.06,
+        0.08499999999999996,
+        0.10999999999999999
+      ],
+      "ends": [
+        0.08499999999999996,
+        0.10999999999999999,
+        1.095
+      ]
+    },
+    "group": "phrases",
+    "index": 80,
+    "audioSeconds": 1.44,
+    "startSeconds": 0.34500000000000003,
+    "endSeconds": 1.44,
     "alignmentBounded": false
   },
   {
@@ -5744,10 +5930,49 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 76,
+    "index": 81,
     "audioSeconds": 2.16,
     "startSeconds": 0.20900000000000002,
     "endSeconds": 2.16,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-17",
+    "key": "S1|steady|plant",
+    "identity": "677668f7ceadf9a3b9d92ed7a2fb46c877e7dda3e156948b70e9ce7cf43f1a8e",
+    "speaker": "S1",
+    "text": "plant",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/677668f7ceadf9a3b9d9.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "p",
+        "l",
+        "a",
+        "n",
+        "t"
+      ],
+      "starts": [
+        0.06,
+        0.07799999999999996,
+        0.09699999999999998,
+        0.11599999999999999,
+        0.134
+      ],
+      "ends": [
+        0.07799999999999996,
+        0.09699999999999998,
+        0.11599999999999999,
+        0.134,
+        1.353
+      ]
+    },
+    "group": "phrases",
+    "index": 82,
+    "audioSeconds": 1.76,
+    "startSeconds": 0.40700000000000003,
+    "endSeconds": 1.76,
     "alignmentBounded": false
   },
   {
@@ -5807,7 +6032,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 77,
+    "index": 83,
     "audioSeconds": 1.76,
     "startSeconds": 0.334,
     "endSeconds": 1.76,
@@ -5870,7 +6095,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 78,
+    "index": 84,
     "audioSeconds": 2.08,
     "startSeconds": 0.21000000000000002,
     "endSeconds": 2.08,
@@ -5927,10 +6152,52 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 79,
+    "index": 85,
     "audioSeconds": 1.68,
     "startSeconds": 0.271,
     "endSeconds": 1.68,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-31",
+    "key": "S1|steady|screen",
+    "identity": "e551be399e7dfb664e36ee0a755611d187a744410c469f976160e06c3d99d622",
+    "speaker": "S1",
+    "text": "screen",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/e551be399e7dfb664e36.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "s",
+        "c",
+        "r",
+        "e",
+        "e",
+        "n"
+      ],
+      "starts": [
+        0.06000000000000005,
+        0.08300000000000007,
+        0.1060000000000001,
+        0.1280000000000001,
+        0.15100000000000013,
+        0.17400000000000004
+      ],
+      "ends": [
+        0.08300000000000007,
+        0.1060000000000001,
+        0.1280000000000001,
+        0.15100000000000013,
+        0.17400000000000004,
+        1.6370000000000002
+      ]
+    },
+    "group": "phrases",
+    "index": 86,
+    "audioSeconds": 2.16,
+    "startSeconds": 0.5229999999999999,
+    "endSeconds": 2.16,
     "alignmentBounded": false
   },
   {
@@ -5981,7 +6248,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 80,
+    "index": 87,
     "audioSeconds": 1.6,
     "startSeconds": 0.273,
     "endSeconds": 1.6,
@@ -6017,10 +6284,55 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 81,
+    "index": 88,
     "audioSeconds": 1.68,
     "startSeconds": 0.34,
     "endSeconds": 1.68,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-0",
+    "key": "S1|steady|speaker",
+    "identity": "e6251cd01c751e6a71ef722d0f21722fe7631e705fb504bbb5a37fd747de8cd8",
+    "speaker": "S1",
+    "text": "speaker",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/e6251cd01c751e6a71ef.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "s",
+        "p",
+        "e",
+        "a",
+        "k",
+        "e",
+        "r"
+      ],
+      "starts": [
+        0.06,
+        0.07199999999999995,
+        0.08399999999999996,
+        0.09599999999999997,
+        0.10799999999999998,
+        0.12,
+        0.132
+      ],
+      "ends": [
+        0.07199999999999995,
+        0.08399999999999996,
+        0.09599999999999997,
+        0.10799999999999998,
+        0.12,
+        0.132,
+        1.5839999999999999
+      ]
+    },
+    "group": "phrases",
+    "index": 89,
+    "audioSeconds": 1.92,
+    "startSeconds": 0.336,
+    "endSeconds": 1.92,
     "alignmentBounded": false
   },
   {
@@ -6056,7 +6368,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 82,
+    "index": 90,
     "audioSeconds": 0.96,
     "startSeconds": 0.34,
     "endSeconds": 0.64,
@@ -6110,7 +6422,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 83,
+    "index": 91,
     "audioSeconds": 1.12,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.12,
@@ -6143,7 +6455,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 84,
+    "index": 92,
     "audioSeconds": 0.64,
     "startSeconds": 0.28,
     "endSeconds": 0.5599999999999999,
@@ -6185,7 +6497,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 85,
+    "index": 93,
     "audioSeconds": 1.6,
     "startSeconds": 0.21500000000000002,
     "endSeconds": 0.88,
@@ -6257,10 +6569,67 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 86,
+    "index": 94,
     "audioSeconds": 1.2,
     "startSeconds": 0.14200000000000002,
     "endSeconds": 1.2,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-9",
+    "key": "S1|steady|woven chair",
+    "identity": "f420d747f360527ef21fcae2ae78211be5902c4992671d1e487a01ebc98428b6",
+    "speaker": "S1",
+    "text": "woven chair",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S1/f420d747f360527ef21f.mp3",
+    "voiceId": "QefbtgMIZqMEV81ZifAz",
+    "alignment": {
+      "characters": [
+        "w",
+        "o",
+        "v",
+        "e",
+        "n",
+        " ",
+        "c",
+        "h",
+        "a",
+        "i",
+        "r"
+      ],
+      "starts": [
+        0.05999999999999994,
+        0.08999999999999997,
+        0.11999999999999988,
+        0.1499999999999999,
+        0.17999999999999994,
+        0.20999999999999996,
+        0.3569999999999999,
+        0.5029999999999999,
+        0.6499999999999999,
+        0.7969999999999999,
+        0.9429999999999998
+      ],
+      "ends": [
+        0.08999999999999997,
+        0.11999999999999988,
+        0.1499999999999999,
+        0.17999999999999994,
+        0.20999999999999996,
+        0.3569999999999999,
+        0.5029999999999999,
+        0.6499999999999999,
+        0.7969999999999999,
+        0.9429999999999998,
+        1.3299999999999998
+      ]
+    },
+    "group": "phrases",
+    "index": 95,
+    "audioSeconds": 1.92,
+    "startSeconds": 0.5900000000000001,
+    "endSeconds": 1.92,
     "alignmentBounded": false
   },
   {
@@ -6329,7 +6698,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 87,
+    "index": 96,
     "audioSeconds": 1.68,
     "startSeconds": 0.14,
     "endSeconds": 1.68,
@@ -6368,7 +6737,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 88,
+    "index": 97,
     "audioSeconds": 2.08,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.08,
@@ -6407,7 +6776,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 89,
+    "index": 98,
     "audioSeconds": 2.48,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.48,
@@ -6446,7 +6815,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 90,
+    "index": 99,
     "audioSeconds": 2.32,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.32,
@@ -6485,7 +6854,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 91,
+    "index": 100,
     "audioSeconds": 1.68,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 1.68,
@@ -6524,7 +6893,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 92,
+    "index": 101,
     "audioSeconds": 2.32,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.32,
@@ -6563,7 +6932,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 93,
+    "index": 102,
     "audioSeconds": 2.48,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.48,
@@ -6620,7 +6989,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 94,
+    "index": 103,
     "audioSeconds": 1.92,
     "startSeconds": 0.46,
     "endSeconds": 1.92,
@@ -6674,7 +7043,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 95,
+    "index": 104,
     "audioSeconds": 1.36,
     "startSeconds": 0.148,
     "endSeconds": 1.36,
@@ -6792,7 +7161,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 96,
+    "index": 105,
     "audioSeconds": 2.08,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 2.08,
@@ -6822,7 +7191,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 97,
+    "index": 106,
     "audioSeconds": 2.56,
     "startSeconds": 0.353,
     "endSeconds": 2.56,
@@ -6888,7 +7257,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 98,
+    "index": 107,
     "audioSeconds": 1.76,
     "startSeconds": 0.276,
     "endSeconds": 1.76,
@@ -6939,7 +7308,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 99,
+    "index": 108,
     "audioSeconds": 2.24,
     "startSeconds": 0.21500000000000002,
     "endSeconds": 2.24,
@@ -7014,10 +7383,49 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 100,
+    "index": 109,
     "audioSeconds": 2.4,
     "startSeconds": 0.273,
     "endSeconds": 2.4,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-6",
+    "key": "S2|steady|cable",
+    "identity": "37b0e9adb7abca1ba6664a07f0fd82cb80dbb1ba86932291acd87a80f4983ae5",
+    "speaker": "S2",
+    "text": "cable",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S2/37b0e9adb7abca1ba666.mp3",
+    "voiceId": "Ajczv1caVKcFEG1TdJH0",
+    "alignment": {
+      "characters": [
+        "c",
+        "a",
+        "b",
+        "l",
+        "e"
+      ],
+      "starts": [
+        0.06,
+        0.08199999999999996,
+        0.10399999999999998,
+        0.127,
+        0.14900000000000002
+      ],
+      "ends": [
+        0.08199999999999996,
+        0.10399999999999998,
+        0.127,
+        0.14900000000000002,
+        1.451
+      ]
+    },
+    "group": "phrases",
+    "index": 110,
+    "audioSeconds": 1.84,
+    "startSeconds": 0.389,
+    "endSeconds": 1.84,
     "alignmentBounded": false
   },
   {
@@ -7074,7 +7482,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 101,
+    "index": 111,
     "audioSeconds": 1.84,
     "startSeconds": 0.144,
     "endSeconds": 1.84,
@@ -7137,7 +7545,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 102,
+    "index": 112,
     "audioSeconds": 1.36,
     "startSeconds": 0.395,
     "endSeconds": 1.36,
@@ -7194,7 +7602,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 103,
+    "index": 113,
     "audioSeconds": 3.12,
     "startSeconds": 0.20700000000000002,
     "endSeconds": 3.12,
@@ -7248,7 +7656,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 104,
+    "index": 114,
     "audioSeconds": 1.36,
     "startSeconds": 0.273,
     "endSeconds": 1.36,
@@ -7308,7 +7716,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 105,
+    "index": 115,
     "audioSeconds": 2.56,
     "startSeconds": 0.271,
     "endSeconds": 2.56,
@@ -7368,7 +7776,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 106,
+    "index": 116,
     "audioSeconds": 1.28,
     "startSeconds": 0.402,
     "endSeconds": 1.28,
@@ -7446,7 +7854,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 107,
+    "index": 117,
     "audioSeconds": 1.68,
     "startSeconds": 0.14200000000000002,
     "endSeconds": 1.68,
@@ -7482,7 +7890,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 108,
+    "index": 118,
     "audioSeconds": 1.92,
     "startSeconds": 0.343,
     "endSeconds": 1.92,
@@ -7539,7 +7947,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 109,
+    "index": 119,
     "audioSeconds": 2.4,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.4,
@@ -7596,7 +8004,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 110,
+    "index": 120,
     "audioSeconds": 1.52,
     "startSeconds": 0.4,
     "endSeconds": 1.52,
@@ -7653,7 +8061,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 111,
+    "index": 121,
     "audioSeconds": 1.6,
     "startSeconds": 0.271,
     "endSeconds": 1.6,
@@ -7713,7 +8121,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 112,
+    "index": 122,
     "audioSeconds": 2.08,
     "startSeconds": 0.456,
     "endSeconds": 2.08,
@@ -7776,7 +8184,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 113,
+    "index": 123,
     "audioSeconds": 2.32,
     "startSeconds": 0.456,
     "endSeconds": 2.32,
@@ -7906,7 +8314,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 114,
+    "index": 124,
     "audioSeconds": 2.08,
     "startSeconds": 0.07400000000000001,
     "endSeconds": 2.08,
@@ -7987,7 +8395,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 115,
+    "index": 125,
     "audioSeconds": 1.52,
     "startSeconds": 0.14200000000000002,
     "endSeconds": 1.52,
@@ -8023,7 +8431,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 116,
+    "index": 126,
     "audioSeconds": 0.88,
     "startSeconds": 0.276,
     "endSeconds": 0.88,
@@ -8080,7 +8488,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 117,
+    "index": 127,
     "audioSeconds": 1.2,
     "startSeconds": 0.273,
     "endSeconds": 1.2,
@@ -8146,7 +8554,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 118,
+    "index": 128,
     "audioSeconds": 1.52,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.52,
@@ -8263,7 +8671,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 119,
+    "index": 129,
     "audioSeconds": 2.48,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 2.48,
@@ -8365,7 +8773,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 120,
+    "index": 130,
     "audioSeconds": 2.16,
     "startSeconds": 0.16,
     "endSeconds": 2.16,
@@ -8449,7 +8857,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 121,
+    "index": 131,
     "audioSeconds": 1.68,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.68,
@@ -8548,7 +8956,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 122,
+    "index": 132,
     "audioSeconds": 2.32,
     "startSeconds": 0.16,
     "endSeconds": 2.32,
@@ -8632,7 +9040,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 123,
+    "index": 133,
     "audioSeconds": 2.4,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.4,
@@ -8695,7 +9103,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 124,
+    "index": 134,
     "audioSeconds": 1.04,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.04,
@@ -8788,7 +9196,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 125,
+    "index": 135,
     "audioSeconds": 1.44,
     "startSeconds": 0.09,
     "endSeconds": 1.44,
@@ -8851,7 +9259,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 126,
+    "index": 136,
     "audioSeconds": 1.2,
     "startSeconds": 0.156,
     "endSeconds": 1.2,
@@ -8980,7 +9388,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 127,
+    "index": 137,
     "audioSeconds": 2.16,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.16,
@@ -9028,7 +9436,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 128,
+    "index": 138,
     "audioSeconds": 0.88,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 0.88,
@@ -9082,7 +9490,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 129,
+    "index": 139,
     "audioSeconds": 1.2,
     "startSeconds": 0.34,
     "endSeconds": 1.2,
@@ -9136,10 +9544,52 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 130,
+    "index": 140,
     "audioSeconds": 1.2,
     "startSeconds": 0.337,
     "endSeconds": 1.2,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-28",
+    "key": "S2|steady|kettle",
+    "identity": "025670f05da9a10601037b45429bad865b0e655cfd7bd785fe63dd084d6cc96b",
+    "speaker": "S2",
+    "text": "kettle",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S2/025670f05da9a1060103.mp3",
+    "voiceId": "Ajczv1caVKcFEG1TdJH0",
+    "alignment": {
+      "characters": [
+        "k",
+        "e",
+        "t",
+        "t",
+        "l",
+        "e"
+      ],
+      "starts": [
+        0.06,
+        0.07299999999999995,
+        0.08699999999999997,
+        0.10099999999999998,
+        0.11499999999999999,
+        0.128
+      ],
+      "ends": [
+        0.07299999999999995,
+        0.08699999999999997,
+        0.10099999999999998,
+        0.11499999999999999,
+        0.128,
+        1.5819999999999999
+      ]
+    },
+    "group": "phrases",
+    "index": 141,
+    "audioSeconds": 1.92,
+    "startSeconds": 0.338,
+    "endSeconds": 1.92,
     "alignmentBounded": false
   },
   {
@@ -9181,10 +9631,46 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 131,
+    "index": 142,
     "audioSeconds": 0.56,
     "startSeconds": 0.336,
     "endSeconds": 0.56,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-14",
+    "key": "S2|steady|lamp",
+    "identity": "27b5b18ba12180c416da57af89f6f15cfbe14a2522ce46026ab83561449f7c65",
+    "speaker": "S2",
+    "text": "lamp",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S2/27b5b18ba12180c416da.mp3",
+    "voiceId": "Ajczv1caVKcFEG1TdJH0",
+    "alignment": {
+      "characters": [
+        "l",
+        "a",
+        "m",
+        "p"
+      ],
+      "starts": [
+        0.06,
+        0.08399999999999996,
+        0.10799999999999998,
+        0.132
+      ],
+      "ends": [
+        0.08399999999999996,
+        0.10799999999999998,
+        0.132,
+        2.156
+      ]
+    },
+    "group": "phrases",
+    "index": 143,
+    "audioSeconds": 2.56,
+    "startSeconds": 0.404,
+    "endSeconds": 2.56,
     "alignmentBounded": false
   },
   {
@@ -9241,7 +9727,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 132,
+    "index": 144,
     "audioSeconds": 2.48,
     "startSeconds": 0.276,
     "endSeconds": 2.48,
@@ -9292,7 +9778,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 133,
+    "index": 145,
     "audioSeconds": 1.6,
     "startSeconds": 0.343,
     "endSeconds": 1.6,
@@ -9352,7 +9838,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 134,
+    "index": 146,
     "audioSeconds": 2.32,
     "startSeconds": 0.271,
     "endSeconds": 2.32,
@@ -9394,7 +9880,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 135,
+    "index": 147,
     "audioSeconds": 1.52,
     "startSeconds": 0.649,
     "endSeconds": 1.52,
@@ -9448,7 +9934,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 136,
+    "index": 148,
     "audioSeconds": 1.12,
     "startSeconds": 0.273,
     "endSeconds": 1.12,
@@ -9514,7 +10000,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 137,
+    "index": 149,
     "audioSeconds": 2.32,
     "startSeconds": 0.338,
     "endSeconds": 2.32,
@@ -9577,7 +10063,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 138,
+    "index": 150,
     "audioSeconds": 2.24,
     "startSeconds": 0.273,
     "endSeconds": 2.24,
@@ -9646,7 +10132,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 139,
+    "index": 151,
     "audioSeconds": 2.08,
     "startSeconds": 0.456,
     "endSeconds": 2.08,
@@ -9700,7 +10186,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 140,
+    "index": 152,
     "audioSeconds": 1.2,
     "startSeconds": 0.07900000000000001,
     "endSeconds": 1.2,
@@ -9754,7 +10240,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 141,
+    "index": 153,
     "audioSeconds": 1.12,
     "startSeconds": 0.34,
     "endSeconds": 1.12,
@@ -9811,10 +10297,43 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 142,
+    "index": 154,
     "audioSeconds": 1.84,
     "startSeconds": 0.144,
     "endSeconds": 1.84,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-24",
+    "key": "S2|steady|mug",
+    "identity": "1dce5ecbe56c77c353560c711e8a2deda7e87f005996196905fb4b64add640af",
+    "speaker": "S2",
+    "text": "mug",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S2/1dce5ecbe56c77c35356.mp3",
+    "voiceId": "Ajczv1caVKcFEG1TdJH0",
+    "alignment": {
+      "characters": [
+        "m",
+        "u",
+        "g"
+      ],
+      "starts": [
+        0.06,
+        0.08499999999999996,
+        0.10999999999999999
+      ],
+      "ends": [
+        0.08499999999999996,
+        0.10999999999999999,
+        1.2550000000000001
+      ]
+    },
+    "group": "phrases",
+    "index": 155,
+    "audioSeconds": 1.6,
+    "startSeconds": 0.34500000000000003,
+    "endSeconds": 1.6,
     "alignmentBounded": false
   },
   {
@@ -9865,7 +10384,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 143,
+    "index": 156,
     "audioSeconds": 1.68,
     "startSeconds": 0.34,
     "endSeconds": 1.68,
@@ -9928,7 +10447,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 144,
+    "index": 157,
     "audioSeconds": 2.48,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 2.48,
@@ -9985,10 +10504,49 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 145,
+    "index": 158,
     "audioSeconds": 1.44,
     "startSeconds": 0.20700000000000002,
     "endSeconds": 1.44,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-18",
+    "key": "S2|steady|plant",
+    "identity": "c9be77780101914a89398ddc54885f5a11ac07f3ef18e9e445b1733aae4df3ac",
+    "speaker": "S2",
+    "text": "plant",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S2/c9be77780101914a8939.mp3",
+    "voiceId": "Ajczv1caVKcFEG1TdJH0",
+    "alignment": {
+      "characters": [
+        "p",
+        "l",
+        "a",
+        "n",
+        "t"
+      ],
+      "starts": [
+        0.06,
+        0.08200000000000002,
+        0.10399999999999998,
+        0.127,
+        0.14900000000000002
+      ],
+      "ends": [
+        0.08200000000000002,
+        0.10399999999999998,
+        0.127,
+        0.14900000000000002,
+        1.7710000000000001
+      ]
+    },
+    "group": "phrases",
+    "index": 159,
+    "audioSeconds": 2.08,
+    "startSeconds": 0.309,
+    "endSeconds": 2.08,
     "alignmentBounded": false
   },
   {
@@ -10048,7 +10606,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 146,
+    "index": 160,
     "audioSeconds": 2.48,
     "startSeconds": 0.334,
     "endSeconds": 2.48,
@@ -10102,7 +10660,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 147,
+    "index": 161,
     "audioSeconds": 0.96,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 0.96,
@@ -10165,7 +10723,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 148,
+    "index": 162,
     "audioSeconds": 1.12,
     "startSeconds": 0.273,
     "endSeconds": 1.12,
@@ -10222,10 +10780,52 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 149,
+    "index": 163,
     "audioSeconds": 1.84,
     "startSeconds": 0.338,
     "endSeconds": 1.84,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-2",
+    "key": "S2|steady|screen",
+    "identity": "21cbac16fd2b75e244c5e86fca51c9fa1a9bb2b79e64da02d562479447ef77ea",
+    "speaker": "S2",
+    "text": "screen",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S2/21cbac16fd2b75e244c5.mp3",
+    "voiceId": "Ajczv1caVKcFEG1TdJH0",
+    "alignment": {
+      "characters": [
+        "s",
+        "c",
+        "r",
+        "e",
+        "e",
+        "n"
+      ],
+      "starts": [
+        0.06,
+        0.07699999999999996,
+        0.09399999999999997,
+        0.11199999999999999,
+        0.129,
+        0.14600000000000002
+      ],
+      "ends": [
+        0.07699999999999996,
+        0.09399999999999997,
+        0.11199999999999999,
+        0.129,
+        0.14600000000000002,
+        2.1630000000000003
+      ]
+    },
+    "group": "phrases",
+    "index": 164,
+    "audioSeconds": 2.56,
+    "startSeconds": 0.397,
+    "endSeconds": 2.56,
     "alignmentBounded": false
   },
   {
@@ -10258,10 +10858,55 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 150,
+    "index": 165,
     "audioSeconds": 1.6,
     "startSeconds": 0.313,
     "endSeconds": 1.6,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-1",
+    "key": "S2|steady|speaker",
+    "identity": "2d9ed0f6c02d74539f5f4381f4bd507a36488fba6f94c1b4b0fe5b53cc45add6",
+    "speaker": "S2",
+    "text": "speaker",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S2/2d9ed0f6c02d74539f5f.mp3",
+    "voiceId": "Ajczv1caVKcFEG1TdJH0",
+    "alignment": {
+      "characters": [
+        "s",
+        "p",
+        "e",
+        "a",
+        "k",
+        "e",
+        "r"
+      ],
+      "starts": [
+        0.06,
+        0.07199999999999995,
+        0.08399999999999996,
+        0.09599999999999997,
+        0.10799999999999998,
+        0.12,
+        0.132
+      ],
+      "ends": [
+        0.07199999999999995,
+        0.08399999999999996,
+        0.09599999999999997,
+        0.10799999999999998,
+        0.12,
+        0.132,
+        1.5839999999999999
+      ]
+    },
+    "group": "phrases",
+    "index": 166,
+    "audioSeconds": 1.92,
+    "startSeconds": 0.336,
+    "endSeconds": 1.92,
     "alignmentBounded": false
   },
   {
@@ -10297,7 +10942,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 151,
+    "index": 167,
     "audioSeconds": 1.92,
     "startSeconds": 0.34,
     "endSeconds": 1.92,
@@ -10351,7 +10996,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 152,
+    "index": 168,
     "audioSeconds": 1.2,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.2,
@@ -10384,7 +11029,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 153,
+    "index": 169,
     "audioSeconds": 1.12,
     "startSeconds": 0.28,
     "endSeconds": 1.12,
@@ -10438,7 +11083,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 154,
+    "index": 170,
     "audioSeconds": 1.36,
     "startSeconds": 0.276,
     "endSeconds": 1.36,
@@ -10480,7 +11125,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 155,
+    "index": 171,
     "audioSeconds": 2.08,
     "startSeconds": 0.21500000000000002,
     "endSeconds": 2.08,
@@ -10553,10 +11198,67 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 156,
+    "index": 172,
     "audioSeconds": 1.04,
     "startSeconds": 0.14200000000000002,
     "endSeconds": 1.04,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-10",
+    "key": "S2|steady|woven chair",
+    "identity": "576b0519d5835048ec89d9b3e49f0ba6b297697f12c5ddbfc2643509deaeb14a",
+    "speaker": "S2",
+    "text": "woven chair",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S2/576b0519d5835048ec89.mp3",
+    "voiceId": "Ajczv1caVKcFEG1TdJH0",
+    "alignment": {
+      "characters": [
+        "w",
+        "o",
+        "v",
+        "e",
+        "n",
+        " ",
+        "c",
+        "h",
+        "a",
+        "i",
+        "r"
+      ],
+      "starts": [
+        0.06,
+        0.08400000000000002,
+        0.10699999999999993,
+        0.12999999999999995,
+        0.15399999999999997,
+        0.177,
+        0.284,
+        0.38999999999999996,
+        0.49699999999999994,
+        0.6039999999999999,
+        0.71
+      ],
+      "ends": [
+        0.08400000000000002,
+        0.10699999999999993,
+        0.12999999999999995,
+        0.15399999999999997,
+        0.177,
+        0.284,
+        0.38999999999999996,
+        0.49699999999999994,
+        0.6039999999999999,
+        0.71,
+        1.617
+      ]
+    },
+    "group": "phrases",
+    "index": 173,
+    "audioSeconds": 2.08,
+    "startSeconds": 0.463,
+    "endSeconds": 2.08,
     "alignmentBounded": false
   },
   {
@@ -10625,7 +11327,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 157,
+    "index": 174,
     "audioSeconds": 2.56,
     "startSeconds": 0.20700000000000002,
     "endSeconds": 2.56,
@@ -10664,7 +11366,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 158,
+    "index": 175,
     "audioSeconds": 1.68,
     "startSeconds": 0.1,
     "endSeconds": 1.68,
@@ -10703,7 +11405,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 159,
+    "index": 176,
     "audioSeconds": 2.48,
     "startSeconds": 0.468,
     "endSeconds": 2.48,
@@ -10742,7 +11444,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 160,
+    "index": 177,
     "audioSeconds": 1.6,
     "startSeconds": 0.468,
     "endSeconds": 1.6,
@@ -10781,7 +11483,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 161,
+    "index": 178,
     "audioSeconds": 2.64,
     "startSeconds": 0.1,
     "endSeconds": 1.52,
@@ -10820,7 +11522,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 162,
+    "index": 179,
     "audioSeconds": 1.92,
     "startSeconds": 0.5960000000000001,
     "endSeconds": 1.92,
@@ -10859,7 +11561,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 163,
+    "index": 180,
     "audioSeconds": 2.16,
     "startSeconds": 0.468,
     "endSeconds": 2.16,
@@ -10913,7 +11615,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 164,
+    "index": 181,
     "audioSeconds": 1.12,
     "startSeconds": 0.28,
     "endSeconds": 1.12,
@@ -10970,7 +11672,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 165,
+    "index": 182,
     "audioSeconds": 2.32,
     "startSeconds": 0.404,
     "endSeconds": 2.32,
@@ -11024,7 +11726,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 166,
+    "index": 183,
     "audioSeconds": 2.08,
     "startSeconds": 0.148,
     "endSeconds": 2.08,
@@ -11142,7 +11844,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 167,
+    "index": 184,
     "audioSeconds": 1.92,
     "startSeconds": 0.144,
     "endSeconds": 1.92,
@@ -11172,7 +11874,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 168,
+    "index": 185,
     "audioSeconds": 1.6,
     "startSeconds": 0.353,
     "endSeconds": 1.6,
@@ -11229,7 +11931,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 169,
+    "index": 186,
     "audioSeconds": 1.68,
     "startSeconds": 0.273,
     "endSeconds": 1.68,
@@ -11295,7 +11997,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 170,
+    "index": 187,
     "audioSeconds": 2.24,
     "startSeconds": 0.276,
     "endSeconds": 2.24,
@@ -11346,7 +12048,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 171,
+    "index": 188,
     "audioSeconds": 2.16,
     "startSeconds": 0.144,
     "endSeconds": 0.96,
@@ -11421,11 +12123,50 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 172,
+    "index": 189,
     "audioSeconds": 1.52,
     "startSeconds": 0.34,
     "endSeconds": 1.52,
     "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-7",
+    "key": "S3|steady|cable",
+    "identity": "86f1bccad1547da1ab9c2de43faf0fb9faaa4a72fe3afb39c3e1e3055fdec741",
+    "speaker": "S3",
+    "text": "cable",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S3/86f1bccad1547da1ab9c.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "alignment": {
+      "characters": [
+        "c",
+        "a",
+        "b",
+        "l",
+        "e"
+      ],
+      "starts": [
+        0.391,
+        0.409,
+        0.427,
+        0.444,
+        0.462
+      ],
+      "ends": [
+        0.409,
+        0.427,
+        0.444,
+        0.462,
+        0.64
+      ]
+    },
+    "group": "phrases",
+    "index": 190,
+    "audioSeconds": 0.64,
+    "startSeconds": 0,
+    "endSeconds": 0.64,
+    "alignmentBounded": true
   },
   {
     "id": "phrase:S3:4f4cdfad",
@@ -11481,7 +12222,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 173,
+    "index": 191,
     "audioSeconds": 1.28,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 1.28,
@@ -11544,7 +12285,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 174,
+    "index": 192,
     "audioSeconds": 1.36,
     "startSeconds": 0.27,
     "endSeconds": 1.36,
@@ -11604,7 +12345,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 175,
+    "index": 193,
     "audioSeconds": 1.28,
     "startSeconds": 0.191,
     "endSeconds": 1.28,
@@ -11664,10 +12405,46 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 176,
+    "index": 194,
     "audioSeconds": 1.04,
     "startSeconds": 0.336,
     "endSeconds": 1.04,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-22",
+    "key": "S3|steady|door",
+    "identity": "d30535f710d659e0999ce1beb123dd6b1c2466b68d0fcec8d758968f6f222c7b",
+    "speaker": "S3",
+    "text": "door",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S3/d30535f710d659e0999c.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "alignment": {
+      "characters": [
+        "d",
+        "o",
+        "o",
+        "r"
+      ],
+      "starts": [
+        0.06,
+        0.07899999999999996,
+        0.09899999999999998,
+        0.118
+      ],
+      "ends": [
+        0.07899999999999996,
+        0.09899999999999998,
+        0.118,
+        0.857
+      ]
+    },
+    "group": "phrases",
+    "index": 195,
+    "audioSeconds": 1.2,
+    "startSeconds": 0.343,
+    "endSeconds": 1.2,
     "alignmentBounded": false
   },
   {
@@ -11721,7 +12498,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 177,
+    "index": 196,
     "audioSeconds": 2.16,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 2.16,
@@ -11778,7 +12555,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 178,
+    "index": 197,
     "audioSeconds": 1.92,
     "startSeconds": 0.273,
     "endSeconds": 1.36,
@@ -11838,7 +12615,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 179,
+    "index": 198,
     "audioSeconds": 1.28,
     "startSeconds": 0.4,
     "endSeconds": 1.28,
@@ -11901,7 +12678,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 180,
+    "index": 199,
     "audioSeconds": 1.2,
     "startSeconds": 0.4,
     "endSeconds": 1.2,
@@ -11955,7 +12732,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 181,
+    "index": 200,
     "audioSeconds": 1.36,
     "startSeconds": 0.463,
     "endSeconds": 1.36,
@@ -12009,7 +12786,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 182,
+    "index": 201,
     "audioSeconds": 1.36,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.36,
@@ -12139,7 +12916,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 183,
+    "index": 202,
     "audioSeconds": 2.08,
     "startSeconds": 0.07400000000000001,
     "endSeconds": 2.08,
@@ -12220,7 +12997,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 184,
+    "index": 203,
     "audioSeconds": 1.68,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 1.68,
@@ -12256,7 +13033,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 185,
+    "index": 204,
     "audioSeconds": 1.2,
     "startSeconds": 0.343,
     "endSeconds": 0.64,
@@ -12313,7 +13090,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 186,
+    "index": 205,
     "audioSeconds": 2.48,
     "startSeconds": 0.34,
     "endSeconds": 2.48,
@@ -12367,7 +13144,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 187,
+    "index": 206,
     "audioSeconds": 1.68,
     "startSeconds": 0.276,
     "endSeconds": 1.68,
@@ -12433,7 +13210,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 188,
+    "index": 207,
     "audioSeconds": 1.2,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.2,
@@ -12547,7 +13324,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 189,
+    "index": 208,
     "audioSeconds": 2.4,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 2.4,
@@ -12649,7 +13426,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 190,
+    "index": 209,
     "audioSeconds": 2.4,
     "startSeconds": 0.1,
     "endSeconds": 2.4,
@@ -12733,7 +13510,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 191,
+    "index": 210,
     "audioSeconds": 1.76,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.76,
@@ -12832,7 +13609,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 192,
+    "index": 211,
     "audioSeconds": 1.92,
     "startSeconds": 0.16,
     "endSeconds": 1.92,
@@ -12916,7 +13693,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 193,
+    "index": 212,
     "audioSeconds": 1.6,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.6,
@@ -12979,7 +13756,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 194,
+    "index": 213,
     "audioSeconds": 1.2,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.2,
@@ -13072,7 +13849,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 195,
+    "index": 214,
     "audioSeconds": 1.68,
     "startSeconds": 0.09,
     "endSeconds": 1.68,
@@ -13135,7 +13912,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 196,
+    "index": 215,
     "audioSeconds": 1.12,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.12,
@@ -13264,7 +14041,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 197,
+    "index": 216,
     "audioSeconds": 2.32,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.32,
@@ -13312,10 +14089,52 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 198,
+    "index": 217,
     "audioSeconds": 0.96,
     "startSeconds": 0.1,
     "endSeconds": 0.96,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-29",
+    "key": "S3|steady|kettle",
+    "identity": "bd275863c79b9a5376a1666f39ba8305d35cc977e74b5a50753140bb2a63bc54",
+    "speaker": "S3",
+    "text": "kettle",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S3/bd275863c79b9a5376a1.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "alignment": {
+      "characters": [
+        "k",
+        "e",
+        "t",
+        "t",
+        "l",
+        "e"
+      ],
+      "starts": [
+        0.06,
+        0.07299999999999995,
+        0.08699999999999997,
+        0.10099999999999998,
+        0.11499999999999999,
+        0.128
+      ],
+      "ends": [
+        0.07299999999999995,
+        0.08699999999999997,
+        0.10099999999999998,
+        0.11499999999999999,
+        0.128,
+        0.302
+      ]
+    },
+    "group": "phrases",
+    "index": 218,
+    "audioSeconds": 2.08,
+    "startSeconds": 0.338,
+    "endSeconds": 0.72,
     "alignmentBounded": false
   },
   {
@@ -13357,10 +14176,46 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 199,
+    "index": 219,
     "audioSeconds": 1.92,
     "startSeconds": 0.402,
     "endSeconds": 1.92,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-15",
+    "key": "S3|steady|lamp",
+    "identity": "4e9d773556bb15cb5136b9bcbe30e301791791ef824dfa26ce1caca1a0de1df5",
+    "speaker": "S3",
+    "text": "lamp",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S3/4e9d773556bb15cb5136.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "alignment": {
+      "characters": [
+        "l",
+        "a",
+        "m",
+        "p"
+      ],
+      "starts": [
+        0.06,
+        0.08700000000000002,
+        0.11399999999999999,
+        0.14
+      ],
+      "ends": [
+        0.08700000000000002,
+        0.11399999999999999,
+        0.14,
+        0.327
+      ]
+    },
+    "group": "phrases",
+    "index": 220,
+    "audioSeconds": 0.64,
+    "startSeconds": 0.313,
+    "endSeconds": 0.64,
     "alignmentBounded": false
   },
   {
@@ -13417,7 +14272,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 200,
+    "index": 221,
     "audioSeconds": 2.56,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 2.56,
@@ -13468,7 +14323,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 201,
+    "index": 222,
     "audioSeconds": 2.16,
     "startSeconds": 0.343,
     "endSeconds": 2.16,
@@ -13528,7 +14383,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 202,
+    "index": 223,
     "audioSeconds": 1.2,
     "startSeconds": 0.271,
     "endSeconds": 1.2,
@@ -13570,7 +14425,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 203,
+    "index": 224,
     "audioSeconds": 2.16,
     "startSeconds": 0.11100000000000002,
     "endSeconds": 2.16,
@@ -13624,7 +14479,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 204,
+    "index": 225,
     "audioSeconds": 1.84,
     "startSeconds": 0.337,
     "endSeconds": 1.28,
@@ -13690,7 +14545,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 205,
+    "index": 226,
     "audioSeconds": 1.2,
     "startSeconds": 0.271,
     "endSeconds": 1.2,
@@ -13753,7 +14608,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 206,
+    "index": 227,
     "audioSeconds": 1.44,
     "startSeconds": 0.337,
     "endSeconds": 1.44,
@@ -13822,7 +14677,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 207,
+    "index": 228,
     "audioSeconds": 1.04,
     "startSeconds": 0.335,
     "endSeconds": 1.04,
@@ -13876,7 +14731,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 208,
+    "index": 229,
     "audioSeconds": 1.6,
     "startSeconds": 0.07900000000000001,
     "endSeconds": 1.04,
@@ -13930,10 +14785,43 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 209,
+    "index": 230,
     "audioSeconds": 2.32,
     "startSeconds": 0.34,
     "endSeconds": 2.32,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-25",
+    "key": "S3|steady|mug",
+    "identity": "1627c66964e0d4f208bc5eb28a7d82dd26843532ae5e48ac4640bcd57a3ded22",
+    "speaker": "S3",
+    "text": "mug",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S3/1627c66964e0d4f208bc.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "alignment": {
+      "characters": [
+        "m",
+        "u",
+        "g"
+      ],
+      "starts": [
+        0.06,
+        0.08499999999999996,
+        0.10999999999999999
+      ],
+      "ends": [
+        0.08499999999999996,
+        0.10999999999999999,
+        0.295
+      ]
+    },
+    "group": "phrases",
+    "index": 231,
+    "audioSeconds": 0.64,
+    "startSeconds": 0.34500000000000003,
+    "endSeconds": 0.64,
     "alignmentBounded": false
   },
   {
@@ -13984,7 +14872,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 210,
+    "index": 232,
     "audioSeconds": 1.2,
     "startSeconds": 0.343,
     "endSeconds": 1.2,
@@ -14038,7 +14926,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 211,
+    "index": 233,
     "audioSeconds": 0.96,
     "startSeconds": 0.14200000000000002,
     "endSeconds": 0.96,
@@ -14095,10 +14983,49 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 212,
+    "index": 234,
     "audioSeconds": 1.68,
     "startSeconds": 0.273,
     "endSeconds": 1.68,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-19",
+    "key": "S3|steady|plant",
+    "identity": "81f67c53536982540f7ecf2eed82b22f993e3ac6d92a83272ff6b7840f85288d",
+    "speaker": "S3",
+    "text": "plant",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S3/81f67c53536982540f7e.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "alignment": {
+      "characters": [
+        "p",
+        "l",
+        "a",
+        "n",
+        "t"
+      ],
+      "starts": [
+        0.06,
+        0.07799999999999996,
+        0.09699999999999998,
+        0.11599999999999999,
+        0.134
+      ],
+      "ends": [
+        0.07799999999999996,
+        0.09699999999999998,
+        0.11599999999999999,
+        0.134,
+        1.273
+      ]
+    },
+    "group": "phrases",
+    "index": 235,
+    "audioSeconds": 1.76,
+    "startSeconds": 0.40700000000000003,
+    "endSeconds": 1.76,
     "alignmentBounded": false
   },
   {
@@ -14158,7 +15085,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 213,
+    "index": 236,
     "audioSeconds": 1.36,
     "startSeconds": 0.46,
     "endSeconds": 1.36,
@@ -14212,7 +15139,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 214,
+    "index": 237,
     "audioSeconds": 2.56,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 1.36,
@@ -14275,7 +15202,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 215,
+    "index": 238,
     "audioSeconds": 1.04,
     "startSeconds": 0.21000000000000002,
     "endSeconds": 1.04,
@@ -14332,10 +15259,52 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 216,
+    "index": 239,
     "audioSeconds": 1.12,
     "startSeconds": 0.404,
     "endSeconds": 1.12,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-32",
+    "key": "S3|steady|screen",
+    "identity": "c614719e14b95d003ad178eed58733eea15ea32a27677015ea71a1be2aeca7a8",
+    "speaker": "S3",
+    "text": "screen",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S3/c614719e14b95d003ad1.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "alignment": {
+      "characters": [
+        "s",
+        "c",
+        "r",
+        "e",
+        "e",
+        "n"
+      ],
+      "starts": [
+        0.06000000000000005,
+        0.08300000000000007,
+        0.1060000000000001,
+        0.1280000000000001,
+        0.15100000000000013,
+        0.17400000000000004
+      ],
+      "ends": [
+        0.08300000000000007,
+        0.1060000000000001,
+        0.1280000000000001,
+        0.15100000000000013,
+        0.17400000000000004,
+        0.3570000000000001
+      ]
+    },
+    "group": "phrases",
+    "index": 240,
+    "audioSeconds": 1.6,
+    "startSeconds": 0.5229999999999999,
+    "endSeconds": 0.96,
     "alignmentBounded": false
   },
   {
@@ -14386,7 +15355,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 217,
+    "index": 241,
     "audioSeconds": 2.16,
     "startSeconds": 0.34,
     "endSeconds": 2.16,
@@ -14422,10 +15391,62 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 218,
+    "index": 242,
     "audioSeconds": 1.6,
     "startSeconds": 0.404,
     "endSeconds": 0.7999999999999999,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-3-derived",
+    "key": "S3|steady|speaker",
+    "identity": "7f4d379ef3ee00a31cf7bfea6e838f463c94971448ee1f20c1f2483520b1426c",
+    "speaker": "S3",
+    "text": "speaker",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S3/7f4d379ef3ee00a31cf7.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "group": "phrases",
+    "reused": true,
+    "derivedFrom": "b2555008e181c75714b49ec408e6917ac3af2f0b2bc61cff9efaa69dd91cd50e",
+    "derivedWindow": {
+      "sourceText": "left speaker",
+      "from": 0.39,
+      "until": 2.56
+    },
+    "alignment": {
+      "characters": [
+        "s",
+        "p",
+        "e",
+        "a",
+        "k",
+        "e",
+        "r"
+      ],
+      "starts": [
+        0,
+        0.07,
+        0.14,
+        0.20999999999999996,
+        0.28,
+        0.35000000000000003,
+        0.4200000000000001
+      ],
+      "ends": [
+        0.07,
+        0.14,
+        0.20999999999999996,
+        0.28,
+        0.35000000000000003,
+        0.4200000000000001,
+        2.17
+      ]
+    },
+    "index": 243,
+    "audioSeconds": 2.17,
+    "startSeconds": 0,
+    "endSeconds": 2.17,
     "alignmentBounded": false
   },
   {
@@ -14461,7 +15482,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 219,
+    "index": 244,
     "audioSeconds": 0.72,
     "startSeconds": 0.1,
     "endSeconds": 0.72,
@@ -14494,7 +15515,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 220,
+    "index": 245,
     "audioSeconds": 1.12,
     "startSeconds": 0.28,
     "endSeconds": 1.12,
@@ -14548,7 +15569,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 221,
+    "index": 246,
     "audioSeconds": 1.36,
     "startSeconds": 0.34,
     "endSeconds": 1.36,
@@ -14590,7 +15611,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 222,
+    "index": 247,
     "audioSeconds": 2.16,
     "startSeconds": 0.144,
     "endSeconds": 0.96,
@@ -14663,9 +15684,66 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 223,
+    "index": 248,
     "audioSeconds": 1.92,
     "startSeconds": 0.20900000000000002,
+    "endSeconds": 1.36,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-11",
+    "key": "S3|steady|woven chair",
+    "identity": "df5892c4162cd697eee5daa10dadeee7ee071f0f37bbb15e67d103deb2fd9d64",
+    "speaker": "S3",
+    "text": "woven chair",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S3/df5892c4162cd697eee5.mp3",
+    "voiceId": "UN8dBZcfTFkY8WHbuYU4",
+    "alignment": {
+      "characters": [
+        "w",
+        "o",
+        "v",
+        "e",
+        "n",
+        " ",
+        "c",
+        "h",
+        "a",
+        "i",
+        "r"
+      ],
+      "starts": [
+        0.06,
+        0.08400000000000002,
+        0.10699999999999993,
+        0.12999999999999995,
+        0.15399999999999997,
+        0.177,
+        0.284,
+        0.38999999999999996,
+        0.49699999999999994,
+        0.6039999999999999,
+        0.71
+      ],
+      "ends": [
+        0.08400000000000002,
+        0.10699999999999993,
+        0.12999999999999995,
+        0.15399999999999997,
+        0.177,
+        0.284,
+        0.38999999999999996,
+        0.49699999999999994,
+        0.6039999999999999,
+        0.71,
+        0.897
+      ]
+    },
+    "group": "phrases",
+    "index": 249,
+    "audioSeconds": 1.36,
+    "startSeconds": 0.463,
     "endSeconds": 1.36,
     "alignmentBounded": false
   },
@@ -14735,7 +15813,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 224,
+    "index": 250,
     "audioSeconds": 1.04,
     "startSeconds": 0.14,
     "endSeconds": 1.04,
@@ -14774,7 +15852,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 225,
+    "index": 251,
     "audioSeconds": 2.08,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.08,
@@ -14813,7 +15891,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 226,
+    "index": 252,
     "audioSeconds": 2,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2,
@@ -14852,7 +15930,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 227,
+    "index": 253,
     "audioSeconds": 2.08,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.08,
@@ -14891,7 +15969,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 228,
+    "index": 254,
     "audioSeconds": 2.16,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.16,
@@ -14930,7 +16008,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 229,
+    "index": 255,
     "audioSeconds": 2.24,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.24,
@@ -14969,7 +16047,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 230,
+    "index": 256,
     "audioSeconds": 2.32,
     "startSeconds": 0.020000000000000004,
     "endSeconds": 2.32,
@@ -15023,7 +16101,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 231,
+    "index": 257,
     "audioSeconds": 2,
     "startSeconds": 0.34500000000000003,
     "endSeconds": 2,
@@ -15080,7 +16158,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 232,
+    "index": 258,
     "audioSeconds": 1.52,
     "startSeconds": 0.46,
     "endSeconds": 1.52,
@@ -15134,7 +16212,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 233,
+    "index": 259,
     "audioSeconds": 1.68,
     "startSeconds": 0.287,
     "endSeconds": 1.68,
@@ -15252,7 +16330,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 234,
+    "index": 260,
     "audioSeconds": 2.56,
     "startSeconds": 0.21200000000000002,
     "endSeconds": 2.56,
@@ -15282,7 +16360,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 235,
+    "index": 261,
     "audioSeconds": 1.68,
     "startSeconds": 0.353,
     "endSeconds": 1.68,
@@ -15339,7 +16417,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 236,
+    "index": 262,
     "audioSeconds": 1.76,
     "startSeconds": 0.337,
     "endSeconds": 1.76,
@@ -15405,7 +16483,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 237,
+    "index": 263,
     "audioSeconds": 1.92,
     "startSeconds": 0.34,
     "endSeconds": 1.92,
@@ -15456,7 +16534,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 238,
+    "index": 264,
     "audioSeconds": 1.2,
     "startSeconds": 0.28,
     "endSeconds": 1.2,
@@ -15531,10 +16609,49 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 239,
+    "index": 265,
     "audioSeconds": 1.92,
     "startSeconds": 0.273,
     "endSeconds": 1.92,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-8",
+    "key": "S4|steady|cable",
+    "identity": "1c852bfda4795a5872a35df01887533122cb6caca02d5f6b0402da601ec3ceda",
+    "speaker": "S4",
+    "text": "cable",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S4/1c852bfda4795a5872a3.mp3",
+    "voiceId": "ipGBytZBT2jD1vT0wKyK",
+    "alignment": {
+      "characters": [
+        "c",
+        "a",
+        "b",
+        "l",
+        "e"
+      ],
+      "starts": [
+        0.06,
+        0.08199999999999996,
+        0.10399999999999998,
+        0.127,
+        0.14900000000000002
+      ],
+      "ends": [
+        0.08199999999999996,
+        0.10399999999999998,
+        0.127,
+        0.14900000000000002,
+        1.211
+      ]
+    },
+    "group": "phrases",
+    "index": 266,
+    "audioSeconds": 1.6,
+    "startSeconds": 0.389,
+    "endSeconds": 1.6,
     "alignmentBounded": false
   },
   {
@@ -15591,7 +16708,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 240,
+    "index": 267,
     "audioSeconds": 3.2,
     "startSeconds": 1.385,
     "endSeconds": 3.2,
@@ -15654,7 +16771,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 241,
+    "index": 268,
     "audioSeconds": 2.08,
     "startSeconds": 0.5820000000000001,
     "endSeconds": 2.08,
@@ -15711,7 +16828,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 242,
+    "index": 269,
     "audioSeconds": 2.48,
     "startSeconds": 0.20700000000000002,
     "endSeconds": 2.48,
@@ -15765,7 +16882,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 243,
+    "index": 270,
     "audioSeconds": 2.16,
     "startSeconds": 0.4,
     "endSeconds": 2.16,
@@ -15825,7 +16942,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 244,
+    "index": 271,
     "audioSeconds": 1.68,
     "startSeconds": 0.334,
     "endSeconds": 1.68,
@@ -15885,7 +17002,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 245,
+    "index": 272,
     "audioSeconds": 1.36,
     "startSeconds": 0.458,
     "endSeconds": 1.36,
@@ -15921,7 +17038,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 246,
+    "index": 273,
     "audioSeconds": 1.92,
     "startSeconds": 0.343,
     "endSeconds": 1.92,
@@ -15975,7 +17092,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 247,
+    "index": 274,
     "audioSeconds": 2.32,
     "startSeconds": 0.276,
     "endSeconds": 2.32,
@@ -16032,7 +17149,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 248,
+    "index": 275,
     "audioSeconds": 2.08,
     "startSeconds": 0.40700000000000003,
     "endSeconds": 2.08,
@@ -16089,7 +17206,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 249,
+    "index": 276,
     "audioSeconds": 2.08,
     "startSeconds": 0.5369999999999999,
     "endSeconds": 2.08,
@@ -16149,7 +17266,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 250,
+    "index": 277,
     "audioSeconds": 2.08,
     "startSeconds": 0.5800000000000001,
     "endSeconds": 2.08,
@@ -16212,7 +17329,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 251,
+    "index": 278,
     "audioSeconds": 1.52,
     "startSeconds": 0.456,
     "endSeconds": 1.52,
@@ -16266,7 +17383,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 252,
+    "index": 279,
     "audioSeconds": 1.84,
     "startSeconds": 0.34,
     "endSeconds": 1.84,
@@ -16320,7 +17437,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 253,
+    "index": 280,
     "audioSeconds": 2.4,
     "startSeconds": 0.011999999999999997,
     "endSeconds": 2.4,
@@ -16450,7 +17567,7 @@ export const RUN7_VOICE_MANIFEST = [
     },
     "group": "phrases",
     "reused": true,
-    "index": 254,
+    "index": 281,
     "audioSeconds": 2.08,
     "startSeconds": 0.07400000000000001,
     "endSeconds": 2.08,
@@ -16531,7 +17648,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 255,
+    "index": 282,
     "audioSeconds": 1.84,
     "startSeconds": 0.148,
     "endSeconds": 1.84,
@@ -16567,7 +17684,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 256,
+    "index": 283,
     "audioSeconds": 1.44,
     "startSeconds": 0.6599999999999999,
     "endSeconds": 1.04,
@@ -16624,7 +17741,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 257,
+    "index": 284,
     "audioSeconds": 1.2,
     "startSeconds": 0.273,
     "endSeconds": 1.2,
@@ -16678,7 +17795,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 258,
+    "index": 285,
     "audioSeconds": 2.08,
     "startSeconds": 0.532,
     "endSeconds": 2.08,
@@ -16744,7 +17861,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 259,
+    "index": 286,
     "audioSeconds": 1.2,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.2,
@@ -16873,7 +17990,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 260,
+    "index": 287,
     "audioSeconds": 3.12,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 3.12,
@@ -16975,7 +18092,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 261,
+    "index": 288,
     "audioSeconds": 2.56,
     "startSeconds": 0.156,
     "endSeconds": 2.56,
@@ -17059,7 +18176,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 262,
+    "index": 289,
     "audioSeconds": 1.52,
     "startSeconds": 0.22799999999999998,
     "endSeconds": 1.52,
@@ -17158,7 +18275,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 263,
+    "index": 290,
     "audioSeconds": 2.24,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.24,
@@ -17242,7 +18359,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 264,
+    "index": 291,
     "audioSeconds": 1.92,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.92,
@@ -17305,7 +18422,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 265,
+    "index": 292,
     "audioSeconds": 1.12,
     "startSeconds": 0.156,
     "endSeconds": 1.12,
@@ -17398,7 +18515,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 266,
+    "index": 293,
     "audioSeconds": 2.64,
     "startSeconds": 0.16,
     "endSeconds": 2.64,
@@ -17461,7 +18578,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 267,
+    "index": 294,
     "audioSeconds": 1.6,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.6,
@@ -17590,7 +18707,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 268,
+    "index": 295,
     "audioSeconds": 2.72,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.72,
@@ -17638,7 +18755,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 269,
+    "index": 296,
     "audioSeconds": 1.04,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 1.04,
@@ -17692,7 +18809,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 270,
+    "index": 297,
     "audioSeconds": 2,
     "startSeconds": 0.468,
     "endSeconds": 2,
@@ -17746,10 +18863,52 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 271,
+    "index": 298,
     "audioSeconds": 2.16,
     "startSeconds": 0.607,
     "endSeconds": 2.16,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-30",
+    "key": "S4|steady|kettle",
+    "identity": "d16d65678357c0a2162bca3b83794f63d9a71bba5db5100daec81e21f11e139e",
+    "speaker": "S4",
+    "text": "kettle",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S4/d16d65678357c0a2162b.mp3",
+    "voiceId": "ipGBytZBT2jD1vT0wKyK",
+    "alignment": {
+      "characters": [
+        "k",
+        "e",
+        "t",
+        "t",
+        "l",
+        "e"
+      ],
+      "starts": [
+        0.06,
+        0.07499999999999996,
+        0.08899999999999997,
+        0.10299999999999998,
+        0.11699999999999999,
+        0.132
+      ],
+      "ends": [
+        0.07499999999999996,
+        0.08899999999999997,
+        0.10299999999999998,
+        0.11699999999999999,
+        0.132,
+        1.266
+      ]
+    },
+    "group": "phrases",
+    "index": 299,
+    "audioSeconds": 1.6,
+    "startSeconds": 0.334,
+    "endSeconds": 1.6,
     "alignmentBounded": false
   },
   {
@@ -17791,10 +18950,46 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 272,
+    "index": 300,
     "audioSeconds": 1.84,
     "startSeconds": 1.498,
     "endSeconds": 1.84,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-16",
+    "key": "S4|steady|lamp",
+    "identity": "91c6e22318c13a249e08a90a2c7a7f1e704b862c626e80d3d9dd66aea9a0fba9",
+    "speaker": "S4",
+    "text": "lamp",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S4/91c6e22318c13a249e08.mp3",
+    "voiceId": "ipGBytZBT2jD1vT0wKyK",
+    "alignment": {
+      "characters": [
+        "l",
+        "a",
+        "m",
+        "p"
+      ],
+      "starts": [
+        0.05999999999999994,
+        0.09199999999999997,
+        0.124,
+        0.15599999999999992
+      ],
+      "ends": [
+        0.09199999999999997,
+        0.124,
+        0.15599999999999992,
+        1.8679999999999999
+      ]
+    },
+    "group": "phrases",
+    "index": 301,
+    "audioSeconds": 2.4,
+    "startSeconds": 0.532,
+    "endSeconds": 2.4,
     "alignmentBounded": false
   },
   {
@@ -17851,7 +19046,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 273,
+    "index": 302,
     "audioSeconds": 1.76,
     "startSeconds": 0.34,
     "endSeconds": 1.76,
@@ -17902,7 +19097,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 274,
+    "index": 303,
     "audioSeconds": 2,
     "startSeconds": 0.47800000000000004,
     "endSeconds": 2,
@@ -17962,7 +19157,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 275,
+    "index": 304,
     "audioSeconds": 1.6,
     "startSeconds": 0.334,
     "endSeconds": 1.6,
@@ -18004,7 +19199,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 276,
+    "index": 305,
     "audioSeconds": 1.36,
     "startSeconds": 0.98,
     "endSeconds": 1.36,
@@ -18058,7 +19253,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 277,
+    "index": 306,
     "audioSeconds": 1.84,
     "startSeconds": 0.40700000000000003,
     "endSeconds": 1.84,
@@ -18124,7 +19319,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 278,
+    "index": 307,
     "audioSeconds": 2.08,
     "startSeconds": 0.5229999999999999,
     "endSeconds": 2.08,
@@ -18187,7 +19382,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 279,
+    "index": 308,
     "audioSeconds": 2.32,
     "startSeconds": 0.463,
     "endSeconds": 2.32,
@@ -18256,7 +19451,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 280,
+    "index": 309,
     "audioSeconds": 1.76,
     "startSeconds": 0.456,
     "endSeconds": 1.76,
@@ -18313,10 +19508,43 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 281,
+    "index": 310,
     "audioSeconds": 1.92,
     "startSeconds": 0.144,
     "endSeconds": 1.92,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-26",
+    "key": "S4|steady|mug",
+    "identity": "e7e0eff40053965fa67ddaf6a55d225d6a4b1f0b7bef1708da716986c381711e",
+    "speaker": "S4",
+    "text": "mug",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S4/e7e0eff40053965fa67d.mp3",
+    "voiceId": "ipGBytZBT2jD1vT0wKyK",
+    "alignment": {
+      "characters": [
+        "m",
+        "u",
+        "g"
+      ],
+      "starts": [
+        0.06,
+        0.08499999999999996,
+        0.10999999999999999
+      ],
+      "ends": [
+        0.08499999999999996,
+        0.10999999999999999,
+        1.2550000000000001
+      ]
+    },
+    "group": "phrases",
+    "index": 311,
+    "audioSeconds": 1.6,
+    "startSeconds": 0.34500000000000003,
+    "endSeconds": 1.6,
     "alignmentBounded": false
   },
   {
@@ -18367,7 +19595,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 282,
+    "index": 312,
     "audioSeconds": 2.16,
     "startSeconds": 0.404,
     "endSeconds": 2.16,
@@ -18430,7 +19658,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 283,
+    "index": 313,
     "audioSeconds": 2.4,
     "startSeconds": 0.276,
     "endSeconds": 2.4,
@@ -18487,10 +19715,49 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 284,
+    "index": 314,
     "audioSeconds": 2,
     "startSeconds": 0.4,
     "endSeconds": 2,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-20",
+    "key": "S4|steady|plant",
+    "identity": "cc31a9cc4bbd473b4ab815e78a3cd23bcf05907962cbd49f50447eabe3def8dd",
+    "speaker": "S4",
+    "text": "plant",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S4/cc31a9cc4bbd473b4ab8.mp3",
+    "voiceId": "ipGBytZBT2jD1vT0wKyK",
+    "alignment": {
+      "characters": [
+        "p",
+        "l",
+        "a",
+        "n",
+        "t"
+      ],
+      "starts": [
+        0.05999999999999994,
+        0.08399999999999996,
+        0.10799999999999998,
+        0.132,
+        0.15599999999999992
+      ],
+      "ends": [
+        0.08399999999999996,
+        0.10799999999999998,
+        0.132,
+        0.15599999999999992,
+        1.22
+      ]
+    },
+    "group": "phrases",
+    "index": 315,
+    "audioSeconds": 1.76,
+    "startSeconds": 0.54,
+    "endSeconds": 1.76,
     "alignmentBounded": false
   },
   {
@@ -18550,7 +19817,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 285,
+    "index": 316,
     "audioSeconds": 2.24,
     "startSeconds": 0.397,
     "endSeconds": 2.24,
@@ -18604,7 +19871,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 286,
+    "index": 317,
     "audioSeconds": 2.56,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.56,
@@ -18667,10 +19934,52 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 287,
+    "index": 318,
     "audioSeconds": 1.36,
     "startSeconds": 0.273,
     "endSeconds": 1.36,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-33",
+    "key": "S4|steady|screen",
+    "identity": "4373fbae865cfd7a77a1d8f6dcc4fe565c33d28a2c35c43dcba21e7212ee10e9",
+    "speaker": "S4",
+    "text": "screen",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S4/4373fbae865cfd7a77a1.mp3",
+    "voiceId": "ipGBytZBT2jD1vT0wKyK",
+    "alignment": {
+      "characters": [
+        "s",
+        "c",
+        "r",
+        "e",
+        "e",
+        "n"
+      ],
+      "starts": [
+        0.06000000000000005,
+        0.08500000000000008,
+        0.1110000000000001,
+        0.13700000000000012,
+        0.16300000000000003,
+        0.18800000000000006
+      ],
+      "ends": [
+        0.08500000000000008,
+        0.1110000000000001,
+        0.13700000000000012,
+        0.16300000000000003,
+        0.18800000000000006,
+        1.094
+      ]
+    },
+    "group": "phrases",
+    "index": 319,
+    "audioSeconds": 1.76,
+    "startSeconds": 0.6659999999999999,
+    "endSeconds": 1.76,
     "alignmentBounded": false
   },
   {
@@ -18721,7 +20030,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 288,
+    "index": 320,
     "audioSeconds": 1.52,
     "startSeconds": 0.463,
     "endSeconds": 1.52,
@@ -18757,10 +20066,55 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 289,
+    "index": 321,
     "audioSeconds": 2.4,
     "startSeconds": 0.532,
     "endSeconds": 2.4,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-4",
+    "key": "S4|steady|speaker",
+    "identity": "77f7e3895ed14a86f3b0ef139148aff4940259443222fb857e3fe28e726d221a",
+    "speaker": "S4",
+    "text": "speaker",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S4/77f7e3895ed14a86f3b0.mp3",
+    "voiceId": "ipGBytZBT2jD1vT0wKyK",
+    "alignment": {
+      "characters": [
+        "s",
+        "p",
+        "e",
+        "a",
+        "k",
+        "e",
+        "r"
+      ],
+      "starts": [
+        0.05999999999999994,
+        0.07999999999999996,
+        0.09999999999999987,
+        0.11999999999999988,
+        0.1399999999999999,
+        0.15999999999999992,
+        0.17999999999999994
+      ],
+      "ends": [
+        0.07999999999999996,
+        0.09999999999999987,
+        0.11999999999999988,
+        0.1399999999999999,
+        0.15999999999999992,
+        0.17999999999999994,
+        1.6400000000000001
+      ]
+    },
+    "group": "phrases",
+    "index": 322,
+    "audioSeconds": 2.24,
+    "startSeconds": 0.6000000000000001,
+    "endSeconds": 2.24,
     "alignmentBounded": false
   },
   {
@@ -18796,7 +20150,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 290,
+    "index": 323,
     "audioSeconds": 0.64,
     "startSeconds": 0,
     "endSeconds": 0.64,
@@ -18850,7 +20204,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 291,
+    "index": 324,
     "audioSeconds": 2.56,
     "startSeconds": 0.08399999999999999,
     "endSeconds": 2.56,
@@ -18883,7 +20237,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 292,
+    "index": 325,
     "audioSeconds": 0.64,
     "startSeconds": 0.348,
     "endSeconds": 0.64,
@@ -18937,7 +20291,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 293,
+    "index": 326,
     "audioSeconds": 2.48,
     "startSeconds": 0.41,
     "endSeconds": 2.48,
@@ -18979,7 +20333,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 294,
+    "index": 327,
     "audioSeconds": 1.6,
     "startSeconds": 0.21500000000000002,
     "endSeconds": 1.6,
@@ -19051,10 +20405,67 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 295,
+    "index": 328,
     "audioSeconds": 1.2,
     "startSeconds": 0.14200000000000002,
     "endSeconds": 1.2,
+    "alignmentBounded": false
+  },
+  {
+    "id": "audit-gap-12",
+    "key": "S4|steady|woven chair",
+    "identity": "3301c2104ce14af83887736274b345fe761531e7f3f07ca9c9358cae1dabbf7e",
+    "speaker": "S4",
+    "text": "woven chair",
+    "take": "steady",
+    "path": "Assets/Audio/Run7/S4/3301c2104ce14af83887.mp3",
+    "voiceId": "ipGBytZBT2jD1vT0wKyK",
+    "alignment": {
+      "characters": [
+        "w",
+        "o",
+        "v",
+        "e",
+        "n",
+        " ",
+        "c",
+        "h",
+        "a",
+        "i",
+        "r"
+      ],
+      "starts": [
+        0.06,
+        0.08400000000000002,
+        0.10699999999999993,
+        0.12999999999999995,
+        0.15399999999999997,
+        0.177,
+        0.284,
+        0.38999999999999996,
+        0.49699999999999994,
+        0.6039999999999999,
+        0.71
+      ],
+      "ends": [
+        0.08400000000000002,
+        0.10699999999999993,
+        0.12999999999999995,
+        0.15399999999999997,
+        0.177,
+        0.284,
+        0.38999999999999996,
+        0.49699999999999994,
+        0.6039999999999999,
+        0.71,
+        1.8569999999999998
+      ]
+    },
+    "group": "phrases",
+    "index": 329,
+    "audioSeconds": 2.32,
+    "startSeconds": 0.463,
+    "endSeconds": 2.32,
     "alignmentBounded": false
   },
   {
@@ -19123,7 +20534,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "phrases",
-    "index": 296,
+    "index": 330,
     "audioSeconds": 1.12,
     "startSeconds": 0.14,
     "endSeconds": 1.12,
@@ -19249,7 +20660,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 297,
+    "index": 331,
     "audioSeconds": 1.76,
     "startSeconds": 0.07300000000000001,
     "endSeconds": 1.76,
@@ -19375,7 +20786,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 298,
+    "index": 332,
     "audioSeconds": 1.6,
     "startSeconds": 0.07300000000000001,
     "endSeconds": 1.6,
@@ -19489,7 +20900,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 299,
+    "index": 333,
     "audioSeconds": 1.52,
     "startSeconds": 0.148,
     "endSeconds": 1.52,
@@ -19606,7 +21017,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 300,
+    "index": 334,
     "audioSeconds": 1.52,
     "startSeconds": 0.07400000000000001,
     "endSeconds": 1.52,
@@ -19723,7 +21134,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 301,
+    "index": 335,
     "audioSeconds": 2,
     "startSeconds": 0.07600000000000001,
     "endSeconds": 2,
@@ -19846,7 +21257,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 302,
+    "index": 336,
     "audioSeconds": 1.6,
     "startSeconds": 0.07600000000000001,
     "endSeconds": 1.6,
@@ -19996,7 +21407,7 @@ export const RUN7_VOICE_MANIFEST = [
       ]
     },
     "group": "narration",
-    "index": 303,
+    "index": 337,
     "audioSeconds": 2.32,
     "startSeconds": 0.07300000000000001,
     "endSeconds": 2.32,

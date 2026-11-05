@@ -14,7 +14,7 @@ import {EVENING_ROOM_SCAN} from "./Content/EveningRoomScan";
     const engine=opening.cast.flow.engine,objection=opening.clue.objection,hand=new DefaultLeafInteractor();engine.configurePreset();opening.finish();await sleep(300);
     const tap=async(name:string)=>{const matches=findInteractablesByName(name,undefined,true);expect(matches.length).toBe(1);await hand.trigger(matches[0]);await sleep(200);};
     expect(opening.cast.room.propCount()).toBe(6);expect(admittedCard(engine.graphRef(),engine.snapshot(),"E_KETTLE_COLD")).toBe(null);
-    await tap("RoomscriptObject_O11");expect(objection.cardDiagnostics().expanded).toBe(false);expect(opening.cast.flow.controlsBlocked).toBe(true);
+    await tap("RoomscriptObject_O11");expect((findSceneObjectByName("Toast").getChild(0).getComponent("Component.Text") as Text).text).toBe("Memory collected");expect(objection.cardDiagnostics().expanded).toBe(false);expect(opening.cast.flow.controlsBlocked).toBe(true);
     await tap("Expand memory");expect(objection.cardDiagnostics().expanded).toBe(true);expect(objection.cardDiagnostics().authored).toBe(true);
     expect(engine.snapshot().knowledge.evidenceIds.includes(objection.cardDiagnostics().id!)).toBe(true);
     await tap("Close memory");await tap("Evidence");await tap("Expand evidence");expect(objection.wallet.cardDiagnostics().expanded).toBe(true);

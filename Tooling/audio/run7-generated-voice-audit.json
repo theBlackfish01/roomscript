@@ -1,0 +1,668 @@
+{
+  "at": "2026-11-05T22:06:19.719Z",
+  "inventory": "Assets published",
+  "method": "Pure engine phrase resolution; no native playback, provider calls or MP3 decode",
+  "acceptedTapes": [
+    {
+      "seed": 7,
+      "caseId": "RS-b1d95b61",
+      "objects": [
+        {
+          "label": "record player",
+          "type": "heavy"
+        },
+        {
+          "label": "right speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "media console",
+          "type": "container"
+        },
+        {
+          "label": "woven chair",
+          "type": "soft"
+        },
+        {
+          "label": "coffee table",
+          "type": "heavy"
+        },
+        {
+          "label": "sofa",
+          "type": "soft"
+        }
+      ],
+      "bankRows": 165,
+      "variants": 153,
+      "registers": 8,
+      "totalLines": 479,
+      "complete": 479,
+      "failed": []
+    },
+    {
+      "seed": 1041,
+      "caseId": "RS-72d38772",
+      "objects": [
+        {
+          "label": "record player",
+          "type": "heavy"
+        },
+        {
+          "label": "right speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "media console",
+          "type": "container"
+        },
+        {
+          "label": "woven chair",
+          "type": "soft"
+        },
+        {
+          "label": "coffee table",
+          "type": "heavy"
+        },
+        {
+          "label": "sofa",
+          "type": "soft"
+        }
+      ],
+      "bankRows": 165,
+      "variants": 153,
+      "registers": 8,
+      "totalLines": 479,
+      "complete": 479,
+      "failed": []
+    },
+    {
+      "seed": 2026,
+      "caseId": "RS-1a501b7e",
+      "objects": [
+        {
+          "label": "record player",
+          "type": "heavy"
+        },
+        {
+          "label": "right speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "media console",
+          "type": "container"
+        },
+        {
+          "label": "woven chair",
+          "type": "soft"
+        },
+        {
+          "label": "coffee table",
+          "type": "heavy"
+        },
+        {
+          "label": "sofa",
+          "type": "soft"
+        }
+      ],
+      "bankRows": 165,
+      "variants": 153,
+      "registers": 8,
+      "totalLines": 479,
+      "complete": 479,
+      "failed": []
+    }
+  ],
+  "admittedLabelCount": 15,
+  "admittedTypeCount": 11,
+  "vocabulary": [
+    {
+      "seed": 7,
+      "caseId": "RS-c247bdab",
+      "objects": [
+        {
+          "label": "media console",
+          "type": "container"
+        },
+        {
+          "label": "record player",
+          "type": "heavy"
+        },
+        {
+          "label": "door",
+          "type": "door"
+        },
+        {
+          "label": "cable",
+          "type": "cord"
+        },
+        {
+          "label": "mug",
+          "type": "cup"
+        },
+        {
+          "label": "kettle",
+          "type": "kettle"
+        },
+        {
+          "label": "screen",
+          "type": "screen"
+        },
+        {
+          "label": "left speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "right speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "coffee table",
+          "type": "heavy"
+        },
+        {
+          "label": "woven chair",
+          "type": "soft"
+        },
+        {
+          "label": "sofa",
+          "type": "soft"
+        },
+        {
+          "label": "lamp",
+          "type": "light"
+        },
+        {
+          "label": "plant",
+          "type": "plant"
+        }
+      ],
+      "bankRows": 189,
+      "variants": 177,
+      "registers": 8,
+      "totalLines": 551,
+      "complete": 551,
+      "failed": []
+    },
+    {
+      "seed": 1041,
+      "caseId": "RS-a6c09dc6",
+      "objects": [
+        {
+          "label": "media console",
+          "type": "container"
+        },
+        {
+          "label": "record player",
+          "type": "heavy"
+        },
+        {
+          "label": "door",
+          "type": "door"
+        },
+        {
+          "label": "cable",
+          "type": "cord"
+        },
+        {
+          "label": "mug",
+          "type": "cup"
+        },
+        {
+          "label": "kettle",
+          "type": "kettle"
+        },
+        {
+          "label": "screen",
+          "type": "screen"
+        },
+        {
+          "label": "left speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "right speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "coffee table",
+          "type": "heavy"
+        },
+        {
+          "label": "woven chair",
+          "type": "soft"
+        },
+        {
+          "label": "sofa",
+          "type": "soft"
+        },
+        {
+          "label": "lamp",
+          "type": "light"
+        },
+        {
+          "label": "plant",
+          "type": "plant"
+        }
+      ],
+      "bankRows": 189,
+      "variants": 177,
+      "registers": 8,
+      "totalLines": 551,
+      "complete": 551,
+      "failed": []
+    },
+    {
+      "seed": 2026,
+      "caseId": "RS-f0f22d26",
+      "objects": [
+        {
+          "label": "media console",
+          "type": "container"
+        },
+        {
+          "label": "record player",
+          "type": "heavy"
+        },
+        {
+          "label": "door",
+          "type": "door"
+        },
+        {
+          "label": "cable",
+          "type": "cord"
+        },
+        {
+          "label": "mug",
+          "type": "cup"
+        },
+        {
+          "label": "kettle",
+          "type": "kettle"
+        },
+        {
+          "label": "screen",
+          "type": "screen"
+        },
+        {
+          "label": "left speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "right speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "speaker",
+          "type": "blunt"
+        },
+        {
+          "label": "coffee table",
+          "type": "heavy"
+        },
+        {
+          "label": "woven chair",
+          "type": "soft"
+        },
+        {
+          "label": "sofa",
+          "type": "soft"
+        },
+        {
+          "label": "lamp",
+          "type": "light"
+        },
+        {
+          "label": "plant",
+          "type": "plant"
+        }
+      ],
+      "bankRows": 189,
+      "variants": 177,
+      "registers": 8,
+      "totalLines": 551,
+      "complete": 551,
+      "failed": []
+    }
+  ],
+  "nouns": [
+    {
+      "label": "media console",
+      "type": "container",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "record player",
+      "type": "heavy",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "left speaker",
+      "type": "blunt",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "right speaker",
+      "type": "blunt",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "speaker",
+      "type": "blunt",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "coffee table",
+      "type": "heavy",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "woven chair",
+      "type": "soft",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "sofa",
+      "type": "soft",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "lamp",
+      "type": "light",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "plant",
+      "type": "plant",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "door",
+      "type": "door",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "cable",
+      "type": "cord",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "mug",
+      "type": "cup",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "kettle",
+      "type": "kettle",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "label": "screen",
+      "type": "screen",
+      "voices": [
+        {
+          "speaker": "S1",
+          "covered": true
+        },
+        {
+          "speaker": "S2",
+          "covered": true
+        },
+        {
+          "speaker": "S3",
+          "covered": true
+        },
+        {
+          "speaker": "S4",
+          "covered": true
+        }
+      ]
+    }
+  ],
+  "missingSegments": []
+}

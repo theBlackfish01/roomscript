@@ -1,0 +1,23 @@
+{
+  "trace": "roomscript_leaf_startup_2026-11-05T21-58-33-397Z_preview0.pftrace",
+  "bytes": 152750240,
+  "scheduledSeconds": 180,
+  "traceBoundsSeconds": 169.9585951,
+  "capturesOriginalLeafStartupStall": false,
+  "completeProcessFrames": 6919,
+  "completeFramePairsWithFollowingStart": 6918,
+  "pairing": "Each ProcessFrame paired with the sole CoreManagerRender before the next ProcessFrame; zero overlapping pairs, zero multiple/missing render pairs.",
+  "pairedWallMs": {"mean": 15.57240122867881, "median": 14.7276, "p90": 18.4852, "p99": 23.9931, "max": 1928.4383, "within8ms": 0},
+  "frameStartIntervalMs": {"mean": 24.5642117085863, "max": 1959.6288},
+  "maxUnaccountedInterFrameGapMs": 367.9815,
+  "gapTraceOffsetSeconds": 75.7431879,
+  "processFrameMs": {"mean": 10.66242423760659, "max": 66.8961},
+  "coreRenderMs": {"mean": 4.909678479549068, "max": 1864.9849},
+  "trackMs": {"mean": 9.392450599797659, "max": 40.1626},
+  "sceneUpdateMs": {"mean": 1.2034349183408009, "max": 1839.1778},
+  "renderFrameMs": {"mean": 1.4175121982945513, "max": 40.73},
+  "largestUpdateHasChildInstrumentation": false,
+  "schedulerSlices": 0,
+  "conclusion": "8 ms target not met in captured wall spans. These are not measured active CPU time. Original 100-173 s LEAF initial delay was outside the trace; no attribution claim for that delay.",
+  "limits": ["MCP serialization delayed capture until after the scenario transport timeout.", "Trace timestamps cover only169.959s of scheduled180s; native audio log spans in that wall window exceed some trace spans, so coverage is not wall-complete.", "One unfinished ProcessFrame/Track pair at trace end excluded.", "Large pftrace must stay out of git; git check-ignore did not identify a matching repository rule at analysis time."]
+}

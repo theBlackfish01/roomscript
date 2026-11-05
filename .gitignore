@@ -48,6 +48,8 @@ Tooling/coverage/
 Tooling/bin/
 Tooling/room-bridge/session.json
 Tooling/results/run5-preserved/
+# Large diagnostic captures remain local; commit the measured SQL summaries.
+Tooling/results/performance/roomscript_leaf_startup_*.pftrace
 # OS / editor noise
 .DS_Store
 Thumbs.db

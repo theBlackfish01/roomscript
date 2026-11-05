@@ -79,6 +79,8 @@ Each criterion has a Preview check; terminal-only evidence cannot pass its Lens 
 
 At `338b0db`, Preset uses a saved seven-object scan from three distinct viewpoints. Dynamic's working Preview file handoff captures three CameraModule frames, processes them locally through Tooling, reloads Preview on reply import, locates surfaces with World Query and compiles a case. Strict `source=file` seeds 7/1041/2026 each reach a correct verdict with exact replay and zero binding errors. They reuse one completed live six-object scan, not three fresh scans. This is a working simulated-room capability with an explicit reload; physical Specs recognition and uninterrupted device transport remain unproven. The criteria above remain the design contract; new visual, live-answer and continuous-capture gates are still separate. [Evidence/checklist](run7-publication-checklist.md).
 
+Latest pushed update `8566d04`: strict twenty-pose native-renderer check passed (105.966 s), proximity passed, and the voiced live-AI/Wren beat passed (163.461 s) with unchanged truth and exact replay. The suspect used four bundled pieces without fallback; Wren's live TTS played. These satisfy specific runtime checks, not the final visual suite. Native continuous recording is not working and no 60–90 s clip exists. S2 remains above target (paired frame/render wall spans mean 15.95 ms against 8 ms). The Vale-questions capture contains a red failed-test overlay and subtitle/panel overlap and is diagnostic only.
+
 ## Risks and open questions
 
 - Run 6 proves 462 pure tests. Run 7 A2 now passes strict replacement-cast bundle playback (11.836 s) and repaired hero (169.471 s), with a saved Preview tape at `b3f4144`. Later Run 7 features still require the final integrated gate.

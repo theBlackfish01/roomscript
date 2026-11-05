@@ -1,0 +1,175 @@
+{
+  "provenance": "Incremental exact voice audit gaps; deterministic compiler and admitted ScanAdmission labels only; not yet rendered",
+  "lines": [
+    {
+      "id": "audit-gap-0",
+      "speaker": "S1",
+      "text": "speaker"
+    },
+    {
+      "id": "audit-gap-1",
+      "speaker": "S2",
+      "text": "speaker"
+    },
+    {
+      "id": "audit-gap-2",
+      "speaker": "S2",
+      "text": "screen"
+    },
+    {
+      "id": "audit-gap-3",
+      "speaker": "S3",
+      "text": "speaker"
+    },
+    {
+      "id": "audit-gap-4",
+      "speaker": "S4",
+      "text": "speaker"
+    },
+    {
+      "id": "audit-gap-5",
+      "speaker": "S1",
+      "text": "cable"
+    },
+    {
+      "id": "audit-gap-6",
+      "speaker": "S2",
+      "text": "cable"
+    },
+    {
+      "id": "audit-gap-7",
+      "speaker": "S3",
+      "text": "cable"
+    },
+    {
+      "id": "audit-gap-8",
+      "speaker": "S4",
+      "text": "cable"
+    },
+    {
+      "id": "audit-gap-9",
+      "speaker": "S1",
+      "text": "woven chair"
+    },
+    {
+      "id": "audit-gap-10",
+      "speaker": "S2",
+      "text": "woven chair"
+    },
+    {
+      "id": "audit-gap-11",
+      "speaker": "S3",
+      "text": "woven chair"
+    },
+    {
+      "id": "audit-gap-12",
+      "speaker": "S4",
+      "text": "woven chair"
+    },
+    {
+      "id": "audit-gap-13",
+      "speaker": "S1",
+      "text": "lamp"
+    },
+    {
+      "id": "audit-gap-14",
+      "speaker": "S2",
+      "text": "lamp"
+    },
+    {
+      "id": "audit-gap-15",
+      "speaker": "S3",
+      "text": "lamp"
+    },
+    {
+      "id": "audit-gap-16",
+      "speaker": "S4",
+      "text": "lamp"
+    },
+    {
+      "id": "audit-gap-17",
+      "speaker": "S1",
+      "text": "plant"
+    },
+    {
+      "id": "audit-gap-18",
+      "speaker": "S2",
+      "text": "plant"
+    },
+    {
+      "id": "audit-gap-19",
+      "speaker": "S3",
+      "text": "plant"
+    },
+    {
+      "id": "audit-gap-20",
+      "speaker": "S4",
+      "text": "plant"
+    },
+    {
+      "id": "audit-gap-21",
+      "speaker": "S1",
+      "text": "door"
+    },
+    {
+      "id": "audit-gap-22",
+      "speaker": "S3",
+      "text": "door"
+    },
+    {
+      "id": "audit-gap-23",
+      "speaker": "S1",
+      "text": "mug"
+    },
+    {
+      "id": "audit-gap-24",
+      "speaker": "S2",
+      "text": "mug"
+    },
+    {
+      "id": "audit-gap-25",
+      "speaker": "S3",
+      "text": "mug"
+    },
+    {
+      "id": "audit-gap-26",
+      "speaker": "S4",
+      "text": "mug"
+    },
+    {
+      "id": "audit-gap-27",
+      "speaker": "S1",
+      "text": "kettle"
+    },
+    {
+      "id": "audit-gap-28",
+      "speaker": "S2",
+      "text": "kettle"
+    },
+    {
+      "id": "audit-gap-29",
+      "speaker": "S3",
+      "text": "kettle"
+    },
+    {
+      "id": "audit-gap-30",
+      "speaker": "S4",
+      "text": "kettle"
+    },
+    {
+      "id": "audit-gap-31",
+      "speaker": "S1",
+      "text": "screen"
+    },
+    {
+      "id": "audit-gap-32",
+      "speaker": "S3",
+      "text": "screen"
+    },
+    {
+      "id": "audit-gap-33",
+      "speaker": "S4",
+      "text": "screen"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+try {
+  const stateKey = "__roomscriptRun7LeafStartupCapture";
+  const state = (globalThis as any)[stateKey];
+  if (!state) {
+    return { ok: false, error: "No Preview trace capture state found" };
+  }
+  return {
+    ok: true,
+    durationMs: state.durationMs,
+    startedAt: state.startedAt,
+    finishedAt: state.finishedAt,
+    recordedMs: state.recordedMs,
+    started: state.started,
+    finished: state.finished,
+    outputPaths: state.outputPaths,
+  };
+} catch (e: any) {
+  return { ok: false, error: e?.message ?? String(e), stack: e?.stack ?? "" };
+}

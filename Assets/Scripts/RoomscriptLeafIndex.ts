@@ -1,5 +1,7 @@
+import {RoomscriptGeneratedVoiceLeafScenario} from "./RoomscriptGeneratedVoiceLeafScenario";
 import {RoomscriptReconstructionDetailsLeafScenario} from "./RoomscriptReconstructionDetailsLeafScenario";
 import {RoomscriptStoryMomentsLeafScenario} from "./RoomscriptStoryMomentsLeafScenario";
+import {RoomscriptCastingSweepLeafScenario} from "./RoomscriptCastingSweepLeafScenario";
 import {RoomscriptRoomScanLeafScenario} from "./RoomscriptRoomScanLeafScenario";
 import {RoomscriptProductionStudyLeafScenario} from "./RoomscriptProductionStudyLeafScenario";
 import {RoomscriptPolishLeafScenario} from "./RoomscriptPolishLeafScenario";
@@ -42,6 +44,8 @@ import {RoomscriptMemoryCardLeafScenario} from "./RoomscriptMemoryCardLeafScenar
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-generated-voices",typename:RoomscriptGeneratedVoiceLeafScenario.getTypeName(),parameters:{seed:"7",source:"file"}},
+    {id:"roomscript-casting-sweep",typename:RoomscriptCastingSweepLeafScenario.getTypeName(),parameters:{audit:"true",captureIndex:"-1"}},
     {id:"roomscript-story-moments",typename:RoomscriptStoryMomentsLeafScenario.getTypeName()},
     {id:"roomscript-reconstruction-details",typename:RoomscriptReconstructionDetailsLeafScenario.getTypeName(),parameters:{shot:"both",hold:"2"}},
     {id:"roomscript-proximity",typename:RoomscriptProximityLeafScenario.getTypeName()},

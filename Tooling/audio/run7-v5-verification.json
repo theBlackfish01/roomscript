@@ -1,0 +1,20 @@
+{
+    "at":  "2026-11-05T21:54:54.906Z",
+    "status":  "Published and byte-verified 2026-11-05T22:05:39.772Z; native LEAF pending",
+    "clips":  338,
+    "cues":  4,
+    "files":  346,
+    "audioBytes":  2644254,
+    "totalBytes":  3122026,
+    "audioSeconds":  612.89,
+    "oldBytesVerified":  304,
+    "newClips":  34,
+    "mismatches":  [
+
+                   ],
+    "run7Credits":  3199,
+    "accountedTotal":  90997,
+    "estimates":  0,
+    "incomplete":  0,
+    "providerBlock":  null
+}

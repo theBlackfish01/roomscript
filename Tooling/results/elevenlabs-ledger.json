@@ -10482,9 +10482,360 @@
       "estimate": false,
       "at": "2026-11-05T19:51:04.116Z",
       "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "7cce31efa964dd40b7c80da385fc0ed454c064cbad2a4cb99e35d72b893d7f43",
+      "label": "run7:phrases:S1:audit-gap-0",
+      "status": "complete",
+      "credits": 7,
+      "estimate": false,
+      "at": "2026-11-05T21:49:30.224Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "f1d5345b1d2dd5a5f1d491561a1de7c6f4eca5d559170dc38b74846aa5596059",
+      "label": "run7:phrases:S2:audit-gap-1",
+      "status": "complete",
+      "credits": 7,
+      "estimate": false,
+      "at": "2026-11-05T21:49:32.799Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "52442f08e4e83365fbbf816c3dc19952aa099398f590d606bc273040a31587c9",
+      "label": "run7:phrases:S2:audit-gap-2",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:49:34.938Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "ce168fbb499d0e6b685b846311109d0605b8debb6446e522225389fbf9db0d37",
+      "label": "run7:phrases:S3:audit-gap-3",
+      "status": "complete",
+      "credits": 7,
+      "estimate": false,
+      "at": "2026-11-05T21:49:36.403Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "55bc8b37d85b2da5a4b2d25422e87c81c7835d927f1d5d741f262ce27d2568a9",
+      "label": "run7:phrases:S3:audit-gap-3:retry1",
+      "status": "complete",
+      "credits": 7,
+      "estimate": false,
+      "at": "2026-11-05T21:50:27.235Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "a37172b534b620dda8474e1d7a21907bf06d5c06f08f40ec8f84dc2899971206",
+      "label": "run7:phrases:S3:audit-gap-3:retry2",
+      "status": "complete",
+      "credits": 7,
+      "estimate": false,
+      "at": "2026-11-05T21:50:28.269Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "f83134fc59252c448af44f6f43e4c7f462a741ccd044bf0457de7b96ec3efe69",
+      "label": "run7:phrases:S3:audit-gap-3:retry3",
+      "status": "complete",
+      "credits": 7,
+      "estimate": false,
+      "at": "2026-11-05T21:51:25.620Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "9eeddf4253866b282516e6f843a2c2d09d8f8cd1ba2a8d48c8980fa668e19fdc",
+      "label": "run7:phrases:S3:audit-gap-3:retry4",
+      "status": "complete",
+      "credits": 7,
+      "estimate": false,
+      "at": "2026-11-05T21:51:26.882Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "f402808c5001b518af1a1e7dd59a0757ac69fe770cee9e339453b7f8183e3c91",
+      "label": "run7:phrases:S3:audit-gap-3:retry5",
+      "status": "complete",
+      "credits": 7,
+      "estimate": false,
+      "at": "2026-11-05T21:51:28.048Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "b00c3601684db8e023f45e3e129e2525212a1cb822062721f0c642ae8cc6b7e2",
+      "label": "run7:phrases:S4:audit-gap-4",
+      "status": "complete",
+      "credits": 7,
+      "estimate": false,
+      "at": "2026-11-05T21:51:28.779Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "47bd65d019a4d7131b991840d2c27c24b2f63ac90efe768df0758a107a912f60",
+      "label": "run7:phrases:S1:audit-gap-5",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:51:30.298Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "5c6606ab45f075527a495d71c357fc55ae6f8b9fb25526ed74f4ff9d251d57ea",
+      "label": "run7:phrases:S2:audit-gap-6",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:51:31.584Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "6c328562c40866b20c4f0707fcaf08aa47818d9bf948f48042c3ff9db30f2e41",
+      "label": "run7:phrases:S3:audit-gap-7",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:51:32.932Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "d290f53c84a2822b27176115a81bfcbb12a19830a0c9a77b600a62bd83bf5055",
+      "label": "run7:phrases:S4:audit-gap-8",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:51:34.138Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "1f5f785f13beb1fea40ffa343ca8cf7cfcdfcba2c1cfc2316c533d4bfbb9de50",
+      "label": "run7:phrases:S1:audit-gap-9",
+      "status": "complete",
+      "credits": 9,
+      "estimate": false,
+      "at": "2026-11-05T21:51:35.426Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "ce0908aa6a72b4a3b0ae233440079ee64ee0020d46a47dc65abe7af380ae0bd9",
+      "label": "run7:phrases:S2:audit-gap-10",
+      "status": "complete",
+      "credits": 9,
+      "estimate": false,
+      "at": "2026-11-05T21:51:36.799Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "0d26184a03fc871af7b71119a7cc66ed429b494918b3ce1c21a37fa691ba0344",
+      "label": "run7:phrases:S3:audit-gap-11",
+      "status": "complete",
+      "credits": 9,
+      "estimate": false,
+      "at": "2026-11-05T21:51:37.978Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "2711f5435718b495637f87f239d946604c5e7c6af62fe4885f63fc4b711180bf",
+      "label": "run7:phrases:S4:audit-gap-12",
+      "status": "complete",
+      "credits": 9,
+      "estimate": false,
+      "at": "2026-11-05T21:51:39.045Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "7fff9c4d27fdad55aced6079e1b3bb5617d48c5015ac52521e9bfeea2208192f",
+      "label": "run7:phrases:S1:audit-gap-13",
+      "status": "complete",
+      "credits": 5,
+      "estimate": false,
+      "at": "2026-11-05T21:51:40.470Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "cf5f5f179bd3386e3760b0e6e58d2f7c1db9db5e8da96621c792e9d2ce2b72c5",
+      "label": "run7:phrases:S2:audit-gap-14",
+      "status": "complete",
+      "credits": 5,
+      "estimate": false,
+      "at": "2026-11-05T21:51:41.750Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "24e91a2dd6bfc9af74d82dd4c4541845d5d2725bc3b0d50e4190ea66ab7c9130",
+      "label": "run7:phrases:S3:audit-gap-15",
+      "status": "complete",
+      "credits": 5,
+      "estimate": false,
+      "at": "2026-11-05T21:51:43.326Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "38c38eb23ad3e2f536eb9950e6e62e36b6dfc5394978c9fe43b0cccdead18e0c",
+      "label": "run7:phrases:S4:audit-gap-16",
+      "status": "complete",
+      "credits": 5,
+      "estimate": false,
+      "at": "2026-11-05T21:51:44.307Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "f46ac1eb8f16fd8dd61db778ca03125c3a2a43f4f7b618ec058f9e436dc537d3",
+      "label": "run7:phrases:S1:audit-gap-17",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:51:45.762Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "18c059088f8b07c1db2362306c0a14098bd12808c96026a0501efb79d9bcf9cf",
+      "label": "run7:phrases:S2:audit-gap-18",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:51:47.105Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "89c6a322a1f5d402082f572ce7770a0ce0197a8385f5d54ac0c7b4c97be0839e",
+      "label": "run7:phrases:S3:audit-gap-19",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:51:48.827Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "1c17340e69a577e2fc9eef8658ce84decf1e706ac4d5c04f5e6df1f89c5c99b8",
+      "label": "run7:phrases:S4:audit-gap-20",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:51:50.406Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "e830e34366ecec108d1f8594253bdc2ac7ee2dc8e8a77242da8ec28de0a49817",
+      "label": "run7:phrases:S1:audit-gap-21",
+      "status": "complete",
+      "credits": 5,
+      "estimate": false,
+      "at": "2026-11-05T21:51:51.885Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "29ad0428af8d002690771526e68d12a4575678f40dc57280eeb1f98bf5ad3a3b",
+      "label": "run7:phrases:S3:audit-gap-22",
+      "status": "complete",
+      "credits": 5,
+      "estimate": false,
+      "at": "2026-11-05T21:51:53.127Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "e161bec1ed5b5c10dba2b94a8ab3b3fdeb3f684441424953fd9201121e57646d",
+      "label": "run7:phrases:S1:audit-gap-23",
+      "status": "complete",
+      "credits": 5,
+      "estimate": false,
+      "at": "2026-11-05T21:51:54.366Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "daeb2bbc0d3be1042641b1da0de7ab64dd567d950f87849a744243efba126149",
+      "label": "run7:phrases:S2:audit-gap-24",
+      "status": "complete",
+      "credits": 5,
+      "estimate": false,
+      "at": "2026-11-05T21:51:55.770Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "89f478f7bf78e87759766269b7d5526e3f755b3508d7f23660d2f4acd452db5e",
+      "label": "run7:phrases:S3:audit-gap-25",
+      "status": "complete",
+      "credits": 5,
+      "estimate": false,
+      "at": "2026-11-05T21:51:56.986Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "43f6749fcc822485f2cb823a60d3029e771ea81afa384b2c57b7ea3060df89bc",
+      "label": "run7:phrases:S4:audit-gap-26",
+      "status": "complete",
+      "credits": 5,
+      "estimate": false,
+      "at": "2026-11-05T21:51:57.915Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "4f11974eb716ea157aaa18a6acd4e2c033e46b0753c5463ca37388f591a2ce34",
+      "label": "run7:phrases:S1:audit-gap-27",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:51:58.966Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "5bd24d378ccc1769fed23dcb2a7be2a1327fd4d4d1d6cb4abfefcb65ae6db0b2",
+      "label": "run7:phrases:S2:audit-gap-28",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:52:00.213Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "d6ea073f533bee72c0e6ee562780ebb4017a30b5857aac53d0ba35e35ab6cd6c",
+      "label": "run7:phrases:S3:audit-gap-29",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:52:01.535Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "321ec984a581baf5b37e7c1673f2d5532ba574b809fd7c2113ef09f48ba6b0da",
+      "label": "run7:phrases:S4:audit-gap-30",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:52:02.738Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "e2b2327ff26e715f0cda55a5c240d90419d391351b57a85d4c018058ce8cee12",
+      "label": "run7:phrases:S1:audit-gap-31",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:52:03.950Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "f4cf0b4f2b4554fcda9e5f9b2e1d97f4b875665f2b7c20dba8d156674da84c2a",
+      "label": "run7:phrases:S3:audit-gap-32",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:52:05.556Z",
+      "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "fd62d3f18bbe717de5d4b9c29bdf956c54e879f5f3052f5c186cd70ad8930985",
+      "label": "run7:phrases:S4:audit-gap-33",
+      "status": "complete",
+      "credits": 6,
+      "estimate": false,
+      "at": "2026-11-05T21:52:06.859Z",
+      "segment": "run7-2026-11-05"
     }
   ],
-  "totalCredits": 90752,
+  "totalCredits": 90997,
   "segments": [
     {
       "id": "run5-2026-11-04",

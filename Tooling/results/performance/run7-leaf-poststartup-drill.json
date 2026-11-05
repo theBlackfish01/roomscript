@@ -1,0 +1,22 @@
+{
+  "trace": "C:\\Users\\wadoo\\Desktop\\SPECS_Hackathon\\RoomScriptF\\Tooling\\results\\performance\\roomscript_leaf_startup_2026-11-05T21-58-33-397Z_preview0.pftrace",
+  "queries": [
+    {
+      "name": "firstUpdateChildren",
+      "sql": "SELECT name,depth,dur/1e6 AS ms FROM slice WHERE parent_id=(SELECT id FROM slice WHERE track_id=0 AND name='Scene::Update' AND dur>=0 ORDER BY dur DESC LIMIT 1) ORDER BY dur DESC LIMIT 20",
+      "csv": "NO_RESULTS"
+    },
+    {
+      "name": "trackingChildren",
+      "sql": "SELECT c.name,COUNT(*) AS calls,SUM(c.dur)/1e9 AS total_seconds,AVG(c.dur)/1e6 AS mean_ms,MAX(c.dur)/1e6 AS max_ms FROM slice c JOIN slice p ON c.parent_id=p.id WHERE p.track_id=0 AND p.name='Track' AND c.dur>=0 GROUP BY c.name ORDER BY total_seconds DESC LIMIT 15",
+      "csv": "name,calls,total_seconds,mean_ms,max_ms\r\r\nFaceDetectPreprocess,3670,3.178664,0.8661209809264305,3.9669\r\r\nFaceTrack,6920,0.0572667,0.008275534682080924,0.0873"
+    },
+    {
+      "name": "majorSpans",
+      "sql": "SELECT name,COUNT(*) AS calls,AVG(dur)/1e6 AS mean_ms,MAX(dur)/1e6 AS max_ms FROM slice WHERE track_id=0 AND dur>=0 AND name IN ('Track','Scene::Update','RenderFrame') GROUP BY name",
+      "csv": "name,calls,mean_ms,max_ms\r\r\nRenderFrame,6919,1.4175121982945513,40.73\r\r\nScene::Update,6919,1.2034349183408009,1839.1778\r\r\nTrack,6919,9.392450599797659,40.1626"
+    }
+  ],
+  "exitCode": 0,
+  "stderr": "Loading trace: C:\\Users\\wadoo\\Desktop\\SPECS_Hackathon\\RoomScriptF\\Tooling\\results\\performance\\roomscript_leaf_startup_2026-11-05T21-58-33-397Z_preview0.pftrace\r\nReady.\r\nShutdown complete.\r\n"
+}

@@ -14,7 +14,7 @@ import {canonicalFallback,lookupLine} from "./Engine/perf/LineBank";
 import {validateLine} from "./Engine/perf/LineValidator";
 import {RoomscriptVoiceLibrary} from "./RoomscriptVoiceLibrary";
 import {RoomscriptAudio} from "./RoomscriptAudio";
-import {subtitleCues,SubtitleCue} from "./Engine/perf/SubtitleTiming";
+import {SubtitleCue} from "./Engine/perf/SubtitleTiming";
 import {RUN7_VOICE_MANIFEST} from "./Content/Run7VoiceManifest";
 import {ROOMScriptRun7VoiceAssets} from "./RoomscriptRun7VoiceAssets";
 import {VoiceRecord} from "./Engine/perf/VoiceSelection";
@@ -26,6 +26,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
   @input @hint("Speaker whose authored voice and jaw animation are used") actor:RoomscriptSuspectActor;
   readonly onAudioStarted=new Event<{text:string;latencyMs:number;voice:string;durationMs:number}>();
   readonly onSubtitle=new Event<string>();
+  readonly onSubtitleAligned=new Event<string>();
   private audio:AudioComponent;private cache=new Map<string,AudioTrackAsset>();private source:CancellationSource;
   private played=0;private fallback=0;private hit=0;private liveAttempts=0;private livePlayed=0;
   private caption:SubtitleCue[]=[];private captionIndex=0;private captionOffset=0;private captionText="";
@@ -33,7 +34,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
   onAwake():void {
     this.createEvent("OnStartEvent").bind(()=>{this.audio=this.getSceneObject().createComponent("Component.AudioComponent") as AudioComponent;this.audio.playbackMode=Audio.PlaybackMode.LowLatency;this.audio.volume=0.9;});
     this.createEvent("OnDestroyEvent").bind(()=>this.stop());
-    this.createEvent("UpdateEvent").bind(()=>{if(!this.caption.length||!this.audio?.audioTrack||!this.audio.isPlaying())return;const time=this.audio.position-this.captionOffset;let text:string|undefined;while(this.captionIndex<this.caption.length&&this.caption[this.captionIndex].at<=time)text=this.caption[this.captionIndex++].text;if(text!==undefined)this.onSubtitle.invoke(text);});
+    this.createEvent("UpdateEvent").bind(()=>{if(!this.caption.length||!this.audio?.audioTrack||!this.audio.isPlaying())return;const time=this.audio.position-this.captionOffset;let text:string|undefined;while(this.captionIndex<this.caption.length&&this.caption[this.captionIndex].at<=time)text=this.caption[this.captionIndex++].text;if(text!==undefined)this.onSubtitleAligned.invoke(text);});
   }
   stop():void {this.source?.cancel();this.caption=[];if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor?.setVoice(null);}
   diagnostics():{played:number;fallback:number;cache:number;hits:number;playing:boolean} {return {played:this.played,fallback:this.fallback,cache:this.cache.size,hits:this.hit,playing:!!this.audio?.audioTrack&&this.audio.isPlaying()};}
@@ -83,14 +84,18 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
     try {
       RoomscriptAudio.active?.duckSpeech(true);
       const dynamic=this.actor.engine.mode()==="dynamic";
-      const bundled=dynamic?this.phraseClips(line):RoomscriptVoiceLibrary.clips(this.actor.suspect,line,take,allowTell)?.map(clip=>({...clip,raw:clip.record.text,prefix:""}));
-      if(bundled){for(const clip of bundled){source.token.throwIfCancelled();const record=clip.record;this.audio.audioTrack=clip.track;this.audio.play(1);if(record.startSeconds)this.audio.position=record.startSeconds;
-        this.caption=dynamic?accumulatedPhraseCues(clip.raw,clip.prefix,record):subtitleCues(record.text,record.alignment);this.captionIndex=0;this.captionOffset=record.startSeconds||0;this.captionText=clip.prefix+clip.raw;this.onSubtitle.invoke(this.caption.length?clip.prefix:this.captionText);
+      let captionCursor=0;
+      const bundled=dynamic?this.phraseClips(line):RoomscriptVoiceLibrary.clips(this.actor.suspect,line,take,allowTell)?.map(clip=>{
+        const at=line.indexOf(clip.record.text,captionCursor);captionCursor=at<0?captionCursor:at+clip.record.text.length;
+        return {...clip,raw:clip.record.text,prefix:at<0?"":line.slice(0,at)};
+      });
+      if(bundled){let lastAligned=false;for(const clip of bundled){source.token.throwIfCancelled();const record=clip.record;this.audio.audioTrack=clip.track;this.audio.play(1);if(record.startSeconds)this.audio.position=record.startSeconds;
+        this.caption=accumulatedPhraseCues(clip.raw,clip.prefix,record);lastAligned=this.caption.length>0;this.captionIndex=0;this.captionOffset=record.startSeconds||0;this.captionText=clip.prefix+clip.raw;if(this.caption.length)this.onSubtitleAligned.invoke(clip.prefix);else this.onSubtitle.invoke(line);
         this.played++;this.hit++;first=false;this.actor.setVoice(clip.track);this.actor.setAlignment(record.alignment,()=>this.audio.position-(record.startSeconds||0));
         const duration=(record.endSeconds??this.audio.duration)-(record.startSeconds||0);
         this.onAudioStarted.invoke({text:record.text,latencyMs:this.client.clock.nowMs()-began,voice:"bundle:"+record.speaker+":"+record.take,durationMs:duration*1000});
-        await delay(Math.max(100,duration*1000),this.client.clock,source.token);source.token.throwIfCancelled();this.caption=[];this.onSubtitle.invoke(clip.prefix+clip.raw);if(this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);
-      }this.onSubtitle.invoke(line);return true;}
+        await delay(Math.max(100,duration*1000),this.client.clock,source.token);source.token.throwIfCancelled();if(this.caption.length)this.onSubtitleAligned.invoke(clip.prefix+clip.raw);this.caption=[];if(this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);
+      }if(lastAligned)this.onSubtitleAligned.invoke(line);return true;}
       if(scope==="free"){
         const engine=this.actor.engine,graph=engine.graphRef(),ticket=admittedFreeSpeech(engine.snapshot(),this.actor.suspect,line,"free");
         if(!ticket)throw new LlmError("invalid_response");

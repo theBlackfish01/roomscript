@@ -2,23 +2,37 @@ import {EVENING_ROOM_SCAN,EVENING_ROOM_FLOOR_Y} from "./Content/EveningRoomScan"
 import {PanelUI,uiObject} from "./RoomscriptPanelUI";
 import {RoomscriptAudio} from "./RoomscriptAudio";
 import {RoomInput} from "./Engine/room/RoomModel";
+type CastingBeat={index:number;id:string;text:string;position:number[];started:number;ended:number;spoken:boolean;nativeObserved:boolean};
 /** One furniture label at a time. Saved observations never determine case truth. */
 @component export class RoomscriptCastingController extends BaseScriptComponent {
   @input @hint("Tracked camera for label orientation") camera:Camera;
-  private marks:SceneObject[]=[];private active=-1;private started=-1;private complete=false;private revision=0;private room:RoomInput=EVENING_ROOM_SCAN;
-  onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
+  private marks:SceneObject[]=[];private badges:Text[]=[];private active=-1;private complete=false;private revision=0;private room:RoomInput=EVENING_ROOM_SCAN;
+  private began=-1;private finished=-1;private trace:CastingBeat[]=[];private fallback=0;private captureIndex=-1;private captureUntil=0;
+  onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());this.createEvent("OnDestroyEvent").bind(()=>{this.revision++;});}
+  private objects(){return this.room.objects.filter(o=>!o.virtual);}
   private build():void {
-    for(const object of this.room.objects.filter(o=>!o.virtual)){const mark=uiObject(this.getSceneObject(),"RoomscriptScanMark_"+object.id);mark.getTransform().setWorldPosition(new vec3(object.pos[0],object.pos[1]+EVENING_ROOM_FLOOR_Y+12,object.pos[2]));
-      const ui=new PanelUI(mark,44,14,1.6,new vec4(.91,.69,.29,1),true,true);ui.text("Furniture",object.label.toUpperCase(),5,"title");ui.text("Role",object.type==="container"||object.type==="soft"?"HIDING PLACE":object.type==="blunt"?"WEAPON CANDIDATE":"WITNESS",4,"small");ui.text("Surface pin","\u2304",3,"title");mark.enabled=false;this.marks.push(mark);}
+    for(const object of this.objects()){const mark=uiObject(this.getSceneObject(),"RoomscriptScanMark_"+object.id);mark.getTransform().setWorldPosition(new vec3(object.pos[0],object.pos[1]+EVENING_ROOM_FLOOR_Y+12,object.pos[2]));
+      const ui=new PanelUI(mark,44,14,1.6,new vec4(.91,.69,.29,1),true,true);ui.text("Furniture",object.label.toUpperCase(),5,"title");ui.text("Role",object.type==="container"||object.type==="soft"?"HIDING PLACE":object.type==="blunt"?"WEAPON CANDIDATE":"WITNESS",4,"small");this.badges.push(ui.text("Surface pin","\u2304",3,"title"));mark.enabled=false;this.marks.push(mark);}
   }
-  async begin(mode:"preset"|"dynamic"="preset",room:RoomInput=EVENING_ROOM_SCAN):Promise<void> {const revision=++this.revision;this.marks.forEach(o=>{if(!isNull(o))o.destroy();});this.marks=[];this.room=room;this.build();this.started=-1;this.active=-1;this.complete=false;
-    const objects=room.objects.filter(o=>!o.virtual),audio=RoomscriptAudio.active;
-    for(let i=0;i<objects.length;i++){if(revision!==this.revision)return;this.active=i;this.marks.forEach((o,n)=>o.enabled=n===i);audio?.play("CastingChime");const object=objects[i],role=object.type==="container"||object.type==="soft"?"a hiding place":object.type==="blunt"?"a possible weapon":"a witness";await audio?.narrate("NARRATOR","Your "+object.label+": "+role+".");}
-    if(revision!==this.revision)return;this.marks.forEach(o=>o.enabled=false);await audio?.narrate("NARRATOR",mode==="preset"?"Tonight, this room is Harlow's study.":"Same room. New murder.");this.complete=true;
+  private visible(index:number):void {this.active=index;this.marks.forEach((mark,n)=>mark.enabled=n===index);}
+  private delay(seconds:number):Promise<void>{return new Promise(resolve=>{const event=this.createEvent("DelayedCallbackEvent");event.bind(()=>{this.removeEvent(event);resolve();});event.reset(seconds);});}
+  private async say(text:string,beat:CastingBeat,revision:number):Promise<void>{const audio=RoomscriptAudio.active,before=audio?.narrationEvidence("NARRATOR",text);let played=false;
+    try{played=audio?await audio.narrate("NARRATOR",text):false;}catch{played=false;}
+    if(revision!==this.revision)return;const after=audio?.narrationEvidence("NARRATOR",text);beat.spoken=played;beat.nativeObserved=!!before&&!!after&&after.observed>before.observed;
+    if(!played){this.fallback++;console.log("CASTING_CAPTION_FALLBACK|"+JSON.stringify({index:beat.index,id:beat.id}));const remaining=Math.max(0,2.4-(getTime()-beat.started));if(remaining>0)await this.delay(remaining);}
+    beat.ended=getTime();console.log("CASTING_BEAT|"+JSON.stringify(beat));
   }
-  showAll():void {this.started=-1;this.marks.forEach(o=>o.enabled=true);}
-  hide():void {this.started=-1;this.marks.forEach(o=>o.enabled=false);}
-  private update():void {if(!this.camera)return;const rotation=this.camera.getTransform().getWorldRotation();for(const mark of this.marks)if(mark.enabled)mark.getTransform().setWorldRotation(rotation);
-    if(this.started<0)return;const step=Math.floor((getTime()-this.started)/2.3);if(step===this.active)return;this.active=step;this.marks.forEach((o,i)=>o.enabled=i===step);if(step<this.marks.length)RoomscriptAudio.active?.play("CastingChime");else{this.complete=true;this.started=-1;}}
-  diagnostics():{objects:number;active:number;complete:boolean}{return {objects:this.marks.length,active:this.active,complete:this.complete};}
+  async begin(mode:"preset"|"dynamic"="preset",room:RoomInput=EVENING_ROOM_SCAN):Promise<void> {const revision=++this.revision;this.marks.forEach(o=>{if(!isNull(o))o.destroy();});this.marks=[];this.badges=[];this.room=room;this.build();this.active=-1;this.complete=false;this.captureIndex=-1;this.began=getTime();this.finished=-1;this.trace=[];this.fallback=0;
+    const objects=this.objects();console.log("CASTING_BEGIN|"+JSON.stringify({mode,objects:objects.length,at:this.began,source:mode==="preset"?"recorded scan":"live scan"}));
+    for(let i=0;i<objects.length;i++){if(revision!==this.revision)return;this.visible(i);try{RoomscriptAudio.active?.play("CastingChime");}catch{console.log("CASTING_CHIME_UNAVAILABLE");}const object=objects[i],role=object.type==="container"||object.type==="soft"?"a hiding place":object.type==="blunt"?"a possible weapon":"a witness",position=this.marks[i].getTransform().getWorldPosition();
+      const beat:CastingBeat={index:i,id:object.id,text:"Your "+object.label+": "+role+".",position:[position.x,position.y,position.z],started:getTime(),ended:-1,spoken:false,nativeObserved:false};this.trace.push(beat);await this.say(beat.text,beat,revision);}
+    if(revision!==this.revision)return;this.visible(-1);const final:CastingBeat={index:objects.length,id:"finish",text:mode==="preset"?"Tonight, this room is Harlow's study.":"Same room. New murder.",position:[],started:getTime(),ended:-1,spoken:false,nativeObserved:false};this.trace.push(final);await this.say(final.text,final,revision);
+    if(revision!==this.revision)return;this.complete=true;this.finished=getTime();console.log("CASTING_COMPLETE|"+JSON.stringify({marks:objects.length,beats:this.trace.length,voiced:this.trace.filter(b=>b.spoken).length,nativeObserved:this.trace.filter(b=>b.nativeObserved).length,fallback:this.fallback}));
+  }
+  /** Explicit Preview/Director staging; not an engine action or a claim that the sweep played. */
+  captureMark(index:number,seconds=120):boolean {if(!global.deviceInfoSystem.isEditor()||!Number.isInteger(index)||index<0||index>=this.marks.length)return false;this.revision++;this.captureIndex=index;this.captureUntil=getTime()+Math.min(120,Math.max(.1,seconds));this.badges.forEach((badge,i)=>badge.text=i===index?"DIRECTOR HOLD":"\u2304");this.visible(index);return true;}
+  showAll():void {this.revision++;this.captureIndex=-1;this.badges.forEach(b=>b.text="\u2304");this.marks.forEach(o=>o.enabled=true);}
+  hide():void {this.revision++;this.captureIndex=-1;this.badges.forEach(b=>b.text="\u2304");this.visible(-1);}
+  private update():void {if(this.captureIndex>=0&&getTime()>=this.captureUntil)this.hide();if(!this.camera)return;const rotation=this.camera.getTransform().getWorldRotation();for(const mark of this.marks)if(mark.enabled)mark.getTransform().setWorldRotation(rotation);}
+  diagnostics(){return {objects:this.marks.length,active:this.active,complete:this.complete,began:this.began,finished:this.finished,fallback:this.fallback,captureIndex:this.captureIndex,visible:this.marks.map((mark,index)=>({id:this.objects()[index].id,enabled:mark.enabled,position:mark.getTransform().getWorldPosition()})),trace:this.trace.map(beat=>({...beat,position:beat.position.slice()}))};}
 }

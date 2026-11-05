@@ -15,6 +15,8 @@ import {RoomscriptClosingController} from "./RoomscriptClosingController";
     const target=(name:string)=>{const found=targets(name);expect(found.length).toBe(1);return found[0];};
     try{
       flow.client.forceOffline=true;engine.configurePreset();opening.finish();await sleep(500);
+      await hand.ready;await hand.trigger(target("Question S2"));await sleep(200);
+      expect(targets("Question 1").length).toBe(1);expect(targets("Believe").length).toBe(0);
       expect(cast.accusationTargeting()).toBe(false);expect(targets("RoomscriptAccuse_S4").length).toBe(0);
       closing.open();await sleep(400);expect(closing.diagnostics().opened).toBe(true);expect(cast.accusationTargeting()).toBe(true);
       expect(targets("Question S4").length).toBe(0);expect(targets("Question 1").length).toBe(0);expect(targets("Believe").length).toBe(0);

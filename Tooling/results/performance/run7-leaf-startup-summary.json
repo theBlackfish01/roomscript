@@ -1,0 +1,25 @@
+{
+  "trace": "roomscript_leaf_startup_2026-11-05T22-06-29-933Z_preview0.pftrace",
+  "bytes": 33230,
+  "scheduledCaptureMs": 180000,
+  "editorRecordedCaptureMs": 350884,
+  "traceBoundsSeconds": 342.6767514,
+  "completeProcessFrames": 4,
+  "completePairedFrames": 3,
+  "completeCoreRenderFrames": 3,
+  "unfinishedCoreRenderFrames": 1,
+  "largestBetweenFrameGapsSeconds": [242.847898, 76.5812064],
+  "maxFrameStartIntervalSeconds": 245.1371746,
+  "maxPairedFrameWallSeconds": 15.9975696,
+  "maxSceneUpdateWallSeconds": 15.9330458,
+  "framePairs": [
+    {"traceStartSeconds": 2.0665978, "pairedWallMs": 2837.7707, "nextStartIntervalMs": 2855.2754, "gapMs": 17.4907},
+    {"traceStartSeconds": 4.9218732, "pairedWallMs": 15997.5696, "nextStartIntervalMs": 92578.7888, "gapMs": 76581.2064},
+    {"traceStartSeconds": 97.500662, "pairedWallMs": 2289.2652, "nextStartIntervalMs": 245137.1746, "gapMs": 242847.898}
+  ],
+  "schedulerSlices": 0,
+  "finding": "The dominant stall is outside traced ProcessFrame/CoreManagerRender work, not a 242-second game update. Both Preview frame delivery and the scheduled editor capture timer were delayed.",
+  "hypothesis": "Editor/Preview scheduling or synchronous/reentrant native messaging; exact blocking native call is not identified.",
+  "pluginAudit": "Installed LEAF uses asynchronous Promises and setTimeout, no busy-loop wait. It synchronously posts ScenarioCompletedRequest inside the ScenarioStartResponse callback; Lens replies synchronously through Editor.context.postMessage. This is a candidate native re-entrancy boundary, not a proven cause.",
+  "limits": ["No active-CPU scheduler data.", "Only three paired startup frames; do not use this sample as representative gameplay FPS.", "Startup audio also causes real multi-second Scene::Start/Update spans.", "No installed plugin, cache or OS service was changed."]
+}

@@ -1,0 +1,22 @@
+try {
+  const stateKey = "__roomscriptRun7LeafStartupCapture";
+  const state = (globalThis as any)[stateKey];
+  const finished: any[] = [];
+  if (state?.timer) {
+    try { clearTimeout(state.timer); } catch (_) {}
+  }
+  if (state?.sessions) {
+    for (let i = 0; i < state.sessions.length; i++) {
+      try {
+        state.sessions[i].finish();
+        finished.push({ index: i, ok: true });
+      } catch (e: any) {
+        finished.push({ index: i, ok: false, error: e?.message ?? String(e) });
+      }
+    }
+  }
+  (globalThis as any)[stateKey] = null;
+  return { ok: true, cleaned: true, finished };
+} catch (e: any) {
+  return { ok: false, error: e?.message ?? String(e), stack: e?.stack ?? "" };
+}

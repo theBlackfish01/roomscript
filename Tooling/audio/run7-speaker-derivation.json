@@ -1,0 +1,12 @@
+{
+  "at": "2026-11-05T21:52:53.490Z",
+  "speaker": "S3",
+  "text": "speaker",
+  "sourceText": "left speaker",
+  "sourceIdentity": "b2555008e181c75714b49ec408e6917ac3af2f0b2bc61cff9efaa69dd91cd50e",
+  "derivedIdentity": "7f4d379ef3ee00a31cf7bfea6e838f463c94971448ee1f20c1f2483520b1426c",
+  "from": 0.39,
+  "until": 2.56,
+  "credits": 0,
+  "method": "Final word from same selected voice, timestamp-delimited; subjective audition pending"
+}

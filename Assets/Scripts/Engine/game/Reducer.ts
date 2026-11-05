@@ -51,7 +51,7 @@ export function reduceGame(graph: CaseGraph, previous: GameState, action: Action
     return state;
   }
   if(action.type==="WrenSpoken") {
-    const option=admitWrenChoice(buildKnowledgeBrief(graph,previous.knowledge),{optionId:action.optionId});
+    const option=admitWrenChoice(buildKnowledgeBrief(graph,previous.knowledge,action.optionId.startsWith("v2:")?2:1),{optionId:action.optionId});
     if(option)emit("wrenSpoken",{actor:"WREN",refs:[...option.factIds,...option.statementIds],text:option.text,data:{key:action.key,optionId:option.id}});
     else reject("unknown_wren_option");
     return state;

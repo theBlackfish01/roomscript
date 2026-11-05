@@ -1,0 +1,58 @@
+{
+  "options": [
+    {
+      "id": "guide:compare",
+      "kind": "guidance",
+      "text": "Which object could check the account you just heard?",
+      "factIds": [],
+      "statementIds": []
+    },
+    {
+      "id": "guide:unknown",
+      "kind": "guidance",
+      "text": "We have not proved that yet. What could we check?",
+      "factIds": [],
+      "statementIds": []
+    },
+    {
+      "id": "summary:c54d16a6",
+      "kind": "summary",
+      "text": "What we have proved: The kettle stayed cold during the murder window. Okafor stayed in the Kitchen at 22:30. My glasses are smudged.",
+      "factIds": [
+        "F_KETTLE_COLD",
+        "F_S3_ALIBI_OBJECT",
+        "F_S3_BASELINE"
+      ],
+      "statementIds": []
+    },
+    {
+      "id": "fact:F_KETTLE_COLD",
+      "kind": "fact",
+      "text": "The kettle stayed cold during the murder window.",
+      "factIds": [
+        "F_KETTLE_COLD"
+      ],
+      "statementIds": []
+    },
+    {
+      "id": "fact:F_S3_ALIBI_OBJECT",
+      "kind": "fact",
+      "text": "Okafor stayed in the Kitchen at 22:30.",
+      "factIds": [
+        "F_S3_ALIBI_OBJECT"
+      ],
+      "statementIds": []
+    },
+    {
+      "id": "fact:F_S3_BASELINE",
+      "kind": "fact",
+      "text": "My glasses are smudged.",
+      "factIds": [
+        "F_S3_BASELINE"
+      ],
+      "statementIds": []
+    }
+  ],
+  "factCount": 3,
+  "accountCount": 0
+}

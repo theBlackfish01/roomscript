@@ -52,7 +52,8 @@ import {preferPreparedQuestions} from "./Engine/ai/ModelPolicy";
       const state=this.engine.dispatch({type:verb==="Press"?"Press":"Believe",suspect:this.selected});
       if(verb==="Press"&&!this.rejected(state))void this.perform("Answer the detective's challenge.","chip",this.topic(state));});
     this.tts.onAudioStarted.add(event=>{if(this.speaking){this.lastAudioMs=event.latencyMs;this.onSpeaking.invoke(this.speaking);this.speaking=null;}});
-    this.tts.onSubtitle.add(text=>this.subtitles.reveal(text));
+    this.tts.onSubtitle.add(text=>this.subtitles.untimed(text));
+    this.tts.onSubtitleAligned.add(text=>this.subtitles.reveal(text));
     this.engine.onState.add(state=>this.render(state));this.selectSuspect(this.actor.suspect);
   }
   diagnostics():{busy:boolean;suspect:string;last:ChosenAnswer|null;audioMs:number|null;offline:boolean;level:number} {return {busy:this.busy,suspect:this.selected,last:this.last,audioMs:this.lastAudioMs,offline:!this.client.canAnswerFree()&&(this.client.isOffline()||this.availability?.level===0),level:this.client.forceOffline?0:this.availability?.level??0};}
@@ -66,7 +67,7 @@ import {preferPreparedQuestions} from "./Engine/ai/ModelPolicy";
     this.freePipeline=new AnswerPipeline({clock:this.client.clock,scheduler:this.client.scheduler,llm:tape,lineBank:this.engine.lineBank(),model:{provider:"gemini",model:"gemini-2.5-flash"},preferAuthored:()=>!this.client.canAnswerFree()});
   }
   availabilityLabel():string{return this.client.stageMode?(this.client.canAnswerFree()?"Recorded voices / free questions":"Stage / bundled voices"):this.availability?.label||"Offline case / captions";}
-  cancel():void {this.revision++;this.pipeline?.cancel();this.freePipeline?.cancel();this.tts?.stop();this.busy=false;this.speaking=null;}
+  cancel():void {this.revision++;this.pipeline?.cancel();this.freePipeline?.cancel();this.tts?.stop();if(this.subtitles)this.subtitles.untimed(this.subtitles.text());this.busy=false;this.speaking=null;}
   selectSuspect(id:string):void {
     this.cancel();const graph=this.engine.graphRef();if(!graph.cast.suspects.some(s=>s.id===id))throw new Error("Unknown suspect");
     this.selected=id;this.questionPage=0;this.actor=this.actors.get(id)||this.actor;this.actor.suspect=id;this.tts.actor=this.actor;this.actor.applyState(this.engine.snapshot());this.render(this.engine.snapshot());this.showQuestions();this.onSuspectSelected.invoke(id);

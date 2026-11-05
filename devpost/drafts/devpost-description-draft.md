@@ -1,6 +1,6 @@
 # Devpost submission draft — Run 7
 
-**Editorial draft; reconcile against the final Run 7 report before publishing.** Evidence below includes the Run 6 pure suite, Run 7 A2 baseline and Dynamic checkpoint `338b0db`. Later presentation/live gates remain pending. Planned capabilities are not completion claims. The actual form and music-plan eligibility remain owner checks.
+**Editorial draft; reconcile against the final Run 7 report before publishing.** Evidence below includes the Run 7 pure suite and pushed checkpoint `8566d04`: A2, Dynamic, twenty poses, proximity and the voiced live-AI/Wren beat. Final presentation, integration and continuous filming remain incomplete. Planned capabilities are not completion claims. The actual form and music-plan eligibility remain owner checks.
 
 **Project name:** Roomscript
 
@@ -45,12 +45,12 @@ Wadood directed the concept, scope and casting. Codex builds with CLAD's cross-r
 - **Truth engine:** plain deterministic TypeScript shared by Lens and Vitest. A case compiler, room substitutions and solver verify the case before play. The action log supports replay.
 - **Performance:** authored and validated banks, exact-text bundled voices, engine-authorised tells, and guarded live replies. Synthetic ElevenLabs voices give fictional suspects distinct performances.
 - **Lens:** SIK/ UIKit interactions, VirtualScene as the scene writer, Lens MCP compilation/logs, strict LEAF and runtime captures.
-- **Local model work:** Claude is used from Tooling for content/validator studies; Run 7 uses a local Preview file handoff for vision; live suspect/Wren performance has separate pending runtime gates. Provider keys never enter Assets or the saved scene. Provider choice is an implementation detail; fallback behaviour and truth safety are the product contract.
+- **Local model work:** Claude is used from Tooling for content/validator studies; Run 7 uses a local Preview file handoff for vision; live suspect/Wren performance now has a passed strict runtime beat, separate from the scan transport. Provider keys never enter Assets or the saved scene. Provider choice is an implementation detail; fallback behaviour and truth safety are the product contract.
 - **Evidence:** [CLAD log](../clad-log.md), [decisions](../../docs/decisions.md), [current progress](../../docs/PROGRESS.md).
 
 ## Verified baseline and remaining gates
 
-At the Run 6 checkpoint, **462/462 pure tests across 49 files** passed. Strict four-suspect playback passed after the new Vale library landed. A repaired hero route passed on the earlier cast; the replacement-cast hero call failed during registration before running. Those are different evidence snapshots. Run 7 A2 subsequently passed the replacement bundle in 11.836 s and the repaired hero in 169.471 s, with the new-cast tape committed at `b3f4144` (`Tooling/results/run7-a2-hero.json`). The final integrated gate for later Run 7 features remains separate and pending.
+The latest Run 7 pure suite passed **504 tests across 57 files**, with the pure Engine/Content/Tooling typecheck. Strict four-suspect playback passed after the new Vale library landed. A repaired hero route passed on the earlier cast; the replacement-cast hero call failed during registration before running. Those are different evidence snapshots. Run 7 A2 subsequently passed the replacement bundle in 11.836 s and the repaired hero in 169.471 s, with the new-cast tape committed at `b3f4144` (`Tooling/results/run7-a2-hero.json`). The final integrated gate for later Run 7 features remains separate and pending.
 
 The saved validator corpora have zero accepted attacks out of 96 development and 48 holdout examples; 20/34 natural holdout answers still fail validation. That inspected corpus is regression evidence, not proof of universal language safety. Conservative fallbacks remain necessary.
 
@@ -58,13 +58,15 @@ Run 6's audio export is 9.95 MB. Art/contact-sheet generation is verified offlin
 
 The camera path is now working through a Preview file handoff: three logged CameraModule frames are processed by Claude Opus in Tooling, an imported reply reloads Preview, and World Query supplies physical surface hits before deterministic compilation. Preset replays its separate saved seven-object scan. Dynamic runtime tapes are `run7-file-seed7.json`, `run7-file-seed1041.json` and `run7-file-seed2026.json` under Tooling/results. These checks do not prove device scanning, universal furniture accuracy or an uninterrupted Dynamic interaction.
 
-Before picture lock, add the actual art/UI/moment captures, final integrated outcomes and continuous voiced take from the final report. Wren PlayerKnowledge and route logic are pure-tested; new live Wren/free-question gateway acceptance is still pending. Do not turn compiled runtime work into a passed visual claim.
+Before picture lock, add the actual art/UI/moment captures, final integrated outcomes and continuous voiced take from the final report. The strict live-AI beat now passed in 163.461 s: the director selected four bundled suspect pieces with no fallback; Wren selected a valid knowledge-only option and actual live TTS played once with zero fallback. Truth was unchanged and replay exact. The tape is `Tooling/results/run7-live-ai-beat.json`. Twenty distinct pose textures also matched active native renderers in strict LEAF (105.966 s); proximity passed. These checks do not substitute for final clean visual captures.
+
+**Unfinished evidence:** native continuous recording is not working and no 60–90 s gameplay clip exists. The S2 8 ms target is not met; the 10 s trace measured paired ProcessFrame + Render wall spans averaging 15.95 ms (p90 20.30 ms). The Vale-questions image has a red failed-assertion overlay and visible subtitle/panel overlap, so it is diagnostic evidence only, not a promotional still. Keep these gaps in the final report until new evidence resolves them.
 
 ## Challenges
 
 The main difficulties were keeping AI performances faithful, getting live voice within a useful deadline, preventing long Preview sessions from degrading, and moving from working prototype panels to a room-first experience. We retained authored/prerecorded fallbacks, restarted before long verification and capture sessions, and separated compilation from runtime acceptance. A provider quota stops only that generation lane; it does not stop the build.
 
-At checkpoint `338b0db`, local Claude vision cost is **$0.081204 estimated across seven calls**; ElevenLabs supplemental phrases/narration/effects cost **2,954 confirmed credits** for 304 voice clips and four effects. Direct ElevenLabs voice-agent speech is a **no-go** because streaming model audio cannot be guaranteed to match the engine-approved words; no live microphone/WebSocket trial or agent deployment is claimed. Prerecorded speech remains the demo main path.
+At this refresh, local Claude vision cost is **$0.081204 estimated across seven calls**; ElevenLabs supplemental phrases/narration/effects cost **3,199 confirmed credits** for 338 published voice clips and four effects. Direct ElevenLabs voice-agent speech is a **no-go** because streaming model audio cannot be guaranteed to match the engine-approved words; no live microphone/WebSocket trial or agent deployment is claimed. Prerecorded speech remains the demo main path.
 
 ## What comes next
 

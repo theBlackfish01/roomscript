@@ -1,3 +1,4 @@
+import {peripheralFeedback} from "./Engine/game/PeripheralFeedback";
 import {RoomscriptStoryMoments} from "./RoomscriptStoryMoments";
 import {RoomscriptCaseLidUI} from "./RoomscriptCaseLidUI";
 import {RoomscriptChipBarUI} from "./RoomscriptChipBarUI";
@@ -32,7 +33,7 @@ import {withDeadline} from "./Engine/ai/Deadlines";
   private start():void {
     if(!this.caseLid||!this.chips||!this.verbs||!this.notebook||!this.wallet||!this.audio||!this.engine){console.error("Roomscript: authored references not wired");return;}
     this.caseLid.build();this.chips.build();this.verbs.build();this.notebook.build();this.wallet.build();
-    this.engine.onState.add(state=>{this.state=state;this.caseLid.setCounters(state.clockMinutes-state.elapsedMinutes,state.pips,state.hunches);this.caseLid.setTimeline(knowledgeTimeline(this.engine.graphRef(),state.knowledge).map(item=>item.time+" · "+item.text));for(const e of state.events.filter(e=>e.seq===state.lastSeq)){if(e.type==="deduction")this.toast("Deduction certified");else if(e.type==="evidenceCollected")this.toast("Memory collected");else if(e.type==="objectionCorrect")this.toast("Account refuted");}});
+    this.engine.onState.add(state=>{this.state=state;this.caseLid.setCounters(state.clockMinutes-state.elapsedMinutes,state.pips,state.hunches);this.caseLid.setTimeline(knowledgeTimeline(this.engine.graphRef(),state.knowledge).map(item=>item.time+" · "+item.text));const message=peripheralFeedback(state.events,state.lastSeq);if(message)this.toast(message);});
     this.engine.initialize();
     this.state=this.engine.snapshot();
     this.caseLid.onAction.add(action=>{
@@ -44,6 +45,7 @@ import {withDeadline} from "./Engine/ai/Deadlines";
     this.engine.onCaseChanged.add(()=>{this.caseLid.setTitle(this.engine.mode()==="preset"?"THE HARLOW TRUST":"SAME ROOM. NEW MURDER.");this.notebook.show(false);this.wallet.show(false);});
     this.audio.bindNarrative(this.engine,()=>this.interrogation.diagnostics().busy,id=>{const o=this.engine.graphRef().room.objects.find(o=>o.id===id);return o?this.engine.roomRoot.getTransform().getWorldTransform().multiplyPoint(new vec3(o.pos[0],o.pos[1],o.pos[2])):undefined;});
     this.audio.onNarrationSubtitle.add(({speaker,text})=>{if(!this.interrogation.diagnostics().busy)this.interrogation.subtitles.set(speaker,text);});
+    this.audio.onNarrationSubtitleAligned.add(({speaker,text,fullText})=>{if(this.interrogation.diagnostics().busy)return;const subtitles=this.interrogation.subtitles;if(subtitles.fullText()!==fullText)subtitles.set(speaker,fullText);subtitles.reveal(text);});
     this.storyMoments=new RoomscriptStoryMoments(this,this.engine,this.interrogation,this.caseLid,this.audio);
     this.notebook.onWren.add(()=>{this.notebook.show(false);void this.askWren("What do we know?");});
     const toast=uiObject(this.engine.player,"RoomscriptPeripheralToast");toast.getTransform().setLocalPosition(new vec3(25,-27,-110));this.toastText=new PanelUI(toast,35,7,1.15,new vec4(.25,.89,1,1),true,true).text("Toast","",5,"small");
@@ -51,7 +53,7 @@ import {withDeadline} from "./Engine/ai/Deadlines";
     this.caseLid.setMode(this.interrogation.availabilityLabel());this.interrogation.onAvailability.add(label=>this.caseLid.setMode(label));
     console.log("Roomscript: production interrogation ready");
   }
-  private toast(text:string):void {if(!this.toastText)return;this.toastText.text=text;this.toastUntil=getTime()+2.5;this.audio.play("ToastTick");}
+  private toast(text:string):void {if(!this.toastText)return;const repeated=this.toastText.text===text&&getTime()<this.toastUntil;this.toastText.text=text;this.toastUntil=getTime()+2.5;if(!repeated)this.audio.play("ToastTick");}
   private async pollInput():Promise<void>{if(this.state?.verdict||this.interrogation.controlsBlocked||this.inputBusy||this.wrenBusy||this.interrogation.diagnostics().busy||this.interrogation.client.forceOffline||!localBridgeAvailable())return;this.inputBusy=true;try{const input=await withDeadline(()=>localBridgePost("input-next",{}),5000,this.interrogation.client.clock);if(typeof input.question==="string"&&input.question.trim()){if(input.target==="wren")await this.askWren(input.question);else await this.interrogation.askFree(input.question);}}catch{}finally{this.inputBusy=false;}}
   async askWren(question:string):Promise<void> {
     if(this.wrenBusy||!this.engine.investigationEnabled||this.engine.snapshot().verdict)return;

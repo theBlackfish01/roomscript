@@ -1,7 +1,7 @@
 import {describe,it,expect} from "vitest";
 import {readFileSync} from "node:fs";
 import {resolve} from "node:path";
-import {applyPresetEveningRoom,PRESET_EVENING_SUPPORTS,PRESET_EVENING_LAYOUT} from "../../../Assets/Scripts/Content/PresetEveningRoom";
+import {applyPresetEveningRoom,PRESET_EVENING_SUPPORTS,PRESET_EVENING_LAYOUT,PRESET_CONSOLE_TOP} from "../../../Assets/Scripts/Content/PresetEveningRoom";
 import {createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {EVENING_ROOM_SCAN,EVENING_ROOM_FLOOR_Y} from "../../../Assets/Scripts/Content/EveningRoomScan";
 import {verifyCase} from "../../../Assets/Scripts/Engine/case/Solver";
@@ -23,10 +23,19 @@ describe("recorded Evening Room Preset placement",()=>{
   it("places every role on its measured support plane in the shared floor-local frame",()=>{
     const graph=applyPresetEveningRoom(createHeroCase());expect(EVENING_ROOM_FLOOR_Y).toBe(-176);
     for(const object of graph.room.objects){const support=PRESET_EVENING_SUPPORTS[object.id],surface=EVENING_ROOM_SCAN.objects.find(o=>o.id===support.surfaceId)!;
-      expect(object.pos[1]+EVENING_ROOM_FLOOR_Y).toBeCloseTo(surface.pos[1]-176,6);
+      expect(object.pos[1]+EVENING_ROOM_FLOOR_Y).toBeCloseTo((support.surfaceId==="SCAN_1"?PRESET_CONSOLE_TOP[1]:surface.pos[1])-176,6);
       expect(object.pos.every(Number.isFinite)).toBe(true);expect(support.offset[1]).toBe(0);
     }
     for(const id of ["O2","O9","O12","O7","O3","O5"])expect(["SCAN_1","SCAN_6","SCAN_7"]).toContain(PRESET_EVENING_SUPPORTS[id].surfaceId);
+  });
+  it("uses the measured console top instead of embedding props in its front face",()=>{
+    const samples=JSON.parse(readFileSync(resolve("results/run7-console-support-hits.json"),"utf8"));
+    const heights=samples.filter((sample:any)=>sample.hit?.normal[1]>.8).map((sample:any)=>sample.hit.position[1]).sort((a:number,b:number)=>a-b);
+    expect(heights.length).toBeGreaterThanOrEqual(3);expect(PRESET_CONSOLE_TOP[1]+EVENING_ROOM_FLOOR_Y).toBeCloseTo(heights[Math.floor(heights.length/2)],5);
+    const graph=applyPresetEveningRoom(createHeroCase()),front=EVENING_ROOM_SCAN.objects.find(o=>o.id==="SCAN_1")!;
+    for(const id of ["O3","O5","O7","O9","O12"]){const prop=graph.room.objects.find(o=>o.id===id)!;expect(prop.pos[1]-front.pos[1]).toBeGreaterThan(7);expect(prop.pos[2]).toBeLessThan(front.pos[2]-10);}
+    const recordPlayer=EVENING_ROOM_SCAN.objects.find(o=>o.label==="record player")!;
+    expect(Math.abs(graph.room.objects.find(o=>o.id==="O7")!.pos[0]-recordPlayer.pos[0])).toBeGreaterThan(40);
   });
   it("uses bottom-origin GLBs with centimeter conversion exactly once",()=>{
     for(const name of ["BrassCandlestick","ChippedMug","DictationRecorder","EvidenceClock","LetterKnife","MarbleBookend"]){

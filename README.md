@@ -6,13 +6,13 @@ Built for *Learn AR with SPECS*, directed by Wadood and implemented with coding 
 
 **Logic proven / feel unproven.** Work is verified in Lens Studio Preview with a simulated room. Physical Specs testing and the final integrated whole-case gate remain outstanding. The current checkpoint and blockers are in [PROGRESS](docs/PROGRESS.md).
 
-Run 6 full unit gate: **462/462 tests across 49 files**, pure-engine/tooling typecheck passed. Run 7 A2 additionally passes strict current-cast bundled voices and the repaired hero route; the final integrated gate for the new features remains pending. See [PROGRESS](docs/PROGRESS.md).
+Latest Run 7 pure suite: **504 tests across 57 files**, with pure-engine/tooling typecheck passed. Strict current-cast A2, twenty native pose textures, proximity and the voiced live-AI/Wren beat have passed. The final integrated gate for the new features remains pending. See [PROGRESS](docs/PROGRESS.md).
 
 ## The case
 
 Edmund Harlow was found dead at 22:41. Qadir, Vale, Okafor and Pike each have something to hide. Ask a question, watch the suspect's tell, and compare their answer with what an object remembers. Drag a statement onto contradictory evidence to break the account. Make a who/where/with-what suggestion, collect independent proof, then hold the seal to accuse.
 
-Run 7 now has two modes selectable from the crate. The implementation checkpoint is `338b0db`; later visual and live-answer gates remain separate.
+Run 7 now has two modes selectable from the crate. The latest pushed checkpoint is `8566d04`; the Dynamic evidence described below was established at `338b0db`. Final integration and visual acceptance remain separate.
 
 | Mode | Working capability | Evidence and limits |
 |---|---|---|
@@ -69,10 +69,12 @@ Lens components compile through Lens Studio's `RecompileTypeScriptTool`, not Nod
 
 | Check | Recorded result |
 |---|---|
-| Last full pure suite, Run 6 | 462/462 tests across 49 files, pure-engine/tooling typecheck passed |
+| Latest full pure suite, Run 7 | 504 tests across 57 files, pure-engine/tooling typecheck passed |
 | Historical fuzz checkpoint, October 30 | 1,000 players / 29,081 actions; default 200 generated cases accepted |
 | Longer generator checkpoint, October 29 | 5,000/5,000 accepted; historical evidence, not a new Run 5 measurement |
 | Run 7 A2 Preview | Strict replacement bundle 11.836 s and hero 169.471 s; new-cast tape preserved. Final new-feature integration pending |
+| Run 7 pose/proximity | Strict twenty distinct textures matched active native renderers (105.966 s); proximity passed. This is not a completed promotional contact sheet |
+| Run 7 live-AI/Wren | Strict beat passed 163.461 s: director chose four bundled suspect pieces with no fallback; Wren chose a knowledge-only option and live TTS played; unchanged truth and exact replay |
 | Run 7 Dynamic Preview | `source=file` seeds 7/1041/2026: correct verdict, exact replay, zero binding errors; one completed live scan reused |
 | Run 5 audio tooling | 8/8 pipeline tests; 2/2 bundled-fallback/segment tests; published coverage, alignment and size checks passed |
 | Strict validator, Run 6 saved-corpus replay | 0/96 and 0/48 attack bypasses; 20/34 natural holdout answers rejected (58.8%, down from 70.6%); inspected holdout is regression evidence |
@@ -80,7 +82,9 @@ Lens components compile through Lens Studio's `RecompileTypeScriptTool`, not Nod
 
 These measurements describe specific checkpoints. They are not a claim that the current Lens passed the full final suite. See the [validator study](docs/validator-study-2026-10-30.md), [Run 4 revalidation](Tooling/results/run4-b-validator-report.json), [production study](docs/production-study-2026-10-30.md), and [latest progress](docs/PROGRESS.md).
 
-Remaining gates include dedicated art/UI/proximity/physical/ghost and narrated-moment acceptance, fresh live-answer/Wren verification, frame time, final integrated suite and an actual continuous voiced capture. Compiled adapters and pure Wren/route tests do not certify their visual or live behaviour. Additive readability, spatial audio, ray-drop comfort, keyboard and ASR remain device checks. Feature freeze is Sun November 8 at 21:00 PKT. Multiplayer is deferred. No `m3-case` or submission tag is claimed.
+Remaining gates include final art/UI/physical/ghost and narrated-moment visual acceptance, the integrated suite and continuous voiced capture. The strict twenty-pose and live-AI/Wren checks pass, but they do not certify the entire presentation. Native continuous recording is **not working** and there is **no 60–90 s clip**. S2 remains failed: the 10 s trace measured paired ProcessFrame + Render wall spans averaging **15.95 ms** (p90 20.30 ms), above the 8 ms target. Additive readability, spatial audio, ray-drop comfort, keyboard and ASR remain device checks. Feature freeze is Sun November 8 at 21:00 PKT. Multiplayer is deferred. No `m3-case` or submission tag is claimed.
+
+The [Vale questions capture](docs/captures/2026-11-06-run7-vale-questions.png) is **diagnostic only**: it contains the red failed S2 assertion banner, an oversized foreground actor and subtitle/panel overlap. It must not be used as a finished promotional still. Runtime fixes and fresh clean captures remain separate acceptance work. The [live AI tape](Tooling/results/run7-live-ai-beat.json) records the passed live response and replay; it is not a video.
 
 ## How it was built
 
@@ -103,7 +107,7 @@ VirtualScene is the scene-writing surface. The MCP supplies compilation, runtime
 
 ## Run 7 costs and voice-agent decision
 
-At checkpoint `338b0db`, seven Claude calls total **$0.081204 estimated** from tokens, not an invoice. ElevenLabs generated **304 voice clips and four effects**, costing **2,954 header-confirmed credits**. The supplemental audio is 2,391,876 bytes; it is separate from the Run 6 hero library and is not an exported Lens-size measurement. [Audio report](Tooling/audio/RUN7.md) · [Claude ledger](Tooling/results/run7-claude-ledger.json).
+At this publication refresh, seven Claude calls total **$0.081204 estimated** from tokens, not an invoice. ElevenLabs published **338 voice clips and four effects**, costing **3,199 header-confirmed credits**. The supplemental audio is 2,644,254 bytes; it is separate from the Run 6 hero library and is not an exported Lens-size measurement. [Audio report](Tooling/audio/RUN7.md) · [Claude ledger](Tooling/results/run7-claude-ledger.json).
 
 Direct ElevenLabs conversational-agent speech is **no-go**: a tool protocol alone cannot guarantee that every emitted word matches the engine-approved account. No live microphone/WebSocket/audio trial passed and no agent was created. The video uses prerecorded voices; live model performance stays behind the existing admission path. [Voice-agent spike](Tooling/audio/RUN7-VOICE-AGENT.md).
 

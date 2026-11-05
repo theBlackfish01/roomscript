@@ -22,11 +22,17 @@ import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
     const bounded=<T>(promise:Promise<T>,ms:number,label:string)=>new Promise<T>((resolve,reject)=>{const timeout=setTimeout(()=>reject(new Error(label+" timed out")),ms);promise.then(value=>{clearTimeout(timeout);resolve(value);},error=>{clearTimeout(timeout);reject(error);});});
     await sleep(300);const opening=findSceneObjectByName("RoomscriptOpening").getComponent(RoomscriptOpeningController.getTypeName()) as RoomscriptOpeningController;
     const flow=opening.cast.flow,camera=findSceneObjectByName("Camera Object").getComponent("Component.Camera") as Camera;
-    const source=requestedSource==="camera"?camera.renderTarget:requestedSource==="live"?global.scene.liveTarget:global.scene.captureTarget||global.scene.liveTarget||camera.renderTarget;
-    expect(!!source).toBe(true);expect(source.getWidth()>0&&source.getHeight()>0).toBe(true);
     const recorderAvailable=typeof VideoRecorder!=="undefined"&&typeof VideoRecorder.create==="function"&&typeof VideoRecorder.Options==="function";
     console.log("CONTINUOUS_CAPTURE_API|"+JSON.stringify({recorderAvailable}));expect(recorderAvailable).toBe(true);
-    const options=new VideoRecorder.Options(source);options.saveThumbnail=true;options.textureScale=full?1:.5;
+    let source:Texture|null=null;
+    if(requestedSource==="capture")try{source=global.scene.captureTarget;}catch{console.log("CONTINUOUS_CAPTURE_SOURCE_UNAVAILABLE|captureTarget");}
+    if(!source&&requestedSource!=="camera")try{source=global.scene.liveTarget;}catch{console.log("CONTINUOUS_CAPTURE_SOURCE_UNAVAILABLE|liveTarget");}
+    if(!source)source=camera.renderTarget;
+    expect(!!source).toBe(true);expect(source.getWidth()>0&&source.getHeight()>0).toBe(true);
+    // Windows Preview's packed stereo target rejects the scaled writer dimensions.
+    // Record its native size; derive a single-eye crop only after recovering the file.
+    // Thumbnail extraction also rejects this target's >2048px packed height.
+    const options=new VideoRecorder.Options(source);options.saveThumbnail=false;options.textureScale=1;
     this.recorder=VideoRecorder.create(options);this.recordedTexture=null;
     const hand=input==="ik"?null:new DefaultLeafInteractor();
     // Disable the factory's scripted fallback: a failed IK reach is evidence, not filmable hand success.
