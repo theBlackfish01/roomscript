@@ -1,3 +1,20 @@
+﻿# Run 6 — active, 2026-11-05
+
+## Current submission state
+
+Working on `run5-wip` from `6518394` (Run 5 preserved and pushed by Claude). Master stays at `bfaf5ff` until Phase A2 passes with the swapped compressed library and hero route. Private repository, MIT, real history, package commits/pushes authorized. Freeze: Nov 7, 21:00 PKT. Rule 15 permits normal sandbox escalations; only GUI automation is forbidden. Historical Run 5 approval blockers below are superseded.
+
+- Preflight: Lens 5.23.2.26081320, correct project, signed in; process log starts Nov 5 14:02:41. Compile and refresh passed. LEAF registration handshake 0.483 s; first refresh activity 29 ms.
+- Baseline compressed bundled voices passed (four actors, jaw peak 0.8, no network/fallback). This first invocation mistakenly used diagnostic policy `strict`, which this LEAF version maps to fallback. Subsequent strict gates use `fail-fast` and require rerun.
+- Hero baseline found a UIKit readiness race after opening: enabled control lookup ran before its interaction component resumed. Added a bounded wait for the real enabled control; rerun in progress. Run 5 mixed-root solver repair retained.
+- Two workers: Vale-only voice swap with ledger accounting; brighter thicker art and OFL fonts. No full suite during render/LEAF.
+
+## Needs Wadood
+
+- D6 submission-form/rules review and actual Eleven Music subscription eligibility remain owner-only.
+- Physical Specs comfort, additive brightness, spatial audio, keyboard and ASR remain unverified.
+
+---
 # Run 5 — handoff, 2026-11-04
 
 Full package statuses, verification, costs, review artifacts and the ten-minute tour: [Run 5 final report](RUN5_REPORT.md).
@@ -299,3 +316,6 @@ Final isolated Preview attempt: roomscript-hero-demo failed at 30.844 s, expecte
 Final regression gate (2026-10-30 01:41 PKT): npm test -- --maxWorkers=1 passed 411/411 tests across 37 files, exit 0, 159.36 s. Includes 1000 players / 29081 actions and 200/200 generated cases across five fixtures (max 201.5 ms, p95 126.1 ms, 55 distinct room/envelope pairs). This is the revised default gate, not a fresh 5000-case run. Tooling/pure-engine typecheck exit 0. Latest Lens compilation passed; final refresh reached production interrogation ready with no startup errors and restored the placement screen. Later integrated execution failures remain unresolved.
 
 Local checkpoints for the final packages: 1a47f14 (D6 offline availability, Preview gate partial), 743731a (D7 authored hero tape/tests/tour, Preview gate pending). Fuzz harness hardening is the following verified tooling commit. No work was pushed. User-owned instruction/review edits remain outside these commits.
+
+
+Run 6 verified step: repaired hero-demo passed fail-fast in 171.752 s, bundled playback on all requested questions, zero network, correct verdict and replay equality. Vale replacement acceptance still pending.

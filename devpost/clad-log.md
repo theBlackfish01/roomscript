@@ -69,3 +69,12 @@ The recorded working Lens Studio baseline is 5.23.2.26081320. CLAD is `ls-clad` 
 **Logic proven:** recorded solver/reducer/validator/replay tests and individually verified Preview flows. **Feel unproven:** physical placement, additive readability, sound balance, gesture comfort, keyboard/ASR and device performance. The final hero audio route, integrated gate, captures and tape still determine `m3-case`.
 
 Raw-log SHA-256: `34820b09cc040b6dbe223def9e95c3649f5764cb9ec6f8016e6d5106e59b6bfe`. It intentionally retains its original bytes and formatting. [PROGRESS](../docs/PROGRESS.md) overrides older status here.
+
+## 2026-11-05 — Run 6
+
+- Codex main: read CLAD router (preflight_only), field-notes, editor-api, specs-project-init, live-lens-tester agent inline per FIRST_PASS §1b, specs-leaf-run-in-preview, preview-inspection and lens-api. MCP ListAllPanels/ExecuteEditorCode verified project, sign-in and 5.23.2; compile + refreshed logs clean, handshake 0.483 s.
+- MCP bundled-voices baseline passed four voices on compressed assets, peak jaw 0.8, zero network/fallback. Corrected diagnostic policy spelling to fail-fast for subsequent strict gates.
+- MCP hero baseline failed on disabled Select S1 immediately after opening; runtime query verified the button exists after UIKit updates. Added bounded real-control readiness to the hero regression scenario; no bypass of interactions.
+- Codex workers: Vale audio save/synthesis and offline art/font polish (maximum two; no GUI tools).
+
+- Run 6 MCP hero-demo: fail-fast passed 171.752 s after bounded UIKit readiness repair; exact replay, correct ending, bundled questions, no network.

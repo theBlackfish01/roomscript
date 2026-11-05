@@ -162,3 +162,7 @@ The synchronous player-fuzz test exceeded its 60-second deadline under current l
 - Preserve sentence coverage by sharing full recordings with start/end offsets and relative character alignment. The 9.91 MB audio payload uses 40 kbps for canonical steady/narrator/tell, 32 kbps for extra performances, 64 kbps music. This meets the audio budget without claiming an exported Lens size.
 - Git staging failed twice on index.lock permissions. No commit, push or tag is reported. Preserve uncommitted work outside git until write access is available.
 - After successful compilation of compressed assets, Preview refresh timed out without runtime activity. Stop Lens MCP work under the project's failure rule; continue art/publication/pure tests. No m3-case until compressed Stage hero, ending variants, captures and tape pass.
+
+## 2026-11-05 — Run 6 recovery and acceptance
+
+Use run5-wip until the swapped compressed bundle and repaired hero pass; only then fast-forward/push master. User explicitly authorizes package pushes and normal sandbox escalations, superseding old no-push/no-approval guidance. Keep two workers max, no GUI, serial LEAF and no full suite during renders. LEAF strict policy is `fail-fast` (not `strict`). Initial compressed baseline passed under fallback and is not the strict acceptance result. UIKit controls need a bounded readiness wait after visibility changes; do not replace UI interactions with direct callbacks in the hero test.
