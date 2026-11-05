@@ -1,0 +1,141 @@
+{
+  "requestId": "roomscript-memory-cards:1793917311132:1",
+  "scenarioId": "roomscript-memory-cards",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:22:07.046",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-memory-cards",
+        "requestId": "roomscript-memory-cards:1793917311132:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793917327046,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:22:25.255",
+      "record": {
+        "status": "failed",
+        "scenarioId": "roomscript-memory-cards",
+        "requestId": "roomscript-memory-cards:1793917311132:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793917327046,
+        "finishedAt": 1793917345255,
+        "elapsedMs": 18209,
+        "error": "Error: FAILED: roomscript-memory-cards - AssertionError: Expected: \"Memory collected\" - Received: \"\"",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:22:08.680",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1546,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:22:17.518",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 3191,
+        "call": 36
+      }
+    },
+    {
+      "logTime": "03:22:19.088",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1569,
+        "call": 37
+      }
+    },
+    {
+      "logTime": "03:22:22.204",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ToastTick",
+        "ms": 2425,
+        "call": 49
+      }
+    },
+    {
+      "logTime": "03:22:23.233",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Kettle",
+        "ms": 1027,
+        "call": 50
+      }
+    },
+    {
+      "logTime": "03:22:24.850",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Chime",
+        "ms": 1613,
+        "call": 52
+      }
+    }
+  ],
+  "errors": [
+    {
+      "logTime": "03:22:25.252",
+      "text": "E [DefaultLeafScenarioManager] [ 18.204s]FAILED: roomscript-memory-cards - AssertionError: Expected: \"Memory collected\" - Received: \"\""
+    },
+    {
+      "logTime": "03:22:25.253",
+      "text": "E [DefaultLeafScenarioManager] [ 18.205s][roomscript-memory-cards] FAILED - AssertionError: Expected: \"Memory collected\" - Received: \"\""
+    }
+  ],
+  "latest": {
+    "status": "failed",
+    "scenarioId": "roomscript-memory-cards",
+    "requestId": "roomscript-memory-cards:1793917311132:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "180",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793917327046,
+    "finishedAt": 1793917345255,
+    "elapsedMs": 18209,
+    "error": "Error: FAILED: roomscript-memory-cards - AssertionError: Expected: \"Memory collected\" - Received: \"\"",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 10593,
+  "endLine": 10606,
+  "evidenceLabel": "LEAF local-manager FAILED",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 3362808,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:38:43.617Z"
+}

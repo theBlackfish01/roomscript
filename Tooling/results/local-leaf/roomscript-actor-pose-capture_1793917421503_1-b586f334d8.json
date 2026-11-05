@@ -1,0 +1,238 @@
+{
+  "requestId": "roomscript-actor-pose-capture:1793917421503:1",
+  "scenarioId": "roomscript-actor-pose-capture",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:23:57.299",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-actor-pose-capture",
+        "requestId": "roomscript-actor-pose-capture:1793917421503:1",
+        "config": {
+          "suspect": "S2",
+          "pose": "neutral",
+          "audit": "true",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793917437299,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:24:07.173",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-actor-pose-capture",
+        "requestId": "roomscript-actor-pose-capture:1793917421503:1",
+        "config": {
+          "suspect": "S2",
+          "pose": "neutral",
+          "audit": "true",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793917437299,
+        "finishedAt": 1793917447172,
+        "elapsedMs": 9873,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:23:59.025",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1640,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:24:02.819",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.track:Interrogation",
+        "ms": 793,
+        "call": 26
+      }
+    },
+    {
+      "logTime": "03:24:05.229",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 2410,
+        "call": 28
+      }
+    },
+    {
+      "logTime": "03:24:06.359",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1130,
+        "call": 29
+      }
+    },
+    {
+      "logTime": "03:24:07.172",
+      "name": "ACTOR_POSE_CAPTURE",
+      "data": {
+        "checked": 20,
+        "checks": [
+          {
+            "suspect": "S1",
+            "pose": "neutral",
+            "texture": "Qadir-neutral"
+          },
+          {
+            "suspect": "S1",
+            "pose": "listening",
+            "texture": "Qadir-listening"
+          },
+          {
+            "suspect": "S1",
+            "pose": "rattled",
+            "texture": "Qadir-rattled"
+          },
+          {
+            "suspect": "S1",
+            "pose": "broken",
+            "texture": "Qadir-broken"
+          },
+          {
+            "suspect": "S1",
+            "pose": "smug",
+            "texture": "Qadir-smug"
+          },
+          {
+            "suspect": "S2",
+            "pose": "neutral",
+            "texture": "Vale-neutral"
+          },
+          {
+            "suspect": "S2",
+            "pose": "listening",
+            "texture": "Vale-listening"
+          },
+          {
+            "suspect": "S2",
+            "pose": "rattled",
+            "texture": "Vale-rattled"
+          },
+          {
+            "suspect": "S2",
+            "pose": "broken",
+            "texture": "Vale-broken"
+          },
+          {
+            "suspect": "S2",
+            "pose": "smug",
+            "texture": "Vale-smug"
+          },
+          {
+            "suspect": "S3",
+            "pose": "neutral",
+            "texture": "Okafor-neutral"
+          },
+          {
+            "suspect": "S3",
+            "pose": "listening",
+            "texture": "Okafor-listening"
+          },
+          {
+            "suspect": "S3",
+            "pose": "rattled",
+            "texture": "Okafor-rattled"
+          },
+          {
+            "suspect": "S3",
+            "pose": "broken",
+            "texture": "Okafor-broken"
+          },
+          {
+            "suspect": "S3",
+            "pose": "smug",
+            "texture": "Okafor-smug"
+          },
+          {
+            "suspect": "S4",
+            "pose": "neutral",
+            "texture": "Pike-neutral"
+          },
+          {
+            "suspect": "S4",
+            "pose": "listening",
+            "texture": "Pike-listening"
+          },
+          {
+            "suspect": "S4",
+            "pose": "rattled",
+            "texture": "Pike-rattled"
+          },
+          {
+            "suspect": "S4",
+            "pose": "broken",
+            "texture": "Pike-broken"
+          },
+          {
+            "suspect": "S4",
+            "pose": "smug",
+            "texture": "Pike-smug"
+          }
+        ],
+        "selected": {
+          "suspect": "S2",
+          "pose": "neutral"
+        },
+        "holdSeconds": 120,
+        "presentationOnly": true
+      }
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-actor-pose-capture",
+    "requestId": "roomscript-actor-pose-capture:1793917421503:1",
+    "config": {
+      "suspect": "S2",
+      "pose": "neutral",
+      "audit": "true",
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "180",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793917437299,
+    "finishedAt": 1793917447172,
+    "elapsedMs": 9873,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 10715,
+  "endLine": 10723,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 3004889,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:24:39.179Z"
+}

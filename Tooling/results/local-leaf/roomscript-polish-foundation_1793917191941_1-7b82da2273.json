@@ -1,0 +1,457 @@
+{
+  "requestId": "roomscript-polish-foundation:1793917191941:1",
+  "scenarioId": "roomscript-polish-foundation",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:20:08.340",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-polish-foundation",
+        "requestId": "roomscript-polish-foundation:1793917191941:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793917208340,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:20:45.712",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-polish-foundation",
+        "requestId": "roomscript-polish-foundation:1793917191941:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793917208340,
+        "finishedAt": 1793917245711,
+        "elapsedMs": 37371,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:20:10.171",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1749,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:20:10.425",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:Rain",
+        "ms": 176,
+        "call": 23
+      }
+    },
+    {
+      "logTime": "03:20:14.763",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.track:Interrogation",
+        "ms": 777,
+        "call": 26
+      }
+    },
+    {
+      "logTime": "03:20:18.407",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 3644,
+        "call": 28
+      }
+    },
+    {
+      "logTime": "03:20:20.186",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1779,
+        "call": 29
+      }
+    },
+    {
+      "logTime": "03:20:20.464",
+      "name": "POLISH_CACHE",
+      "data": {
+        "same": true,
+        "frozen": true
+      }
+    },
+    {
+      "logTime": "03:20:20.642",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:music",
+        "ms": 173,
+        "call": 34
+      }
+    },
+    {
+      "logTime": "03:20:22.457",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1759,
+        "call": 42
+      }
+    },
+    {
+      "logTime": "03:20:22.457",
+      "name": "POLISH_CLOCK_START",
+      "data": {
+        "before": {
+          "clockActive": false,
+          "clockPlaying": true,
+          "clockStarts": 1,
+          "clockStops": 1,
+          "clockPosition": 0,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 41,
+          "slowCalls": 11,
+          "maxCallMs": 3896,
+          "volumeWrites": 27
+        },
+        "start": {
+          "clockActive": true,
+          "clockPlaying": false,
+          "clockStarts": 2,
+          "clockStops": 1,
+          "clockPosition": 0,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 43,
+          "slowCalls": 12,
+          "maxCallMs": 3896,
+          "volumeWrites": 27
+        }
+      }
+    },
+    {
+      "logTime": "03:20:22.550",
+      "name": "POLISH_CLOCK_NATIVE_READY",
+      "data": {
+        "frames": 1,
+        "seconds": 2.1056914999498986,
+        "samples": [
+          {
+            "frame": 1,
+            "seconds": 2.1056914999498986,
+            "playing": true,
+            "position": 0.3413333296775818,
+            "starts": 2
+          }
+        ],
+        "state": {
+          "clockActive": true,
+          "clockPlaying": true,
+          "clockStarts": 2,
+          "clockStops": 1,
+          "clockPosition": 0.3413333296775818,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 43,
+          "slowCalls": 12,
+          "maxCallMs": 3896,
+          "volumeWrites": 27
+        }
+      }
+    },
+    {
+      "logTime": "03:20:22.550",
+      "name": "POLISH_CLOCK_REPEATED",
+      "data": {
+        "start": {
+          "clockActive": true,
+          "clockPlaying": false,
+          "clockStarts": 2,
+          "clockStops": 1,
+          "clockPosition": 0,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 43,
+          "slowCalls": 12,
+          "maxCallMs": 3896,
+          "volumeWrites": 27
+        },
+        "repeated": {
+          "clockActive": true,
+          "clockPlaying": true,
+          "clockStarts": 2,
+          "clockStops": 1,
+          "clockPosition": 0.3413333296775818,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 43,
+          "slowCalls": 12,
+          "maxCallMs": 3896,
+          "volumeWrites": 27
+        }
+      }
+    },
+    {
+      "logTime": "03:20:23.714",
+      "name": "POLISH_CLOCK_AFTER_PERIOD",
+      "data": {
+        "deadline": 31.772014399967155,
+        "now": 31.790816099965014,
+        "state": {
+          "clockActive": true,
+          "clockPlaying": true,
+          "clockStarts": 2,
+          "clockStops": 1,
+          "clockPosition": 0.35866665840148926,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 43,
+          "slowCalls": 12,
+          "maxCallMs": 3896,
+          "volumeWrites": 27
+        }
+      }
+    },
+    {
+      "logTime": "03:20:23.714",
+      "name": "POLISH_CLOCK_LOOP",
+      "data": {
+        "before": {
+          "clockActive": false,
+          "clockPlaying": true,
+          "clockStarts": 1,
+          "clockStops": 1,
+          "clockPosition": 0,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 41,
+          "slowCalls": 11,
+          "maxCallMs": 3896,
+          "volumeWrites": 27
+        },
+        "start": {
+          "clockActive": true,
+          "clockPlaying": false,
+          "clockStarts": 2,
+          "clockStops": 1,
+          "clockPosition": 0,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 43,
+          "slowCalls": 12,
+          "maxCallMs": 3896,
+          "volumeWrites": 27
+        },
+        "after": {
+          "clockActive": true,
+          "clockPlaying": true,
+          "clockStarts": 2,
+          "clockStops": 1,
+          "clockPosition": 0.35866665840148926,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 43,
+          "slowCalls": 12,
+          "maxCallMs": 3896,
+          "volumeWrites": 27
+        }
+      }
+    },
+    {
+      "logTime": "03:20:25.327",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Chime",
+        "ms": 1612,
+        "call": 44
+      }
+    },
+    {
+      "logTime": "03:20:27.560",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:ClockTick",
+        "ms": 2232,
+        "call": 46
+      }
+    },
+    {
+      "logTime": "03:20:27.565",
+      "name": "POLISH_AUDIO",
+      "data": {
+        "generation": 1,
+        "duration": 1.0514285564422607,
+        "clockObserved": true,
+        "spatialObserved": true,
+        "overlap": true,
+        "observations": [
+          {
+            "age": 0,
+            "position": 0.1706666648387909,
+            "tick": true,
+            "spatial": 1,
+            "generation": 1
+          }
+        ]
+      }
+    },
+    {
+      "logTime": "03:20:27.566",
+      "name": "POLISH_CLOCK_STOP_REQUEST",
+      "data": {
+        "phase": "scan",
+        "state": {
+          "clockActive": false,
+          "clockPlaying": false,
+          "clockStarts": 2,
+          "clockStops": 2,
+          "clockPosition": 0,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 49,
+          "slowCalls": 14,
+          "maxCallMs": 3896,
+          "volumeWrites": 28
+        }
+      }
+    },
+    {
+      "logTime": "03:20:27.567",
+      "name": "POLISH_CLOCK_NATIVE_STOPPED",
+      "data": {
+        "phase": "scan",
+        "frames": 0,
+        "seconds": 0,
+        "samples": [],
+        "state": {
+          "clockActive": false,
+          "clockPlaying": false,
+          "clockStarts": 2,
+          "clockStops": 2,
+          "clockPosition": 0,
+          "scoreStarts": 2,
+          "scoreName": "Interrogation",
+          "tensionStarts": 0,
+          "tensionActive": false,
+          "nativeCalls": 49,
+          "slowCalls": 14,
+          "maxCallMs": 3896,
+          "volumeWrites": 28
+        }
+      }
+    },
+    {
+      "logTime": "03:20:30.058",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 2489,
+        "call": 50
+      }
+    },
+    {
+      "logTime": "03:20:30.187",
+      "name": "POLISH_AUDIO_AFTER_FRAME",
+      "data": {
+        "native": {
+          "spatial": 1,
+          "flat": 0,
+          "tick": true
+        },
+        "narrative": {
+          "queued": 0,
+          "playing": false,
+          "played": 2,
+          "fallback": 0,
+          "rejectedDialogue": 0,
+          "cueStarts": 3,
+          "tickStarts": 1,
+          "tickAge": 6.467506800021511,
+          "tickDuration": 1.0514285564422607,
+          "tickPosition": 1.0514285564422607
+        }
+      }
+    },
+    {
+      "logTime": "03:20:45.710",
+      "name": "POLISH_FRAME_PROBE",
+      "data": {
+        "frames": 600,
+        "requestedFrames": 600,
+        "seconds": 15.528851900016889,
+        "bounded": false,
+        "meanMs": 25.88141983336148,
+        "maxMs": 83.99350004037842,
+        "targetMs": 8
+      }
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-polish-foundation",
+    "requestId": "roomscript-polish-foundation:1793917191941:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "180",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793917208340,
+    "finishedAt": 1793917245711,
+    "elapsedMs": 37371,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 10369,
+  "endLine": 10398,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 2995538,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:23:42.550Z"
+}

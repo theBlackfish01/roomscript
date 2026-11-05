@@ -1,0 +1,525 @@
+{
+  "requestId": "roomscript-casting-sweep:1793918001628:1",
+  "scenarioId": "roomscript-casting-sweep",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:33:38.117",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-casting-sweep",
+        "requestId": "roomscript-casting-sweep:1793918001628:1",
+        "config": {
+          "audit": "true",
+          "captureIndex": "0",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793918018117,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:35:10.277",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-casting-sweep",
+        "requestId": "roomscript-casting-sweep:1793918001628:1",
+        "config": {
+          "audit": "true",
+          "captureIndex": "0",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793918018117,
+        "finishedAt": 1793918110276,
+        "elapsedMs": 92159,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:33:40.406",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 2197,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:33:40.687",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:RoomTone",
+        "ms": 111,
+        "call": 24
+      }
+    },
+    {
+      "logTime": "03:33:42.678",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1990,
+        "call": 25
+      }
+    },
+    {
+      "logTime": "03:33:44.833",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 2080,
+        "call": 28
+      }
+    },
+    {
+      "logTime": "03:33:46.951",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:TapeZip",
+        "ms": 2035,
+        "call": 31
+      }
+    },
+    {
+      "logTime": "03:33:52.700",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:CrateThud",
+        "ms": 1643,
+        "call": 41
+      }
+    },
+    {
+      "logTime": "03:34:01.320",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:TapeZip",
+        "ms": 3719,
+        "call": 48
+      }
+    },
+    {
+      "logTime": "03:34:01.366",
+      "name": "CASTING_BEGIN",
+      "data": {
+        "mode": "preset",
+        "objects": 7,
+        "at": 35.958514800004195,
+        "source": "recorded scan"
+      }
+    },
+    {
+      "logTime": "03:34:03.947",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:CastingChime",
+        "ms": 2576,
+        "call": 51
+      }
+    },
+    {
+      "logTime": "03:34:08.078",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Ratchet",
+        "ms": 3854,
+        "call": 52
+      }
+    },
+    {
+      "logTime": "03:34:08.909",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Ratchet",
+        "ms": 831,
+        "call": 53
+      }
+    },
+    {
+      "logTime": "03:34:14.991",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Chime",
+        "ms": 3306,
+        "call": 54
+      }
+    },
+    {
+      "logTime": "03:34:15.076",
+      "name": "CASTING_BEAT",
+      "data": {
+        "index": 0,
+        "id": "SCAN_1",
+        "text": "Your media console: a hiding place.",
+        "position": [
+          0,
+          -137.51858520507812,
+          -447.2526550292969
+        ],
+        "started": 35.958514800004195,
+        "ended": 53.467353800020646,
+        "spoken": true,
+        "nativeObserved": true
+      }
+    },
+    {
+      "logTime": "03:34:19.489",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:CastingChime",
+        "ms": 4413,
+        "call": 56
+      }
+    },
+    {
+      "logTime": "03:34:25.776",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.track:Interrogation",
+        "ms": 3384,
+        "call": 59
+      }
+    },
+    {
+      "logTime": "03:34:26.585",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 809,
+        "call": 60
+      }
+    },
+    {
+      "logTime": "03:34:28.722",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 2136,
+        "call": 61
+      }
+    },
+    {
+      "logTime": "03:34:28.970",
+      "name": "CASTING_BEAT",
+      "data": {
+        "index": 1,
+        "id": "SCAN_2",
+        "text": "Your record player: a witness.",
+        "position": [
+          -97.73124694824219,
+          -123.44419860839844,
+          -457.34381103515625
+        ],
+        "started": 53.467353800020646,
+        "ended": 67.35659029998351,
+        "spoken": true,
+        "nativeObserved": true
+      }
+    },
+    {
+      "logTime": "03:34:36.460",
+      "name": "CASTING_BEAT",
+      "data": {
+        "index": 2,
+        "id": "SCAN_3",
+        "text": "Your left speaker: a possible weapon.",
+        "position": [
+          -163.08575439453125,
+          -115.84607696533203,
+          -469.7535095214844
+        ],
+        "started": 67.35659029998351,
+        "ended": 74.8497733999975,
+        "spoken": true,
+        "nativeObserved": true
+      }
+    },
+    {
+      "logTime": "03:34:39.120",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:CastingChime",
+        "ms": 2652,
+        "call": 66
+      }
+    },
+    {
+      "logTime": "03:34:43.968",
+      "name": "CASTING_BEAT",
+      "data": {
+        "index": 3,
+        "id": "SCAN_4",
+        "text": "Your right speaker: a possible weapon.",
+        "position": [
+          119.51427459716797,
+          -115.48087310791016,
+          -469.6797790527344
+        ],
+        "started": 74.8497733999975,
+        "ended": 82.35771519999253,
+        "spoken": true,
+        "nativeObserved": true
+      }
+    },
+    {
+      "logTime": "03:34:51.430",
+      "name": "CASTING_BEAT",
+      "data": {
+        "index": 4,
+        "id": "SCAN_5",
+        "text": "Your woven chair: a hiding place.",
+        "position": [
+          121.11506652832031,
+          -129.58786010742188,
+          -370.0863037109375
+        ],
+        "started": 82.35771519999253,
+        "ended": 89.82005839998601,
+        "spoken": true,
+        "nativeObserved": true
+      }
+    },
+    {
+      "logTime": "03:34:58.159",
+      "name": "CASTING_BEAT",
+      "data": {
+        "index": 5,
+        "id": "SCAN_6",
+        "text": "Your coffee table: a witness.",
+        "position": [
+          10.701000213623047,
+          -132.68350219726562,
+          -314.01275634765625
+        ],
+        "started": 89.82005839998601,
+        "ended": 95.83792770002037,
+        "spoken": true,
+        "nativeObserved": true
+      }
+    },
+    {
+      "logTime": "03:35:05.916",
+      "name": "CASTING_BEAT",
+      "data": {
+        "index": 6,
+        "id": "SCAN_7",
+        "text": "Your sofa: a hiding place.",
+        "position": [
+          0,
+          -133.42861938476562,
+          -196.03656005859375
+        ],
+        "started": 95.83792770002037,
+        "ended": 104.3060553999967,
+        "spoken": true,
+        "nativeObserved": true
+      }
+    },
+    {
+      "logTime": "03:35:10.140",
+      "name": "CASTING_BEAT",
+      "data": {
+        "index": 7,
+        "id": "finish",
+        "text": "Tonight, this room is Harlow's study.",
+        "position": [],
+        "started": 104.3060553999967,
+        "ended": 108.53010860003997,
+        "spoken": true,
+        "nativeObserved": true
+      }
+    },
+    {
+      "logTime": "03:35:10.141",
+      "name": "CASTING_COMPLETE",
+      "data": {
+        "marks": 7,
+        "beats": 8,
+        "voiced": 8,
+        "nativeObserved": 8,
+        "fallback": 0
+      }
+    },
+    {
+      "logTime": "03:35:10.143",
+      "name": "CASTING_SWEEP_CHECK",
+      "data": {
+        "recordedScan": true,
+        "rawReplies": 3,
+        "marks": 7,
+        "voicedBeats": 8,
+        "nativeObserved": 8,
+        "oneAtATime": true,
+        "frames": 9,
+        "seconds": 72.57159380003577,
+        "truthUnchanged": true,
+        "trace": [
+          {
+            "index": 0,
+            "id": "SCAN_1",
+            "text": "Your media console: a hiding place.",
+            "position": [
+              0,
+              -137.51858520507812,
+              -447.2526550292969
+            ],
+            "started": 35.958514800004195,
+            "ended": 53.467353800020646,
+            "spoken": true,
+            "nativeObserved": true
+          },
+          {
+            "index": 1,
+            "id": "SCAN_2",
+            "text": "Your record player: a witness.",
+            "position": [
+              -97.73124694824219,
+              -123.44419860839844,
+              -457.34381103515625
+            ],
+            "started": 53.467353800020646,
+            "ended": 67.35659029998351,
+            "spoken": true,
+            "nativeObserved": true
+          },
+          {
+            "index": 2,
+            "id": "SCAN_3",
+            "text": "Your left speaker: a possible weapon.",
+            "position": [
+              -163.08575439453125,
+              -115.84607696533203,
+              -469.7535095214844
+            ],
+            "started": 67.35659029998351,
+            "ended": 74.8497733999975,
+            "spoken": true,
+            "nativeObserved": true
+          },
+          {
+            "index": 3,
+            "id": "SCAN_4",
+            "text": "Your right speaker: a possible weapon.",
+            "position": [
+              119.51427459716797,
+              -115.48087310791016,
+              -469.6797790527344
+            ],
+            "started": 74.8497733999975,
+            "ended": 82.35771519999253,
+            "spoken": true,
+            "nativeObserved": true
+          },
+          {
+            "index": 4,
+            "id": "SCAN_5",
+            "text": "Your woven chair: a hiding place.",
+            "position": [
+              121.11506652832031,
+              -129.58786010742188,
+              -370.0863037109375
+            ],
+            "started": 82.35771519999253,
+            "ended": 89.82005839998601,
+            "spoken": true,
+            "nativeObserved": true
+          },
+          {
+            "index": 5,
+            "id": "SCAN_6",
+            "text": "Your coffee table: a witness.",
+            "position": [
+              10.701000213623047,
+              -132.68350219726562,
+              -314.01275634765625
+            ],
+            "started": 89.82005839998601,
+            "ended": 95.83792770002037,
+            "spoken": true,
+            "nativeObserved": true
+          },
+          {
+            "index": 6,
+            "id": "SCAN_7",
+            "text": "Your sofa: a hiding place.",
+            "position": [
+              0,
+              -133.42861938476562,
+              -196.03656005859375
+            ],
+            "started": 95.83792770002037,
+            "ended": 104.3060553999967,
+            "spoken": true,
+            "nativeObserved": true
+          },
+          {
+            "index": 7,
+            "id": "finish",
+            "text": "Tonight, this room is Harlow's study.",
+            "position": [],
+            "started": 104.3060553999967,
+            "ended": 108.53010860003997,
+            "spoken": true,
+            "nativeObserved": true
+          }
+        ]
+      }
+    },
+    {
+      "logTime": "03:35:10.275",
+      "name": "CASTING_DIRECTOR_CAPTURE",
+      "data": {
+        "captureIndex": 0,
+        "id": "SCAN_1",
+        "holdSeconds": 120,
+        "presentationOnly": true,
+        "sweepVerified": true
+      }
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-casting-sweep",
+    "requestId": "roomscript-casting-sweep:1793918001628:1",
+    "config": {
+      "audit": "true",
+      "captureIndex": "0",
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "240",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793918018117,
+    "finishedAt": 1793918110276,
+    "elapsedMs": 92159,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 11257,
+  "endLine": 11314,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 3212873,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:35:29.437Z"
+}

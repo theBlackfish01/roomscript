@@ -47,7 +47,18 @@ import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
     console.log("POLISH_AUDIO|"+JSON.stringify({generation,duration:start.tickDuration,clockObserved,spatialObserved,overlap,observations}));
     expect(clockObserved).toBe(true);expect(spatialObserved).toBe(true);expect(overlap).toBe(true);
     const explicitLoop=audio.loopDiagnostics();expect(explicitLoop.clockStarts).toBe(loopStart.clockStarts);expect(explicitLoop.clockPlaying).toBe(true);
-    audio.clock(false);audio.clock(false);const stopped=audio.loopDiagnostics();expect(stopped.clockStops).toBe(loopStart.clockStops+1);expect(stopped.clockPlaying).toBe(false);audio.clock(true,point);
+    // Use the real non-ready scan phase so onState/PlayerMoved cannot reclaim clock ownership during the stop wait.
+    opening.scanStatus("Clock handoff check");
+    try{
+      audio.clock(false);audio.clock(false);const stopRequested=audio.loopDiagnostics();
+      console.log("POLISH_CLOCK_STOP_REQUEST|"+JSON.stringify({phase:opening.diagnostics().phase,state:stopRequested}));
+      expect(opening.diagnostics().phase).toBe("scan");expect(stopRequested.clockStops).toBe(loopStart.clockStops+1);expect(stopRequested.clockStarts).toBe(loopStart.clockStarts);expect(stopRequested.clockActive).toBe(false);
+      const stopStart=getTime(),stopDeadline=stopStart+2,stopWallDeadline=Date.now()+15000;let stopFrames=0;
+      const stopSamples:{frame:number;seconds:number;playing:boolean;position:number;starts:number;stops:number}[]=[];
+      while(audio.loopDiagnostics().clockPlaying&&getTime()<stopDeadline&&Date.now()<stopWallDeadline&&stopFrames<120){await nextFrame();stopFrames++;const state=audio.loopDiagnostics();if(stopSamples.length<12)stopSamples.push({frame:stopFrames,seconds:getTime()-stopStart,playing:state.clockPlaying,position:state.clockPosition,starts:state.clockStarts,stops:state.clockStops});}
+      const stopped=audio.loopDiagnostics();console.log("POLISH_CLOCK_NATIVE_STOPPED|"+JSON.stringify({phase:opening.diagnostics().phase,frames:stopFrames,seconds:getTime()-stopStart,samples:stopSamples,state:stopped}));
+      expect(stopped.clockStops).toBe(loopStart.clockStops+1);expect(stopped.clockStarts).toBe(loopStart.clockStarts);expect(stopped.clockActive).toBe(false);expect(stopped.clockPlaying).toBe(false);
+    }finally{opening.finish();}
     // Report a late stopped component explicitly; never turn it into an early-playback failure.
     await nextFrame();console.log("POLISH_AUDIO_AFTER_FRAME|"+JSON.stringify({native:audio.diagnostics(),narrative:audio.narrativeDiagnostics()}));
     let sum=0,max=0,frames=0;const sampleStart=getTime();

@@ -8,15 +8,15 @@ import {PanelUI,wrapText} from "./RoomscriptPanelUI";
   @input('vec4','{1,0.94,0.84,1}') @hint("Person label color") @widget(new ColorWidget()) ink:vec4;
   @ui.group_end
   readonly onQuestion=new Event<string>();
-  private more:Text;private view:PanelUI;private person:Text;private topic:Text;private labels:Text[]=[];private keys:string[]=[];
-  build():void {if(this.view)return;this.view=new PanelUI(this.getSceneObject(),this.width,43,this.fontScale,this.ink);
-    this.person=this.view.text("Suspect","MARGUERITE VALE",5,"title");
-    this.topic=this.view.text("Topic","",1,"small");
-    for(let i=0;i<3;i++)this.labels.push(...this.view.buttons([{id:"Question "+(i+1),label:""}],()=>this.onQuestion.invoke(this.keys[i]),9));
-    this.more=this.view.buttons([{id:"More questions",label:"More"}],()=>this.onQuestion.invoke("more"),6)[0];
+  private more:Text;private view:PanelUI;private person:Text;private labels:Text[]=[];private keys:string[]=[];
+  build():void {if(this.view)return;this.view=new PanelUI(this.getSceneObject(),Math.min(38,this.width),39,this.fontScale,this.ink);
+    this.person=this.view.text("Suspect","MARGUERITE VALE",4,"title");
+    // 7.5 cm is about 2.86 degrees at the 1.5 m question distance; More has the same generous hit target.
+    for(let i=0;i<3;i++)this.labels.push(...this.view.buttons([{id:"Question "+(i+1),label:""}],()=>this.onQuestion.invoke(this.keys[i]),7.5));
+    this.more=this.view.buttons([{id:"More questions",label:"More"}],()=>this.onQuestion.invoke("more"),7.5)[0];
   }
   setPerson(name:string):void {this.person.text=name.toUpperCase();}
-  setTopic(label:string):void {this.topic.text="";}
+  setTopic(_label:string):void {}
   setQuestions(items:{topic:string;label:string}[]):void {this.keys=items.map(i=>i.topic);for(let i=0;i<3;i++){this.labels[i].text=wrapText(items[i]?.label||"",25);this.labels[i].getSceneObject().getParent().enabled=!!items[i];}}
   setPage(page:number,total:number):void {this.more.text="More "+(page+1)+"/"+total;this.more.getSceneObject().getParent().enabled=total>1;}
   topics():string[]{return this.keys.slice();}

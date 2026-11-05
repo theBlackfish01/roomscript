@@ -1,0 +1,174 @@
+{
+  "requestId": "roomscript-memory-cards:1793917662467:1",
+  "scenarioId": "roomscript-memory-cards",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:27:58.680",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-memory-cards",
+        "requestId": "roomscript-memory-cards:1793917662467:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793917678680,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:28:30.472",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-memory-cards",
+        "requestId": "roomscript-memory-cards:1793917662467:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793917678680,
+        "finishedAt": 1793917710472,
+        "elapsedMs": 31792,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:27:59.373",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 604,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:28:08.990",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 3479,
+        "call": 36
+      }
+    },
+    {
+      "logTime": "03:28:10.610",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1620,
+        "call": 37
+      }
+    },
+    {
+      "logTime": "03:28:11.014",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:Rain",
+        "ms": 155,
+        "call": 39
+      }
+    },
+    {
+      "logTime": "03:28:13.860",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ToastTick",
+        "ms": 2482,
+        "call": 49
+      }
+    },
+    {
+      "logTime": "03:28:14.885",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Kettle",
+        "ms": 1023,
+        "call": 50
+      }
+    },
+    {
+      "logTime": "03:28:16.505",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Chime",
+        "ms": 1617,
+        "call": 52
+      }
+    },
+    {
+      "logTime": "03:28:21.436",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ChalkScratch",
+        "ms": 3541,
+        "call": 56
+      }
+    },
+    {
+      "logTime": "03:28:22.558",
+      "name": "MEMORY_CARD_CHECK",
+      "data": {
+        "unknownHidden": true,
+        "expandedPreserved": true,
+        "dynamicBlankFrame": true,
+        "knowledge": 3
+      }
+    },
+    {
+      "logTime": "03:28:30.470",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1632,
+        "call": 74
+      }
+    },
+    {
+      "logTime": "03:28:30.470",
+      "name": "PROP_RESET_CHECK",
+      "data": "6_preset,0_dynamic,6_restored"
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-memory-cards",
+    "requestId": "roomscript-memory-cards:1793917662467:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "180",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793917678680,
+    "finishedAt": 1793917710472,
+    "elapsedMs": 31792,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 11002,
+  "endLine": 11021,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 3362808,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:38:43.620Z"
+}

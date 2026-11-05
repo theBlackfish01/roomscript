@@ -1,0 +1,114 @@
+{
+  "requestId": "roomscript-proximity:1793918353471:1",
+  "scenarioId": "roomscript-proximity",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "03:39:30.207",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-proximity",
+        "requestId": "roomscript-proximity:1793918353471:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793918370207,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "03:39:44.694",
+      "record": {
+        "status": "failed",
+        "scenarioId": "roomscript-proximity",
+        "requestId": "roomscript-proximity:1793918353471:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "180",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793918370207,
+        "finishedAt": 1793918384694,
+        "elapsedMs": 14487,
+        "error": "Error: FAILED: roomscript-proximity - AssertionError: Expected: \"S4\" - Received: \"\"",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "03:39:32.061",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1770,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "03:39:41.783",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 3520,
+        "call": 36
+      }
+    },
+    {
+      "logTime": "03:39:43.534",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1751,
+        "call": 37
+      }
+    }
+  ],
+  "errors": [
+    {
+      "logTime": "03:39:44.692",
+      "text": "E [DefaultLeafScenarioManager] [ 14.484s]FAILED: roomscript-proximity - AssertionError: Expected: \"S4\" - Received: \"\""
+    },
+    {
+      "logTime": "03:39:44.693",
+      "text": "E [DefaultLeafScenarioManager] [ 14.484s][roomscript-proximity] FAILED - AssertionError: Expected: \"S4\" - Received: \"\""
+    }
+  ],
+  "latest": {
+    "status": "failed",
+    "scenarioId": "roomscript-proximity",
+    "requestId": "roomscript-proximity:1793918353471:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "180",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793918370207,
+    "finishedAt": 1793918384694,
+    "elapsedMs": 14487,
+    "error": "Error: FAILED: roomscript-proximity - AssertionError: Expected: \"S4\" - Received: \"\"",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 11874,
+  "endLine": 11888,
+  "evidenceLabel": "LEAF local-manager FAILED",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 3406484,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T22:39:51.905Z"
+}

@@ -1,0 +1,49 @@
+- !<AssetImportMetadata/ba9439c1-d04c-4d2f-957c-da390e11f4ac>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> ed790a8b-75a6-4327-bde1-d04194d97c92
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> ed790a8b-75a6-4327-bde1-d04194d97c92
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 2c4166c1-dc20-4846-a7ff-287f226b8b3e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/2c4166c1-dc20-4846-a7ff-287f226b8b3e>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 89082e54-e995-4540-aef8-98e0e334aa40
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    parametersJson: false
+    scenarioId: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - scenarioId: ""
+      parametersJson: "{}"
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input string scenarioId {"hint":"Registered LEAF scenario; empty keeps this debug harness idle"}'
+    - '// @input string parametersJson = "{}" {"hint":"String-valued JSON parameter overrides; strict fail-fast, maximum240 seconds"}'

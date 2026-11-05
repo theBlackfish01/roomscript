@@ -193,3 +193,15 @@ Run7 Dynamic checkpoint 01:38 PKT: strict single-seed source=file LEAF passed 7,
 - Missing audio alignment uses explicit estimated 0.30-second word reveal and a two-second final reading window. Audio-aligned prefixes take precedence; full admitted text remains available. This fixes captions that previously exposed only the last32 characters and does not claim lip synchronization.
 - Keep the strict native clock and simultaneous-audio assertions. Wait briefly for asynchronous native start, but a start counter is not playback proof. Preview's multi-minute first-callback stalls and native audio blocking are separate observations; neither is attributed to memory pressure without causal evidence.
 - Keep large startup traces local and commit concise SQL evidence. No milestone or continuous-video claim until the actual gates pass.
+
+## 2026-11-06 03:35 PKT — preserve strict LEAF while changing its launch transport
+
+The Editor-to-Preview MCP scenario-run transport remains stalled after the allowed recovery restarts. Use a project-owned, opt-in Preview runner that calls the installed `DefaultScenarioManager.startScenario` for the exact registered ID and its declared parameters. The manager retains scenario creation, assertions, fail-fast diagnostics, timeout and cleanup. Reject unknown IDs/keys, non-string values, concurrent ownership and timeouts above 240 s. Record `local-manager` provenance and `mcpTransportPass: false`; never present these results as recovered MCP transport. This is an authored runtime adapter, not a package/plugin/cache edit or raw HTTP bypass. Fast local runs establish that the transport blocker is narrower than total Preview unresponsiveness; they do not diagnose its root cause.
+
+Retain the real toast regression: native audio blocking exposed wall-clock notice expiry before a visible frame. `FrameVisibleWindow` advances only presentation time (per-frame contribution capped at 0.1 s); repeated notices renew without duplicate sound. The failed assertion and subsequent strict pass are both harvested. Do not extend game time or relax the expected text.
+
+Separate S2 correctness from performance. The local scenario passes native clock start/loop/no-restart/overlap/stop and records 600 frame deltas averaging 25.881 ms (max 83.994 ms). The 8 ms target is still unmet and is not an enforced assertion in that scenario. No performance or milestone claim follows from its behavioural PASS.
+# Nov 6 03:41 — measured crate support and scoped prototype removal
+
+Use the saved coffee-table hit to support the crate: 0.75 scale and local base bottom -6cm imply root y=-140.1835cm. Move opening controls above that plane. Remove only legacy PropMesh descendants beneath successfully replaced props; do not hide interaction anchors or unrelated furniture. Strict local LEAF geometry/reset checks pass. Native video provider success alone is insufficient: the recovered single-frame file requires a stronger duration/frame acceptance gate.
+
