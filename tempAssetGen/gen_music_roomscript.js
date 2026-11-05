@@ -1,6 +1,7 @@
 const fs=require('fs'),path=require('path');
-const m=require('C:/Users/wadoo/.codex/plugins/cache/ls-extensions/ls-clad/local/skills/build-music/tools');
-const PROJECT_ASSETS_SFX='C:/Users/wadoo/Desktop/SPECS_Hackathon/RoomScriptF/Assets/GeneratedSFX';
+if(!process.env.CLAD_SKILLS_DIR)throw Error('Set CLAD_SKILLS_DIR to the installed ls-clad skills folder.');
+const m=require(path.resolve(process.env.CLAD_SKILLS_DIR,'build-music/tools'));
+const PROJECT_ASSETS_SFX=path.resolve(__dirname,'../Assets/GeneratedSFX');
 fs.mkdirSync(PROJECT_ASSETS_SFX,{recursive:true});
 const genre='lofi-jazz',voice='piano';
 const {chords,meta}=m.composeChords({genre,voice});

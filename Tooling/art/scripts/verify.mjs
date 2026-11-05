@@ -1,0 +1,13 @@
+import {execFileSync} from 'node:child_process';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {resolve,dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import assert from 'node:assert/strict';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const read=()=>JSON.parse(readFileSync(resolve(root,'manifest.json'),'utf8')).assets.map(a=>({path:a.path,sha256:a.sha256}));
+const first=read();
+execFileSync(process.execPath,[resolve(root,'run.mjs')],{timeout:300000,stdio:'inherit'});
+const second=read();assert.deepEqual(second,first,'full production regeneration must be byte-identical');
+execFileSync(process.execPath,['--test',resolve(root,'tests/contracts.test.mjs')],{timeout:60000,stdio:'inherit'});
+writeFileSync(resolve(root,'out/determinism.json'),JSON.stringify({renderer:'native-gdi-engraving-v2',assetsCompared:first.length,identical:true,hashes:second},null,2)+'\n');
+console.log(`Full deterministic repeat: ${first.length}/${first.length} PNG/GLB hashes identical`);

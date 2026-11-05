@@ -11,6 +11,8 @@ import {buildFactSheet} from "./Engine/perf/FactSheetBuilder";
 import {canonicalFallback,lookupLine} from "./Engine/perf/LineBank";
 import {validateLine} from "./Engine/perf/LineValidator";
 import {heroLineBank} from "./Content/HeroLineBank";
+import {RoomscriptVoiceLibrary} from "./RoomscriptVoiceLibrary";
+import {RoomscriptAudio} from "./RoomscriptAudio";
 
 /** Validated prose only. Parallel synthesis, ordered playback, shared first-audio deadline. */
 @component export class RoomscriptTts extends BaseScriptComponent {
@@ -26,11 +28,11 @@ import {heroLineBank} from "./Content/HeroLineBank";
   }
   stop():void {this.source?.cancel();if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor?.setVoice(null);}
   diagnostics():{played:number;fallback:number;cache:number;hits:number;playing:boolean} {return {played:this.played,fallback:this.fallback,cache:this.cache.size,hits:this.hit,playing:!!this.audio?.audioTrack&&this.audio.isPlaying()};}
-  cached(line:string,voice=this.actor.voice()):boolean {return splitSentences(line).every(sentence=>this.cache.has(voice+"|"+sentence));}
+  cached(line:string,voice=this.actor.voice()):boolean {return !!RoomscriptVoiceLibrary.clips(this.actor.suspect,line)||splitSentences(line).every(sentence=>this.cache.has(voice+"|"+sentence));}
   clearCacheForProbe():void {this.stop();this.cache.clear();}
   async precacheCurrent(parent?:CancellationToken):Promise<number> {
     if(this.client.isOffline()||!this.client.hasCredentials("openai"))return 0;
-    this.actor.engine.initialize();const graph=this.actor.engine.caseGraph(),state=this.actor.engine.snapshot();
+    this.actor.engine.initialize();const graph=this.actor.engine.graphRef(),state=this.actor.engine.snapshot();
     const suspect=this.actor.suspect,sheet=buildFactSheet(graph,state,suspect),voice=this.actor.voice();
     const lines=sheet.account.map(ref=>lookupLine(heroLineBank,{suspect,topic:ref.topic!,layer:state.suspects[suspect].layer,mode:"answer"},sheet,graph))
       .filter(answer=>!!answer).map(answer=>({line:answer!.line,voice}));
@@ -58,11 +60,18 @@ import {heroLineBank} from "./Content/HeroLineBank";
     parent?.throwIfCancelled();this.cache.set(key,track);if(this.cache.size>60)this.cache.delete(this.cache.keys().next().value);
     return track;
   }
-  async speak(line:string,voice?:string,parent?:CancellationToken,questionStartedAt?:number):Promise<boolean> {
+  async speak(line:string,voice?:string,parent?:CancellationToken,questionStartedAt?:number,take="steady",allowTell=false):Promise<boolean> {
     this.stop();const source=new CancellationSource();this.source=source;const selectedVoice=voice??this.actor.voice();
     const unsubscribe=parent?.onCancel(()=>{source.cancel();if(this.source===source){if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);}})||(()=>{});
     const began=questionStartedAt??this.client.clock.nowMs();this.onSubtitle.invoke(line);let first=true;
     try {
+      RoomscriptAudio.active?.duckSpeech(true);const bundled=RoomscriptVoiceLibrary.clips(this.actor.suspect,line,take,allowTell);
+      if(bundled){for(const clip of bundled){source.token.throwIfCancelled();const record=clip.record;this.audio.audioTrack=clip.track;this.audio.play(1);if(record.startSeconds)this.audio.position=record.startSeconds;
+        this.played++;this.hit++;first=false;this.actor.setVoice(clip.track);this.actor.setAlignment(record.alignment,()=>this.audio.position-(record.startSeconds||0));
+        const duration=(record.endSeconds??this.audio.duration)-(record.startSeconds||0);
+        this.onAudioStarted.invoke({text:record.text,latencyMs:this.client.clock.nowMs()-began,voice:"bundle:"+record.speaker+":"+record.take,durationMs:duration*1000});
+        await delay(Math.max(100,duration*1000),this.client.clock,source.token);if(this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);
+      }return true;}
       const clips=prepareSpeech(line,(sentence,index)=>this.synthesize(sentence,selectedVoice,"live",audioBudgetMs(began,this.client.clock.nowMs(),index),source.token));
       for(const clip of clips) {
         const prepared=await clip.ready;source.token.throwIfCancelled();if(prepared.ok===false)throw prepared.error;
@@ -78,6 +87,6 @@ import {heroLineBank} from "./Content/HeroLineBank";
       source.cancel();
       if(!(error instanceof LlmError)||error.code!=="cancelled") {this.fallback++;console.log("TTS|subtitle_fallback");}
       return false;
-    } finally {unsubscribe();if(this.source===source)this.actor.setVoice(null);}
+    } finally {unsubscribe();if(this.source===source){this.actor.setVoice(null);RoomscriptAudio.active?.duckSpeech(false);}}
   }
 }

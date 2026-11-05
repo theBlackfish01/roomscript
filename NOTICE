@@ -29,3 +29,80 @@ recipe, copyright 2026 Specs Inc., Apache-2.0. C7/D1 LEAF scenarios adapt the sa
 toolkit's Apache-2.0 scenario patterns. RoomscriptShatter.graphVfx uses the bundled
 Lens Studio Simple Emitter Code Node graph schema through CLAD vfx-graph guidance;
 its shard simulation code is original project code.
+
+Licence scope and current assets (Run 5, 2026-11-04)
+-------------------------------------------------
+The root MIT licence covers Roomscript-authored code, documentation and original
+procedural illustrations/models only. It does not relicense the third-party
+packages or generated service outputs identified below.
+
+Snap packages and template assets
+- Packages/AiPreviewAgentInspect.lspkg, AiPreviewAgentInteract.lspkg, Icons.lspkg,
+  Leaf.lspkg, Motion.lspkg, RemoteServiceGateway.lspkg, SnapDecorators.lspkg,
+  SpectaclesInteractionKit.lspkg, SpectaclesUIKit.lspkg and Utilities.lspkg:
+  supplied through the Lens Studio Asset Library, copyright Snap Inc. and their
+  respective contributors, subject to their supplied SDK/developer terms.
+- The Remote Service Gateway Token and IconAtlas editor plugins under Plugins/
+  are Lens Studio development plugins, subject to their own supplied terms.
+- Assets/Render/Echopark.hdr is the environment image supplied by the Lens Studio
+  Specs Base Template. Its original terms apply. No separate creator or licence
+  file was recorded in the template; it is not claimed as Roomscript artwork.
+- These packages/template assets are included for project compatibility. They
+  are not covered by the project's MIT grant. No additional redistribution
+  rights are asserted by this notice.
+
+Original artwork and fonts
+- Vale's initial portrait (tempAssetGen/gen_actor.ps1), the original Qadir,
+  Okafor and Pike portraits (Tooling/scripts/draw-cast.mjs), and Run 5 procedural
+  line art, GLB props, cards, icon geometry and monoline hero-letter alphabet
+  (Tooling/art/) are original Roomscript work generated from code by Codex.
+- Production Run 5 rasterization uses the installed Windows System.Drawing
+  implementation and Courier New for card/contact-sheet text. No Windows font
+  files or System.Drawing binaries are redistributed. OFL font integration is
+  still pending, not represented as complete.
+- The retained art prototype declares Fontsource Anton, Alfa Slab One and
+  Courier Prime (SIL Open Font License) and Special Elite (Apache-2.0), Three.js
+  (MIT) and playwright-core (Apache-2.0). The new production fallback does not
+  use those dependencies. Font files have not been imported into Lens assets.
+  Preserve the applicable font licence files when adding any of them later.
+
+Generated audio and AI services
+- Assets/Audio/Voice, Dialogue, Music and Sfx, the Tooling/audio/library masters,
+  casting previews and video audio were generated using ElevenLabs from original
+  fictional voice descriptions, performance text, music and effect prompts.
+  VOICES ARE AI-GENERATED. They are not recordings of, clones of, or deliberate
+  impersonations of real people. Generated audio is governed by ElevenLabs terms
+  and is excluded from the MIT grant. It is not offered as a stock-audio library.
+- ElevenLabs music was generated through the API. The owner's actual account
+  plan and the hackathon's music-use rules still require confirmation before
+  publication. Successful generation is not evidence of licensing eligibility.
+  Reference recorded by the pipeline: https://elevenlabs.io/music-terms
+- Runtime Gemini and OpenAI language/speech services are accessed through Snap's
+  Remote Service Gateway. Their models are not redistributed. OpenAI speech is
+  synthetic and is disclosed as such in the project. Offline Stage mode makes
+  no ElevenLabs requests.
+- Anthropic Claude was used locally for validator red-teaming and drafting /
+  independently judging performance-bank candidates. This generated content is
+  labelled in its provenance. Anthropic credentials and SDK use stay in Tooling;
+  Claude is not a production Snap gateway provider in this build.
+- All facts, lies, tells, refutations and verdicts remain engine-owned. AI text
+  and audio performance do not create truth. Audio request/cost provenance is in
+  Tooling/results/elevenlabs-ledger.json and Tooling/audio/*.json.
+
+Development tools (installed separately; not copied into the Lens runtime)
+- TypeScript: Apache-2.0, Microsoft and contributors.
+- Vitest, tsx, yaml and @types/node: MIT, respective package authors/contributors.
+- @anthropic-ai/sdk: MIT, Anthropic and contributors.
+- Three.js: MIT, three.js authors; playwright-core: Apache-2.0, Microsoft.
+  Used by retained art prototypes; production Run 5 uses an offline fallback.
+- ffmpeg is a local executable used to encode audio/video. Its binary is ignored
+  and is not distributed by this repository. Consult the installed build for
+  its configuration and licence obligations if redistributing it separately.
+- Git LFS and Lens Studio are separately installed development tools.
+
+Trademarks
+Snap, Specs, Spectacles and Lens Studio belong to Snap Inc. Clue/Cluedo belongs
+to Hasbro; L.A. Noire belongs to its respective Rockstar/Take-Two owners. These
+names are used to identify platforms or explain inspiration. No affiliation or
+endorsement is implied. No Clue or L.A. Noire logos, footage, music or source code
+are included.

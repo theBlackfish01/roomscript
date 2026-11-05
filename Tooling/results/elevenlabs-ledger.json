@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "capCredits": 150000,
+  "capCredits": 180000,
   "notes": [
     "Historical key test predates ledger: 30 TTS + 36 SFX + 39 dialogue known; reserve 3000 for voice-design/music unknown costs."
   ],
@@ -6187,12 +6187,32 @@
       "credits": 0,
       "estimate": false,
       "at": "2026-11-03T19:06:14.462Z"
+    },
+    {
+      "id": "b7139d71549a5c15ed2c9a42c76fe5b39e72ef6fb3e8272fc90841aef48a4dfe",
+      "label": "run5:save-cast:S2:take1",
+      "status": "reserved",
+      "credits": 0,
+      "estimate": true,
+      "at": "2026-11-04T17:42:58.218Z",
+      "segment": "run5-2026-11-04"
     }
   ],
   "totalCredits": 82898,
-  "providerBlock": {
-    "reason": "quota_exceeded",
-    "at": "2026-11-03T19:08:59.061Z",
-    "note": "HTTP401 after 712 original performances. No further paid calls until Wadood confirms provider quota. Cap remains 150000."
-  }
+  "segments": [
+    {
+      "id": "run5-2026-11-04",
+      "startedAt": "2026-11-04T17:42:58.207Z",
+      "allowanceCredits": 30000,
+      "baselineAccountedCredits": 82898,
+      "baselineEntryCount": 773,
+      "previousProviderBlock": {
+        "reason": "quota_exceeded",
+        "at": "2026-11-03T19:08:59.061Z",
+        "note": "HTTP401 after 712 original performances. No further paid calls until Wadood confirms provider quota. Cap remains 150000."
+      },
+      "authorization": "Wadood Run 5: 30,000 new credits; Vale take 1 first, then missing hero/moods/tells; stop at provider quota error."
+    }
+  ],
+  "activeSegment": "run5-2026-11-04"
 }

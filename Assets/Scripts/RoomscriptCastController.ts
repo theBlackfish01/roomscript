@@ -15,9 +15,9 @@ import {refuterMarks} from "./Engine/game/CluePresentation";
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());}
   private build():void {
     this.flow.initialize();this.room.initialize();this.cast=[this.qadir,this.flow.actor,this.okafor,this.pike];
-    const graph=this.flow.engine.caseGraph(),marks=refuterMarks(graph);
+    const graph=this.flow.engine.graphRef(),marks=refuterMarks(graph);
     for(const actor of this.cast){this.flow.registerActor(actor);if(actor.suspect!=="S2")actor.getTransform().setWorldPosition(this.room.toWorld(marks[actor.suspect]));
-      const person=graph.cast.suspects.find(p=>p.id===actor.suspect)!,card=uiObject(actor.getSceneObject(),"RoomscriptSelect_"+actor.suspect);card.getTransform().setLocalPosition(new vec3(0,65,8));
+      const person=graph.cast.suspects.find(p=>p.id===actor.suspect)!,card=uiObject(actor.getSceneObject(),"RoomscriptSelect_"+actor.suspect);card.getTransform().setLocalPosition(new vec3(0,182,8));
       const ui=new PanelUI(card,46,12,1.8,new vec4(1,.94,.84,1),false,true);ui.buttons([{id:"Question "+actor.suspect,label:person.name.split(" ").slice(-1)[0]}],()=>this.flow.selectSuspect(actor.suspect),8);
     }
     const ui=new PanelUI(this.getSceneObject(),60,12,1.7,new vec4(1,.94,.84,1));

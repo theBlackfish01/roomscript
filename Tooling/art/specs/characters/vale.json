@@ -1,0 +1,21 @@
+{
+  "id": "S2", "key": "vale", "file": "Vale", "name": "Marguerite Vale", "seed": 41,
+  "_doc": "Immaculate trustee. Tell: brooch flare (TellVisual brooch anchor 340,440 @512). Poses: neutral/listening/rattled/broken are the RoomscriptSuspectActor contract; smug = wrong-objection reaction.",
+  "build": {"shoulderW": 192, "waistW": 126, "hemW": 176, "headW": 236, "jawW": 150, "chinW": 58, "vY": 975},
+  "outfit": {"lapel": "shawl", "neckline": "skin", "tone": 0.34, "hatchAngle": 64, "belt": true, "buttons": 0, "pearls": true, "peplum": true},
+  "hair": {"style": "waves_updo", "color": "amber", "tone": 0.58, "angle": 120},
+  "face": {"lashes": true, "browW": 7, "browArch": 10, "lips": true, "mouthW": 40, "noseLen": 0.9, "mole": [566, 548]},
+  "prop": {"type": "brooch"},
+  "poseDefaults": {"armL": {"hand": [520, 1226], "grip": "open", "z": 30}, "armR": {"hand": [498, 1214], "grip": "open", "z": 32}},
+  "poses": {
+    "neutral": {"head": {"dy": -4}, "face": {"eyes": 0.7, "mouth": "soft", "brow": -0.15}},
+    "listening": {"head": {"tilt": -4, "turn": -0.2}, "face": {"eyes": 0.85, "mouth": "open_small", "browRaise": 0.4, "look": [-0.3, 0]},
+      "armR": {"hand": [800, 905], "bend": "down", "thumb": -1, "z": 34}},
+    "rattled": {"lean": -1.5, "head": {"tilt": 6, "turn": 0.35, "dx": 6}, "face": {"eyes": 1.05, "brow": 0.9, "browRaise": 0.6, "mouth": "tight", "look": [0.8, -0.2], "sweat": true, "stress": true},
+      "armR": {"hand": [640, 904], "grip": "fist", "thumb": -1, "z": 34}, "armL": {"hand": [394, 1310], "grip": "fist"}, "prop": {"flare": 1}},
+    "broken": {"lean": 2, "shoulderDrop": 18, "head": {"tilt": 9, "dy": 40, "dx": 10}, "face": {"eyes": 0.22, "look": [0, 1], "brow": 1, "browRaise": 0.2, "mouth": "quiver"},
+      "armL": {"hand": [404, 1370]}, "armR": {"hand": [626, 1372]}},
+    "smug": {"head": {"tilt": -6, "dy": -12, "turn": -0.15}, "face": {"eyes": 0.5, "eyesR": 0.62, "browRaiseR": 1.1, "brow": -0.3, "mouth": "smirk", "look": [0.6, 0]},
+      "armL": {"hand": [606, 1060], "grip": "fist", "z": 34}, "armR": {"hand": [420, 1046], "grip": "fist", "z": 31}}
+  }
+}

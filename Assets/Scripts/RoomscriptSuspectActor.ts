@@ -16,6 +16,8 @@ import {GameState} from "./Engine/core/Types";
   private stress=0;private jaw=0;private amplitude=0;private speaking=false;
   private pose="neutral";private track:AudioTrackAsset;private frozen=false;
   private samples=new Float32Array(1024);
+  private alignment:{characters:string[];starts:number[];ends:number[]}|undefined;private playhead:(()=>number)|undefined;private character=0;
+  setAlignment(alignment:{characters:string[];starts:number[];ends:number[]}|undefined,playhead:()=>number):void {this.alignment=alignment;this.playhead=playhead;this.character=0;}
   onAwake():void {
     this.createEvent("OnStartEvent").bind(()=>this.build());
     this.createEvent("UpdateEvent").bind(()=>this.update());
@@ -39,15 +41,16 @@ import {GameState} from "./Engine/core/Types";
   }
   setListening(active:boolean):void {this.speaking=active;this.applyState(this.engine.snapshot());}
   setFrozen(value:boolean):void {this.frozen=value;if(!value)this.applyState(this.engine.snapshot());}
-  voice():string {this.engine.initialize();return this.engine.caseGraph().cast.suspects.find(s=>s.id===this.suspect)?.voice || "onyx";}
-  setVoice(track:AudioTrackAsset|null):void {this.track=track;this.setListening(!!track);if(!track)this.amplitude=0;}
+  voice():string {this.engine.initialize();return this.engine.graphRef().cast.suspects.find(s=>s.id===this.suspect)?.voice || "onyx";}
+  setVoice(track:AudioTrackAsset|null):void {this.track=track;this.setListening(!!track);this.alignment=undefined;if(!track)this.amplitude=0;}
   setAudioAmplitude(value:number):void {this.amplitude=Math.max(0,Math.min(1,value));}
   diagnostics():{pose:string;stress:number;jaw:number} {return {pose:this.pose,stress:this.stress,jaw:this.jaw};}
   private update():void {
     if(!this.surface||this.frozen)return;
     const root=this.getTransform(),delta=this.camera.getTransform().getWorldPosition().sub(root.getWorldPosition());delta.y=0;
     if(delta.length>0.01)root.setWorldRotation(quat.lookAt(delta.normalize(),vec3.up()));
-    if(this.track){const control=this.track.control as FileAudioTrackProvider;
+    if(this.track&&this.alignment&&this.playhead){const a=this.alignment,t=this.playhead();while(this.character<a.ends.length-1&&a.ends[this.character]<t)this.character++;this.amplitude=t>=a.starts[this.character]&&t<=a.ends[this.character]&&/[a-z0-9]/i.test(a.characters[this.character])?.8:0;}
+    else if(this.track){const control=this.track.control as FileAudioTrackProvider;
       if(control.isOfType("Provider.FileAudioTrackProvider")){const shape=control.getAudioFrame(this.samples);const count=Math.min(this.samples.length,Math.max(0,shape.x*shape.y));let square=0;for(let i=0;i<count;i++)square+=this.samples[i]*this.samples[i];this.amplitude=count?Math.min(1,Math.sqrt(square/count)*5):0;}}
     this.jaw+=(this.amplitude-this.jaw)*Math.min(1,getDeltaTime()*18);
     this.surface.mainPass.appearance=new vec4(this.stress,this.jaw,0,0);

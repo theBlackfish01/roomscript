@@ -5,7 +5,7 @@
 Before pasting:
 1. **Restart Lens Studio**, open RoomScriptF, and sign in. A fresh process matters: long sessions caused the Preview timeouts.
 2. `Tooling/.env` already holds `ANTHROPIC_API_KEY` and `ELEVENLABS_API_KEY`; both were tested on Nov 3.
-3. In a terminal, `cd C:\Users\wadoo\Desktop\SPECS_Hackathon\RoomScriptF` and run `codex --approve-for-me`.
+3. In a terminal, `cd <project>` and run `codex --approve-for-me`.
 
 ```
 Continue the Roomscript build: this is Run 4, the big final-polish run. I want to get as much as possible done tonight: everything in docs/REVIEW_2026-11-03.md, not just part of it. Lens Studio was just restarted, it is open on this project, and I'm signed in. You're running in Codex: follow §1b of docs/FIRST_PASS.md for how CLAD's skills and agents work here.
@@ -105,28 +105,164 @@ Finish with the FIRST_PASS §4 final report, including:
 - a list for Run 5.
 ```
 
-## Run 5: your notes plus finishing (Wed Nov 4)
+## Run 6: save, swap Vale, voices, art, moments (Thu Nov 5)
 
-Paste after your playthrough, adding your voice picks and notes:
+Run 5 did a lot but committed nothing and made no network calls. The old rule 15 told it to skip all approvals, including the automatic ones it needs for git and ElevenLabs. Rule 15 is rewritten; Run 6 saves everything first.
+
+Before pasting: restart Lens Studio, open RoomScriptF and sign in; `cd C:\Users\wadoo\Desktop\SPECS_Hackathon\RoomScriptF`; run `codex --approve-for-me`.
 
 ```
-Continue the Roomscript build: this is Run 5, my notes plus finishing. Lens Studio was just restarted and I'm signed in. Read AGENTS.md, docs/PROGRESS.md (Run 4's final report) and docs/REVIEW_2026-11-03.md. All of Run 4's decisions still apply.
+Continue the Roomscript build: this is Run 6. Lens Studio was just restarted, it is open on this project, and I'm signed in. You're running in Codex: follow §1b of docs/FIRST_PASS.md.
 
-1. Apply my voice-casting picks below. Re-render only the swapped characters; the cache should keep the rest.
-2. Fix everything in my playthrough notes below.
-3. Finish whatever Run 4 left partial or not started, in Run 4's lane order.
-4. Then:
+Read AGENTS.md (rule 15 was REWRITTEN), docs/RUN5_REPORT.md, docs/PROGRESS.md and docs/REVIEW_2026-11-03.md. All earlier decisions stand: private repo, MIT, real history, feature freeze Sat Nov 7 at 21:00 PKT.
+
+**Important correction:** Run 5 committed nothing and couldn't reach ElevenLabs, because it skipped every approval. That was a mistake in the old rule 15.
+- Request sandbox escalations normally. My automatic approver handles them: git add/commit/push and LFS; network to api.elevenlabs.io, api.anthropic.com and github.com; npm.
+- Only GUI tools (computer-use, screenshots, window activation, UI automation) stay forbidden.
+- Never wait on me personally: record it and move on.
+- Timeouts of 10 minutes or less on every command and LEAF batch.
+
+**Parallelism:** at most 2 subagents, one Chromium at a time, and no full test suite during art renders or LEAF.
+
+We have about two days before the freeze, so this run is about getting a complete, good-looking hero case into the video, not breadth. In order:
+
+0. **Save Run 5's work first.**
+   - Commit the current working tree in logical commits (audio compression and VoiceLibrary; art pipeline and assets; publication files; Lens UI and clarity changes; docs). Exclude the duplicate Tooling/art/web and Tooling/art/specs folders if they're unused.
+   - Run the secret hook and push to origin. Use Tooling/results/run5-preserved/ only if something is missing.
+   - If the scene commit would break rule 14, commit everything else first, then the scene right after step 2 passes.
+
+1. **Vale voice swap** (ElevenLabs, from the 30,000 new credits):
+   - save designed voice preview S2-1 (generatedVoiceId Ajczv1caVKcFEG1TdJH0);
+   - update Tooling/audio/cast.json;
+   - re-render only Vale's lines and her dialogue parts;
+   - compress, re-export and verify.
+
+   Then spend any remaining credits on missing hero-path takes, then on effects or music the new moments need. Stop on a quota error.
+
+2. **Voices in the game, verified.**
+   - Restart Lens Studio, and let the asset import finish before refreshing. Last time the refresh after importing hundreds of audio files timed out; if that happens again, consolidate voice clips into fewer files (segment playback already supports that).
+   - Then run strict roomscript-bundled-voices on the compressed library, and the repaired hero route.
+   - Commit the scene.
+
+3. **Art, my top visual priority.** The new suspects finally have distinct silhouettes; good. But the lines are thin and dim, and the poses differ mostly in the hands.
+   - Make strokes thicker and brighter: ivory, with a soft glow, so they read over the photoreal Preview room.
+   - Push pose contrast through posture, head tilt and face, not only the hands.
+   - Make faces slightly larger.
+   - Composite-test over a Preview room capture before wiring.
+   - Then do A3: wire actors, cards, props and ghosts through VirtualScene, selecting and compressing textures (not everything is loaded at once).
+   - Capture each suspect in Preview.
+
+4. **UI:** A4, one panel at a time in the design-03 palette with the new card art and icons, plus the opening case card, the "What we know" strip and the SAID/PROVEN slips, captured.
+
+5. **The moments, voiced:**
+   - B2 reconstruction T1 polish with the new ghost sprites;
+   - B1 beats on stage (letter, voicemail with Harlow's voice, Pike's flight, blackout/UV);
+   - B3 endings (correct with Vale's confession and the voiced summary; wrong; timeout);
+   - Wren and narrator triggers;
+   - the score's tension layer and the sound effects on their beats.
+
+6. **A6 objection polish** (hero word texture, glow, shake, shards, coral string), plus the **minimum A7 UX fixes** that a first-time player needs.
+
+7. **Final gate:**
    - restart Lens Studio;
-   - run the full integrated LEAF;
-   - recapture every beat in Director mode.
+   - run the integrated LEAF (hero-demo, interrogation, all-tells, closing correct/wrong/timeout);
+   - Director-mode captures of every beat;
+   - a hero performance tape with bundled audio;
+   - tag m3-case if it passes;
+   - rename the lens to Roomscript.
 
-The ElevenLabs ledger cap (150,000 credits) still applies. The feature freeze is Sat Nov 7 at 21:00 PKT.
+8. **Only if everything above is green:** Y2 (one labelled live-AI exchange), then A8 (camera, 20-minute spike).
 
-My voice picks:
-<paste here>
+Move to docs/later.md: the Y1 Case Compiler page, B2 T2/T3, and V3 recall tuning.
 
-My notes:
-<paste here>
+Commit and push after every verified step. Keep PROGRESS, decisions.md and devpost/clad-log.md current.
+
+Finish with the FIRST_PASS §4 final report, including:
+- done, partial or not started per item;
+- Needs Wadood;
+- the captures I should look at (Preview captures of each suspect, UI, reconstruction, endings);
+- costs.
+```
+
+## Run 5: recover and finish (Wed Nov 4, historical)
+
+Run 4 stalled after about 70 minutes: a computer-use approval hung for 10 hours. Run 5 forbids those tools (AGENTS rule 15), may use the 30,000 ElevenLabs credits Wadood added on Nov 4, and puts the Lens wiring of voices and the art lane first.
+
+Before pasting: restart Lens Studio, open RoomScriptF and sign in; `cd <project>`; run `codex --approve-for-me`.
+
+```
+Continue the Roomscript build: this is Run 5. Lens Studio was just restarted, it is open on this project, and I'm signed in. You're running in Codex: follow §1b of docs/FIRST_PASS.md.
+
+Read AGENTS.md (new rule 15), docs/PROGRESS.md, Run 4's final report, and docs/REVIEW_2026-11-03.md. All of Run 4's decisions still apply: private GitHub repo, MIT, design brief by you, real history, feature freeze Sat Nov 7 at 21:00 PKT.
+
+**What went wrong in Run 4:** a computer-use window-activation call hung for about 10 hours, so only about 70 minutes of real work happened. Rule 15 now forbids those tools.
+- Do NOT use computer-use, desktop screenshots, window activation or any UI automation.
+- Use only the Lens Studio MCP tools, the shell and file edits.
+- Give every shell command and LEAF batch a timeout of 10 minutes or less.
+- If anything needs my approval or a GUI action, skip it, record it under Needs Wadood, and move on.
+- Never let one blocked step stop the other lanes.
+
+**ElevenLabs: I added 30,000 new credits, and you can use them freely.** Record a new ledger segment that starts now, and stop when the provider returns a quota error.
+- Spend them in this order: my voice swaps below (re-render only the swapped characters); then any missing hero-path takes; then the remaining mood and tell takes; then extra effects or music that the new moments need.
+- Still re-encode locally with ffmpeg to fit the size budget.
+- Claude calls are allowed only if truly needed, under $3, and recorded.
+
+**Parallelism stays limited** (memory): at most 2 subagents alongside the main Lens session, one Chromium at a time, and no full test suite during art renders or LEAF.
+
+Priorities, in order:
+
+1. **Preserve and verify the uncommitted Run 4 Lens work.**
+   - Recompile and run targeted LEAF.
+   - Commit only what passes. Revert or park what's broken in a branch; never lose it.
+   - Rule 14 still applies: don't commit the scene until voices are wired (step 2).
+
+2. **Make the suspects speak:** V4 Lens-side wiring.
+   - Wire the existing voice library (Assets/Audio/Voice, Dialogue, Music, Sfx) through RoomscriptVoiceLibrary, the S3 mixer and the director/bank selection, so Stage mode and the hero route play real voices, mood and tell takes, the narrator, Wren, the set-piece dialogues, the score with its composure tension layer, and the sound effects.
+   - **Size:** Assets/Audio is 16 MB. Re-encode locally with ffmpeg to fit the A9 budget (voices about 40 kbps mono, music 64–96 kbps), and drop unused takes. Record the build size.
+   - **Acceptance:** strict Stage-mode LEAF with audio on every hero-path line; the jaw moves; no subtitle-only fallback on the hero path.
+
+3. **S2 frame time:** the probe measured 29.7 ms against an 8 ms target. Profile it (per-frame copies, listeners, text rebuilds) and fix it.
+
+4. **Art lane, which never ran in Run 4. This is my top visual priority** (start it as a subagent immediately):
+   - A1: production pipeline in Tooling/art, with contract tests.
+   - A2: Art direction v2 (luminous line art, a distinct silhouette per suspect, expressive poses, the Harlow ghost, GLB props, Polaroid cards, icons, hero words, fonts, reconstruction and blackout sprites, video motion graphics). Review your own contact sheets until each suspect is distinct and striking at thumbnail size, and save before/after sheets in docs/captures/.
+   - Then A3: wire the art through VirtualScene.
+
+5. **UI and case clarity in Lens:**
+   - A4 stage manager and card system (one panel at a time, design-03 palette) and A5 typography;
+   - the opening case card;
+   - the "What we know" timeline strip;
+   - the SAID/PROVEN slips;
+   - the voiced ending summary.
+
+6. **The moments:** B2 reconstruction (T1, then T2), B1 beats (letter, voicemail, Pike's flight, blackout/UV), B3 ending (correct, wrong, timeout). Then A6 hero VFX and A7 UX simplification, with the naive-player LEAF route.
+
+7. **Lane E, publication** (subagent when a slot is free): README, LICENSE (MIT), NOTICE (ElevenLabs/AI-voice disclosure, all third-party assets), devpost/README.md, devpost/design-brief.md, the rewritten clad-log (keep the raw log), the PROGRESS submission-state block, path redaction, the lens rename. Also fix the mangled apostrophes ("?s") in Assets/Scripts/Content/STORY.md.
+
+8. **Y1 Case Compiler page and the Y2 labelled live-AI beat;** then A8 camera rig (20-minute spike), A9, B2 T3.
+
+9. **V3 recall** (70.6% holdout false rejection): keep the attack rate at zero. Route mapped questions through the director and banks, so free-text validation is rarely needed. Don't loosen safety to hit the number.
+
+10. **Final gate:**
+    - restart Lens Studio;
+    - run the full integrated LEAF (hero-demo, interrogation, all-tells, closing correct/wrong/timeout, naive-player route);
+    - capture every beat in Director mode into docs/captures/;
+    - record a hero performance tape with bundled audio;
+    - assess and tag m3-case.
+
+Commit after every verified package and push to the private remote. Keep PROGRESS (reconcile it with Run 4's real state first), decisions.md and devpost/clad-log.md current.
+
+Finish with the FIRST_PASS §4 final report, including:
+- done, partial or not started per package;
+- Needs Wadood;
+- the captures and contact sheets I should look at;
+- costs.
+
+My voice picks (from the casting page):
+- **Swap Vale to take 1** (preview S2-1, generatedVoiceId Ajczv1caVKcFEG1TdJH0, replacing take 2).
+  - Create or save that designed voice as needed, update Tooling/audio/cast.json, and re-render only Vale's lines: performances, mood and tell takes, and her parts in the dialogue scenes (opening exchange, arrival, confession).
+  - Do this first, from the new credits.
+- **Keep everyone else:** Imran take 1, Okafor take 1, Pike take 1, Harlow take 1, Wren take 2, Narrator take 3.
 ```
 
 ## Run 3 (historical, from the 2026-10-29 review)

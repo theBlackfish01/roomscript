@@ -1,8 +1,8 @@
 # Roomscript — submission, publication and presentation review (reviewer 4)
 
-Prepared Tue 2026-11-03 (PKT). Repo reviewed read-only at `C:\Users\wadoo\Desktop\SPECS_Hackathon\RoomScriptF`, HEAD `c343bb8` (49 commits, Oct 28 19:55 → Oct 30 01:42 PKT; tags `m0-probe`, `m1-terminal`, `m2-slice`; nothing committed since Oct 30). There are five modified tracked files and untracked `docs/REVIEW_2026-10-28.md`, `docs/REVIEW_2026-10-29.md` and `docs/reviews/`.
+Prepared Tue 2026-11-03 (PKT). Repo reviewed read-only at `<project>`, HEAD `c343bb8` (49 commits, Oct 28 19:55 → Oct 30 01:42 PKT; tags `m0-probe`, `m1-terminal`, `m2-slice`; nothing committed since Oct 30). There are five modified tracked files and untracked `docs/REVIEW_2026-10-28.md`, `docs/REVIEW_2026-10-29.md` and `docs/reviews/`.
 
-Drafts in `C:\Users\wadoo\AppData\Local\Temp\claude\C--Users-wadoo-Desktop-Me\7cb4f42e-0632-4ad2-b8a1-819501e2cfbb\scratchpad\r4-submission\`:
+Drafts in `<local-development-path>`:
 - `README-draft.md`: a judge-facing README for the repo root.
 - `devpost-description-draft.md`: the Devpost form fields and the story text.
 - `video-plan.md`: the shot list with timings, the capture method, the VO script, cards, music and the honesty rules.
@@ -69,11 +69,11 @@ Results:
 - **Committed and fine:** `.claude/settings.json`. It only enables `ls-clad@ls-extensions`, which is good CLAD evidence.
 - **Low-sensitivity personal data in history (permanent unless rewritten):**
   - Author `wadood <wadood2003@gmail.com>` on all 49 commits.
-  - Windows username paths `C:/Users/wadoo/...` in:
+  - Windows username paths `<local-development-path>` in:
     - `docs/PROGRESS.md` l.95 (the Lens log path);
     - `docs/PAUSE_HANDOFF_2026-10-28.md` l.37 and l.195;
     - `docs/plan/human-plan-2026-10-26.md` l.68 and l.653;
-    - `tempAssetGen/gen_music_roomscript.js` and `gen_sfx_roomscript.js` l.2–3 (absolute `require` of `C:/Users/wadoo/.codex/plugins/cache/ls-extensions/ls-clad/...`).
+    - `tempAssetGen/gen_music_roomscript.js` and `gen_sfx_roomscript.js` l.2–3 (absolute `require` of `<local-development-path>`).
   - `docs/FIRST_PASS.md` says Wadood "works a day job".
   - `docs/design/01-…md` links to his private vault (`Research/SPECS round 4 research…`, "round 3 dossier"). These are broken links in public.
   - None of this is dangerous. Fix the working-tree copies in the publication commit.

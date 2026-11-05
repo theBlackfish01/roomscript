@@ -1,13 +1,16 @@
 {
-  "policy": "All canonical moods, tagged validated variants, registers, canonical tell takes, Wren/narration and sentence derivatives. Video audio and unfinished extra variant moods remain in Tooling.",
+  "policy": "All runtime canonical moods, validated variants/registers, tell takes, Wren/narration. Sentence rows alias full MP3s with startSeconds/endSeconds. Trim alignment-external silence only. Paid masters preserved in Tooling.",
   "voiceClips": 878,
+  "uniqueVoiceAssets": 552,
   "originals": 552,
   "derived": 326,
   "sfx": 30,
   "music": 8,
   "dialogues": 5,
-  "voiceBitrateKbps": 32,
-  "bytes": 13020141,
-  "megabytes": 13.02,
+  "voiceBitrateKbps": "40 canonical steady/narrator/tell; 32 extra moods/variants/registers",
+  "sfxBitrateKbps": 32,
+  "musicBitrateKbps": 64,
+  "bytes": 9907527,
+  "megabytes": 9.91,
   "missing": []
 }

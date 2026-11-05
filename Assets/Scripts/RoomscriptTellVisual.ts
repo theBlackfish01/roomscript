@@ -43,7 +43,7 @@ import {isLawyered} from "./Engine/game/Composure";
     this.lineBuilder=new MeshBuilder([{name:"position",components:3},{name:"normal",components:3},{name:"texture0",components:2}]);this.lineBuilder.topology=MeshTopology.Triangles;this.lineBuilder.indexType=MeshIndexType.UInt16;
     this.lineBuilder.appendVerticesInterleaved(new Array(32).fill(0));this.lineBuilder.appendIndices([0,1,2,0,2,3]);this.line=lineRoot.createComponent("Component.RenderMeshVisual") as RenderMeshVisual;
     this.line.mesh=this.lineBuilder.getMesh();this.line.mainMaterial=this.lineSurface;this.lineBuilder.updateMesh();this.line.enabled=false;
-    this.flow.onSpeaking.add(event=>{const cue=tellCue(this.flow.engine.caseGraph(),this.flow.engine.snapshot(),event.seq,event.suspect,event.mode);
+    this.flow.onSpeaking.add(event=>{const cue=tellCue(this.flow.engine.graphRef(),this.flow.engine.snapshot(),event.seq,event.suspect,event.mode);
       if(!cue)return;this.pending=cue;this.started=getTime();this.due=this.started+cue.delayMs/1000;this.until=null;});
     this.flow.engine.onState.add(state=>this.render(state));this.render(this.flow.engine.snapshot());
     this.flow.onSuspectSelected.add(()=>{const actor=this.flow.actor.getSceneObject();this.pending=null;this.prop.enabled=false;this.line.enabled=false;this.moving=false;this.absent=false;this.mark=actor.getTransform().getWorldPosition();this.prop.setParent(actor);this.segments.forEach(s=>s.getSceneObject().setParent(actor));this.render(this.flow.engine.snapshot());});
@@ -51,6 +51,7 @@ import {isLawyered} from "./Engine/game/Composure";
   private render(state:GameState):void {
     const last=state.log[state.log.length-1];if(last&&!["LineSpoken","LlmOutput"].includes(last.type)){this.pending=null;this.prop.enabled=false;this.line.enabled=false;}
     const id=this.flow.diagnostics().suspect,suspect=state.suspects[id];this.shownSegments=suspect.composure;
+    this.audio.setComposure(1-suspect.composure/Math.max(1,suspect.composureMax));
     this.segments.forEach((segment,index)=>segment.enabled=index<suspect.composure);
     const absent=isLawyered(suspect,state.elapsedMinutes);
     if(absent!==this.absent){this.absent=absent;this.from=this.flow.actor.getTransform().getWorldPosition();

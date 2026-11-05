@@ -19,7 +19,7 @@ import {Vec3} from "./Engine/core/Types";
   zoneAnchor(id:string):SceneObject {const anchor=this.zones.get(id);if(!anchor)throw new Error("Unbound zone "+id);return anchor;}
   toWorld(position:Vec3):vec3 {return this.getTransform().getWorldTransform().multiplyPoint(new vec3(position[0],position[1],position[2]));}
   audit():string[] {
-    const graph=this.engine.caseGraph(),failures:string[]=[];
+    const graph=this.engine.graphRef(),failures:string[]=[];
     for(const item of [...graph.room.objects.map(o=>({id:o.id,pos:o.pos,anchor:this.objects.get(o.id)})),...graph.room.zones.map(z=>({id:z.id,pos:z.anchor,anchor:this.zones.get(z.id)}))]) {
       if(!item.anchor)failures.push("missing "+item.id);
       else if(item.anchor.getTransform().getWorldPosition().distance(this.toWorld(item.pos))>.1)failures.push("position "+item.id);

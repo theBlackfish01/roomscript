@@ -31,7 +31,7 @@ export class PanelUI {
   constructor(readonly root:SceneObject,readonly width:number,readonly height:number,readonly scale:number,readonly color:vec4,passiveBacking=false,noBacking=false) {
     root.createComponent("Component.Canvas");
     const backing=uiObject(root,"Backing");
-    if(!noBacking){const plate=backing.createComponent(BackPlate.getTypeName()) as BackPlate;plate.size=new vec2(width,height);plate.style="dark";
+    if(!noBacking&&!passiveBacking&&!/Roomscript(VerbBarUI|Cast|SubtitleUI)/.test(root.name)){const plate=backing.createComponent(BackPlate.getTypeName()) as BackPlate;plate.size=new vec2(width,height);plate.style="dark";
     if(passiveBacking)plate.onInitialized.add(()=>{const plane=backing.getComponent(InteractionPlane.getTypeName()) as InteractionPlane;
       const disable=()=>{plate.interactable.enabled=false;backing.getComponent("ColliderComponent").enabled=false;plane.enabled=false;if(plane.collider)plane.collider.enabled=false;};disable();plate.createEvent("OnEnableEvent").bind(disable);
       // SIK creates the proximity collider at OnStart, after BackPlate initializes.

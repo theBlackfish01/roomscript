@@ -1,0 +1,9 @@
+{
+  "file": "BrassCandlestick", "object": "O2", "label": "brass candlestick",
+  "_doc": "Virtual substitution weapon O2 (Lounge). Lathe profile in metres (glTF units); Lens import: enable 'Convert meters to centimeters' + 'Import vertex color'. Unlit (KHR_materials_unlit) with baked brass light so it reads on an additive display.",
+  "kind": "lathe", "segments": 56, "color": "brass",
+  "profile": [[0.0, 0.0], [0.062, 0.0], [0.066, 0.006], [0.064, 0.014], [0.05, 0.02], [0.046, 0.03], [0.03, 0.042], [0.022, 0.06], [0.018, 0.09], [0.026, 0.1], [0.018, 0.11], [0.014, 0.15], [0.02, 0.16], [0.014, 0.17], [0.013, 0.2], [0.024, 0.212], [0.034, 0.222], [0.032, 0.228], [0.016, 0.23], [0.016, 0.236], [0.0, 0.236]],
+  "bands": [0.014, 0.1, 0.16, 0.222],
+  "candle": {"r": 0.0135, "h": 0.07, "color": "ivory"},
+  "flame": {"h": 0.035, "color": "yellow"}
+}

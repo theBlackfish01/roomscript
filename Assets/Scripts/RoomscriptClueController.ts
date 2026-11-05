@@ -28,7 +28,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     const flow=this.objection.flow,engine=flow.engine,room=this.objection.tells.room;engine.initialize();room.initialize();this.notebook.build();
     const tint=(color:vec4)=>{const material=this.objection.tells.lightMaterial.clone();material.mainPass.baseColor=color;return material;};
     this.ivory=tint(new vec4(1,.94,.84,1));this.chalk=tint(new vec4(.93,.96,1,1));this.cyan=tint(new vec4(.247,.89,1,1));
-    const graph=engine.caseGraph(),inverse=room.getTransform().getInvertedWorldTransform(),camera=flow.actor.camera.getTransform();
+    const graph=engine.graphRef(),inverse=room.getTransform().getInvertedWorldTransform(),camera=flow.actor.camera.getTransform();
     const origin=inverse.multiplyPoint(camera.getWorldPosition()),forward=inverse.multiplyDirection(camera.getWorldRotation().multiplyVec3(vec3.back()));
     this.localOrigin=[origin.x,0,origin.z];this.localForward=[forward.x,0,forward.z];this.origin=room.toWorld([origin.x,3,origin.z]);this.startingYaw=Math.atan2(forward.x,-forward.z);
     const marks=refuterMarks(graph);this.order=graph.refutation.order.map(id=>({id,angle:clockwiseAngle(this.localOrigin,this.localForward,marks[id]),position:room.toWorld(marks[id])}));
@@ -52,32 +52,32 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     this.objection.objectHandler=id=>{if(this.busy)return true;if(!this.selectedWho)return false;if(!graph.weapons.includes(id)){flow.subtitles.set("WREN","Touch one of the five marked possible weapons.");return true;}this.suggest(id);return true;};
     engine.onState.add(()=>{if(!this.busy)this.renderKnowledge();});this.renderKnowledge();
   }
-  syncSetupPose():void {const state=this.objection.flow.engine.snapshot(),room=this.objection.tells.room,pose=state.setupPose;if(pose){this.localOrigin=pose.origin;this.localForward=pose.forward;}this.origin=room.toWorld([this.localOrigin[0],3,this.localOrigin[2]]);const direction=room.getTransform().getWorldTransform().multiplyDirection(new vec3(this.localForward[0],0,this.localForward[2]));this.startingYaw=Math.atan2(direction.x,-direction.z);const marks=refuterMarks(this.objection.flow.engine.caseGraph());this.order=state.refuterOrder.map(id=>({id,angle:clockwiseAngle(this.localOrigin,this.localForward,marks[id]),position:room.toWorld(marks[id])}));}
+  syncSetupPose():void {const state=this.objection.flow.engine.snapshot(),room=this.objection.tells.room,pose=state.setupPose;if(pose){this.localOrigin=pose.origin;this.localForward=pose.forward;}this.origin=room.toWorld([this.localOrigin[0],3,this.localOrigin[2]]);const direction=room.getTransform().getWorldTransform().multiplyDirection(new vec3(this.localForward[0],0,this.localForward[2]));this.startingYaw=Math.atan2(direction.x,-direction.z);const marks=refuterMarks(this.objection.flow.engine.graphRef());this.order=state.refuterOrder.map(id=>({id,angle:clockwiseAngle(this.localOrigin,this.localForward,marks[id]),position:room.toWorld(marks[id])}));}
   private dropPawn(id:string):void {
     const pawn=this.pawns.get(id)!,point=pawn.getTransform().getWorldPosition();pawn.getTransform().setLocalPosition(this.pawnHomes.get(id)!);pawn.getTransform().setLocalRotation(quat.quatIdentity());
     if(this.busy||this.objection.flow.engine.snapshot().verdict)return;if(this.pawnDropOverride?.(id,point))return;
-    const room=this.objection.tells.room,local=room.getTransform().getInvertedWorldTransform().multiplyPoint(point),zones=this.objection.flow.engine.caseGraph().room.zones;
+    const room=this.objection.tells.room,local=room.getTransform().getInvertedWorldTransform().multiplyPoint(point),zones=this.objection.flow.engine.graphRef().room.zones;
     const origin=room.getTransform().getInvertedWorldTransform().multiplyPoint(this.objection.flow.actor.camera.getTransform().getWorldPosition());const hit=spatialDrop([origin.x,origin.y,origin.z],[local.x,local.y,local.z],zones.map(z=>({id:z.id,position:z.anchor,radius:80})),6);if(!hit)return;const zone={zone:zones.find(z=>z.id===hit)!};
     this.selectedWho=id;this.selectedZone=zone.zone.id;this.objection.close();this.objection.flow.cancel();this.objection.flow.chips.show(false);this.objection.flow.verbs.show(false);this.ghost.enabled=true;this.ghost.getTransform().setWorldPosition(room.toWorld([zone.zone.anchor[0],0,zone.zone.anchor[2]+55]));
-    const person=this.objection.flow.engine.caseGraph().cast.suspects.find(s=>s.id===id)!;this.objection.flow.subtitles.set("SUGGESTION",person.name+" in the "+zone.zone.clueName+". Touch a possible weapon.");
+    const person=this.objection.flow.engine.graphRef().cast.suspects.find(s=>s.id===id)!;this.objection.flow.subtitles.set("SUGGESTION",person.name+" in the "+zone.zone.clueName+". Touch a possible weapon.");
   }
   private suggest(weapon:string):void {
     if(!this.selectedWho||!this.selectedZone||this.busy)return;const flow=this.objection.flow;this.hypothesis={who:this.selectedWho,where:this.selectedZone,what:weapon};this.selectedWho=null;this.selectedZone=null;
     this.syncSetupPose();this.busy=true;flow.cancel();const state=flow.engine.dispatch({type:"Suggest",...this.hypothesis});this.seq=state.lastSeq;
     if(state.events.some(e=>e.seq===this.seq&&e.type==="rejected")){this.busy=false;return;}
-    this.onSelection.invoke({...this.hypothesis});const card=privateRefutation(flow.engine.caseGraph(),state,this.seq,"P1");this.refuter=card?.holder||null;this.resultText=card?.text||"No witness can refute this suggestion. It remains possible.";
+    this.onSelection.invoke({...this.hypothesis});const card=privateRefutation(flow.engine.graphRef(),state,this.seq,"P1");this.refuter=card?.holder||null;this.resultText=card?.text||"No witness can refute this suggestion. It remains possible.";
     this.endAngle=card?this.order.find(o=>o.id===card.holder)!.angle:Math.PI*2;this.began=getTime();this.visited=0;this.lastVisited=[];this.blade.enabled=true;this.blade.getTransform().setWorldPosition(this.origin);this.objection.tells.audio.play("Ratchet");
     flow.chips.show(false);flow.verbs.show(false);this.objection.caseLid.show(false);
   }
   private renderKnowledge():void {
-    const engine=this.objection.flow.engine,state=engine.snapshot();this.notebook.setPages(notebookPages(engine.caseGraph(),state));
+    const engine=this.objection.flow.engine,state=engine.snapshot();this.notebook.setPages(notebookPages(engine.graphRef(),state));
     this.crosses.forEach((cross,id)=>cross.enabled=state.grid.suspects.includes(id));
-    this.gridMarks.forEach((visual,id)=>{const excluded=state.grid.zones.includes(id)||state.grid.weapons.includes(id);const material=visual.mainMaterial;material.mainPass.baseColor=excluded?new vec4(.035,.12,.14,1):new vec4(.247,.89,1,1);visual.mainMaterial=material;
+    this.gridMarks.forEach((visual,id)=>{const excluded=state.grid.zones.includes(id)||state.grid.weapons.includes(id);const material=visual.mainMaterial;material.mainPass.baseColor=excluded?new vec4(.14,.10,.03,1):new vec4(1,.84,.04,1);visual.mainMaterial=material;
       if(state.grid.weapons.includes(id))visual.getTransform().setLocalRotation(quat.angleAxis(Math.PI,vec3.up()));});
   }
   private update():void {
     if(this.breathing){const t=Math.min(1,(getTime()-this.breathing)/1.2);this.envelope.getTransform().setLocalScale(this.envelopeScale.uniformScale(1-.12*Math.sin(t*Math.PI)));if(t===1){this.breathing=0;this.objection.flow.chips.show(true);this.objection.flow.verbs.show(true);this.objection.caseLid.show(true);}}
-    if(!this.busy)return;const t=Math.min(1,(getTime()-this.began)/2.4),angle=this.endAngle*(1-Math.pow(1-t,2));this.blade.getTransform().setWorldRotation(this.objection.tells.room.getTransform().getWorldRotation().multiply(quat.angleAxis(-(this.startingYaw+angle),vec3.up())));
+    if(!this.busy)return;const t=Math.min(1,(getTime()-this.began)/2.4),angle=this.endAngle*t;this.blade.getTransform().setWorldRotation(this.objection.tells.room.getTransform().getWorldRotation().multiply(quat.angleAxis(-(this.startingYaw+angle),vec3.up())));
     let tick:vec3|null=null;while(this.visited<this.order.length&&this.order[this.visited].angle<=angle){const witness=this.order[this.visited++];this.lastVisited.push(witness.id);tick=witness.position;}if(tick)this.objection.tells.audio.playAt("ClockTick",tick);
     if(t===1){this.busy=false;this.blade.enabled=false;this.ghost.enabled=false;this.renderKnowledge();
       if(this.refuter){this.panel.enabled=true;this.cardText.text=wrapText(this.resultText,31);this.objection.tells.audio.playAt("Chime",this.order.find(o=>o.id===this.refuter)!.position);}

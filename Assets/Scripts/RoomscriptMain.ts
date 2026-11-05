@@ -6,6 +6,7 @@ import {RoomscriptEvidenceWalletUI} from "./RoomscriptEvidenceWalletUI";
 import {RoomscriptAudio} from "./RoomscriptAudio";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
+import {knowledgeTimeline} from "./Engine/game/CaseClarity";
 /** Scene wiring only. Engine bridge will own all case state; UI receives values/events. */
 @component export class RoomscriptMain extends BaseScriptComponent {
   @ui.group_start("References")
@@ -22,7 +23,7 @@ import {RoomscriptInterrogationController} from "./RoomscriptInterrogationContro
   private start():void {
     if(!this.caseLid||!this.chips||!this.verbs||!this.notebook||!this.wallet||!this.audio||!this.engine){console.error("Roomscript: authored references not wired");return;}
     this.caseLid.build();this.chips.build();this.verbs.build();this.notebook.build();this.wallet.build();
-    this.engine.onState.add(state=>this.caseLid.setCounters(state.clockMinutes-state.elapsedMinutes,state.pips,state.hunches));
+    this.engine.onState.add(state=>{this.caseLid.setCounters(state.clockMinutes-state.elapsedMinutes,state.pips,state.hunches);this.caseLid.setTimeline(knowledgeTimeline(this.engine.graphRef(),state.knowledge).map(item=>item.time+" · "+item.text));});
     this.engine.initialize();
     this.caseLid.onAction.add(action=>{
       if(action!=="Notebook"&&action!=="Evidence")return;

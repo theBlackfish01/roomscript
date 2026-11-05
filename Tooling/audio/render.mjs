@@ -1,7 +1,10 @@
 import {request,read,save,AUDIO,ROOT,hash,cleanAlignment} from './lib.mjs';import {resolve,dirname} from 'node:path';import {mkdirSync,writeFileSync,existsSync} from 'node:fs';import {execFileSync} from 'node:child_process';
 const cast=read(resolve(AUDIO,'cast.json'),null),spec=read(resolve(AUDIO,'voice-spec.json'),null),manifestPath=resolve(AUDIO,'voice-manifest.json'),manifest=read(manifestPath,{version:1,clips:[]});const ff=resolve(AUDIO,'out/bin/ffmpeg.exe');
 const tags={steady:'[calm]',rattled:'[nervous]',broken:'[sad]',tell:'[hesitates]'};
+const option=name=>{const i=process.argv.indexOf(name);return i<0?undefined:process.argv[i+1];},speakerFilter=option('--speaker'),limit=Number(option('--limit')||100000);let rendered=0;const batchStart=Date.now();
 for(const line of process.argv.includes('--manifest-only')?[]:spec.lines){
+ if(speakerFilter&&line.speaker!==speakerFilter)continue;
+ if(rendered>=limit||Date.now()-batchStart>300000)break;
  const voice=cast.voices.find(v=>v.id===line.speaker);if(!voice?.voiceId)throw Error('MISSING_CAST_'+line.speaker);
  const settings={stability:line.take==='steady'?1:.5,similarity_boost:.75,use_speaker_boost:true};
  const body={text:(tags[line.take]||'[calm]')+' '+line.text,model_id:'eleven_v3',voice_settings:settings,seed:1041};
@@ -9,9 +12,9 @@ for(const line of process.argv.includes('--manifest-only')?[]:spec.lines){
  const staged=resolve(AUDIO,'out/staged',path);if(manifest.clips.some(c=>c.key===key&&c.identity===identity)&&(existsSync(resolve(ROOT,path))||existsSync(staged)||existsSync(resolve(AUDIO,'library',path.replace(/^Assets\/Audio\//,'')))))continue;
  let result;try{result=await request('/v1/text-to-speech/'+voice.voiceId+'/with-timestamps?output_format=mp3_44100_128',body,{label:'tts:'+line.speaker+':'+line.id+':'+line.take,estimate:Math.max(100,body.text.length*2),json:true});}catch(e){if(!/UNRESOLVED_RESERVATION/.test(String(e)))throw e;console.log('uncertain paid request retained, skipped '+line.id+' '+line.take);continue;}
  const raw=resolve(AUDIO,'out/'+identity+'.mp3');writeFileSync(raw,Buffer.from(result.data.audio_base64,'base64'));mkdirSync(dirname(staged),{recursive:true});
- execFileSync(ff,['-v','error','-y','-i',raw,'-af','loudnorm=I=-16:TP=-1.5:LRA=11','-ac','1','-ar','24000','-b:a','40k',staged],{stdio:'pipe'});
+ execFileSync(ff,['-v','error','-y','-i',raw,'-af','loudnorm=I=-16:TP=-1.5:LRA=11','-ac','1','-ar','24000','-b:a','40k',staged],{stdio:'pipe',timeout:60000,windowsHide:true});
  const alignment=cleanAlignment(result.data.normalized_alignment||result.data.alignment);
- const clip={key,identity,speaker:line.speaker,text:line.text,take:line.take,id:line.id,path,voiceId:voice.voiceId,alignment};const old=manifest.clips.findIndex(c=>c.key===key);if(old>=0)manifest.clips[old]=clip;else manifest.clips.push(clip);save(manifestPath,manifest);console.log('voice '+manifest.clips.length+'/'+spec.lines.length+' '+line.speaker+' '+line.take);
+ const clip={key,identity,speaker:line.speaker,text:line.text,take:line.take,id:line.id,path,voiceId:voice.voiceId,alignment};const old=manifest.clips.findIndex(c=>c.key===key);if(old>=0)manifest.clips[old]=clip;else manifest.clips.push(clip);save(manifestPath,manifest);rendered++;console.log('voice '+manifest.clips.length+'/'+spec.lines.length+' '+line.speaker+' '+line.take);
 }
 manifest.clips.sort((a,b)=>a.key.localeCompare(b.key));for(const c of manifest.clips)c.alignment=cleanAlignment(c.alignment);save(manifestPath,manifest);
 const entries=manifest.clips.map((c,index)=>({index,id:c.id,key:c.key,speaker:c.speaker,text:c.text,take:c.take,path:c.path,alignment:c.alignment,derivedFrom:c.derivedFrom}));

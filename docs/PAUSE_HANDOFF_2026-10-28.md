@@ -34,7 +34,7 @@ Completed C1–C3 checkpoints are `40f0da9`, `8d11fe4` and `0b1a657`. All unfini
 
 ## 2. Pause state and safe restart
 
-- Workspace: `C:/Users/wadoo/Desktop/SPECS_Hackathon/RoomScriptF`.
+- Workspace: `<project>`.
 - Lens Studio: **5.23.2.26081320**; project targets Spectacles, with World tracking and a perspective camera.
 - Preview: **SPECS 27 / Interactive / Evening Room**.
 - The project was saved at pause. All three credential fields were blanked through VirtualScene and the project saved again. Live requests now require fresh credentials.
@@ -192,7 +192,7 @@ Key reviewed images:
 - `docs/captures/2026-10-28-c3-rattled-console.png`: stressed pose and furniture occlusion.
 - `docs/captures/2026-10-28-c4-record-replay.png`: strict AI integration pass banner; not proof that production UI is connected.
 
-The C4 source log is `C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-10-28-20-04-09-576-866b8.txt`; harvesting began at byte **3442262**. `C4Gateway.ts` contains one validated tape record. Raw credentials were not included in it.
+The C4 source log is `<local-development-path>`; harvesting began at byte **3442262**. `C4Gateway.ts` contains one validated tape record. Raw credentials were not included in it.
 
 ## 7. Remaining work, in implementation order
 

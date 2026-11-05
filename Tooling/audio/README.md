@@ -1,5 +1,7 @@
 # Offline Roomscript audio
 
+Current checkpoint: [Run 5 audio report](RUN5.md). The 9.91 MB export preserves all runtime choices while sharing original audio for sentence playback. Use `node Tooling/audio/run-bounded.mjs <script> [args]` for unattended batches (570-second hard timeout). Vale's owner-requested voice swap is recorded but blocked by shell network access; do not call it complete. The new ledger segment records the additional 30,000-credit allowance. Historical Run 4 instructions and costs follow below.
+
 All voices, sound effects and score in this pipeline are generated with ElevenLabs, never at Lens runtime. Keys are loaded only by these local Tooling scripts. `out/` is ignored: it holds raw responses, the content-hash cache and the local ffmpeg executable. Do not delete the cache between reruns.
 
 Run from the repository root:

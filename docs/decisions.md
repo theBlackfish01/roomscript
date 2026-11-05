@@ -152,3 +152,13 @@ Ship this checkpoint in explicit Stage mode, with authored performances, caption
 Preserve an honestly labeled terminal hero action tape while the full Preview tour is blocked. Never relabel it as captured model output or award m3-case without the integration gate. A late first render starts the authorized tell visibility interval rather than silently skipping it; the 300 ms timing target still requires a responsive device/Preview check.
 
 The synchronous player-fuzz test exceeded its 60-second deadline under current load. Yield between players without changing random streams, test equivalence, and preserve the full 1000-player run. Move 5000-case generation to test:fuzz and keep the review-recommended 200-case smoke test in the default suite. This changes the harness, not game behavior or acceptance assertions.
+
+2026-11-03 Run 4 — Apply Wadood decisions: private real-history GitHub backup, MIT, ElevenLabs offline audio with 150k-credit cap, Claude opus-5-5 banks, feature freeze Nov 7 21:00 PKT, multiplayer deferred. Limit workers to two and serialize heavy rendering/LEAF/full-suite phases.
+
+### 2026-11-04 — Run 5, bounded offline work and playback
+
+- Respect rule 15: no desktop automation or approval prompts. Shell network restrictions block the Vale voice save; keep the actual old voice identified and record the requested take as pending. The additional 30,000-credit segment starts with zero confirmed new spend.
+- Exact-text bundled lookup precedes network TTS. Mood comes from suspect state; only an engine TellCue authorizes a tell recording. Validated bank/register text remains logged through LineSpoken; attaching banks grants no new truth authority.
+- Preserve sentence coverage by sharing full recordings with start/end offsets and relative character alignment. The 9.91 MB audio payload uses 40 kbps for canonical steady/narrator/tell, 32 kbps for extra performances, 64 kbps music. This meets the audio budget without claiming an exported Lens size.
+- Git staging failed twice on index.lock permissions. No commit, push or tag is reported. Preserve uncommitted work outside git until write access is available.
+- After successful compilation of compressed assets, Preview refresh timed out without runtime activity. Stop Lens MCP work under the project's failure rule; continue art/publication/pure tests. No m3-case until compressed Stage hero, ending variants, captures and tape pass.

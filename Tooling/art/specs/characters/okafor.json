@@ -1,0 +1,167 @@
+{
+ "id": "S3",
+ "key": "okafor",
+ "file": "Okafor",
+ "name": "Dr. Ada Okafor",
+ "seed": 29,
+ "_doc": "Clinical, guarded physician, coat on. Tell: glasses glare white (TellVisual glasses anchor 256,229 @512). rattled = the glare pose with the push-up gesture.",
+ "build": {
+  "shoulderW": 198,
+  "waistW": 150,
+  "hemW": 204,
+  "headW": 238,
+  "jawW": 166,
+  "chinW": 66,
+  "vY": 1030
+ },
+ "outfit": {
+  "lapel": "notch",
+  "collar": "open",
+  "neckline": "shirt",
+  "tone": 0.28,
+  "hatchAngle": 84,
+  "buttons": 3,
+  "cuffs": false,
+  "belt": true
+ },
+ "hair": {
+  "style": "bun",
+  "color": "amber",
+  "tone": 0.7,
+  "angle": 70
+ },
+ "face": {
+  "browW": 9,
+  "browArch": 5,
+  "mouthW": 40,
+  "noseLen": 1.0,
+  "lips": true
+ },
+ "prop": {
+  "type": "glasses"
+ },
+ "poseDefaults": {
+  "armL": {
+   "hand": [
+    500,
+    1222
+   ],
+   "grip": "open",
+   "z": 30
+  },
+  "armR": {
+   "hand": [
+    526,
+    1236
+   ],
+   "grip": "open",
+   "z": 32
+  }
+ },
+ "poses": {
+  "neutral": {
+   "face": {
+    "eyes": 0.8,
+    "mouth": "flat",
+    "brow": -0.2
+   }
+  },
+  "listening": {
+   "head": {
+    "tilt": -3
+   },
+   "face": {
+    "eyes": 0.85,
+    "mouth": "open_small",
+    "browRaise": 0.2,
+    "brow": -0.3
+   },
+   "armR": {
+    "hand": [
+     780,
+     930
+    ],
+    "bend": "down",
+    "thumb": -1,
+    "z": 34
+   }
+  },
+  "rattled": {
+   "head": {
+    "tilt": 3,
+    "dy": 4
+   },
+   "face": {
+    "eyes": 0.9,
+    "brow": -0.6,
+    "mouth": "tight"
+   },
+   "armR": {
+    "hand": [
+     596,
+     520
+    ],
+    "bend": "down",
+    "grip": "fist",
+    "thumb": -1,
+    "z": 34,
+    "upperZ": 3.5
+   },
+   "prop": {
+    "glare": true
+   }
+  },
+  "broken": {
+   "lean": 1.5,
+   "shoulderDrop": 14,
+   "head": {
+    "tilt": 6,
+    "dy": 36
+   },
+   "face": {
+    "eyes": 0.0,
+    "brow": 1,
+    "mouth": "frown"
+   },
+   "armL": {
+    "hand": [
+     404,
+     1360
+    ]
+   },
+   "armR": {
+    "hand": [
+     624,
+     1360
+    ]
+   }
+  },
+  "smug": {
+   "head": {
+    "tilt": -4,
+    "dy": -8
+   },
+   "face": {
+    "eyes": 0.6,
+    "brow": -0.5,
+    "mouth": "flat"
+   },
+   "armL": {
+    "hand": [
+     604,
+     1050
+    ],
+    "grip": "fist",
+    "z": 34
+   },
+   "armR": {
+    "hand": [
+     420,
+     1040
+    ],
+    "grip": "fist",
+    "z": 31
+   }
+  }
+ }
+}

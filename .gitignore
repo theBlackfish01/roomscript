@@ -45,6 +45,7 @@ Support/
 node_modules/
 Tooling/node_modules/
 Tooling/coverage/
+Tooling/results/run5-preserved/
 # OS / editor noise
 .DS_Store
 Thumbs.db

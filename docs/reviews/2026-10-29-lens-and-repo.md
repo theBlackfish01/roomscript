@@ -1,6 +1,6 @@
 # Roomscript second-pass review: Lens integration, staging/UX, repo state
 
-Reviewed 2026-10-29 (PKT), HEAD `5923208` plus the uncommitted C7/D1 working tree, in `C:\Users\wadoo\Desktop\SPECS_Hackathon\RoomScriptF`. Read-only: files, git, scene text, captures, the Lens log `LensStudioLog-2026-10-28-23-32-38-588-be9ff.txt` (23:32 → 08:33), and the installed `ls-clad` `vfx-graph` skill. No MCP tools, no repo writes. **[V]** = seen directly; **[S]** = inferred or needs a runtime/device check.
+Reviewed 2026-10-29 (PKT), HEAD `5923208` plus the uncommitted C7/D1 working tree, in `<project>`. Read-only: files, git, scene text, captures, the Lens log `LensStudioLog-2026-10-28-23-32-38-588-be9ff.txt` (23:32 → 08:33), and the installed `ls-clad` `vfx-graph` skill. No MCP tools, no repo writes. **[V]** = seen directly; **[S]** = inferred or needs a runtime/device check.
 
 ## Verdict
 
@@ -55,7 +55,7 @@ Reviewed 2026-10-29 (PKT), HEAD `5923208` plus the uncommitted C7/D1 working tre
   - `git branch -a` shows only `master`, and there's **no remote**.
 - **Risk.** One bad editor save, an agent mistake, or disk loss erases the whole night's C7/D1. The working-copy tokens are blank (lengths 0/0/0 at `Scene.scene:3019-3021`), so committing now is safe.
 - **Fix.** Wadood commits now from his own terminal:
-  - `git -c safe.directory=C:/Users/wadoo/Desktop/SPECS_Hackathon/RoomScriptF add …` then `… commit`.
+  - `git -c safe.directory=<project> add …` then `… commit`.
   - The hook inherits `-c` through `GIT_CONFIG_PARAMETERS`, and `Tooling/node_modules/yaml` is present.
   - Alternatively, he grants the Codex commit command a persistent approval.
   - Then add a **private** remote and push (his decision; the LFS pre-push hook is tracked).

@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-04",
+  "renderer": "native-gdi-engraving-v2",
+  "contractTestsPassed": 26,
+  "contractTestsFailed": 0,
+  "deterministicFullRegeneration": {"assetsCompared": 98, "identicalSha256": 98},
+  "assetSourceBytes": 3472641,
+  "allPngDecodedBytes": 108724224,
+  "portraitDecodedBytes": 41943040,
+  "tellCentroidMaxErrorPixels": 3.801373530855028,
+  "portraitBrightFractionRange": [0.020076751708984375, 0.022670745849609375],
+  "videoClipsDecodedWithoutErrors": 4,
+  "videoBytes": 783096,
+  "lensImportedAndVerified": false,
+  "notes": [
+    "Offline generated art, not Lens captures.",
+    "Deterministic bytes are scoped to this Windows/System.Drawing/font environment.",
+    "Disk source and decoded texture sizes are not built-Lens size or measured runtime memory."
+  ]
+}

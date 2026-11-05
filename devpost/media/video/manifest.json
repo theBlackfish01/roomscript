@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "clips": [
+    {
+      "file": "Title.mp4",
+      "seconds": 4,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 160653,
+      "sha256": "84c306573de810ff398cd98253902653e20f4a59ebcaaffcecccf7a5def936b8",
+      "provenance": "Original procedural motion graphic, not Lens capture"
+    },
+    {
+      "file": "Objection.mp4",
+      "seconds": 3,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 276064,
+      "sha256": "9ef17accb3b80e2c50e2b3f145c77227b7643a3a5722c6550ae74bfb6d684967",
+      "provenance": "Original procedural motion graphic, not Lens capture"
+    },
+    {
+      "file": "EndCard.mp4",
+      "seconds": 4,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 138155,
+      "sha256": "6d40c89fb7e0f3c73ae7b861c809604fcd80695e394d90e5436425318153c10c",
+      "provenance": "Original procedural motion graphic, not Lens capture"
+    },
+    {
+      "file": "UnderTheHood.mp4",
+      "seconds": 5,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 208224,
+      "sha256": "f437abd7a2bb41400e5f6d877f3021cf798c885c0199a8ad8fcc083197866890",
+      "provenance": "Original procedural motion graphic, not Lens capture"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 const fs=require('fs'),path=require('path');
-const audio=require('C:/Users/wadoo/.codex/plugins/cache/ls-extensions/ls-clad/local/skills/build-sfx/tools');
-const PROJECT_ASSETS_SFX='C:/Users/wadoo/Desktop/SPECS_Hackathon/RoomScriptF/Assets/GeneratedSFX';
+if(!process.env.CLAD_SKILLS_DIR)throw Error('Set CLAD_SKILLS_DIR to the installed ls-clad skills folder.');
+const audio=require(path.resolve(process.env.CLAD_SKILLS_DIR,'build-sfx/tools'));
+const PROJECT_ASSETS_SFX=path.resolve(__dirname,'../Assets/GeneratedSFX');
 fs.mkdirSync(PROJECT_ASSETS_SFX,{recursive:true});
 const p=audio.sfx_presets;
 const sounds={

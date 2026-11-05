@@ -6,7 +6,7 @@ Reviewer: R4-recon. 2026-11-03 (PKT). The repo was read-only; there were no git 
 
 | Frame | Path | Beat |
 |---|---|---|
-| A | `C:\Users\wadoo\AppData\Local\Temp\claude\C--Users-wadoo-Desktop-Me\7cb4f42e-0632-4ad2-b8a1-819501e2cfbb\scratchpad\r4-recon\frames\recon-A.png` | 0:05 The Accounts: the dial at the crate; cyan claim ghosts stand where each suspect *said* they were |
+| A | `<local-development-path>` | 0:05 The Accounts: the dial at the crate; cyan claim ghosts stand where each suspect *said* they were |
 | B | `...\r4-recon\frames\recon-B.png` | 0:12 Correction: the tea slip burns at the cold kettle; Vale's record streams as cyan→coral dust to her certified Study mark; Okafor is already corrected |
 | C | `...\r4-recon\frames\recon-C.png` | 0:18 Bullet time at 22:30: mug frozen mid-fall in a bead crown, the cable in Vale's hands, fact-bound tags, frozen rain and motes, orbit path |
 | D | `...\r4-recon\frames\recon-D.png` | 0:33 Tableau: certified marks, coral string to proof, a deduction ledger from `state.arguments`, CASE CLOSED |

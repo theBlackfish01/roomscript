@@ -12,6 +12,6 @@ import {replayGame} from "./Engine/game/Reducer";
     const before=bridge.snapshot();const after=bridge.dispatch({type:"Ask",suspect:"S2",topic:"where@22:30"});
     expect(after.elapsedMinutes-before.elapsedMinutes).toBe(5);expect(after.knowledge.factIds.indexOf("X_VALE_KITCHEN")).toBe(-1);
     expect(JSON.stringify(replayGame(bridge.caseGraph(),after.log))).toBe(JSON.stringify(after));
-    after.pips=0;expect(bridge.snapshot().pips).toBe(before.pips);
+    expect(Object.isFrozen(after)).toBe(true);expect(bridge.snapshot()===after).toBe(true);expect(Object.isFrozen(bridge.graphRef().facts)).toBe(true);const copy=bridge.caseGraph();copy.caseId="mutated";expect(bridge.graphRef().caseId==="mutated").toBe(false);
   }
 }

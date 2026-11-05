@@ -4,7 +4,7 @@
   "private": true,
   "description": "Offline, deterministic, code-driven art pipeline for Roomscript (Three.js in headless Chromium -> PNG/GLB/MP4).",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "art": "node run.mjs",
     "art:portraits": "node run.mjs --only portraits",

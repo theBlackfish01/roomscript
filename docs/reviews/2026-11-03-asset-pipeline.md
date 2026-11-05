@@ -1,7 +1,7 @@
 # R4 — Roomscript code-driven asset pipeline (design + working prototype)
 
 Prepared 2026-11-03 for the final polish pass. Repo was read only (no writes, no git, no Lens MCP). Everything below lives in
-`C:\Users\wadoo\AppData\Local\Temp\claude\C--Users-wadoo-Desktop-Me\7cb4f42e-0632-4ad2-b8a1-819501e2cfbb\scratchpad\r4-assets\`
+`<local-development-path>`
 (abbreviated `R4\` below).
 
 **Result:** one command, `npm run art`, regenerates **all** of the following from JSON specs:

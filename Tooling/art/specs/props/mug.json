@@ -1,0 +1,9 @@
+{
+  "file": "ChippedMug", "object": "O9", "label": "chipped mug",
+  "_doc": "Fixture witness O9 (Study desk). The chip is a notch cut into the rim; the memory card shows it knocked from the desk.",
+  "kind": "lathe", "thumbYaw": -0.9, "segments": 48, "color": "ivory",
+  "profile": [[0.0, 0.0], [0.036, 0.0], [0.04, 0.004], [0.042, 0.03], [0.044, 0.09], [0.045, 0.096], [0.041, 0.096], [0.039, 0.09], [0.037, 0.03], [0.0, 0.012]],
+  "bands": [0.004, 0.086],
+  "handle": {"y": 0.052, "R": 0.024, "r": 0.0065, "color": "ivory"},
+  "chip": {"angle": 40, "width": 18, "depth": 0.012}
+}

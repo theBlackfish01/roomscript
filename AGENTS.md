@@ -126,7 +126,7 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
 8. **Logging.** Log CLAD and MCP usage (skill, agent or tool, and what it produced) to `devpost/clad-log.md`, and decisions to `docs/decisions.md`. CLAD use is a judging criterion.
 9. **No scope creep.** New ideas go to `docs/later.md`, not into the build.
 10. **Git.** Commit after each work package. Never push or create a remote without asking Wadood.
-11. **Local API keys.** `Tooling/.env` (gitignored) holds `ANTHROPIC_API_KEY` and `ELEVENLABS_API_KEY` for local Node tooling only. ElevenLabs has a $50 cap: keep `Tooling/results/elevenlabs-ledger.json` from the `character-cost` headers and stop at 150,000 credits. Both keys:
+11. **Local API keys.** `Tooling/.env` (gitignored) holds `ANTHROPIC_API_KEY` and `ELEVENLABS_API_KEY` for local Node tooling only. ElevenLabs: keep `Tooling/results/elevenlabs-ledger.json` from the `character-cost` headers. The first allowance is used up; 30,000 more credits were added on Nov 4, usable freely until the provider returns a quota error. Both keys:
     - validator red-teaming, judging and content drafting;
     - read it only from `Tooling/` scripts;
     - never copy it into `Assets/`, the scene, logs, docs or test fixtures, and never print it;
@@ -140,3 +140,13 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
     - Record the run handshake time in PROGRESS.
     - Never call `snapshot()` or `caseGraph()` inside `update()` or drag handlers.
 14. **Never commit a scene that has Stage mode on without the bundled voice library wired**, because the suspects would be silent.
+15. **No GUI tools; automatic approvals are fine.**
+    - **Never** use computer-use, desktop screenshots, window activation or focus, or any UI-automation tool. On Nov 3, one such call hung for 10 hours.
+    - **Do** request sandbox escalations the normal way. Codex's automatic approver (`--approve-for-me`) reviews them, and they are expected for:
+      - `git add`, `git commit`, `git push` and git-lfs;
+      - network calls to api.elevenlabs.io, api.anthropic.com and github.com;
+      - the npm registry.
+
+      Run 5 wrongly skipped these: it committed nothing and couldn't reach ElevenLabs.
+    - **Never wait on a human.** If a step needs Wadood personally, or an escalation is denied twice, record it under Needs Wadood and continue with the next package.
+    - Give every shell command and LEAF batch a timeout of 10 minutes or less.

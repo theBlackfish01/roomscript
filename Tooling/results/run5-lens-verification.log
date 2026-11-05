@@ -1,0 +1,5 @@
+﻿I 22:42:26.930 [Preview 1] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [  6.371s]PASSED: roomscript-interrogation
+I 22:42:52.660 [Preview 1] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [  7.883s]PASSED: roomscript-all-tells
+I 22:44:11.648 [Preview 1] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] E [DefaultLeafScenarioManager] [ 48.911s]FAILED: roomscript-hero-demo - TypeError: Cannot read property 'holder' of undefined
+I 22:48:18.395 [Preview 1] [Scripts/RoomscriptBundledVoiceLeafScenario.ts:14] BUNDLED_VOICE_CHECK|{"lines":4,"peak":0.8,"maxStart":0,"calls":0,"fallback":0}
+I 22:48:18.396 [Preview 1] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 13.342s]PASSED: roomscript-bundled-voices

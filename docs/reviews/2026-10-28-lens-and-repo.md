@@ -1,6 +1,6 @@
 # Roomscript review: Lens integration, repo hygiene and plan adherence
 
-Reviewed 2026-10-28 (PKT), at HEAD `12a85b9`, in `C:\Users\wadoo\Desktop\SPECS_Hackathon\RoomScriptF`.
+Reviewed 2026-10-28 (PKT), at HEAD `12a85b9`, in `<project>`.
 
 **Method.** This was a read-only pass. I read the files, ran git, grep and Python scripts that only read, and parsed `Assets/Scene.scene` as text. I also cross-checked claims against the Lens Studio log named in PROGRESS (`%LOCALAPPDATA%/Snap/Lens Studio/logs/LensStudioLog-2026-10-28-20-04-09-576-866b8.txt`).
 

@@ -1,4 +1,6 @@
 import {RoomscriptProductionStudyLeafScenario} from "./RoomscriptProductionStudyLeafScenario";
+import {RoomscriptPolishLeafScenario} from "./RoomscriptPolishLeafScenario";
+import {RoomscriptBundledVoiceLeafScenario} from "./RoomscriptBundledVoiceLeafScenario";
 import {RoomscriptHeroDemoLeafScenario} from "./RoomscriptHeroDemoLeafScenario";
 import {RoomscriptAllTellsLeafScenario} from "./RoomscriptAllTellsLeafScenario";
 import {RoomscriptOpeningLeafScenario} from "./RoomscriptOpeningLeafScenario";
@@ -28,6 +30,8 @@ import {RoomscriptClosingLeafScenario} from "./RoomscriptClosingLeafScenario";
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-bundled-voices",typename:RoomscriptBundledVoiceLeafScenario.getTypeName()},
+    {id:"roomscript-polish-foundation",typename:RoomscriptPolishLeafScenario.getTypeName()},
     {id:"roomscript-hero-demo",typename:RoomscriptHeroDemoLeafScenario.getTypeName()},
     {id:"roomscript-all-tells",typename:RoomscriptAllTellsLeafScenario.getTypeName()},
     {id:"roomscript-production-study",typename:RoomscriptProductionStudyLeafScenario.getTypeName(),parameters:{start:"0"}},

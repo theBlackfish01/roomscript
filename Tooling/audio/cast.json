@@ -50,7 +50,13 @@
       ],
       "selected": 1,
       "voiceId": "ysTjlrxaU2pIe4zuixSo",
-      "voiceSource": "designed"
+      "voiceSource": "designed",
+      "pendingSelection": {
+        "selected": 0,
+        "generatedVoiceId": "Ajczv1caVKcFEG1TdJH0",
+        "requestedBy": "Wadood Run 5",
+        "status": "save-voice-network-blocked; existing runtime voice retained until generation succeeds"
+      }
     },
     {
       "id": "S1",

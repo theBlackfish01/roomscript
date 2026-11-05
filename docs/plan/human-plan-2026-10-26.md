@@ -65,7 +65,7 @@ Even so, expect to cut from the bottom of the should tier. §9 gives the order.
 If the computer can't stay on during the day, the agent lane moves into the evenings and the should tier shrinks.
 
 ### Repository
-`C:\Users\wadoo\Desktop\SPECS_Hackathon`, outside the vault. (Updated Oct 26: Wadood created the Lens Studio project at `SPECS_Hackathon\RoomScriptF`, so the repo root is its parent.) Git from the first commit, pushed to a private GitHub repo and made public at submission.
+`<local-development-path>`, outside the vault. (Updated Oct 26: Wadood created the Lens Studio project at `SPECS_Hackathon\RoomScriptF`, so the repo root is its parent.) Git from the first commit, pushed to a private GitHub repo and made public at submission.
 
 ```
 SPECS_Hackathon/
@@ -650,7 +650,7 @@ Total: about 72 hours of Wadood's time.
 ## 13. First actions tonight (Mon Oct 26)
 
 1. Download and install Lens Studio (Spectacles-compatible) and sign in. (Wadood)
-2. Initialise git in `C:\Users\wadoo\Desktop\SPECS_Hackathon` and scaffold `engine/`, `tools/`, `content/`, `docs/` and `devpost/` beside the Lens project. (An agent can do this now.)
+2. Initialise git in `<local-development-path>` and scaffold `engine/`, `tools/`, `content/`, `docs/` and `devpost/` beside the Lens project. (An agent can do this now.)
 3. Install CLAD, connect MCP and check the tools. (Wadood + agent)
 4. Start OBS before the first CLAD action.
 5. Queue WP1.1–WP1.2 for an agent to run tomorrow during the day.

@@ -1,4 +1,8 @@
-# Run 4 audio handoff
+# Audio integration handoff
+
+**Run 5 supersedes the size/segment details below:** see [RUN5.md](RUN5.md). Published audio is 9.91 MB; 878 entries share 552 voice tracks. Sentence entries have `startSeconds` and `endSeconds` into the original track, with alignment relative to the segment. Full-line entries have no offsets. Vale take 1 remains pending because the first save request was blocked by network access. No new paid generation succeeded.
+
+## Historical Run 4 handoff
 
 Offline generation is complete for the selected runtime library. Lens playback wiring, listening review and integrated LEAF remain main-session work.
 

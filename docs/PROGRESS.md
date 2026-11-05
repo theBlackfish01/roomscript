@@ -1,3 +1,50 @@
+# Run 5 — handoff, 2026-11-04
+
+Full package statuses, verification, costs, review artifacts and the ten-minute tour: [Run 5 final report](RUN5_REPORT.md).
+
+## Current submission state (supersedes historical entries below)
+
+Logic proven / feel unproven. Private remote and real history are authorized, as are package commits and pushes. MIT; feature freeze Sat Nov 7 at 21:00 PKT. No public release or m3-case yet. Run 4's ~70 minutes of actual work left Lens edits uncommitted; its computer-use hang did not verify them. Rule 15 applies: no GUI automation, no interactive approvals, bounded commands. Existing Lens diff is preserved locally in `Tooling/results/run5-preserved/run4.patch` and the untracked polish scenario is copied beside it.
+
+Run 5 preflight: correct project and signed-in account verified via MCP. Fresh log session 2026-11-04 22:32:44; compile passed, refresh had no errors and first log activity at 19 ms (this is not the LEAF handshake; later registration was 0.516 s). Strict interrogation and all-tells passed. Hero baseline failed on a test treating testimony roots as evidence; repaired and covered by a passing pure regression, but Preview rerun is pending. Strict bundled-voices passed four actors, jaw peak 0.8, no network/fallback before compression. The compressed 9.91 MB export compiles, then refresh timed out with no runtime activity. Lens work stopped under the MCP failure rule. Stage scene remains uncommitted.
+
+- V4: exact-text VoiceLibrary, mood/tell selection authorized by engine state, segment playback, aligned jaw, judged banks attached to runtime graph. Narration/dialogue APIs and score/SFX imports compile, but complete gameplay triggers/hero acceptance are partial.
+- Audio: all 878 entries retained using 552 shared voice tracks, 30 effects, eight score cues and five dialogues. Actual Vale audio remains take 2. New credit segment records zero confirmed Run 5 spend; Claude $0.
+- A1/A2: original luminous art production and contact sheets in the working tree; A3 remains unwired. See report for contract results and visual review.
+- Publication files, MIT, third-party/service disclosure, design brief, raw/chronological CLAD logs, portable paths and STORY apostrophes prepared. Rename and final release pending.
+- Final full unit suite **439/439 across 46 files**, exit 0, 86.84 s; one worker after art rendering stopped. Native configuration loader avoids sandbox parent-directory denial. Engine/Content/Tooling typecheck passed. Current text and reachable-history secret audits found no issues (396 current files / 758 history blobs at post-lane audit). No secret hook changes. Full unit success is not integrated LEAF acceptance.
+- Git staging failed twice on index.lock permissions; LFS writes are also denied. No commits, push or tags. Recovery copy under ignored `Tooling/results/run5-preserved/` preserves changed files and a deletion manifest; original Run 4 patch is retained.
+
+Run 4 reconciliation: committed engine/content banks and audio generation are present through bfaf5ff. The audio final handoff is `Tooling/audio/INTEGRATION.md` and the listening report is `docs/audio-casting.md`; no separate Run 4 final-report file was found. 878 runtime recordings existed, but no RoomscriptVoiceLibrary playback adapter. S2 caches/S3 pool/UI/reconstruction changes were left uncommitted. Art and publication lanes had not run.
+
+## Run 5 Needs Wadood
+
+- Shell network access blocked the Vale voice-save request before paid generation. New ledger segment exists; cast swap remains pending. Continue offline compression and Lens wiring without approval prompts.
+- Restart Lens Studio before compressed-segment/hero/closing verification. The post-import refresh timed out; no new Director capture, full hero tape or m3-case acceptance.
+- Resume in a session with Git write access; index and LFS directories are read-only here. Preserve the working tree and recovery copy. Automatic review rejected art-worker cleanup of duplicate Tooling/art/web and specs folders as potentially irreversible; cleanup was skipped.
+- Art dependency downloads are blocked by sandbox network/cache access. Art lane is using a dependency-free local rendering fallback; font sourcing may remain pending.
+- D6 rules/submission form and Eleven Music subscription eligibility remain for owner review. Physical Specs checks remain unverified.
+
+---
+# Run 4 — historical, 2026-11-03
+
+## Submission state
+
+Logic proven / feel unproven. Private backup: https://github.com/theBlackfish01/roomscript (real history, m0/m1/m2 tags and LFS pushed). Public release remains Wadood's action on Nov 8. MIT authorized. Feature freeze Nov 7, 21:00 PKT. Clue Night deferred. Stage mode currently has no bundle; no scene commit until voices are wired.
+
+## Run 4 verification and lanes
+
+- Step 0: f7fa4f4 `docs: final review and polish plan`; historical authorization-header references redacted to satisfy unchanged secret guard.
+- Fresh process opened by Wadood, log session 2026-11-03 23:14:56. Correct project, authorized account, SPECS 27 Interactive Evening Room. Compile succeeded; refreshed logs had no errors.
+- S1 baseline: strict interrogation passed 23:22:16, handshake 0.516 s, tell 315 ms. Strict all-tells passed. Hero-demo in progress. No asset edits during batch.
+- Lanes B (engine/content) and C (audio) running; max two workers; main owns Lens. No full suite during LEAF or art.
+
+## Run 4 Needs Wadood
+
+- Read Devpost rules/resources/updates and submission form (D6); music plan eligibility remains to be checked against actual subscription.
+- Confirm or swap cast voices after preview library lands. No physical Specs available; device-only checks remain unverified.
+
+---
 # Roomscript progress — RESUMED
 
 Updated 2026-10-30 01:36 PKT. P0, C7, L2/L3, D3/D2, L4/L5 and AI P1 verified. N3 engine tests pass. D6 offline fallback and D7 hero replay are implemented; integrated Preview verification is blocked by execution timeouts. Gateway credentials blank; saved Stage mode enabled. No m3-case tag.
@@ -92,7 +139,7 @@ Known editor warnings include LEAF instance/settings teardown on reset and trans
 - [Harvested tape](../Assets/Scripts/Content/Tapes/C4Gateway.ts): one validated, credential-free live answer.
 - [MCP bug report](mcp-bug-report.md): earlier package/runtime mismatch and recovery details.
 
-The C4 source log is `C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-10-28-20-04-09-576-866b8.txt`; harvest byte baseline **3442262**.
+The C4 source log is `<Lens Studio logs>/LensStudioLog-2026-10-28-20-04-09-576-866b8.txt`; harvest byte baseline **3442262**.
 
 ## Probe decisions retained
 

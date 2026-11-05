@@ -1,0 +1,18 @@
+{
+  "name": "roomscript-art",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Deterministic original engraving assets, GLB props and motion graphics for Roomscript",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "art": "node scripts/all.mjs",
+    "art:assets": "node run.mjs",
+    "art:portraits": "node run.mjs --only portraits,sheet",
+    "art:props": "node run.mjs --only props",
+    "art:cards": "node run.mjs --only cards",
+    "art:motion": "node scripts/motion.mjs",
+    "art:verify": "node scripts/verify.mjs",
+    "test": "node scripts/test.mjs"
+  }
+}
