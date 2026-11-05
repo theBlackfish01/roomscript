@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "provenance": "Authored Run 7 casting and contextual guidance; no case truth is introduced by these lines.",
+  "lines": [
+    {"id":"casting-lamp","speaker":"NARRATOR","group":"narration","text":"Your desk lamp: witness."},
+    {"id":"casting-kettle","speaker":"NARRATOR","group":"narration","text":"Your kettle: witness."},
+    {"id":"casting-cable","speaker":"NARRATOR","group":"narration","text":"Your charger cable: the rope."},
+    {"id":"casting-mug","speaker":"NARRATOR","group":"narration","text":"Your mug: a memory."},
+    {"id":"casting-door","speaker":"NARRATOR","group":"narration","text":"Your doorway: the hall."},
+    {"id":"casting-desk","speaker":"NARRATOR","group":"narration","text":"Your desk: the study."},
+    {"id":"casting-chair","speaker":"NARRATOR","group":"narration","text":"Your chair: a witness."},
+    {"id":"casting-shelf","speaker":"NARRATOR","group":"narration","text":"Your shelf: a hiding place."},
+    {"id":"casting-clock","speaker":"NARRATOR","group":"narration","text":"Your clock: the timekeeper."},
+    {"id":"casting-sofa","speaker":"NARRATOR","group":"narration","text":"Your sofa: the lounge."},
+    {"id":"casting-table","speaker":"NARRATOR","group":"narration","text":"Your table: a witness."},
+    {"id":"casting-plant","speaker":"NARRATOR","group":"narration","text":"Your plant: a witness."},
+    {"id":"casting-finish","speaker":"NARRATOR","group":"narration","text":"Tonight, this room is Harlow's study."},
+    {"id":"casting-dynamic-finish","speaker":"NARRATOR","group":"narration","text":"Same room. New murder."},
+    {"id":"casting-fallback","speaker":"WREN","group":"narration","text":"Shall we open the case we brought?"},
+    {"id":"tip-memory","speaker":"WREN","group":"narration","text":"What would the kettle remember?"},
+    {"id":"tip-pull","speaker":"WREN","group":"narration","text":"Could you pull that memory closer?"},
+    {"id":"tip-object","speaker":"WREN","group":"narration","text":"Would her words hold up beside the kettle?"},
+    {"id":"tip-suggest","speaker":"WREN","group":"narration","text":"Who would you place in that room?"},
+    {"id":"tip-lift","speaker":"WREN","group":"narration","text":"What changes when you lift it?"},
+    {"id":"tip-accuse","speaker":"WREN","group":"narration","text":"Who can you point to and prove?"}
+  ]
+}

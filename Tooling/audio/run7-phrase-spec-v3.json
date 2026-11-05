@@ -1,0 +1,1131 @@
+{
+  "provenance": "Run 7 deterministic compiler text; compact authored hero room plus synthetic living-room test fixture; neither a recorded scan",
+  "seeds": [
+    7,
+    1041,
+    2026,
+    0,
+    1,
+    5,
+    8,
+    15,
+    16
+  ],
+  "lines": [
+    {
+      "id": "phrase:S1:56634f75",
+      "speaker": "S1",
+      "text": "21:45"
+    },
+    {
+      "id": "phrase:S1:58e84ed5",
+      "speaker": "S1",
+      "text": "22:00"
+    },
+    {
+      "id": "phrase:S1:cfe53893",
+      "speaker": "S1",
+      "text": "22:15"
+    },
+    {
+      "id": "phrase:S1:5eea96de",
+      "speaker": "S1",
+      "text": "22:30"
+    },
+    {
+      "id": "phrase:S1:63ddd2ca",
+      "speaker": "S1",
+      "text": "22:45"
+    },
+    {
+      "id": "phrase:S1:89099238",
+      "speaker": "S1",
+      "text": "23:00"
+    },
+    {
+      "id": "phrase:S1:1cf30f52",
+      "speaker": "S1",
+      "text": "Ada Rivers"
+    },
+    {
+      "id": "phrase:S1:acd75a5f",
+      "speaker": "S1",
+      "text": "Adrian Bell"
+    },
+    {
+      "id": "phrase:S1:336d750b",
+      "speaker": "S1",
+      "text": "Ask me something more specific."
+    },
+    {
+      "id": "phrase:S1:57251588",
+      "speaker": "S1",
+      "text": "at"
+    },
+    {
+      "id": "phrase:S1:f582300d",
+      "speaker": "S1",
+      "text": "Basil Crane"
+    },
+    {
+      "id": "phrase:S1:4fdb7341",
+      "speaker": "S1",
+      "text": "Beatrice Quill"
+    },
+    {
+      "id": "phrase:S1:80ccdd0f",
+      "speaker": "S1",
+      "text": "bed cover"
+    },
+    {
+      "id": "phrase:S1:f29b760d",
+      "speaker": "S1",
+      "text": "brass candlestick"
+    },
+    {
+      "id": "phrase:S1:4f4cdfad",
+      "speaker": "S1",
+      "text": "Cecily March"
+    },
+    {
+      "id": "phrase:S1:f7cf40e0",
+      "speaker": "S1",
+      "text": "charger cable"
+    },
+    {
+      "id": "phrase:S1:00036bde",
+      "speaker": "S1",
+      "text": "Clara Moss"
+    },
+    {
+      "id": "phrase:S1:22200df5",
+      "speaker": "S1",
+      "text": "coffee table"
+    },
+    {
+      "id": "phrase:S1:e787071d",
+      "speaker": "S1",
+      "text": "Dorian West"
+    },
+    {
+      "id": "phrase:S1:a39778f4",
+      "speaker": "S1",
+      "text": "Elena Frost"
+    },
+    {
+      "id": "phrase:S1:96e130f0",
+      "speaker": "S1",
+      "text": "Esther Wren"
+    },
+    {
+      "id": "phrase:S1:ca46ad58",
+      "speaker": "S1",
+      "text": "evidence cord"
+    },
+    {
+      "id": "phrase:S1:3e4c8531",
+      "speaker": "S1",
+      "text": "Felix Ward"
+    },
+    {
+      "id": "phrase:S1:323a406a",
+      "speaker": "S1",
+      "text": "Gideon Fox"
+    },
+    {
+      "id": "phrase:S1:438b4e98",
+      "speaker": "S1",
+      "text": "Give me a moment to collect myself."
+    },
+    {
+      "id": "phrase:S1:176205ce",
+      "speaker": "S1",
+      "text": "Give me some space."
+    },
+    {
+      "id": "phrase:S1:50eb0b52",
+      "speaker": "S1",
+      "text": "Hall"
+    },
+    {
+      "id": "phrase:S1:8e83c235",
+      "speaker": "S1",
+      "text": "Henry Alder"
+    },
+    {
+      "id": "phrase:S1:027b4627",
+      "speaker": "S1",
+      "text": "Hugo Flint"
+    },
+    {
+      "id": "phrase:S1:a9869863",
+      "speaker": "S1",
+      "text": "I concealed forgery involving the"
+    },
+    {
+      "id": "phrase:S1:7bc68281",
+      "speaker": "S1",
+      "text": "I did not handle the"
+    },
+    {
+      "id": "phrase:S1:84d0a4af",
+      "speaker": "S1",
+      "text": "I did not touch the item."
+    },
+    {
+      "id": "phrase:S1:557816da",
+      "speaker": "S1",
+      "text": "I had a dispute with"
+    },
+    {
+      "id": "phrase:S1:8ec5863d",
+      "speaker": "S1",
+      "text": "I handled the"
+    },
+    {
+      "id": "phrase:S1:45e3ab0f",
+      "speaker": "S1",
+      "text": "I have answered enough."
+    },
+    {
+      "id": "phrase:S1:2214235d",
+      "speaker": "S1",
+      "text": "I touched the"
+    },
+    {
+      "id": "phrase:S1:cee231f4",
+      "speaker": "S1",
+      "text": "I was attending to my own business."
+    },
+    {
+      "id": "phrase:S1:54420e38",
+      "speaker": "S1",
+      "text": "I was in"
+    },
+    {
+      "id": "phrase:S1:c142f15d",
+      "speaker": "S1",
+      "text": "Iris North"
+    },
+    {
+      "id": "phrase:S1:946a85d3",
+      "speaker": "S1",
+      "text": "Jonas Lake"
+    },
+    {
+      "id": "phrase:S1:ba872bcf",
+      "speaker": "S1",
+      "text": "Kitchen"
+    },
+    {
+      "id": "phrase:S1:a2811784",
+      "speaker": "S1",
+      "text": "Leon Voss"
+    },
+    {
+      "id": "phrase:S1:b06f9e67",
+      "speaker": "S1",
+      "text": "Lounge"
+    },
+    {
+      "id": "phrase:S1:5c594a8b",
+      "speaker": "S1",
+      "text": "medicine bottle"
+    },
+    {
+      "id": "phrase:S1:6dc71c67",
+      "speaker": "S1",
+      "text": "Meera Dawn"
+    },
+    {
+      "id": "phrase:S1:b9b29c26",
+      "speaker": "S1",
+      "text": "Miles Hart"
+    },
+    {
+      "id": "phrase:S1:5004019d",
+      "speaker": "S1",
+      "text": "Miriam Cole"
+    },
+    {
+      "id": "phrase:S1:f17fad12",
+      "speaker": "S1",
+      "text": "over ambition."
+    },
+    {
+      "id": "phrase:S1:5667368b",
+      "speaker": "S1",
+      "text": "Rupert Hale"
+    },
+    {
+      "id": "phrase:S1:ea7cadc1",
+      "speaker": "S1",
+      "text": "Simon Vale"
+    },
+    {
+      "id": "phrase:S1:df49a3a6",
+      "speaker": "S1",
+      "text": "sofa"
+    },
+    {
+      "id": "phrase:S1:94070a8e",
+      "speaker": "S1",
+      "text": "Study"
+    },
+    {
+      "id": "phrase:S1:af5aabdb",
+      "speaker": "S1",
+      "text": "Tessa Lane"
+    },
+    {
+      "id": "phrase:S1:169949bc",
+      "speaker": "S1",
+      "text": "The"
+    },
+    {
+      "id": "phrase:S1:6da42cb9",
+      "speaker": "S1",
+      "text": "was in"
+    },
+    {
+      "id": "phrase:S2:56634f75",
+      "speaker": "S2",
+      "text": "21:45"
+    },
+    {
+      "id": "phrase:S2:58e84ed5",
+      "speaker": "S2",
+      "text": "22:00"
+    },
+    {
+      "id": "phrase:S2:cfe53893",
+      "speaker": "S2",
+      "text": "22:15"
+    },
+    {
+      "id": "phrase:S2:5eea96de",
+      "speaker": "S2",
+      "text": "22:30"
+    },
+    {
+      "id": "phrase:S2:63ddd2ca",
+      "speaker": "S2",
+      "text": "22:45"
+    },
+    {
+      "id": "phrase:S2:89099238",
+      "speaker": "S2",
+      "text": "23:00"
+    },
+    {
+      "id": "phrase:S2:acd75a5f",
+      "speaker": "S2",
+      "text": "Adrian Bell"
+    },
+    {
+      "id": "phrase:S2:995fa703",
+      "speaker": "S2",
+      "text": "Agnes Reed"
+    },
+    {
+      "id": "phrase:S2:336d750b",
+      "speaker": "S2",
+      "text": "Ask me something more specific."
+    },
+    {
+      "id": "phrase:S2:57251588",
+      "speaker": "S2",
+      "text": "at"
+    },
+    {
+      "id": "phrase:S2:4fdb7341",
+      "speaker": "S2",
+      "text": "Beatrice Quill"
+    },
+    {
+      "id": "phrase:S2:80ccdd0f",
+      "speaker": "S2",
+      "text": "bed cover"
+    },
+    {
+      "id": "phrase:S2:f29b760d",
+      "speaker": "S2",
+      "text": "brass candlestick"
+    },
+    {
+      "id": "phrase:S2:4f4cdfad",
+      "speaker": "S2",
+      "text": "Cecily March"
+    },
+    {
+      "id": "phrase:S2:f7cf40e0",
+      "speaker": "S2",
+      "text": "charger cable"
+    },
+    {
+      "id": "phrase:S2:3d1b0a7f",
+      "speaker": "S2",
+      "text": "chipped mug"
+    },
+    {
+      "id": "phrase:S2:00036bde",
+      "speaker": "S2",
+      "text": "Clara Moss"
+    },
+    {
+      "id": "phrase:S2:22200df5",
+      "speaker": "S2",
+      "text": "coffee table"
+    },
+    {
+      "id": "phrase:S2:21f5b729",
+      "speaker": "S2",
+      "text": "door"
+    },
+    {
+      "id": "phrase:S2:e787071d",
+      "speaker": "S2",
+      "text": "Dorian West"
+    },
+    {
+      "id": "phrase:S2:a39778f4",
+      "speaker": "S2",
+      "text": "Elena Frost"
+    },
+    {
+      "id": "phrase:S2:96e130f0",
+      "speaker": "S2",
+      "text": "Esther Wren"
+    },
+    {
+      "id": "phrase:S2:ca46ad58",
+      "speaker": "S2",
+      "text": "evidence cord"
+    },
+    {
+      "id": "phrase:S2:438b4e98",
+      "speaker": "S2",
+      "text": "Give me a moment to collect myself."
+    },
+    {
+      "id": "phrase:S2:176205ce",
+      "speaker": "S2",
+      "text": "Give me some space."
+    },
+    {
+      "id": "phrase:S2:50eb0b52",
+      "speaker": "S2",
+      "text": "Hall"
+    },
+    {
+      "id": "phrase:S2:8e83c235",
+      "speaker": "S2",
+      "text": "Henry Alder"
+    },
+    {
+      "id": "phrase:S2:8cede910",
+      "speaker": "S2",
+      "text": "I concealed theft involving the"
+    },
+    {
+      "id": "phrase:S2:7bc68281",
+      "speaker": "S2",
+      "text": "I did not handle the"
+    },
+    {
+      "id": "phrase:S2:84d0a4af",
+      "speaker": "S2",
+      "text": "I did not touch the item."
+    },
+    {
+      "id": "phrase:S2:557816da",
+      "speaker": "S2",
+      "text": "I had a dispute with"
+    },
+    {
+      "id": "phrase:S2:8ec5863d",
+      "speaker": "S2",
+      "text": "I handled the"
+    },
+    {
+      "id": "phrase:S2:45e3ab0f",
+      "speaker": "S2",
+      "text": "I have answered enough."
+    },
+    {
+      "id": "phrase:S2:2214235d",
+      "speaker": "S2",
+      "text": "I touched the"
+    },
+    {
+      "id": "phrase:S2:cee231f4",
+      "speaker": "S2",
+      "text": "I was attending to my own business."
+    },
+    {
+      "id": "phrase:S2:54420e38",
+      "speaker": "S2",
+      "text": "I was in"
+    },
+    {
+      "id": "phrase:S2:c142f15d",
+      "speaker": "S2",
+      "text": "Iris North"
+    },
+    {
+      "id": "phrase:S2:946a85d3",
+      "speaker": "S2",
+      "text": "Jonas Lake"
+    },
+    {
+      "id": "phrase:S2:ba872bcf",
+      "speaker": "S2",
+      "text": "Kitchen"
+    },
+    {
+      "id": "phrase:S2:a2811784",
+      "speaker": "S2",
+      "text": "Leon Voss"
+    },
+    {
+      "id": "phrase:S2:b06f9e67",
+      "speaker": "S2",
+      "text": "Lounge"
+    },
+    {
+      "id": "phrase:S2:5f42f0c5",
+      "speaker": "S2",
+      "text": "Lydia Fern"
+    },
+    {
+      "id": "phrase:S2:5c594a8b",
+      "speaker": "S2",
+      "text": "medicine bottle"
+    },
+    {
+      "id": "phrase:S2:6dc71c67",
+      "speaker": "S2",
+      "text": "Meera Dawn"
+    },
+    {
+      "id": "phrase:S2:b9b29c26",
+      "speaker": "S2",
+      "text": "Miles Hart"
+    },
+    {
+      "id": "phrase:S2:5004019d",
+      "speaker": "S2",
+      "text": "Miriam Cole"
+    },
+    {
+      "id": "phrase:S2:ba782f9d",
+      "speaker": "S2",
+      "text": "Nora Finch"
+    },
+    {
+      "id": "phrase:S2:380270f9",
+      "speaker": "S2",
+      "text": "over revenge."
+    },
+    {
+      "id": "phrase:S2:39928ccc",
+      "speaker": "S2",
+      "text": "Pavel Stone"
+    },
+    {
+      "id": "phrase:S2:5667368b",
+      "speaker": "S2",
+      "text": "Rupert Hale"
+    },
+    {
+      "id": "phrase:S2:df49a3a6",
+      "speaker": "S2",
+      "text": "sofa"
+    },
+    {
+      "id": "phrase:S2:94070a8e",
+      "speaker": "S2",
+      "text": "Study"
+    },
+    {
+      "id": "phrase:S2:af5aabdb",
+      "speaker": "S2",
+      "text": "Tessa Lane"
+    },
+    {
+      "id": "phrase:S2:169949bc",
+      "speaker": "S2",
+      "text": "The"
+    },
+    {
+      "id": "phrase:S2:71126a66",
+      "speaker": "S2",
+      "text": "Vera Sands"
+    },
+    {
+      "id": "phrase:S2:6da42cb9",
+      "speaker": "S2",
+      "text": "was in"
+    },
+    {
+      "id": "phrase:S3:56634f75",
+      "speaker": "S3",
+      "text": "21:45"
+    },
+    {
+      "id": "phrase:S3:58e84ed5",
+      "speaker": "S3",
+      "text": "22:00"
+    },
+    {
+      "id": "phrase:S3:cfe53893",
+      "speaker": "S3",
+      "text": "22:15"
+    },
+    {
+      "id": "phrase:S3:5eea96de",
+      "speaker": "S3",
+      "text": "22:30"
+    },
+    {
+      "id": "phrase:S3:63ddd2ca",
+      "speaker": "S3",
+      "text": "22:45"
+    },
+    {
+      "id": "phrase:S3:89099238",
+      "speaker": "S3",
+      "text": "23:00"
+    },
+    {
+      "id": "phrase:S3:1cf30f52",
+      "speaker": "S3",
+      "text": "Ada Rivers"
+    },
+    {
+      "id": "phrase:S3:acd75a5f",
+      "speaker": "S3",
+      "text": "Adrian Bell"
+    },
+    {
+      "id": "phrase:S3:995fa703",
+      "speaker": "S3",
+      "text": "Agnes Reed"
+    },
+    {
+      "id": "phrase:S3:336d750b",
+      "speaker": "S3",
+      "text": "Ask me something more specific."
+    },
+    {
+      "id": "phrase:S3:57251588",
+      "speaker": "S3",
+      "text": "at"
+    },
+    {
+      "id": "phrase:S3:f582300d",
+      "speaker": "S3",
+      "text": "Basil Crane"
+    },
+    {
+      "id": "phrase:S3:4fdb7341",
+      "speaker": "S3",
+      "text": "Beatrice Quill"
+    },
+    {
+      "id": "phrase:S3:80ccdd0f",
+      "speaker": "S3",
+      "text": "bed cover"
+    },
+    {
+      "id": "phrase:S3:f29b760d",
+      "speaker": "S3",
+      "text": "brass candlestick"
+    },
+    {
+      "id": "phrase:S3:4f4cdfad",
+      "speaker": "S3",
+      "text": "Cecily March"
+    },
+    {
+      "id": "phrase:S3:f7cf40e0",
+      "speaker": "S3",
+      "text": "charger cable"
+    },
+    {
+      "id": "phrase:S3:22200df5",
+      "speaker": "S3",
+      "text": "coffee table"
+    },
+    {
+      "id": "phrase:S3:e787071d",
+      "speaker": "S3",
+      "text": "Dorian West"
+    },
+    {
+      "id": "phrase:S3:a39778f4",
+      "speaker": "S3",
+      "text": "Elena Frost"
+    },
+    {
+      "id": "phrase:S3:ca46ad58",
+      "speaker": "S3",
+      "text": "evidence cord"
+    },
+    {
+      "id": "phrase:S3:3e4c8531",
+      "speaker": "S3",
+      "text": "Felix Ward"
+    },
+    {
+      "id": "phrase:S3:323a406a",
+      "speaker": "S3",
+      "text": "Gideon Fox"
+    },
+    {
+      "id": "phrase:S3:438b4e98",
+      "speaker": "S3",
+      "text": "Give me a moment to collect myself."
+    },
+    {
+      "id": "phrase:S3:176205ce",
+      "speaker": "S3",
+      "text": "Give me some space."
+    },
+    {
+      "id": "phrase:S3:50eb0b52",
+      "speaker": "S3",
+      "text": "Hall"
+    },
+    {
+      "id": "phrase:S3:8e83c235",
+      "speaker": "S3",
+      "text": "Henry Alder"
+    },
+    {
+      "id": "phrase:S3:027b4627",
+      "speaker": "S3",
+      "text": "Hugo Flint"
+    },
+    {
+      "id": "phrase:S3:37e7ea7c",
+      "speaker": "S3",
+      "text": "I concealed debt involving the"
+    },
+    {
+      "id": "phrase:S3:7bc68281",
+      "speaker": "S3",
+      "text": "I did not handle the"
+    },
+    {
+      "id": "phrase:S3:84d0a4af",
+      "speaker": "S3",
+      "text": "I did not touch the item."
+    },
+    {
+      "id": "phrase:S3:557816da",
+      "speaker": "S3",
+      "text": "I had a dispute with"
+    },
+    {
+      "id": "phrase:S3:8ec5863d",
+      "speaker": "S3",
+      "text": "I handled the"
+    },
+    {
+      "id": "phrase:S3:45e3ab0f",
+      "speaker": "S3",
+      "text": "I have answered enough."
+    },
+    {
+      "id": "phrase:S3:2214235d",
+      "speaker": "S3",
+      "text": "I touched the"
+    },
+    {
+      "id": "phrase:S3:cee231f4",
+      "speaker": "S3",
+      "text": "I was attending to my own business."
+    },
+    {
+      "id": "phrase:S3:54420e38",
+      "speaker": "S3",
+      "text": "I was in"
+    },
+    {
+      "id": "phrase:S3:ba872bcf",
+      "speaker": "S3",
+      "text": "Kitchen"
+    },
+    {
+      "id": "phrase:S3:a2811784",
+      "speaker": "S3",
+      "text": "Leon Voss"
+    },
+    {
+      "id": "phrase:S3:b06f9e67",
+      "speaker": "S3",
+      "text": "Lounge"
+    },
+    {
+      "id": "phrase:S3:5f42f0c5",
+      "speaker": "S3",
+      "text": "Lydia Fern"
+    },
+    {
+      "id": "phrase:S3:5c594a8b",
+      "speaker": "S3",
+      "text": "medicine bottle"
+    },
+    {
+      "id": "phrase:S3:6dc71c67",
+      "speaker": "S3",
+      "text": "Meera Dawn"
+    },
+    {
+      "id": "phrase:S3:b9b29c26",
+      "speaker": "S3",
+      "text": "Miles Hart"
+    },
+    {
+      "id": "phrase:S3:ba782f9d",
+      "speaker": "S3",
+      "text": "Nora Finch"
+    },
+    {
+      "id": "phrase:S3:171ad5ce",
+      "speaker": "S3",
+      "text": "over debt."
+    },
+    {
+      "id": "phrase:S3:39928ccc",
+      "speaker": "S3",
+      "text": "Pavel Stone"
+    },
+    {
+      "id": "phrase:S3:5667368b",
+      "speaker": "S3",
+      "text": "Rupert Hale"
+    },
+    {
+      "id": "phrase:S3:ea7cadc1",
+      "speaker": "S3",
+      "text": "Simon Vale"
+    },
+    {
+      "id": "phrase:S3:df49a3a6",
+      "speaker": "S3",
+      "text": "sofa"
+    },
+    {
+      "id": "phrase:S3:94070a8e",
+      "speaker": "S3",
+      "text": "Study"
+    },
+    {
+      "id": "phrase:S3:169949bc",
+      "speaker": "S3",
+      "text": "The"
+    },
+    {
+      "id": "phrase:S3:71126a66",
+      "speaker": "S3",
+      "text": "Vera Sands"
+    },
+    {
+      "id": "phrase:S3:6da42cb9",
+      "speaker": "S3",
+      "text": "was in"
+    },
+    {
+      "id": "phrase:S4:56634f75",
+      "speaker": "S4",
+      "text": "21:45"
+    },
+    {
+      "id": "phrase:S4:58e84ed5",
+      "speaker": "S4",
+      "text": "22:00"
+    },
+    {
+      "id": "phrase:S4:cfe53893",
+      "speaker": "S4",
+      "text": "22:15"
+    },
+    {
+      "id": "phrase:S4:5eea96de",
+      "speaker": "S4",
+      "text": "22:30"
+    },
+    {
+      "id": "phrase:S4:63ddd2ca",
+      "speaker": "S4",
+      "text": "22:45"
+    },
+    {
+      "id": "phrase:S4:89099238",
+      "speaker": "S4",
+      "text": "23:00"
+    },
+    {
+      "id": "phrase:S4:1cf30f52",
+      "speaker": "S4",
+      "text": "Ada Rivers"
+    },
+    {
+      "id": "phrase:S4:acd75a5f",
+      "speaker": "S4",
+      "text": "Adrian Bell"
+    },
+    {
+      "id": "phrase:S4:995fa703",
+      "speaker": "S4",
+      "text": "Agnes Reed"
+    },
+    {
+      "id": "phrase:S4:336d750b",
+      "speaker": "S4",
+      "text": "Ask me something more specific."
+    },
+    {
+      "id": "phrase:S4:57251588",
+      "speaker": "S4",
+      "text": "at"
+    },
+    {
+      "id": "phrase:S4:f582300d",
+      "speaker": "S4",
+      "text": "Basil Crane"
+    },
+    {
+      "id": "phrase:S4:4fdb7341",
+      "speaker": "S4",
+      "text": "Beatrice Quill"
+    },
+    {
+      "id": "phrase:S4:80ccdd0f",
+      "speaker": "S4",
+      "text": "bed cover"
+    },
+    {
+      "id": "phrase:S4:f29b760d",
+      "speaker": "S4",
+      "text": "brass candlestick"
+    },
+    {
+      "id": "phrase:S4:4f4cdfad",
+      "speaker": "S4",
+      "text": "Cecily March"
+    },
+    {
+      "id": "phrase:S4:f7cf40e0",
+      "speaker": "S4",
+      "text": "charger cable"
+    },
+    {
+      "id": "phrase:S4:3d1b0a7f",
+      "speaker": "S4",
+      "text": "chipped mug"
+    },
+    {
+      "id": "phrase:S4:00036bde",
+      "speaker": "S4",
+      "text": "Clara Moss"
+    },
+    {
+      "id": "phrase:S4:22200df5",
+      "speaker": "S4",
+      "text": "coffee table"
+    },
+    {
+      "id": "phrase:S4:21f5b729",
+      "speaker": "S4",
+      "text": "door"
+    },
+    {
+      "id": "phrase:S4:a39778f4",
+      "speaker": "S4",
+      "text": "Elena Frost"
+    },
+    {
+      "id": "phrase:S4:96e130f0",
+      "speaker": "S4",
+      "text": "Esther Wren"
+    },
+    {
+      "id": "phrase:S4:ca46ad58",
+      "speaker": "S4",
+      "text": "evidence cord"
+    },
+    {
+      "id": "phrase:S4:3e4c8531",
+      "speaker": "S4",
+      "text": "Felix Ward"
+    },
+    {
+      "id": "phrase:S4:323a406a",
+      "speaker": "S4",
+      "text": "Gideon Fox"
+    },
+    {
+      "id": "phrase:S4:438b4e98",
+      "speaker": "S4",
+      "text": "Give me a moment to collect myself."
+    },
+    {
+      "id": "phrase:S4:176205ce",
+      "speaker": "S4",
+      "text": "Give me some space."
+    },
+    {
+      "id": "phrase:S4:50eb0b52",
+      "speaker": "S4",
+      "text": "Hall"
+    },
+    {
+      "id": "phrase:S4:8e83c235",
+      "speaker": "S4",
+      "text": "Henry Alder"
+    },
+    {
+      "id": "phrase:S4:027b4627",
+      "speaker": "S4",
+      "text": "Hugo Flint"
+    },
+    {
+      "id": "phrase:S4:1584e3dc",
+      "speaker": "S4",
+      "text": "I concealed eavesdrop involving the"
+    },
+    {
+      "id": "phrase:S4:7bc68281",
+      "speaker": "S4",
+      "text": "I did not handle the"
+    },
+    {
+      "id": "phrase:S4:84d0a4af",
+      "speaker": "S4",
+      "text": "I did not touch the item."
+    },
+    {
+      "id": "phrase:S4:557816da",
+      "speaker": "S4",
+      "text": "I had a dispute with"
+    },
+    {
+      "id": "phrase:S4:8ec5863d",
+      "speaker": "S4",
+      "text": "I handled the"
+    },
+    {
+      "id": "phrase:S4:45e3ab0f",
+      "speaker": "S4",
+      "text": "I have answered enough."
+    },
+    {
+      "id": "phrase:S4:2214235d",
+      "speaker": "S4",
+      "text": "I touched the"
+    },
+    {
+      "id": "phrase:S4:cee231f4",
+      "speaker": "S4",
+      "text": "I was attending to my own business."
+    },
+    {
+      "id": "phrase:S4:54420e38",
+      "speaker": "S4",
+      "text": "I was in"
+    },
+    {
+      "id": "phrase:S4:c142f15d",
+      "speaker": "S4",
+      "text": "Iris North"
+    },
+    {
+      "id": "phrase:S4:946a85d3",
+      "speaker": "S4",
+      "text": "Jonas Lake"
+    },
+    {
+      "id": "phrase:S4:ba872bcf",
+      "speaker": "S4",
+      "text": "Kitchen"
+    },
+    {
+      "id": "phrase:S4:a2811784",
+      "speaker": "S4",
+      "text": "Leon Voss"
+    },
+    {
+      "id": "phrase:S4:b06f9e67",
+      "speaker": "S4",
+      "text": "Lounge"
+    },
+    {
+      "id": "phrase:S4:5f42f0c5",
+      "speaker": "S4",
+      "text": "Lydia Fern"
+    },
+    {
+      "id": "phrase:S4:5c594a8b",
+      "speaker": "S4",
+      "text": "medicine bottle"
+    },
+    {
+      "id": "phrase:S4:5004019d",
+      "speaker": "S4",
+      "text": "Miriam Cole"
+    },
+    {
+      "id": "phrase:S4:ba782f9d",
+      "speaker": "S4",
+      "text": "Nora Finch"
+    },
+    {
+      "id": "phrase:S4:23b0ce51",
+      "speaker": "S4",
+      "text": "over coverup."
+    },
+    {
+      "id": "phrase:S4:39928ccc",
+      "speaker": "S4",
+      "text": "Pavel Stone"
+    },
+    {
+      "id": "phrase:S4:ea7cadc1",
+      "speaker": "S4",
+      "text": "Simon Vale"
+    },
+    {
+      "id": "phrase:S4:df49a3a6",
+      "speaker": "S4",
+      "text": "sofa"
+    },
+    {
+      "id": "phrase:S4:94070a8e",
+      "speaker": "S4",
+      "text": "Study"
+    },
+    {
+      "id": "phrase:S4:af5aabdb",
+      "speaker": "S4",
+      "text": "Tessa Lane"
+    },
+    {
+      "id": "phrase:S4:169949bc",
+      "speaker": "S4",
+      "text": "The"
+    },
+    {
+      "id": "phrase:S4:71126a66",
+      "speaker": "S4",
+      "text": "Vera Sands"
+    },
+    {
+      "id": "phrase:S4:6da42cb9",
+      "speaker": "S4",
+      "text": "was in"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "provenance": "Main-approved seven-object scan casting affordances, not murder truth. Exact accepted furniture labels.",
+  "lines": [
+    {"id":"casting-scan-console","speaker":"NARRATOR","group":"narration","text":"Your media console: a hiding place."},
+    {"id":"casting-scan-record-player","speaker":"NARRATOR","group":"narration","text":"Your record player: a witness."},
+    {"id":"casting-scan-left-speaker","speaker":"NARRATOR","group":"narration","text":"Your left speaker: a possible weapon."},
+    {"id":"casting-scan-right-speaker","speaker":"NARRATOR","group":"narration","text":"Your right speaker: a possible weapon."},
+    {"id":"casting-scan-woven-chair","speaker":"NARRATOR","group":"narration","text":"Your woven chair: a hiding place."},
+    {"id":"casting-scan-coffee-table","speaker":"NARRATOR","group":"narration","text":"Your coffee table: a witness."},
+    {"id":"casting-scan-sofa","speaker":"NARRATOR","group":"narration","text":"Your sofa: a hiding place."}
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "cues": [
+    {
+      "name": "CastingChime",
+      "group": "sfx",
+      "path": "Assets/Audio/Run7/Sfx/CastingChime.mp3",
+      "identity": "9ce6e85baafc4ba8b8a694b79fd0d4c4afe3207ce625405fa9251740766c6fca",
+      "seconds": 1,
+      "loop": false,
+      "prompt": "One delicate brass and glass chime as a forensic label settles onto furniture. Brief warm attack, clear tiny decay, no music or voice."
+    },
+    {
+      "name": "ToastTick",
+      "group": "sfx",
+      "path": "Assets/Audio/Run7/Sfx/ToastTick.mp3",
+      "identity": "5384ebce6637fcd01181f32d86af308c00a5d456f8b2f562bd2a6c9c2a4adfff",
+      "seconds": 0.5,
+      "loop": false,
+      "prompt": "One very soft dry wooden tick for a peripheral notification. Tiny precise click, no ringing, no music."
+    },
+    {
+      "name": "PullMemory",
+      "group": "sfx",
+      "path": "Assets/Audio/Run7/Sfx/PullMemory.mp3",
+      "identity": "28ce356185debbc3b59032895b993784efa312460d2718b9356904b243d98afa",
+      "seconds": 1.5,
+      "loop": false,
+      "prompt": "A paper photograph pulled out of an airy glowing memory: soft papery sliding whoosh, delicate shimmering tail, no impact or voice."
+    },
+    {
+      "name": "LiftInspect",
+      "group": "sfx",
+      "path": "Assets/Audio/Run7/Sfx/LiftInspect.mp3",
+      "identity": "a03fe5e3995416eb39c0f93f97fd20f361fd0a51f1f7d3d6adbf3dc37fd95595",
+      "seconds": 1,
+      "loop": false,
+      "prompt": "A small ceramic object gently lifted off a wooden surface, subtle fingertip scrape and short airy rise, no speech or music."
+    }
+  ]
+}
