@@ -17,6 +17,7 @@ import {performanceMode} from "./Engine/game/Reducer";
 import {Degradation} from "./Engine/ai/Degradation";
 import {tellCue} from "./Engine/game/TellCue";
 import {preferPreparedQuestions} from "./Engine/ai/ModelPolicy";
+import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
 
 /** Production adapter. Engine actions precede performance; validated output is logged before speech. */
 @component export class RoomscriptInterrogationController extends BaseScriptComponent {
@@ -87,6 +88,12 @@ import {preferPreparedQuestions} from "./Engine/ai/ModelPolicy";
     if(!this.questions.getSceneObject().enabled){const faces=graph.cast.suspects.map(s=>this.actorFor(s.id)).filter(a=>!!a).map(a=>a.getTransform().getWorldPosition().add(new vec3(0,145,0)));placeReadingPanel(this.questions.getSceneObject(),this.actor.camera,this.questions.width,39,this.engine.roomRoot.getTransform().getWorldPosition().y,faces);}
     this.controlsBlocked=true;this.questions.review(text,presentedIntent(graph,this.engine.snapshot(),this.selected,text).topic,this.choices().filter(c=>c.topic!=="free"));this.chips.show(false);this.verbs.show(false);}
   async askChip(topic:string):Promise<void> {if(topic==="free"){this.reviewQuestion("");return;}const choice=this.choices().find(c=>c.topic===topic);if(choice)await this.ask(choice.question,"chip",topic);}
+  /** Run 8: a memory photo held up to a suspect asks them about that object (an ordinary engine Ask). */
+  async presentObjectTo(suspect:string,objectId:string):Promise<boolean> {if(suspect!==this.selected)this.selectSuspect(suspect);const ask=presentObject(this.engine.graphRef(),this.engine.snapshot(),this.selected,objectId);if(!ask)return false;
+    console.log("PRESENT|"+JSON.stringify({suspect:this.selected,object:objectId,topic:ask.topic,kind:ask.kind}));if(ask.kind==="chip")await this.ask(ask.question,"chip",ask.topic);else await this.askFree(ask.question);return true;}
+  /** Run 8: pointing at another guest while facing a suspect asks about that guest. */
+  async askAboutGuest(guest:string):Promise<boolean> {const ask=presentGuest(this.engine.graphRef(),this.engine.snapshot(),this.selected,guest);if(!ask)return false;
+    console.log("POINT_GUEST|"+JSON.stringify({suspect:this.selected,guest,topic:ask.topic,kind:ask.kind}));if(ask.kind==="chip")await this.ask(ask.question,"chip",ask.topic);else await this.askFree(ask.question);return true;}
   async askFree(question:string,topic?:string):Promise<void> {const graph=this.engine.graphRef();
     await this.ask(question,"free",topic??presentedIntent(graph,this.engine.snapshot(),this.selected,question).topic);}
   private async ask(question:string,kind:"chip"|"free",topic:string):Promise<void> {

@@ -154,7 +154,7 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
   }
   private movePull(id:string,delta:vec3):void {
     if(this.pullObject!==id||!delta||![delta.x,delta.y,delta.z].every(Number.isFinite))return;
-    this.pullDelta=this.pullDelta.add(delta);if(this.pullDelta.length>65)this.pullDelta=this.pullDelta.normalize().uniformScale(65);this.placePullPhoto();
+    this.pullDelta=this.pullDelta.add(delta);const reach=this.pullingLift?65:260;if(this.pullDelta.length>reach)this.pullDelta=this.pullDelta.normalize().uniformScale(reach);this.placePullPhoto();
     const towards=this.flow.actor.camera.getTransform().getWorldPosition().sub(this.pullOrigin);
     const towardDistance=towards.length>.01?this.pullDelta.dot(towards.normalize()):0;
     const ready=this.pullingLift?this.pullDelta.y>=8:this.pullDelta.length>=8&&(towardDistance>=4||this.pullDelta.y>=6);
@@ -165,8 +165,15 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
       this.tells.audio.playAt(this.pullingLift?"LiftInspect":"PullMemory",this.photo.getTransform().getWorldPosition());
     }
   }
+  /** Run 8: the suspect the held photo is shown to: within ~60 cm of their chest-to-face line. */
+  private presentedTo(point:vec3):string|null {let best:string|null=null,distance=60;for(const person of this.flow.engine.graphRef().cast.suspects){const actor=this.flow.actorFor(person.id);if(!actor||!actor.getSceneObject().enabled)continue;
+      const base=actor.getTransform().getWorldPosition(),y=Math.max(base.y+110,Math.min(base.y+160,point.y)),d=new vec3(base.x,y,base.z).distance(point);if(d<distance){distance=d;best=person.id;}}return best;}
   private endPull(id:string):void {
-    if(this.pullObject!==id)return;const collected=this.pullCommitted;this.suppressTapObject=id;this.suppressTapUntil=getTime()+.25;
+    if(this.pullObject!==id)return;const collected=this.pullCommitted;
+    // Holding the photo up to a suspect asks them about the object instead of opening the memory card.
+    const presented=collected&&this.photo.enabled?this.presentedTo(this.photo.getTransform().getWorldPosition()):null;
+    {const at=this.photo.getTransform().getWorldPosition();console.log("PULL_END|"+JSON.stringify({id,collected,photo:this.photo.enabled,at:[at.x,at.y,at.z].map(Math.round),delta:Math.round(this.pullDelta.length),presented}));}
+    if(presented){this.suppressTapObject=id;this.suppressTapUntil=getTime()+.25;this.restoreLift();this.pullObject=null;this.photo.enabled=false;this.opened=false;this.getSceneObject().enabled=false;this.modal(false);void this.flow.presentObjectTo(presented,id);return;}this.suppressTapObject=id;this.suppressTapUntil=getTime()+.25;
     this.restoreLift();this.pullObject=null;this.photo.enabled=false;this.opened=false;
     if(collected)this.inspect(id,true);else{this.getSceneObject().enabled=false;this.modal(false);}
   }

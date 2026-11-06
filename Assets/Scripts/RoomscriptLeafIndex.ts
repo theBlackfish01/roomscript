@@ -1,3 +1,4 @@
+import {RoomscriptRun8PresentLeafScenario} from "./RoomscriptRun8PresentLeafScenario";
 import {RoomscriptRun8DirectorLeafScenario} from "./RoomscriptRun8DirectorLeafScenario";
 import {RoomscriptReadingPanelLeafScenario} from "./RoomscriptReadingPanelLeafScenario";
 import {RoomscriptGeneratedVoiceLeafScenario} from "./RoomscriptGeneratedVoiceLeafScenario";
@@ -46,6 +47,7 @@ import {RoomscriptMemoryCardLeafScenario} from "./RoomscriptMemoryCardLeafScenar
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-run8-present",typename:RoomscriptRun8PresentLeafScenario.getTypeName()},
     {id:"roomscript-run8-director",typename:RoomscriptRun8DirectorLeafScenario.getTypeName(),parameters:{beat:"question",hold:"30",suspect:"S2"}},
     {id:"roomscript-reading-panels",typename:RoomscriptReadingPanelLeafScenario.getTypeName()},
     {id:"roomscript-generated-voices",typename:RoomscriptGeneratedVoiceLeafScenario.getTypeName(),parameters:{seed:"7",source:"file"}},
