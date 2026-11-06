@@ -38,3 +38,15 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 - Audio worker: 38 new clips for 735 ElevenLabs credits (`Tooling/audio/RUN8-AUDIO.md`); registered as cues via `RoomscriptRun8CueAssets.ts`.
 - Engine worker: EvidenceWeb, ObjectReplay, MorningEdition, FrozenTableau, Fingerprints, CaseBoardLayout, plus 28 tests (`Tooling/tests/game/RUN8-ENGINE.md`). Truth rules: convergence and tableau only after a verdict; the paper never names the true culprit on a wrong or timeout verdict; testimony threads only for proven or cited statements.
 - Capture: `docs/captures/2026-11-06-run8-casefiles-v1.png`.
+
+### 18:05 PKT — object UI pass complete (`d668646`…`8ca555e`)
+- Props are engraved line drawings. The Run 7 GLB props had no normals and never rendered.
+- Evening-v3 layout: the latch sits on the real door and the glass on the window. Plausible Dynamic casting (no speaker weapons); virtual Dynamic props rest on real tops.
+- Chalk zone circles sit on measured free floor (Kitchen rings the table). Wren and the narrator get a head-locked line low in view.
+- Palm notebook: left palm up shows the glyphs; the Preview fallback sits on the crate lid; the credibility lens cracks.
+- Case board on the left wall (z=-172): portraits, rooms, weapons, memory photos that fly to their pins, red string, crosses, FILED and CASE CLOSED stamps.
+- Presenting evidence: hold a pulled memory photo up to a suspect to ask about the object, or point at another guest. Strict `roomscript-run8-present` PASS 146.5 s.
+- Accusation rig: WHO/WHERE/WITH tokens, a spotlight beam and floor spot, and a wax seal. A hold needs at least 1 s and at least 12 frames; the seal sound plays only after success, because native audio blocks about 1 s.
+- Morning Edition newspaper ending, built from engine data.
+- **Planned restart 17:39:46 → relaunch 17:39:54 PKT** (the process had degraded: native audio calls took 1.3–2.7 s). Handshake 17:40:58. After the restart the MCP scenario launch stalls again, so I'm using the local-manager runner: strict closing correct PASS 39.6 s.
+- Pending: wow moments, naive-player LEAF, the clue fixture (it tests the old refutation card), and recapturing all beats.
