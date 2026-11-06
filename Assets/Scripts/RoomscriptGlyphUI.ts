@@ -23,11 +23,17 @@ export function glyphTexture(icon:GlyphIcon):Texture {
 export const IVORY=new vec4(1,.94,.84,1),CYAN=new vec4(.247,.89,1,1),CORAL=new vec4(1,.42,.35,1),BRASS=new vec4(.91,.69,.29,1);
 /** Flat icon quad (alpha-blended, no backing plate). Needs a Canvas ancestor; the ScreenTransform
  * offsets (not the local position) place it, relative to its parent. Returns its material. */
-export function iconImage(parent:SceneObject,name:string,texture:Texture,size:number,tint=new vec4(1,1,1,1),position=new vec3(0,0,.6)):Material {
+/** shared=true reuses one material per texture and tint (static icons rebuilt often, e.g. the board). */
+const SHARED_ICONS=new Map<Texture,Map<string,Material>>();
+export function iconImage(parent:SceneObject,name:string,texture:Texture,size:number,tint=new vec4(1,1,1,1),position=new vec3(0,0,.6),shared=false,aspect=1):Material {
   const object=uiObject(parent,name);object.getTransform().setLocalPosition(new vec3(0,0,position.z));
   const screen=object.createComponent("Component.ScreenTransform") as ScreenTransform;screen.anchors=Rect.create(0,0,0,0);
-  screen.offsets=Rect.create(position.x-size/2,position.x+size/2,position.y-size/2,position.y+size/2);
-  const image=object.createComponent("Component.Image") as Image,material=(requireAsset("../RoomscriptProbeImage.mat") as Material).clone();
+  // aspect = width/height of the texture (portraits are 0.5): size is the height, so 512x1024 art is never stretched.
+  const w=size*aspect;screen.offsets=Rect.create(position.x-w/2,position.x+w/2,position.y-size/2,position.y+size/2);
+  const image=object.createComponent("Component.Image") as Image,key=[tint.x,tint.y,tint.z,tint.w].map(v=>Math.round(v*1000)).join(",");
+  let cache=shared?SHARED_ICONS.get(texture):undefined;if(shared&&!cache){cache=new Map();SHARED_ICONS.set(texture,cache);}
+  const cached=cache?.get(key);if(cached&&!isNull(cached)){image.clearMaterials();image.addMaterial(cached);return cached;}
+  const material=(requireAsset("../RoomscriptProbeImage.mat") as Material).clone();cache?.set(key,material);
   material.mainPass.baseTex=texture;material.mainPass.baseColor=tint;material.mainPass.depthTest=true;material.mainPass.depthWrite=false;material.mainPass.twoSided=true;image.clearMaterials();image.addMaterial(material);return material;
 }
 export function label(parent:SceneObject,name:string,value:string,width:number,height:number,color:vec4,role:"title"|"body"|"small"="small",scale=1):Text {

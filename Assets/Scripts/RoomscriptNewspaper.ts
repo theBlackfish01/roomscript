@@ -32,7 +32,7 @@ export class RoomscriptNewspaper {
     const at=eye.add(forward.uniformScale(62)).add(new vec3(0,-22,0));this.root.getTransform().setWorldPosition(at);
     this.root.getTransform().setWorldRotation(quat.lookAt(eye.sub(at).normalize(),vec3.up()).multiply(quat.fromEulerAngles(-.25,0,0)));
     this.began=getTime();this.root.getTransform().setWorldScale(new vec3(.8,.016,.8));sound("NewspaperUnfold");
-    this.updates=owner.createEvent("UpdateEvent");this.updates.bind(()=>{const k=Math.min(1,(getTime()-this.began)/.6),e=1-Math.pow(1-k,3);if(!isNull(this.root))this.root.getTransform().setWorldScale(new vec3(.8,Math.max(.016,e*.8),.8));if(k>=1)this.updates.enabled=false;});
+    this.updates=owner.createEvent("UpdateEvent");this.updates.bind(()=>{const k=Math.min(1,(getTime()-this.began)/.6),e=1-Math.pow(1-k,3);if(!isNull(this.root))this.root.getTransform().setWorldScale(new vec3(.8,Math.max(.016,e*.8),.8));if(k>=1){owner.removeEvent(this.updates);this.updates=null;}});
   }
   set enabled(value:boolean){if(!isNull(this.root))this.root.enabled=value;}
 }

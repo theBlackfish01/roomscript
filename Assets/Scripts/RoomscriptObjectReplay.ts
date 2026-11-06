@@ -40,7 +40,7 @@ export class RoomscriptObjectReplay {
       // Real scale, standing on the real floor beside the object, offset towards the viewer.
       const side=(i-(v.figures.length-1)/2)*55;node.getTransform().setLocalPosition(new vec3(side,floorY-anchor.y+85,38));
       const texture=figure.suspect?ghostTexture(figure.suspect):null;
-      if(texture)iconImage(node,"Ghost",texture,170,new vec4(.6,.9,1,.5));
+      if(texture)iconImage(node,"Ghost",texture,170,new vec4(.6,.9,1,.5),new vec3(0,0,.6),false,.5);
       else{lineTubes(node,"Nobody here",circleEdges(30,30,new vec3(0,-84,0),"xz"),tinted(this.line,new vec4(.6,.9,1,.6)),.5);const none=flatText(node,"No one",figure.pose==="absent"&&SAYS_EMPTY.test(v.caption)?"NO ONE":"",4,new vec4(.6,.9,1,.8),"title",30,5);none.getSceneObject().getTransform().setLocalPosition(new vec3(0,-70,0));}
       node.enabled=false;figures.push(node);});
     this.active={root,began:getTime(),figures,rings};this.sound("ReplayRewind",anchor);

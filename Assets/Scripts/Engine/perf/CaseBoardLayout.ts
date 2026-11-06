@@ -40,7 +40,7 @@ export function caseBoardLayout(graph:CaseGraph,state:GameState,opts:{width?:num
     row.cards.forEach((card,c)=>items.push({id:row.prefix+card.id,kind:row.kind,label:card.label,x:round(left+cardW/2+c*(cardW+gap)),y:round(y),w:round(cardW),h:round(cardH),crossed:card.crossed}));
   });
   const stampH=height*.15,photoTop=top-stampH-gap,photoH=photoTop-bottom;
-  if(state.verdict!==null)items.push({id:"stamp",kind:"stamp",label:state.verdict==="correct"?"CASE CLOSED":state.verdict==="wrong"?"WRONG CALL":"CASE COLD",
+  if(state.verdict!==null)items.push({id:"stamp",kind:"stamp",label:verdictStampText(state.verdict),
     x:round(rightStart+rightW/2),y:round(top-stampH/2),w:round(rightW),h:round(stampH),crossed:false});
   const photos=graph.evidence.filter(e=>state.knowledge.evidenceIds.includes(e.id));
   if(photos.length){
@@ -80,3 +80,6 @@ export function caseBoardLayout(graph:CaseGraph,state:GameState,opts:{width?:num
   }
   return {width,height,items,strings};
 }
+
+/** The board stamp for each verdict: only a correct accusation closes the case. */
+export function verdictStampText(verdict:"correct"|"wrong"|"timeout"|string):string {return verdict==="correct"?"CASE CLOSED":verdict==="wrong"?"WRONG CALL":"CASE COLD";}

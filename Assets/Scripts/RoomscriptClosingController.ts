@@ -18,6 +18,8 @@ import {RoomscriptNewspaper} from "./RoomscriptNewspaper";
 import {frozenTableau} from "./Engine/game/FrozenTableau";
 import {propDrawing} from "./RoomscriptPropArt";
 
+/** Room and weapon open unset ("?") so the rig never shows the answer (Run 8 review bug 1). */
+const UNSET="";
 const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File deductions","Cancel accusation","Break seal"];
 /** Accusation UI submits the chosen cards; all reveal and rating data comes from the engine. */
 @component export class RoomscriptClosingController extends BaseScriptComponent {
@@ -44,7 +46,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   };
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
   private build():void {
-    if(this.panel)return;const flow=this.cast.flow;flow.engine.initialize();this.cast.room.initialize();const graph=flow.engine.graphRef();this.picked={who:graph.cast.suspects[0].id,where:graph.room.zones[0].id,what:graph.weapons[0]};
+    if(this.panel)return;const flow=this.cast.flow;flow.engine.initialize();this.cast.room.initialize();const graph=flow.engine.graphRef();this.picked={who:graph.cast.suspects[0].id,where:UNSET,what:UNSET};
     this.buildRig();
     this.clue.objection.tells.audio.onNarrationSubtitle.add(({speaker,text})=>{if(this.phase==="reconstruction"&&this.frames[this.frame]?.kind==="resume"&&speaker==="NARRATOR")this.body.text=wrapText(text,40);});
     flow.engine.onState.add(state=>this.onState(state));flow.engine.onCaseChanged.add(()=>this.resetForCase());this.clue.objection.caseLid.onAction.add(action=>{if(action==="Accuse")this.open();});this.panel.enabled=false;
@@ -69,10 +71,10 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     this.sealRing=lineTubes(seal,"Seal progress",circleEdges(5.6,40,new vec3(0,0,.3)),tinted(line,new vec4(1,.84,.04,1)),.55).getSceneObject();this.sealRing.enabled=false;
     const shape=Shape.createBoxShape();shape.size=new vec3(11,11,3);const collider=seal.createComponent("Physics.ColliderComponent") as ColliderComponent;collider.shape=shape;
     const press=seal.createComponent(Interactable.getTypeName()) as Interactable;press.targetingMode=3;
-    press.onTriggerStart.add(()=>{if(this.phase==="idle"){this.heldAt=getTime();this.heldTime=0;}});
+    press.onTriggerStart.add(()=>{if(this.phase==="idle"&&this.complete()){this.heldAt=getTime();this.heldTime=0;}});
     // Native audio can block a frame for ~1 s, so the seal sound plays only once the hold succeeds.
-    press.onTriggerEnd.add(()=>{const held=this.heldAt>=0&&getTime()-this.heldAt>=1&&this.heldTime>=12;this.heldAt=-1;this.sealRing.enabled=false;if(held){this.clue.objection.tells.audio.play("WaxSealPress");this.accuse();}});
-    press.onTriggerCanceled.add(()=>{this.heldAt=-1;this.sealRing.enabled=false;});
+    press.onTriggerEnd.add(()=>{const held=this.heldAt>=0&&getTime()-this.heldAt>=1&&this.heldTime>=12;this.heldAt=-1;this.sealRing.enabled=false;this.sealLabel.text=this.sealPrompt();if(held&&this.complete()){this.clue.objection.tells.audio.play("WaxSealPress");this.accuse();}else if(held)this.clue.objection.tells.audio.play("ToastTick");});
+    press.onTriggerCanceled.add(()=>{this.heldAt=-1;this.sealRing.enabled=false;this.sealLabel.text=this.sealPrompt();});
     // Spotlight beam from your hand to the suspect you point at.
     // Thin unit-length beam along +z (scaled to length each frame) and a spotlight ring at the accused feet.
     this.beam=lineTubes(this.getSceneObject(),"Accusation spotlight",[[new vec3(-.25,0,0),new vec3(-.25,0,1)],[new vec3(.25,0,0),new vec3(.25,0,1)]],tinted(line,new vec4(1,.84,.55,1)),.3).getSceneObject();this.beam.enabled=false;
@@ -94,13 +96,13 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   }
   resetForCase():void {
     if(!this.panel)return;this.clearReconstructionDetails();this.cast.room.initialize();this.cast.flow.cancel();const graph=this.cast.flow.engine.graphRef();
-    this.opened=false;this.heldAt=-1;this.phase="idle";this.began=0;this.frame=-1;this.frames=[];this.summary=[];this.holdUntil=0;this.escapeStart=null;this.resultText="";this.routeText="";this.route=null;this.sealedState=null;this.sealedGraph=null;
+    this.holdKind="";this.holdSeconds=0;this.opened=false;this.heldAt=-1;this.phase="idle";this.began=0;this.frame=-1;this.frames=[];this.summary=[];this.holdUntil=0;this.escapeStart=null;this.resultText="";this.routeText="";this.route=null;this.sealedState=null;this.sealedGraph=null;
     for(const ghost of this.ghosts.values())if(!isNull(ghost))ghost.destroy();this.ghosts.clear();this.ghostMaterials.clear();
     if(this.result&&!isNull(this.result))this.result.destroy();this.result=null;
     if(this.details&&!isNull(this.details))this.details.destroy();this.details=null;this.detailRender=null;if(this.routeRoot&&!isNull(this.routeRoot))this.routeRoot.destroy();this.routeRoot=null;
-    this.picked={who:graph.cast.suspects[0].id,where:graph.room.zones[0].id,what:graph.weapons[0]};
+    this.picked={who:graph.cast.suspects[0].id,where:UNSET,what:UNSET};
     const restore=(root:SceneObject)=>{for(let i=0;i<root.getChildrenCount();i++){const child=root.getChild(i);if(RIG_CONTROLS.includes(child.name))child.enabled=true;else restore(child);}};restore(this.panel);
-    this.sealLabel.text="HOLD";this.panel.enabled=false;this.clue.envelope.enabled=true;this.clue.objection.tells.audio.silence(false);this.showInvestigation(true);this.render();
+    this.sealLabel.text=this.sealPrompt();this.panel.enabled=false;this.clue.envelope.enabled=true;this.clue.objection.tells.audio.silence(false);this.showInvestigation(true);this.render();
   }
   open():void {const state=this.cast.flow.engine.snapshot();if(state.verdict&&state.verdict!=="timeout")return;this.cast.flow.cancel();this.clue.objection.close();this.picked=this.clue.selected()||{...this.picked,who:this.cast.flow.diagnostics().suspect||this.picked.who};this.opened=true;this.placeRig();this.panel.enabled=true;this.showInvestigation(false);this.render();this.clue.objection.tells.audio.beforeSeal();this.clue.objection.tells.audio.play("SpotlightOn");}
   private showInvestigation(value:boolean):void {this.cast.flow.controlsBlocked=!value;const flow=this.cast.flow,targeting=!value&&this.opened&&this.phase==="idle";
@@ -112,14 +114,17 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   private render():void {
     const graph=this.cast.flow.engine.graphRef(),state=this.cast.flow.engine.snapshot();
     this.title.text=state.verdict==="timeout"?"TIME IS UP — ONE ACCUSATION":"FINAL ACCUSATION";
-    this.labels[0].text=graph.cast.suspects.find(s=>s.id===this.picked.who)!.name.split(" ").slice(-1)[0];this.labels[1].text=graph.room.zones.find(z=>z.id===this.picked.where)!.clueName;this.labels[2].text=graph.room.objects.find(o=>o.id===this.picked.what)!.label.split(/\s+/).slice(-1)[0];
+    this.labels[0].text=graph.cast.suspects.find(s=>s.id===this.picked.who)!.name.split(" ").slice(-1)[0];this.labels[1].text=graph.room.zones.find(z=>z.id===this.picked.where)?.clueName||"?";this.labels[2].text=graph.room.objects.find(o=>o.id===this.picked.what)?.label.split(/\s+/).slice(-1)[0]||"?";if(this.heldAt<0)this.sealLabel.text=this.sealPrompt();
     this.body.text=state.arguments.length+" / "+graph.requiredDeductions.length+" proof filed · point · hold the seal";
   }
   private onState(state:GameState):void {
     if(state.verdict==="timeout"&&!this.opened)this.open();
     if((state.verdict==="correct"||state.verdict==="wrong")&&this.phase==="idle")this.beginReveal(state);
   }
-  private accuse():void {if(!this.opened||this.phase!=="idle")return;this.cast.flow.cancel();this.cast.flow.engine.dispatch({type:"Accuse",...this.picked});}
+  /** All three chosen? The seal only commits a complete accusation. */
+  private complete():boolean {return !!this.picked.who&&!!this.picked.where&&!!this.picked.what;}
+  private sealPrompt():string {return !this.picked.where?"ROOM ?":!this.picked.what?"WEAPON ?":"HOLD";}
+  private accuse():void {if(!this.opened||this.phase!=="idle"||!this.complete())return;this.cast.flow.cancel();this.cast.flow.engine.dispatch({type:"Accuse",...this.picked});}
   private beginReveal(state:GameState):void {
     if(state.verdict!=="correct"&&state.verdict!=="wrong")return;
     const graph=this.cast.flow.engine.graphRef();this.sealedState=state;this.sealedGraph=graph;this.opened=true;this.phase="reconstruction";this.showInvestigation(false);this.panel.enabled=true;this.began=getTime();this.frames=reconstructionBeats(graph,state);this.summary=endingSummary(graph,state);this.clue.envelope.enabled=false;this.clue.objection.tells.audio.silence(false);
@@ -207,7 +212,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   /** Director-only capture hold; never changes engine time or verdict. */
   holdFreeze(seconds=20):void {if(this.frames[this.frame]?.kind==="freeze")this.holdUntil=getTime()+Math.min(20,Math.max(0,seconds));}
   private update():void {if(this.beam)this.updateSpotlight();for(const spin of this.tableauSpin)if(!isNull(spin))spin.getTransform().setLocalRotation(quat.fromEulerAngles(.25,getTime()*.4,.15));
-    if(this.heldAt>=0&&this.phase==="idle")this.sealLabel.text="SEAL "+Math.min(100,Math.floor((getTime()-this.heldAt)*100))+"%";
+    if(this.heldAt>=0&&this.phase==="idle"&&this.complete())this.sealLabel.text="SEAL "+Math.min(100,Math.floor((getTime()-this.heldAt)*100))+"%";
     if(this.phase!=="reconstruction")return;
     const camera=this.cast.flow.actor.camera.getTransform().getWorldPosition();for(const ghost of this.ghosts.values())if(ghost.enabled){const direction=camera.sub(ghost.getTransform().getWorldPosition());direction.y=0;if(direction.length>.01)ghost.getTransform().setWorldRotation(quat.lookAt(direction.normalize(),vec3.up()));}
     this.animateReconstructionDetails();

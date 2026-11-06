@@ -1,4 +1,5 @@
 import {RoomscriptRun8DustLeafScenario} from "./RoomscriptRun8DustLeafScenario";
+import {RoomscriptRun9CancelPullLeafScenario} from "./RoomscriptRun9CancelPullLeafScenario";
 import {RoomscriptRun8PresentLeafScenario} from "./RoomscriptRun8PresentLeafScenario";
 import {RoomscriptRun8DirectorLeafScenario} from "./RoomscriptRun8DirectorLeafScenario";
 import {RoomscriptReadingPanelLeafScenario} from "./RoomscriptReadingPanelLeafScenario";
@@ -48,6 +49,7 @@ import {RoomscriptMemoryCardLeafScenario} from "./RoomscriptMemoryCardLeafScenar
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-run9-cancel-pull",typename:RoomscriptRun9CancelPullLeafScenario.getTypeName()},
     {id:"roomscript-run8-dust",typename:RoomscriptRun8DustLeafScenario.getTypeName()},
     {id:"roomscript-run8-present",typename:RoomscriptRun8PresentLeafScenario.getTypeName()},
     {id:"roomscript-run8-director",typename:RoomscriptRun8DirectorLeafScenario.getTypeName(),parameters:{beat:"question",hold:"30",suspect:"S2"}},

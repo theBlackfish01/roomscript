@@ -8,12 +8,15 @@ import {DefaultLeafInteractor} from "Leaf.lspkg/Interactors/interactor/DefaultLe
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
 import {RoomscriptMain} from "./RoomscriptMain";
 import {RoomscriptClosingController} from "./RoomscriptClosingController";
+import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
 
 /** Run 8 Director capture fixture: sets up one beat through real taps, then holds it for Preview captures.
  * Presentation only; every step goes through the same engine actions as play. */
 @component export class RoomscriptRun8DirectorLeafScenario extends Scenario {
   async run(config?:ScenarioConfig):Promise<void> {
     const beat=config?.get("beat")||"question",hold=Math.min(220,Number(config?.get("hold")||"30")),suspect=config?.get("suspect")||"S2";
+    // Run 9: film mode (clean presentation, LEAF overlays hidden) is switched on only by Director runs.
+    const opening=findSceneObjectByName("RoomscriptOpening").getComponent(RoomscriptOpeningController.getTypeName()) as RoomscriptOpeningController;opening.setFilmMode(true);
     if(beat!=="opening")await enterCase();await sleep(800);
     const flow=findSceneObjectByName("RoomscriptInterrogation").getComponent(RoomscriptInterrogationController.getTypeName()) as RoomscriptInterrogationController;
     const hand=new DefaultLeafInteractor();

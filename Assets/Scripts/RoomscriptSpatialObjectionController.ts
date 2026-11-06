@@ -38,7 +38,7 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
    * player chooses the proof by what they see. Order is graph order, never by which memory is correct. */
   /** The caption on the photo in hand, as the wearer reads it ("" when no photo is out). */
   photoCaption():string {return this.photo&&this.photo.enabled?this.photoLabel.text:"";}
-  private chooseProof(id:string):void {const graph=this.flow.engine.graphRef(),state=this.flow.engine.snapshot(),observed=graph.evidence.filter(e=>e.holder===id&&state.knowledge.evidenceIds.includes(e.id));
+  private chooseProof(id:string):void {const graph=this.flow.engine.graphRef(),state=this.stateCache,observed=graph.evidence.filter(e=>e.holder===id&&state.knowledge.evidenceIds.includes(e.id));
     this.proofEvidence=null;if(!observed.length)return;const i=(this.proofIndex.get(id)||0)%observed.length;this.proofIndex.set(id,i+1);const chosen=observed[i];this.proofEvidence=chosen.id;
     const card=admittedCard(graph,state,chosen.id);this.photoMaterial.mainPass.baseTex=card?card.texture:requireAsset("../Art/Run7/MemoryPhoto.png") as Texture;
     const words=chosen.canonical.replace(/^The /,"").split(/\s+/).slice(0,4).join(" ");this.photoLabel.text=(words+(observed.length>1?"  "+(i+1)+"/"+observed.length:"")).toUpperCase();console.log("PROOF_PHOTO|"+JSON.stringify({object:id,evidence:chosen.id,index:i+1,of:observed.length,label:this.photoLabel.text}));}
@@ -189,8 +189,11 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
     this.restoreLift();this.pullObject=null;this.photo.enabled=false;this.opened=false;
     if(collected)this.inspect(id,true);else{this.getSceneObject().enabled=false;this.modal(false);}
   }
+  /** Tracking loss or a cancelled trigger. Also leaves objection mode (Run 8 review bug 2): the next pull is ordinary. */
+  cancelActivePull():void {this.cancelPull();}
   private cancelPull(restore=true):void {
     if(this.pullObject){this.suppressTapObject=this.pullObject;this.suppressTapUntil=getTime()+.25;}
+    if(this.objecting){this.objecting=false;this.proofEvidence=null;this.photoMaterial.mainPass.baseTex=requireAsset("../Art/Run7/MemoryPhoto.png") as Texture;}
     this.restoreLift();this.pullObject=null;this.pullCommitted=false;this.opened=false;this.photo.enabled=false;this.getSceneObject().enabled=false;if(restore)this.modal(false);
   }
   private beginLift(id:string):void {
@@ -263,5 +266,5 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
     if(t>=1.2&&this.phase==="shatter") {this.setPhase("walk");this.particles.paused=false;this.flow.actor.setFrozen(false);this.stamp.enabled=false;if(this.destination)this.tells.relocateMark(this.destination);}
     if(t>=2.8&&this.phase==="walk") {this.pathMeshes.forEach(v=>v.getSceneObject().destroy());this.pathMeshes=[];const origin=this.flow.actor.getTransform().getWorldPosition().add(new vec3(0,65,0));if(origin.distance(this.evidencePoint)>1)this.path(origin,this.evidencePoint,new vec4(1,.42,.35,1));this.particles.emitting=false;this.particles.clear();this.shatterObject.enabled=false;this.burstAt=0;this.setPhase("idle");this.close();const state=this.stateCache,topic=this.flow.engine.graphRef().statements.find(s=>s.id===state.activeStatement)?.topic||"unclear";void this.flow.perform("Explain the evidence.","chip",topic);}
   }
-  diagnostics():{phase:string;correct:boolean;history:string[];opened:boolean;selected:string|null;shatterReady:boolean;bursts:number;shatterEnabled:boolean;proofThreads:number;pulling:string|null;pulls:number;lifts:number} {return {phase:this.phase,correct:this.correct,history:this.phaseHistory.slice(),opened:this.opened,selected:this.selected,shatterReady:!!this.particles?.asset||this.shards.length===30,bursts:this.burstCount,shatterEnabled:this.shatterObject.enabled,proofThreads:this.pathMeshes.length,pulling:this.pullObject,pulls:this.pullCount,lifts:this.liftCount};}
+  diagnostics():{objecting:boolean;phase:string;correct:boolean;history:string[];opened:boolean;selected:string|null;shatterReady:boolean;bursts:number;shatterEnabled:boolean;proofThreads:number;pulling:string|null;pulls:number;lifts:number} {return {objecting:this.objecting,phase:this.phase,correct:this.correct,history:this.phaseHistory.slice(),opened:this.opened,selected:this.selected,shatterReady:!!this.particles?.asset||this.shards.length===30,bursts:this.burstCount,shatterEnabled:this.shatterObject.enabled,proofThreads:this.pathMeshes.length,pulling:this.pullObject,pulls:this.pullCount,lifts:this.liftCount};}
 }

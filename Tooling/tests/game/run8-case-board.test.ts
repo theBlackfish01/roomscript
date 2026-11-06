@@ -1,4 +1,4 @@
-import {it,expect} from "vitest";
+import {it,expect,describe} from "vitest";
 import tape from "../../results/run4-b-hero-v3.json";
 import {createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {createGameState} from "../../../Assets/Scripts/Engine/game/GameState";
@@ -50,4 +50,13 @@ it("is sound at every step and never reads the sealed envelope before the verdic
     a=reduceGame(graph,a,action);b=reduceGame(decoy,b,action);
     const board=caseBoardLayout(graph,a);sound(board);expect(caseBoardLayout(decoy,b)).toEqual(board);
   }
+});
+
+import {verdictStampText} from "../../../Assets/Scripts/Engine/perf/CaseBoardLayout";
+describe("Run 9 board stamp text",()=>{
+  it("only a correct verdict says CASE CLOSED",()=>{
+    expect(verdictStampText("correct")).toBe("CASE CLOSED");
+    expect(verdictStampText("wrong")).toBe("WRONG CALL");
+    expect(verdictStampText("timeout")).toBe("CASE COLD");
+  });
 });

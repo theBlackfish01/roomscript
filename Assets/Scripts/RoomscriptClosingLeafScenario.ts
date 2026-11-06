@@ -1,4 +1,5 @@
 import {enterCase} from "./RoomscriptLeafSetup";
+import {verdictStampText} from "./Engine/perf/CaseBoardLayout";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {ScenarioConfig} from "Leaf.lspkg/Scenarios/scenario/ScenarioConfig";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
@@ -17,7 +18,13 @@ import {RoomscriptClosingController} from "./RoomscriptClosingController";
       else await tap("Accuse");
       await sleep(250); // UIKit enables the timeout-opened panel on the following frame.
       expect(closing.diagnostics().phase).toBe("idle");for(const person of engine.graphRef().cast.suspects)expect(findSceneObjectByName("RoomscriptPawn_"+person.id).enabled).toBe(false);
-      if(mode!=="wrong")await tap("Accused suspect");
+      // WHO opens on the suspect you face; cycle to the culprit (correct/timeout) or to an innocent (wrong).
+      {const g=engine.graphRef(),want=(id:string)=>mode==="wrong"?id!==g.envelope.who:id===g.envelope.who;for(let i=0;i<=g.cast.suspects.length&&!want(closing.diagnostics().picked.who);i++)await tap("Accused suspect");expect(want(closing.diagnostics().picked.who)).toBe(true);}
+      // Run 9: room and weapon open unset ("?"); a seal hold on an incomplete accusation commits nothing.
+      expect(closing.diagnostics().picked.where).toBe("");expect(closing.diagnostics().picked.what).toBe("");
+      await hand.drag(findInteractablesByName("Break seal",undefined,true)[0],new vec3(.001,0,0),1200);expect(engine.snapshot().accusation).toBe(null);
+      const graph0=engine.graphRef();for(const [key,name,length] of [["where","Accused room",graph0.room.zones.length],["what","Accused weapon",graph0.weapons.length]] as ["where"|"what",string,number][]){for(let i=0;i<=length&&closing.diagnostics().picked[key]!==graph0.envelope[key];i++)await tap(name);expect(closing.diagnostics().picked[key]).toBe(graph0.envelope[key]);}
+      console.log("CLOSING_PICKED|"+JSON.stringify({mode,picked:closing.diagnostics().picked}));
       await tap("Break seal");expect(engine.snapshot().accusation).toBe(null);
       // A zero-distance drag maintains a real SIK trigger for the required hold interval.
       await hand.drag(findInteractablesByName("Break seal",undefined,true)[0],new vec3(.001,0,0),1200);
@@ -29,7 +36,7 @@ import {RoomscriptClosingController} from "./RoomscriptClosingController";
       for(let i=0;i<20&&findInteractablesByName("Ending details",undefined,true).length===0;i++)await sleep(100);expect(findInteractablesByName("Ending details",undefined,true).length).toBe(1);
       // Run 8 ending: the Morning Edition in your hands and the verdict stamp on the wall board, no results page.
       const paper=findSceneObjectByName("RoomscriptNewspaper");expect(!!paper&&paper.enabled).toBe(true);const headline=findSceneObjectByName("Headline",paper).getComponent("Component.Text") as Text;expect(headline.text.length>0).toBe(true);
-      expect(!!findSceneObjectByName("Board stamp CASE CLOSED")).toBe(true);console.log("ENDING_NEWSPAPER|"+headline.text);
+      {const stamp="Board stamp "+verdictStampText(engine.snapshot().verdict!);expect(!!findSceneObjectByName(stamp)).toBe(true);if(mode!=="correct")expect(!!findSceneObjectByName("Board stamp CASE CLOSED")).toBe(false);expect(!!findSceneObjectByName("Board stamp FILED")).toBe(false);}console.log("ENDING_NEWSPAPER|"+headline.text);
       await tap("Ending details");expect(closing.presentationDiagnostics().details).toBe(true);for(const name of ["Ending previous","Ending next","Ending stamp"])expect(findInteractablesByName(name,undefined,true).length).toBe(1);await tap("Ending stamp");expect(closing.presentationDiagnostics().details).toBe(false);
       console.log("ENDING_PRESENTATION_CHECK|pawns_hidden,only_ending_controls,newspaper,board_stamp,details_roundtrip");
       const verdict=engine.snapshot().verdict;engine.dispatch({type:"Accuse",who:"S1",where:"Z2",what:"O2"});expect(engine.snapshot().verdict).toBe(verdict);

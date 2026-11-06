@@ -22,6 +22,8 @@ import {replayGame} from "./Engine/game/Reducer";
       const matrix=node.getTransform().getWorldTransform();for(const x of [-1,1])for(const y of [-1,1]){const local=inverse.multiplyPoint(matrix.multiplyPoint(new vec3(x*button.size.x/2,y*button.size.y/2,0)));expect(Math.abs(local.x)<=27.1).toBe(true);expect(Math.abs(local.y)<=18.1).toBe(true);}
       console.log("REFUTATION_PANEL_BOUNDS|"+JSON.stringify({bottom,floor,scaleOne:true,closeInside:true}));
     };
+    // Run 9: poll real controller state instead of fixed sleeps that raced the 0.2 s detail throttle.
+    const until=async(test:()=>boolean,ms=2500)=>{for(let t=0;t<ms&&!test();t+=50)await sleep(50);return test();};
     const finishSweep=async()=>{for(let i=0;i<150&&clue.diagnostics().busy;i++)await sleep(100);expect(clue.diagnostics().busy).toBe(false);await sleep(200);};
     const tap=async(name:string)=>{const targets=findInteractablesByName(name,undefined,true);console.log("CLUE_TAP|"+name+"|"+targets.length);expect(targets.length).toBe(1);await hand.trigger(targets[0]);await sleep(100);};
     const dragPawn=async(id:string,zone:string)=>{const pawn=findInteractablesByName("RoomscriptPawn_"+id,undefined,true)[0],target=vec3.lerp(flow.actor.camera.getTransform().getWorldPosition(),room.zoneAnchor(zone).getTransform().getWorldPosition(),.3),vector=new vec3(1,0,0);
@@ -37,10 +39,10 @@ import {replayGame} from "./Engine/game/Reducer";
       {const lidCollider=findSceneObjectByName("RoomscriptCaseLidUI").getChild(0).getComponent("ColliderComponent") as ColliderComponent;expect(!lidCollider||!lidCollider.enabled).toBe(true);}
       await tap("RoomscriptObject_O6");await tap("Close memory");expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);
       // The exclusion stays certified while its room marker yields to a nearby speaker.
-      await tap("Question S2");const face=flow.actor.getTransform().getWorldPosition().add(new vec3(0,130,0));camera.setWorldPosition(face.add(new vec3(0,0,100)));camera.setWorldRotation(quat.quatIdentity());await sleep(350);
+      await tap("Question S2");const face=flow.actor.getTransform().getWorldPosition().add(new vec3(0,130,0));camera.setWorldPosition(face.add(new vec3(0,0,100)));camera.setWorldRotation(quat.quatIdentity());await until(()=>!findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled);
       expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(false);expect(clue.objection.tells.diagnostics().visibleSegments).toBe(0);
-      camera.setWorldRotation(quat.fromEulerAngles(-Math.PI/3,0,0));await sleep(350);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(true);expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);
-      camera.setWorldPosition(cameraHome);camera.setWorldRotation(cameraRotation);await sleep(250);
+      camera.setWorldRotation(quat.fromEulerAngles(-75*Math.PI/180,0,0));await until(()=>findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(true);expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);
+      camera.setWorldPosition(cameraHome);camera.setWorldRotation(cameraRotation);await sleep(300);
       await dragPawn("S2","Z1");expect(clue.diagnostics().pending).toBe("S2");await tap("RoomscriptObject_O1");await finishSweep();expect(clue.diagnostics().refuter).toBe(null);expect(clue.diagnostics().breaths).toBe(0);expect(engine.snapshot().elapsedMinutes-base).toBe(40);expect(engine.snapshot().verdict).toBe(null);
       expect(JSON.stringify(replayGame(engine.caseGraph(),engine.snapshot().log))).toBe(JSON.stringify(engine.snapshot()));
       expect(clue.objection.tells.audio.getTransform().getWorldPosition().distance(audioOrigin)<.01).toBe(true);

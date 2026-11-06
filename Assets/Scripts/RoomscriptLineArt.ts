@@ -1,7 +1,14 @@
 // Run 8 "engraved light" line art: thin square tubes readable from any angle on an additive display.
 // Box construction pattern adapted from CLAD mesh-builder-scripting (Apache-2.0, see NOTICE).
 export type Segment=[vec3,vec3];
-export function tinted(base:Material,color:vec4):Material {const m=base.clone();m.mainPass.baseColor=color;return m;}
+/** Run 9 (review item 9): one shared material per base and colour instead of a clone per call. No caller mutates
+ * a tinted material; anything that animates its colour must clone its own. */
+const TINTS=new Map<Material,Map<string,Material>>();
+export function tinted(base:Material,color:vec4):Material {
+  let byColor=TINTS.get(base);if(!byColor){byColor=new Map();TINTS.set(base,byColor);}
+  const key=[color.x,color.y,color.z,color.w].map(v=>Math.round(v*1000)).join(",");let m=byColor.get(key);
+  if(!m||isNull(m)){m=base.clone();m.mainPass.baseColor=color;byColor.set(key,m);}return m;
+}
 /** One RenderMeshVisual of square tubes (4 open sides per segment). */
 export function lineTubes(parent:SceneObject,name:string,segments:Segment[],material:Material,thickness=.5):RenderMeshVisual {
   const root=global.scene.createSceneObject(name);root.setParent(parent);

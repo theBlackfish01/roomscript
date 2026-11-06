@@ -25,11 +25,12 @@ import {RectangleButton} from "SpectaclesUIKit.lspkg/Scripts/Components/Button/R
       expect(Math.abs(bottom.y-layout.surfaceWorld[1])<.1).toBe(true);expect(Math.abs(world.x-layout.surfaceWorld[0])<.1).toBe(true);expect(Math.abs(world.z-layout.surfaceWorld[2])<.1).toBe(true);
       const card=findSceneObjectByName("RoomscriptOpeningCard",crate),tab=findSceneObjectByName("RoomscriptPullTab",crate);
       expect(card.getParent().isSame(crate)).toBe(true);expect(tab.getParent().isSame(crate)).toBe(true);
-      const backing=card.getChild(0),plate=backing.getComponent(BackPlate.getTypeName()) as BackPlate,buttonObject=findSceneObjectByName("Pull tab",tab),button=buttonObject.getComponent(RectangleButton.getTypeName()) as RectangleButton;
+      const backing=card.getChild(0),plate=backing.getComponent(BackPlate.getTypeName()) as BackPlate;
+      // Run 9: the Run 8 case files replaced the "Pull tab" button; the Preset file keeps the RoomscriptPullTab name.
       const lowest=(object:SceneObject,width:number,height:number)=>Math.min(...[-1,1].flatMap(x=>[-1,1].map(y=>object.getTransform().getWorldTransform().multiplyPoint(new vec3(x*width/2,y*height/2,0)).y)));
-      const cardBottom=lowest(backing,plate.size.x,plate.size.y),tabBottom=lowest(tab,layout.pullTab.width,layout.pullTab.height),buttonBottom=lowest(buttonObject,button.size.x,button.size.y);
-      expect(cardBottom>layout.surfaceWorld[1]).toBe(true);expect(tabBottom>layout.surfaceWorld[1]).toBe(true);expect(buttonBottom>layout.surfaceWorld[1]).toBe(true);expect(button.size.y).toBe(9);
-      console.log("CRATE_SURFACE_CHECK|"+JSON.stringify({surface:layout.surfaceWorld,baseBottom:[bottom.x,bottom.y,bottom.z],cardBottom,tabBottom,buttonBottom}));
+      const cardBottom=lowest(backing,plate.size.x,plate.size.y),tabBottom=lowest(tab,layout.pullTab.width,layout.pullTab.height);
+      expect(cardBottom>layout.surfaceWorld[1]).toBe(true);expect(tabBottom>layout.surfaceWorld[1]).toBe(true);
+      console.log("CRATE_SURFACE_CHECK|"+JSON.stringify({surface:layout.surfaceWorld,baseBottom:[bottom.x,bottom.y,bottom.z],cardBottom,tabBottom}));
     };assertCrateSurface();
     expect(opening.cast.room.propCount()).toBe(7);
     const legacy=opening.cast.room.legacyPropDiagnostics();expect(legacy.replaced.length).toBe(6);expect(legacy.hidden).toBe(11);expect(legacy.visible).toBe(0);expect(legacy.anchorsEnabled).toBe(true);

@@ -19,7 +19,7 @@ import {RoomscriptCaseCrate} from "./RoomscriptCaseCrate";
     expect(findSceneObjectByName("RoomscriptCaseLidUI").enabled).toBe(false);
     await tap("Statements");await tap("Close notebook");expect(notebook.enabled).toBe(false);
     await tap("Evidence");expect(wallet.enabled).toBe(true);await tap("Close evidence");expect(wallet.enabled).toBe(false);
-    const opening=findSceneObjectByName("RoomscriptOpening").getComponent(RoomscriptOpeningController.getTypeName()) as RoomscriptOpeningController;expect(findSceneObjectByName("PreviewRoom").enabled).toBe(global.deviceInfoSystem.isEditor()&&!opening.filmMode);
+    const opening=findSceneObjectByName("RoomscriptOpening").getComponent(RoomscriptOpeningController.getTypeName()) as RoomscriptOpeningController;expect(findSceneObjectByName("PreviewRoom").enabled).toBe(false); // Run 9: stand-ins hide in every Preview run; the Interactive room is the room.
     for(const name of ["DeskTop","BedBase","StandinDoor","StandinWindow","CrateLid"]) {
       const visual=findSceneObjectByName(name).getComponent("Component.RenderMeshVisual") as RenderMeshVisual;
       expect(!!visual).toBe(true);expect(!!visual.mesh).toBe(true);expect(visual.getMaterialsCount()).toBe(1);

@@ -24,7 +24,9 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
   private selectedWho:string|null=null;private selectedZone:string|null=null;private hypothesis:Hypothesis|null=null;
   private origin:vec3;private localOrigin:Vec3;private localForward:Vec3;private startingYaw=0;
   private nextDetail=0;private excludedSuspects=new Set<string>();private busy=false;private began=0;private endAngle=0;private visited=0;private seq=0;private refuter:string|null=null;private resultText="";
-  private order:{id:string;angle:number;position:vec3}[]=[];private lastVisited:string[]=[];private envelopeScale:vec3;private breathing=0;private breaths=0;
+  private order:{id:string;angle:number;position:vec3}[]=[];private lastVisited:string[]=[];private envelopeScale:vec3;
+  /** Run 9 (review item 11): the opening shrinks the envelope once the case starts; breathing and resets keep that size. */
+  envelopeRest:vec3|null=null;private breathing=0;private breaths=0;
   private ivory:Material;private chalk:Material;private cyan:Material;
   private generated:SceneObject[]=[];
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
@@ -40,7 +42,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
   resetForCase():void {
     if(!this.ivory)return;const flow=this.objection.flow,engine=flow.engine,room=this.objection.tells.room;room.initialize();
     this.busy=false;this.breathing=0;this.breaths=0;this.selectedWho=null;this.selectedZone=null;this.hypothesis=null;this.refuter=null;this.resultText="";this.lastVisited=[];this.order=[];this.visited=0;this.seq=0;
-    this.notebook.show(false);this.envelope.getTransform().setLocalScale(this.envelopeScale);this.envelope.enabled=true;
+    this.notebook.show(false);this.envelope.getTransform().setLocalScale(this.envelopeRest||this.envelopeScale);this.envelope.enabled=true;
     for(const object of this.generated)if(!isNull(object))object.destroy();this.generated=[];
     this.zoneCrosses.clear();this.pawns.clear();this.pawnHomes.clear();this.crosses.clear();this.gridMarks.clear();this.suspectMarks.clear();this.excludedSuspects.clear();this.nextDetail=0;
     const graph=engine.graphRef(),inverse=room.getTransform().getInvertedWorldTransform(),camera=flow.actor.camera.getTransform();
@@ -115,7 +117,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
   }
   private update():void {
     if(getTime()>=this.nextDetail){this.nextDetail=getTime()+.2;this.updateDetail();}
-    if(this.breathing){const t=Math.min(1,(getTime()-this.breathing)/1.2);this.envelope.getTransform().setLocalScale(this.envelopeScale.uniformScale(1-.12*Math.sin(t*Math.PI)));if(t===1){this.breathing=0;this.objection.flow.restoreControls();this.objection.caseLid.show(true);}}
+    if(this.breathing){const t=Math.min(1,(getTime()-this.breathing)/1.2);this.envelope.getTransform().setLocalScale((this.envelopeRest||this.envelopeScale).uniformScale(1-.12*Math.sin(t*Math.PI)));if(t===1){this.breathing=0;this.objection.flow.restoreControls();this.objection.caseLid.show(true);}}
     if(!this.busy)return;const t=Math.min(1,(getTime()-this.began)/2.4),angle=this.endAngle*t;this.blade.getTransform().setWorldRotation(this.objection.tells.room.getTransform().getWorldRotation().multiply(quat.angleAxis(-(this.startingYaw+angle),vec3.up())));
     let tick:vec3|null=null;while(this.visited<this.order.length&&this.order[this.visited].angle<=angle){const witness=this.order[this.visited++];this.lastVisited.push(witness.id);tick=witness.position;}if(tick)this.objection.tells.audio.playAt("ClockTick",tick);
     if(t===1){this.busy=false;this.blade.enabled=false;this.ghost.enabled=false;this.renderKnowledge();

@@ -5,7 +5,8 @@ import {lineTubes,polyline,tinted} from "./RoomscriptLineArt";
 import {uiObject} from "./RoomscriptPanelUI";
 /** Run 8 palm notebook (WEARER_UX object UI 4). Turn the left palm up: notebook, evidence and accuse
  * glyphs fan out above the palm with the case clock and the credibility lens. Turn it down: gone.
- * Preview without tracked hands: the same three glyphs sit small on the crate lid (fallback).
+ * Palm down or no tracked hands (Preview, or Specs when palm-up isn't detected): the same three glyphs sit small
+ * on the crate lid (fallback).
  * Passive view: counts come from the engine bridge; actions are emitted as intents only.
  * Interactable names "Notebook", "Evidence", "Accuse" are unchanged for LEAF.
  */
@@ -34,7 +35,9 @@ import {uiObject} from "./RoomscriptPanelUI";
   }
   private texture(icon:string):Texture {switch(icon){case "notebook":return requireAsset("../Art/Run8/GlyphNotebook.png") as Texture;case "evidence":return requireAsset("../Art/Run8/GlyphEvidence.png") as Texture;default:return requireAsset("../Art/Run8/GlyphSeal.png") as Texture;}}
   /** Palm mode follows the left palm; lid mode docks the glyphs on the crate (Preview fallback). */
-  private dock(palm:boolean):void {if(this.onPalm===palm&&this.group.getParent())return;this.onPalm=palm;const t=this.group.getTransform();
+  /** Run 9 (review item 8): reparent only on a change; on the palm the group has no parent, which used to re-dock every frame. */
+  private docked=false;
+  private dock(palm:boolean):void {if(this.docked&&this.onPalm===palm)return;this.docked=true;this.onPalm=palm;const t=this.group.getTransform();
     if(palm){this.group.setParent(null);t.setWorldScale(vec3.one());}else{this.group.setParent(this.lid);t.setLocalPosition(new vec3(0,1,0));t.setLocalRotation(quat.quatIdentity());t.setLocalScale(vec3.one());}}
   private update():void {
     let palmUp=false,center:vec3=null;
@@ -44,8 +47,8 @@ import {uiObject} from "./RoomscriptPanelUI";
     this.dock(usePalm);
     if(usePalm&&center&&this.camera){const eye=this.camera.getTransform().getWorldPosition(),toward=eye.sub(center).normalize();
       this.group.getTransform().setWorldPosition(center.add(toward.uniformScale(4)).add(new vec3(0,7,0)));this.group.getTransform().setWorldRotation(quat.lookAt(toward,vec3.up()));}
-    // Lid fallback is Preview-only; on Specs the glyphs exist only on the palm.
-    this.group.enabled=this.allowed&&(usePalm||global.deviceInfoSystem.isEditor());
+    // Run 9 (review item 10): the lid copy is the fallback on Specs too, so Accuse never depends on palm-up detection.
+    this.group.enabled=this.allowed;
     if(this.crackFlash&&getTime()>this.crackFlash){this.crackFlash=0;this.lens.getTransform().setLocalScale(vec3.one());}
   }
   /** Optional cue hook (wired by the main script to RoomscriptAudio). */
@@ -57,6 +60,6 @@ import {uiObject} from "./RoomscriptPanelUI";
   setTimeline(lines:string[]):void {}
   setMode(text:string):void {this.build();}
   setTitle(text:string):void {this.build();this.title=text.toUpperCase();}
-  show(value:boolean):void {this.build();this.allowed=value;this.group.enabled=value&&(this.onPalm||global.deviceInfoSystem.isEditor());}
+  show(value:boolean):void {this.build();this.allowed=value;this.group.enabled=value;}
   diagnostics():{onPalm:boolean;visible:boolean;cracks:number}{return {onPalm:this.onPalm,visible:this.group.enabled,cracks:this.cracks.filter(c=>c.enabled).length};}
 }
