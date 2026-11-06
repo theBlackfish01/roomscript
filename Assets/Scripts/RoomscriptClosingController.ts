@@ -210,6 +210,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   private showEnding():void {
     this.phase="ending";this.clearReconstructionDetails();this.panel.enabled=false;this.ghosts.forEach(g=>g.enabled=false);if(this.routeRoot)this.routeRoot.enabled=false;
     // Run 8: the verdict stamp lands on the wall board (RoomscriptCaseBoard); the Morning Edition appears in your hands.
+    for(const person of this.sealedGraph.cast.suspects){const figure=this.cast.flow.actorFor(person.id);if(figure)figure.getSceneObject().enabled=false;}
     const accused=this.cast.flow.actorFor(this.sealedState.accusation?.who||this.picked.who);
     this.newspaper=new RoomscriptNewspaper(this,this.getSceneObject(),this.cast.flow.actor.camera,this.sealedGraph,this.sealedState,this.clue.objection.tells.lightMaterial,accused?.neutral||null,()=>this.openDetails(),cue=>this.clue.objection.tells.audio.play(cue));this.result=this.newspaper.root;
     this.clue.objection.tells.audio.silence(false);this.clue.objection.tells.audio.endingBeat();
