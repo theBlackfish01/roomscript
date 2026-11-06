@@ -1,0 +1,294 @@
+{
+ "character": "Pike",
+ "height_cm": 176,
+ "px_per_cm": 5.741176470588235,
+ "canvas": [
+  512,
+  1024
+ ],
+ "baseline_y": 1016,
+ "scale_src_to_canvas": 0.688315435165892,
+ "frames": {
+  "neutral": {
+   "body": "Pike-neutral.png",
+   "head": "Pike-neutral-head.png",
+   "headLayerRect": [
+    0.27065,
+    -0.0235,
+    0.43433,
+    0.21706
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 0,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     452,
+     82,
+     96,
+     148
+    ],
+    "eyes": [
+     494,
+     136
+    ],
+    "mouthBox": [
+     482,
+     178,
+     42,
+     20
+    ],
+    "tellProp": [
+     592,
+     648
+    ],
+    "rightHand": [
+     466,
+     643
+    ],
+    "leftHand": [
+     559,
+     686
+    ],
+    "feet": [
+     495,
+     1505
+    ]
+   },
+   "map": [
+    0.6884765625,
+    0.6881510416666666,
+    -90.0,
+    -22.0
+   ]
+  },
+  "speaking": {
+   "body": "Pike-neutral.png",
+   "head": "Pike-speaking-head.png",
+   "headLayerRect": [
+    0.27065,
+    -0.0235,
+    0.43433,
+    0.21706
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 112.0,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6884765625,
+    0.6881510416666666,
+    -90.0,
+    -22.0
+   ]
+  },
+  "mouthopen": {
+   "body": "Pike-neutral.png",
+   "head": "Pike-mouthopen-head.png",
+   "headLayerRect": [
+    0.27065,
+    -0.0235,
+    0.43433,
+    0.21706
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 155.2,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6884765625,
+    0.6881510416666666,
+    -90.0,
+    -22.0
+   ]
+  },
+  "tell": {
+   "body": "Pike-tell.png",
+   "head": "Pike-tell-head.png",
+   "headLayerRect": [
+    0.27065,
+    -0.0235,
+    0.43433,
+    0.21706
+   ],
+   "registration": [
+    1,
+    0
+   ],
+   "reg_err": 68.7,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     446,
+     100,
+     104,
+     124
+    ],
+    "eyes": [
+     494,
+     141
+    ],
+    "mouthBox": [
+     477,
+     188,
+     42,
+     18
+    ],
+    "tellProp": [
+     575,
+     672
+    ],
+    "rightHand": [
+     508,
+     647
+    ],
+    "leftHand": [
+     600,
+     688
+    ],
+    "feet": [
+     495,
+     1505
+    ]
+   },
+   "map": [
+    0.6884765625,
+    0.6881510416666666,
+    -89.3115234375,
+    -22.0
+   ]
+  },
+  "rattled": {
+   "body": "Pike-rattled.png",
+   "head": "Pike-rattled-head.png",
+   "headLayerRect": [
+    0.27065,
+    -0.0235,
+    0.43433,
+    0.21706
+   ],
+   "registration": [
+    1,
+    0
+   ],
+   "reg_err": 54.5,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6884765625,
+    0.6881510416666666,
+    -89.3115234375,
+    -22.0
+   ]
+  },
+  "broken": {
+   "body": "Pike-broken.png",
+   "head": "Pike-broken-head.png",
+   "headLayerRect": [
+    0.27065,
+    0.03698,
+    0.43433,
+    0.21706
+   ],
+   "registration": [
+    1,
+    -1
+   ],
+   "reg_err": 164.5,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     442,
+     200,
+     108,
+     115
+    ],
+    "eyes": [
+     494,
+     233
+    ],
+    "mouthBox": [
+     480,
+     276,
+     40,
+     16
+    ],
+    "tellProp": [
+     575,
+     688
+    ],
+    "rightHand": [
+     450,
+     713
+    ],
+    "leftHand": [
+     542,
+     722
+    ],
+    "feet": [
+     495,
+     1505
+    ]
+   },
+   "map": [
+    0.6884765625,
+    0.6881510416666666,
+    -89.3115234375,
+    -22.688151041666668
+   ]
+  },
+  "smug": {
+   "body": "Pike-smug.png",
+   "head": "Pike-smug-head.png",
+   "headLayerRect": [
+    0.27065,
+    -0.0235,
+    0.43433,
+    0.21706
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 42.8,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6884765625,
+    0.6881510416666666,
+    -90.0,
+    -22.0
+   ]
+  }
+ }
+}

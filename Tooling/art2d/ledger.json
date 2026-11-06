@@ -1,0 +1,636 @@
+{
+ "_doc": "Per-frame provenance for the Run 9 illustrated cast. Seeds: n/a (OpenAI Images API exposes none). Full request log: Tooling/results/openai-images-ledger.json",
+ "generated": "2026-11-06T21:47:05.862Z",
+ "characters": {
+  "Vale": {
+   "height_cm": 170,
+   "frames": {
+    "neutral": {
+     "chosen_raw": "raw/Vale-base.png",
+     "source": {
+      "note": "style reference docs/art/2026-11-07-vale-style-reference.png (gpt-image-2, medium, 1024x1536, generated Nov 7 before this run)"
+     },
+     "body_kb": 72.8,
+     "head_kb": 47.3,
+     "body_shared_with": null
+    },
+    "speaking": {
+     "chosen_raw": "raw/Vale-speaking-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Vale-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: the mouth slightly open mid-word, as if speaking, with an engaged expression. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T20:45:56.349Z",
+      "candidates": [
+       "raw/Vale-speaking-c1.png",
+       "raw/Vale-speaking-c2.png"
+      ]
+     },
+     "body_kb": null,
+     "head_kb": 48.7,
+     "body_shared_with": "neutral"
+    },
+    "mouthopen": {
+     "chosen_raw": "raw/Vale-mouthopen-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Vale-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: the mouth more open, as if pronouncing an open vowel mid-sentence (for lip-sync), the same engaged expression. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T20:46:00.946Z",
+      "candidates": [
+       "raw/Vale-mouthopen-c1.png",
+       "raw/Vale-mouthopen-c2.png"
+      ]
+     },
+     "body_kb": null,
+     "head_kb": 46.9,
+     "body_shared_with": "neutral"
+    },
+    "rattled": {
+     "chosen_raw": "raw/Vale-rattled-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Vale-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: a worried, rattled expression: brow tense and drawn together, eyes uneasy, a slight lean back. Same pose otherwise. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T20:49:34.400Z",
+      "candidates": [
+       "raw/Vale-rattled-c1.png",
+       "raw/Vale-rattled-c2.png"
+      ]
+     },
+     "body_kb": 73.5,
+     "head_kb": 47.3,
+     "body_shared_with": null
+    },
+    "smug": {
+     "chosen_raw": "raw/Vale-smug-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Vale-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: a self-satisfied half-smile, chin raised slightly, eyes knowing. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T20:49:28.913Z",
+      "candidates": [
+       "raw/Vale-smug-c1.png",
+       "raw/Vale-smug-c2.png"
+      ]
+     },
+     "body_kb": 74.2,
+     "head_kb": 46.9,
+     "body_shared_with": null
+    },
+    "tell": {
+     "chosen_raw": "raw/Vale-tell-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Vale-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: her eyes cut sharply sideways to her left (a quick evasive glance) and one hand raised to touch the brass brooch at her lapel; the other arm relaxed. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T20:46:06.109Z",
+      "candidates": [
+       "raw/Vale-tell-c1.png",
+       "raw/Vale-tell-c2.png"
+      ]
+     },
+     "body_kb": 76.5,
+     "head_kb": 46.7,
+     "body_shared_with": null
+    },
+    "broken": {
+     "chosen_raw": "raw/Vale-broken-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Vale-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: crushed and defeated: shoulders sunk, head lowered, eyes cast down, composure gone. Same clothing, still standing in the same spot with the feet in the same place. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T20:49:28.970Z",
+      "candidates": [
+       "raw/Vale-broken-c1.png",
+       "raw/Vale-broken-c2.png"
+      ]
+     },
+     "body_kb": 75.4,
+     "head_kb": 50.3,
+     "body_shared_with": null
+    },
+    "tableau": {
+     "chosen_raw": "raw/Vale-tableau-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Vale-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: both hands holding a dark electrical cable pulled taut horizontally in front of her at chest height, fists apart at shoulder width, an intense, cold, determined face. The cable is the only prop. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T20:50:38.031Z",
+      "candidates": [
+       "raw/Vale-tableau-c1.png",
+       "raw/Vale-tableau-c2.png"
+      ]
+     },
+     "body_kb": 80.3,
+     "head_kb": 47.3,
+     "body_shared_with": null
+    }
+   }
+  },
+  "Qadir": {
+   "height_cm": 175,
+   "frames": {
+    "neutral": {
+     "chosen_raw": "raw/Qadir-base.png",
+     "source": null,
+     "body_kb": 128.6,
+     "head_kb": 47.9,
+     "body_shared_with": null
+    },
+    "speaking": {
+     "chosen_raw": "raw/Qadir-speaking-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Qadir-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: the mouth slightly open mid-word, as if speaking, with an engaged expression. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:06:53.436Z",
+      "candidates": [
+       "raw/Qadir-speaking-c1.png",
+       "raw/Qadir-speaking-c2.png"
+      ]
+     },
+     "body_kb": null,
+     "head_kb": 49.4,
+     "body_shared_with": "neutral"
+    },
+    "mouthopen": {
+     "chosen_raw": "raw/Qadir-mouthopen-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Qadir-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: the mouth more open, as if pronouncing an open vowel mid-sentence (for lip-sync), the same engaged expression. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:12:52.096Z",
+      "candidates": [
+       "raw/Qadir-mouthopen-c1.png",
+       "raw/Qadir-mouthopen-c2.png"
+      ]
+     },
+     "body_kb": null,
+     "head_kb": 48.7,
+     "body_shared_with": "neutral"
+    },
+    "rattled": {
+     "chosen_raw": "raw/Qadir-rattled-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Qadir-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: a worried, rattled expression: brow tense and drawn together, eyes uneasy, a slight lean back. Same pose otherwise. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:20:02.269Z",
+      "candidates": [
+       "raw/Qadir-rattled-c1.png",
+       "raw/Qadir-rattled-c2.png"
+      ]
+     },
+     "body_kb": 131.5,
+     "head_kb": 48.7,
+     "body_shared_with": null
+    },
+    "broken": {
+     "chosen_raw": "raw/Qadir-broken-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Qadir-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: crushed and defeated: shoulders sunk, head lowered, eyes cast down, composure gone. Same clothing, still standing in the same spot with the feet in the same place. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:20:29.741Z",
+      "candidates": [
+       "raw/Qadir-broken-c1.png",
+       "raw/Qadir-broken-c2.png"
+      ]
+     },
+     "body_kb": 128.4,
+     "head_kb": 57.7,
+     "body_shared_with": null
+    },
+    "smug": {
+     "chosen_raw": "raw/Qadir-smug-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Qadir-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: a self-satisfied half-smile, chin raised slightly, eyes knowing. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:20:59.259Z",
+      "candidates": [
+       "raw/Qadir-smug-c1.png",
+       "raw/Qadir-smug-c2.png"
+      ]
+     },
+     "body_kb": 127.1,
+     "head_kb": 46.5,
+     "body_shared_with": null
+    },
+    "tell": {
+     "chosen_raw": "raw/Qadir-tell-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Qadir-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: he holds the brass lighter up at chest height in his right hand, its lid flicked open; his charming smile is gone, his face guarded and tense. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:40:15.481Z",
+      "candidates": [
+       "raw/Qadir-tell-c1.png",
+       "raw/Qadir-tell-c2.png"
+      ]
+     },
+     "body_kb": 128.8,
+     "head_kb": 49.4,
+     "body_shared_with": null
+    }
+   }
+  },
+  "Okafor": {
+   "height_cm": 167,
+   "frames": {
+    "neutral": {
+     "chosen_raw": "raw/Okafor-base.png",
+     "source": null,
+     "body_kb": 80.6,
+     "head_kb": 39,
+     "body_shared_with": null
+    },
+    "mouthopen": {
+     "chosen_raw": "raw/Okafor-mouthopen-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Okafor-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: the mouth more open, as if pronouncing an open vowel mid-sentence (for lip-sync), the same engaged expression. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:20:30.411Z",
+      "candidates": [
+       "raw/Okafor-mouthopen-c1.png",
+       "raw/Okafor-mouthopen-c2.png"
+      ]
+     },
+     "body_kb": null,
+     "head_kb": 38.6,
+     "body_shared_with": "neutral"
+    },
+    "tell": {
+     "chosen_raw": "raw/Okafor-tell-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Okafor-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: she pushes her thin metal glasses up her nose with one finger, jaw set firmly, eyes hard. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:20:56.637Z",
+      "candidates": [
+       "raw/Okafor-tell-c1.png",
+       "raw/Okafor-tell-c2.png"
+      ]
+     },
+     "body_kb": 78.3,
+     "head_kb": 39.8,
+     "body_shared_with": null
+    },
+    "speaking": {
+     "chosen_raw": "raw/Okafor-speaking-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Okafor-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: the mouth slightly open mid-word, as if speaking, with an engaged expression. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:40:12.627Z",
+      "candidates": [
+       "raw/Okafor-speaking-c1.png",
+       "raw/Okafor-speaking-c2.png"
+      ]
+     },
+     "body_kb": null,
+     "head_kb": 39.1,
+     "body_shared_with": "neutral"
+    },
+    "smug": {
+     "chosen_raw": "raw/Okafor-smug-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Okafor-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: a self-satisfied half-smile, chin raised slightly, eyes knowing. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:40:42.034Z",
+      "candidates": [
+       "raw/Okafor-smug-c1.png",
+       "raw/Okafor-smug-c2.png"
+      ]
+     },
+     "body_kb": 79.7,
+     "head_kb": 37.8,
+     "body_shared_with": null
+    },
+    "rattled": {
+     "chosen_raw": "raw/Okafor-rattled-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Okafor-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: a worried, rattled expression: brow tense and drawn together, eyes uneasy, a slight lean back. Same pose otherwise. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:44:11.558Z",
+      "candidates": [
+       "raw/Okafor-rattled-c1.png",
+       "raw/Okafor-rattled-c2.png"
+      ]
+     },
+     "body_kb": 78.8,
+     "head_kb": 37.6,
+     "body_shared_with": null
+    },
+    "broken": {
+     "chosen_raw": "raw/Okafor-broken-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Okafor-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: crushed and defeated: shoulders sunk, head lowered, eyes cast down, composure gone. Same clothing, still standing in the same spot with the feet in the same place. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:44:43.004Z",
+      "candidates": [
+       "raw/Okafor-broken-c1.png",
+       "raw/Okafor-broken-c2.png"
+      ]
+     },
+     "body_kb": 75.4,
+     "head_kb": 43.2,
+     "body_shared_with": null
+    }
+   }
+  },
+  "Pike": {
+   "height_cm": 176,
+   "frames": {
+    "neutral": {
+     "chosen_raw": "raw/Pike-base.png",
+     "source": null,
+     "body_kb": 103.4,
+     "head_kb": 44.4,
+     "body_shared_with": null
+    },
+    "speaking": {
+     "chosen_raw": "raw/Pike-speaking-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Pike-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: the mouth slightly open mid-word, as if speaking, with an engaged expression. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:21:55.257Z",
+      "candidates": [
+       "raw/Pike-speaking-c1.png",
+       "raw/Pike-speaking-c2.png"
+      ]
+     },
+     "body_kb": null,
+     "head_kb": 43.5,
+     "body_shared_with": "neutral"
+    },
+    "mouthopen": {
+     "chosen_raw": "raw/Pike-mouthopen-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Pike-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: the mouth more open, as if pronouncing an open vowel mid-sentence (for lip-sync), the same engaged expression. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:22:21.578Z",
+      "candidates": [
+       "raw/Pike-mouthopen-c1.png",
+       "raw/Pike-mouthopen-c2.png"
+      ]
+     },
+     "body_kb": null,
+     "head_kb": 42.6,
+     "body_shared_with": "neutral"
+    },
+    "tell": {
+     "chosen_raw": "raw/Pike-tell-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Pike-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: he tugs at the cuff of one ivory glove with the other gloved hand, glancing aside nervously. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:22:50.009Z",
+      "candidates": [
+       "raw/Pike-tell-c1.png",
+       "raw/Pike-tell-c2.png"
+      ]
+     },
+     "body_kb": 104.4,
+     "head_kb": 44,
+     "body_shared_with": null
+    },
+    "rattled": {
+     "chosen_raw": "raw/Pike-rattled-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Pike-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: a worried, rattled expression: brow tense and drawn together, eyes uneasy, a slight lean back. Same pose otherwise. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:25:02.096Z",
+      "candidates": [
+       "raw/Pike-rattled-c1.png",
+       "raw/Pike-rattled-c2.png"
+      ]
+     },
+     "body_kb": 104.9,
+     "head_kb": 44.1,
+     "body_shared_with": null
+    },
+    "broken": {
+     "chosen_raw": "raw/Pike-broken-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Pike-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: crushed and defeated: shoulders sunk, head lowered, eyes cast down, composure gone. Same clothing, still standing in the same spot with the feet in the same place. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:25:30.303Z",
+      "candidates": [
+       "raw/Pike-broken-c1.png",
+       "raw/Pike-broken-c2.png"
+      ]
+     },
+     "body_kb": 106.4,
+     "head_kb": 60.9,
+     "body_shared_with": null
+    },
+    "smug": {
+     "chosen_raw": "raw/Pike-smug-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Pike-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: a self-satisfied half-smile, chin raised slightly, eyes knowing. Keep everything else identical: hair, face shape, clothing, colours, accessories, body pose, and the figure's exact position and size in the frame (head and feet in the same place).",
+      "time": "2026-11-06T21:25:58.050Z",
+      "candidates": [
+       "raw/Pike-smug-c1.png",
+       "raw/Pike-smug-c2.png"
+      ]
+     },
+     "body_kb": 103,
+     "head_kb": 43,
+     "body_shared_with": null
+    }
+   }
+  },
+  "Harlow": {
+   "height_cm": 172,
+   "frames": {
+    "standing": {
+     "chosen_raw": "raw/Harlow-base.png",
+     "source": null,
+     "body_kb": 96.1,
+     "head_kb": 48.6,
+     "body_shared_with": null
+    },
+    "staggering": {
+     "chosen_raw": "raw/Harlow-staggering-c1.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1024x1536",
+      "quality": "medium",
+      "inputs": [
+       "raw/Harlow-base.png"
+      ],
+      "prompt": "Same character, same outfit, same proportions, same framing, same art style and background; change only: he staggers backwards in shock, stumbling, both arms raised in front of him defensively, face shocked and afraid, body tilting back. Feet still near the bottom of the frame.",
+      "time": "2026-11-06T21:29:18.587Z",
+      "candidates": [
+       "raw/Harlow-staggering-c1.png",
+       "raw/Harlow-staggering-c2.png"
+      ]
+     },
+     "body_kb": 108.3,
+     "head_kb": 64.9,
+     "body_shared_with": null
+    },
+    "fallen": {
+     "chosen_raw": "raw/Harlow-fallen-c2.png",
+     "source": {
+      "model": "gpt-image-2",
+      "endpoint": "images/edits",
+      "size": "1536x1024",
+      "quality": "medium",
+      "inputs": [
+       "raw/Harlow-base.png"
+      ],
+      "prompt": "Same character, same outfit, same art style and plain flat light-grey background; now he lies on his back on the floor, seen from the front-side, full length horizontal across the frame, eyes closed, arms loose at his sides, glasses askew. Whole body visible from head to shoes, nothing cropped. No floor texture, no shadow pool, no props.",
+      "time": "2026-11-06T21:29:44.457Z",
+      "candidates": [
+       "raw/Harlow-fallen-c1.png",
+       "raw/Harlow-fallen-c2.png"
+      ]
+     },
+     "body_kb": 93.6,
+     "head_kb": null,
+     "body_shared_with": null
+    }
+   }
+  }
+ },
+ "openai_total_est_usd": 3.777
+}

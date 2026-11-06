@@ -1,0 +1,182 @@
+{
+ "character": "Harlow",
+ "height_cm": 172,
+ "px_per_cm": 5.741176470588235,
+ "canvas": [
+  512,
+  1024
+ ],
+ "baseline_y": 1016,
+ "scale_src_to_canvas": 0.6968823944539001,
+ "frames": {
+  "standing": {
+   "body": "Harlow-standing.png",
+   "head": "Harlow-standing-head.png",
+   "headLayerRect": [
+    0.31697,
+    -1e-05,
+    0.3854,
+    0.19252
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 0,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     450,
+     95,
+     130,
+     165
+    ],
+    "eyes": [
+     514,
+     166
+    ],
+    "mouthBox": [
+     484,
+     208,
+     66,
+     22
+    ],
+    "tellProp": [
+     514,
+     166
+    ],
+    "rightHand": [
+     359,
+     700
+    ],
+    "leftHand": [
+     666,
+     700
+    ],
+    "feet": [
+     505,
+     1490
+    ]
+   },
+   "map": [
+    0.697265625,
+    0.6966145833333334,
+    -95.0,
+    -23.0
+   ]
+  },
+  "staggering": {
+   "body": "Harlow-staggering.png",
+   "head": "Harlow-staggering-head.png",
+   "headLayerRect": [
+    0.47086,
+    0.04149,
+    0.3854,
+    0.19252
+   ],
+   "registration": [
+    -27,
+    -2
+   ],
+   "reg_err": 0,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     585,
+     130,
+     140,
+     200
+    ],
+    "eyes": [
+     645,
+     188
+    ],
+    "mouthBox": [
+     618,
+     248,
+     48,
+     32
+    ],
+    "tellProp": [
+     645,
+     188
+    ],
+    "rightHand": [
+     333,
+     325
+    ],
+    "leftHand": [
+     725,
+     458
+    ],
+    "feet": [
+     0,
+     0
+    ]
+   },
+   "map": [
+    0.697265625,
+    0.6966145833333334,
+    -113.826171875,
+    -24.393229166666668
+   ]
+  },
+  "fallen": {
+   "body": "Harlow-fallen.png",
+   "canvas": [
+    1024,
+    512
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "anchors_src": {
+    "faceBox": [
+     100,
+     389,
+     190,
+     167
+    ],
+    "eyes": [
+     185,
+     452
+    ],
+    "mouthBox": [
+     225,
+     425,
+     40,
+     30
+    ],
+    "tellProp": [
+     211,
+     411
+    ],
+    "rightHand": [
+     678,
+     717
+    ],
+    "leftHand": [
+     350,
+     520
+    ],
+    "feet": [
+     1428,
+     583
+    ]
+   },
+   "map": [
+    0.7265625,
+    0.7265625,
+    -50,
+    -61
+   ]
+  }
+ }
+}

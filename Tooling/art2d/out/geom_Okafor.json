@@ -1,0 +1,294 @@
+{
+ "character": "Okafor",
+ "height_cm": 167,
+ "px_per_cm": 5.741176470588235,
+ "canvas": [
+  512,
+  1024
+ ],
+ "baseline_y": 1016,
+ "scale_src_to_canvas": 0.65759703058178,
+ "frames": {
+  "neutral": {
+   "body": "Okafor-neutral.png",
+   "head": "Okafor-neutral-head.png",
+   "headLayerRect": [
+    0.33744,
+    0.02863,
+    0.41205,
+    0.20613
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 0,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     440,
+     100,
+     128,
+     138
+    ],
+    "eyes": [
+     509,
+     148
+    ],
+    "mouthBox": [
+     486,
+     188,
+     52,
+     22
+    ],
+    "tellProp": [
+     509,
+     146
+    ],
+    "rightHand": [
+     494,
+     643
+    ],
+    "leftHand": [
+     566,
+     671
+    ],
+    "feet": [
+     480,
+     1500
+    ]
+   },
+   "map": [
+    0.6572265625,
+    0.6575520833333334,
+    -52.0,
+    28.0
+   ]
+  },
+  "mouthopen": {
+   "body": "Okafor-neutral.png",
+   "head": "Okafor-mouthopen-head.png",
+   "headLayerRect": [
+    0.33744,
+    0.02863,
+    0.41205,
+    0.20613
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 123.6,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6572265625,
+    0.6575520833333334,
+    -52.0,
+    28.0
+   ]
+  },
+  "tell": {
+   "body": "Okafor-tell.png",
+   "head": "Okafor-tell-head.png",
+   "headLayerRect": [
+    0.33744,
+    0.02863,
+    0.41205,
+    0.20613
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 27.6,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     442,
+     113,
+     120,
+     129
+    ],
+    "eyes": [
+     504,
+     163
+    ],
+    "mouthBox": [
+     489,
+     205,
+     48,
+     20
+    ],
+    "tellProp": [
+     493,
+     176
+    ],
+    "rightHand": [
+     471,
+     222
+    ],
+    "leftHand": [
+     550,
+     647
+    ],
+    "feet": [
+     480,
+     1500
+    ]
+   },
+   "map": [
+    0.6572265625,
+    0.6575520833333334,
+    -52.0,
+    28.0
+   ]
+  },
+  "speaking": {
+   "body": "Okafor-neutral.png",
+   "head": "Okafor-speaking-head.png",
+   "headLayerRect": [
+    0.33744,
+    0.02863,
+    0.41205,
+    0.20613
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 102.2,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6572265625,
+    0.6575520833333334,
+    -52.0,
+    28.0
+   ]
+  },
+  "smug": {
+   "body": "Okafor-smug.png",
+   "head": "Okafor-smug-head.png",
+   "headLayerRect": [
+    0.33744,
+    0.02863,
+    0.41205,
+    0.20613
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 25.6,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6572265625,
+    0.6575520833333334,
+    -52.0,
+    28.0
+   ]
+  },
+  "rattled": {
+   "body": "Okafor-rattled.png",
+   "head": "Okafor-rattled-head.png",
+   "headLayerRect": [
+    0.33744,
+    0.02863,
+    0.41205,
+    0.20613
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 26.9,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6572265625,
+    0.6575520833333334,
+    -52.0,
+    28.0
+   ]
+  },
+  "broken": {
+   "body": "Okafor-broken.png",
+   "head": "Okafor-broken-head.png",
+   "headLayerRect": [
+    0.33744,
+    0.08,
+    0.41205,
+    0.20613
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 235.2,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     470,
+     195,
+     110,
+     118
+    ],
+    "eyes": [
+     538,
+     248
+    ],
+    "mouthBox": [
+     518,
+     285,
+     40,
+     16
+    ],
+    "tellProp": [
+     537,
+     247
+    ],
+    "rightHand": [
+     500,
+     693
+    ],
+    "leftHand": [
+     550,
+     702
+    ],
+    "feet": [
+     0,
+     0
+    ]
+   },
+   "map": [
+    0.6572265625,
+    0.6575520833333334,
+    -52.0,
+    28.0
+   ]
+  }
+ }
+}

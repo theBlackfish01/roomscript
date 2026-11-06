@@ -28,8 +28,8 @@ const TOKEN_HEIGHT_CM=136,TOKEN_SIDE_CM=29,SUBTITLE_HEIGHT_CM=125;
     const used:vec3[]=[];
     for(const actor of this.cast){this.flow.registerActor(actor);let mark=this.room.toWorld(marks[actor.suspect]);while(used.some(p=>p.distance(mark)<65))mark=mark.add(new vec3(70,0,0));used.push(mark);actor.getTransform().setWorldPosition(mark);actor.getSceneObject().enabled=true;
       const person=graph.cast.suspects.find(p=>p.id===actor.suspect)!,card=uiObject(actor.getSceneObject(),"RoomscriptSelect_"+actor.suspect);
-      const target=global.scene.createSceneObject("RoomscriptAccuse_"+actor.suspect);target.setParent(actor.getSceneObject());target.getTransform().setLocalPosition(new vec3(0,85,8));
-      const shape=Shape.createBoxShape();shape.size=new vec3(64,130,18);const collider=target.createComponent("Physics.ColliderComponent");collider.shape=shape;
+      const target=global.scene.createSceneObject("RoomscriptAccuse_"+actor.suspect);target.setParent(actor.getSceneObject());const h=actor.heights();target.getTransform().setLocalPosition(new vec3(0,h.top*.5,8));
+      const shape=Shape.createBoxShape();shape.size=new vec3(Math.min(64,h.width*.72),h.top*.78,18); // Run 9: from the art anchorsconst collider=target.createComponent("Physics.ColliderComponent");collider.shape=shape;
       const interaction=target.createComponent(Interactable.getTypeName()) as Interactable;interaction.targetingMode=3;
       interaction.onTriggerEnd.add(()=>{if(this.accusationSelect){this.accusationSelect(actor.suspect);return;}
         // Run 8: pointing at another guest while talking to a suspect asks about that guest.
@@ -48,9 +48,9 @@ const TOKEN_HEIGHT_CM=136,TOKEN_SIDE_CM=29,SUBTITLE_HEIGHT_CM=125;
   private placeUI(id:string):void {const actor=this.flow.actorFor(id);if(!actor)return;const camera=this.flow.actor.camera.getTransform(),eye=camera.getWorldPosition(),p=actor.getTransform().getWorldPosition();
     let toward=eye.sub(p);toward.y=0;toward=toward.length>1?toward.normalize():vec3.forward();const right=vec3.up().cross(toward).normalize();
     for(const panel of [this.flow.chips,this.flow.verbs,this.flow.subtitles])panel.getTransform().setWorldScale(vec3.one());
-    const shoulder=p.add(new vec3(0,TOKEN_HEIGHT_CM,0)).add(right.uniformScale(TOKEN_SIDE_CM)).add(toward.uniformScale(16));
+    const h=actor.heights(),shoulder=p.add(new vec3(0,h.token,0)).add(right.uniformScale(Math.max(TOKEN_SIDE_CM,h.width*.33))).add(toward.uniformScale(16));
     this.flow.chips.getTransform().setWorldPosition(shoulder);this.flow.verbs.getTransform().setWorldPosition(shoulder);
-    this.flow.subtitles.getTransform().setWorldPosition(p.add(new vec3(0,SUBTITLE_HEIGHT_CM,0)).add(toward.uniformScale(20)));
+    this.flow.subtitles.getTransform().setWorldPosition(p.add(new vec3(0,h.subtitle,0)).add(toward.uniformScale(20)));
     const facing=quat.lookAt(toward,vec3.up());for(const panel of [this.flow.chips,this.flow.verbs,this.flow.subtitles])panel.getTransform().setWorldRotation(facing);}
   /** Other guests become pinch/point targets only during a conversation (never over the accusation). */
   private syncGuestTargets(active:boolean):void {if(this.accusationSelect)return;this.guestTargets=active;const talking=this.flow.diagnostics().suspect;
@@ -62,7 +62,7 @@ const TOKEN_HEIGHT_CM=136,TOKEN_SIDE_CM=29,SUBTITLE_HEIGHT_CM=125;
     this.placeUI(this.flow.diagnostics().suspect);
     this.proximityReason=this.flow.controlsBlocked?"modal":this.accusationSelect?"accusation":!this.flow.engine.investigationEnabled?"opening":this.flow.diagnostics().busy?"speaking":getTime()<this.previewFocusUntil?"Preview fallback":"scanned";
     if(this.proximityReason!=="scanned")return;
-    let best="",distance=150;for(const actor of this.cast){if(!actor.getSceneObject().enabled)continue;const delta=actor.getTransform().getWorldPosition().add(new vec3(0,130,0)).sub(eye),d=delta.length;if(d<distance&&delta.normalize().dot(forward)>.55){best=actor.suspect;distance=d;}}
+    let best="",distance=150;for(const actor of this.cast){if(!actor.getSceneObject().enabled)continue;const delta=actor.getTransform().getWorldPosition().add(new vec3(0,actor.heights().facing,0)).sub(eye),d=delta.length;if(d<distance&&delta.normalize().dot(forward)>.55){best=actor.suspect;distance=d;}}
     if(best&&best!==this.nearest)this.focus(best);else if(!best){this.nearest="";this.flow.chips.show(false);this.flow.verbs.show(false);this.syncGuestTargets(false);}
   }
   proximityState():{nearest:string;previewFallback:boolean;checks:number;reason:string}{return {nearest:this.nearest,previewFallback:getTime()<this.previewFocusUntil,checks:this.proximityChecks,reason:this.proximityReason};}

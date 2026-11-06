@@ -1,0 +1,353 @@
+{
+ "character": "Vale",
+ "height_cm": 170,
+ "px_per_cm": 5.741176470588235,
+ "canvas": [
+  512,
+  1024
+ ],
+ "baseline_y": 1016,
+ "scale_src_to_canvas": 0.6648501362397821,
+ "frames": {
+  "neutral": {
+   "body": "Vale-neutral.png",
+   "head": "Vale-neutral-head.png",
+   "headLayerRect": [
+    0.28932,
+    0.01141,
+    0.41955,
+    0.20967
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 0,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     440,
+     88,
+     122,
+     142
+    ],
+    "eyes": [
+     501,
+     147
+    ],
+    "mouthBox": [
+     482,
+     180,
+     48,
+     24
+    ],
+    "tellProp": [
+     590,
+     377
+    ],
+    "rightHand": [
+     522,
+     645
+    ],
+    "leftHand": [
+     565,
+     660
+    ],
+    "feet": [
+     490,
+     1498
+    ]
+   },
+   "map": [
+    0.6650390625,
+    0.6647135416666666,
+    -70.0,
+    19.0
+   ]
+  },
+  "speaking": {
+   "body": "Vale-neutral.png",
+   "head": "Vale-speaking-head.png",
+   "headLayerRect": [
+    0.28932,
+    0.01141,
+    0.41955,
+    0.20967
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 87.3,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6650390625,
+    0.6647135416666666,
+    -70.0,
+    19.0
+   ]
+  },
+  "mouthopen": {
+   "body": "Vale-neutral.png",
+   "head": "Vale-mouthopen-head.png",
+   "headLayerRect": [
+    0.28932,
+    0.01141,
+    0.41955,
+    0.20967
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 117.8,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6650390625,
+    0.6647135416666666,
+    -70.0,
+    19.0
+   ]
+  },
+  "rattled": {
+   "body": "Vale-rattled.png",
+   "head": "Vale-rattled-head.png",
+   "headLayerRect": [
+    0.28932,
+    0.01141,
+    0.41955,
+    0.20967
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 12.3,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6650390625,
+    0.6647135416666666,
+    -70.0,
+    19.0
+   ]
+  },
+  "smug": {
+   "body": "Vale-smug.png",
+   "head": "Vale-smug-head.png",
+   "headLayerRect": [
+    0.28932,
+    0.01141,
+    0.41955,
+    0.20967
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 11.9,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6650390625,
+    0.6647135416666666,
+    -70.0,
+    19.0
+   ]
+  },
+  "tell": {
+   "body": "Vale-tell.png",
+   "head": "Vale-tell-head.png",
+   "headLayerRect": [
+    0.28932,
+    0.01141,
+    0.41955,
+    0.20967
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 18.0,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     440,
+     86,
+     122,
+     142
+    ],
+    "eyes": [
+     500,
+     145
+    ],
+    "mouthBox": [
+     484,
+     182,
+     44,
+     22
+    ],
+    "tellProp": [
+     592,
+     374
+    ],
+    "rightHand": [
+     365,
+     850
+    ],
+    "leftHand": [
+     630,
+     385
+    ],
+    "feet": [
+     490,
+     1498
+    ]
+   },
+   "map": [
+    0.6650390625,
+    0.6647135416666666,
+    -70.0,
+    19.0
+   ]
+  },
+  "broken": {
+   "body": "Vale-broken.png",
+   "head": "Vale-broken-head.png",
+   "headLayerRect": [
+    0.28932,
+    0.05036,
+    0.41955,
+    0.20967
+   ],
+   "registration": [
+    1,
+    -1
+   ],
+   "reg_err": 116.8,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     452,
+     170,
+     135,
+     135
+    ],
+    "eyes": [
+     525,
+     231
+    ],
+    "mouthBox": [
+     504,
+     268,
+     44,
+     18
+    ],
+    "tellProp": [
+     588,
+     400
+    ],
+    "rightHand": [
+     490,
+     720
+    ],
+    "leftHand": [
+     560,
+     725
+    ],
+    "feet": [
+     490,
+     1498
+    ]
+   },
+   "map": [
+    0.6650390625,
+    0.6647135416666666,
+    -69.3349609375,
+    18.335286458333332
+   ]
+  },
+  "tableau": {
+   "body": "Vale-tableau.png",
+   "head": "Vale-tableau-head.png",
+   "headLayerRect": [
+    0.35955,
+    0.01141,
+    0.2797,
+    0.20967
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 16.5,
+   "canvas": [
+    768,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     440,
+     86,
+     122,
+     144
+    ],
+    "eyes": [
+     501,
+     143
+    ],
+    "mouthBox": [
+     486,
+     181,
+     48,
+     22
+    ],
+    "tellProp": [
+     592,
+     370
+    ],
+    "rightHand": [
+     272,
+     395
+    ],
+    "leftHand": [
+     755,
+     400
+    ],
+    "feet": [
+     490,
+     1498
+    ]
+   },
+   "map": [
+    0.6650390625,
+    0.6647135416666666,
+    58.0,
+    19.0
+   ]
+  }
+ }
+}

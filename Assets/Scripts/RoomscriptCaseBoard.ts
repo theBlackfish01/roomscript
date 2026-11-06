@@ -73,7 +73,7 @@ export class RoomscriptCaseBoard {
       const node=global.scene.createSceneObject("Board item "+item.id);node.setParent(this.content);node.getTransform().setLocalPosition(v(item.x,item.y,.3));
       const ink=item.kind==="weapon"?CORAL:item.kind==="zone"?CHALK:item.kind==="photo"?BRASS:IVORY,color=item.crossed?DIM:ink;
       lineTubes(node,"Card outline",rectEdges(item.w,item.h),tinted(this.line,color),.22);
-      if(item.kind==="suspect"){const actor=flow.actorFor(item.id.slice(4));if(actor?.neutral)iconImage(node,"Portrait",actor.neutral,Math.min(item.h*.82,item.w*1.6),new vec4(1,1,1,item.crossed?.35:1),v(0,item.h*.06,.2),true,.5);}
+      if(item.kind==="suspect"){const actor=flow.actorFor(item.id.slice(4)),portrait=actor?.portrait();if(portrait?.texture)iconImage(node,"Portrait",portrait.texture,portrait.aspect<1?Math.min(item.h*.82,item.w*1.6):Math.min(item.w,item.h)*.8,new vec4(1,1,1,item.crossed?.35:1),v(0,item.h*.08,.2),true,portrait.aspect);}
       if(item.kind==="photo"){const card=admittedCard(this.engine.graphRef(),state,item.id.slice(6));if(card)iconImage(node,"Photo",card.texture,Math.min(item.w,item.h)*.86,new vec4(1,1,1,1),v(0,item.h*.06,.2),true);
         lineTubes(node,"Pushpin",circleEdges(.7,10,v(0,item.h/2-.6,.6)),tinted(this.line,CORAL),.35);}
       const label=flatText(node,"Card label",item.label,1.6,color,"body",item.w-1,2.2);label.getSceneObject().getTransform().setLocalPosition(v(0,-item.h/2+1.4,.5));

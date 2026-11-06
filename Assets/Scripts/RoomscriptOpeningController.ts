@@ -81,7 +81,7 @@ import {engraveCrate} from "./RoomscriptCrateArt";
   private update():void {
     if(getTime()>=this.nextDetail){
       this.nextDetail=getTime()+.2;if(this.filmMode)hideLeafOverlays();const flow=this.cast.flow,camera=flow.actor.camera.getTransform(),eye=camera.getWorldPosition(),rotation=camera.getWorldRotation(),forward=rotation.multiplyVec3(vec3.back());
-      const face=flow.actor.getTransform().getWorldPosition().add(new vec3(0,130,0)).sub(eye),facing=face.length>.1&&face.normalize().dot(forward)>.5;
+      const face=flow.actor.getTransform().getWorldPosition().add(new vec3(0,flow.actor.heights().facing,0)).sub(eye),facing=face.length>.1&&face.normalize().dot(forward)>.5;
       const conversation=flow.diagnostics().busy||(facing&&(face.length<180||flow.chips.getSceneObject().enabled||flow.verbs.getSceneObject().enabled));
       const explore=this.phase==="ready"&&!this.verdict&&!flow.controlsBlocked&&!conversation;let nearest:SceneObject=null,best=180;
       if(explore)for(const node of this.objectLabels){const delta=node.getTransform().getWorldPosition().sub(eye),distance=delta.length;if(distance<best&&distance>.1&&delta.normalize().dot(forward)>.75){nearest=node;best=distance;}}

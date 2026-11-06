@@ -1,0 +1,294 @@
+{
+ "character": "Qadir",
+ "height_cm": 175,
+ "px_per_cm": 5.741176470588235,
+ "canvas": [
+  512,
+  1024
+ ],
+ "baseline_y": 1016,
+ "scale_src_to_canvas": 0.6900452488687783,
+ "frames": {
+  "neutral": {
+   "body": "Qadir-neutral.png",
+   "head": "Qadir-neutral-head.png",
+   "headLayerRect": [
+    0.29536,
+    -0.01788,
+    0.43152,
+    0.21566
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 0,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     439,
+     95,
+     118,
+     145
+    ],
+    "eyes": [
+     494,
+     146
+    ],
+    "mouthBox": [
+     480,
+     186,
+     50,
+     20
+    ],
+    "tellProp": [
+     396,
+     414
+    ],
+    "rightHand": [
+     400,
+     440
+    ],
+    "leftHand": [
+     660,
+     730
+    ],
+    "feet": [
+     506,
+     1498
+    ]
+   },
+   "map": [
+    0.6904296875,
+    0.6901041666666666,
+    -78.0,
+    -19.0
+   ]
+  },
+  "speaking": {
+   "body": "Qadir-neutral.png",
+   "head": "Qadir-speaking-head.png",
+   "headLayerRect": [
+    0.29536,
+    -0.01788,
+    0.43152,
+    0.21566
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 90.3,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6904296875,
+    0.6901041666666666,
+    -78.0,
+    -19.0
+   ]
+  },
+  "mouthopen": {
+   "body": "Qadir-neutral.png",
+   "head": "Qadir-mouthopen-head.png",
+   "headLayerRect": [
+    0.29536,
+    -0.01788,
+    0.43152,
+    0.21566
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 139.8,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6904296875,
+    0.6901041666666666,
+    -78.0,
+    -19.0
+   ]
+  },
+  "rattled": {
+   "body": "Qadir-rattled.png",
+   "head": "Qadir-rattled-head.png",
+   "headLayerRect": [
+    0.29536,
+    -0.01788,
+    0.43152,
+    0.21566
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 42.4,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6904296875,
+    0.6901041666666666,
+    -78.0,
+    -19.0
+   ]
+  },
+  "broken": {
+   "body": "Qadir-broken.png",
+   "head": "Qadir-broken-head.png",
+   "headLayerRect": [
+    0.29536,
+    0.02929,
+    0.43152,
+    0.21566
+   ],
+   "registration": [
+    1,
+    0
+   ],
+   "reg_err": 92.7,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     433,
+     205,
+     117,
+     117
+    ],
+    "eyes": [
+     496,
+     240
+    ],
+    "mouthBox": [
+     485,
+     294,
+     46,
+     18
+    ],
+    "tellProp": [
+     404,
+     472
+    ],
+    "rightHand": [
+     400,
+     513
+    ],
+    "leftHand": [
+     660,
+     730
+    ],
+    "feet": [
+     506,
+     1498
+    ]
+   },
+   "map": [
+    0.6904296875,
+    0.6901041666666666,
+    -77.3095703125,
+    -19.0
+   ]
+  },
+  "smug": {
+   "body": "Qadir-smug.png",
+   "head": "Qadir-smug-head.png",
+   "headLayerRect": [
+    0.29536,
+    -0.01788,
+    0.43152,
+    0.21566
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 35.7,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {},
+   "map": [
+    0.6904296875,
+    0.6901041666666666,
+    -78.0,
+    -19.0
+   ]
+  },
+  "tell": {
+   "body": "Qadir-tell.png",
+   "head": "Qadir-tell-head.png",
+   "headLayerRect": [
+    0.29536,
+    -0.01788,
+    0.43152,
+    0.21566
+   ],
+   "registration": [
+    0,
+    0
+   ],
+   "reg_err": 35.7,
+   "canvas": [
+    512,
+    1024
+   ],
+   "anchors_src": {
+    "faceBox": [
+     439,
+     95,
+     118,
+     145
+    ],
+    "eyes": [
+     497,
+     148
+    ],
+    "mouthBox": [
+     482,
+     190,
+     46,
+     18
+    ],
+    "tellProp": [
+     360,
+     330
+    ],
+    "rightHand": [
+     353,
+     378
+    ],
+    "leftHand": [
+     660,
+     730
+    ],
+    "feet": [
+     0,
+     0
+    ]
+   },
+   "map": [
+    0.6904296875,
+    0.6901041666666666,
+    -78.0,
+    -19.0
+   ]
+  }
+ }
+}

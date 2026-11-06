@@ -102,9 +102,9 @@ Nodes:
             	vec3 amber=vec3(1.0,0.718,0.29);
             	vec3 coral=vec3(1.0,0.420,0.353);
             	vec3 rim=mix(mix(ivory,amber,min(stress*2.0,1.0)),coral,max(stress*2.0-1.0,0.0));
-            	float edge=clamp((around-paper.a)*3.0,0.0,1.0);
+            	float edge=clamp((around-paper.a)*3.0,0.0,1.0)*(1.0-clamp(colorInput1.w,0.0,1.0));
             	vec3 detail=mix(paper.rgb,vec3(0.075,0.11,0.13),clamp(colorInput1.z,0.0,1.0));
-            	result=vec4(mix(detail,rim,edge),max(paper.a,around*0.9));
+            	result=vec4(mix(detail,rim,edge),max(paper.a,around*0.9*(1.0-clamp(colorInput1.w,0.0,1.0))));
             	if(result.a<0.02)discard;
             }
         CustomCodeNodeAsset:

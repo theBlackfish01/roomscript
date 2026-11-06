@@ -1,3 +1,4 @@
+import {anchorCm} from "./Content/ActorArt";
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
 import {RoomscriptRoomBinding} from "./RoomscriptRoomBinding";
 import {RoomscriptAudio} from "./RoomscriptAudio";
@@ -76,11 +77,12 @@ import {caseExitPosition} from "./Engine/game/RoomPresentation";
     if(!window.active){this.pending=null;this.prop.enabled=false;this.line.enabled=false;return;}
     if(window.started){this.count++;this.lastDelay=(now-this.started)*1000;this.audio.play(this.pending.kind==="flicker"?"Tink":"Shing");
       this.target=this.pending.targetObject?this.room.objectAnchor(this.pending.targetObject):null;
-      console.log("TELL|"+JSON.stringify({statement:this.pending.statement,target:this.pending.targetObject,delayMs:this.lastDelay}));}
+      console.log("TELL|"+JSON.stringify({statement:this.pending.statement,target:this.pending.targetObject,delayMs:this.lastDelay}));this.flow.actor.showTell(Math.max(1.4,this.tellDuration));}
     this.segments.forEach((segment,index)=>segment.enabled=index<this.shownSegments);
     this.prop.enabled=true;
     const phase=(now-this.due)*12,flash=this.pending.kind==="flicker"?(Math.sin(phase*3)>0?1:.2):.6+.4*Math.sin(phase);
-    const kind=this.pending.prop,position=kind.indexOf("glasses")>=0?new vec3(0,132,5):kind.indexOf("glove")>=0?new vec3(-16,74,5):kind==="lighter"?new vec3(16,78,5):new vec3(14,97,5);
+    // Run 9: the illustrated tell frame carries its own prop point (brooch, lighter, glasses, glove cuff).
+    const art=this.flow.actor.frameArt(),kind=this.pending.prop,position=art?(p=>new vec3(p.x,p.y,5))(anchorCm(art,art.tellProp)):kind.indexOf("glasses")>=0?new vec3(0,132,5):kind.indexOf("glove")>=0?new vec3(-16,74,5):kind==="lighter"?new vec3(16,78,5):new vec3(14,97,5);
     this.prop.getTransform().setLocalPosition(position);this.prop.getTransform().setLocalScale(new vec3(flash,flash,flash));
     this.propSurface.mainPass.baseColor=new vec4(.25*flash,.89*flash,flash,1);
     this.line.enabled=!!this.target;
@@ -88,7 +90,7 @@ import {caseExitPosition} from "./Engine/game/RoomPresentation";
   }
   relocateMark(position:vec3):void {this.mark=position;this.from=this.flow.actor.getTransform().getWorldPosition();this.to=position;this.moveStart=getTime();this.moving=true;}
   private updateLine(end:vec3):void {
-    const start=this.flow.actor.getTransform().getWorldTransform().multiplyPoint(new vec3(0,132,5)),camera=this.flow.actor.camera.getTransform().getWorldPosition();
+    const art=this.flow.actor.frameArt(),eyes=art?anchorCm(art,art.eyes):{x:0,y:132},start=this.flow.actor.getTransform().getWorldTransform().multiplyPoint(new vec3(eyes.x,eyes.y,5)),camera=this.flow.actor.camera.getTransform().getWorldPosition();
     const direction=end.sub(start),towards=camera.sub(start);let side=direction.cross(towards);if(side.length<.001)side=vec3.up();side=side.normalize().uniformScale(12);
     const inverse=this.line.getTransform().getInvertedWorldTransform(),points=[start.sub(side),start.add(side),end.add(side),end.sub(side)],vertices:number[]=[];
     points.forEach((point,index)=>{const local=inverse.multiplyPoint(point);vertices.push(local.x,local.y,local.z,0,0,1,index<2?0:1,index===0||index===3?0:1);});

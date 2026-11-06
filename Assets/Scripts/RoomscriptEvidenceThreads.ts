@@ -18,7 +18,7 @@ export class RoomscriptEvidenceThreads {
   }
   private point(node:WebNode):vec3|null {
     try{switch(node.kind){
-      case "suspect":{const actor=this.flow.actorFor(node.id);return actor&&actor.getSceneObject().enabled?actor.getTransform().getWorldPosition().add(new vec3(0,118,0)):null;}
+      case "suspect":{const actor=this.flow.actorFor(node.id);return actor&&actor.getSceneObject().enabled?actor.getTransform().getWorldPosition().add(new vec3(0,actor.heights().thread,0)):null;}
       case "object":return this.room.objectAnchor(node.id).getTransform().getWorldPosition().add(new vec3(0,6,0));
       case "zone":{const spot=chalkSpot(this.engine.graphRef(),node.id,this.engine.mode());return this.room.toWorld([spot.center[0],8,spot.center[2]]);}
       default:return null;}}catch{return null;}

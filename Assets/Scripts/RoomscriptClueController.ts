@@ -105,7 +105,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
   }
   private updateDetail():void {
     if(!this.ivory)return;const flow=this.objection.flow,camera=flow.actor.camera.getTransform(),eye=camera.getWorldPosition(),forward=camera.getWorldRotation().multiplyVec3(vec3.back());
-    const face=flow.actor.getTransform().getWorldPosition().add(new vec3(0,130,0)).sub(eye),facing=face.length>.1&&face.normalize().dot(forward)>.5;
+    const face=flow.actor.getTransform().getWorldPosition().add(new vec3(0,flow.actor.heights().facing,0)).sub(eye),facing=face.length>.1&&face.normalize().dot(forward)>.5;
     const conversation=flow.diagnostics().busy||(facing&&(face.length<180||flow.chips.getSceneObject().enabled||flow.verbs.getSceneObject().enabled));
     const board=this.selectedWho!==null||this.busy,explore=flow.engine.investigationEnabled&&!flow.controlsBlocked&&!conversation;
     this.gridMarks.forEach((visual,id)=>{const delta=visual.getTransform().getWorldPosition().sub(eye),inView=delta.length>.1&&delta.normalize().dot(forward)>.65;
@@ -124,7 +124,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
       if(this.refuter){this.placeRefutationCard();this.panel.enabled=true;this.cardText.text=wrapText(this.resultText,31);this.objection.tells.audio.playAt("Chime",this.order.find(o=>o.id===this.refuter)!.position);}
       else{this.objection.flow.subtitles.set("WREN",this.resultText);this.objection.flow.restoreControls();this.objection.caseLid.show(true);}}
   }
-  private placeRefutationCard():void {const flow=this.objection.flow,faces=flow.engine.graphRef().cast.suspects.map(s=>flow.actorFor(s.id)).filter(a=>!!a).map(a=>a.getTransform().getWorldPosition().add(new vec3(0,145,0)));placeReadingPanel(this.panel,flow.actor.camera,54,36,this.objection.tells.room.getTransform().getWorldPosition().y,faces);}
+  private placeRefutationCard():void {const flow=this.objection.flow,faces=flow.engine.graphRef().cast.suspects.map(s=>flow.actorFor(s.id)).filter(a=>!!a).map(a=>a.getTransform().getWorldPosition().add(new vec3(0,a.heights().face,0)));placeReadingPanel(this.panel,flow.actor.camera,54,36,this.objection.tells.room.getTransform().getWorldPosition().y,faces);}
   showPawns(value:boolean):void {this.pawns.forEach(pawn=>{if(!isNull(pawn))pawn.enabled=value;});}
   selected():Hypothesis|null {return this.hypothesis?{...this.hypothesis}:null;}
   diagnostics():{busy:boolean;pending:string|null;refuter:string|null;visited:string[];card:string;breathing:boolean;breaths:number} {return {busy:this.busy,pending:this.selectedWho,refuter:this.refuter,visited:this.lastVisited.slice(),card:this.panel.enabled?this.resultText:"",breathing:!!this.breathing,breaths:this.breaths};}

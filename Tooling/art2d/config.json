@@ -1,0 +1,748 @@
+{
+ "Vale": {
+  "height_cm": 170,
+  "frames": {
+   "neutral": {
+    "cut": "cut/Vale-neutral.png",
+    "anchors": {
+     "faceBox": [
+      440,
+      88,
+      122,
+      142
+     ],
+     "eyes": [
+      501,
+      147
+     ],
+     "mouthBox": [
+      482,
+      180,
+      48,
+      24
+     ],
+     "tellProp": [
+      590,
+      377
+     ],
+     "rightHand": [
+      522,
+      645
+     ],
+     "leftHand": [
+      565,
+      660
+     ],
+     "feet": [
+      490,
+      1498
+     ]
+    },
+    "raw": "raw/Vale-base.png"
+   },
+   "speaking": {
+    "cut": "cut/Vale-speaking.png",
+    "body": "neutral",
+    "raw": "raw/Vale-speaking-c1.png"
+   },
+   "mouthopen": {
+    "cut": "cut/Vale-mouthopen.png",
+    "body": "neutral",
+    "raw": "raw/Vale-mouthopen-c1.png"
+   },
+   "rattled": {
+    "cut": "cut/Vale-rattled.png",
+    "register": "legs",
+    "raw": "raw/Vale-rattled-c1.png"
+   },
+   "smug": {
+    "cut": "cut/Vale-smug.png",
+    "register": "legs",
+    "raw": "raw/Vale-smug-c2.png"
+   },
+   "tell": {
+    "cut": "cut/Vale-tell.png",
+    "register": "legs",
+    "anchors": {
+     "faceBox": [
+      440,
+      86,
+      122,
+      142
+     ],
+     "eyes": [
+      500,
+      145
+     ],
+     "mouthBox": [
+      484,
+      182,
+      44,
+      22
+     ],
+     "tellProp": [
+      592,
+      374
+     ],
+     "rightHand": [
+      365,
+      850
+     ],
+     "leftHand": [
+      630,
+      385
+     ],
+     "feet": [
+      490,
+      1498
+     ]
+    },
+    "raw": "raw/Vale-tell-c1.png"
+   },
+   "broken": {
+    "cut": "cut/Vale-broken.png",
+    "register": "legs",
+    "anchors": {
+     "faceBox": [
+      452,
+      170,
+      135,
+      135
+     ],
+     "eyes": [
+      525,
+      231
+     ],
+     "mouthBox": [
+      504,
+      268,
+      44,
+      18
+     ],
+     "tellProp": [
+      588,
+      400
+     ],
+     "rightHand": [
+      490,
+      720
+     ],
+     "leftHand": [
+      560,
+      725
+     ],
+     "feet": [
+      490,
+      1498
+     ]
+    },
+    "head_dy": 60,
+    "raw": "raw/Vale-broken-c1.png"
+   },
+   "tableau": {
+    "cut": "cut/Vale-tableau.png",
+    "register": "legs",
+    "canvas_w": 768,
+    "anchors": {
+     "faceBox": [
+      440,
+      86,
+      122,
+      144
+     ],
+     "eyes": [
+      501,
+      143
+     ],
+     "mouthBox": [
+      486,
+      181,
+      48,
+      22
+     ],
+     "tellProp": [
+      592,
+      370
+     ],
+     "rightHand": [
+      272,
+      395
+     ],
+     "leftHand": [
+      755,
+      400
+     ],
+     "feet": [
+      490,
+      1498
+     ]
+    },
+    "raw": "raw/Vale-tableau-c1.png"
+   }
+  }
+ },
+ "Qadir": {
+  "height_cm": 175,
+  "frames": {
+   "neutral": {
+    "cut": "cut/Qadir-neutral.png",
+    "raw": "raw/Qadir-base.png",
+    "anchors": {
+     "faceBox": [
+      439,
+      95,
+      118,
+      145
+     ],
+     "eyes": [
+      494,
+      146
+     ],
+     "mouthBox": [
+      480,
+      186,
+      50,
+      20
+     ],
+     "tellProp": [
+      396,
+      414
+     ],
+     "rightHand": [
+      400,
+      440
+     ],
+     "leftHand": [
+      660,
+      730
+     ],
+     "feet": [
+      506,
+      1498
+     ]
+    }
+   },
+   "speaking": {
+    "cut": "cut/Qadir-speaking.png",
+    "raw": "raw/Qadir-speaking-c1.png",
+    "body": "neutral"
+   },
+   "mouthopen": {
+    "cut": "cut/Qadir-mouthopen.png",
+    "raw": "raw/Qadir-mouthopen-c2.png",
+    "body": "neutral"
+   },
+   "rattled": {
+    "cut": "cut/Qadir-rattled.png",
+    "raw": "raw/Qadir-rattled-c2.png",
+    "register": "legs"
+   },
+   "broken": {
+    "cut": "cut/Qadir-broken.png",
+    "raw": "raw/Qadir-broken-c1.png",
+    "register": "legs",
+    "anchors": {
+     "faceBox": [
+      433,
+      205,
+      117,
+      117
+     ],
+     "eyes": [
+      496,
+      240
+     ],
+     "mouthBox": [
+      485,
+      294,
+      46,
+      18
+     ],
+     "tellProp": [
+      404,
+      472
+     ],
+     "rightHand": [
+      400,
+      513
+     ],
+     "leftHand": [
+      660,
+      730
+     ],
+     "feet": [
+      506,
+      1498
+     ]
+    },
+    "head_dy": 70
+   },
+   "smug": {
+    "cut": "cut/Qadir-smug.png",
+    "raw": "raw/Qadir-smug-c2.png",
+    "register": "legs"
+   },
+   "tell": {
+    "cut": "cut/Qadir-tell.png",
+    "raw": "raw/Qadir-tell-c1.png",
+    "register": "legs",
+    "anchors": {
+     "faceBox": [
+      439,
+      95,
+      118,
+      145
+     ],
+     "eyes": [
+      497,
+      148
+     ],
+     "mouthBox": [
+      482,
+      190,
+      46,
+      18
+     ],
+     "tellProp": [
+      360,
+      330
+     ],
+     "rightHand": [
+      353,
+      378
+     ],
+     "leftHand": [
+      660,
+      730
+     ],
+     "feet": [
+      0,
+      0
+     ]
+    }
+   }
+  },
+  "cut_args": [
+   "--shadow-y0",
+   "1430"
+  ]
+ },
+ "Okafor": {
+  "height_cm": 167,
+  "frames": {
+   "neutral": {
+    "cut": "cut/Okafor-neutral.png",
+    "raw": "raw/Okafor-base.png",
+    "anchors": {
+     "faceBox": [
+      440,
+      100,
+      128,
+      138
+     ],
+     "eyes": [
+      509,
+      148
+     ],
+     "mouthBox": [
+      486,
+      188,
+      52,
+      22
+     ],
+     "tellProp": [
+      509,
+      146
+     ],
+     "rightHand": [
+      494,
+      643
+     ],
+     "leftHand": [
+      566,
+      671
+     ],
+     "feet": [
+      480,
+      1500
+     ]
+    }
+   },
+   "mouthopen": {
+    "cut": "cut/Okafor-mouthopen.png",
+    "raw": "raw/Okafor-mouthopen-c2.png",
+    "body": "neutral"
+   },
+   "tell": {
+    "cut": "cut/Okafor-tell.png",
+    "raw": "raw/Okafor-tell-c2.png",
+    "register": "legs",
+    "anchors": {
+     "faceBox": [
+      442,
+      113,
+      120,
+      129
+     ],
+     "eyes": [
+      504,
+      163
+     ],
+     "mouthBox": [
+      489,
+      205,
+      48,
+      20
+     ],
+     "tellProp": [
+      493,
+      176
+     ],
+     "rightHand": [
+      471,
+      222
+     ],
+     "leftHand": [
+      550,
+      647
+     ],
+     "feet": [
+      480,
+      1500
+     ]
+    }
+   },
+   "speaking": {
+    "cut": "cut/Okafor-speaking.png",
+    "raw": "raw/Okafor-speaking-c1.png",
+    "body": "neutral"
+   },
+   "smug": {
+    "cut": "cut/Okafor-smug.png",
+    "raw": "raw/Okafor-smug-c2.png",
+    "register": "legs"
+   },
+   "rattled": {
+    "cut": "cut/Okafor-rattled.png",
+    "raw": "raw/Okafor-rattled-c1.png",
+    "register": "legs"
+   },
+   "broken": {
+    "cut": "cut/Okafor-broken.png",
+    "raw": "raw/Okafor-broken-c2.png",
+    "register": "legs",
+    "head_dy": 80,
+    "anchors": {
+     "faceBox": [
+      470,
+      195,
+      110,
+      118
+     ],
+     "eyes": [
+      538,
+      248
+     ],
+     "mouthBox": [
+      518,
+      285,
+      40,
+      16
+     ],
+     "tellProp": [
+      537,
+      247
+     ],
+     "rightHand": [
+      500,
+      693
+     ],
+     "leftHand": [
+      550,
+      702
+     ],
+     "feet": [
+      0,
+      0
+     ]
+    }
+   }
+  }
+ },
+ "Pike": {
+  "height_cm": 176,
+  "frames": {
+   "neutral": {
+    "cut": "cut/Pike-neutral.png",
+    "raw": "raw/Pike-base.png",
+    "anchors": {
+     "faceBox": [
+      452,
+      82,
+      96,
+      148
+     ],
+     "eyes": [
+      494,
+      136
+     ],
+     "mouthBox": [
+      482,
+      178,
+      42,
+      20
+     ],
+     "tellProp": [
+      592,
+      648
+     ],
+     "rightHand": [
+      466,
+      643
+     ],
+     "leftHand": [
+      559,
+      686
+     ],
+     "feet": [
+      495,
+      1505
+     ]
+    }
+   },
+   "speaking": {
+    "cut": "cut/Pike-speaking.png",
+    "raw": "raw/Pike-speaking-c1.png",
+    "body": "neutral"
+   },
+   "mouthopen": {
+    "cut": "cut/Pike-mouthopen.png",
+    "raw": "raw/Pike-mouthopen-c1.png",
+    "body": "neutral"
+   },
+   "tell": {
+    "cut": "cut/Pike-tell.png",
+    "raw": "raw/Pike-tell-c1.png",
+    "register": "legs",
+    "anchors": {
+     "faceBox": [
+      446,
+      100,
+      104,
+      124
+     ],
+     "eyes": [
+      494,
+      141
+     ],
+     "mouthBox": [
+      477,
+      188,
+      42,
+      18
+     ],
+     "tellProp": [
+      575,
+      672
+     ],
+     "rightHand": [
+      508,
+      647
+     ],
+     "leftHand": [
+      600,
+      688
+     ],
+     "feet": [
+      495,
+      1505
+     ]
+    }
+   },
+   "rattled": {
+    "cut": "cut/Pike-rattled.png",
+    "raw": "raw/Pike-rattled-c1.png",
+    "register": "legs"
+   },
+   "broken": {
+    "cut": "cut/Pike-broken.png",
+    "raw": "raw/Pike-broken-c2.png",
+    "register": "legs",
+    "head_dy": 90,
+    "anchors": {
+     "faceBox": [
+      442,
+      200,
+      108,
+      115
+     ],
+     "eyes": [
+      494,
+      233
+     ],
+     "mouthBox": [
+      480,
+      276,
+      40,
+      16
+     ],
+     "tellProp": [
+      575,
+      688
+     ],
+     "rightHand": [
+      450,
+      713
+     ],
+     "leftHand": [
+      542,
+      722
+     ],
+     "feet": [
+      495,
+      1505
+     ]
+    }
+   },
+   "smug": {
+    "cut": "cut/Pike-smug.png",
+    "raw": "raw/Pike-smug-c2.png",
+    "register": "legs"
+   }
+  }
+ },
+ "Harlow": {
+  "height_cm": 172,
+  "ref": "standing",
+  "head_frac": 0.2,
+  "frames": {
+   "standing": {
+    "cut": "cut/Harlow-standing.png",
+    "raw": "raw/Harlow-base.png",
+    "anchors": {
+     "faceBox": [
+      450,
+      95,
+      130,
+      165
+     ],
+     "eyes": [
+      514,
+      166
+     ],
+     "mouthBox": [
+      484,
+      208,
+      66,
+      22
+     ],
+     "tellProp": [
+      514,
+      166
+     ],
+     "rightHand": [
+      359,
+      700
+     ],
+     "leftHand": [
+      666,
+      700
+     ],
+     "feet": [
+      505,
+      1490
+     ]
+    }
+   },
+   "staggering": {
+    "cut": "cut/Harlow-staggering.png",
+    "raw": "raw/Harlow-staggering-c1.png",
+    "register": "feet",
+    "head_center": [
+     650,
+     215
+    ],
+    "anchors": {
+     "faceBox": [
+      585,
+      130,
+      140,
+      200
+     ],
+     "eyes": [
+      645,
+      188
+     ],
+     "mouthBox": [
+      618,
+      248,
+      48,
+      32
+     ],
+     "tellProp": [
+      645,
+      188
+     ],
+     "rightHand": [
+      333,
+      325
+     ],
+     "leftHand": [
+      725,
+      458
+     ],
+     "feet": [
+      0,
+      0
+     ]
+    }
+   },
+   "fallen": {
+    "cut": "cut/Harlow-fallen.png",
+    "raw": "raw/Harlow-fallen-c2.png",
+    "anchors": {
+     "faceBox": [
+      100,
+      389,
+      190,
+      167
+     ],
+     "eyes": [
+      185,
+      452
+     ],
+     "mouthBox": [
+      225,
+      425,
+      40,
+      30
+     ],
+     "tellProp": [
+      211,
+      411
+     ],
+     "rightHand": [
+      678,
+      717
+     ],
+     "leftHand": [
+      350,
+      520
+     ],
+     "feet": [
+      1428,
+      583
+     ]
+    },
+    "cut_args": [
+     "--shadow-x0",
+     "170"
+    ]
+   }
+  },
+  "cut_args": [
+   "--shadow-y0",
+   "1400"
+  ]
+ }
+}

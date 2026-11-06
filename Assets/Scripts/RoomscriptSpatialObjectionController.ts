@@ -107,7 +107,7 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
   private placePanel(panel:SceneObject,point:vec3):void {
     const camera=this.flow.actor.camera.getTransform(),eye=camera.getWorldPosition(),rotation=camera.getWorldRotation(),right=rotation.multiplyVec3(vec3.right());
     let position=point.add(right.uniformScale(42)).add(new vec3(0,35,0));const scale=Math.max(1,Math.min(2,eye.distance(position)/170));
-    for(const suspect of this.flow.engine.graphRef().cast.suspects){const actor=this.flow.actorFor(suspect.id);if(actor){const face=actor.getTransform().getWorldPosition().add(new vec3(0,145,0));if(face.distance(position)<85*scale)position=position.add(right.uniformScale(65*scale));}}
+    for(const suspect of this.flow.engine.graphRef().cast.suspects){const actor=this.flow.actorFor(suspect.id);if(actor){const face=actor.getTransform().getWorldPosition().add(new vec3(0,actor.heights().face,0));if(face.distance(position)<85*scale)position=position.add(right.uniformScale(65*scale));}}
     panel.getTransform().setWorldPosition(position);panel.getTransform().setWorldRotation(rotation);panel.getTransform().setWorldScale(vec3.one().uniformScale(scale));
   }
   private placeWallet(id:string|null):void {const graph=this.flow.engine.graphRef(),evidence=graph.evidence.find(e=>e.id===id),object=evidence&&graph.room.objects.find(o=>o.id===evidence.holder);this.placePanel(this.wallet.getSceneObject(),object?this.tells.room.objectAnchor(object.id).getTransform().getWorldPosition():this.caseLid.getTransform().getWorldPosition());}

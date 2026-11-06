@@ -1,0 +1,12 @@
+.venv/
+raw/
+cut/
+node_modules/
+debug/
+prompts/
+*.log
+
+# The shipped copies live in Assets/Art/Cast (sync-cast-art.mjs); keep only the data here
+out/*/*.png
+out_rgba/
+LEAF_RUNNING

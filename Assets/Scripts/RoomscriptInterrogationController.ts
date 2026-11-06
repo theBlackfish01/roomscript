@@ -85,7 +85,7 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
     return presentedQuestions(this.engine.graphRef(),this.engine.snapshot(),this.selected).concat([{topic:"free",label:"Ask anything",question:""}]);
   }
   reviewQuestion(text:string):void {const graph=this.engine.graphRef();
-    if(!this.questions.getSceneObject().enabled){const faces=graph.cast.suspects.map(s=>this.actorFor(s.id)).filter(a=>!!a).map(a=>a.getTransform().getWorldPosition().add(new vec3(0,145,0)));placeReadingPanel(this.questions.getSceneObject(),this.actor.camera,this.questions.width,39,this.engine.roomRoot.getTransform().getWorldPosition().y,faces);}
+    if(!this.questions.getSceneObject().enabled){const faces=graph.cast.suspects.map(s=>this.actorFor(s.id)).filter(a=>!!a).map(a=>a.getTransform().getWorldPosition().add(new vec3(0,a.heights().face,0)));placeReadingPanel(this.questions.getSceneObject(),this.actor.camera,this.questions.width,39,this.engine.roomRoot.getTransform().getWorldPosition().y,faces);}
     this.controlsBlocked=true;this.questions.review(text,presentedIntent(graph,this.engine.snapshot(),this.selected,text).topic,this.choices().filter(c=>c.topic!=="free"));this.chips.show(false);this.verbs.show(false);}
   async askChip(topic:string):Promise<void> {if(topic==="free"){this.reviewQuestion("");return;}const choice=this.choices().find(c=>c.topic===topic);if(choice)await this.ask(choice.question,"chip",topic);}
   /** Run 8: a memory photo held up to a suspect asks them about that object (an ordinary engine Ask). */

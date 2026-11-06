@@ -90,7 +90,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   private updateSpotlight():void {
     const show=this.opened&&this.phase==="idle"&&this.panel.enabled;this.beam.enabled=show;this.spot.enabled=show;if(!show)return;
     const actor=this.cast.flow.actorFor(this.picked.who);if(!actor)return;const camera=this.cast.flow.actor.camera.getTransform();
-    const hand=this.pointingTip(),from=hand||this.panel.getTransform().getWorldPosition().add(new vec3(0,8,0)),feet=actor.getTransform().getWorldPosition(),to=feet.add(new vec3(0,115,0)),dir=to.sub(from);this.spot.getTransform().setWorldPosition(feet);
+    const hand=this.pointingTip(),from=hand||this.panel.getTransform().getWorldPosition().add(new vec3(0,8,0)),feet=actor.getTransform().getWorldPosition(),to=feet.add(new vec3(0,actor.heights().spotlight,0)),dir=to.sub(from);this.spot.getTransform().setWorldPosition(feet);
     const t=this.beam.getTransform();t.setWorldPosition(from);t.setWorldRotation(quat.lookAt(dir.normalize(),vec3.up()));t.setWorldScale(new vec3(1,1,Math.max(1,dir.length)));void camera;
     if(this.heldAt>=0){this.heldTime++;const k=Math.min(1,getTime()-this.heldAt);this.sealRing.enabled=true;this.sealRing.getTransform().setLocalScale(vec3.one().uniformScale(.6+.4*k));}
   }
