@@ -48,7 +48,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     this.localOrigin=[origin.x,0,origin.z];this.localForward=[forward.x,0,forward.z];this.origin=room.toWorld([origin.x,3,origin.z]);this.startingYaw=Math.atan2(forward.x,-forward.z);
     const marks=refuterMarks(graph);
     for(const person of graph.cast.suspects){const actor=flow.actorFor(person.id)?.getSceneObject();const parent=actor||room.getSceneObject();
-      const mark=worldLines(parent,"RoomscriptSuspectGrid_"+person.id,[[new vec3(-18,3,-18),new vec3(18,3,18)],[new vec3(-18,3,18),new vec3(18,3,-18)]],this.chalk.clone(),2,vec3.up()).getSceneObject();
+      const mark=worldLines(parent,"RoomscriptSuspectGrid_"+person.id,[[new vec3(-12,3,-12),new vec3(12,3,12)],[new vec3(-12,3,12),new vec3(12,3,-12)]],this.chalk.clone(),1,vec3.up()).getSceneObject();
       if(!actor)mark.getTransform().setLocalPosition(new vec3(marks[person.id][0],0,marks[person.id][2]));mark.enabled=false;this.suspectMarks.set(person.id,mark);this.generated.push(mark);
     }
     this.order=graph.refutation.order.map(id=>({id,angle:clockwiseAngle(this.localOrigin,this.localForward,marks[id]),position:room.toWorld(marks[id])}));
@@ -65,7 +65,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     for(const zone of graph.room.zones){const spot=chalkSpot(graph,zone.id,engine.mode()),holder=global.scene.createSceneObject("RoomscriptChalk_"+zone.id);holder.setParent(room.getSceneObject());holder.getTransform().setLocalPosition(new vec3(spot.center[0],0,spot.center[2]));this.generated.push(holder);
       const mark=lineTubes(holder,"RoomscriptZoneGrid_"+zone.id,circleEdges(spot.radius,Math.max(28,Math.round(spot.radius)),new vec3(0,1,0),"xz"),this.chalk.clone(),.9);
       const name=flatText(mark.getSceneObject(),"Chalk zone name",zone.clueName.toUpperCase(),9,new vec4(.93,.96,1,.9),"title",60,10);name.getSceneObject().getTransform().setLocalPosition(new vec3(0,1.2,spot.radius>50?spot.radius+9:0));name.getSceneObject().getTransform().setLocalRotation(quat.fromEulerAngles(-Math.PI/2,0,0));
-      const cross=lineTubes(mark.getSceneObject(),"Chalk zone cross",[[new vec3(-spot.radius*.7,1.3,-spot.radius*.7),new vec3(spot.radius*.7,1.3,spot.radius*.7)],[new vec3(-spot.radius*.7,1.3,spot.radius*.7),new vec3(spot.radius*.7,1.3,-spot.radius*.7)]],this.chalk.clone(),1.1).getSceneObject();cross.enabled=false;this.zoneCrosses.set(zone.id,cross);
+      const cross=lineTubes(mark.getSceneObject(),"Chalk zone cross",(()=>{const r=Math.min(18,spot.radius*.6),z=spot.radius>50?spot.radius+9:0;return [[new vec3(-r,1.3,z-r),new vec3(r,1.3,z+r)],[new vec3(-r,1.3,z+r),new vec3(r,1.3,z-r)]] as [vec3,vec3][];})(),this.chalk.clone(),.6).getSceneObject();cross.enabled=false;this.zoneCrosses.set(zone.id,cross);
       this.gridMarks.set(zone.id,mark);this.generated.push(mark.getSceneObject());}
     for(const id of graph.weapons){const mark=worldLines(room.objectAnchor(id),"RoomscriptWeaponGrid_"+id,[[new vec3(-7,2,6),new vec3(7,16,6)],[new vec3(-7,16,6),new vec3(7,2,6)]],this.chalk.clone(),1);this.gridMarks.set(id,mark);this.generated.push(mark.getSceneObject());}
     this.ghost=global.scene.createSceneObject("RoomscriptSuggestionGhost");this.ghost.setParent(this.getSceneObject());const outline:[vec3,vec3][]=[];

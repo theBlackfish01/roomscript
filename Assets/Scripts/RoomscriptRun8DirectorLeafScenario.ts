@@ -28,6 +28,7 @@ import {RoomscriptMain} from "./RoomscriptMain";
       await sleep(1500);}
     if(beat==="accuse"){await tap("Question "+suspect);await tap("Accuse");}
     if(beat==="ending"){const engine=flow.engine;const graph=engine.graphRef();engine.dispatch({type:"Accuse",who:graph.envelope.who,where:graph.envelope.where,what:graph.envelope.what});for(let i=0;i<600;i++){const p=findSceneObjectByName("RoomscriptNewspaper");if(p&&p.enabled)break;await sleep(100);}await sleep(1200);}
+    if(beat==="replay"){const main=findSceneObjectByName("Roomscript").getComponent(RoomscriptMain.getTypeName()) as RoomscriptMain;main.replays.holdFor(hold);flow.engine.dispatch({type:"PinchObject",object:config?.get("object")||"O12"});await sleep(1500);}
     if(beat==="storm"){const main=findSceneObjectByName("Roomscript").getComponent(RoomscriptMain.getTypeName()) as RoomscriptMain;main.storm.flashNow(hold);}
     console.log("RUN8_DIRECTOR_READY|"+JSON.stringify({beat,suspect,subtitle:flow.subtitles.visibleLine(),chips:flow.chips.topics()}));
     await sleep(hold*1000);
