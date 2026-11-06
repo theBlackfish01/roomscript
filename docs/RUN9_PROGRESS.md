@@ -44,3 +44,7 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 - Next: paper objects (folders, opaque newspaper, photo memories, cork board, wax seal), then LEAF re-runs of memory-cards and physical-memory (the lift copies the mesh now).
 - LEAF strict, MCP-launched: memory-cards PASS 50.4 s (stale since Run 8: tab parent is now RoomscriptCaseFiles, the opening card is a caption without a plate, prop counts now come from the graph (13 visuals for 13 objects), and the door tape stays on for the case); physical-memory PASS 67.5 s (the lift copies the mesh). vitest: crate-surface-layout and actor-presentation pass with the crate at the table's front edge (`CRATE_TABLE_FRONT_OFFSET_Z`).
 - Restart 2 of 3 at 04:06 (graceful; 0.47 GB free RAM and MCP calls timing out). The first LEAF launch after a recompile still often never starts; calling `list_leaf_scenarios` and re-issuing works.
+
+### 04:50 PKT — fix 10, lens size
+- Export blocked on a package ID (needs publish registration; under Needs Wadood). Measured instead with `Tooling/scripts/asset-budget.mjs`: 30.7 → 22.5 MB of media after deleting 57 unreferenced files; voice manifests 2.55 → 1.02 MB (`minify-voice-manifest.mjs`); scripts total 2.3 MB. About 24.8 MB raw against the 25 MB limit, before build compression. The line cards (3.8 MB) can go once the cast is signed off.
+- Checks: no missing-asset errors after the deletions; vitest voice/subtitle files pass (27 tests); LEAF bundled-voices PASS 75.8 s strict.
