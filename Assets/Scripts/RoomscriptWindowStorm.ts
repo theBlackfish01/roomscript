@@ -1,3 +1,4 @@
+import {ghostArt,ghostImage} from "./RoomscriptGhostArt";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {RoomscriptAudio} from "./RoomscriptAudio";
 import {lineTubes,rectEdges,polyline,tinted,Segment} from "./RoomscriptLineArt";
@@ -33,7 +34,8 @@ export class RoomscriptWindowStorm {
     const zig:Segment[]=polyline([new vec3(10,height/2,2),new vec3(-6,height*.22,2),new vec3(8,height*.05,2),new vec3(-12,-height*.2,2),new vec3(2,-height*.34,2)]);
     this.bolt=lineTubes(this.root,"Lightning bolt",zig,tinted(line,new vec4(1,1,1,1)),1.1).getSceneObject();this.bolt.enabled=false;
     this.ghost=global.scene.createSceneObject("Lightning ghost");this.ghost.setParent(this.root);this.ghost.createComponent("Component.Canvas");this.ghost.getTransform().setLocalPosition(new vec3(-width*.22,-height*.12,3));
-    iconImage(this.ghost,"Victim ghost",requireAsset("../Art/Actors/Harlow/Harlow-standing.png") as Texture,95,new vec4(.75,.85,1,.55),new vec3(0,0,.6),false,.5);this.ghost.enabled=false;
+    {const art=ghostArt("V","standing");if(art){this.ghost.getTransform().setLocalPosition(new vec3(-width*.22,-height*.45,3));this.ghost.getTransform().setLocalScale(vec3.one().uniformScale(.62));ghostImage(this.ghost,"Victim ghost",art,new vec4(.72,.9,1,.6));}
+      else iconImage(this.ghost,"Victim ghost",requireAsset("../Art/Actors/Harlow/Harlow-standing.png") as Texture,95,new vec4(.75,.85,1,.55),new vec3(0,0,.6),false,.5);}this.ghost.enabled=false;
     this.next=getTime()+6;this.flashAt=-1;
   }
   /** Optional poll for the blackout story beat (set by the main script). */

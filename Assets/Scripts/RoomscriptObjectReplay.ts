@@ -1,3 +1,4 @@
+import {ghostArt,ghostImage,GHOST_TINT} from "./RoomscriptGhostArt";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
 import {RoomscriptRoomBinding} from "./RoomscriptRoomBinding";
@@ -10,10 +11,11 @@ import {GameState} from "./Engine/core/Types";
 /** A memory that records no person is not proof the place was empty: only say so when the memory does. */
 const SAYS_EMPTY=/(no one|nobody|empty|no beat|no sign of anyone)/i;
 const GHOST:Record<string,string>={S1:"Qadir",S2:"Vale",S3:"Okafor",S4:"Pike"};
+/** Line-card fallback (CHARACTER_ART="line"); the illustrated cast uses ghostArt(). */
 function ghostTexture(id:string):Texture|null {
   switch(id){case "V":return requireAsset("../Art/Actors/Harlow/Harlow-standing.png") as Texture;
-    case "S1":return requireAsset("../Art/Ghosts/Qadir-truth.png") as Texture;case "S2":return requireAsset("../Art/Ghosts/Vale-truth.png") as Texture;
-    case "S3":return requireAsset("../Art/Ghosts/Okafor-truth.png") as Texture;case "S4":return requireAsset("../Art/Ghosts/Pike-truth.png") as Texture;default:return null;}
+    case "S1":return requireAsset("../Art/Actors/Qadir/Qadir-neutral.png") as Texture;case "S2":return requireAsset("../Art/Actors/Vale/Vale-neutral.png") as Texture;
+    case "S3":return requireAsset("../Art/Actors/Okafor/Okafor-neutral.png") as Texture;case "S4":return requireAsset("../Art/Actors/Pike/Pike-neutral.png") as Texture;default:return null;}
 }
 export class RoomscriptObjectReplay {
   private known=new Set<string>();private queue:ReplayVignette[]=[];private active:{root:SceneObject;began:number;figures:SceneObject[];rings:SceneObject[]}|null=null;private line:Material;
@@ -38,9 +40,11 @@ export class RoomscriptObjectReplay {
     const floorY=this.room.getTransform().getWorldPosition().y,figures:SceneObject[]=[];
     v.figures.forEach((figure,i)=>{const node=global.scene.createSceneObject("Replay figure "+i);node.setParent(root);node.createComponent("Component.Canvas");
       // Real scale, standing on the real floor beside the object, offset towards the viewer.
-      const side=(i-(v.figures.length-1)/2)*55;node.getTransform().setLocalPosition(new vec3(side,floorY-anchor.y+85,38));
-      const texture=figure.suspect?ghostTexture(figure.suspect):null;
-      if(texture)iconImage(node,"Ghost",texture,170,new vec4(.6,.9,1,.5),new vec3(0,0,.6),false,.5);
+      const side=(i-(v.figures.length-1)/2)*55,art=figure.suspect?ghostArt(figure.suspect,figure.suspect==="V"?"standing":"neutral"):null;
+      node.getTransform().setLocalPosition(new vec3(side,floorY-anchor.y+(art?0:85),38));
+      const texture=art?null:figure.suspect?ghostTexture(figure.suspect):null;
+      if(art)ghostImage(node,"Ghost",art,GHOST_TINT.replay);
+      else if(texture)iconImage(node,"Ghost",texture,170,new vec4(.6,.9,1,.5),new vec3(0,0,.6),false,.5);
       else{lineTubes(node,"Nobody here",circleEdges(30,30,new vec3(0,-84,0),"xz"),tinted(this.line,new vec4(.6,.9,1,.6)),.5);const none=flatText(node,"No one",figure.pose==="absent"&&SAYS_EMPTY.test(v.caption)?"NO ONE":"",4,new vec4(.6,.9,1,.8),"title",30,5);none.getSceneObject().getTransform().setLocalPosition(new vec3(0,-70,0));}
       node.enabled=false;figures.push(node);});
     this.active={root,began:getTime(),figures,rings};this.sound("ReplayRewind",anchor);

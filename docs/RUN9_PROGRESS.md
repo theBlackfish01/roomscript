@@ -27,3 +27,11 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 - Art subagent: Vale, Pike and Harlow complete by 02:34 (Vale contact sheet: `docs/captures/2026-11-07-run9-contact-vale.png`, all frames the same person); Qadir and Okafor in progress. Cost ~$2 so far.
 - Not yet: fix 10 (export size), the scene file (only plugin bridge changes, uncommitted).
 - Next: ActorArt anchors + illustrated actor (Vale first), captures at 1.4 m / 3 m / 45°.
+
+### 03:22 PKT — illustrated cast in the room (`4f90386`, then this commit)
+- All five characters imported (`Tooling/scripts/sync-cast-art.mjs` → `Assets/Art/Cast`, `Content/ActorArt.ts`, `RoomscriptCastTextures.ts`). Art subagent done: $3.78, 3.84 MB, no fallback.
+- Vale at 1.4 m / 3 m / 45°: `docs/captures/2026-11-07-run9-vale-1p4m-v1.png`, `-vale-3m-v1`, `-vale-45deg-v1`. Face sharp, on the floor. Cast line-up `docs/captures/2026-11-07-run9-cast-lineup.png`; contact sheets `-contact-<name>.png`.
+- Ghosts use the same art (`RoomscriptGhostArt.ts`); the 12 ghost PNGs are deleted. The reconstruction places ghosts on measured free floor (side edge of ring zones), Vale's tableau frame holds the cable at the freeze, Harlow staggers then lies fallen. Ending: the accused reacts (broken or smug), everyone glides out through the door.
+- Frozen murder capture: `docs/captures/2026-11-07-run9-frozen-v3.png` (v1, v2 show the overlap fixes).
+- Helpers: `Tooling/scripts/wait-log-marker.mjs <MARKER> <since> <max> [contains]` for Director beats. The first MCP run after a recompile often times out before starting: re-issue it.
+- Next: props and paper objects (phase 3), then composition (phase 4).
