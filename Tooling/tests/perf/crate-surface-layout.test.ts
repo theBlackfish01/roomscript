@@ -10,7 +10,7 @@ describe("crate on the recorded real tabletop",()=>{
     expect(parent.name).toBe("Roomscript");expect(parent.transform.position).toEqual([0,0,0]);expect(parent.transform.rotation).toEqual([0,0,0]);expect(parent.transform.scale).toEqual([1,1,1]);
     const layout=recordedCrateSurfaceLayout();expect(actualBottom).toBe(-6);expect(crate.transform.scale).toEqual([.75,.75,.75]);
     expect(layout.rootWorld[1]+actualBottom*crate.transform.scale[1]).toBeCloseTo(-144.68350219726562,5);
-    expect(layout.rootWorld[0]).toBeCloseTo(10.701000213623047);expect(layout.rootWorld[2]).toBeCloseTo(-314.01275634765625);
+    expect(layout.rootWorld[0]).toBeCloseTo(10.701000213623047);expect(layout.rootWorld[2]).toBeCloseTo(-314.01275634765625+34); // Run 9: front edge of the table
   });
   it("keeps entire opening rectangles above support, with a large physical pull target",()=>{
     const l=recordedCrateSurfaceLayout(),card=l.rootWorld[1]+(l.openingCard.position[1]-l.openingCard.height/2)*l.scale,tab=l.rootWorld[1]+(l.pullTab.position[1]-l.pullTab.height/2)*l.scale;

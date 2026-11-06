@@ -1,4 +1,5 @@
 import {lineTubes,circleEdges,rectEdges,polyline,boxEdges,tinted,Segment} from "./RoomscriptLineArt";
+import {propModel} from "./RoomscriptPropModels";
 const boxEdgesAt=(w:number,h:number,d:number,c:vec3)=>boxEdges(w,h,d,c);
 /** Run 8 (WEARER_UX object UI 8): props in the actors' glowing line style, never flat primitives.
  * GLB props get the engraved rim-light material; props with no model get procedural line drawings.
@@ -23,6 +24,7 @@ export function latheSegments(profile:[number,number][],meridians=8):Segment[] {
 const v=(x:number,y:number,z:number)=>new vec3(x,y,z);
 /** Procedural engraved drawings for kinds that have no model. Returns null when the real fixture should carry no drawing. */
 export function propDrawing(parent:SceneObject,id:string,kind:string,isWeapon:boolean):SceneObject|null {
+  {const model=propModel(parent,id,kind);if(model)return model;} // Run 9: textured mesh when the kind has one
   const color=isWeapon?PROP_CORAL:kind==="kettle"||kind==="cup"?PROP_CYAN:PROP_BRASS,material=tinted(lineBase(),color);let segments:Segment[]=[];
   switch(kind){
     case "kettle":segments=[...latheSegments([[7,0],[8.5,3],[8.5,8],[7,11.5],[3.5,13.5],[1.5,14.5]],6),

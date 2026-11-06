@@ -150,3 +150,11 @@ Illustrated characters (Assets/Art/Cast, imported from Tooling/art2d/out/: Vale,
     - resizing, compositing, PNG palette quantisation: sharp (Apache-2.0) with libvips (LGPL-2.1+) and
       libimagequant (GPL-3.0-or-later, used as a build tool only; no code from it ships in the lens)
     - palette repair: Tooling/art2d/scripts/palfix.py (ours)
+
+3D props (Assets/Art/Props3D: Candlestick, LetterKnife, Bookend, MantelClock, Recorder, DeskLamp, Mug,
+  MedicineBottle, Kettle, CrateBody, CrateLid)
+  Generated with Snap's SPECS text-to-3D inference API through the signed-in Lens Studio session (CLAD
+  build-mesh skill), November 2026. Request bodies and job ids: Tooling/props/requests/*.json and
+  Tooling/props/jobs.json. Post-processing (ours): CLAD normalize_glb.js (Apache-2.0, Specs Inc.) for
+  real-world scale, yaw and grounding; Tooling/scripts/repack-prop-glb.mjs bakes the lightmap into one
+  512x512 JPEG with sharp (Apache-2.0) and libvips (LGPL-2.1+).

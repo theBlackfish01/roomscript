@@ -35,3 +35,12 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 - Frozen murder capture: `docs/captures/2026-11-07-run9-frozen-v3.png` (v1, v2 show the overlap fixes).
 - Helpers: `Tooling/scripts/wait-log-marker.mjs <MARKER> <since> <max> [contains]` for Director beats. The first MCP run after a recompile often times out before starting: re-issue it.
 - Next: props and paper objects (phase 3), then composition (phase 4).
+
+### 03:52 PKT — real props and the two-mesh crate (phase 3, part 1)
+- 11 SPECS text-to-3D meshes in `Assets/Art/Props3D` (1.4 MB total, 92–180 KB each), gated and grounded, wired through `propDrawing()` so every caller gets the mesh. The wireframe props and the wireframe crate are gone from the room; door, window and cover keep their highlights.
+- Crate moved to the table's front edge (scene only) so it no longer stands inside the kettle.
+- Captures: `docs/captures/2026-11-07-run9-props-console-v1.jpg`, `-prop-lamp-v1.jpg`, `-props-table-v1.jpg` (before the move), `-props-table-crate-v2.jpg` (after).
+- Seen for phase 4: the opening caption and the subtitle print the same line twice ("Listen at the door."); a "KITCHEN" chalk label and its line cross the sofa view.
+- Next: paper objects (folders, opaque newspaper, photo memories, cork board, wax seal), then LEAF re-runs of memory-cards and physical-memory (the lift copies the mesh now).
+- LEAF strict, MCP-launched: memory-cards PASS 50.4 s (stale since Run 8: tab parent is now RoomscriptCaseFiles, the opening card is a caption without a plate, prop counts now come from the graph (13 visuals for 13 objects), and the door tape stays on for the case); physical-memory PASS 67.5 s (the lift copies the mesh). vitest: crate-surface-layout and actor-presentation pass with the crate at the table's front edge (`CRATE_TABLE_FRONT_OFFSET_Z`).
+- Restart 2 of 3 at 04:06 (graceful; 0.47 GB free RAM and MCP calls timing out). The first LEAF launch after a recompile still often never starts; calling `list_leaf_scenarios` and re-issuing works.

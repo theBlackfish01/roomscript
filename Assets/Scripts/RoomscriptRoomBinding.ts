@@ -33,7 +33,7 @@ import {propDrawing} from "./RoomscriptPropArt";
       const make=(name:string,pos:Vec3)=>{const o=global.scene.createSceneObject(name);o.setParent(root);o.getTransform().setLocalPosition(new vec3(pos[0],pos[1],pos[2]));this.generated.push(o);return o;};
       graph.room.objects.forEach(o=>this.objects.set(o.id,make("RoomscriptObject_"+o.id,o.pos)));graph.room.zones.forEach(z=>this.zones.set(z.id,make("RoomscriptZone_"+z.id,z.anchor)));
     }
-    // Run 8: the prop GLBs carry no normals and never rendered; every Preset prop is an engraved line drawing instead.
+    // Run 9: every Preset prop is a textured mesh (RoomscriptPropModels) where its kind has one, else an engraved line drawing.
     if(preset)for(const object of graph.room.objects){if(presetCableObject(graph)?.id===object.id)continue;const anchor=this.objectAnchor(object.id),drawing=propDrawing(anchor,object.id,object.type,graph.weapons.includes(object.id));if(!drawing)continue;this.hideReplacedLegacy(anchor,drawing);this.replacedProps.push(object.id);this.generated.push(drawing);}
     // Run 8: props with no model get engraved line drawings (Preset fictional items; Dynamic virtual substitutes).
     const cableId=preset?presetCableObject(graph)?.id:undefined;

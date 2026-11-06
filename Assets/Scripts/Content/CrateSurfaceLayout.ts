@@ -13,8 +13,11 @@ export function crateSurfaceLayout(surfaceWorld:Vec3,scale=.75):CrateSurfaceLayo
   return {surfaceWorld:[...surfaceWorld] as Vec3,rootWorld:[surfaceWorld[0],surfaceWorld[1]+6*scale,surfaceWorld[2]],scale,baseBottomLocal:-6,
     openingCard:{position:[0,32,30],width:58,height:32},pullTab:{position:[0,8,27],width:38,height:10,buttonHeight:9}};
 }
+/** Run 9: the crate stands at the table's front edge, not its centre, so the kettle and bottle (O11, O4 on the
+ * table centre line) stay clear of it. Presentation only: no engine position changes. */
+export const CRATE_TABLE_FRONT_OFFSET_Z=34;
 export function recordedCrateSurfaceLayout():CrateSurfaceLayout {
   const support=EVENING_ROOM_SCAN.objects.find(object=>object.id==="SCAN_6");
   if(!support)throw Error("Recorded coffee-table support missing");
-  return crateSurfaceLayout([support.pos[0],support.pos[1]+EVENING_ROOM_FLOOR_Y,support.pos[2]]);
+  return crateSurfaceLayout([support.pos[0],support.pos[1]+EVENING_ROOM_FLOOR_Y,support.pos[2]+CRATE_TABLE_FRONT_OFFSET_Z]);
 }

@@ -1,3 +1,4 @@
+import {cratePrefabs} from "./RoomscriptPropModels";
 import {RoomscriptPropMesh} from "./RoomscriptPropMesh";
 import {lineTubes,boxEdges,rectEdges,circleEdges,tinted,Segment} from "./RoomscriptLineArt";
 /** Run 8 (WEARER_UX object UI 8): the case crate as an engraved-light line drawing.
@@ -9,6 +10,12 @@ export function engraveCrate(crate:SceneObject,line:Material):SceneObject[] {
   const hide=(object:SceneObject)=>{if(object.getComponent(RoomscriptPropMesh.getTypeName())){const visual=object.getComponent("Component.RenderMeshVisual") as RenderMeshVisual;if(visual)visual.enabled=false;}for(let i=0;i<object.getChildrenCount();i++)hide(object.getChild(i));};
   hide(crate);
   const v=(x:number,y:number,z:number)=>new vec3(x,y,z);
+  // Run 9: two textured meshes (body, lid on the authored hinge) replace the engraved lines; the coral seal stays.
+  const models=cratePrefabs(),lidNode=findChild(crate,"CrateLid");
+  if(models&&lidNode){const body=models.body.instantiate(crate);body.name="Crate body mesh";body.getTransform().setLocalPosition(v(0,-6.5,0));made.push(body);
+    const lid=models.lid.instantiate(lidNode);lid.name="Crate lid mesh";lid.getTransform().setLocalPosition(v(0,0,0));made.push(lid);
+    made.push(lineTubes(lidNode,"Engraved lid seal",circleEdges(2.6,20,v(0,2.8,9),"xz"),tinted(line,CORAL),.45).getSceneObject());
+    return made;}
   // Body: outer edges, plank seams on all four walls, brass corner straps and a keyhole plate.
   const body:Segment[]=[...boxEdges(46,12,28,v(0,-.5,0))];
   const planks:Segment[]=[];for(const y of [-2.4,1.6]){planks.push([v(-23,y,14.1),v(23,y,14.1)],[v(-23,y,-14.1),v(23,y,-14.1)],[v(-23.1,y,-14),v(-23.1,y,14)],[v(23.1,y,-14),v(23.1,y,14)]);}
