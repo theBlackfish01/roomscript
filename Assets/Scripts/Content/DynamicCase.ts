@@ -4,6 +4,7 @@ import {RoomInput,normalizeRoom} from "../Engine/room/RoomModel";
 import {generatedLineBank,generatedPerformances,generatedPhrasePlans,PhrasePlan} from "../Engine/perf/GeneratedPerformance";
 import {getPitch} from "./PitchLibrary";
 import {isPlausibleWeapon,plausibleRoom} from "../Engine/room/Plausibility";
+import {restVirtualProps} from "../Engine/room/PropSupport";
 
 export interface DynamicCaseResult {ok:boolean;graph?:CaseGraph;lineBank:LineBankEntry[];phrasePlans:PhrasePlan[];compilation?:CompileResult;error?:string;scenery?:RoomObject[];activeZoneIds?:string[];}
 const roleFor:Record<ObjectType,string>={cord:"WEAPON_CORD",blunt:"WEAPON_BLUNT",sharp:"WEAPON_SHARP",poison:"WEAPON_POISON",heavy:"WEAPON_HEAVY",light:"WITNESS_LIGHT",clock:"WITNESS_CLOCK",door:"WITNESS_DOOR",screen:"WITNESS_SCREEN",mirror:"WITNESS_MIRROR",plant:"WITNESS_PLANT",kettle:"WITNESS_KETTLE",cup:"WITNESS_CUP",container:"CONTAINER_BOX",soft:"CONTAINER_CLOTH"};
@@ -32,6 +33,8 @@ export function prepareDynamicCase(seed:number,input:RoomInput):DynamicCaseResul
     const compilation=compileCase(seed,room,pitch,{fictionalMemories:true});
     if(!compilation.ok)return {ok:false,lineBank:[],phrasePlans:[],compilation};
     const graph=compilation.graph!;
+    // Positions only: substituted props rest on detected tops in their own zone (roomId ignores coordinates).
+    graph.room=restVirtualProps(graph.room);
     const implausible=graph.weapons.filter(id=>{const o=graph.room.objects.find(x=>x.id===id);return !o||!isPlausibleWeapon(o.label,o.type);});
     if(implausible.length)return {ok:false,lineBank:[],phrasePlans:[],error:"Implausible weapon role: "+implausible.join(","),compilation};
     if(graph.room.objects.filter(o=>o.id.startsWith("REC_")).length>3)return {ok:false,lineBank:[],phrasePlans:[],error:"More than three fallback memory witnesses would be needed.",compilation};

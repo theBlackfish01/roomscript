@@ -34,7 +34,7 @@ import {withDeadline} from "./Engine/ai/Deadlines";
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.start());this.createEvent("UpdateEvent").bind(()=>{if(this.toastText&&this.toastWindow.active&&!this.toastWindow.advance(getDeltaTime()))this.toastText.text="";});}
   private start():void {
     if(!this.caseLid||!this.chips||!this.verbs||!this.notebook||!this.wallet||!this.audio||!this.engine){console.error("Roomscript: authored references not wired");return;}
-    this.caseLid.build();this.chips.build();this.verbs.build();this.notebook.build();this.wallet.build();
+    this.caseLid.build();this.caseLid.onSound=cue=>this.audio.play(cue);this.chips.build();this.verbs.build();this.notebook.build();this.wallet.build();
     this.engine.onState.add(state=>{this.state=state;this.caseLid.setCounters(state.clockMinutes-state.elapsedMinutes,state.pips,state.hunches);this.caseLid.setTimeline(knowledgeTimeline(this.engine.graphRef(),state.knowledge).map(item=>item.time+" · "+item.text));const message=peripheralFeedback(state.events,state.lastSeq);if(message)this.toast(message);});
     this.engine.initialize();
     this.state=this.engine.snapshot();

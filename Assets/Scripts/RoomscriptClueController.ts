@@ -20,7 +20,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
   readonly onSelection=new Event<Hypothesis>();
   pawnDropOverride:((who:string,point:vec3)=>boolean)|null=null;
   private pawns=new Map<string,SceneObject>();private pawnHomes=new Map<string,vec3>();private crosses=new Map<string,SceneObject>();
-  private suspectMarks=new Map<string,SceneObject>();private zoneCrosses=new Map<string,SceneObject>();private gridMarks=new Map<string,RenderMeshVisual>();private ghost:SceneObject;private blade:SceneObject;private panel:SceneObject;private cardText:Text;
+  private suspectMarks=new Map<string,SceneObject>();private zoneCrosses=new Map<string,SceneObject>();private excludedWeapons=new Set<string>();private gridMarks=new Map<string,RenderMeshVisual>();private ghost:SceneObject;private blade:SceneObject;private panel:SceneObject;private cardText:Text;
   private selectedWho:string|null=null;private selectedZone:string|null=null;private hypothesis:Hypothesis|null=null;
   private origin:vec3;private localOrigin:Vec3;private localForward:Vec3;private startingYaw=0;
   private nextDetail=0;private excludedSuspects=new Set<string>();private busy=false;private began=0;private endAngle=0;private visited=0;private seq=0;private refuter:string|null=null;private resultText="";
@@ -67,7 +67,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
       const name=flatText(mark.getSceneObject(),"Chalk zone name",zone.clueName.toUpperCase(),9,new vec4(.93,.96,1,.9),"title",60,10);name.getSceneObject().getTransform().setLocalPosition(new vec3(0,1.2,spot.radius>50?spot.radius+9:0));name.getSceneObject().getTransform().setLocalRotation(quat.fromEulerAngles(-Math.PI/2,0,0));
       const cross=lineTubes(mark.getSceneObject(),"Chalk zone cross",[[new vec3(-spot.radius*.7,1.3,-spot.radius*.7),new vec3(spot.radius*.7,1.3,spot.radius*.7)],[new vec3(-spot.radius*.7,1.3,spot.radius*.7),new vec3(spot.radius*.7,1.3,-spot.radius*.7)]],this.chalk.clone(),1.1).getSceneObject();cross.enabled=false;this.zoneCrosses.set(zone.id,cross);
       this.gridMarks.set(zone.id,mark);this.generated.push(mark.getSceneObject());}
-    for(const id of graph.weapons){const mark=worldLines(room.objectAnchor(id),"RoomscriptWeaponGrid_"+id,[[new vec3(-5,4,4),new vec3(5,4,4)],[new vec3(5,4,4),new vec3(0,10,4)],[new vec3(0,10,4),new vec3(-5,4,4)]],this.cyan.clone(),.7);this.gridMarks.set(id,mark);this.generated.push(mark.getSceneObject());}
+    for(const id of graph.weapons){const mark=worldLines(room.objectAnchor(id),"RoomscriptWeaponGrid_"+id,[[new vec3(-7,2,6),new vec3(7,16,6)],[new vec3(-7,16,6),new vec3(7,2,6)]],this.chalk.clone(),1);this.gridMarks.set(id,mark);this.generated.push(mark.getSceneObject());}
     this.ghost=global.scene.createSceneObject("RoomscriptSuggestionGhost");this.ghost.setParent(this.getSceneObject());const outline:[vec3,vec3][]=[];
     const path=[new vec3(-14,0,0),new vec3(-25,90,0),new vec3(-16,125,0),new vec3(-12,160,0),new vec3(12,160,0),new vec3(16,125,0),new vec3(25,90,0),new vec3(14,0,0)];for(let i=0;i<path.length-1;i++)outline.push(...dottedSegment(path[i],path[i+1],8));
     worldLines(this.ghost,"Dotted hypothesis",outline,this.ivory,1.1);this.ghost.enabled=false;
@@ -97,9 +97,9 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
   }
   private renderKnowledge():void {
     const engine=this.objection.flow.engine,state=engine.snapshot();this.notebook.setPages(notebookPages(engine.graphRef(),state));
-    this.excludedSuspects=new Set(state.grid.suspects);this.crosses.forEach((cross,id)=>cross.enabled=this.excludedSuspects.has(id));this.suspectMarks.forEach((mark,id)=>mark.enabled=this.excludedSuspects.has(id));
-    this.gridMarks.forEach((visual,id)=>{const excluded=state.grid.zones.includes(id)||state.grid.weapons.includes(id);const material=visual.mainMaterial,zone=visual.getSceneObject().name.startsWith("RoomscriptZoneGrid_");material.mainPass.baseColor=zone?(excluded?new vec4(.45,.47,.5,1):new vec4(.93,.96,1,1)):excluded?new vec4(.14,.10,.03,1):new vec4(.91,.69,.29,1);visual.mainMaterial=material;{const cross=this.zoneCrosses.get(id);if(cross)cross.enabled=excluded;}
-      if(state.grid.weapons.includes(id))visual.getTransform().setLocalRotation(quat.angleAxis(Math.PI,vec3.up()));});
+    this.excludedSuspects=new Set(state.grid.suspects);this.excludedWeapons=new Set(state.grid.weapons);this.crosses.forEach((cross,id)=>cross.enabled=this.excludedSuspects.has(id));this.suspectMarks.forEach((mark,id)=>mark.enabled=this.excludedSuspects.has(id));
+    this.gridMarks.forEach((visual,id)=>{const excluded=state.grid.zones.includes(id)||state.grid.weapons.includes(id);const material=visual.mainMaterial,zone=visual.getSceneObject().name.startsWith("RoomscriptZoneGrid_");material.mainPass.baseColor=zone?(excluded?new vec4(.45,.47,.5,1):new vec4(.93,.96,1,1)):excluded?new vec4(.93,.96,1,1):new vec4(.91,.69,.29,1);visual.mainMaterial=material;{const cross=this.zoneCrosses.get(id);if(cross)cross.enabled=excluded;}
+      });
   }
   private updateDetail():void {
     if(!this.ivory)return;const flow=this.objection.flow,camera=flow.actor.camera.getTransform(),eye=camera.getWorldPosition(),forward=camera.getWorldRotation().multiplyVec3(vec3.back());
@@ -107,7 +107,9 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     const conversation=flow.diagnostics().busy||(facing&&(face.length<180||flow.chips.getSceneObject().enabled||flow.verbs.getSceneObject().enabled));
     const board=this.selectedWho!==null||this.busy,explore=flow.engine.investigationEnabled&&!flow.controlsBlocked&&!conversation;
     this.gridMarks.forEach((visual,id)=>{const delta=visual.getTransform().getWorldPosition().sub(eye),inView=delta.length>.1&&delta.normalize().dot(forward)>.65;
-      visual.enabled=board||(explore&&inView&&(visual.getSceneObject().name.startsWith("RoomscriptZoneGrid_")?forward.y<-.25:delta.length<180));});
+      const zoneMark=visual.getSceneObject().name.startsWith("RoomscriptZoneGrid_");
+      // Run 8: weapons already glow coral; their mark only appears (as a chalk cross) once the weapon is ruled out.
+      visual.enabled=zoneMark?(board||(explore&&inView&&forward.y<-.25)):this.excludedWeapons.has(id)&&(board||(explore&&inView&&delta.length<180));});
     this.crosses.forEach((mark,id)=>mark.enabled=this.excludedSuspects.has(id)&&(board||explore));
     this.suspectMarks.forEach((mark,id)=>mark.enabled=this.excludedSuspects.has(id)&&(board||(explore&&forward.y<-.25)));
   }
