@@ -56,3 +56,9 @@ Thumbs.db
 
 # Added by Lens Studio (LEAF plugin)
 leaf_plugin_settings.json
+
+# Run 9: local staging and bulky Run 7 diagnostics stay out of git
+Tooling/staging/
+Tooling/results/run7-native-video/
+Tooling/results/run7-preview-settings/
+Tooling/art2d/LEAF_RUNNING

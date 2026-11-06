@@ -105,7 +105,192 @@ Finish with the FIRST_PASS §4 final report, including:
 - a list for Run 5.
 ```
 
-## Run 8: wearer experience, object-based UI, AR wow moments (Fri Nov 6, Claude Code)
+## Run 9: illustrated cast, real props, polish, followable flow (Sat Nov 7, Claude Code)
+
+The specs are `docs/ART_2D_2026-11-07.md` (with `docs/art/2026-11-07-vale-style-reference.png`) and `docs/REVIEW_2026-11-06-run8.md`; `docs/WEARER_UX_2026-11-06.md` still applies. The Meshy plan (`docs/ART_3D_2026-11-06.md`) was dropped on Nov 7. How to start it:
+1. Nothing to buy: `OPENAI_API_KEY` is already in `Tooling/.env` (copied from AsterMuse at Wadood's request and tested). An `HF_TOKEN` there is optional, for the open-model fallback.
+2. Close any other Claude Code or Codex sessions on this project. Restart Lens Studio, open RoomScriptF, sign in, and set Preview to Spectacles, Interactive. Keep the laptop plugged in and awake.
+3. In a terminal, `cd` to the project, then run `claude --permission-mode auto --model opus --effort high`. If auto mode is refused, use `claude --dangerously-skip-permissions --model opus --effort high`. Check that `/mcp` shows lens-studio connected.
+4. Paste the prompt below.
+
+```
+This is Run 9 of the Roomscript build, running in Claude Code. The project's CLAUDE.md loads AGENTS.md, so you have the rules. Lens Studio was just restarted, it's open on this project, and I'm signed in. The CLAD plugin is enabled. `Tooling/.env` now also holds `OPENAI_API_KEY` for image generation; it was tested on Nov 7 and `gpt-image-2` works.
+
+**Read first:**
+1. **docs/REVIEW_2026-11-06-run8.md**: what Run 8 got right, what looks wrong, and the code fixes;
+2. **docs/ART_2D_2026-11-07.md**: the primary art spec for this run, plus its style reference **docs/art/2026-11-07-vale-style-reference.png**. Stylised illustrated characters (not photorealistic, not 3D), real 3D props from Snap's generator, textured paper objects;
+3. docs/WEARER_UX_2026-11-06.md: the interaction spec and checklist, which still applies;
+4. docs/RUN8_REPORT.md, docs/RUN8_PROGRESS.md and the Needs Wadood list in docs/PROGRESS.md;
+5. AGENTS.md rules 12–21 (21 is new).
+
+**Goal:** make Roomscript look and feel like a finished product.
+- Illustrated suspects that look like real characters in your room.
+- Solid props and paper objects.
+- Clean composition, with one thing per direction of view.
+- A flow a first-time player can follow without a tour.
+- Every Run 8 interaction still works, and everything stays true to the engine.
+
+The feature freeze is **Sun Nov 8 at 21:00 PKT**. This is the big art and polish run; Run 10 (Sat night) does the final gate. Quality matters more than finishing early. I'll review the new cast on Saturday afternoon, so leave me good captures and contact sheets.
+
+## How to work
+- **Same setup as Run 8:**
+  - CLAD `/lens-studio-router` preflight; load the Lens MCP tools with ToolSearch.
+  - CLAD skills for Lens work.
+  - Rule 16 for MCP failures (the local-manager LEAF runner is fine; label it).
+  - Rule 19 visual loop after every visual change.
+  - Rule 20: no browser or computer-use tools. Fetching API docs is fine.
+- **Image generation** (ART_2D "Pipeline"):
+  - Check the current OpenAI image parameters at the start.
+  - **`gpt-image-2` rejects transparent backgrounds,** so generate on a flat light-grey background and cut out with BiRefNet or rembg.
+  - **Requests can take more than 5 minutes:** use `node:https` with no timeout, never plain `fetch`. Run them in the background, at most about 3 at a time.
+  - **Keep the style locked to the Vale reference:** reuse the style block word for word and pass the reference image as an input. Make expression and pose variants with the edits endpoint from each chosen base.
+  - Keep a ledger in Tooling/results/openai-images-ledger.json.
+  - The open-model fallback is in the spec (rule 18).
+- **Subagents:** at most 2 at a time (my laptop's memory: 16 GB, shared with Lens Studio), on disjoint folders. A good split:
+  - one subagent drives image generation, cutouts and contact sheets in Tooling/art2d;
+  - the main session does all Lens scene work.
+
+  One Chromium at a time; no full test suite or local image model during LEAF or renders.
+- **Don't stop to ask me.** Decide, log it in docs/decisions.md, and keep going.
+  - Keep docs/RUN9_PROGRESS.md as your running log; it's your memory across compaction.
+  - Put blockers under Needs Wadood and move on.
+- **Git:** you're on master at `71780b2`.
+  - The uncommitted scene and material changes are reviewed (item 11 below). Don't discard anything without recording what it was.
+  - Commit and push after every verified step.
+  - Keep PROGRESS, decisions.md, NOTICE and devpost/clad-log.md current.
+
+**Budgets:**
+- OpenAI image generation: up to $25.
+- ElevenLabs: about 20,000 credits.
+- Claude API (Tooling only): up to $30.
+- **Rule 18:** a quota stops only that kind of generation, never development.
+
+## Work order
+
+### 0. Baseline and Run 8 fixes (about 1.5 hours)
+- Preflight, a fresh Lens restart, and the strict interrogation handshake.
+- Then the code fixes from the review, in order:
+  1. **The accusation rig must not open on the answer.** Room and weapon start unset ("?"). WHO may default to the suspect you face.
+  2. **Clear `objecting` in `cancelPull()`.** Add a LEAF check that a cancelled objection pull leaves the next pull ordinary.
+  3. **Gate film mode and LEAF-overlay hiding to Director runs only**, not every Preview run. Then fix and re-run `roomscript-clue`: pitch −75° and poll instead of the 0.5 knife-edge and fixed sleeps. Also fix `memory-cards`, whose "Pull tab" button no longer exists.
+  4. **Dusting reveals the prints; a pinch collects.** Guard it while the game is busy or in an accusation.
+  5. **Filter present-evidence to the suspect's revealed layer**, with a vitest.
+  6. **Board stamps:** use the verdict-specific stamp text, clear stamps per case, and stop FILED stacking.
+  7. **Per-frame work** (rule 13):
+     - no `snapshot()` per frame or in drag handlers;
+     - storm rain only around its beat, with reused vectors;
+     - cache tinted materials and icons;
+     - remove leaked events.
+  8. **Device fallbacks:**
+     - an Accuse path that doesn't need palm-up;
+     - board and window positions relative to the room root;
+     - a board fallback when no wall is found.
+  9. **The small items in the review:** the seal label, `holdAtBeat` reset, the envelope shrink, stretched portraits.
+  10. **Measure a real lens export** and make room: drop unreferenced WAVs and old art, and minify VoiceManifest. Record the size; it sets the art budget.
+  11. **Git hygiene:**
+      - commit the scene and material fix (see the review) and my new docs (`docs/ART_2D_2026-11-07.md`, the superseded `docs/ART_3D_2026-11-06.md`, `docs/art/`, `docs/REVIEW_2026-11-06-run8.md`, the AGENTS.md changes, this prompt);
+      - commit `run8-props-console-v1.png`;
+      - gitignore `Tooling/staging/`, `Tooling/results/run7-native-video/` and the preview-settings results.
+
+### 1. Vale first: prove the illustrated style in the room (about 1 hour; ART_2D "Vale first")
+1. Add per-character art anchors (`ActorArt.ts`: face box, eyes, mouth, tell prop, right hand, feet). Route every hard-coded card height and tell position through them; the review lists each. The old line cards keep working through a `characterArt` switch.
+2. Make Vale's neutral and speaking frames from the reference style, cut them out, normalise, import, and record her anchors.
+3. Capture her and the old card at the same spot:
+   - conversation framing at 1.4 m;
+   - full figure at 3 m;
+   - a 45° view.
+4. **Check:** the face is sharp at 1.4 m (if not, split her into a body layer and a high-resolution head layer); she stands on the floor with a contact shadow; she reads against the subtitle and tokens.
+5. Tune the outline, rim, shadow and scale. Record it in decisions.md with the captures.
+
+### 2. The whole illustrated cast
+- **Qadir, Okafor, Pike and Harlow,** in the same style, with every frame in the spec:
+  - neutral, speaking, mouth-open, rattled, broken, smug and the new **tell** frame;
+  - Vale's tableau frame, holding the cable taut;
+  - Harlow standing, staggering and fallen.
+- **Identity:** each one must be the same person across frames. Make a contact sheet per character in docs/captures/ and check it.
+- **Ghosts** use the same frames with a ghost material, which retires the 8 ghost PNGs. Use them for the replays, the lightning ghost and the reconstruction.
+- **Presentation:** a contact shadow, a gentle breathing sway, a head bob on speech, a bob-and-lean glide when moving, and the stress rim kept.
+- **Moments on the new art:**
+  - the frozen murder (Vale's tableau frame; Harlow staggering; the cable at her hand anchor);
+  - Pike's glide to the real door;
+  - suspects stepping out at the ending (no instant disable);
+  - the accused's reaction (the broken frame when correct, smug when wrong);
+  - the spotlight landing *on* the suspect, not through them.
+- **Staging:** never inside furniture, including the tableau.
+- **Size:** about 1.3 MB per suspect after palette quantisation. Measure the export after the cast is in.
+
+### 3. Props and paper objects as real objects (ART_2D "Props and paper objects")
+- **Props:** CLAD `build-mesh` (SPECS text/image→3D through the signed-in Lens Studio, no key). Gate each with `analyze_glb.js` and optimise with `specs-optimize-lens-mesh`.
+- **Hero objects:**
+  - the evidence crate (two meshes so the lid opens: wood and brass);
+  - the two case folders (manila with a coral stamp and string tie; the blank folder with a magnifier);
+  - opaque newsprint for the newspaper, held at about 60 cm;
+  - photo-paper memory photographs;
+  - a cork case board with brass pins;
+  - a coral wax seal.
+- Paper and print textures come from Tooling/art (canvas), with text from the engine.
+- Retire the wireframe props.
+
+### 4. Composition and polish (the review's visual list)
+- **Text:** one text layer per direction of view.
+  - Subtitles never cross other text; they move or yield.
+  - The accusation is not a stacked panel: drop the title and instruction lines, and let Wren say them once.
+  - Remove the "Details" bar.
+- **The newspaper:** opaque, in your hands, with the stats from the actual play (never "0 of 0" in film captures; the Director ending needs a played-through state).
+- **The storm:** rain and lightning sit on the real window (find its actual bounds in the Evening Room), with a branching, glowing bolt and soft rain streaks; the ghost in the flash is the illustrated Harlow with the ghost material.
+- **The door tape:** real tape across the real doorway.
+- **Floor marks:** chalk crosses smaller and chalk-textured.
+- **The evidence web:** fewer simultaneous elements.
+- **The case files:** titles printed on the folders, never overlapping geometry.
+
+### 5. Make it followable (my Preview test: "this UI is very unintuitive")
+- **Wire Wren's contextual hint lines** (W3–W12 and W14; the audio already exists), once each, at the moment they're needed. They ask; they don't tell.
+- **The next useful action glows on its object:** the folder tab, the suspect to approach, the Object token, the kettle, the seal.
+- **A small Preview-only controls hint at the start** ("click = pinch · drag = pull · right-drag = look · WASD = walk"). It disappears after the first pinch and never shows on device.
+- **Re-run the naive-player LEAF.** Then do your own fresh-eyes pass from the unopened crate to the ending through Preview captures, and fix whatever is unclear.
+
+### 6. LEAF upkeep and carry-overs
+- **Re-run the stale LEAF scenarios** after the UI and art changes; fix the selectors and pose checks they used:
+  - clue;
+  - memory-cards, shell, hero-demo, physical-memory, story-moments, all-tells;
+  - actor and pose capture;
+  - generated cases, casting sweep;
+  - closing wrong and timeout.
+- **Carry and place the crate** (WEARER_UX object UI 2.2), with Director mode auto-placing.
+- **Lower priority:** S2 frame time (measure script time with Perfetto spans, not Preview frame deltas), generated-case voices on 3 seeds, Reconstruction T2.
+
+### 7. Captures for me and the video
+- **Director captures of every beat and wow moment with the new cast:**
+  - opening;
+  - casting sweep;
+  - question and answer;
+  - presenting a photo;
+  - object replay;
+  - storm;
+  - evidence web;
+  - accusation;
+  - frozen-murder orbit;
+  - newspaper.
+- **A contact sheet per character,** plus one cast line-up.
+- **Video plan:** update devpost/drafts/video-plan.md for the new shots.
+
+If everything above is done, start Run 10's final gate early:
+- the integrated LEAF;
+- a new hero tape;
+- the exported lens size (published limit 25 MB);
+- a full-history secret scan;
+- `m3-case` if it passes.
+
+## Finish with a report (docs/RUN9_REPORT.md, and a summary in chat)
+- done, partial or not started per item;
+- the art results, and anything that fell back;
+- the captures and contact sheets I should look at, as file paths;
+- Needs Wadood;
+- costs (OpenAI images, ElevenLabs, Claude API);
+- a list for Run 10.
+```
+
+## Run 8: wearer experience, object-based UI, AR wow moments (Fri Nov 6, Claude Code, historical)
 
 Runs in **Claude Code**, not Codex. The spec is `docs/WEARER_UX_2026-11-06.md`. How to start it:
 1. Close any Codex sessions, so only one agent edits the project.

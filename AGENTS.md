@@ -103,6 +103,7 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
 - [`docs/PROGRESS.md`](docs/PROGRESS.md) — current state. Read it first after any context reset.
 - [`docs/REVIEW_2026-11-03.md`](docs/REVIEW_2026-11-03.md) — the latest independent review: the final polish plan, work packages and schedule for the current runs. Earlier reviews are historical.
 - [`docs/WEARER_UX_2026-11-06.md`](docs/WEARER_UX_2026-11-06.md) — **the primary design spec from Run 8 onward:** object-based UI, the wow moments and the visual acceptance checklist. Read it before any UI, interaction, art or video work.
+- [`docs/ART_2D_2026-11-07.md`](docs/ART_2D_2026-11-07.md) — **the primary art spec from Run 9 onward:** stylised illustrated characters from an image model, matched to `docs/art/2026-11-07-vale-style-reference.png`; real 3D props from Snap's generator; textured paper objects. Read it before any character, prop or material work. [`docs/REVIEW_2026-11-06-run8.md`](docs/REVIEW_2026-11-06-run8.md) has the Run 8 review behind it. (`docs/ART_3D_2026-11-06.md`, the Meshy plan, is superseded.)
 - [`docs/REVIEW_SESSION_2026-11-05.md`](docs/REVIEW_SESSION_2026-11-05.md) — what the hackathon judges said in their Nov 5 live review, and the design changes that follow (R1–R10). Read it before any UI, interaction or video work.
 
 **Rules for every agent:**
@@ -124,11 +125,11 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
    - Component scripts go flat in `Assets/Scripts/` with a `Roomscript` prefix.
    - UI is built with UIKit via `/specs-build-ui`.
 6. **Secrets never enter git.** That means RSG tokens (they get written into `Assets/Scene.scene` and expire after about an hour), `*.pem`, `.mcp.json`, `ls-live-instance.json`, `.claude/settings.local.json` and `.codex/config.toml`. The pre-commit secret check must stay on.
-7. **Licences.** Copy code only from MIT, Apache or BSD sources, and record each one in `NOTICE`.
+7. **Licences.** Copy code only from MIT, Apache or BSD sources, and record each one in `NOTICE`. Generated or third-party art and audio (OpenAI images, open image models, Lens Studio generation, ElevenLabs, any CC0 pack) also go in `NOTICE` with their tool and terms.
 8. **Logging.** Log CLAD and MCP usage (skill, agent or tool, and what it produced) to `devpost/clad-log.md`, and decisions to `docs/decisions.md`. CLAD use is a judging criterion.
 9. **No scope creep.** New ideas go to `docs/later.md`, not into the build.
 10. **Git.** Commit after each work package. Never push or create a remote without asking Wadood.
-11. **Local API keys.** `Tooling/.env` (gitignored) holds `ANTHROPIC_API_KEY` and `ELEVENLABS_API_KEY` for local Node tooling only. ElevenLabs: keep `Tooling/results/elevenlabs-ledger.json` from the `character-cost` headers. Use credits freely; on a quota error, follow rule 18 (stop generating audio only, never development). Both keys:
+11. **Local API keys.** `Tooling/.env` (gitignored) holds `ANTHROPIC_API_KEY`, `ELEVENLABS_API_KEY` and, from Run 9, `OPENAI_API_KEY` (image generation for the art pipeline), for local Node tooling only. An optional `HF_TOKEN` may be added for the open-model fallback. ElevenLabs: keep `Tooling/results/elevenlabs-ledger.json` from the `character-cost` headers. OpenAI images: keep `Tooling/results/openai-images-ledger.json` (model, size, quality, usage, file, purpose). Use credits freely; on a quota error, follow rule 18 (stop that kind of generation only, never development). All keys:
     - validator red-teaming, judging and content drafting;
     - read it only from `Tooling/` scripts;
     - never copy it into `Assets/`, the scene, logs, docs or test fixtures, and never print it;
@@ -146,7 +147,7 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
     - **Never** use computer-use, desktop screenshots, window activation or focus, or any UI-automation tool. On Nov 3, one such call hung for 10 hours.
     - **Do** request sandbox escalations or permissions the normal way (Codex: its automatic approver under `--approve-for-me`; Claude Code: its permission mode). They are expected for:
       - `git add`, `git commit`, `git push` and git-lfs;
-      - network calls to api.elevenlabs.io, api.anthropic.com and github.com;
+      - network calls to api.elevenlabs.io, api.anthropic.com, api.openai.com, huggingface.co (for the open-model fallback and its model downloads) and github.com;
       - the npm registry.
 
       Run 5 wrongly skipped these: it committed nothing and couldn't reach ElevenLabs.
@@ -172,4 +173,10 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
     4. Fix, recapture, and keep before/after images in `docs/captures/`.
 
     A passing LEAF test is not visual acceptance.
-20. **No browser, computer-use or desktop-control tools** (Claude in Chrome, computer use, the in-app browser) for Lens work. Use the Lens Studio MCP tools, the shell and files only.
+20. **No browser, computer-use or desktop-control tools** (Claude in Chrome, computer use, the in-app browser) for Lens work. Use the Lens Studio MCP tools, the shell and files only. Plain web fetches of API documentation (for example the OpenAI docs) are fine.
+21. **Art assets** (from Run 9; the spec is `docs/ART_2D_2026-11-07.md`).
+    - **Characters:** stylised illustrations matched to the reference image, never photorealistic, with the same person across frames. Record prompts, models and choices in the ledger and in `decisions.md`.
+    - **Props:** gate every GLB/FBX with CLAD's `analyze_glb.js` before import (normals, real-world scale, facing). A mesh without normals doesn't render (Run 8's props).
+    - **Files and budgets:** keep source and intermediate files in `Tooling/art2d/` (large files and the venv gitignored), and only shipped assets in `Assets/Art/`. Keep the spec's budgets, and measure the exported lens size after each batch of imports.
+    - **Fallback switch:** keep the old line cards behind the `characterArt` switch until Wadood signs off.
+    - **Never stop the run over art:** take the spec's fallback and keep building.
