@@ -1,0 +1,334 @@
+[
+  {
+    "id": "FolderLift",
+    "file": "Assets/Audio/Run8/FolderLift.mp3",
+    "kind": "effect",
+    "durationSec": 0.546,
+    "loop": false
+  },
+  {
+    "id": "FolderOpen",
+    "file": "Assets/Audio/Run8/FolderOpen.mp3",
+    "kind": "effect",
+    "durationSec": 1.275,
+    "loop": false
+  },
+  {
+    "id": "Magnifier",
+    "file": "Assets/Audio/Run8/Magnifier.mp3",
+    "kind": "effect",
+    "durationSec": 0.962,
+    "loop": false
+  },
+  {
+    "id": "CrateHum",
+    "file": "Assets/Audio/Run8/CrateHum.mp3",
+    "kind": "effect",
+    "durationSec": 3,
+    "loop": true
+  },
+  {
+    "id": "CrateLand",
+    "file": "Assets/Audio/Run8/CrateLand.mp3",
+    "kind": "effect",
+    "durationSec": 1.179,
+    "loop": false
+  },
+  {
+    "id": "LandingRing",
+    "file": "Assets/Audio/Run8/LandingRing.mp3",
+    "kind": "effect",
+    "durationSec": 1.394,
+    "loop": false
+  },
+  {
+    "id": "ThunderNear",
+    "file": "Assets/Audio/Run8/ThunderNear.mp3",
+    "kind": "effect",
+    "durationSec": 3.326,
+    "loop": false
+  },
+  {
+    "id": "LightningCrack",
+    "file": "Assets/Audio/Run8/LightningCrack.mp3",
+    "kind": "effect",
+    "durationSec": 1,
+    "loop": false
+  },
+  {
+    "id": "TapeStretch",
+    "file": "Assets/Audio/Run8/TapeStretch.mp3",
+    "kind": "effect",
+    "durationSec": 1.127,
+    "loop": false
+  },
+  {
+    "id": "ChalkCircle",
+    "file": "Assets/Audio/Run8/ChalkCircle.mp3",
+    "kind": "effect",
+    "durationSec": 1.439,
+    "loop": false
+  },
+  {
+    "id": "PinPhoto",
+    "file": "Assets/Audio/Run8/PinPhoto.mp3",
+    "kind": "effect",
+    "durationSec": 0.448,
+    "loop": false
+  },
+  {
+    "id": "RedString",
+    "file": "Assets/Audio/Run8/RedString.mp3",
+    "kind": "effect",
+    "durationSec": 1.202,
+    "loop": false
+  },
+  {
+    "id": "WaxSealPress",
+    "file": "Assets/Audio/Run8/WaxSealPress.mp3",
+    "kind": "effect",
+    "durationSec": 1.098,
+    "loop": false
+  },
+  {
+    "id": "SpotlightOn",
+    "file": "Assets/Audio/Run8/SpotlightOn.mp3",
+    "kind": "effect",
+    "durationSec": 1.476,
+    "loop": false
+  },
+  {
+    "id": "GhostWhoosh",
+    "file": "Assets/Audio/Run8/GhostWhoosh.mp3",
+    "kind": "effect",
+    "durationSec": 0.79,
+    "loop": false
+  },
+  {
+    "id": "ReplayRewind",
+    "file": "Assets/Audio/Run8/ReplayRewind.mp3",
+    "kind": "effect",
+    "durationSec": 1.48,
+    "loop": false
+  },
+  {
+    "id": "DustBrush",
+    "file": "Assets/Audio/Run8/DustBrush.mp3",
+    "kind": "effect",
+    "durationSec": 0.8,
+    "loop": false
+  },
+  {
+    "id": "PrintReveal",
+    "file": "Assets/Audio/Run8/PrintReveal.mp3",
+    "kind": "effect",
+    "durationSec": 0.417,
+    "loop": false
+  },
+  {
+    "id": "NewspaperUnfold",
+    "file": "Assets/Audio/Run8/NewspaperUnfold.mp3",
+    "kind": "effect",
+    "durationSec": 1.327,
+    "loop": false
+  },
+  {
+    "id": "LensCrack",
+    "file": "Assets/Audio/Run8/LensCrack.mp3",
+    "kind": "effect",
+    "durationSec": 0.524,
+    "loop": false
+  },
+  {
+    "id": "PalmOpen",
+    "file": "Assets/Audio/Run8/PalmOpen.mp3",
+    "kind": "effect",
+    "durationSec": 0.617,
+    "loop": false
+  },
+  {
+    "id": "DoorKnock3",
+    "file": "Assets/Audio/Run8/DoorKnock3.mp3",
+    "kind": "effect",
+    "durationSec": 0.7,
+    "loop": false
+  },
+  {
+    "id": "W1",
+    "file": "Assets/Audio/Run8/Wren_W1_OverHere.mp3",
+    "kind": "wren",
+    "text": "Over here.",
+    "durationSec": 0.962,
+    "loop": false
+  },
+  {
+    "id": "W2",
+    "file": "Assets/Audio/Run8/Wren_W2_BehindYou.mp3",
+    "kind": "wren",
+    "text": "Behind you.",
+    "durationSec": 1.162,
+    "loop": false
+  },
+  {
+    "id": "W3",
+    "file": "Assets/Audio/Run8/Wren_W3_HoldPhoto.mp3",
+    "kind": "wren",
+    "text": "Hold the photo up to her.",
+    "durationSec": 1.246,
+    "loop": false
+  },
+  {
+    "id": "W4",
+    "file": "Assets/Audio/Run8/Wren_W4_PointGuest.mp3",
+    "kind": "wren",
+    "text": "Point at another guest to ask about them.",
+    "durationSec": 2.32,
+    "loop": false
+  },
+  {
+    "id": "W5",
+    "file": "Assets/Audio/Run8/Wren_W5_PalmNotebook.mp3",
+    "kind": "wren",
+    "text": "Turn your left palm up. Your notebook.",
+    "durationSec": 2.868,
+    "loop": false
+  },
+  {
+    "id": "W6",
+    "file": "Assets/Audio/Run8/Wren_W6_CarryWords.mp3",
+    "kind": "wren",
+    "text": "Carry her words to the thing that proves her wrong.",
+    "durationSec": 2.882,
+    "loop": false
+  },
+  {
+    "id": "W7",
+    "file": "Assets/Audio/Run8/Wren_W7_SetCase.mp3",
+    "kind": "wren",
+    "text": "Set the case down on a table.",
+    "durationSec": 1.947,
+    "loop": false
+  },
+  {
+    "id": "W8",
+    "file": "Assets/Audio/Run8/Wren_W8_PickFile.mp3",
+    "kind": "wren",
+    "text": "Pick a file. Pull it open.",
+    "durationSec": 2.088,
+    "loop": false
+  },
+  {
+    "id": "W9",
+    "file": "Assets/Audio/Run8/Wren_W9_PointAccuse.mp3",
+    "kind": "wren",
+    "text": "Point at the one you accuse.",
+    "durationSec": 1.682,
+    "loop": false
+  },
+  {
+    "id": "W10",
+    "file": "Assets/Audio/Run8/Wren_W10_PressSeal.mp3",
+    "kind": "wren",
+    "text": "Press the seal. Hold it.",
+    "durationSec": 2.323,
+    "loop": false
+  },
+  {
+    "id": "W11",
+    "file": "Assets/Audio/Run8/Wren_W11_SweepLight.mp3",
+    "kind": "wren",
+    "text": "Sweep the floor with the light.",
+    "durationSec": 2.021,
+    "loop": false
+  },
+  {
+    "id": "W12",
+    "file": "Assets/Audio/Run8/Wren_W12_DustPrints.mp3",
+    "kind": "wren",
+    "text": "Wave your hand over it. Dust for prints.",
+    "durationSec": 2.54,
+    "loop": false
+  },
+  {
+    "id": "W13",
+    "file": "Assets/Audio/Run8/Wren_W13_ReadBoard.mp3",
+    "kind": "wren",
+    "text": "The board's on the wall. Walk over and read it.",
+    "durationSec": 2.618,
+    "loop": false
+  },
+  {
+    "id": "W14",
+    "file": "Assets/Audio/Run8/Wren_W14_WatchKettle.mp3",
+    "kind": "wren",
+    "text": "Watch the kettle. It remembers.",
+    "durationSec": 2.402,
+    "loop": false
+  },
+  {
+    "id": "N2",
+    "file": "Assets/Audio/Run8/Narrator_N2_TenThirty.mp3",
+    "kind": "narrator",
+    "text": "Ten thirty. The moment it happened.",
+    "durationSec": 2.837,
+    "loop": false
+  },
+  {
+    "id": "N3",
+    "file": "Assets/Audio/Run8/Narrator_N3_MorningEdition.mp3",
+    "kind": "narrator",
+    "text": "Morning edition.",
+    "durationSec": 1.086,
+    "loop": false
+  },
+  {
+    "id": "StampThump",
+    "file": "Assets/Audio/Sfx/Stamp.mp3",
+    "kind": "effect",
+    "durationSec": 1,
+    "loop": false,
+    "reusedExisting": true
+  },
+  {
+    "id": "RainGlass",
+    "file": "Assets/Audio/Sfx/Rain.mp3",
+    "kind": "effect",
+    "durationSec": 12,
+    "loop": true,
+    "reusedExisting": true
+  },
+  {
+    "id": "UVHum",
+    "file": "Assets/Audio/Sfx/UvHum.mp3",
+    "kind": "effect",
+    "durationSec": 6,
+    "loop": true,
+    "reusedExisting": true
+  },
+  {
+    "id": "ThunderFar",
+    "file": "Assets/Audio/Sfx/Thunder.mp3",
+    "kind": "effect",
+    "durationSec": 4,
+    "loop": false,
+    "reusedExisting": true
+  },
+  {
+    "id": "N1",
+    "file": "Assets/Audio/Voice/NARRATOR/6f365e05e85d15d5fc83.mp3",
+    "kind": "narrator",
+    "text": "Nobody leaves.",
+    "durationSec": 0.862,
+    "loop": false,
+    "reusedExisting": true
+  },
+  {
+    "id": "N4",
+    "file": "Assets/Audio/Run7/NARRATOR/427d5abd057174156e45.mp3",
+    "kind": "narrator",
+    "text": "Same room. New murder.",
+    "durationSec": 1.92,
+    "loop": false,
+    "reusedExisting": true
+  }
+]

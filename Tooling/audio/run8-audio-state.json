@@ -1,0 +1,995 @@
+{
+  "generatedAt": "2026-11-06T10:43:45.735Z",
+  "stopped": null,
+  "missing": [],
+  "results": [
+    {
+      "id": "FolderLift",
+      "file": "Assets/Audio/Run8/FolderLift.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Opening: pinch + lift a case file off the crate",
+      "params": {
+        "text": "A paper manila case file lifted off a wooden desk, soft paper slide and light lift, close and dry. No music, no voice.",
+        "duration_seconds": 1,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "2e379f6180a498667ba8b861c55133b109db3e0c8787b93c686477722ae82e3c",
+      "credits": 12,
+      "estimate": false,
+      "durationSec": 0.546,
+      "rmsDb": -29.6,
+      "peakDb": -4.1,
+      "lufs": -25.95
+    },
+    {
+      "id": "FolderOpen",
+      "file": "Assets/Audio/Run8/FolderOpen.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Opening: pull the folder open to start Preset/Dynamic",
+      "params": {
+        "text": "A sealed paper folder pulled open, small brittle wax seal cracking, then paper flap opening, close and crisp. No music, no voice.",
+        "duration_seconds": 1.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "e86d3fdae53ef3f409007dae9b05d5c82ee21e426aa5859c68a7c22359483ce6",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 1.275,
+      "rmsDb": -24,
+      "peakDb": -0.3,
+      "lufs": -25.04
+    },
+    {
+      "id": "Magnifier",
+      "file": "Assets/Audio/Run8/Magnifier.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Opening: CAST THIS ROOM folder (Dynamic) magnifier",
+      "params": {
+        "text": "A glass magnifying lens picked up from a wooden desk with a light wooden tap, then a clear sparkling magical glint chime that rings softly for a moment. No music, no voice.",
+        "duration_seconds": 1.2,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "fd5ec957d1dde1762d90c0e0b06f639ac86ff7bbfa7f12b8eef73af046873889",
+      "credits": 15,
+      "estimate": false,
+      "durationSec": 0.962,
+      "rmsDb": -24.6,
+      "peakDb": -4.1,
+      "lufs": -23.79
+    },
+    {
+      "id": "CrateHum",
+      "file": "Assets/Audio/Run8/CrateHum.mp3",
+      "kind": "effect",
+      "loop": true,
+      "use": "Crate placement: glowing outline carried in hand (loop)",
+      "params": {
+        "text": "Soft warm glowing hologram hum, gentle airy shimmer, steady seamless loop, no clicks. No music, no voice.",
+        "duration_seconds": 3,
+        "loop": true,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "969185dcd25caac452e39f446b7dd4707e70bbc0c4cd43e4000d06968649834e",
+      "credits": 36,
+      "estimate": false,
+      "durationSec": 3,
+      "rmsDb": -25.5,
+      "peakDb": -13,
+      "lufs": -26.04
+    },
+    {
+      "id": "CrateLand",
+      "file": "Assets/Audio/Run8/CrateLand.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Crate placement: crate locks onto a surface",
+      "params": {
+        "text": "A heavy wooden crate set down on a table, one deep solid thud with a soft puff of dust settling. No music, no voice.",
+        "duration_seconds": 1.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "7b6146c9fce12a12dc7c7d10adc85c08f9e61f4263fc30d9167bcc9d5089535e",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 1.179,
+      "rmsDb": -26.5,
+      "peakDb": -4.2,
+      "lufs": -23.45
+    },
+    {
+      "id": "LandingRing",
+      "file": "Assets/Audio/Run8/LandingRing.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Crate placement: landing ring appears on detected table/floor",
+      "params": {
+        "text": "A soft rising magical shimmer, gentle airy glass tones swelling upward, subtle. No music, no voice.",
+        "duration_seconds": 1.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "9377d187445f6311ef665bded9548617b873acb6aaf4dc98cea7e250e458b885",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 1.394,
+      "rmsDb": -30.2,
+      "peakDb": -13.8,
+      "lufs": -25.5
+    },
+    {
+      "id": "ThunderNear",
+      "file": "Assets/Audio/Run8/ThunderNear.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wow 2: storm at the real window (spatial, at window)",
+      "params": {
+        "text": "One close thunder clap, sharp crack then a heavy rolling rumble, heard from indoors through a window. No music, no voice.",
+        "duration_seconds": 3.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "3a99973ae8c4c52ac88f2bf8a2819e513f45831590d2cbc0c482c1fffd86ac06",
+      "credits": 42,
+      "estimate": false,
+      "durationSec": 3.326,
+      "rmsDb": -22.7,
+      "peakDb": -5,
+      "lufs": -23.56
+    },
+    {
+      "id": "LightningCrack",
+      "file": "Assets/Audio/Run8/LightningCrack.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wow 2: lightning flash reveals the ghost silhouette",
+      "params": {
+        "text": "A sharp electric lightning crack, bright snapping discharge with a quick sizzle, short. No music, no voice.",
+        "duration_seconds": 1,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "48b4d14f11ab54350687f37f482a5da0d6aa809417ef3dc9ae2c93e9a7d414a4",
+      "credits": 12,
+      "estimate": false,
+      "durationSec": 1,
+      "rmsDb": -30.7,
+      "peakDb": -11.3,
+      "lufs": -25.52
+    },
+    {
+      "id": "TapeStretch",
+      "file": "Assets/Audio/Run8/TapeStretch.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wow 2: tape across the real doorway (\"Nobody leaves\")",
+      "params": {
+        "text": "Plastic crime scene barrier tape pulled and stretched taut across a doorway, a creaky plastic stretch then a crisp snap. No music, no voice.",
+        "duration_seconds": 1.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "fdd155076c632437e0888ec3ee3468a04cd2e53bbbc7f4cd17d5103b119f2bfc",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 1.127,
+      "rmsDb": -27.2,
+      "peakDb": -2.9,
+      "lufs": -24.53
+    },
+    {
+      "id": "ChalkCircle",
+      "file": "Assets/Audio/Run8/ChalkCircle.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Zone names drawn as chalk circles on the floor; chalk outline",
+      "params": {
+        "text": "A piece of chalk drawn in one continuous circle on a wooden floor, dry gritty scrape, close. No music, no voice.",
+        "duration_seconds": 1.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "387f82534635d7d7bd3843d2df9bed3381440a584ed1df04efc2221788c43cca",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 1.439,
+      "rmsDb": -26.2,
+      "peakDb": -6.7,
+      "lufs": -24.76
+    },
+    {
+      "id": "PinPhoto",
+      "file": "Assets/Audio/Run8/PinPhoto.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wall board: memory photo pins itself",
+      "params": {
+        "text": "A photograph pinned to a cork board with a pushpin, a soft paper tap and a small push into cork. No music, no voice.",
+        "duration_seconds": 0.8,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "4e3616524cbde32e40a84fbfd8b833818644b8b9c7cf9f3673f6d8f6b4923065",
+      "credits": 10,
+      "estimate": false,
+      "durationSec": 0.448,
+      "rmsDb": -22.5,
+      "peakDb": -7,
+      "lufs": -23.45
+    },
+    {
+      "id": "RedString",
+      "file": "Assets/Audio/Run8/RedString.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wow 4: red string connects evidence",
+      "params": {
+        "text": "A thin string pulled taut and wound around a metal pin, quick taut twang and a small wrap. No music, no voice.",
+        "duration_seconds": 1.2,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "d1f72fb61311cd52c13826ab63ede40a3812e59494f2d69066017c092bef7a26",
+      "credits": 15,
+      "estimate": false,
+      "durationSec": 1.202,
+      "rmsDb": -34.6,
+      "peakDb": -9.6,
+      "lufs": -26.55
+    },
+    {
+      "id": "WaxSealPress",
+      "file": "Assets/Audio/Run8/WaxSealPress.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Accuse: hold pinch on the wax seal to commit",
+      "params": {
+        "text": "A thumb pressing slowly into warm soft wax, a low satisfying squish, then one small firm seal click. No music, no voice.",
+        "duration_seconds": 1.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "28c566cdb8ac219b6e5c4e92fa75e43ee1d2b498e76c7bb42213cbb732eee16f",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 1.098,
+      "rmsDb": -28.2,
+      "peakDb": -0.9,
+      "lufs": -27.75
+    },
+    {
+      "id": "SpotlightOn",
+      "file": "Assets/Audio/Run8/SpotlightOn.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Accuse: spotlight beam from finger to suspect",
+      "params": {
+        "text": "A heavy theatrical spotlight switching on, one metal clunk followed by a low electrical hum. No music, no voice.",
+        "duration_seconds": 2,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "fb8f340897e5ae61aad89d8173952d9d3ab909014ba612b869511f673c654aea",
+      "credits": 24,
+      "estimate": false,
+      "durationSec": 1.476,
+      "rmsDb": -21.7,
+      "peakDb": -1.1,
+      "lufs": -23.39
+    },
+    {
+      "id": "GhostWhoosh",
+      "file": "Assets/Audio/Run8/GhostWhoosh.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wow 3: ghost vignette appears at an object",
+      "params": {
+        "text": "A soft breathy airy whoosh, ghostly and gentle, a faint shimmer as something appears. No music, no voice.",
+        "duration_seconds": 1.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "f86b9a1e2feead3caa50c343089f3d764bd04406ce5d81c4e7de0b812c4ea164",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 0.79,
+      "rmsDb": -30.1,
+      "peakDb": -14.9,
+      "lufs": -27.55
+    },
+    {
+      "id": "ReplayRewind",
+      "file": "Assets/Audio/Run8/ReplayRewind.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wow 3: pulled memory blooms into a replay",
+      "params": {
+        "text": "A short magnetic tape rewind warble, pitch sweeping down into a dreamy wobble. No music, no voice.",
+        "duration_seconds": 1.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "6ee737e8f35b07770a18773c65b5de6c28f5c61f9683637b3f0ea51f60a2be0c",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 1.48,
+      "rmsDb": -22.4,
+      "peakDb": -10.8,
+      "lufs": -23.44
+    },
+    {
+      "id": "DustBrush",
+      "file": "Assets/Audio/Run8/DustBrush.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wow 9: wave hand over a surface to dust for prints",
+      "params": {
+        "text": "A soft fingerprint brush dusting fine powder onto glass and ceramic, light bristly swishes, close. No music, no voice.",
+        "duration_seconds": 1.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "66ac2fbef1975467ebe05d00d8f70cf0d24e7d1a9269fe3f8192475bcd01ac15",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 0.8,
+      "rmsDb": -19,
+      "peakDb": -6.4,
+      "lufs": -24.52
+    },
+    {
+      "id": "PrintReveal",
+      "file": "Assets/Audio/Run8/PrintReveal.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wow 9: fingerprint glows",
+      "params": {
+        "text": "A tiny glittering bright chime, delicate sparkle as something glows into view. No music, no voice.",
+        "duration_seconds": 1,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "02e7c0350ddcf1d33ef0c9d591dd76b586a98db5ec5b146cc9b70f0ceeb522ff",
+      "credits": 12,
+      "estimate": false,
+      "durationSec": 0.417,
+      "rmsDb": -32.1,
+      "peakDb": -12.9,
+      "lufs": -28.75
+    },
+    {
+      "id": "NewspaperUnfold",
+      "file": "Assets/Audio/Run8/NewspaperUnfold.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Ending (wow 8): Morning Edition appears in your hands",
+      "params": {
+        "text": "A newspaper unfolded in two hands, crisp large paper rustle and a snap open. No music, no voice.",
+        "duration_seconds": 1.5,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "33969394aef03875adc411a5a21bf207d1e9bb76c2bbb2ea359d38f71fdb3641",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 1.327,
+      "rmsDb": -26.8,
+      "peakDb": -1.3,
+      "lufs": -23.64
+    },
+    {
+      "id": "LensCrack",
+      "file": "Assets/Audio/Run8/LensCrack.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Credibility -1: crack in the lens icon on the palm notebook",
+      "params": {
+        "text": "A small single glass crack, a tight brittle splinter, short. No music, no voice.",
+        "duration_seconds": 0.7,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "25fbe19b47145f225b9e1cace3bbb6369e0fa32143f2a8391f3759a2f195bc14",
+      "credits": 8,
+      "estimate": false,
+      "durationSec": 0.524,
+      "rmsDb": -33.9,
+      "peakDb": -7.6,
+      "lufs": -29.99
+    },
+    {
+      "id": "PalmOpen",
+      "file": "Assets/Audio/Run8/PalmOpen.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Palm notebook appears when the left palm turns up",
+      "params": {
+        "text": "An airy soft gentle chime, light breathy bell, opening and welcoming. No music, no voice.",
+        "duration_seconds": 0.8,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "requestId": "b52a1bad08dfbb9cf7659cc2434ead88a95f8ddee84cf5d0b75ae7e1eb9aa6f4",
+      "credits": 10,
+      "estimate": false,
+      "durationSec": 0.617,
+      "rmsDb": -27.4,
+      "peakDb": -15.8,
+      "lufs": -24.78
+    },
+    {
+      "id": "DoorKnock3",
+      "file": "Assets/Audio/Run8/DoorKnock3.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wow 7: knock from the real door (spatial, at doorway)",
+      "params": {
+        "text": "Three slow evenly spaced firm knuckle knocks on a solid wooden door, knock, knock, knock, heard from across a room, natural room reverb. No music, no voice.",
+        "duration_seconds": 2,
+        "loop": false,
+        "model_id": "eleven_text_to_sound_v2",
+        "prompt_influence": 0.5
+      },
+      "edit": "asplit=2[a][b];[a]atrim=0:0.355,afade=t=out:st=0.347:d=0.008[x];[b]atrim=start=0.715,asetpts=PTS-STARTPTS,afade=t=in:d=0.005[y];[x][y]concat=n=2:v=0:a=1,",
+      "requestId": "e0160fd35e6b6f2f365fc98ec223646ec00fc3e12ccaa8284eb8429a1b24651f",
+      "credits": 24,
+      "estimate": false,
+      "durationSec": 0.7,
+      "rmsDb": -23.5,
+      "peakDb": -6.8,
+      "lufs": -23.5
+    },
+    {
+      "id": "W1",
+      "file": "Assets/Audio/Run8/Wren_W1_OverHere.mp3",
+      "kind": "wren",
+      "text": "Over here.",
+      "loop": false,
+      "use": "Wow 7: whisper from behind the player (spatial)",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[whispers] Over here.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "31e269ba44d711ca9564597528558d5fe546f70f9975b0ff3ac908a06f30d845",
+      "credits": 10,
+      "estimate": false,
+      "durationSec": 0.962,
+      "rmsDb": -17.9,
+      "peakDb": -4.3,
+      "lufs": -16.22
+    },
+    {
+      "id": "W2",
+      "file": "Assets/Audio/Run8/Wren_W2_BehindYou.mp3",
+      "kind": "wren",
+      "text": "Behind you.",
+      "loop": false,
+      "use": "Wow 7: whisper from behind (spatial)",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[whispers] Behind you.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 0.5,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1042,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "edit": "atrim=0:1.3,afade=t=out:st=1.22:d=0.08,",
+      "requestId": "6771638fc91b1f30ac71c5881dcf0ae84b6ad3180dbb2f03a5d1de43308cc6d3",
+      "credits": 11,
+      "estimate": false,
+      "durationSec": 1.162,
+      "rmsDb": -18.5,
+      "peakDb": -2.5,
+      "lufs": -16.42
+    },
+    {
+      "id": "W3",
+      "file": "Assets/Audio/Run8/Wren_W3_HoldPhoto.mp3",
+      "kind": "wren",
+      "text": "Hold the photo up to her.",
+      "loop": false,
+      "use": "Hint: present a memory photo to a suspect",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Hold the photo up to her.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "be7421d6091c177254330dc41ccd000846eb1cdb6cb64ff1d500d7d793ba3ba9",
+      "credits": 16,
+      "estimate": false,
+      "durationSec": 1.246,
+      "rmsDb": -17.6,
+      "peakDb": -1.5,
+      "lufs": -17.78
+    },
+    {
+      "id": "W4",
+      "file": "Assets/Audio/Run8/Wren_W4_PointGuest.mp3",
+      "kind": "wren",
+      "text": "Point at another guest to ask about them.",
+      "loop": false,
+      "use": "Hint: point at a suspect to ask about them",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Point at another guest to ask about them.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "338b5f38587f3f2141dd521bb9ad709a9f6876d4925d43c9182ee5f12876bd29",
+      "credits": 23,
+      "estimate": false,
+      "durationSec": 2.32,
+      "rmsDb": -16.9,
+      "peakDb": -1.6,
+      "lufs": -16.76
+    },
+    {
+      "id": "W5",
+      "file": "Assets/Audio/Run8/Wren_W5_PalmNotebook.mp3",
+      "kind": "wren",
+      "text": "Turn your left palm up. Your notebook.",
+      "loop": false,
+      "use": "Hint: first palm-notebook prompt",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Turn your left palm up. Your notebook.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "a587d90fb0b5553560d5aefa9ca71ba0f34b2a7cc3901de2d5d966af628f51cc",
+      "credits": 22,
+      "estimate": false,
+      "durationSec": 2.868,
+      "rmsDb": -17.2,
+      "peakDb": -4.3,
+      "lufs": -16.43
+    },
+    {
+      "id": "W6",
+      "file": "Assets/Audio/Run8/Wren_W6_CarryWords.mp3",
+      "kind": "wren",
+      "text": "Carry her words to the thing that proves her wrong.",
+      "loop": false,
+      "use": "Hint: objection by carrying a statement to evidence",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Carry her words to the thing that proves her wrong.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "ff2ff6441e2d14b2d98133b6edeffcd420084aa97b0bb70f5ced147ce897a920",
+      "credits": 28,
+      "estimate": false,
+      "durationSec": 2.882,
+      "rmsDb": -17.1,
+      "peakDb": -2.2,
+      "lufs": -17.57
+    },
+    {
+      "id": "W7",
+      "file": "Assets/Audio/Run8/Wren_W7_SetCase.mp3",
+      "kind": "wren",
+      "text": "Set the case down on a table.",
+      "loop": false,
+      "use": "Crate placement prompt",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Set the case down on a table.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "394bcafe643137b90389bc0ef088626bfe6745151535688f46f9db05594364a4",
+      "credits": 17,
+      "estimate": false,
+      "durationSec": 1.947,
+      "rmsDb": -16.6,
+      "peakDb": -1.9,
+      "lufs": -16.68
+    },
+    {
+      "id": "W8",
+      "file": "Assets/Audio/Run8/Wren_W8_PickFile.mp3",
+      "kind": "wren",
+      "text": "Pick a file. Pull it open.",
+      "loop": false,
+      "use": "Opening: two case files prompt",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Pick a file. Pull it open.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "461c598417b02be04dd137250a9e3f954922d2084ae1c03d9315f26efc851784",
+      "credits": 16,
+      "estimate": false,
+      "durationSec": 2.088,
+      "rmsDb": -18.4,
+      "peakDb": -2.1,
+      "lufs": -16.99
+    },
+    {
+      "id": "W9",
+      "file": "Assets/Audio/Run8/Wren_W9_PointAccuse.mp3",
+      "kind": "wren",
+      "text": "Point at the one you accuse.",
+      "loop": false,
+      "use": "Accuse: point at a suspect",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Point at the one you accuse.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "be13e62adb4c5c4397056090f1f3562d69c39273744069c189de12a0a887b4c0",
+      "credits": 17,
+      "estimate": false,
+      "durationSec": 1.682,
+      "rmsDb": -16.5,
+      "peakDb": -2.9,
+      "lufs": -16.41
+    },
+    {
+      "id": "W10",
+      "file": "Assets/Audio/Run8/Wren_W10_PressSeal.mp3",
+      "kind": "wren",
+      "text": "Press the seal. Hold it.",
+      "loop": false,
+      "use": "Accuse: wax seal commit",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Press the seal. Hold it.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "9e2c01e656891f1693f0967306a05e3733015bee047fd9deef5ef6262d669c7a",
+      "credits": 15,
+      "estimate": false,
+      "durationSec": 2.323,
+      "rmsDb": -19.2,
+      "peakDb": -2.2,
+      "lufs": -17.73
+    },
+    {
+      "id": "W11",
+      "file": "Assets/Audio/Run8/Wren_W11_SweepLight.mp3",
+      "kind": "wren",
+      "text": "Sweep the floor with the light.",
+      "loop": false,
+      "use": "Wow 6: UV flashlight dark beat",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Sweep the floor with the light.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "a5f7693186b24e0b7def6269f326b9ca0a2ba688715b2f689e682fda14d6c2c9",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 2.021,
+      "rmsDb": -18.2,
+      "peakDb": -1.8,
+      "lufs": -18.11
+    },
+    {
+      "id": "W12",
+      "file": "Assets/Audio/Run8/Wren_W12_DustPrints.mp3",
+      "kind": "wren",
+      "text": "Wave your hand over it. Dust for prints.",
+      "loop": false,
+      "use": "Wow 9: dusting prompt",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Wave your hand over it. Dust for prints.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "89aa41e359c3f41879480fc562e10e85ec004d158fa99e96bd123c1bf6251d29",
+      "credits": 23,
+      "estimate": false,
+      "durationSec": 2.54,
+      "rmsDb": -17.6,
+      "peakDb": -2,
+      "lufs": -17.99
+    },
+    {
+      "id": "W13",
+      "file": "Assets/Audio/Run8/Wren_W13_ReadBoard.mp3",
+      "kind": "wren",
+      "text": "The board's on the wall. Walk over and read it.",
+      "loop": false,
+      "use": "Wall board introduction",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] The board's on the wall. Walk over and read it.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "ea110029e6f40773d20558652666d81b8df54d42a2764b1f3969b5cd451d3be8",
+      "credits": 26,
+      "estimate": false,
+      "durationSec": 2.618,
+      "rmsDb": -16.3,
+      "peakDb": -3.8,
+      "lufs": -16.42
+    },
+    {
+      "id": "W14",
+      "file": "Assets/Audio/Run8/Wren_W14_WatchKettle.mp3",
+      "kind": "wren",
+      "text": "Watch the kettle. It remembers.",
+      "loop": false,
+      "use": "Wow 3: kettle replay at 22:30",
+      "voiceId": "jNpgKgWPoh3vfj5CBSyr",
+      "params": {
+        "text": "[calm] Watch the kettle. It remembers.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "jNpgKgWPoh3vfj5CBSyr"
+      },
+      "requestId": "927fecaca826cff7364be139863a0e1e18d9c056419d070c78df0f9a52bf893b",
+      "credits": 18,
+      "estimate": false,
+      "durationSec": 2.402,
+      "rmsDb": -17.6,
+      "peakDb": -1.9,
+      "lufs": -17.22
+    },
+    {
+      "id": "N2",
+      "file": "Assets/Audio/Run8/Narrator_N2_TenThirty.mp3",
+      "kind": "narrator",
+      "text": "Ten thirty. The moment it happened.",
+      "loop": false,
+      "use": "Wow 3: replay title card at 22:30",
+      "voiceId": "UeBBciydI2n3MwV18MHO",
+      "params": {
+        "text": "[calm] Ten thirty. The moment it happened.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "UeBBciydI2n3MwV18MHO"
+      },
+      "requestId": "a14643634db7ec3280a94bc5ee6d5e45aad642c5f27a94d0109f4ed1091b4e76",
+      "credits": 20,
+      "estimate": false,
+      "durationSec": 2.837,
+      "rmsDb": -18.7,
+      "peakDb": -1.8,
+      "lufs": -18.37
+    },
+    {
+      "id": "N3",
+      "file": "Assets/Audio/Run8/Narrator_N3_MorningEdition.mp3",
+      "kind": "narrator",
+      "text": "Morning edition.",
+      "loop": false,
+      "use": "Ending (wow 8): newspaper appears",
+      "voiceId": "UeBBciydI2n3MwV18MHO",
+      "params": {
+        "text": "[calm] Morning edition.",
+        "model_id": "eleven_v3",
+        "voice_settings": {
+          "stability": 1,
+          "similarity_boost": 0.75,
+          "use_speaker_boost": true
+        },
+        "seed": 1041,
+        "voiceId": "UeBBciydI2n3MwV18MHO"
+      },
+      "requestId": "3d563e132edb8fba8657e619c1df8c52b652c7939a823ee3b1fcc1afb6128e5d",
+      "credits": 11,
+      "estimate": false,
+      "durationSec": 1.086,
+      "rmsDb": -14.1,
+      "peakDb": -1.3,
+      "lufs": -16.6
+    },
+    {
+      "id": "StampThump",
+      "file": "Assets/Audio/Sfx/Stamp.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Deduction filed / CASE CLOSED stamp lands on the wall board",
+      "reused": true,
+      "note": "Existing prompt: heavy rubber stamp on paper with a wooden thump.",
+      "credits": 0,
+      "estimate": false,
+      "durationSec": 1,
+      "rmsDb": -26.5,
+      "peakDb": 0,
+      "lufs": -20.8
+    },
+    {
+      "id": "RainGlass",
+      "file": "Assets/Audio/Sfx/Rain.mp3",
+      "kind": "effect",
+      "loop": true,
+      "use": "Wow 2: rain on the real window (spatial loop)",
+      "reused": true,
+      "note": "Existing 12 s loop: rain tapping an old window, interior.",
+      "credits": 0,
+      "estimate": false,
+      "durationSec": 12,
+      "rmsDb": -22.5,
+      "peakDb": -0.3,
+      "lufs": -21.93
+    },
+    {
+      "id": "UVHum",
+      "file": "Assets/Audio/Sfx/UvHum.mp3",
+      "kind": "effect",
+      "loop": true,
+      "use": "Wow 6: UV flashlight cone in the palm (loop)",
+      "reused": true,
+      "note": "Existing 6 s UV lamp hum loop; no switch-on click inside the loop (a click would repeat).",
+      "credits": 0,
+      "estimate": false,
+      "durationSec": 6,
+      "rmsDb": -27,
+      "peakDb": -15.6,
+      "lufs": -23.74
+    },
+    {
+      "id": "ThunderFar",
+      "file": "Assets/Audio/Sfx/Thunder.mp3",
+      "kind": "effect",
+      "loop": false,
+      "use": "Wow 2: distant thunder at the window (spatial)",
+      "reused": true,
+      "note": "Existing 4 s distant rolling peal.",
+      "credits": 0,
+      "estimate": false,
+      "durationSec": 4,
+      "rmsDb": -21.2,
+      "peakDb": -4.7,
+      "lufs": -21.84
+    },
+    {
+      "id": "N1",
+      "file": "Assets/Audio/Voice/NARRATOR/6f365e05e85d15d5fc83.mp3",
+      "kind": "narrator",
+      "text": "Nobody leaves.",
+      "loop": false,
+      "use": "Tape across the doorway: \"Nobody leaves.\"",
+      "reused": true,
+      "note": "Existing NARRATOR steady take.",
+      "credits": 0,
+      "estimate": false,
+      "durationSec": 0.862,
+      "rmsDb": -22.3,
+      "peakDb": -3.2,
+      "lufs": -23.45
+    },
+    {
+      "id": "N4",
+      "file": "Assets/Audio/Run7/NARRATOR/427d5abd057174156e45.mp3",
+      "kind": "narrator",
+      "text": "Same room. New murder.",
+      "loop": false,
+      "use": "Replay / new seed: \"Same room. New murder.\"",
+      "reused": true,
+      "note": "Existing Run 7 NARRATOR take.",
+      "credits": 0,
+      "estimate": false,
+      "durationSec": 1.92,
+      "rmsDb": -16.7,
+      "peakDb": -1.2,
+      "lufs": -16.47
+    }
+  ]
+}

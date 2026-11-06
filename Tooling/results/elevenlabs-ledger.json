@@ -10833,9 +10833,378 @@
       "estimate": false,
       "at": "2026-11-05T21:52:06.859Z",
       "segment": "run7-2026-11-05"
+    },
+    {
+      "id": "2e379f6180a498667ba8b861c55133b109db3e0c8787b93c686477722ae82e3c",
+      "label": "run8:sfx:FolderLift",
+      "status": "complete",
+      "credits": 12,
+      "estimate": false,
+      "at": "2026-11-06T10:38:39.505Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "e86d3fdae53ef3f409007dae9b05d5c82ee21e426aa5859c68a7c22359483ce6",
+      "label": "run8:sfx:FolderOpen",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:38:42.198Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "393c1ce7b539cb863f8fdd066816cde3b8ef3388d42a9c7f3889c70425eba4c4",
+      "label": "run8:sfx:Magnifier",
+      "status": "complete",
+      "credits": 15,
+      "estimate": false,
+      "at": "2026-11-06T10:38:45.635Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "969185dcd25caac452e39f446b7dd4707e70bbc0c4cd43e4000d06968649834e",
+      "label": "run8:sfx:CrateHum",
+      "status": "complete",
+      "credits": 36,
+      "estimate": false,
+      "at": "2026-11-06T10:38:47.798Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "7b6146c9fce12a12dc7c7d10adc85c08f9e61f4263fc30d9167bcc9d5089535e",
+      "label": "run8:sfx:CrateLand",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:38:51.194Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "9377d187445f6311ef665bded9548617b873acb6aaf4dc98cea7e250e458b885",
+      "label": "run8:sfx:LandingRing",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:38:54.246Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "3a99973ae8c4c52ac88f2bf8a2819e513f45831590d2cbc0c482c1fffd86ac06",
+      "label": "run8:sfx:ThunderNear",
+      "status": "complete",
+      "credits": 42,
+      "estimate": false,
+      "at": "2026-11-06T10:38:56.455Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "48b4d14f11ab54350687f37f482a5da0d6aa809417ef3dc9ae2c93e9a7d414a4",
+      "label": "run8:sfx:LightningCrack",
+      "status": "complete",
+      "credits": 12,
+      "estimate": false,
+      "at": "2026-11-06T10:38:58.990Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "fdd155076c632437e0888ec3ee3468a04cd2e53bbbc7f4cd17d5103b119f2bfc",
+      "label": "run8:sfx:TapeStretch",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:39:01.135Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "387f82534635d7d7bd3843d2df9bed3381440a584ed1df04efc2221788c43cca",
+      "label": "run8:sfx:ChalkCircle",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:39:03.572Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "4e3616524cbde32e40a84fbfd8b833818644b8b9c7cf9f3673f6d8f6b4923065",
+      "label": "run8:sfx:PinPhoto",
+      "status": "complete",
+      "credits": 10,
+      "estimate": false,
+      "at": "2026-11-06T10:39:06.634Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "d1f72fb61311cd52c13826ab63ede40a3812e59494f2d69066017c092bef7a26",
+      "label": "run8:sfx:RedString",
+      "status": "complete",
+      "credits": 15,
+      "estimate": false,
+      "at": "2026-11-06T10:39:09.047Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "28c566cdb8ac219b6e5c4e92fa75e43ee1d2b498e76c7bb42213cbb732eee16f",
+      "label": "run8:sfx:WaxSealPress",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:39:11.417Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "fb8f340897e5ae61aad89d8173952d9d3ab909014ba612b869511f673c654aea",
+      "label": "run8:sfx:SpotlightOn",
+      "status": "complete",
+      "credits": 24,
+      "estimate": false,
+      "at": "2026-11-06T10:39:13.647Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "f86b9a1e2feead3caa50c343089f3d764bd04406ce5d81c4e7de0b812c4ea164",
+      "label": "run8:sfx:GhostWhoosh",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:39:16.247Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "6ee737e8f35b07770a18773c65b5de6c28f5c61f9683637b3f0ea51f60a2be0c",
+      "label": "run8:sfx:ReplayRewind",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:39:18.547Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "66ac2fbef1975467ebe05d00d8f70cf0d24e7d1a9269fe3f8192475bcd01ac15",
+      "label": "run8:sfx:DustBrush",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:39:21.145Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "02e7c0350ddcf1d33ef0c9d591dd76b586a98db5ec5b146cc9b70f0ceeb522ff",
+      "label": "run8:sfx:PrintReveal",
+      "status": "complete",
+      "credits": 12,
+      "estimate": false,
+      "at": "2026-11-06T10:39:23.430Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "33969394aef03875adc411a5a21bf207d1e9bb76c2bbb2ea359d38f71fdb3641",
+      "label": "run8:sfx:NewspaperUnfold",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:39:25.934Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "25fbe19b47145f225b9e1cace3bbb6369e0fa32143f2a8391f3759a2f195bc14",
+      "label": "run8:sfx:LensCrack",
+      "status": "complete",
+      "credits": 8,
+      "estimate": false,
+      "at": "2026-11-06T10:39:28.196Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "b52a1bad08dfbb9cf7659cc2434ead88a95f8ddee84cf5d0b75ae7e1eb9aa6f4",
+      "label": "run8:sfx:PalmOpen",
+      "status": "complete",
+      "credits": 10,
+      "estimate": false,
+      "at": "2026-11-06T10:39:30.308Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "5bc6ed65d029b826710e02ca5fc62efbedb069b362dd45ee070e8f30b9850e24",
+      "label": "run8:sfx:DoorKnock3",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:39:32.847Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "31e269ba44d711ca9564597528558d5fe546f70f9975b0ff3ac908a06f30d845",
+      "label": "run8:WREN:W1",
+      "status": "complete",
+      "credits": 10,
+      "estimate": false,
+      "at": "2026-11-06T10:39:35.162Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "aa79f2ea061f6f6ff2a61b4447b5c6976e92bf5ae7254f595d2902d838567d09",
+      "label": "run8:WREN:W2",
+      "status": "complete",
+      "credits": 11,
+      "estimate": false,
+      "at": "2026-11-06T10:39:37.463Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "be7421d6091c177254330dc41ccd000846eb1cdb6cb64ff1d500d7d793ba3ba9",
+      "label": "run8:WREN:W3",
+      "status": "complete",
+      "credits": 16,
+      "estimate": false,
+      "at": "2026-11-06T10:39:38.866Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "338b5f38587f3f2141dd521bb9ad709a9f6876d4925d43c9182ee5f12876bd29",
+      "label": "run8:WREN:W4",
+      "status": "complete",
+      "credits": 23,
+      "estimate": false,
+      "at": "2026-11-06T10:39:40.378Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "a587d90fb0b5553560d5aefa9ca71ba0f34b2a7cc3901de2d5d966af628f51cc",
+      "label": "run8:WREN:W5",
+      "status": "complete",
+      "credits": 22,
+      "estimate": false,
+      "at": "2026-11-06T10:39:42.311Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "ff2ff6441e2d14b2d98133b6edeffcd420084aa97b0bb70f5ced147ce897a920",
+      "label": "run8:WREN:W6",
+      "status": "complete",
+      "credits": 28,
+      "estimate": false,
+      "at": "2026-11-06T10:39:44.453Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "394bcafe643137b90389bc0ef088626bfe6745151535688f46f9db05594364a4",
+      "label": "run8:WREN:W7",
+      "status": "complete",
+      "credits": 17,
+      "estimate": false,
+      "at": "2026-11-06T10:39:46.662Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "461c598417b02be04dd137250a9e3f954922d2084ae1c03d9315f26efc851784",
+      "label": "run8:WREN:W8",
+      "status": "complete",
+      "credits": 16,
+      "estimate": false,
+      "at": "2026-11-06T10:39:48.444Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "be13e62adb4c5c4397056090f1f3562d69c39273744069c189de12a0a887b4c0",
+      "label": "run8:WREN:W9",
+      "status": "complete",
+      "credits": 17,
+      "estimate": false,
+      "at": "2026-11-06T10:39:50.303Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "9e2c01e656891f1693f0967306a05e3733015bee047fd9deef5ef6262d669c7a",
+      "label": "run8:WREN:W10",
+      "status": "complete",
+      "credits": 15,
+      "estimate": false,
+      "at": "2026-11-06T10:39:51.922Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "a5f7693186b24e0b7def6269f326b9ca0a2ba688715b2f689e682fda14d6c2c9",
+      "label": "run8:WREN:W11",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:39:53.745Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "89aa41e359c3f41879480fc562e10e85ec004d158fa99e96bd123c1bf6251d29",
+      "label": "run8:WREN:W12",
+      "status": "complete",
+      "credits": 23,
+      "estimate": false,
+      "at": "2026-11-06T10:39:55.580Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "ea110029e6f40773d20558652666d81b8df54d42a2764b1f3969b5cd451d3be8",
+      "label": "run8:WREN:W13",
+      "status": "complete",
+      "credits": 26,
+      "estimate": false,
+      "at": "2026-11-06T10:39:57.775Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "927fecaca826cff7364be139863a0e1e18d9c056419d070c78df0f9a52bf893b",
+      "label": "run8:WREN:W14",
+      "status": "complete",
+      "credits": 18,
+      "estimate": false,
+      "at": "2026-11-06T10:39:59.774Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "a14643634db7ec3280a94bc5ee6d5e45aad642c5f27a94d0109f4ed1091b4e76",
+      "label": "run8:NARRATOR:N2",
+      "status": "complete",
+      "credits": 20,
+      "estimate": false,
+      "at": "2026-11-06T10:40:01.406Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "3d563e132edb8fba8657e619c1df8c52b652c7939a823ee3b1fcc1afb6128e5d",
+      "label": "run8:NARRATOR:N3",
+      "status": "complete",
+      "credits": 11,
+      "estimate": false,
+      "at": "2026-11-06T10:40:03.862Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "fd5ec957d1dde1762d90c0e0b06f639ac86ff7bbfa7f12b8eef73af046873889",
+      "label": "run8:sfx:Magnifier",
+      "status": "complete",
+      "credits": 15,
+      "estimate": false,
+      "at": "2026-11-06T10:40:25.384Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "e0160fd35e6b6f2f365fc98ec223646ec00fc3e12ccaa8284eb8429a1b24651f",
+      "label": "run8:sfx:DoorKnock3",
+      "status": "complete",
+      "credits": 24,
+      "estimate": false,
+      "at": "2026-11-06T10:41:42.450Z",
+      "segment": "run8-2026-11-06"
+    },
+    {
+      "id": "6771638fc91b1f30ac71c5881dcf0ae84b6ad3180dbb2f03a5d1de43308cc6d3",
+      "label": "run8:WREN:W2",
+      "status": "complete",
+      "credits": 11,
+      "estimate": false,
+      "at": "2026-11-06T10:41:46.026Z",
+      "segment": "run8-2026-11-06"
     }
   ],
-  "totalCredits": 90997,
+  "totalCredits": 91732,
   "segments": [
     {
       "id": "run5-2026-11-04",
@@ -10865,7 +11234,15 @@
       "baselineAccountedCredits": 87798,
       "baselineEntryCount": 952,
       "authorization": "Wadood Run 7: about 25,000 credits remain from existing allowance; phrase segments first, casting narration, new effects, then voice-agent spike. This is not an additional top-up. Stop generating audio on quota, continue development."
+    },
+    {
+      "id": "run8-2026-11-06",
+      "startedAt": "2026-11-06T10:38:39.488Z",
+      "allowanceCredits": 5000,
+      "baselineAccountedCredits": 90997,
+      "baselineEntryCount": 1289,
+      "authorization": "Run 8 audio worker: object-UI effects + Wren/Narrator cue lines, keep under ~5,000 of ~21,000 remaining. Stop on provider quota error."
     }
   ],
-  "activeSegment": "run7-2026-11-05"
+  "activeSegment": "run8-2026-11-06"
 }

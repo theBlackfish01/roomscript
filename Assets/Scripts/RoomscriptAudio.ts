@@ -7,6 +7,7 @@ import {ROOMScriptCueAssets,ROOMScriptDialogueAssets} from "./RoomscriptVoiceAss
 import {RoomscriptVoiceLibrary,BundledVoice} from "./RoomscriptVoiceLibrary";
 import {ROOMScriptRun7VoiceAssets} from "./RoomscriptRun7VoiceAssets";
 import {ROOMScriptRun7CueAssets} from "./RoomscriptRun7CueAssets";
+import {ROOMScriptRun8CueAssets} from "./RoomscriptRun8CueAssets";
 import {RUN7_VOICE_MANIFEST} from "./Content/Run7VoiceManifest";
 import {DIALOGUE_MANIFEST} from "./Content/DialogueManifest";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
@@ -41,7 +42,7 @@ type SpeechJob={live?:LiveNarration;kind:"voice"|"dialogue";speaker?:string;text
   private cueStarts=0;private tickStarts=0;private tickStartedAt=-1;private tickDuration=0;
   onAwake():void {
     this.createEvent("OnStartEvent").bind(()=>{
-      RoomscriptAudio.active=this;this.clips={...ROOMScriptCueAssets,...ROOMScriptRun7CueAssets};
+      RoomscriptAudio.active=this;this.clips={...ROOMScriptCueAssets,...ROOMScriptRun7CueAssets,...ROOMScriptRun8CueAssets};
       for(const record of RUN7_VOICE_MANIFEST)this.supplemental.set(record.key,{record,track:ROOMScriptRun7VoiceAssets[record.index]});
       this.spatialPool=Array.from({length:4},(_,i)=>this.makeAudio("RoomscriptSpatialAudio_"+i,true));
       this.flatPool=Array.from({length:2},(_,i)=>this.makeAudio("RoomscriptCueAudio_"+i,false));this.tick=this.makeAudio("RoomscriptQuietClock",true);this.clockLoop=this.makeAudio("RoomscriptLoopingClock",true);this.clockLoop.playbackMode=Audio.PlaybackMode.LowPower;
