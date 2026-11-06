@@ -6,6 +6,7 @@ import {worldLines} from "./RoomscriptWorldLines";
 import {lineTubes,circleEdges,flatText,tinted} from "./RoomscriptLineArt";
 import {glyphButton,glyphTexture} from "./RoomscriptGlyphUI";
 import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
+import {HandInputData} from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/HandInputData";
 import {Hypothesis,GameState,CaseGraph} from "./Engine/core/Types";
 import {availableArguments,reconstructionBeats,ReconstructionBeat} from "./Engine/game/Closing";
 import {endingSummary,CitedSentence} from "./Engine/game/CaseClarity";
@@ -23,7 +24,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   private panel:SceneObject;private title:Text;private body:Text;private labels:Text[];private controls:SceneObject;
   private picked:Hypothesis;private opened=false;private heldAt=-1;private phase="idle";private began=0;private frame=-1;
   private frames:ReconstructionBeat[]=[];private summary:CitedSentence[]=[];private ghostMaterials=new Map<string,Material>();private holdUntil=0;private escapeActor:SceneObject;private escapeDoor:vec3;private sealLabel:Text;private ghosts=new Map<string,SceneObject>();private resultText="";
-  private escapeStart:vec3|null=null;private beam:SceneObject;private sealRing:SceneObject;private newspaper:RoomscriptNewspaper;private heldTime=0;
+  private escapeStart:vec3|null=null;private beam:SceneObject;private spot:SceneObject;private sealRing:SceneObject;private newspaper:RoomscriptNewspaper;private heldTime=0;
   private result:SceneObject;
   private details:SceneObject;private routeRoot:SceneObject;private route:RouteReplay;private routeText="";private sealedState:GameState;private sealedGraph:CaseGraph;
   private detailRender:(()=>void)|null=null;
@@ -71,18 +72,22 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     press.onTriggerEnd.add(()=>{const held=this.heldAt>=0&&getTime()-this.heldAt>=1&&this.heldTime>=12;this.heldAt=-1;this.sealRing.enabled=false;if(held){this.clue.objection.tells.audio.play("WaxSealPress");this.accuse();}});
     press.onTriggerCanceled.add(()=>{this.heldAt=-1;this.sealRing.enabled=false;});
     // Spotlight beam from your hand to the suspect you point at.
-    this.beam=lineTubes(this.getSceneObject(),"Accusation spotlight",[...Array.from({length:6},(_,i)=>{const a=i*Math.PI/3;return [new vec3(Math.cos(a)*.6,Math.sin(a)*.6,0),new vec3(Math.cos(a)*14,Math.sin(a)*14,1)] as [vec3,vec3];}),...circleEdges(14,24,new vec3(0,0,1))],tinted(line,new vec4(1,.84,.55,.8)),.5).getSceneObject();this.beam.enabled=false;
+    // Thin unit-length beam along +z (scaled to length each frame) and a spotlight ring at the accused feet.
+    this.beam=lineTubes(this.getSceneObject(),"Accusation spotlight",[[new vec3(-.25,0,0),new vec3(-.25,0,1)],[new vec3(.25,0,0),new vec3(.25,0,1)]],tinted(line,new vec4(1,.84,.55,1)),.3).getSceneObject();this.beam.enabled=false;
+    this.spot=lineTubes(this.getSceneObject(),"Accusation floor spot",[...circleEdges(42,40,new vec3(0,1.5,0),"xz"),...circleEdges(36,36,new vec3(0,1.5,0),"xz")],tinted(line,new vec4(1,.84,.55,1)),1).getSceneObject();this.spot.enabled=false;
     this.panel.enabled=false;
   }
   /** heldTime counts rendered frames while the seal is pressed: a hold is >=1 s and >=12 frames, so a tap that spans a native-audio stall never seals. */
   /** Place the rig at waist height in front of the player when the accusation opens (world-locked). */
   private placeRig():void {const camera=this.cast.flow.actor.camera.getTransform(),eye=camera.getWorldPosition();let forward=camera.getWorldRotation().multiplyVec3(vec3.back());forward.y=0;forward=forward.length>.01?forward.normalize():vec3.back();
-    const at=eye.add(forward.uniformScale(62)).add(new vec3(0,-42,0)),toward=eye.sub(at).normalize();this.panel.getTransform().setWorldPosition(at);this.panel.getTransform().setWorldRotation(quat.lookAt(toward,vec3.up()));this.panel.getTransform().setWorldScale(vec3.one());}
+    const at=eye.add(forward.uniformScale(78)).add(new vec3(0,-50,0)),toward=eye.sub(at).normalize();this.panel.getTransform().setWorldPosition(at);this.panel.getTransform().setWorldRotation(quat.lookAt(toward,vec3.up()));this.panel.getTransform().setWorldScale(vec3.one().uniformScale(.62));}
+  /** Right index fingertip when hands are tracked (Specs); null in Preview, where the beam starts at the rig. */
+  private pointingTip():vec3|null {try{const right=HandInputData.getInstance().getHand("right");if(right&&right.isTracked())return right.indexTip.position;}catch{}return null;}
   private updateSpotlight():void {
-    const show=this.opened&&this.phase==="idle"&&this.panel.enabled;this.beam.enabled=show;if(!show)return;
+    const show=this.opened&&this.phase==="idle"&&this.panel.enabled;this.beam.enabled=show;this.spot.enabled=show;if(!show)return;
     const actor=this.cast.flow.actorFor(this.picked.who);if(!actor)return;const camera=this.cast.flow.actor.camera.getTransform();
-    const from=camera.getWorldPosition().add(camera.getWorldRotation().multiplyVec3(new vec3(18,-30,-20))),to=actor.getTransform().getWorldPosition().add(new vec3(0,115,0)),dir=to.sub(from);
-    const t=this.beam.getTransform();t.setWorldPosition(from);t.setWorldRotation(quat.lookAt(dir.normalize(),vec3.up()));t.setWorldScale(new vec3(1,1,Math.max(1,dir.length)));
+    const hand=this.pointingTip(),from=hand||this.panel.getTransform().getWorldPosition().add(new vec3(0,8,0)),feet=actor.getTransform().getWorldPosition(),to=feet.add(new vec3(0,115,0)),dir=to.sub(from);this.spot.getTransform().setWorldPosition(feet);
+    const t=this.beam.getTransform();t.setWorldPosition(from);t.setWorldRotation(quat.lookAt(dir.normalize(),vec3.up()));t.setWorldScale(new vec3(1,1,Math.max(1,dir.length)));void camera;
     if(this.heldAt>=0){this.heldTime++;const k=Math.min(1,getTime()-this.heldAt);this.sealRing.enabled=true;this.sealRing.getTransform().setLocalScale(vec3.one().uniformScale(.6+.4*k));}
   }
   resetForCase():void {
@@ -95,7 +100,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     const restore=(root:SceneObject)=>{for(let i=0;i<root.getChildrenCount();i++){const child=root.getChild(i);if(RIG_CONTROLS.includes(child.name))child.enabled=true;else restore(child);}};restore(this.panel);
     this.sealLabel.text="HOLD";this.panel.enabled=false;this.clue.envelope.enabled=true;this.clue.objection.tells.audio.silence(false);this.showInvestigation(true);this.render();
   }
-  open():void {const state=this.cast.flow.engine.snapshot();if(state.verdict&&state.verdict!=="timeout")return;this.cast.flow.cancel();this.clue.objection.close();this.picked=this.clue.selected()||this.picked;this.opened=true;this.placeRig();this.panel.enabled=true;this.showInvestigation(false);this.render();this.clue.objection.tells.audio.beforeSeal();this.clue.objection.tells.audio.play("SpotlightOn");}
+  open():void {const state=this.cast.flow.engine.snapshot();if(state.verdict&&state.verdict!=="timeout")return;this.cast.flow.cancel();this.clue.objection.close();this.picked=this.clue.selected()||{...this.picked,who:this.cast.flow.diagnostics().suspect||this.picked.who};this.opened=true;this.placeRig();this.panel.enabled=true;this.showInvestigation(false);this.render();this.clue.objection.tells.audio.beforeSeal();this.clue.objection.tells.audio.play("SpotlightOn");}
   private showInvestigation(value:boolean):void {this.cast.flow.controlsBlocked=!value;const flow=this.cast.flow,targeting=!value&&this.opened&&this.phase==="idle";
     flow.subtitles.getSceneObject().enabled=value;if(value)flow.restoreControls();else{flow.chips.show(false);flow.verbs.show(false);}
     this.clue.showPawns(value);this.clue.objection.caseLid.show(value);this.cast.getSceneObject().enabled=value||targeting;this.cast.setAccusationTargeting(targeting?id=>this.pointSuspect(id):null);this.clue.objection.wallet.show(false);this.clue.notebook.show(false);
@@ -105,8 +110,8 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   private render():void {
     const graph=this.cast.flow.engine.graphRef(),state=this.cast.flow.engine.snapshot();
     this.title.text=state.verdict==="timeout"?"TIME IS UP — ONE ACCUSATION":"FINAL ACCUSATION";
-    this.labels[0].text=graph.cast.suspects.find(s=>s.id===this.picked.who)!.name.split(" ").slice(-1)[0];this.labels[1].text=graph.room.zones.find(z=>z.id===this.picked.where)!.clueName;this.labels[2].text=graph.room.objects.find(o=>o.id===this.picked.what)!.label.split(/s+/).slice(-1)[0];
-    this.body.text=state.arguments.length+" / "+graph.requiredDeductions.length+" proof filed · point at a suspect · hold the seal";
+    this.labels[0].text=graph.cast.suspects.find(s=>s.id===this.picked.who)!.name.split(" ").slice(-1)[0];this.labels[1].text=graph.room.zones.find(z=>z.id===this.picked.where)!.clueName;this.labels[2].text=graph.room.objects.find(o=>o.id===this.picked.what)!.label.split(/\s+/).slice(-1)[0];
+    this.body.text=state.arguments.length+" / "+graph.requiredDeductions.length+" proof filed · point · hold the seal";
   }
   private onState(state:GameState):void {
     if(state.verdict==="timeout"&&!this.opened)this.open();

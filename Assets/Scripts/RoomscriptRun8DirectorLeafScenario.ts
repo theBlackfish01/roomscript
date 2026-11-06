@@ -25,6 +25,8 @@ import {RoomscriptInterrogationController} from "./RoomscriptInterrogationContro
       const state=engine.snapshot(),claim=state.activeStatement;
       if(claim&&state.knowledge.evidenceIds.includes("E_KETTLE_COLD")){const result=engine.dispatch({type:"Object",suspect,statement:claim,evidence:["E_KETTLE_COLD"]});console.log("RUN8_DIRECTOR_OBJECTION|"+result.events.filter(e=>e.seq===result.lastSeq).map(e=>e.type).join(","));}
       await sleep(1500);}
+    if(beat==="accuse"){await tap("Question "+suspect);await tap("Accuse");}
+    if(beat==="ending"){const engine=flow.engine;const graph=engine.graphRef();engine.dispatch({type:"Accuse",who:graph.envelope.who,where:graph.envelope.where,what:graph.envelope.what});for(let i=0;i<600;i++){const p=findSceneObjectByName("RoomscriptNewspaper");if(p&&p.enabled)break;await sleep(100);}await sleep(1200);}
     console.log("RUN8_DIRECTOR_READY|"+JSON.stringify({beat,suspect,subtitle:flow.subtitles.visibleLine(),chips:flow.chips.topics()}));
     await sleep(hold*1000);
   }

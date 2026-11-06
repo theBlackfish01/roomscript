@@ -20,7 +20,7 @@ const BODILESS=["WREN","NARRATOR","DETECTIVE","SUGGESTION",""];
   private paint(text:string):void {if(!text&&this.shown&&getTime()<this.holdUntil)return;const visible=subtitleWindow(text,this.maxChars);if(this.shown!==visible){this.shown=visible;this.line.text=this.bodiless?"":visible;if(this.companion)this.companion.text=this.bodiless?visible:"";}}
   private route(speaker:string):void {this.bodiless=BODILESS.includes((speaker||"").toUpperCase());if(this.bodiless&&!this.companion)this.buildCompanion();}
   private buildCompanion():void {let camera:SceneObject=null;for(let i=0;i<global.scene.getRootObjectsCount();i++){const o=global.scene.getRootObject(i);if(o.getComponent("Component.Camera")&&o.name==="Camera Object"){camera=o;break;}}
-    if(!camera)return;this.companionRoot=global.scene.createSceneObject("RoomscriptCompanionLine");this.companionRoot.setParent(camera);this.companionRoot.getTransform().setLocalPosition(new vec3(0,-24,-105));
+    if(!camera)return;this.companionRoot=global.scene.createSceneObject("RoomscriptCompanionLine");this.companionRoot.setParent(camera);this.companionRoot.getTransform().setLocalPosition(new vec3(0,-18,-105));
     this.companion=label(this.companionRoot,"Companion subtitle","",46,4,new vec4(.247,.89,1,1),"small",.7);this.companion.horizontalOverflow=HorizontalOverflow.Overflow;}
   set(speaker:string,line:string):void {this.build();this.route(speaker);this.presentation.set(line,getTime());this.paint(this.presentation.text());}
   untimed(line:string):void {this.build();this.presentation.untimed(line,getTime());this.paint(this.presentation.text());}
