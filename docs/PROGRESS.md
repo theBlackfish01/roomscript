@@ -1,6 +1,6 @@
 # Run 7 - stopped at owner request, Nov 6 09:48 PKT
 
-Final handoff: [RUN7_REPORT.md](RUN7_REPORT.md). Master was promoted after A2; final checkpoint commit/push is being completed. Lens name is Roomscript. No m3-case tag.
+Final handoff: [RUN7_REPORT.md](RUN7_REPORT.md). Master was promoted after A2; the final runtime/report checkpoint was committed and pushed as `3452610`; a small handoff-artifact follow-up follows it. Lens name is Roomscript. No m3-case tag.
 
 - Final pure validation: **554/554 tests, 70 files, 124.28 s; pure typecheck PASS**. Latest Lens source compile/startup PASS at 04:23; final integrated gates incomplete.
 - Verified this run: new-cast A2 hero/bundle; actual recorded and live Preview room scan/compiler; Dynamic seeds 7/1041/2026 verdict/replay; live suspect/Wren beat; twenty poses; native clock behaviour; casting narration; distance controls; memory/cable lift; strict IK point accusation and reading panels; B1 story beats; correct/wrong/timeout endings at their recorded checkpoints.

@@ -1,0 +1,17 @@
+{
+  "at": "2026-11-05T23:23:30.432Z",
+  "source": "Assets/Audio/Run7/Sfx/CastingChime.mp3",
+  "sourceSha256": "b58dda5b1b83687879b466a6ada2972f6bcccfac7010997aa3a31fe88dad4174",
+  "staged": "Tooling/staging/native-audio/CastingChimePCM.wav",
+  "destinationSha256": "399e7dc460d292755c58aa4cdd7bfacfbc5a3053a6ef4a8f5310034913f769f3",
+  "bytes": 48078,
+  "format": {
+    "codec": 1,
+    "channels": 1,
+    "sampleRate": 24000,
+    "bits": 16
+  },
+  "cost": 0,
+  "method": "Decode existing MP3 to PCM16 WAV, preserving rate/channel count; no provider request or amplitude normalization.",
+  "limitation": "Lens importer may transform both sources; this is a source-container comparison, not proven native output-codec isolation."
+}
