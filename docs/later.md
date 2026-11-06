@@ -9,3 +9,6 @@ Parked ideas. Not part of the build.
 - "Ask the city": daily-case statistics from other players (needs Snap Cloud).
 - The full twist library (all 7 templates).
 - Spatial Image depth portraits.
+
+## Multiplayer (Clue Night): dropped from the Learn AR with SPECS submission (Wadood, Nov 6)
+Out of scope for this submission. Keep the Sync Kit design notes for a later version. Suspects sitting on furniture or occluded by it are also deferred (Wadood, Nov 6).

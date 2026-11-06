@@ -105,7 +105,133 @@ Finish with the FIRST_PASS §4 final report, including:
 - a list for Run 5.
 ```
 
-## Run 7: ambitious overnight: the judges' lessons, room casting, UI, art, audio, moments (Thu Nov 5, night)
+## Run 8: wearer experience, object-based UI, AR wow moments (Fri Nov 6, Claude Code)
+
+Runs in **Claude Code**, not Codex. The spec is `docs/WEARER_UX_2026-11-06.md`. How to start it:
+1. Close any Codex sessions, so only one agent edits the project.
+2. Restart Lens Studio, open RoomScriptF and sign in. Keep the laptop from sleeping.
+3. In a terminal, `cd` to the project, then run `claude --permission-mode auto --model opus --effort high`. If auto mode is refused, use `claude --dangerously-skip-permissions --model opus --effort high`.
+4. Accept the first-launch prompts (trust the folder, enable the `lens-studio` MCP server from `.mcp.json`, install the CLAD plugin marketplace), then check that `/mcp` shows lens-studio connected.
+5. Paste the prompt below.
+
+```
+This is Run 8 of the Roomscript build, running in Claude Code. The project's CLAUDE.md loads AGENTS.md, so you have the rules. Lens Studio was just restarted, it is open on this project, and I'm signed in. The CLAD plugin is enabled for this project.
+
+**Read first:**
+1. **docs/WEARER_UX_2026-11-06.md**: the primary design spec for this run, with my decisions;
+2. docs/REVIEW_SESSION_2026-11-05.md: what the hackathon judges reward;
+3. docs/RUN7_REPORT.md and docs/PROGRESS.md: the current state;
+4. AGENTS.md rules 12–20; 19 and 20 are new.
+
+**Goal:** turn Roomscript from "a screen in front of your face" into an experience built for someone wearing Spectacles.
+- Replace every menu with interactive objects.
+- Build the approved AR wow moments.
+- Keep everything true to the engine.
+
+Be ambitious: the feature freeze is **Sun Nov 8 at 21:00 PKT**, and quality matters more than finishing early. Multiplayer is dropped. Don't build suspects sitting on or hidden behind furniture.
+
+## How to work in Claude Code
+- Start with the CLAD `/lens-studio-router` preflight. The Lens Studio MCP tools are deferred, so load them with ToolSearch.
+- Use CLAD skills and agents for Lens work (scene via VirtualScene, UIKit, LEAF, shader and VFX skills).
+- **Rule 20:** no browser, computer-use or desktop-control tools. Only the Lens MCP, the shell and files.
+- **Rule 16:** if a Lens MCP or LEAF call fails, pause asset writes, gracefully restart Lens Studio from the shell, and retry (up to 3 restarts per run). If MCP scenario launch stalls, the project's strict local LEAF runner from Run 7 is acceptable; label results "local-manager". Never end the run because of it.
+- **Subagents:** at most 2 at a time (my laptop's memory), on disjoint folders: engine and content, audio, art, docs. Keep Lens scene work in the main session. One Chromium at a time; no full test suite during LEAF or art renders.
+- **Rule 19, the visual review loop:** after every UI, staging, art or wow change, capture Preview, look at the image as a wearer, check it against the WEARER_UX checklist, fix and recapture. Keep before/after images in docs/captures/.
+- **Don't stop to ask me.** Make the call, record it in docs/decisions.md, and keep going.
+  - Keep a running log in docs/RUN8_PROGRESS.md. It's your memory across context compaction.
+  - When you finish a section, go straight to the next.
+  - If something is blocked, record it under Needs Wadood and move on.
+- **Git:** you're on `master` at `e566196`. Tooling/staging/ holds unshipped Run 7 experiments: use them if they help, otherwise leave them uncommitted (or gitignore them). Commit and push after every verified step. Keep PROGRESS, decisions.md and devpost/clad-log.md current; log Claude Code and CLAD usage too.
+
+**Budgets:**
+- Claude API (`claude-opus-5-5`, Tooling only): up to $30.
+- ElevenLabs: about 21,000 credits left.
+- **Rule 18:** a quota stops only that kind of generation, never development. Use fallbacks and note what's missing.
+
+## Work order
+
+### 0. Baseline
+- Preflight, then a fresh Lens restart.
+- Run the strict interrogation runner and record the handshake.
+- Fix the LEAF banners and diagnostics so they're hidden in Director/film mode.
+
+### 1. Staging fundamentals
+- **Suspects:** on free floor, never on furniture or the crate. Conversation spot at 1.3–1.5 m; full figures at 2.5–3 m.
+- **At most one UI element in each direction of view,** and nothing over a face.
+- **Subtitles ON:** one short line below the speaker's face, with word reveal.
+- **Slight additive-display adjustments only:** bright line UI and thin frames over heavy dark plates; the blackout as the virtual world going dark plus lightning.
+
+### 2. Object-based UI: all of it (WEARER_UX "Object-based UI" 1–11)
+1. **Opening:** two case files on the crate, a sealed "THE HARLOW TRUST" folder (Preset) and a blank "CAST THIS ROOM" folder with a magnifier (Dynamic). Pinch, lift and pull open to start.
+2. **Placing the case:** carry the glowing crate outline and set it down on a real surface, with landing rings on detected surfaces and a thud. Director/film mode auto-places.
+3. **Asking by presenting evidence:**
+   - hold a memory photo up to a suspect, or draw a thread from an object to them;
+   - point at another guest to ask about them;
+   - three small glyph tokens beside the suspect's shoulder (name, whereabouts, press), with a "more" glyph.
+   - Remove the big question panel.
+4. **Palm notebook** (left palm up): evidence fan, notebook, accuse. Keep a small Preview fallback.
+5. **The case board on a real wall:** an authored Evening Room wall for Preset, a detected wall for Dynamic. Photos pin there, red string connects them, and ruled-out options get crosses.
+6. **Accusing:** point at the suspect (spotlight beam), choose room and weapon by pointing or pawn drag, and press the wax seal with a held pinch.
+7. **Feedback at the action, not at screen edges:** stamps on the board, a crack in the palm lens, a glow on the object.
+8. **Props in glowing line style;** no primitive shapes. The crate becomes an engraved-light crate. **Casting assigns plausible roles.**
+9. **Zone names as chalk circles on the floor.**
+10. **Ending:** a small stamp on the board (pinch for details), the newspaper in your hands, no leftover pawns.
+11. **Update the naive-player LEAF** for the object-based flow, targeting 40 interactions or fewer.
+
+### 3. Wow moments (WEARER_UX 1, 3–9)
+1. **The room becomes the crime scene:**
+   - the casting sweep;
+   - crime-scene tape across the real doorway (Pike's escape happens there);
+   - a chalk outline on the real floor;
+   - rain and lightning on the real window, with spatial thunder and a lightning ghost reveal.
+2. **Objects replay what they saw:** a 5-second, real-scale ghost vignette at the object.
+3. **The evidence web:** red thread across the room for every objection and deduction. At the end it lights up and converges on Vale, ending on the wall board.
+4. **Walk around the frozen murder at 22:30,** plus a scripted Preview camera orbit for the video.
+5. **A UV flashlight from your palm** in the dark beat, revealing the drag marks on the real floor.
+6. **Spatial sound cues:** Wren whispering from behind, a knock from the real door, voices from where each suspect stands.
+7. **The newspaper in your hands** at the ending.
+8. **Dusting for fingerprints** on one or two evidence items.
+
+New audio is fine within budget (ElevenLabs effects, short Wren and narrator lines).
+
+### 4. Carry-overs from Run 7
+- **S2:** get frame time from 25.9 ms toward 8 ms.
+- **The first question within about 30 s** (Preset in Director mode).
+- **Generated-case voice playback**, with Dynamic smoke tests on 3 seeds.
+- **Reconstruction T2.**
+- **Recaptures** of the ending, stamp and pawn fixes.
+
+### 5. Video and Devpost
+- Update devpost/drafts/video-plan.md with the new shots:
+  - the case files;
+  - placing the crate;
+  - the casting sweep with tape, chalk and rain;
+  - presenting evidence;
+  - an object replay;
+  - the evidence web;
+  - the frozen-murder orbit;
+  - the newspaper;
+  - "same room, new murder".
+- Keep: gameplay in the first 10 s, the who-it's-for line by 0:20, an uncut 60–90 s segment (I'll record it with OBS), hands, not a mouse.
+- Update the Devpost description and README to match.
+
+### 6. Final gate
+- Restart Lens Studio.
+- Run the integrated LEAF (hero, interrogation, all-tells, closing correct/wrong/timeout, naive-player, casting, generated cases, story beats).
+- Director-mode captures of every beat and wow moment, all passing the visual checklist.
+- A new hero performance tape.
+- Tag m3-case if it passes.
+- Exported lens size (target under 18 MB).
+- A fresh full-history secret scan.
+
+## Finish with a report (docs/RUN8_REPORT.md, and a summary in chat)
+- done, partial or not started per item;
+- the captures I should look at, as file paths;
+- Needs Wadood;
+- costs (Claude API, ElevenLabs).
+```
+
+## Run 7: ambitious overnight (Thu Nov 5, night, historical)
 
 This run includes the Nov 5 judge review (docs/REVIEW_SESSION_2026-11-05.md) and Wadood's decisions: the skill pack first, camera room casting with Claude Opus locally, a voice-agent spike, multiplayer decided on Friday, and the freeze on Sun Nov 8 at 21:00.
 

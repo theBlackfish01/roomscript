@@ -102,6 +102,7 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
 - [`docs/README.md`](docs/README.md) — index of the design docs.
 - [`docs/PROGRESS.md`](docs/PROGRESS.md) — current state. Read it first after any context reset.
 - [`docs/REVIEW_2026-11-03.md`](docs/REVIEW_2026-11-03.md) — the latest independent review: the final polish plan, work packages and schedule for the current runs. Earlier reviews are historical.
+- [`docs/WEARER_UX_2026-11-06.md`](docs/WEARER_UX_2026-11-06.md) — **the primary design spec from Run 8 onward:** object-based UI, the wow moments and the visual acceptance checklist. Read it before any UI, interaction, art or video work.
 - [`docs/REVIEW_SESSION_2026-11-05.md`](docs/REVIEW_SESSION_2026-11-05.md) — what the hackathon judges said in their Nov 5 live review, and the design changes that follow (R1–R10). Read it before any UI, interaction or video work.
 
 **Rules for every agent:**
@@ -143,7 +144,7 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
 14. **Never commit a scene that has Stage mode on without the bundled voice library wired**, because the suspects would be silent.
 15. **No GUI tools; automatic approvals are fine.**
     - **Never** use computer-use, desktop screenshots, window activation or focus, or any UI-automation tool. On Nov 3, one such call hung for 10 hours.
-    - **Do** request sandbox escalations the normal way. Codex's automatic approver (`--approve-for-me`) reviews them, and they are expected for:
+    - **Do** request sandbox escalations or permissions the normal way (Codex: its automatic approver under `--approve-for-me`; Claude Code: its permission mode). They are expected for:
       - `git add`, `git commit`, `git push` and git-lfs;
       - network calls to api.elevenlabs.io, api.anthropic.com and github.com;
       - the npm registry.
@@ -164,3 +165,11 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
     - The lens must fall back gracefully (authored or prerecorded) when the bridge isn't running.
     - Model output is only a proposal or performance. The engine compiles, verifies and decides.
 18. **Budgets and quotas never block development.** On a quota or budget limit (ElevenLabs, Claude, the gateway), stop only that kind of generation, use fallbacks (existing takes, phrase pieces, live TTS, subtitles), record what's missing under Needs Wadood, and keep building.
+19. **Visual review loop.** After every UI, staging, art or wow change:
+    1. Capture Preview through the CLAD capture tool.
+    2. Look at the image (Claude Code can read PNGs) as if wearing the glasses.
+    3. Check it against the checklist in `docs/WEARER_UX_2026-11-06.md`.
+    4. Fix, recapture, and keep before/after images in `docs/captures/`.
+
+    A passing LEAF test is not visual acceptance.
+20. **No browser, computer-use or desktop-control tools** (Claude in Chrome, computer use, the in-app browser) for Lens work. Use the Lens Studio MCP tools, the shell and files only.
