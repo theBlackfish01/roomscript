@@ -64,3 +64,21 @@ Description opening: **A one-player murder mystery for anyone who loves Clue and
 Disclosure: **Captured in Lens Studio Preview in a simulated room; not tested on physical Specs. The main story uses an authored Preset and prerecorded synthetic voices. Recorded scans and live AI/Dynamic moments are labelled where shown. No real person's voice was cloned.** Adjust the last sentence about modes to actual footage. Provider names belong in technical credits if useful, not mandatory overlays.
 
 Include the public repository link, full uncut source/playthrough link when available, AI-voice and music credits, and the exact final evidence report. Wadood makes the repo/video public and submits. Check the actual submission form, runtime, captions and music rights before that action. Public links remain TODO until they exist.
+
+## Run 8 shots to add (not yet cut in)
+
+Every shot comes from the Director LEAF beat `roomscript-run8-director` (params `beat`, `hold`, `suspect`; set them on the LeafIndex local runner). It logs `RUN8_DIRECTOR_READY` when it is ready to capture. Reference stills are in `docs/captures/`, all named `2026-11-06-run8-*.png`.
+
+| Beat | What the wearer sees | Reference still |
+|---|---|---|
+| opening | two case files on the engraved crate; pull THE HARLOW TRUST open | casefiles-v1 |
+| question / answer | Vale at 1.4 m on free floor, shoulder glyph tokens, one subtitle line | vale-question-v2, vale-answer-v3 |
+| present | the kettle's memory photo held up to Vale; it shows which memory it is | (needs a still) |
+| replay | the kettle replays 22:30 as a real-scale ghost vignette | object-replay-v1 |
+| storm | lightning on the real window, Harlow's ghost in the glass, spatial thunder | window-storm-v1 |
+| board / web | the wall board with pinned photos; red thread across the room | board-v2, evidence-web-v1 |
+| accuse | a spotlight from the finger to the accused; the wax seal hold | accuse-v3 |
+| frozen | the 22:30 tableau. Orbit: setPosition (60,−40,−250) → lookAt (−5,−100,−400), then setPosition (−110,−45,−270) → lookAt (0,−100,−410) | frozen-orbit-a, frozen-orbit-b |
+| ending | CASE CLOSED on the board; the Morning Edition in your hands | newspaper-v2 |
+
+Don't stack relative `orbit` calls on a pose that hasn't been reset: the camera swings through the other ghosts (see frozen-v3).

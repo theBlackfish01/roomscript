@@ -1,3 +1,62 @@
+# Run 8 (Claude Code) - stopped at owner request, Nov 6 18:45 PKT
+
+Running log: [RUN8_PROGRESS.md](RUN8_PROGRESS.md). Interim report: [RUN8_REPORT.md](RUN8_REPORT.md). Design spec: [WEARER_UX_2026-11-06.md](WEARER_UX_2026-11-06.md). Last code commit `db6ac10` (pushed to origin/master).
+
+- **Done:**
+  - free-floor staging and glyph tokens;
+  - case-file opening;
+  - line-art props and crate;
+  - chalk zones;
+  - palm notebook;
+  - wall case board;
+  - presenting evidence and pointing at a guest;
+  - objecting by holding up a proof photo;
+  - accusation rig with spotlight and wax seal;
+  - Morning Edition ending;
+  - every approved wow moment: the crime scene (window storm, door tape, chalk outline), object replays, the evidence web, the frozen 22:30 tableau, the UV torch, spatial cues and fingerprint dusting.
+- **LEAF PASS this run:**
+  - interrogation 16.8 s and 31.6 s (MCP);
+  - opening 77.7 s;
+  - run8-present 146.5 s;
+  - closing correct 39.6 s (local-manager);
+  - run8-dust 15.1 s (local-manager);
+  - **naive-player 99.8 s, 26 of 40 actions, first answer 26.1 s** (local-manager).
+  - Engine: 402 vitest tests plus typecheck.
+- **Lens:** process started 18:36:45 after a graceful restart. Scene saved with the LeafIndex runner cleared.
+- **Costs this run:** ElevenLabs 735 credits; Claude API $0.
+
+## Needs Wadood (Run 8, current)
+
+Nothing is blocking. Open work for the next run:
+
+- **Final gate not run:**
+  - restart;
+  - integrated LEAF;
+  - Director captures of every beat;
+  - a new hero tape;
+  - the `m3-case` tag;
+  - exported lens size under 18 MB;
+  - a full-history secret scan.
+- **LEAF to fix or re-run after the UI changes:**
+  - clue (fails on an unknown assertion);
+  - memory-cards, shell, hero-demo, physical-memory, story-moments, all-tells;
+  - generated cases, casting sweep;
+  - closing wrong and timeout.
+- **Not built:**
+  - carrying and placing the crate (object UI 2.2), with Director auto-placing;
+  - Wren contextual lines W3–W12 and W14: the audio exists but isn't wired up.
+- **Not verified:**
+  - the palm-up notebook on a real hand (Preview shows only the fallback);
+  - the UV torch (not captured yet).
+- **Carry-overs not started:**
+  - S2 frame time: 25.9 ms against the 8 ms target;
+  - generated-case voices on 3 seeds;
+  - Reconstruction T2.
+- **LEAF transport:** MCP `run_leaf_scenario` launch stalls after a restart. Strict local-manager runs are the workaround.
+- **Submission material:** the video plan lists the Run 8 shots, but the cut isn't updated. The Devpost text and README aren't updated either.
+
+---
+
 # Run 7 - stopped at owner request, Nov 6 09:48 PKT
 
 Final handoff: [RUN7_REPORT.md](RUN7_REPORT.md). Master was promoted after A2; the final runtime/report checkpoint was committed and pushed as `3452610`; a small handoff-artifact follow-up follows it. Lens name is Roomscript. No m3-case tag.

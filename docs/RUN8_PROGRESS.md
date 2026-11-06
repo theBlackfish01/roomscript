@@ -51,14 +51,23 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 - **Planned restart 17:39:46 → relaunch 17:39:54 PKT** (the process had degraded: native audio calls took 1.3–2.7 s). Handshake 17:40:58. After the restart the MCP scenario launch stalls again, so I'm using the local-manager runner: strict closing correct PASS 39.6 s.
 - Pending: wow moments, naive-player LEAF, the clue fixture (it tests the old refutation card), and recapturing all beats.
 
-## 18:40 — Wow 5: frozen murder at 22:30
+### 18:07 PKT — wow moments 1, 3, 4, 6, 7, 9 (`d5bcd68`, `220f13b`)
+- Crime scene: rain streaks and lightning on the real window (Preset: right wall, x ≈ 201), LightningCrack then spatial thunder from the window, and Harlow's ghost in the glass during the flash. Flashes come faster in the blackout beat. Crime-scene tape across the real doorway ("DO NOT CROSS · CRIME SCENE"). Chalk body outline on free floor at (22, 0, −405). Captures: `window-storm-v1`, `door-tape-v1`.
+- Object replays: a newly collected memory blooms into a 5 s real-scale ghost vignette at the object, built only from `objectReplay()`. "NO ONE" shows only when the memory itself says the place was empty. Capture: `object-replay-v1`.
+- Evidence web: coral threads from `evidenceWeb()` between suspects, objects and chalk zones. After the verdict, `convergence()` threads glow gold, pulse to the culprit and end on the wall board. Capture: `evidence-web-v1`.
+- Fingerprint dusting: hovering about 1.4 s over a dustable object reveals glowing whorls, then files the memory through the same PinchObject path as a pinch. Strict local-manager `roomscript-run8-dust` PASS 15.1 s.
+- UV torch: a violet cone from the left palm (camera fallback) during the blackout; the drag marks show only where the pool lands. Not captured yet.
+- Spatial Wren cues: W1 "Over here" from the wall board after 40 s; W13 from the board at the first evidence.
+- Director beats added for captures: question, answer, board/web, accuse, explore, storm, replay, ending (and later frozen).
+
+### 18:15 PKT — wow 5: frozen murder at 22:30 (`e6b05a2`)
 - Closing reconstruction: at the freeze beat, `frozenTableau()` draws the disturbed objects suspended 18 cm up in slowly turning gold rings, and the culprit's ghost holds the weapon (new "cord" line drawing). The resting copies of those objects are hidden while the freeze is up, so nothing is drawn twice.
 - `holdAtBeat(kind, seconds)` pauses the reconstruction when a beat starts. The Director beat `frozen` accuses correctly and holds the freeze (local-manager run: RUN8_DIRECTOR_READY + FROZEN_TABLEAU `{"slot":"22:30","zone":"Z1","suspended":["O9"],"held":["O1"]}`).
 - Fix: the head-locked companion subtitle line now hides with the subtitles (a stale opening narrator line was showing through the closing).
 - Captures: docs/captures/2026-11-06-run8-frozen-v1.png (before: stale line, doubled mug and cord), -v2, -v3, -frozen-orbit-a.png, -frozen-orbit-b.png.
 - Orbit path for the video (MovePreviewCamera, freeze held): setPosition (60,-40,-250) → lookAt (-5,-100,-400); then setPosition (-110,-45,-270) → lookAt (0,-100,-410). Avoid relative `orbit` calls stacking on an unreset pose: they swing the camera through the other ghosts.
 
-## 18:55 — Objecting by holding up the proof; naive player PASS
+### 18:40 PKT — objecting by holding up the proof; naive player PASS (`db6ac10`)
 - Objecting is now physical, like asking. Tap the Object glyph, then pull a memory photo from an object and hold it up to the suspect being questioned. The photo shows *which* memory it is (its card art plus the first words of the memory, and "1/3" when an object holds several); each pull brings out the next observed memory in graph order, never ordered by correctness. Releasing the photo away from the suspect puts it back with no penalty. The statement-slip drop still works, and both go through one `objectWith()`, the same engine Object action.
 - Naive-player LEAF rewritten for the object flow: open the Harlow Trust file, then Question S2, a whereabouts glyph, Object, the kettle photo held up to Vale, the object tour, the accusation rig, File deductions and the wax seal. **Strict local-manager PASS 99.8 s: 26 actions (limit 40), first answer 26.1 s, verdict correct, 4 deductions filed, 105 in-game minutes.**
 - Hygiene restart (rule 13; the old process stalled frames, with tap-to-close taking 14–20 s): saved, graceful close 18:36:40, relaunch 18:36:45, new log 18:36:46. That makes 2 restarts this run, both graceful.

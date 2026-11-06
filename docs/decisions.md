@@ -230,3 +230,16 @@ Stopped at owner request. Preserve strict checkpoint-specific passes; do not pro
 
 ## 2026-11-06 — Run 8: objecting by holding up a memory photo
 Objecting follows the WEARER_UX "present evidence" move. After tapping the Object glyph, the wearer pulls a photo from an object and holds it up to the questioned suspect. The engine judges the exact evidence set, so a multi-memory object cannot be "the proof" by itself. Each pull brings out one observed memory, shown on the photo (card art and caption, with an n/m count), in plain graph order, so the UI never hints which memory is correct. Releasing away from the suspect puts the photo back at no cost. The Run 7 statement-slip drop stays as a second path into the same `objectWith()` and the same engine `Object` action.
+
+## 2026-11-06 — Run 8: other calls made during the object-UI and wow passes
+- **Props are engraved line drawings, not GLBs.** The Run 7 GLB props had positions but no normals and never rendered, so the fresnel material couldn't help. Each prop kind (kettle, cup, cord, lamp, clock and the rest) gets a procedural line drawing in the actors' style (`RoomscriptPropArt.ts`). Weapons are coral, the kettle and cups cyan, everything else brass. The engraved-light shader stays in the project, unused.
+- **Evening-v3 Preset layout.** The door latch sits on the real door and the window glass on the real window, so Wren's lines and the wow moments point at real fixtures. v2 stays selectable.
+- **Zones are chalk circles on measured free floor** (`Content/ChalkSpots.ts`); the Kitchen rings the coffee table. The words on the walls are gone. An excluded weapon gets a chalk X only after the engine rules it out.
+- **The wall board is on the left wall** at x = −268.5, z = −172, 100 × 66 cm: the largest clear stretch the survey found. Dynamic picks a wall from World Query.
+- **The palm notebook uses HandInputData** (`isFacingCamera` + `getPalmCenter`). Preview can't raise a palm, so a crate-lid fallback shows only in the editor.
+- **The seal hold needs at least 1 s and at least 12 frames, and the seal sound plays only after success.** Native audio can block a frame for over 1 s, and a pure time check let one stalled frame fake the hold.
+- **Accusation:** WHO defaults to the suspect you're facing. The spotlight is a thin beam from the right index tip (or the rig) plus a floor ring; a full cone filled the display.
+- **The wow moments read only revealed truth.** Convergence threads, the frozen tableau and the newspaper's culprit appear only after a verdict. Replays use only that memory's own facts. The storm reads no case truth at all.
+- **Frozen tableau:** objects the victim disturbed at the murder slot hang 18 cm up, the culprit holds the weapon, and their resting copies hide during the freeze.
+- **LEAF transport.** After the 17:39 restart, MCP `run_leaf_scenario` stalls at launch, so strict runs use the Run 7 local runner and are labelled local-manager, as the brief allows. Clear the runner before committing the scene.
+- **Restarts.** Graceful restarts at 17:39 and 18:36, both after the process degraded (stalled frames and slow native audio). Neither followed an MCP failure, so all three recovery restarts remain.
