@@ -20,6 +20,11 @@ import {RoomscriptInterrogationController} from "./RoomscriptInterrogationContro
     flow.client.forceOffline=true;flow.subtitles.holdForCapture(hold+30);
     if(beat==="question"||beat==="answer"){await tap("Question "+suspect);}
     if(beat==="answer"){await tap("Question 1");await done();}
+    if(beat==="board"||beat==="web"){const engine=flow.engine;await tap("Question "+suspect);await tap("Question 1");await done();
+      for(const object of ["O11","O9","O6"]){engine.dispatch({type:"PinchObject",object});await sleep(300);}
+      const state=engine.snapshot(),claim=state.activeStatement;
+      if(claim&&state.knowledge.evidenceIds.includes("E_KETTLE_COLD")){const result=engine.dispatch({type:"Object",suspect,statement:claim,evidence:["E_KETTLE_COLD"]});console.log("RUN8_DIRECTOR_OBJECTION|"+result.events.filter(e=>e.seq===result.lastSeq).map(e=>e.type).join(","));}
+      await sleep(1500);}
     console.log("RUN8_DIRECTOR_READY|"+JSON.stringify({beat,suspect,subtitle:flow.subtitles.visibleLine(),chips:flow.chips.topics()}));
     await sleep(hold*1000);
   }
