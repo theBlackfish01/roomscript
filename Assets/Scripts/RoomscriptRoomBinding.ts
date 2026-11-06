@@ -1,10 +1,10 @@
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {Vec3} from "./Engine/core/Types";
 import {EVENING_ROOM_FLOOR_Y} from "./Content/EveningRoomScan";
-import {presetProp} from "./RoomscriptArtLibrary";
 import {RoomscriptPropMesh} from "./RoomscriptPropMesh";
 import {createAuthoredCable} from "./RoomscriptCableProp";
 import {presetCableObject} from "./Content/AuthoredCableGeometry";
+import {propDrawing} from "./RoomscriptPropArt";
 
 /** Case coordinates are floor-local centimeters. Authored anchors are the shared world mapping. */
 @component export class RoomscriptRoomBinding extends BaseScriptComponent {
@@ -33,7 +33,11 @@ import {presetCableObject} from "./Content/AuthoredCableGeometry";
       const make=(name:string,pos:Vec3)=>{const o=global.scene.createSceneObject(name);o.setParent(root);o.getTransform().setLocalPosition(new vec3(pos[0],pos[1],pos[2]));this.generated.push(o);return o;};
       graph.room.objects.forEach(o=>this.objects.set(o.id,make("RoomscriptObject_"+o.id,o.pos)));graph.room.zones.forEach(z=>this.zones.set(z.id,make("RoomscriptZone_"+z.id,z.anchor)));
     }
-    if(preset)for(const object of graph.room.objects){const prefab=presetProp(graph,object.id);if(!prefab)continue;const visual=prefab.instantiate(this.objectAnchor(object.id));visual.name="RoomscriptPropVisual_"+object.id;this.hideReplacedLegacy(this.objectAnchor(object.id),visual);this.replacedProps.push(object.id);visual.getTransform().setLocalPosition(vec3.zero());visual.getTransform().setLocalScale(vec3.one());if(object.id==="O3"){visual.getTransform().setLocalRotation(quat.fromEulerAngles(0,0,Math.PI/2));visual.getTransform().setLocalPosition(new vec3(16,1.25,0));}this.generated.push(visual);}
+    // Run 8: the prop GLBs carry no normals and never rendered; every Preset prop is an engraved line drawing instead.
+    if(preset)for(const object of graph.room.objects){if(presetCableObject(graph)?.id===object.id)continue;const anchor=this.objectAnchor(object.id),drawing=propDrawing(anchor,object.id,object.type,graph.weapons.includes(object.id));if(!drawing)continue;this.hideReplacedLegacy(anchor,drawing);this.replacedProps.push(object.id);this.generated.push(drawing);}
+    // Run 8: props with no model get engraved line drawings (Preset fictional items; Dynamic virtual substitutes).
+    const cableId=preset?presetCableObject(graph)?.id:undefined;
+    for(const object of graph.room.objects){if(object.id===cableId||this.replacedProps.includes(object.id)||(!preset&&!object.virtual))continue;const drawing=propDrawing(this.objectAnchor(object.id),object.id,object.type,graph.weapons.includes(object.id));if(drawing)this.generated.push(drawing);}
     const cableObject=preset?presetCableObject(graph):undefined;if(cableObject){const cable=createAuthoredCable(this.objectAnchor(cableObject.id),cableObject.id);if(cable)this.generated.push(cable);}
     this.boundCase=graph.caseId;if(!this.subscribed){this.subscribed=true;this.engine.onCaseChanged.add(()=>{this.boundCase="";this.initialize();});}
     const failures=this.audit();if(failures.length)throw new Error("Room binding: "+failures.join(", "));
