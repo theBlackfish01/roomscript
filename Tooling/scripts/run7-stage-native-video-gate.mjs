@@ -1,0 +1,33 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
+const root=path.resolve(import.meta.dirname,'../..'),name='RoomscriptContinuousCaptureLeafScenario.ts',source=fs.readFileSync(path.join(root,'Assets/Scripts',name),'utf8');let out=source;
+const replace=(before,after)=>{if(!out.includes(before))throw Error('Capture source changed: '+before.slice(0,100));out=out.replace(before,after);};
+out='import {captureAcceptance} from "./Engine/perf/CaptureAcceptance";\n'+out;
+replace('const input=config?.get("input")||"default",requestedSource=config?.get("source")||"capture";','const input=config?.get("input")||"default",requestedSource=config?.get("source")||"capture",quiet=!full&&config?.get("quiet")!=="false";');
+replace('expect(["default","ik"].includes(input)).toBe(true);','expect(["default","ik"].includes(input)).toBe(true);expect(["capture","live","camera"].includes(requestedSource)).toBe(true);');
+replace('let source:Texture|null=null;','let source:Texture|null=null,actualSource="camera.renderTarget";');
+replace('source=global.scene.captureTarget;','source=global.scene.captureTarget;if(source)actualSource="scene.captureTarget";');
+replace('source=global.scene.liveTarget;','source=global.scene.liveTarget;if(source)actualSource="scene.liveTarget";');
+replace('if(ik)await bounded(ik.ready,15000,"IK avatar ready");',`if(ik)await bounded(ik.ready,15000,"IK avatar ready");
+    if(quiet){const until=Date.now()+45000,audio=opening.clue.objection.tells.audio;let stableSince=-1,lastCalls=-1,quietReady=false;
+      for(let i=0;i<2000&&Date.now()<until;i++){const n=audio.narrativeDiagnostics(),calls=audio.loopDiagnostics().nativeCalls,phase=opening.diagnostics().phase,eligible=["tab","ready"].includes(phase)&&!n.playing&&n.queued===0&&!flow.diagnostics().busy;
+        if(!eligible||calls!==lastCalls)stableSince=-1;else if(stableSince<0)stableSince=getTime();
+        lastCalls=calls;if(stableSince>=0&&getTime()-stableSince>=1){quietReady=true;break;}await nextFrame();}
+      console.log("CONTINUOUS_CAPTURE_QUIET|"+JSON.stringify({ready:quietReady,phase:opening.diagnostics().phase,narration:audio.narrativeDiagnostics()}));expect(quietReady).toBe(true);
+    }`);
+replace('recordingDuration=0;','recordingDuration=0,recordedWidth=0,recordedHeight=0,providerReady=false,observedFrames=0,recordingWallDeadline=0;\n    const frameEvent=this.createEvent("LateUpdateEvent");frameEvent.bind(()=>{if(this.recording)observedFrames++;});');
+replace('started=getTime();stopAt=started+seconds;','started=getTime();stopAt=started+seconds;recordingWallDeadline=Date.now()+(full?150000:30000);');
+replace('seconds,input,requestedSource,source:source.name,','seconds,input,quiet,requestedSource,actualSource,source:source.name,');
+replace('while(getTime()<stopAt)await sleep(Math.min(250,(stopAt-getTime())*1000));',`// Wall/simulation time can advance while a native call blocks rendering. Wait for frame delivery too.
+      const minimumFrames=Math.ceil(seconds*30);
+      while((getTime()<stopAt||observedFrames<minimumFrames)&&Date.now()<recordingWallDeadline)await nextFrame();
+      if(observedFrames<minimumFrames)throw Error("Insufficient frame delivery before recording deadline");`);
+replace('recordingDuration=provider.totalDuration;console.log','recordingDuration=provider.totalDuration;recordedWidth=this.recordedTexture!.getWidth();recordedHeight=this.recordedTexture!.getHeight();providerReady=provider.isPlaybackReady;console.log');
+replace('const measuredSeconds=getTime()-started;this.recordedTexture=','const measuredSeconds=getTime()-started;frameEvent.enabled=false;this.recordedTexture=');
+replace('requestedSeconds:seconds,measuredSeconds,providerSeconds:recordingDuration,','requestedSeconds:seconds,measuredSeconds,observedFrames,actualSource,technicalProbeOnly:!full,roomComposite:"unverified",providerSeconds:recordingDuration,');
+replace('}finally{if(this.recording){this.recorder?.cancelRecording();this.recording=false;}flow.cancel();','}finally{this.removeEvent(frameEvent);if(this.recording){this.recorder?.cancelRecording();this.recording=false;}flow.cancel();');
+replace('expect(flowFailure).toBe("");expect(recordingDuration>0).toBe(true);if(full){expect(firstAnswer>=0&&firstAnswer<=seconds).toBe(true);expect(recordingDuration>=60&&recordingDuration<=90).toBe(true);}',`const acceptance=captureAcceptance({requestedSeconds:seconds,providerSeconds:recordingDuration,width:recordedWidth,height:recordedHeight,ready:providerReady,observedFrames,firstAnswerSeconds:firstAnswer});
+    console.log("CONTINUOUS_CAPTURE_ACCEPTANCE|"+JSON.stringify({...acceptance,flowFailure,audioVerified:false,roomCompositeVerified:false,observedFramesAreEncodedFrames:false}));
+    expect(flowFailure).toBe("");expect(acceptance.ok).toBe(true);`);
+fs.writeFileSync(path.join(root,'Tooling/staging',name),out);
+fs.writeFileSync(path.join(root,'Tooling/staging/run7-native-video-gate-source.json'),JSON.stringify({name,sha256:crypto.createHash('sha256').update(source).digest('hex')},null,2)+'\n');
+console.log('Staged strict duration/dimensions/frame gate and quiet five-second probe; no Assets writes.');

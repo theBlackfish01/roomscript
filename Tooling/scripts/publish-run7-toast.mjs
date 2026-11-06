@@ -1,0 +1,6 @@
+import{readFileSync,writeFileSync,existsSync}from'node:fs';import{createHash}from'node:crypto';
+const folder='Tooling/staging/run7/a6-audit/',manifest=JSON.parse(readFileSync(folder+'toast-manifest.json','utf8')),hash=s=>createHash('sha256').update(s).digest('hex');
+const rows=manifest.files.map(row=>{const path='Assets/Scripts/'+row.name,before=readFileSync(path,'utf8'),after=readFileSync(folder+row.name,'utf8');if(hash(before)!==row.sourceSha256||hash(after)!==row.stagedSha256)throw Error('Hash mismatch '+row.name);return{path,after};});
+const pure='Assets/Scripts/Engine/game/PeripheralFeedback.ts',test='Tooling/tests/game/peripheral-feedback.test.ts';if(existsSync(pure)||existsSync(test))throw Error('Refuse overwrite new files');
+const module=readFileSync(folder+'PeripheralFeedback.ts','utf8').replace('../../../../Assets/Scripts/Engine/core/Types','../core/Types');const regression=readFileSync(folder+'peripheral-feedback.test.ts','utf8').replace('./PeripheralFeedback','../../../Assets/Scripts/Engine/game/PeripheralFeedback').replaceAll('../../../../Assets','../../../Assets');
+for(const row of rows)writeFileSync(row.path,row.after);writeFileSync(pure,module);writeFileSync(test,regression);console.log(JSON.stringify({published:rows.map(r=>r.path).concat(pure,test),status:'hold resumed'}));

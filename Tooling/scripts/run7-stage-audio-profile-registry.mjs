@@ -1,0 +1,5 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
+const root=path.resolve(import.meta.dirname,'../..'),source=fs.readFileSync(path.join(root,'Assets/Scripts/RoomscriptLeafIndex.ts'),'utf8'),marker='  static scenariosIndex: ScenarioMetadata[] = [';
+if(!source.includes(marker)||source.includes('roomscript-native-audio-profile'))throw Error('Unexpected registry state');
+const updated='import {RoomscriptNativeAudioProfileLeafScenario} from "./RoomscriptNativeAudioProfileLeafScenario";\n'+source.replace(marker,marker+'\n    {id:"roomscript-native-audio-profile",typename:RoomscriptNativeAudioProfileLeafScenario.getTypeName(),parameters:{format:"mp3",mode:"low-latency"}},');
+fs.writeFileSync(path.join(root,'Tooling/staging/RoomscriptLeafIndex.audio-profile.ts'),updated);fs.writeFileSync(path.join(root,'Tooling/staging/run7-audio-profile-registry-source.json'),JSON.stringify({name:'RoomscriptLeafIndex.ts',sha256:crypto.createHash('sha256').update(source).digest('hex')},null,2)+'\n');console.log('Staged native audio A/B registry entry only.');

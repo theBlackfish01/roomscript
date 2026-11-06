@@ -1,0 +1,11 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
+if(!process.argv.includes('--imports-allowed'))throw Error('MAIN_SESSION_MUST_RELEASE_IMPORT_PAUSE');
+const root=path.resolve(import.meta.dirname,'../..'),stage=path.join(root,'Tooling/staging'),assets=path.join(root,'Assets/Scripts'),hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
+const guards=['run7-native-video-gate-source.json','run7-video-registry-source.json'].map(name=>JSON.parse(fs.readFileSync(path.join(stage,name),'utf8')));
+for(const guard of guards)if(hash(fs.readFileSync(path.join(assets,guard.name)))!==guard.sha256)throw Error('Source changed: '+guard.name);
+const helper=path.join(assets,'Engine/perf/CaptureAcceptance.ts'),helperSource=path.join(stage,'CaptureAcceptance.ts');
+if(fs.existsSync(helper)&&!fs.readFileSync(helper).equals(fs.readFileSync(helperSource)))throw Error('Capture helper already exists with different contents');
+const writes=[...guards.map(guard=>({source:path.join(stage,guard.name),destination:path.join(assets,guard.name)})),{source:helperSource,destination:helper}];
+for(const file of writes)fs.copyFileSync(file.source,file.destination);
+const result={at:new Date().toISOString(),files:writes.map(file=>({path:path.relative(root,file.destination).replaceAll('\\','/'),sha256:hash(fs.readFileSync(file.destination))})),note:'Source-guarded publication only; Lens compile and native artifact acceptance required.'};
+fs.writeFileSync(path.join(stage,'run7-native-video-gate-publication.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

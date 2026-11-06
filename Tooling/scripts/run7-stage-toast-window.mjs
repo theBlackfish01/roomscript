@@ -1,0 +1,11 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
+const root=path.resolve(import.meta.dirname,'../..'),name='RoomscriptMain.ts',source=fs.readFileSync(path.join(root,'Assets/Scripts',name),'utf8');let out=source;
+const replace=(before,after)=>{if(!out.includes(before))throw Error('Main source changed: '+before.slice(0,80));out=out.replace(before,after);};
+replace('private toastUntil=0;','private toastWindow=new FrameVisibleWindow();');
+replace('onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.start());}', 'onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.start());this.createEvent("UpdateEvent").bind(()=>{if(this.toastText&&this.toastWindow.active&&!this.toastWindow.advance(getDeltaTime()))this.toastText.text="";});}');
+replace('if(this.toastText&&getTime()>this.toastUntil)this.toastText.text="";','');
+replace('const repeated=this.toastText.text===text&&getTime()<this.toastUntil;this.toastText.text=text;this.toastUntil=getTime()+2.5;if(!repeated)this.audio.play("ToastTick");','const playTick=this.toastWindow.show(text);this.toastText.text=text;if(playTick)this.audio.play("ToastTick");');
+out='import {FrameVisibleWindow} from "./Engine/perf/FrameVisibleWindow";\n'+out;
+fs.writeFileSync(path.join(root,'Tooling/staging',name),out);
+fs.writeFileSync(path.join(root,'Tooling/staging/run7-toast-window-source.json'),JSON.stringify({name,sha256:crypto.createHash('sha256').update(source).digest('hex')},null,2)+'\n');
+console.log('Staged Main rendered-update toast window; no Assets writes.');

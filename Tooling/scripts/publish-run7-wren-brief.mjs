@@ -1,0 +1,7 @@
+import{readFileSync,writeFileSync,mkdirSync,existsSync}from'node:fs';import{createHash}from'node:crypto';
+const folder='Tooling/staging/run7/wren-brief/',manifest=JSON.parse(readFileSync(folder+'manifest.json','utf8')),hash=s=>createHash('sha256').update(s).digest('hex');
+const rows=manifest.files.map(row=>{const path='Assets/Scripts/Engine/game/'+row.name,before=readFileSync(path,'utf8'),after=readFileSync(folder+row.name,'utf8');if(hash(before)!==row.sourceSha256||hash(after)!==row.stagedSha256)throw Error('Hash mismatch '+row.name);return{path,after};});
+const testPath='Tooling/tests/game/wren-brief-v2.test.ts',fixturePath='Tooling/tests/fixtures/run7-wren-v1-kettle.json';if(existsSync(testPath)||existsSync(fixturePath))throw Error('Refuse to overwrite new test/fixture');
+const test=readFileSync(folder+'wren-brief.test.ts','utf8').replace('./WrenKnowledge.testable','../../../Assets/Scripts/Engine/game/WrenKnowledge').replace('./Reducer.testable','../../../Assets/Scripts/Engine/game/Reducer').replaceAll('../../../../Assets','../../../Assets').replace('staging/run7/wren-brief/v1-kettle-brief.json','tests/fixtures/run7-wren-v1-kettle.json');
+for(const row of rows)writeFileSync(row.path,row.after);mkdirSync('Tooling/tests/fixtures',{recursive:true});writeFileSync(testPath,test);writeFileSync(fixturePath,readFileSync(folder+'v1-kettle-brief.json'));
+console.log(JSON.stringify({published:rows.map(r=>r.path).concat(testPath,fixturePath),status:'Assets hold resumed'}));

@@ -1,0 +1,10 @@
+import{readFileSync,writeFileSync}from'node:fs';import{createHash}from'node:crypto';
+const folder='Tooling/staging/run7/story/',path='Assets/Scripts/RoomscriptMain.ts',before=readFileSync(path,'utf8');
+if(before.includes('RoomscriptStoryMoments'))throw Error('Already integrated; do not duplicate story subscriptions');
+let after='import {RoomscriptStoryMoments} from "./RoomscriptStoryMoments";\n'+before;
+after=after.replace('  private state:GameState;','  storyMoments:RoomscriptStoryMoments;\n  private state:GameState;');
+const hook='    this.notebook.onWren.add';if(!after.includes(hook))throw Error('Missing integration hook');
+after=after.replace(hook,'    this.storyMoments=new RoomscriptStoryMoments(this,this.engine,this.interrogation,this.caseLid,this.audio);\n'+hook);
+writeFileSync(folder+'RoomscriptMain.ts',after);
+writeFileSync(folder+'main-integration.json',JSON.stringify({path,sourceSha256:createHash('sha256').update(before).digest('hex'),stagedSha256:createHash('sha256').update(after).digest('hex')},null,2));
+console.log('Staged Main integration only; Assets unchanged');

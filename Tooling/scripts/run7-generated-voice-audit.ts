@@ -1,0 +1,25 @@
+import {readFileSync,writeFileSync} from "node:fs";
+import {resolve} from "node:path";
+import {generatedLineBank,phrasePlan} from "../../Assets/Scripts/Engine/perf/GeneratedPerformance";
+import {resolvePhrasePlayback,phraseVoiceKey} from "../../Assets/Scripts/Engine/perf/PhrasePlayback";
+import {prepareDynamicCase} from "../../Assets/Scripts/Content/DynamicCase";
+import {CaseGraph,ObjectType} from "../../Assets/Scripts/Engine/core/Types";
+import {RoomInput} from "../../Assets/Scripts/Engine/room/RoomModel";
+import {RUN7_VOICE_MANIFEST} from "../../Assets/Scripts/Content/Run7VoiceManifest";
+const root=resolve(import.meta.dirname,"../.."),staged=process.argv.includes("--staged");
+const inventory:typeof RUN7_VOICE_MANIFEST=staged?JSON.parse(readFileSync(resolve(root,"Tooling/audio/out/run7/Assets/Scripts/Content/Run7VoiceManifest.ts"),"utf8").split("export const RUN7_VOICE_MANIFEST = ")[1].trim().replace(/;$/,"")):RUN7_VOICE_MANIFEST;
+const keys=new Map(inventory.map(record=>[record.key,record])),missing=new Map<string,{speaker:string;text:string}>();
+function audit(graph:CaseGraph){const bank=generatedLineBank(graph),variants=graph.performances?.variants||[],register=graph.performances?.register||[];const lines=[...bank.map(row=>({speaker:row.suspect,text:row.answer.line})),...variants.map(row=>({speaker:row.suspect,text:row.text})),...register.map(row=>({speaker:row.suspect,text:row.text})),...variants.map(row=>({speaker:row.suspect,text:"Well, detective. "+row.text+" Write that down."}))];let complete=0;const failed:string[]=[];
+ for(const line of lines){const plan=phrasePlan(graph,line.speaker,line.text),clips=resolvePhrasePlayback(plan,(speaker,text)=>keys.get(phraseVoiceKey(speaker,text)));if(clips)complete++;else{failed.push(line.speaker+"|"+line.text);for(const part of plan.segments)if(/[A-Za-z0-9]/.test(part.text)&&!keys.has(phraseVoiceKey(part.speaker,part.text)))missing.set(phraseVoiceKey(part.speaker,part.text),{speaker:part.speaker,text:part.text.trim()});}}
+ return {caseId:graph.caseId,objects:graph.room.objects.filter(o=>!o.virtual).map(o=>({label:o.label,type:o.type})),bankRows:bank.length,variants:variants.length,registers:register.length,totalLines:lines.length,complete,failed};}
+const accepted=[7,1041,2026].map(seed=>{const text=readFileSync(resolve(root,`Tooling/results/run7-file-seed${seed}.log`),"utf8"),marker="GENERATED_CASE_CHECK|",start=text.indexOf(marker);if(start<0)throw Error("Missing accepted tape "+seed);const end=text.indexOf("\n",start),row=JSON.parse(text.slice(start+marker.length,end<0?undefined:end).trim());return {seed,...audit(row.graph)};});
+const admissionSource=readFileSync(resolve(root,"Assets/Scripts/Engine/room/ScanAdmission.ts"),"utf8"),mapping=JSON.parse(admissionSource.match(/const mapping:[^=]+=(\{[^\n]+\});/)![1]) as Record<string,ObjectType>;
+const zones=["Study","Conservatory","Lounge"].map((clueName,i)=>({id:"Z"+(i+1),label:clueName.toLowerCase(),clueName,anchor:[i*100,0,-300] as [number,number,number]}));
+const fullRoom:RoomInput={source:"simulated",zones,objects:Object.entries(mapping).map(([label,type],i)=>({id:"AUDIT_"+i,label,type,zone:zones[i%3].id,pos:[i*20,50,-300] as [number,number,number],virtual:false,origin:"simulated"}))};
+const vocabulary=[7,1041,2026].map(seed=>{const result=prepareDynamicCase(seed,fullRoom);if(!result.ok)throw Error("Vocabulary compile failed "+seed);return {seed,...audit(result.graph!)};});
+const nouns=Object.entries(mapping).map(([label,type])=>({label,type,voices:["S1","S2","S3","S4"].map(speaker=>({speaker,covered:keys.has(phraseVoiceKey(speaker,label))}))}));
+for(const noun of nouns)for(const voice of noun.voices)if(!voice.covered)missing.set(phraseVoiceKey(voice.speaker,noun.label),{speaker:voice.speaker,text:noun.label});
+const result={at:new Date().toISOString(),inventory:staged?"Tooling staged":"Assets published",method:"Pure engine phrase resolution; no native playback, provider calls or MP3 decode",acceptedTapes:accepted,admittedLabelCount:Object.keys(mapping).length,admittedTypeCount:new Set(Object.values(mapping)).size,vocabulary,nouns,missingSegments:[...missing.values()]};
+writeFileSync(resolve(root,`Tooling/audio/run7-generated-voice-audit${staged?"-staged":""}.json`),JSON.stringify(result,null,2)+"\n");
+if(!staged&&process.argv.includes("--write-gap-spec"))writeFileSync(resolve(root,"Tooling/audio/run7-phrase-spec-v5-audit.json"),JSON.stringify({provenance:"Incremental exact voice audit gaps; deterministic compiler and admitted ScanAdmission labels only; not yet rendered",lines:[...missing.values()].map((row,index)=>({id:"audit-gap-"+index,...row}))},null,2)+"\n");
+console.log(JSON.stringify({accepted:accepted.map(({seed,totalLines,complete,failed})=>({seed,totalLines,complete,failed:failed.length})),admittedLabels:Object.keys(mapping).length,admittedTypes:new Set(Object.values(mapping)).size,vocabulary:vocabulary.map(({seed,totalLines,complete,failed})=>({seed,totalLines,complete,failed:failed.length})),missing:[...missing.values()]}));

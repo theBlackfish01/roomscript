@@ -1,0 +1,3 @@
+import {openSync,readSync,closeSync} from 'node:fs';
+const fd=openSync('C:/Program Files/Snap Inc/Lens Studio/Lens Studio.exe','r'),base=323000000,buffer=Buffer.alloc(5*1024*1024);readSync(fd,buffer,0,buffer.length,base);closeSync(fd);
+for(const word of ['targetFrameRate','frameRateModifiable','45 FPS (SPECS)','frameRateUpdated'])for(const encoding of ['latin1','utf16le']){let at=-1;while((at=buffer.indexOf(Buffer.from(word,encoding),at+1))>=0){const view=buffer.subarray(Math.max(0,at-1800),Math.min(buffer.length,at+2600)).toString(encoding);console.log(JSON.stringify({word,encoding,offset:base+at,context:(view.match(/[\x20-\x7e]{4,}/g)||[]).filter(s=>s.length<500)}));}}

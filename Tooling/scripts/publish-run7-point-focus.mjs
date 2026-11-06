@@ -1,0 +1,2 @@
+import{readFileSync,writeFileSync}from'node:fs';import{createHash}from'node:crypto';
+const folder='Tooling/staging/run7/point-focus/',row=JSON.parse(readFileSync(folder+'manifest.json','utf8')),hash=s=>createHash('sha256').update(s).digest('hex'),before=readFileSync(row.path,'utf8'),after=readFileSync(folder+'RoomscriptPointAccuseLeafScenario.ts','utf8');if(hash(before)!==row.sourceSha256||hash(after)!==row.stagedSha256)throw Error('Point gate changed; rebase');writeFileSync(row.path,after);console.log('Published strict IK focus acquisition; Assets hold resumed');
