@@ -5,6 +5,8 @@ import {RoomscriptNotepadUI} from "./RoomscriptNotepadUI";
 import {RoomscriptDragInteraction} from "./RoomscriptDragInteraction";
 import {PanelUI,uiObject,wrapText} from "./RoomscriptPanelUI";
 import {worldLines,dottedSegment} from "./RoomscriptWorldLines";
+import {lineTubes,circleEdges,flatText} from "./RoomscriptLineArt";
+import {chalkSpot} from "./Content/ChalkSpots";
 import {clockwiseAngle,refuterMarks,notebookPages,privateRefutation} from "./Engine/game/CluePresentation";
 import {Hypothesis,Vec3} from "./Engine/core/Types";
 import {spatialDrop} from "./Engine/game/SpatialDrop";
@@ -18,7 +20,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
   readonly onSelection=new Event<Hypothesis>();
   pawnDropOverride:((who:string,point:vec3)=>boolean)|null=null;
   private pawns=new Map<string,SceneObject>();private pawnHomes=new Map<string,vec3>();private crosses=new Map<string,SceneObject>();
-  private suspectMarks=new Map<string,SceneObject>();private gridMarks=new Map<string,RenderMeshVisual>();private ghost:SceneObject;private blade:SceneObject;private panel:SceneObject;private cardText:Text;
+  private suspectMarks=new Map<string,SceneObject>();private zoneCrosses=new Map<string,SceneObject>();private gridMarks=new Map<string,RenderMeshVisual>();private ghost:SceneObject;private blade:SceneObject;private panel:SceneObject;private cardText:Text;
   private selectedWho:string|null=null;private selectedZone:string|null=null;private hypothesis:Hypothesis|null=null;
   private origin:vec3;private localOrigin:Vec3;private localForward:Vec3;private startingYaw=0;
   private nextDetail=0;private excludedSuspects=new Set<string>();private busy=false;private began=0;private endAngle=0;private visited=0;private seq=0;private refuter:string|null=null;private resultText="";
@@ -40,7 +42,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     this.busy=false;this.breathing=0;this.breaths=0;this.selectedWho=null;this.selectedZone=null;this.hypothesis=null;this.refuter=null;this.resultText="";this.lastVisited=[];this.order=[];this.visited=0;this.seq=0;
     this.notebook.show(false);this.envelope.getTransform().setLocalScale(this.envelopeScale);this.envelope.enabled=true;
     for(const object of this.generated)if(!isNull(object))object.destroy();this.generated=[];
-    this.pawns.clear();this.pawnHomes.clear();this.crosses.clear();this.gridMarks.clear();this.suspectMarks.clear();this.excludedSuspects.clear();this.nextDetail=0;
+    this.zoneCrosses.clear();this.pawns.clear();this.pawnHomes.clear();this.crosses.clear();this.gridMarks.clear();this.suspectMarks.clear();this.excludedSuspects.clear();this.nextDetail=0;
     const graph=engine.graphRef(),inverse=room.getTransform().getInvertedWorldTransform(),camera=flow.actor.camera.getTransform();
     const origin=inverse.multiplyPoint(camera.getWorldPosition()),forward=inverse.multiplyDirection(camera.getWorldRotation().multiplyVec3(vec3.back()));
     this.localOrigin=[origin.x,0,origin.z];this.localForward=[forward.x,0,forward.z];this.origin=room.toWorld([origin.x,3,origin.z]);this.startingYaw=Math.atan2(forward.x,-forward.z);
@@ -59,7 +61,12 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
       this.pawns.set(person.id,pawn);this.pawnHomes.set(person.id,pawn.getTransform().getLocalPosition());
       const cross=worldLines(pawn,"Pawn chalk X",[[new vec3(-2,-2,3),new vec3(2,2,3)],[new vec3(-2,2,3),new vec3(2,-2,3)]],this.chalk,.7).getSceneObject();cross.enabled=false;this.crosses.set(person.id,cross);
       drag.onDragStart.add(()=>{if(!this.busy)flow.subtitles.set("SUGGESTION",person.name+". Drag this pawn into a zone.");});drag.onDragEnd.add(()=>this.dropPawn(person.id));});
-    for(const zone of graph.room.zones){const mark=worldLines(room.zoneAnchor(zone.id),"RoomscriptZoneGrid_"+zone.id,[[new vec3(-28,1,-28),new vec3(28,1,-28)],[new vec3(28,1,-28),new vec3(28,1,28)],[new vec3(28,1,28),new vec3(-28,1,28)],[new vec3(-28,1,28),new vec3(-28,1,-28)]],this.cyan.clone(),.8,vec3.up());this.gridMarks.set(zone.id,mark);this.generated.push(mark.getSceneObject());}
+    // Run 8 (WEARER_UX object UI 9): each zone is a chalk circle on the real floor with its name chalked inside; ruled-out zones get a chalk cross.
+    for(const zone of graph.room.zones){const spot=chalkSpot(graph,zone.id,engine.mode()),holder=global.scene.createSceneObject("RoomscriptChalk_"+zone.id);holder.setParent(room.getSceneObject());holder.getTransform().setLocalPosition(new vec3(spot.center[0],0,spot.center[2]));this.generated.push(holder);
+      const mark=lineTubes(holder,"RoomscriptZoneGrid_"+zone.id,circleEdges(spot.radius,Math.max(28,Math.round(spot.radius)),new vec3(0,1,0),"xz"),this.chalk.clone(),.9);
+      const name=flatText(mark.getSceneObject(),"Chalk zone name",zone.clueName.toUpperCase(),9,new vec4(.93,.96,1,.9),"title",60,10);name.getSceneObject().getTransform().setLocalPosition(new vec3(0,1.2,spot.radius>50?spot.radius+9:0));name.getSceneObject().getTransform().setLocalRotation(quat.fromEulerAngles(-Math.PI/2,0,0));
+      const cross=lineTubes(mark.getSceneObject(),"Chalk zone cross",[[new vec3(-spot.radius*.7,1.3,-spot.radius*.7),new vec3(spot.radius*.7,1.3,spot.radius*.7)],[new vec3(-spot.radius*.7,1.3,spot.radius*.7),new vec3(spot.radius*.7,1.3,-spot.radius*.7)]],this.chalk.clone(),1.1).getSceneObject();cross.enabled=false;this.zoneCrosses.set(zone.id,cross);
+      this.gridMarks.set(zone.id,mark);this.generated.push(mark.getSceneObject());}
     for(const id of graph.weapons){const mark=worldLines(room.objectAnchor(id),"RoomscriptWeaponGrid_"+id,[[new vec3(-5,4,4),new vec3(5,4,4)],[new vec3(5,4,4),new vec3(0,10,4)],[new vec3(0,10,4),new vec3(-5,4,4)]],this.cyan.clone(),.7);this.gridMarks.set(id,mark);this.generated.push(mark.getSceneObject());}
     this.ghost=global.scene.createSceneObject("RoomscriptSuggestionGhost");this.ghost.setParent(this.getSceneObject());const outline:[vec3,vec3][]=[];
     const path=[new vec3(-14,0,0),new vec3(-25,90,0),new vec3(-16,125,0),new vec3(-12,160,0),new vec3(12,160,0),new vec3(16,125,0),new vec3(25,90,0),new vec3(14,0,0)];for(let i=0;i<path.length-1;i++)outline.push(...dottedSegment(path[i],path[i+1],8));
@@ -91,7 +98,7 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
   private renderKnowledge():void {
     const engine=this.objection.flow.engine,state=engine.snapshot();this.notebook.setPages(notebookPages(engine.graphRef(),state));
     this.excludedSuspects=new Set(state.grid.suspects);this.crosses.forEach((cross,id)=>cross.enabled=this.excludedSuspects.has(id));this.suspectMarks.forEach((mark,id)=>mark.enabled=this.excludedSuspects.has(id));
-    this.gridMarks.forEach((visual,id)=>{const excluded=state.grid.zones.includes(id)||state.grid.weapons.includes(id);const material=visual.mainMaterial;material.mainPass.baseColor=excluded?new vec4(.14,.10,.03,1):new vec4(.91,.69,.29,1);visual.mainMaterial=material;
+    this.gridMarks.forEach((visual,id)=>{const excluded=state.grid.zones.includes(id)||state.grid.weapons.includes(id);const material=visual.mainMaterial,zone=visual.getSceneObject().name.startsWith("RoomscriptZoneGrid_");material.mainPass.baseColor=zone?(excluded?new vec4(.45,.47,.5,1):new vec4(.93,.96,1,1)):excluded?new vec4(.14,.10,.03,1):new vec4(.91,.69,.29,1);visual.mainMaterial=material;{const cross=this.zoneCrosses.get(id);if(cross)cross.enabled=excluded;}
       if(state.grid.weapons.includes(id))visual.getTransform().setLocalRotation(quat.angleAxis(Math.PI,vec3.up()));});
   }
   private updateDetail():void {

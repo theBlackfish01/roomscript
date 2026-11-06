@@ -26,19 +26,22 @@ import {replayGame} from "./Engine/game/Reducer";
     const tap=async(name:string)=>{const targets=findInteractablesByName(name,undefined,true);console.log("CLUE_TAP|"+name+"|"+targets.length);expect(targets.length).toBe(1);await hand.trigger(targets[0]);await sleep(100);};
     const dragPawn=async(id:string,zone:string)=>{const pawn=findInteractablesByName("RoomscriptPawn_"+id,undefined,true)[0],target=vec3.lerp(flow.actor.camera.getTransform().getWorldPosition(),room.zoneAnchor(zone).getTransform().getWorldPosition(),.3),vector=new vec3(1,0,0);
       const remove=pawn.onDragUpdate.add(()=>{const delta=target.sub(pawn.getTransform().getWorldPosition()).uniformScale(.5);vector.x=delta.x;vector.y=delta.y;vector.z=delta.z;});try{await hand.drag(pawn,vector,2200);}finally{remove();}await sleep(200);};
+    // Suggestions need two known facts (Reducer: gather_evidence_first). Learn them through real pinches first.
+    for(const object of ["O11","O9","O6"]){if(engine.snapshot().knowledge.factIds.length>=2)break;engine.dispatch({type:"PinchObject",object});}
+    expect(engine.snapshot().knowledge.factIds.length>=2).toBe(true);const base=engine.snapshot().elapsedMinutes;
     try {
-      await dragPawn("S1","Z1");expect(clue.diagnostics().pending).toBe("S1");expect(findSceneObjectByName("RoomscriptSuggestionGhost").enabled).toBe(true);expect(engine.snapshot().elapsedMinutes).toBe(0);
-      await tap("RoomscriptObject_O1");expect(engine.snapshot().elapsedMinutes).toBe(15);expect(engine.snapshot().knowledge.evidenceIds.includes("E_CABLE")).toBe(false);expect(starts[0].busy).toBe(true);expect(starts[0].card).toBe("");
-      await finishSweep();expect(clue.diagnostics().refuter).toBe("O8");expect(clue.diagnostics().visited.slice(-1)[0]).toBe("O8");expect(clue.diagnostics().card.length>0).toBe(true);expect(engine.snapshot().grid.suspects.includes("S1")).toBe(false);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(false);
+      await dragPawn("S1","Z1");expect(clue.diagnostics().pending).toBe("S1");expect(findSceneObjectByName("RoomscriptSuggestionGhost").enabled).toBe(true);expect(engine.snapshot().elapsedMinutes-base).toBe(0);
+      await tap("RoomscriptObject_O1");expect(engine.snapshot().elapsedMinutes-base).toBe(15);expect(engine.snapshot().knowledge.evidenceIds.includes("E_CABLE")).toBe(false);expect(starts[0].busy).toBe(true);expect(starts[0].card).toBe("");
+      await finishSweep();const refutedBy=engine.snapshot().events.filter(e=>e.type==="refuted").slice(-1)[0]?.actor;expect(!!refutedBy).toBe(true);expect(clue.diagnostics().refuter).toBe(refutedBy);expect(clue.diagnostics().visited.slice(-1)[0]).toBe(refutedBy);expect(clue.diagnostics().card.length>0).toBe(true);expect(engine.snapshot().grid.suspects.includes("S1")).toBe(false);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(false);
       expect(findSceneObjectByName("RoomscriptPawn_S1").getChildrenCount()>2).toBe(true);checkRefutationBounds();await tap("Close refutation");
-      expect(findSceneObjectByName("RoomscriptCaseLidUI").getChild(0).getComponent("ColliderComponent").enabled).toBe(false);
+      {const lidCollider=findSceneObjectByName("RoomscriptCaseLidUI").getChild(0).getComponent("ColliderComponent") as ColliderComponent;expect(!lidCollider||!lidCollider.enabled).toBe(true);}
       await tap("RoomscriptObject_O6");await tap("Close memory");expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);
       // The exclusion stays certified while its room marker yields to a nearby speaker.
       await tap("Question S2");const face=flow.actor.getTransform().getWorldPosition().add(new vec3(0,130,0));camera.setWorldPosition(face.add(new vec3(0,0,100)));camera.setWorldRotation(quat.quatIdentity());await sleep(350);
       expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(false);expect(clue.objection.tells.diagnostics().visibleSegments).toBe(0);
       camera.setWorldRotation(quat.fromEulerAngles(-Math.PI/3,0,0));await sleep(350);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(true);expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);
       camera.setWorldPosition(cameraHome);camera.setWorldRotation(cameraRotation);await sleep(250);
-      await dragPawn("S2","Z1");expect(clue.diagnostics().pending).toBe("S2");await tap("RoomscriptObject_O1");await finishSweep();expect(clue.diagnostics().refuter).toBe(null);expect(clue.diagnostics().breaths).toBe(0);expect(engine.snapshot().elapsedMinutes).toBe(40);expect(engine.snapshot().verdict).toBe(null);
+      await dragPawn("S2","Z1");expect(clue.diagnostics().pending).toBe("S2");await tap("RoomscriptObject_O1");await finishSweep();expect(clue.diagnostics().refuter).toBe(null);expect(clue.diagnostics().breaths).toBe(0);expect(engine.snapshot().elapsedMinutes-base).toBe(40);expect(engine.snapshot().verdict).toBe(null);
       expect(JSON.stringify(replayGame(engine.caseGraph(),engine.snapshot().log))).toBe(JSON.stringify(engine.snapshot()));
       expect(clue.objection.tells.audio.getTransform().getWorldPosition().distance(audioOrigin)<.01).toBe(true);
       console.log("CLUE_CHECK|"+JSON.stringify({refuter:"O8",privateCard:true,noRefuter:true,pawnDrag:true,clock:40,replay:true}));

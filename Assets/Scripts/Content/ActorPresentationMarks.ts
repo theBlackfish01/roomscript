@@ -27,7 +27,7 @@ export const PRESET_CONVERSATION_SPOTS:Record<string,Vec3>={
 export function conversationSpot(id:string):Vec3 {return (PRESET_CONVERSATION_SPOTS[id]||[0,0,-40]).slice() as Vec3;}
 export function actorPresentationMarks(graph:CaseGraph,mode:"preset"|"dynamic"):Record<string,Vec3> {
   const marks=refuterMarks(graph);
-  if(mode==="preset"&&graph.caseId.startsWith("HARLOW-1041@")&&graph.room.roomId.endsWith(":evening-v2"))
+  if(mode==="preset"&&graph.caseId.startsWith("HARLOW-1041@")&&/:evening-v[23]$/.test(graph.room.roomId))
     for(const id of Object.keys(PRESET_FREE_FLOOR_MARKS))if(marks[id])marks[id]=PRESET_FREE_FLOOR_MARKS[id].slice() as Vec3;
   return marks;
 }

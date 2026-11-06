@@ -10,6 +10,10 @@ import {lookupLine} from "../../../Assets/Scripts/Engine/perf/LineBank";
 import {getCurrentStatements} from "../../../Assets/Scripts/Engine/game/Actions";
 import {generatedLineBank} from "../../../Assets/Scripts/Engine/perf/GeneratedPerformance";
 import {EVENING_ROOM_SCAN} from "../../../Assets/Scripts/Content/EveningRoomScan";
+import {isPlausibleWeapon} from "../../../Assets/Scripts/Engine/room/Plausibility";
+import {CaseGraph} from "../../../Assets/Scripts/Engine/core/Types";
+/** Run 8 casting rule: the only invented objects are plausible substitute weapons (no speaker is a weapon). */
+const virtualOnlyPlausibleWeapons=(graph:CaseGraph)=>graph.room.objects.filter(o=>o.virtual).every(o=>graph.weapons.includes(o.id)&&isPlausibleWeapon(o.label,o.type));
 
 describe("generated case product boundary",()=>{
   for(const seed of [7,1041,2026])it("supports the runtime smoke's question-plus-inspection sequence on accepted room seed "+seed,()=>{
@@ -24,7 +28,7 @@ describe("generated case product boundary",()=>{
     const hypotheses=solvePlayerKnowledge(graph,player.state.knowledge).hypotheses;
     expect(hypotheses).toHaveLength(1);expect(player.state.verdict).toBeNull();
     const h=hypotheses[0];player.execute(`accuse ${h.who} ${h.where} ${h.what}`);
-    expect(player.state.verdict).toBe("correct");expect(graph.room.objects.filter(o=>o.virtual)).toHaveLength(0);
+    expect(player.state.verdict).toBe("correct");expect(virtualOnlyPlausibleWeapons(graph)).toBe(true);expect(graph.room.objects.filter(o=>o.virtual).length).toBeLessThanOrEqual(3);
     expect(replayGame(graph,player.state.log)).toEqual(player.state);
   });
   for(const seed of [7,1041,2026])it("plays authored room seed "+seed+" to a replayable terminal verdict",()=>{
@@ -76,7 +80,8 @@ describe("generated case product boundary",()=>{
       const result=prepareDynamicCase(seed,{source:"simulated",zones,objects});expect(result.ok,JSON.stringify(result)).toBe(true);
       const graph=result.graph!;expect(graph.solver!.ok).toBe(true);expect(graph.solver!.minRouteMinutes).toBeGreaterThanOrEqual(60);
       expect(graph.room.objects.filter(o=>o.id.startsWith("REC_")).length).toBeLessThanOrEqual(3);
-      expect(graph.room.objects.filter(o=>o.virtual).length).toBeLessThanOrEqual(3);
+      expect(graph.room.objects.filter(o=>o.virtual&&!graph.weapons.includes(o.id)).length).toBeLessThanOrEqual(3);
+      expect(graph.weapons.every(id=>{const o=graph.room.objects.find(x=>x.id===id)!;return isPlausibleWeapon(o.label,o.type);})).toBe(true);
       expect(graph.evidence.some(e=>e.canonical.startsWith("A fictional memory"))).toBe(true);
       for(const evidence of graph.evidence.filter(e=>!e.latent)) {
         const fact=graph.facts.find(f=>f.id===evidence.proves[0])!,holder=graph.room.objects.find(o=>o.id===evidence.holder)!;
@@ -100,10 +105,10 @@ describe("generated case product boundary",()=>{
     const result=prepareDynamicCase(7,{source:"simulated",zones,objects});
     expect(result.ok,JSON.stringify(result)).toBe(true);
     const graph=result.graph!;
-    expect(graph.room.objects.filter(o=>o.virtual)).toHaveLength(0);
+    expect(virtualOnlyPlausibleWeapons(graph)).toBe(true);
     expect(graph.compilerVersion).toBe("roomscript-compiler-3-memory");
     expect(graph.statements.filter(s=>s.topic==="borrowed_item").every(s=>!s.canonical.includes("borrow"))).toBe(true);
-    expect(graph.statements.some(s=>s.canonical.startsWith("I touched the armchair"))).toBe(true);
+    expect(graph.statements.some(s=>/^I touched the (armchair|side table) [0-2]./.test(s.canonical))).toBe(true);
     expect(graph.solver!.ok).toBe(true);expect(graph.solver!.minRouteMinutes).toBeGreaterThanOrEqual(60);
   });
 });

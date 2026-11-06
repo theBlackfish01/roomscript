@@ -40,5 +40,8 @@ export function propDrawing(parent:SceneObject,id:string,kind:string,isWeapon:bo
     case "soft":segments=[...rectEdges(46,30,v(0,1,0),"xz"),...polyline([v(-20,1.5,-10),v(-5,1.5,-2),v(12,1.5,-12)])];break; // folded cover on the seat
     default:return null;
   }
-  return lineTubes(parent,"RoomscriptPropVisual_"+id,segments,material,kind==="mirror"?.6:.35).getSceneObject();
+  const drawing=lineTubes(parent,"RoomscriptPropVisual_"+id,segments,material,kind==="mirror"?.6:.35).getSceneObject();
+  // Wall fixtures (door latch, window glass) face into the room: towards the room centre over the coffee table.
+  if(kind==="door"||kind==="mirror"){const p=parent.getTransform().getWorldPosition(),toward=new vec3(-p.x,0,-300-p.z);if(toward.length>1)drawing.getTransform().setWorldRotation(quat.lookAt(toward.normalize(),vec3.up()));}
+  return drawing;
 }

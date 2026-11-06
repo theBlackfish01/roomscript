@@ -38,11 +38,15 @@ describe("Preset actor staging stands every suspect on free floor",()=>{
     marks.S2[0]=999;expect(JSON.stringify(graph)).toBe(before);expect(refuterMarks(graph)).toEqual(original);expect(clockwiseRefuters(graph,[0,0,0],[0,0,-1])).toEqual(order);
     expect(PRESET_FREE_FLOOR_MARKS.S2[0]).not.toBe(999);
   });
+  it("stages the same free-floor marks on the v2 and v3 Preset layouts",()=>{
+    for(const layout of ["evening-v2","evening-v3"] as const){const marks=actorPresentationMarks(applyPresetEveningRoom(createHeroCase(),{layout}),"preset");
+      for(const id of Object.keys(PRESET_FREE_FLOOR_MARKS))expect(marks[id]).toEqual(PRESET_FREE_FLOOR_MARKS[id]);}
+  });
   it("leaves Dynamic and historical layouts unchanged",()=>{
     const historical=createHeroCase(),current=applyPresetEveningRoom(historical);
     expect(actorPresentationMarks(current,"dynamic")).toEqual(refuterMarks(current));
     expect(actorPresentationMarks(historical,"preset")).toEqual(refuterMarks(historical));
-    const older=JSON.parse(JSON.stringify(current));older.room.roomId=older.room.roomId.replace(":evening-v2",":evening-v1");
+    const older=JSON.parse(JSON.stringify(current));older.room.roomId=older.room.roomId.replace(/:evening-v\d+$/,":evening-v1");
     expect(actorPresentationMarks(older,"preset")).toEqual(refuterMarks(older));
   });
 });
