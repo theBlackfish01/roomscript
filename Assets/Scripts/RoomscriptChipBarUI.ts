@@ -1,24 +1,32 @@
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
-import {PanelUI,wrapText} from "./RoomscriptPanelUI";
-/** Passive question surface; emits intent, never chooses truth or spends time. */
+import {glyphButton,glyphTexture,GlyphButton,IVORY} from "./RoomscriptGlyphUI";
+import {questionGlyph} from "./Engine/perf/GlyphTokens";
+/** Passive question surface; emits intent, never chooses truth or spends time.
+ * Run 8: a column of three small glyph tokens beside the suspect's shoulder, plus a "more" glyph.
+ * Interactable names ("Question 1..3", "More questions") are unchanged for LEAF.
+ */
 @component export class RoomscriptChipBarUI extends BaseScriptComponent {
   @ui.group_start("Settings")
-  @input @hint("Panel width cm") @widget(new SliderWidget(40,60,1)) width:number=46;
-  @input @hint("Text scale") @widget(new SliderWidget(1,2.5,0.1)) fontScale:number=1.6;
-  @input('vec4','{1,0.94,0.84,1}') @hint("Person label color") @widget(new ColorWidget()) ink:vec4;
+  @input @hint("Panel width cm (legacy; tokens use tokenWidth)") @widget(new SliderWidget(40,60,1)) width:number=46;
+  @input @hint("Text scale (legacy)") @widget(new SliderWidget(1,2.5,0.1)) fontScale:number=1.6;
+  @input('vec4','{1,0.94,0.84,1}') @hint("Token ink") @widget(new ColorWidget()) ink:vec4;
   @ui.group_end
   readonly onQuestion=new Event<string>();
-  private more:Text;private view:PanelUI;private person:Text;private labels:Text[]=[];private keys:string[]=[];
-  build():void {if(this.view)return;this.view=new PanelUI(this.getSceneObject(),Math.min(38,this.width),39,this.fontScale,this.ink);
-    this.person=this.view.text("Suspect","MARGUERITE VALE",4,"title");
-    // 7.5 cm is about 2.86 degrees at the 1.5 m question distance; More has the same generous hit target.
-    for(let i=0;i<3;i++)this.labels.push(...this.view.buttons([{id:"Question "+(i+1),label:""}],()=>this.onQuestion.invoke(this.keys[i]),7.5));
-    this.more=this.view.buttons([{id:"More questions",label:"More"}],()=>this.onQuestion.invoke("more"),7.5)[0];
+  /** About 2.2 deg tall at the 1.4 m conversation spot. */
+  readonly tokenWidth=13;readonly tokenHeight=5;
+  private built=false;private tokens:GlyphButton[]=[];private more:GlyphButton;private keys:string[]=[];private labels:string[]=[];private person="";
+  build():void {if(this.built)return;this.built=true;const root=this.getSceneObject();root.createComponent("Component.Canvas");
+    const step=this.tokenHeight+1.3;
+    for(let i=0;i<3;i++){const index=i;const token=glyphButton(root,"Question "+(i+1),this.tokenWidth,this.tokenHeight,()=>this.onQuestion.invoke(this.keys[index]),this.ink||IVORY);token.root.getTransform().setLocalPosition(new vec3(0,step*(1.5-i),.6));this.tokens.push(token);}
+    this.more=glyphButton(root,"More questions",this.tokenWidth*.62,this.tokenHeight*.8,()=>this.onQuestion.invoke("more"),this.ink||IVORY);this.more.root.getTransform().setLocalPosition(new vec3(-this.tokenWidth*.19,step*-1.45,.6));this.more.set(glyphTexture("more"),"More");
   }
-  setPerson(name:string):void {this.person.text=name.toUpperCase();}
+  setPerson(name:string):void {this.person=name;}
   setTopic(_label:string):void {}
-  setQuestions(items:{topic:string;label:string}[]):void {this.keys=items.map(i=>i.topic);for(let i=0;i<3;i++){this.labels[i].text=wrapText(items[i]?.label||"",25);this.labels[i].getSceneObject().getParent().enabled=!!items[i];}}
-  setPage(page:number,total:number):void {this.more.text="More "+(page+1)+"/"+total;this.more.getSceneObject().getParent().enabled=total>1;}
+  setQuestions(items:{topic:string;label:string}[]):void {this.build();this.keys=items.map(i=>i.topic);this.labels=items.map(i=>i.label);
+    for(let i=0;i<3;i++){const item=items[i];this.tokens[i].root.enabled=!!item;if(item){const glyph=questionGlyph(item.topic,item.label);this.tokens[i].set(glyphTexture(glyph.icon),glyph.word);}}}
+  setPage(page:number,total:number):void {this.build();this.more.word.text=total>1?"More":"";this.more.root.enabled=total>1;}
   topics():string[]{return this.keys.slice();}
-  show(value:boolean):void {this.view.show(value);}
+  /** Full wording of the visible tokens (diagnostics and Wren tips; never rendered as a slab). */
+  questionLabels():string[]{return this.labels.slice();}
+  show(value:boolean):void {this.build();this.getSceneObject().enabled=value;}
 }

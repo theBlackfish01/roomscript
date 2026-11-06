@@ -8,6 +8,7 @@ import {openingCaseCard} from "./Engine/game/CaseClarity";
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import {caseExitPosition} from "./Engine/game/RoomPresentation";
 import {recordedCrateSurfaceLayout} from "./Content/CrateSurfaceLayout";
+import {hideLeafOverlays} from "./RoomscriptFilm";
 
 /** Authored pre-show. No evidence, time or truth actions; the player opens the case. */
 @component export class RoomscriptOpeningController extends BaseScriptComponent {
@@ -61,7 +62,7 @@ import {recordedCrateSurfaceLayout} from "./Content/CrateSurfaceLayout";
   finish():void {if(this.phase==="boot")return;this.cast.flow.engine.investigationEnabled=true;this.cast.flow.engine.configurePose();this.clue.syncSetupPose();this.phase="ready";this.placement.enabled=false;this.floorMarker.enabled=false;this.panel.enabled=false;this.tab.enabled=false;this.tape.enabled=!this.filmMode;this.beam.enabled=false;this.chalk.forEach(o=>o.enabled=true);this.clue.envelope.enabled=true;this.clue.envelope.getTransform().setLocalPosition(this.envelopeHome);this.crate.getTransform().setLocalPosition(this.crateHome);this.crate.restart();this.cast.flow.engine.graphRef().cast.suspects.forEach(s=>this.cast.flow.actorFor(s.id)!.getSceneObject().enabled=true);this.showPlay(true);this.clue.objection.tells.audio.silence(false);this.beat("ready");this.syncClock();}
   private update():void {
     if(getTime()>=this.nextDetail){
-      this.nextDetail=getTime()+.2;const flow=this.cast.flow,camera=flow.actor.camera.getTransform(),eye=camera.getWorldPosition(),rotation=camera.getWorldRotation(),forward=rotation.multiplyVec3(vec3.back());
+      this.nextDetail=getTime()+.2;if(this.filmMode)hideLeafOverlays();const flow=this.cast.flow,camera=flow.actor.camera.getTransform(),eye=camera.getWorldPosition(),rotation=camera.getWorldRotation(),forward=rotation.multiplyVec3(vec3.back());
       const face=flow.actor.getTransform().getWorldPosition().add(new vec3(0,130,0)).sub(eye),facing=face.length>.1&&face.normalize().dot(forward)>.5;
       const conversation=flow.diagnostics().busy||(facing&&(face.length<180||flow.chips.getSceneObject().enabled||flow.verbs.getSceneObject().enabled));
       const explore=this.phase==="ready"&&!this.verdict&&!flow.controlsBlocked&&!conversation;let nearest:SceneObject=null,best=180;

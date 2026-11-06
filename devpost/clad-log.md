@@ -136,3 +136,10 @@ VirtualScene authored the crate on the measured coffee-table support; RecompileT
 2026-11-06 09:44 PKT | Local LEAF + shell log audit | Three ending branches and reading-panel strict IK pass; multi-hour native Rain call/interrupted interrogation recorded as failure. Fresh Preview reset retries within existing process; no GUI or raw HTTP.
 
 2026-11-06 09:48 PKT | Main wrap-up | VirtualScene idle/token clearing + ExecuteEditorCode save succeeded; pure554/70 tests and typecheck passed. Lens gracefully exited09:45:59, final MCP refresh/pause unavailable; no GUI/restart after owner stop. Final report distinguishes strict local passes, interrupted gate and staged experiments.
+
+## Run 8 (Claude Code + CLAD), Nov 6
+
+2026-11-06 15:06 PKT | Claude Code (Opus 5.5) | `/lens-studio-router` preflight | Project, MCP and sign-in verified; Specs route; the builder subagent was not spawned (main session owns scene work, per the run brief).
+2026-11-06 15:09 PKT | MCP `run_leaf_scenario` | strict `roomscript-interrogation` PASS 16.781 s over the **MCP transport** (Run 7's stall did not recur).
+2026-11-06 15:12–15:16 PKT | `RecompileTypeScriptTool` + `VirtualScene` + `MovePreviewCamera` + World Query probe script | Mapped walls, door, window, sofa, table and free floor of the Evening Room (temporary probe, removed).
+2026-11-06 15:20–15:40 PKT | `lens-studio-field-notes`, `editor-api` skills; `VirtualScene`, `PreviewPanelTool` screenshots, `QueryRuntimeSceneTool`, local LEAF runner | Glyph tokens (UIKit Secondary buttons), one-line subtitles, free-floor staging and LEAF overlay hiding. Iterated through four captures (`docs/captures/2026-11-06-run8-vale-*`).

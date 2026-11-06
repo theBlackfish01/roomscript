@@ -47,6 +47,6 @@
     -
       {}
   InputLines:
-    - '// @input float width = 46 {"hint":"Panel width cm", "widget":"slider", "min":40, "max":60, "step":1}'
-    - '// @input float fontScale = 1.6 {"hint":"Text scale", "widget":"slider", "min":1, "max":2.5, "step":0.1}'
+    - '// @input float width = 46 {"hint":"Panel width cm (legacy)", "widget":"slider", "min":40, "max":60, "step":1}'
+    - '// @input float fontScale = 1.6 {"hint":"Text scale (legacy)", "widget":"slider", "min":1, "max":2.5, "step":0.1}'
     - '// @input vec4 ink = "{0.25,0.89,1,1}" {"hint":"Claim color", "widget":"color"}'
