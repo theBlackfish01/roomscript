@@ -33,7 +33,15 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
   private pullObject:string|null=null;private pullOrigin:vec3;private pullDelta:vec3;private pullingLift=false;private pullCommitted=false;
   private suppressTapObject="";private suppressTapUntil=0;private pullCount=0;private liftCount=0;
   private lifted:SceneObject;private liftedSource:SceneObject;private liftedSourceEnabled=false;private liftedOrigin:vec3;
-  objectHandler:((id:string)=>boolean)|null=null;
+  objectHandler:((id:string)=>boolean)|null=null;private objecting=false;private photoMaterial:Material;private proofIndex=new Map<string,number>();private proofEvidence:string|null=null;
+  /** While objecting, each pull from an object brings out its next observed memory, shown on the photo, so the
+   * player chooses the proof by what they see. Order is graph order, never by which memory is correct. */
+  /** The caption on the photo in hand, as the wearer reads it ("" when no photo is out). */
+  photoCaption():string {return this.photo&&this.photo.enabled?this.photoLabel.text:"";}
+  private chooseProof(id:string):void {const graph=this.flow.engine.graphRef(),state=this.flow.engine.snapshot(),observed=graph.evidence.filter(e=>e.holder===id&&state.knowledge.evidenceIds.includes(e.id));
+    this.proofEvidence=null;if(!observed.length)return;const i=(this.proofIndex.get(id)||0)%observed.length;this.proofIndex.set(id,i+1);const chosen=observed[i];this.proofEvidence=chosen.id;
+    const card=admittedCard(graph,state,chosen.id);this.photoMaterial.mainPass.baseTex=card?card.texture:requireAsset("../Art/Run7/MemoryPhoto.png") as Texture;
+    const words=chosen.canonical.replace(/^The /,"").split(/\s+/).slice(0,4).join(" ");this.photoLabel.text=(words+(observed.length>1?"  "+(i+1)+"/"+observed.length:"")).toUpperCase();console.log("PROOF_PHOTO|"+JSON.stringify({object:id,evidence:chosen.id,index:i+1,of:observed.length,label:this.photoLabel.text}));}
   /** LEAF-only inspection hold; empty in production. */
   captureAt="";
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
@@ -66,7 +74,7 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
   }
   resetForCase():void {
     if(!this.slip)return;this.tells.room.initialize();this.flow.cancel();this.stateCache=this.flow.engine.snapshot();
-    this.phase="idle";this.opened=false;this.selected=null;this.claim="";this.memories=[];this.memoryIndex=0;this.destination=null;this.correct=false;this.develops=0;this.burstAt=0;this.burstCount=0;this.phaseHistory=[];this.captureAt="";
+    this.phase="idle";this.opened=false;this.objecting=false;this.proofIndex.clear();this.proofEvidence=null;this.selected=null;this.claim="";this.memories=[];this.memoryIndex=0;this.destination=null;this.correct=false;this.develops=0;this.burstAt=0;this.burstCount=0;this.phaseHistory=[];this.captureAt="";
     this.restoreLift();this.pullObject=null;this.pullCommitted=false;this.pullCount=0;this.liftCount=0;this.suppressTapObject="";this.suppressTapUntil=0;this.photo.enabled=false;this.memoryView.set(null);
     this.wallet.show(false);this.stamp.enabled=false;this.memory.enabled=false;this.slip.enabled=false;this.controls.enabled=true;this.ribbon.enabled=false;
     this.slip.getTransform().setLocalPosition(this.home);this.memory.getTransform().setLocalScale(vec3.one());
@@ -116,18 +124,18 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
     if(this.phase!=="idle")return;const state=this.stateCache,claim=this.flow.engine.graphRef().statements.find(s=>s.id===state.activeStatement);
     if(!claim||claim.speaker!==this.flow.diagnostics().suspect){this.flow.subtitles.set("WREN","Ask a question before challenging an account.");return;}
     const entry=walletEntries(this.flow.engine.graphRef(),state).find(e=>e.id===evidence);
-    this.flow.cancel();this.claim=claim.id;this.opened=true;this.selected=entry?entry.id:null;
+    this.flow.cancel();this.claim=claim.id;this.opened=true;this.objecting=true;this.selected=entry?entry.id:null;
     this.getSceneObject().enabled=true;this.controls.enabled=true;this.slip.enabled=true;this.slip.getTransform().setLocalPosition(this.home);this.slipText.text=wrapText(claim.canonical,30);
     this.memory.enabled=!!this.selected;this.memory.getTransform().setLocalPosition(new vec3(30,0,0));this.memories=[];this.memoryView.set(entry?this.cardData(entry.id):null);this.memoryView.expand(false);
     const evidenceObject=entry&&this.flow.engine.graphRef().evidence.find(e=>e.id===entry.id)?.holder,object=evidenceObject&&this.flow.engine.graphRef().room.objects.find(o=>o.id===evidenceObject);this.placePanel(this.getSceneObject(),object?this.tells.room.objectAnchor(object.id).getTransform().getWorldPosition():this.flow.actor.getTransform().getWorldPosition().add(new vec3(0,65,0)));
-    this.hint.text="Drag the statement onto an object or memory.";this.modal(true);
+    this.hint.text="Show the proof: pull a memory and hold it up to them.";this.modal(true);
   }
-  close():void {if(this.phase!=="idle")return;this.opened=false;this.getSceneObject().enabled=false;this.modal(false);}
+  close():void {if(this.phase!=="idle")return;this.opened=false;this.objecting=false;this.getSceneObject().enabled=false;this.modal(false);}
   private modal(active:boolean):void {this.flow.controlsBlocked=active;if(active){this.flow.chips.show(false);this.flow.verbs.show(false);}else this.flow.restoreControls();this.caseLid.show(!active);}
   /** SIK supplies the same drag events in Preview and on glasses. The real anchor never moves. */
   private buildPullPhoto():void {
     this.photo=uiObject(this.getSceneObject(),"RoomscriptPulledMemory");this.photo.createComponent("Component.Canvas");
-    cardImage(this.photo,"Pulled photograph",requireAsset("../Art/Run7/MemoryPhoto.png") as Texture,30,24);
+    this.photoMaterial=cardImage(this.photo,"Pulled photograph",requireAsset("../Art/Run7/MemoryPhoto.png") as Texture,30,24);
     const symbols:{kind:string;lines:[vec3,vec3][]}[]=[
       {kind:"memory",lines:[[new vec3(-8,-1,.4),new vec3(-3,6,.4)],[new vec3(-3,6,.4),new vec3(2,0,.4)],[new vec3(2,0,.4),new vec3(6,4,.4)],[new vec3(6,4,.4),new vec3(10,-1,.4)]]},
       {kind:"cup",lines:[[new vec3(-5,7,.4),new vec3(-4,-2,.4)],[new vec3(-4,-2,.4),new vec3(4,-2,.4)],[new vec3(4,-2,.4),new vec3(5,7,.4)],[new vec3(5,7,.4),new vec3(-5,7,.4)],[new vec3(5,5,.4),new vec3(9,4,.4)],[new vec3(9,4,.4),new vec3(9,0,.4)],[new vec3(9,0,.4),new vec3(5,-1,.4)]]},
@@ -138,7 +146,7 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
     this.photoLabel=new PanelUI(label,29,7,1.2,new vec4(1,.94,.84,1),true,true).text("Memory object","PULL A MEMORY",5,"small");this.photo.enabled=false;
   }
   private beginPull(id:string,label:string,kind:string):void {
-    if(this.phase!=="idle"||this.opened||this.stateCache.verdict)return;
+    if(this.phase!=="idle"||(this.opened&&!this.objecting)||this.stateCache.verdict)return;
     const lift=kind==="cup"||kind==="cord";this.flow.cancel();this.pullObject=id;this.pullCommitted=false;this.pullingLift=lift;this.pullDelta=vec3.zero();
     this.pullOrigin=this.tells.room.objectAnchor(id).getTransform().getWorldPosition();this.suppressTapObject=id;this.suppressTapUntil=getTime()+1;
     this.opened=true;this.getSceneObject().enabled=true;this.slip.enabled=false;this.memory.enabled=false;this.controls.enabled=false;this.stamp.enabled=false;this.modal(true);
@@ -161,7 +169,7 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
     if(ready&&!this.pullCommitted){
       const state=this.flow.engine.dispatch({type:"PinchObject",object:id});this.pullCommitted=true;
       if(state.events.some(e=>e.seq===state.lastSeq&&e.type==="rejected")||state.verdict){this.cancelPull(false);return;}
-      this.pullCount++;if(this.pullingLift)this.liftCount++;this.photoLabel.text=this.pullingLift?"LIFTED MEMORY":"MEMORY FOUND";
+      this.pullCount++;if(this.pullingLift)this.liftCount++;this.photoLabel.text=this.pullingLift?"LIFTED MEMORY":"MEMORY FOUND";if(this.objecting)this.chooseProof(id);
       this.tells.audio.playAt(this.pullingLift?"LiftInspect":"PullMemory",this.photo.getTransform().getWorldPosition());
     }
   }
@@ -173,6 +181,10 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
     // Holding the photo up to a suspect asks them about the object instead of opening the memory card.
     const presented=collected&&this.photo.enabled?this.presentedTo(this.photo.getTransform().getWorldPosition()):null;
     {const at=this.photo.getTransform().getWorldPosition();console.log("PULL_END|"+JSON.stringify({id,collected,photo:this.photo.enabled,at:[at.x,at.y,at.z].map(Math.round),delta:Math.round(this.pullDelta.length),presented}));}
+    if(this.objecting){this.suppressTapObject=id;this.suppressTapUntil=getTime()+.25;this.restoreLift();this.pullObject=null;const at=this.photo.getTransform().getWorldPosition();this.photo.enabled=false;
+      const evidence=collected&&this.proofEvidence?[this.proofEvidence]:[];this.proofEvidence=null;this.photoMaterial.mainPass.baseTex=requireAsset("../Art/Run7/MemoryPhoto.png") as Texture;
+      if(presented&&presented===this.flow.diagnostics().suspect&&evidence.length){console.log("PRESENT_PROOF|"+JSON.stringify({suspect:presented,object:id,evidence}));this.opened=true;this.objectWith(evidence,at);return;}
+      this.opened=false;this.phase="idle";this.objecting=false;this.open();return;}
     if(presented){this.suppressTapObject=id;this.suppressTapUntil=getTime()+.25;this.restoreLift();this.pullObject=null;this.photo.enabled=false;this.opened=false;this.getSceneObject().enabled=false;this.modal(false);void this.flow.presentObjectTo(presented,id);return;}this.suppressTapObject=id;this.suppressTapUntil=getTime()+.25;
     this.restoreLift();this.pullObject=null;this.photo.enabled=false;this.opened=false;
     if(collected)this.inspect(id,true);else{this.getSceneObject().enabled=false;this.modal(false);}
@@ -194,6 +206,11 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
     if(!this.opened||this.phase!=="idle"||!this.slip.enabled)return;const point=this.slip.getTransform().getWorldPosition(),graph=this.flow.engine.graphRef(),state=this.stateCache;let evidence:string[]=[];
     const hit=this.dropTarget(point);if(hit==="selected"&&this.selected)evidence=[this.selected];else if(hit)evidence=objectDropEvidence(graph,state,hit);
     if(!evidence.length){this.hint.text="Inspect the object, or choose a specific collected memory.";this.slip.getTransform().setLocalPosition(this.home);return;}
+    this.objectWith(evidence,point);
+  }
+  /** The one objection path: the statement slip dropped on proof, or a memory photo held up to the suspect. */
+  private objectWith(evidence:string[],point:vec3):void {
+    const graph=this.flow.engine.graphRef();this.slip.enabled=false;this.controls.enabled=false;
     this.flow.cancel();this.flow.actor.setFrozen(true);this.oldMark=this.flow.actor.getTransform().getWorldPosition();
     const proof=graph.evidence.find(e=>e.id===evidence[0]),witness=graph.statements.find(s=>s.id===evidence[0]);
     const proofObject=proof&&graph.room.objects.find(o=>o.id===proof.holder);
@@ -232,7 +249,7 @@ import {MemoryCardView,MemoryCardData,cardImage} from "./RoomscriptMemoryCardVie
     if(this.phase==="idle")return;const t=(getTime()-this.began)/this.timelineScale;
     if(this.burstAt&&this.shards.length){const age=getTime()-this.burstAt;for(const shard of this.shards){shard.object.getTransform().setLocalPosition(shard.start.add(shard.velocity.uniformScale(age)).add(new vec3(0,-30*age*age,0)));shard.object.getTransform().setLocalRotation(quat.fromEulerAngles(age*shard.spin,age*.7,age*shard.spin*.4));shard.object.getTransform().setLocalScale(vec3.one().uniformScale(Math.max(0,1-age/1.1)));}}
     if(this.phase==="bounce") {this.slip.getTransform().setWorldPosition(vec3.lerp(this.dropped,this.getTransform().getWorldTransform().multiplyPoint(this.home),Math.min(1,t/1.2)).add(new vec3(0,Math.sin(Math.min(1,t/1.2)*Math.PI)*8,0)));
-      this.hint.text="That memory does not contradict this statement.";if(t>=1.2){this.flow.actor.setFrozen(false);this.setPhase("idle");}return;}
+      this.hint.text="That memory does not contradict this statement.";if(t>=1.2){this.flow.actor.setFrozen(false);this.setPhase("idle");this.slip.enabled=true;this.controls.enabled=true;}return;}
     if(t>=.25&&this.phase==="silence") {this.setPhase("slam");this.jitterFrame=0;this.stamp.enabled=true;this.memory.enabled=false;this.controls.enabled=false;this.tells.audio.silence(false);this.tells.audio.play("Objection");
       this.pathMeshes.forEach(v=>v.getSceneObject().destroy());this.pathMeshes=[];this.ribbon.enabled=true;
       const graph=this.flow.engine.graphRef(),source=graph.statements.find(s=>s.id===this.claim),object=source?.about&&graph.room.objects.find(o=>o.id===source.about);

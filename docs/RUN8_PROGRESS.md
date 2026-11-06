@@ -57,3 +57,9 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 - Fix: the head-locked companion subtitle line now hides with the subtitles (a stale opening narrator line was showing through the closing).
 - Captures: docs/captures/2026-11-06-run8-frozen-v1.png (before: stale line, doubled mug and cord), -v2, -v3, -frozen-orbit-a.png, -frozen-orbit-b.png.
 - Orbit path for the video (MovePreviewCamera, freeze held): setPosition (60,-40,-250) → lookAt (-5,-100,-400); then setPosition (-110,-45,-270) → lookAt (0,-100,-410). Avoid relative `orbit` calls stacking on an unreset pose: they swing the camera through the other ghosts.
+
+## 18:55 — Objecting by holding up the proof; naive player PASS
+- Objecting is now physical, like asking. Tap the Object glyph, then pull a memory photo from an object and hold it up to the suspect being questioned. The photo shows *which* memory it is (its card art plus the first words of the memory, and "1/3" when an object holds several); each pull brings out the next observed memory in graph order, never ordered by correctness. Releasing the photo away from the suspect puts it back with no penalty. The statement-slip drop still works, and both go through one `objectWith()`, the same engine Object action.
+- Naive-player LEAF rewritten for the object flow: open the Harlow Trust file, then Question S2, a whereabouts glyph, Object, the kettle photo held up to Vale, the object tour, the accusation rig, File deductions and the wax seal. **Strict local-manager PASS 99.8 s: 26 actions (limit 40), first answer 26.1 s, verdict correct, 4 deductions filed, 105 in-game minutes.**
+- Hygiene restart (rule 13; the old process stalled frames, with tap-to-close taking 14–20 s): saved, graceful close 18:36:40, relaunch 18:36:45, new log 18:36:46. That makes 2 restarts this run, both graceful.
+- Scene saved with the LeafIndex runner cleared (scenarioId "").

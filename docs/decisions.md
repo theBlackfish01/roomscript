@@ -227,3 +227,6 @@ Stopped at owner request. Preserve strict checkpoint-specific passes; do not pro
 - **Name tags** move from above the head to a small token at knee height (34 cm), so nothing floats over a face.
 - **Film mode hides LEAF overlays** by disabling the LEAF-created root cameras (`LeafDebugUICamera`, `LeafDiagnosticReportCamera`, `ThirdPersonCam`); the package itself is read-only. Results stay in the logs.
 - **Captures:** the `roomscript-run8-director` LEAF scenario sets up a beat through real taps and holds it. It runs through the project's local runner, so the Preview camera can be moved and captured meanwhile. Scene edits during a hold reset the Preview, so there are none.
+
+## 2026-11-06 — Run 8: objecting by holding up a memory photo
+Objecting follows the WEARER_UX "present evidence" move. After tapping the Object glyph, the wearer pulls a photo from an object and holds it up to the questioned suspect. The engine judges the exact evidence set, so a multi-memory object cannot be "the proof" by itself. Each pull brings out one observed memory, shown on the photo (card art and caption, with an n/m count), in plain graph order, so the UI never hints which memory is correct. Releasing away from the suspect puts the photo back at no cost. The Run 7 statement-slip drop stays as a second path into the same `objectWith()` and the same engine `Object` action.

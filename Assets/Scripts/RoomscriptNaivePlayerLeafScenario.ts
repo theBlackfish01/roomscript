@@ -7,10 +7,10 @@ import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
 import {RoomscriptClosingController} from "./RoomscriptClosingController";
 import {solvePlayerKnowledge} from "./Engine/case/Solver";
 import {replayGame} from "./Engine/game/Reducer";
-import {walletEntries} from "./Engine/game/SpatialObjection";
 /** Scripted discoverability gate, not a claim of a human usability study.
  * Follows visible object markers; chooses its final cards only from collected knowledge.
  * Every pinch, page change, drag and hold counts; never invokes UI events or dispatches actions.
+ * Run 8: case file, glyph tokens, a memory photo held up as proof, then the accusation rig and wax seal.
  */
 @component export class RoomscriptNaivePlayerLeafScenario extends Scenario {
   async run():Promise<void>{
@@ -30,7 +30,7 @@ import {walletEntries} from "./Engine/game/SpatialObjection";
       if(opening.diagnostics().phase==="placement")await tap("Place case");
       for(let i=0;i<100&&opening.diagnostics().phase!=="tab";i++)await sleep(100);
       expect(opening.diagnostics().phase).toBe("tab");
-      const tab=await control("RoomscriptPullTab");count("Pull crate tab");await hand.drag(tab,new vec3(12,0,0),500);
+      const tab=await control("RoomscriptPullTab");count("Open the Harlow Trust file");await hand.drag(tab,new vec3(12,0,0),500);
       for(let i=0;i<200&&opening.diagnostics().phase!=="ready";i++)await sleep(100);
       expect(opening.diagnostics().phase).toBe("ready");
       // Preview's large actor target substitutes for walking to Vale. The question remains public UI.
@@ -39,19 +39,18 @@ import {walletEntries} from "./Engine/game/SpatialObjection";
       const index=flow.chips.topics().indexOf("where@22:30");expect(index>=0).toBe(true);
       const played=flow.tts.diagnostics().played;await tap("Question "+(index+1));await done();
       expect(flow.tts.diagnostics().played>played).toBe(true);firstAnswerSeconds=getTime()-started;
-      await inspect("O11");await tap("Object");await tap("Objection wallet");
-      // Choose the displayed cold-kettle memory, not an unseen breaker or sealed fact.
-      const entries=walletEntries(engine.graphRef(),engine.snapshot());
-      const memory=entries.find(entry=>entry.text.includes("no heat"));expect(!!memory).toBe(true);
-      await tap("Expand evidence");
-      const normalize=(text:string)=>text.replace(/\s+/g," ").trim();
-      const shown=()=>normalize((findSceneObjectByName("Evidence card").getChild(0).getComponent("Component.Text") as Text).text);
-      for(let i=0;i<entries.length&&shown()!==normalize(memory!.text);i++){await tap("Next evidence");await tap("Expand evidence");}
-      expect(shown()).toBe(normalize(memory!.text));await tap("Use evidence");
-      const slip=await control("RoomscriptStatementSlip"),target=findSceneObjectByName("RoomscriptMemoryCard"),vector=new vec3(1,0,0);
-      const remove=slip.onDragUpdate.add(()=>{const destination=vec3.lerp(flow.actor.camera.getTransform().getWorldPosition(),target.getTransform().getWorldPosition(),.25),delta=destination.sub(slip.getTransform().getWorldPosition()).uniformScale(.4);vector.x=delta.x;vector.y=delta.y;vector.z=delta.z;});
-      count("Carry statement to cold-kettle memory");try{await hand.drag(slip,vector,1400);}finally{remove();}
-      await sleep(3300);await done();expect(opening.clue.objection.diagnostics().correct).toBe(true);
+      // Run 8 object flow: tap the Object glyph, pull the kettle's memory photo and hold it up to Vale's face.
+      await tap("Object");
+      // The photo shows which memory it is; hold it up only when it reads as the no-heat memory, else put it back.
+      const photoText=():string=>opening.clue.objection.photoCaption();
+      for(let attempt=0;attempt<4&&!opening.clue.objection.diagnostics().correct&&engine.snapshot().pips>0;attempt++){
+        const kettle=await control("RoomscriptObject_O11"),origin=kettle.getTransform().getWorldPosition(),face=flow.actorFor("S2")!.getTransform().getWorldPosition().add(new vec3(0,140,0)),vector=new vec3(0,1,0);
+        const remove=kettle.onDragUpdate.add(()=>{const photo=findSceneObjectByName("RoomscriptPulledMemory");if(!photo||!photo.enabled)return;const goal=photoText().includes("NO HEAT")?face:origin.add(new vec3(0,14,0));const d=goal.sub(photo.getTransform().getWorldPosition()).uniformScale(.5);vector.x=d.x;vector.y=d.y;vector.z=d.z;});
+        count("Pull a kettle memory");try{await hand.drag(kettle,vector,5000);}finally{remove();}
+        await sleep(400);
+      }
+      for(let i=0;i<80&&opening.clue.objection.diagnostics().phase!=="idle";i++)await sleep(100);await done();
+      expect(opening.clue.objection.diagnostics().correct).toBe(true);
       // Fixed authored tour of visible marked furniture; no minimumCostRoute or hidden envelope lookup.
       for(const object of ["O6","O12","O1","O8","O10","O2","O3","O4","O5"])await inspect(object);
       const graph=engine.graphRef(),solutions=solvePlayerKnowledge(graph,engine.snapshot().knowledge).hypotheses;
