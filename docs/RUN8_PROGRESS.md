@@ -26,3 +26,15 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 
 ### 15:06 PKT — start
 - Read the spec, judges' notes, Run 7 report and PROGRESS. Captured the Run 7 opening as the "before" image: `docs/captures/2026-11-06-run8-before-opening.png` (a text panel with Preset / Cast my room buttons over a plain orange box crate).
+
+### 15:40 PKT — baseline, staging, glyph tokens (`23ef296`)
+- Strict interrogation LEAF PASS 16.781 s over the MCP transport (handshake: scenarios registered 15:03:01). After the token rewrite: PASS 31.646 s.
+- Room survey done (see the decisions entry). Suspects are on free floor with authored conversation spots; glyph tokens beside the shoulder; one-line subtitle under the face; name tags at knee height; LEAF overlays hidden in film mode.
+- Captures: `docs/captures/2026-11-06-run8-vale-question-v2.png`, `...-vale-answer-v3.png`.
+
+### 16:05 PKT — opening case files, engraved crate, audio and engine modules (`c6dc120`)
+- Opening: two case files on the crate (THE HARLOW TRUST with wax seal; CAST THIS ROOM with magnifier). Lift or pinch to pull a file open. The Preset file keeps the LEAF name `RoomscriptPullTab`. Strict opening LEAF PASS 77.7 s, after a fix: reveal beats now catch up when native audio stalls a frame.
+- Engraved-light crate (line tubes; the lid outline rides the hinge) and the `RoomscriptEngravedLight` rim shader/material for GLB props (not yet applied).
+- Audio worker: 38 new clips for 735 ElevenLabs credits (`Tooling/audio/RUN8-AUDIO.md`); registered as cues via `RoomscriptRun8CueAssets.ts`.
+- Engine worker: EvidenceWeb, ObjectReplay, MorningEdition, FrozenTableau, Fingerprints, CaseBoardLayout, plus 28 tests (`Tooling/tests/game/RUN8-ENGINE.md`). Truth rules: convergence and tableau only after a verdict; the paper never names the true culprit on a wrong or timeout verdict; testimony threads only for proven or cited statements.
+- Capture: `docs/captures/2026-11-06-run8-casefiles-v1.png`.
