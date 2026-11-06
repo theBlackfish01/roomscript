@@ -18,6 +18,7 @@ import {localBridgeAvailable,localBridgePost} from "./RoomscriptLocalBridge";
 import {PanelUI,uiObject} from "./RoomscriptPanelUI";
 import {withDeadline} from "./Engine/ai/Deadlines";
 import {RoomscriptCaseBoard} from "./RoomscriptCaseBoard";
+import {RoomscriptWindowStorm} from "./RoomscriptWindowStorm";
 /** Scene wiring only. Engine bridge will own all case state; UI receives values/events. */
 @component export class RoomscriptMain extends BaseScriptComponent {
   @ui.group_start("References")
@@ -32,6 +33,7 @@ import {RoomscriptCaseBoard} from "./RoomscriptCaseBoard";
   @ui.group_end
   storyMoments:RoomscriptStoryMoments;
   caseBoard:RoomscriptCaseBoard;
+  storm:RoomscriptWindowStorm;
   private state:GameState;private toastText:Text;private toastWindow=new FrameVisibleWindow();private wrenBusy=false;private wrenSequence=0;private inputBusy=false;
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.start());this.createEvent("UpdateEvent").bind(()=>{if(this.toastText&&this.toastWindow.active&&!this.toastWindow.advance(getDeltaTime()))this.toastText.text="";});}
   private start():void {
@@ -51,8 +53,10 @@ import {RoomscriptCaseBoard} from "./RoomscriptCaseBoard";
     this.audio.bindNarrative(this.engine,()=>this.interrogation.diagnostics().busy,id=>{const o=this.engine.graphRef().room.objects.find(o=>o.id===id);return o?this.engine.roomRoot.getTransform().getWorldTransform().multiplyPoint(new vec3(o.pos[0],o.pos[1],o.pos[2])):undefined;});
     this.audio.onNarrationSubtitle.add(({speaker,text})=>{if(!this.interrogation.diagnostics().busy)this.interrogation.subtitles.set(speaker,text);});
     this.audio.onNarrationSubtitleAligned.add(({speaker,text,fullText})=>{if(this.interrogation.diagnostics().busy)return;const subtitles=this.interrogation.subtitles;if(subtitles.fullText()!==fullText)subtitles.set(speaker,fullText);subtitles.reveal(text);});
+    this.storm=new RoomscriptWindowStorm(this,this.engine,this.audio);
     this.caseBoard=new RoomscriptCaseBoard(this,this.engine,this.interrogation,(cue,at)=>{if(at)this.audio.playAt(cue,at);else this.audio.play(cue);});
     this.storyMoments=new RoomscriptStoryMoments(this,this.engine,this.interrogation,this.caseLid,this.audio);
+    this.storm.isBlackout=()=>this.storyMoments?.diagnostics().active==="blackout";
     this.notebook.onWren.add(()=>{this.notebook.show(false);void this.askWren("What do we know?");});
     const toast=uiObject(this.engine.player,"RoomscriptPeripheralToast");toast.getTransform().setLocalPosition(new vec3(25,-27,-110));this.toastText=new PanelUI(toast,35,7,1.15,new vec4(.25,.89,1,1),true,true).text("Toast","",5,"small");
     const tick=this.createEvent("DelayedCallbackEvent");tick.bind(()=>{if(this.state&&this.engine.investigationEnabled){const p=this.engine.roomRoot.getTransform().getInvertedWorldTransform().multiplyPoint(this.engine.player.getTransform().getWorldPosition()),sample=routeSample(this.state,[p.x,p.y,p.z],Math.floor(getTime()*1000));if(sample)this.engine.dispatch(sample);void this.pollInput();}tick.reset(1);});tick.reset(1);
