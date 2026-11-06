@@ -26,12 +26,12 @@ import {RoomscriptClosingController} from "./RoomscriptClosingController";
       expect(closing.diagnostics().phase).toBe("ending");expect(closing.diagnostics().result.indexOf("Holmes rating")>=0).toBe(true);
       for(const person of engine.graphRef().cast.suspects)expect(findSceneObjectByName("RoomscriptPawn_"+person.id).enabled).toBe(false);
       for(const name of ["Break seal","Cancel accusation","Question 1","Believe"])expect(findInteractablesByName(name,undefined,true).length).toBe(0);
-      expect(findInteractablesByName("Ending details",undefined,true).length).toBe(1);
-      const result=findSceneObjectByName("RoomscriptResult"),stampRow=findSceneObjectByName("Ending stamp",result),label=findSceneObjectByName("Label",stampRow),text=label.getComponent("Component.Text") as Text,stamp=findSceneObjectByName("Verdict stamp",stampRow),border=(stamp.getComponent("Component.ScreenTransform") as ScreenTransform).offsets;
-      const labelWorld=label.getTransform().getWorldTransform(),rowInverse=stampRow.getTransform().getInvertedWorldTransform(),rect=text.layoutRect;
-      for(const x of [rect.left,rect.right])for(const y of [rect.bottom,rect.top]){const point=rowInverse.multiplyPoint(labelWorld.multiplyPoint(new vec3(x,y,0)));expect(point.x>=border.left-.01&&point.x<=border.right+.01).toBe(true);expect(point.y>=border.bottom-.01&&point.y<=border.top+.01).toBe(true);}
+      for(let i=0;i<20&&findInteractablesByName("Ending details",undefined,true).length===0;i++)await sleep(100);expect(findInteractablesByName("Ending details",undefined,true).length).toBe(1);
+      // Run 8 ending: the Morning Edition in your hands and the verdict stamp on the wall board, no results page.
+      const paper=findSceneObjectByName("RoomscriptNewspaper");expect(!!paper&&paper.enabled).toBe(true);const headline=findSceneObjectByName("Headline",paper).getComponent("Component.Text") as Text;expect(headline.text.length>0).toBe(true);
+      expect(!!findSceneObjectByName("Board stamp CASE CLOSED")).toBe(true);console.log("ENDING_NEWSPAPER|"+headline.text);
       await tap("Ending details");expect(closing.presentationDiagnostics().details).toBe(true);for(const name of ["Ending previous","Ending next","Ending stamp"])expect(findInteractablesByName(name,undefined,true).length).toBe(1);await tap("Ending stamp");expect(closing.presentationDiagnostics().details).toBe(false);
-      console.log("ENDING_PRESENTATION_CHECK|pawns_hidden,only_ending_controls,title_inside_stamp,details_roundtrip");
+      console.log("ENDING_PRESENTATION_CHECK|pawns_hidden,only_ending_controls,newspaper,board_stamp,details_roundtrip");
       const verdict=engine.snapshot().verdict;engine.dispatch({type:"Accuse",who:"S1",where:"Z2",what:"O2"});expect(engine.snapshot().verdict).toBe(verdict);
       console.log("CLOSING_CHECK|"+JSON.stringify({mode,verdict,result:closing.diagnostics().result}));
     }finally{flow.cancel();flow.client.forceOffline=false;}

@@ -3,6 +3,9 @@ import {RoomscriptClueController} from "./RoomscriptClueController";
 import {RoomscriptCastController} from "./RoomscriptCastController";
 import {PanelUI,uiObject,wrapText} from "./RoomscriptPanelUI";
 import {worldLines} from "./RoomscriptWorldLines";
+import {lineTubes,circleEdges,flatText,tinted} from "./RoomscriptLineArt";
+import {glyphButton,glyphTexture} from "./RoomscriptGlyphUI";
+import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
 import {Hypothesis,GameState,CaseGraph} from "./Engine/core/Types";
 import {availableArguments,reconstructionBeats,ReconstructionBeat} from "./Engine/game/Closing";
 import {endingSummary,CitedSentence} from "./Engine/game/CaseClarity";
@@ -10,7 +13,9 @@ import {scoreCase} from "./Engine/game/Scoring";
 import {caseExitPosition} from "./Engine/game/RoomPresentation";
 import {routeReplay,RouteReplay} from "./Engine/game/RouteReplay";
 import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
+import {RoomscriptNewspaper} from "./RoomscriptNewspaper";
 
+const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File deductions","Cancel accusation","Break seal"];
 /** Accusation UI submits the chosen cards; all reveal and rating data comes from the engine. */
 @component export class RoomscriptClosingController extends BaseScriptComponent {
   @input @hint("Suggestion selection and shared presentation") clue:RoomscriptClueController;
@@ -18,7 +23,7 @@ import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
   private panel:SceneObject;private title:Text;private body:Text;private labels:Text[];private controls:SceneObject;
   private picked:Hypothesis;private opened=false;private heldAt=-1;private phase="idle";private began=0;private frame=-1;
   private frames:ReconstructionBeat[]=[];private summary:CitedSentence[]=[];private ghostMaterials=new Map<string,Material>();private holdUntil=0;private escapeActor:SceneObject;private escapeDoor:vec3;private sealLabel:Text;private ghosts=new Map<string,SceneObject>();private resultText="";
-  private escapeStart:vec3|null=null;
+  private escapeStart:vec3|null=null;private beam:SceneObject;private sealRing:SceneObject;private newspaper:RoomscriptNewspaper;private heldTime=0;
   private result:SceneObject;
   private details:SceneObject;private routeRoot:SceneObject;private route:RouteReplay;private routeText="";private sealedState:GameState;private sealedGraph:CaseGraph;
   private detailRender:(()=>void)|null=null;
@@ -37,14 +42,48 @@ import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
   private build():void {
     if(this.panel)return;const flow=this.cast.flow;flow.engine.initialize();this.cast.room.initialize();const graph=flow.engine.graphRef();this.picked={who:graph.cast.suspects[0].id,where:graph.room.zones[0].id,what:graph.weapons[0]};
-    this.panel=uiObject(this.getSceneObject(),"RoomscriptClosingPanel");const ui=new PanelUI(this.panel,66,60,2.1,new vec4(1,.94,.84,1));
-    this.title=ui.text("Closing title","FINAL ACCUSATION",8,"title");this.body=ui.text("Closing summary","",18,"small");
-    this.labels=ui.buttons([{id:"Accused suspect",label:"Who"},{id:"Accused room",label:"Where"},{id:"Accused weapon",label:"What"}],id=>{if(this.phase!=="idle")return;const current=flow.engine.graphRef(),key=id==="Accused suspect"?"who":id==="Accused room"?"where":"what",list=key==="who"?current.cast.suspects.map(s=>s.id):key==="where"?current.room.zones.map(z=>z.id):current.weapons;this.picked[key]=list[(list.indexOf(this.picked[key])+1)%list.length];this.render();},8);
-    ui.buttons([{id:"File deductions",label:"File known proof"}],()=>{if(this.phase!=="idle")return;for(const claim of availableArguments(flow.engine.graphRef(),flow.engine.snapshot()))flow.engine.dispatch({type:"ArgumentClaim",...claim});this.render();},6);
-    this.sealLabel=ui.buttons([{id:"Break seal",label:"Hold seal for 1 second"}],()=>{const held=this.heldAt>=0&&getTime()-this.heldAt>=1;this.heldAt=-1;if(held)this.accuse();},7,undefined,()=>{if(this.phase==="idle")this.heldAt=getTime();})[0];
-    ui.buttons([{id:"Cancel accusation",label:"Keep investigating"}],()=>{if(this.phase==="idle"&&flow.engine.snapshot().verdict!=="timeout")this.close();},6);
+    this.buildRig();
     this.clue.objection.tells.audio.onNarrationSubtitle.add(({speaker,text})=>{if(this.phase==="reconstruction"&&this.frames[this.frame]?.kind==="resume"&&speaker==="NARRATOR")this.body.text=wrapText(text,40);});
     flow.engine.onState.add(state=>this.onState(state));flow.engine.onCaseChanged.add(()=>this.resetForCase());this.clue.objection.caseLid.onAction.add(action=>{if(action==="Accuse")this.open();});this.panel.enabled=false;
+  }
+  /** Run 8 accusation rig (WEARER_UX object UI 6): point at a suspect (spotlight), set room and weapon, hold the wax seal.
+   * Interactable names are unchanged for LEAF: Accused suspect/room/weapon, File deductions, Break seal, Cancel accusation. */
+  private buildRig():void {
+    const flow=this.cast.flow,line=this.clue.objection.tells.lightMaterial;
+    this.panel=uiObject(this.getSceneObject(),"RoomscriptClosingPanel");this.panel.createComponent("Component.Canvas");
+    this.title=flatText(this.panel,"Closing title","FINAL ACCUSATION",3.4,new vec4(1,.94,.84,1),"title",50,4.5);this.title.getSceneObject().getTransform().setLocalPosition(new vec3(0,15,0));
+    this.body=flatText(this.panel,"Closing summary","",1.9,new vec4(1,.94,.84,.9),"body",56,3);this.body.getSceneObject().getTransform().setLocalPosition(new vec3(0,10.5,0));
+    const cycle=(id:string)=>{if(this.phase!=="idle")return;const current=flow.engine.graphRef(),key=id==="Accused suspect"?"who":id==="Accused room"?"where":"what",list=key==="who"?current.cast.suspects.map(s=>s.id):key==="where"?current.room.zones.map(z=>z.id):current.weapons;this.picked[key]=list[(list.indexOf(this.picked[key])+1)%list.length];this.render();this.clue.objection.tells.audio.play("ToastTick");};
+    const specs:[string,string,vec4][]=[["Accused suspect","name",new vec4(1,.94,.84,1)],["Accused room","where",new vec4(.247,.89,1,1)],["Accused weapon","lie",new vec4(1,.42,.35,1)]];
+    this.labels=specs.map(([id,icon,ink],i)=>{const token=glyphButton(this.panel,id,15,5,()=>cycle(id),ink);token.set(glyphTexture(icon as any),"");token.root.getTransform().setLocalPosition(new vec3((i-1)*16.5,4,.6));return token.word;});
+    const file=glyphButton(this.panel,"File deductions",15,4.4,()=>{if(this.phase!=="idle")return;for(const claim of availableArguments(flow.engine.graphRef(),flow.engine.snapshot()))flow.engine.dispatch({type:"ArgumentClaim",...claim});this.render();},new vec4(.91,.69,.29,1));
+    file.set(glyphTexture("noted"),"File proof");file.root.getTransform().setLocalPosition(new vec3(-16.5,-4,.6));
+    const cancel=glyphButton(this.panel,"Cancel accusation",15,4.4,()=>{if(this.phase==="idle"&&flow.engine.snapshot().verdict!=="timeout")this.close();});cancel.set(glyphTexture("ask"),"Not yet");cancel.root.getTransform().setLocalPosition(new vec3(16.5,-4,.6));
+    // The wax seal: press your thumb in and hold.
+    const seal=uiObject(this.panel,"Break seal");seal.getTransform().setLocalPosition(new vec3(0,-6,1));
+    lineTubes(seal,"Seal rim",circleEdges(4.6,32,vec3.zero()).concat(circleEdges(3.2,28,vec3.zero())),tinted(line,new vec4(1,.42,.35,1)),.45);
+    this.sealLabel=flatText(seal,"Seal word","HOLD",1.9,new vec4(1,.42,.35,1),"title",8,2.6);
+    this.sealRing=lineTubes(seal,"Seal progress",circleEdges(5.6,40,new vec3(0,0,.3)),tinted(line,new vec4(1,.84,.04,1)),.55).getSceneObject();this.sealRing.enabled=false;
+    const shape=Shape.createBoxShape();shape.size=new vec3(11,11,3);const collider=seal.createComponent("Physics.ColliderComponent") as ColliderComponent;collider.shape=shape;
+    const press=seal.createComponent(Interactable.getTypeName()) as Interactable;press.targetingMode=3;
+    press.onTriggerStart.add(()=>{if(this.phase==="idle"){this.heldAt=getTime();this.heldTime=0;}});
+    // Native audio can block a frame for ~1 s, so the seal sound plays only once the hold succeeds.
+    press.onTriggerEnd.add(()=>{const held=this.heldAt>=0&&getTime()-this.heldAt>=1&&this.heldTime>=12;this.heldAt=-1;this.sealRing.enabled=false;if(held){this.clue.objection.tells.audio.play("WaxSealPress");this.accuse();}});
+    press.onTriggerCanceled.add(()=>{this.heldAt=-1;this.sealRing.enabled=false;});
+    // Spotlight beam from your hand to the suspect you point at.
+    this.beam=lineTubes(this.getSceneObject(),"Accusation spotlight",[...Array.from({length:6},(_,i)=>{const a=i*Math.PI/3;return [new vec3(Math.cos(a)*.6,Math.sin(a)*.6,0),new vec3(Math.cos(a)*14,Math.sin(a)*14,1)] as [vec3,vec3];}),...circleEdges(14,24,new vec3(0,0,1))],tinted(line,new vec4(1,.84,.55,.8)),.5).getSceneObject();this.beam.enabled=false;
+    this.panel.enabled=false;
+  }
+  /** heldTime counts rendered frames while the seal is pressed: a hold is >=1 s and >=12 frames, so a tap that spans a native-audio stall never seals. */
+  /** Place the rig at waist height in front of the player when the accusation opens (world-locked). */
+  private placeRig():void {const camera=this.cast.flow.actor.camera.getTransform(),eye=camera.getWorldPosition();let forward=camera.getWorldRotation().multiplyVec3(vec3.back());forward.y=0;forward=forward.length>.01?forward.normalize():vec3.back();
+    const at=eye.add(forward.uniformScale(62)).add(new vec3(0,-42,0)),toward=eye.sub(at).normalize();this.panel.getTransform().setWorldPosition(at);this.panel.getTransform().setWorldRotation(quat.lookAt(toward,vec3.up()));this.panel.getTransform().setWorldScale(vec3.one());}
+  private updateSpotlight():void {
+    const show=this.opened&&this.phase==="idle"&&this.panel.enabled;this.beam.enabled=show;if(!show)return;
+    const actor=this.cast.flow.actorFor(this.picked.who);if(!actor)return;const camera=this.cast.flow.actor.camera.getTransform();
+    const from=camera.getWorldPosition().add(camera.getWorldRotation().multiplyVec3(new vec3(18,-30,-20))),to=actor.getTransform().getWorldPosition().add(new vec3(0,115,0)),dir=to.sub(from);
+    const t=this.beam.getTransform();t.setWorldPosition(from);t.setWorldRotation(quat.lookAt(dir.normalize(),vec3.up()));t.setWorldScale(new vec3(1,1,Math.max(1,dir.length)));
+    if(this.heldAt>=0){this.heldTime++;const k=Math.min(1,getTime()-this.heldAt);this.sealRing.enabled=true;this.sealRing.getTransform().setLocalScale(vec3.one().uniformScale(.6+.4*k));}
   }
   resetForCase():void {
     if(!this.panel)return;this.clearReconstructionDetails();this.cast.room.initialize();this.cast.flow.cancel();const graph=this.cast.flow.engine.graphRef();
@@ -53,10 +92,10 @@ import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
     if(this.result&&!isNull(this.result))this.result.destroy();this.result=null;
     if(this.details&&!isNull(this.details))this.details.destroy();this.details=null;this.detailRender=null;if(this.routeRoot&&!isNull(this.routeRoot))this.routeRoot.destroy();this.routeRoot=null;
     this.picked={who:graph.cast.suspects[0].id,where:graph.room.zones[0].id,what:graph.weapons[0]};
-    const restore=(root:SceneObject)=>{for(let i=0;i<root.getChildrenCount();i++){const child=root.getChild(i);if(child.name==="Button row")child.enabled=true;else restore(child);}};restore(this.panel);
-    this.sealLabel.text="Hold seal for 1 second";this.panel.enabled=false;this.clue.envelope.enabled=true;this.clue.objection.tells.audio.silence(false);this.showInvestigation(true);this.render();
+    const restore=(root:SceneObject)=>{for(let i=0;i<root.getChildrenCount();i++){const child=root.getChild(i);if(RIG_CONTROLS.includes(child.name))child.enabled=true;else restore(child);}};restore(this.panel);
+    this.sealLabel.text="HOLD";this.panel.enabled=false;this.clue.envelope.enabled=true;this.clue.objection.tells.audio.silence(false);this.showInvestigation(true);this.render();
   }
-  open():void {const state=this.cast.flow.engine.snapshot();if(state.verdict&&state.verdict!=="timeout")return;this.cast.flow.cancel();this.clue.objection.close();this.picked=this.clue.selected()||this.picked;this.opened=true;this.panel.enabled=true;this.showInvestigation(false);this.render();this.clue.objection.tells.audio.beforeSeal();}
+  open():void {const state=this.cast.flow.engine.snapshot();if(state.verdict&&state.verdict!=="timeout")return;this.cast.flow.cancel();this.clue.objection.close();this.picked=this.clue.selected()||this.picked;this.opened=true;this.placeRig();this.panel.enabled=true;this.showInvestigation(false);this.render();this.clue.objection.tells.audio.beforeSeal();this.clue.objection.tells.audio.play("SpotlightOn");}
   private showInvestigation(value:boolean):void {this.cast.flow.controlsBlocked=!value;const flow=this.cast.flow,targeting=!value&&this.opened&&this.phase==="idle";
     flow.subtitles.getSceneObject().enabled=value;if(value)flow.restoreControls();else{flow.chips.show(false);flow.verbs.show(false);}
     this.clue.showPawns(value);this.clue.objection.caseLid.show(value);this.cast.getSceneObject().enabled=value||targeting;this.cast.setAccusationTargeting(targeting?id=>this.pointSuspect(id):null);this.clue.objection.wallet.show(false);this.clue.notebook.show(false);
@@ -66,8 +105,8 @@ import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
   private render():void {
     const graph=this.cast.flow.engine.graphRef(),state=this.cast.flow.engine.snapshot();
     this.title.text=state.verdict==="timeout"?"TIME IS UP — ONE ACCUSATION":"FINAL ACCUSATION";
-    this.labels[0].text=graph.cast.suspects.find(s=>s.id===this.picked.who)!.name.split(" ").slice(-1)[0];this.labels[1].text=graph.room.zones.find(z=>z.id===this.picked.where)!.clueName;this.labels[2].text=wrapText(graph.room.objects.find(o=>o.id===this.picked.what)!.label,12);
-    this.body.text=wrapText(state.arguments.length+" / "+graph.requiredDeductions.length+" proof filed. Point and pinch a suspect; hold the seal when ready.",35);
+    this.labels[0].text=graph.cast.suspects.find(s=>s.id===this.picked.who)!.name.split(" ").slice(-1)[0];this.labels[1].text=graph.room.zones.find(z=>z.id===this.picked.where)!.clueName;this.labels[2].text=graph.room.objects.find(o=>o.id===this.picked.what)!.label.split(/s+/).slice(-1)[0];
+    this.body.text=state.arguments.length+" / "+graph.requiredDeductions.length+" proof filed · point at a suspect · hold the seal";
   }
   private onState(state:GameState):void {
     if(state.verdict==="timeout"&&!this.opened)this.open();
@@ -78,7 +117,7 @@ import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
     if(state.verdict!=="correct"&&state.verdict!=="wrong")return;
     const graph=this.cast.flow.engine.graphRef();this.sealedState=state;this.sealedGraph=graph;this.opened=true;this.phase="reconstruction";this.showInvestigation(false);this.panel.enabled=true;this.began=getTime();this.frames=reconstructionBeats(graph,state);this.summary=endingSummary(graph,state);this.clue.envelope.enabled=false;this.clue.objection.tells.audio.silence(false);
     const score=scoreCase(graph,state);this.resultText=(state.verdict==="correct"?"CASE CLOSED":"THE CULPRIT ESCAPED")+"\nHolmes rating: "+score.rating+" / 3\n"+score.stars.map(star=>(star.earned?"★ ":"☆ ")+star.name).join("\n")+"\n"+score.deductions+" / "+score.required+" deductions\n"+"You: "+state.elapsedMinutes+" min · Par: "+score.minimumMinutes+"\n"+graph.caseId+"\nSeal "+graph.pitchHash;
-    const hideRows=(root:SceneObject)=>{for(let i=0;i<root.getChildrenCount();i++){const child=root.getChild(i);if(child.name==="Button row")child.enabled=false;else hideRows(child);}};hideRows(this.panel);
+    const hideRows=(root:SceneObject)=>{for(let i=0;i<root.getChildrenCount();i++){const child=root.getChild(i);if(RIG_CONTROLS.includes(child.name))child.enabled=false;else hideRows(child);}};hideRows(this.panel);
     if(state.verdict==="wrong"){this.escapeActor=this.cast.flow.actorFor(graph.envelope.who)!.getSceneObject();this.escapeStart=this.escapeActor.getTransform().getWorldPosition();this.escapeDoor=this.cast.room.toWorld(caseExitPosition(graph));this.escapeDoor.y=this.escapeStart.y;}
     for(const person of [...graph.cast.suspects,graph.cast.victim]){const ghost=uiObject(this.cast.room.getSceneObject(),"RoomscriptReconstruction_"+person.id);ghost.createComponent("Component.Canvas");ghost.getTransform().setLocalScale(vec3.one().uniformScale(.75));const texture=person.id===graph.cast.victim.id?this.victimStanding:this.art[person.id].neutral;this.ghostMaterials.set(person.id,this.image(ghost,"Memory engraving",texture,85,170,true));this.ghosts.set(person.id,ghost);ghost.enabled=false;}
     this.route=routeReplay(state);this.buildRoute(graph);this.buildReconstructionDetails();
@@ -140,7 +179,7 @@ import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
   }
   /** Director-only capture hold; never changes engine time or verdict. */
   holdFreeze(seconds=20):void {if(this.frames[this.frame]?.kind==="freeze")this.holdUntil=getTime()+Math.min(20,Math.max(0,seconds));}
-  private update():void {
+  private update():void {if(this.beam)this.updateSpotlight();
     if(this.heldAt>=0&&this.phase==="idle")this.sealLabel.text="SEAL "+Math.min(100,Math.floor((getTime()-this.heldAt)*100))+"%";
     if(this.phase!=="reconstruction")return;
     const camera=this.cast.flow.actor.camera.getTransform().getWorldPosition();for(const ghost of this.ghosts.values())if(ghost.enabled){const direction=camera.sub(ghost.getTransform().getWorldPosition());direction.y=0;if(direction.length>.01)ghost.getTransform().setWorldRotation(quat.lookAt(direction.normalize(),vec3.up()));}
@@ -165,11 +204,9 @@ import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
   }  diagnostics():{phase:string;opened:boolean;picked:Hypothesis;result:string} {return {phase:this.phase,opened:this.opened,picked:{...this.picked},result:this.resultText};}
   private showEnding():void {
     this.phase="ending";this.clearReconstructionDetails();this.panel.enabled=false;this.ghosts.forEach(g=>g.enabled=false);if(this.routeRoot)this.routeRoot.enabled=false;
-    this.result=uiObject(this.getSceneObject(),"RoomscriptResult");const ui=new PanelUI(this.result,54,40,1.5,new vec4(1,.42,.35,1),false,true);
-    const title=ui.text("Ending stamp",this.sealedState.verdict==="correct"?"CASE CLOSED":"CASE UNPROVEN",18,"title");title.getSceneObject().getTransform().setLocalScale(vec3.one().uniformScale(.82));this.image(title.getSceneObject().getParent(),"Verdict stamp",this.stampTexture,50,16);
-    const starRow=ui.text("Earned stars","",7,"body").getSceneObject(),score=scoreCase(this.sealedGraph,this.sealedState);
-    score.stars.forEach((star,index)=>{const points=Array.from({length:10},(_,i)=>{const angle=Math.PI/2+i*Math.PI/5,radius=i%2?1.1:2.6;return new vec3((index-1)*9+Math.cos(angle)*radius,Math.sin(angle)*radius,.6);});const material=this.clue.objection.tells.lightMaterial.clone();material.mainPass.baseColor=star.earned?new vec4(1,.84,.04,1):new vec4(1,.94,.84,.25);worldLines(starRow,"Ending star "+index,points.map((point,i)=>[point,points[(i+1)%10]] as [vec3,vec3]),material,.55);});
-    ui.buttons([{id:"Ending details",label:"Details"}],()=>this.openDetails(),8);
+    // Run 8: the verdict stamp lands on the wall board (RoomscriptCaseBoard); the Morning Edition appears in your hands.
+    const accused=this.cast.flow.actorFor(this.sealedState.accusation?.who||this.picked.who);
+    this.newspaper=new RoomscriptNewspaper(this,this.getSceneObject(),this.cast.flow.actor.camera,this.sealedGraph,this.sealedState,this.clue.objection.tells.lightMaterial,accused?.neutral||null,()=>this.openDetails(),cue=>this.clue.objection.tells.audio.play(cue));this.result=this.newspaper.root;
     this.clue.objection.tells.audio.silence(false);this.clue.objection.tells.audio.endingBeat();
   }
   private openDetails():void {
