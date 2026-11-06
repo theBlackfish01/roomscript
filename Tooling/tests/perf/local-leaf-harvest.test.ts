@@ -4,7 +4,7 @@ const record=(id:string,status:string)=>'I 03:20:00.000 [Assets/Scripts/Runner.t
 describe("local LEAF evidence harvesting",()=>{
   it("associates only each request's bounded markers and errors",()=>{
     const log=['OUTSIDE|{}',record('one','running'),'I 03:20:00.010 [Assets/Scripts/Test.ts:1] CHECK|{"passed":true}','E 03:20:00.011 Native.cpp:10 Error: example',record('one','passed'),'OUTSIDE|{}',record('two','running'),'I 03:21:00.000 [Assets/Scripts/Test.ts:2] NEXT|{"count":2}',record('two','failed'),'AFTER|{}'].join('\n');
-    const runs=harvestLocalLeaf(log);expect(runs).toHaveLength(2);expect(runs[0].markers.map(m=>m.name)).toEqual(['CHECK']);expect(runs[0].errors).toHaveLength(1);expect(runs[1].markers.map(m=>m.name)).toEqual(['NEXT']);expect(runs[0].mcpTransportPass).toBe(false);expect(runs[0].evidenceLabel).toBe('LEAF strict local-manager PASS');
+    const runs=harvestLocalLeaf(log);expect(runs).toHaveLength(2);expect(runs[0].markers.map((m:{name:string})=>m.name)).toEqual(['CHECK']);expect(runs[0].errors).toHaveLength(1);expect(runs[1].markers.map((m:{name:string})=>m.name)).toEqual(['NEXT']);expect(runs[0].mcpTransportPass).toBe(false);expect(runs[0].evidenceLabel).toBe('LEAF strict local-manager PASS');
   });
   it("redacts credential fields and inline bearer/keys before reports",()=>{
     expect(redact({token:'private',nested:{api_key:'private'},text:['Bearer','private','sk-ant-private'].join(' ')})).toEqual({token:'[REDACTED]',nested:{api_key:'[REDACTED]'},text:'Authorization [REDACTED] [REDACTED]'});

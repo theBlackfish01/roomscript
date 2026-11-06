@@ -1,0 +1,203 @@
+{
+  "requestId": "roomscript-closing:1793920552798:1",
+  "scenarioId": "roomscript-closing",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "04:16:11.162",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-closing",
+        "requestId": "roomscript-closing:1793920552798:1",
+        "config": {
+          "mode": "correct",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793920571162,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "04:17:14.279",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-closing",
+        "requestId": "roomscript-closing:1793920552798:1",
+        "config": {
+          "mode": "correct",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793920571162,
+        "finishedAt": 1793920634279,
+        "elapsedMs": 63117,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "04:16:13.151",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1906,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "04:16:20.983",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.track:Interrogation",
+        "ms": 7738,
+        "call": 26
+      }
+    },
+    {
+      "logTime": "04:16:22.192",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1208,
+        "call": 29
+      }
+    },
+    {
+      "logTime": "04:16:36.960",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Blackout",
+        "ms": 3465,
+        "call": 86
+      }
+    },
+    {
+      "logTime": "04:16:39.886",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Reconstruction",
+        "ms": 2914,
+        "call": 89
+      }
+    },
+    {
+      "logTime": "04:16:44.260",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Freeze",
+        "ms": 4300,
+        "call": 90
+      }
+    },
+    {
+      "logTime": "04:16:47.650",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Release",
+        "ms": 2468,
+        "call": 94
+      }
+    },
+    {
+      "logTime": "04:16:58.598",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Typewriter",
+        "ms": 3295,
+        "call": 98
+      }
+    },
+    {
+      "logTime": "04:16:59.412",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Typewriter",
+        "ms": 814,
+        "call": 99
+      }
+    },
+    {
+      "logTime": "04:17:06.258",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Stamp",
+        "ms": 3506,
+        "call": 100
+      }
+    },
+    {
+      "logTime": "04:17:07.072",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Stamp",
+        "ms": 814,
+        "call": 101
+      }
+    },
+    {
+      "logTime": "04:17:14.275",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:CaseClosed",
+        "ms": 3866,
+        "call": 104
+      }
+    },
+    {
+      "logTime": "04:17:14.278",
+      "name": "CLOSING_CHECK",
+      "data": {
+        "mode": "correct",
+        "verdict": "correct",
+        "result": "CASE CLOSED\nHolmes rating: 1 / 3\n★ Solved\n☆ Proven\n☆ Broke the culprit\n0 / 4 deductions\nYou: 0 min · Par: 85\nHARLOW-1041@r_27fe6e25:evening-v2\nSeal fa4d9ec4"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "logTime": "04:16:22.191",
+      "text": "E 04:16:22.191 _nlo_cache\\H\\55e0cd\\1\\Src\\Lenses\\Audio\\AudioOutput\\SpeakerAudioOutputFactory.cpp:58 (@Es::Preview::PreviewWorker #5) LS::Audio::SpeakerAudioOutputFactory::createSpeakerOutput] [AudioOutput]  Can not Set Media Type for Sink Writer"
+    }
+  ],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-closing",
+    "requestId": "roomscript-closing:1793920552798:1",
+    "config": {
+      "mode": "correct",
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "240",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793920571162,
+    "finishedAt": 1793920634279,
+    "elapsedMs": 63117,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 14946,
+  "endLine": 14974,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 4404671,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T23:17:14.997Z"
+}

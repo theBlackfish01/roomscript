@@ -1,0 +1,123 @@
+{
+  "requestId": "roomscript-interrogation:1793921084155:1",
+  "scenarioId": "roomscript-interrogation",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "09:43:47.521",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-interrogation",
+        "requestId": "roomscript-interrogation:1793921084155:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793940227521,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "09:44:02.513",
+      "record": {
+        "status": "failed",
+        "scenarioId": "roomscript-interrogation",
+        "requestId": "roomscript-interrogation:1793921084155:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793940227521,
+        "finishedAt": 1793940242513,
+        "elapsedMs": 14992,
+        "error": "Error: FAILED: roomscript-interrogation - Error: Scenario \"roomscript-interrogation\" timed out after 240s",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "09:43:50.457",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 2626,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "09:43:51.023",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:Rain",
+        "ms": 490,
+        "call": 23
+      }
+    },
+    {
+      "logTime": "09:43:59.120",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.track:Interrogation",
+        "ms": 3982,
+        "call": 26
+      }
+    },
+    {
+      "logTime": "09:44:00.023",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 903,
+        "call": 28
+      }
+    },
+    {
+      "logTime": "09:44:02.509",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 2486,
+        "call": 29
+      }
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "failed",
+    "scenarioId": "roomscript-interrogation",
+    "requestId": "roomscript-interrogation:1793921084155:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "240",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793940227521,
+    "finishedAt": 1793940242513,
+    "elapsedMs": 14992,
+    "error": "Error: FAILED: roomscript-interrogation - Error: Scenario \"roomscript-interrogation\" timed out after 240s",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 15937,
+  "endLine": 15947,
+  "evidenceLabel": "LEAF local-manager FAILED",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 4896729,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-06T04:46:41.263Z"
+}

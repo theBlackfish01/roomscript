@@ -59,7 +59,7 @@ import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
   open():void {const state=this.cast.flow.engine.snapshot();if(state.verdict&&state.verdict!=="timeout")return;this.cast.flow.cancel();this.clue.objection.close();this.picked=this.clue.selected()||this.picked;this.opened=true;this.panel.enabled=true;this.showInvestigation(false);this.render();this.clue.objection.tells.audio.beforeSeal();}
   private showInvestigation(value:boolean):void {this.cast.flow.controlsBlocked=!value;const flow=this.cast.flow,targeting=!value&&this.opened&&this.phase==="idle";
     flow.subtitles.getSceneObject().enabled=value;if(value)flow.restoreControls();else{flow.chips.show(false);flow.verbs.show(false);}
-    this.clue.objection.caseLid.show(value);this.cast.getSceneObject().enabled=value||targeting;this.cast.setAccusationTargeting(targeting?id=>this.pointSuspect(id):null);this.clue.objection.wallet.show(false);this.clue.notebook.show(false);
+    this.clue.showPawns(value);this.clue.objection.caseLid.show(value);this.cast.getSceneObject().enabled=value||targeting;this.cast.setAccusationTargeting(targeting?id=>this.pointSuspect(id):null);this.clue.objection.wallet.show(false);this.clue.notebook.show(false);
   }
   private pointSuspect(id:string):void {if(!this.opened||this.phase!=="idle"||!this.cast.flow.engine.graphRef().cast.suspects.some(s=>s.id===id))return;this.picked.who=id;this.render();this.clue.objection.tells.audio.play("ToastTick");}
   private close():void {this.heldAt=-1;this.opened=false;this.panel.enabled=false;this.showInvestigation(true);}
@@ -166,7 +166,7 @@ import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
   private showEnding():void {
     this.phase="ending";this.clearReconstructionDetails();this.panel.enabled=false;this.ghosts.forEach(g=>g.enabled=false);if(this.routeRoot)this.routeRoot.enabled=false;
     this.result=uiObject(this.getSceneObject(),"RoomscriptResult");const ui=new PanelUI(this.result,54,40,1.5,new vec4(1,.42,.35,1),false,true);
-    const title=ui.text("Ending stamp",this.sealedState.verdict==="correct"?"CASE CLOSED":"CASE UNPROVEN",18,"title");this.image(title.getSceneObject().getParent(),"Verdict stamp",this.stampTexture,50,16);
+    const title=ui.text("Ending stamp",this.sealedState.verdict==="correct"?"CASE CLOSED":"CASE UNPROVEN",18,"title");title.getSceneObject().getTransform().setLocalScale(vec3.one().uniformScale(.82));this.image(title.getSceneObject().getParent(),"Verdict stamp",this.stampTexture,50,16);
     const starRow=ui.text("Earned stars","",7,"body").getSceneObject(),score=scoreCase(this.sealedGraph,this.sealedState);
     score.stars.forEach((star,index)=>{const points=Array.from({length:10},(_,i)=>{const angle=Math.PI/2+i*Math.PI/5,radius=i%2?1.1:2.6;return new vec3((index-1)*9+Math.cos(angle)*radius,Math.sin(angle)*radius,.6);});const material=this.clue.objection.tells.lightMaterial.clone();material.mainPass.baseColor=star.earned?new vec4(1,.84,.04,1):new vec4(1,.94,.84,.25);worldLines(starRow,"Ending star "+index,points.map((point,i)=>[point,points[(i+1)%10]] as [vec3,vec3]),material,.55);});
     ui.buttons([{id:"Ending details",label:"Details"}],()=>this.openDetails(),8);

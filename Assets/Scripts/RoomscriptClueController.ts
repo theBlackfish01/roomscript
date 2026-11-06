@@ -1,3 +1,4 @@
+import {placeReadingPanel} from "./RoomscriptReadingPanel";
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjectionController";
 import {RoomscriptNotepadUI} from "./RoomscriptNotepadUI";
@@ -109,9 +110,11 @@ import {spatialDrop} from "./Engine/game/SpatialDrop";
     if(!this.busy)return;const t=Math.min(1,(getTime()-this.began)/2.4),angle=this.endAngle*t;this.blade.getTransform().setWorldRotation(this.objection.tells.room.getTransform().getWorldRotation().multiply(quat.angleAxis(-(this.startingYaw+angle),vec3.up())));
     let tick:vec3|null=null;while(this.visited<this.order.length&&this.order[this.visited].angle<=angle){const witness=this.order[this.visited++];this.lastVisited.push(witness.id);tick=witness.position;}if(tick)this.objection.tells.audio.playAt("ClockTick",tick);
     if(t===1){this.busy=false;this.blade.enabled=false;this.ghost.enabled=false;this.renderKnowledge();
-      if(this.refuter){this.panel.enabled=true;this.cardText.text=wrapText(this.resultText,31);this.objection.tells.audio.playAt("Chime",this.order.find(o=>o.id===this.refuter)!.position);}
+      if(this.refuter){this.placeRefutationCard();this.panel.enabled=true;this.cardText.text=wrapText(this.resultText,31);this.objection.tells.audio.playAt("Chime",this.order.find(o=>o.id===this.refuter)!.position);}
       else{this.objection.flow.subtitles.set("WREN",this.resultText);this.objection.flow.restoreControls();this.objection.caseLid.show(true);}}
   }
+  private placeRefutationCard():void {const flow=this.objection.flow,faces=flow.engine.graphRef().cast.suspects.map(s=>flow.actorFor(s.id)).filter(a=>!!a).map(a=>a.getTransform().getWorldPosition().add(new vec3(0,145,0)));placeReadingPanel(this.panel,flow.actor.camera,54,36,this.objection.tells.room.getTransform().getWorldPosition().y,faces);}
+  showPawns(value:boolean):void {this.pawns.forEach(pawn=>{if(!isNull(pawn))pawn.enabled=value;});}
   selected():Hypothesis|null {return this.hypothesis?{...this.hypothesis}:null;}
   diagnostics():{busy:boolean;pending:string|null;refuter:string|null;visited:string[];card:string;breathing:boolean;breaths:number} {return {busy:this.busy,pending:this.selectedWho,refuter:this.refuter,visited:this.lastVisited.slice(),card:this.panel.enabled?this.resultText:"",breathing:!!this.breathing,breaths:this.breaths};}
 }

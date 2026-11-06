@@ -1,0 +1,343 @@
+{
+  "requestId": "roomscript-closing:1793920764338:1",
+  "scenarioId": "roomscript-closing",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "04:19:41.370",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-closing",
+        "requestId": "roomscript-closing:1793920764338:1",
+        "config": {
+          "mode": "timeout",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793920781370,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "04:21:38.774",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-closing",
+        "requestId": "roomscript-closing:1793920764338:1",
+        "config": {
+          "mode": "timeout",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793920781370,
+        "finishedAt": 1793920898774,
+        "elapsedMs": 117404,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "04:19:43.379",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1924,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "04:19:43.597",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:music",
+        "ms": 201,
+        "call": 22
+      }
+    },
+    {
+      "logTime": "04:19:50.049",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.track:Interrogation",
+        "ms": 6414,
+        "call": 26
+      }
+    },
+    {
+      "logTime": "04:19:50.819",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 770,
+        "call": 28
+      }
+    },
+    {
+      "logTime": "04:19:52.873",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 2053,
+        "call": 29
+      }
+    },
+    {
+      "logTime": "04:19:53.438",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:music",
+        "ms": 190,
+        "call": 33
+      }
+    },
+    {
+      "logTime": "04:19:58.116",
+      "name": "CLOSING_FIXTURE_PROGRESS",
+      "data": {
+        "mode": "timeout",
+        "asks": 1,
+        "total": 36,
+        "elapsedMs": 3029,
+        "phase": "idle",
+        "opened": false
+      }
+    },
+    {
+      "logTime": "04:19:58.367",
+      "name": "CLOSING_FIXTURE_PROGRESS",
+      "data": {
+        "mode": "timeout",
+        "asks": 6,
+        "total": 36,
+        "elapsedMs": 3280,
+        "phase": "idle",
+        "opened": false
+      }
+    },
+    {
+      "logTime": "04:19:59.034",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:ToastTick",
+        "ms": 589,
+        "call": 44
+      }
+    },
+    {
+      "logTime": "04:20:02.528",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ToastTick",
+        "ms": 3493,
+        "call": 46
+      }
+    },
+    {
+      "logTime": "04:20:05.193",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Letter",
+        "ms": 2655,
+        "call": 49
+      }
+    },
+    {
+      "logTime": "04:20:05.211",
+      "name": "STORY_MOMENT",
+      "data": {
+        "kind": "letter",
+        "beat": "B_LETTER",
+        "evidence": "E_LETTER"
+      }
+    },
+    {
+      "logTime": "04:20:09.779",
+      "name": "CLOSING_FIXTURE_PROGRESS",
+      "data": {
+        "mode": "timeout",
+        "asks": 12,
+        "total": 36,
+        "elapsedMs": 14692,
+        "phase": "idle",
+        "opened": false
+      }
+    },
+    {
+      "logTime": "04:20:13.488",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:PhoneStatic",
+        "ms": 806,
+        "call": 56
+      }
+    },
+    {
+      "logTime": "04:20:16.074",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:PhoneStatic",
+        "ms": 2586,
+        "call": 57
+      }
+    },
+    {
+      "logTime": "04:20:16.090",
+      "name": "STORY_MOMENT",
+      "data": {
+        "kind": "voicemail",
+        "beat": "B_VOICEMAIL",
+        "evidence": "E_VOICEMAIL"
+      }
+    },
+    {
+      "logTime": "04:20:19.923",
+      "name": "CLOSING_FIXTURE_PROGRESS",
+      "data": {
+        "mode": "timeout",
+        "asks": 18,
+        "total": 36,
+        "elapsedMs": 24835,
+        "phase": "idle",
+        "opened": false
+      }
+    },
+    {
+      "logTime": "04:20:22.666",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:TapeZip",
+        "ms": 2614,
+        "call": 61
+      }
+    },
+    {
+      "logTime": "04:20:22.750",
+      "name": "STORY_MOMENT",
+      "data": {
+        "kind": "flight",
+        "beat": "B_FLIGHT"
+      }
+    },
+    {
+      "logTime": "04:20:27.082",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Polaroid",
+        "ms": 4133,
+        "call": 64
+      }
+    },
+    {
+      "logTime": "04:20:29.669",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Polaroid",
+        "ms": 2587,
+        "call": 65
+      }
+    },
+    {
+      "logTime": "04:20:33.089",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Blackout",
+        "ms": 3418,
+        "call": 66
+      }
+    },
+    {
+      "logTime": "04:20:44.233",
+      "name": "CLOSING_FIXTURE_PROGRESS",
+      "data": {
+        "mode": "timeout",
+        "asks": 24,
+        "total": 36,
+        "elapsedMs": 49146,
+        "phase": "idle",
+        "opened": false
+      }
+    },
+    {
+      "logTime": "04:20:44.303",
+      "name": "STORY_MOMENT",
+      "data": {
+        "kind": "blackout",
+        "beat": "B_BLACKOUT"
+      }
+    },
+    {
+      "logTime": "04:20:44.554",
+      "name": "CLOSING_FIXTURE_PROGRESS",
+      "data": {
+        "mode": "timeout",
+        "asks": 30,
+        "total": 36,
+        "elapsedMs": 49467,
+        "phase": "idle",
+        "opened": false
+      }
+    },
+    {
+      "logTime": "04:20:44.765",
+      "name": "CLOSING_FIXTURE_PROGRESS",
+      "data": {
+        "mode": "timeout",
+        "asks": 36,
+        "total": 36,
+        "elapsedMs": 49678,
+        "phase": "idle",
+        "opened": true
+      }
+    },
+    {
+      "logTime": "04:21:38.772",
+      "name": "CLOSING_CHECK",
+      "data": {
+        "mode": "timeout",
+        "verdict": "correct",
+        "result": "CASE CLOSED\nHolmes rating: 1 / 3\n★ Solved\n☆ Proven\n☆ Broke the culprit\n0 / 4 deductions\nYou: 180 min · Par: 85\nHARLOW-1041@r_27fe6e25:evening-v2\nSeal fa4d9ec4"
+      }
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-closing",
+    "requestId": "roomscript-closing:1793920764338:1",
+    "config": {
+      "mode": "timeout",
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "240",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793920781370,
+    "finishedAt": 1793920898774,
+    "elapsedMs": 117404,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 15246,
+  "endLine": 15302,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 4516551,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T23:21:39.587Z"
+}

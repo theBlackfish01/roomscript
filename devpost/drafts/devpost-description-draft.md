@@ -1,6 +1,6 @@
 # Devpost submission draft — Run 7
 
-**Editorial draft; reconcile against the final Run 7 report before publishing.** Evidence below includes the Run 7 pure suite and pushed checkpoint `8566d04`: A2, Dynamic, twenty poses, proximity and the voiced live-AI/Wren beat. Final presentation, integration and continuous filming remain incomplete. Planned capabilities are not completion claims. The actual form and music-plan eligibility remain owner checks.
+**Editorial draft; reconcile against the final Run 7 report before publishing.** Evidence below includes the Run 7 pure suite and publication checkpoint `6ee7033`: A2, Dynamic, twenty poses and the voiced live-AI/Wren beat, plus strict local-manager casting, memory/lift, proximity, IK point/select/cancel and story-moment gates. Final presentation, integration and continuous filming remain incomplete. Planned capabilities are not completion claims. The actual form and music-plan eligibility remain owner checks.
 
 **Project name:** Roomscript
 
@@ -32,6 +32,8 @@ Those are the design goals behind the Run 7 UI pass. Hardware comfort is unprove
 
 **Test the experience, not just the code.** Pure tests can prove a reducer or solver. They cannot show whether a face is obscured, a slip is too small or a new voice actually plays in the current scene. We use strict LEAF scenarios, runtime captures and actual performance tapes, and keep failed or incomplete gates visible.
 
+The strict physical checks found two concrete problems: grounding the crate buried an accusation button in the table, and an assumed object ID attached the cable treatment to poison. Raising the panel and selecting the cord by type made the actual pinch/lift gates pass. The story fixture also needed to yield between real engine actions because native audio calls could exhaust one JavaScript frame. Those fixes came from runtime failures, not screenshot polish alone.
+
 ## How the Devpost Learn skill pack helped
 
 Roomscript's design began before we installed the pack. In Run 7 we used **plan-lens** to formalise Wadood's existing decisions and review them against the pack's AR rules and Preview limits. It helped turn a long feature list into five observable checks: a complete voiced route, readable spatial controls, measured room casting, three generated-case verdicts, and truth-safe live performance/endings.
@@ -61,6 +63,8 @@ The camera path is now working through a Preview file handoff: three logged Came
 Before picture lock, add the actual art/UI/moment captures, final integrated outcomes and continuous voiced take from the final report. The strict live-AI beat now passed in 163.461 s: the director selected four bundled suspect pieces with no fallback; Wren selected a valid knowledge-only option and actual live TTS played once with zero fallback. Truth was unchanged and replay exact. The tape is `Tooling/results/run7-live-ai-beat.json`. Twenty distinct pose textures also matched active native renderers in strict LEAF (105.966 s); proximity passed. These checks do not substitute for final clean visual captures.
 
 **Unfinished evidence:** native continuous recording is not working and no 60–90 s gameplay clip exists. The S2 8 ms target is not met; the 10 s trace measured paired ProcessFrame + Render wall spans averaging 15.95 ms (p90 20.30 ms). The Vale-questions image has a red failed-assertion overlay and visible subtitle/panel overlap, so it is diagnostic evidence only, not a promotional still. Keep these gaps in the final report until new evidence resolves them.
+
+S2's native clock start/loop/overlap/stop behaviour now passes in 37.371 s. Its separate 600-frame metric averages 25.881 ms, maximum 83.994 ms; a behavioural PASS does not satisfy the 8 ms target. The current local-manager gates retain registered LEAF assertions and cleanup while bypassing only the stalled Editor-to-Preview launch transport. They are explicitly recorded as local-manager results, not MCP transport passes. Casting passed in 92.159 s, memory/reset in 34.846 s, default physical memory in 43.753 s, proximity/target sizing in 14.444 s, strict IK accusation selection/cancel in 33.964 s, and letter/voicemail/flight/blackout/UV with exact replay in 76.854 s. Final captures and the integrated route remain pending.
 
 ## Challenges
 

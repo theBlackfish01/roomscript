@@ -6,13 +6,13 @@ Built for *Learn AR with SPECS*, directed by Wadood and implemented with coding 
 
 **Logic proven / feel unproven.** Work is verified in Lens Studio Preview with a simulated room. Physical Specs testing and the final integrated whole-case gate remain outstanding. The current checkpoint and blockers are in [PROGRESS](docs/PROGRESS.md).
 
-Latest Run 7 pure suite: **504 tests across 57 files**, with pure-engine/tooling typecheck passed. Strict current-cast A2, twenty native pose textures, proximity and the voiced live-AI/Wren beat have passed. The final integrated gate for the new features remains pending. See [PROGRESS](docs/PROGRESS.md).
+Latest Run 7 pure suite: **554 tests across 70 files**, with pure-engine/tooling typecheck passed. Strict current-cast A2, twenty native pose textures, proximity and the voiced live-AI/Wren beat have passed. The final integrated gate for the new features remains pending. See [PROGRESS](docs/PROGRESS.md).
 
 ## The case
 
 Edmund Harlow was found dead at 22:41. Qadir, Vale, Okafor and Pike each have something to hide. Ask a question, watch the suspect's tell, and compare their answer with what an object remembers. Drag a statement onto contradictory evidence to break the account. Make a who/where/with-what suggestion, collect independent proof, then hold the seal to accuse.
 
-Run 7 now has two modes selectable from the crate. The latest pushed checkpoint is `8566d04`; the Dynamic evidence described below was established at `338b0db`. Final integration and visual acceptance remain separate.
+Run 7 now has two modes selectable from the crate. See the [final Run 7 handoff](docs/RUN7_REPORT.md) for the stop checkpoint; the Dynamic evidence described below was established at `338b0db`. Final integration and visual acceptance remain separate.
 
 | Mode | Working capability | Evidence and limits |
 |---|---|---|
@@ -63,7 +63,7 @@ npm test
 npm run play -- --demo
 ```
 
-Lens components compile through Lens Studio's `RecompileTypeScriptTool`, not Node or `tsc`. LEAF scenarios run through the Lens Studio MCP. Tooling tests cover pure Engine/Content modules. [Build instructions and constraints](AGENTS.md).
+Lens components compile through Lens Studio's `RecompileTypeScriptTool`, not Node or `tsc`. MCP launched the earlier LEAF gates. While Editor-to-Preview run transport is stalled, an opt-in Preview runner calls the installed DefaultScenarioManager with the same strict assertions and cleanup. Results identify `local-manager` provenance and are not MCP transport passes. Tooling tests cover pure Engine/Content modules. [Build instructions and constraints](AGENTS.md).
 
 ## Evidence and limits
 
@@ -75,6 +75,7 @@ Lens components compile through Lens Studio's `RecompileTypeScriptTool`, not Nod
 | Run 7 A2 Preview | Strict replacement bundle 11.836 s and hero 169.471 s; new-cast tape preserved. Final new-feature integration pending |
 | Run 7 pose/proximity | Strict twenty distinct textures matched active native renderers (105.966 s); proximity passed. This is not a completed promotional contact sheet |
 | Run 7 live-AI/Wren | Strict beat passed 163.461 s: director chose four bundled suspect pieces with no fallback; Wren chose a knowledge-only option and live TTS played; unchanged truth and exact replay |
+| Run 7 local spatial/story gates | Casting 92.159 s; memory/reset 34.846 s; physical pull/lift 43.753 s; proximity/target height 14.444 s; strict IK point/select/cancel 33.964 s; story beats 76.854 s. Captures and whole-case integration remain separate |
 | Run 7 Dynamic Preview | `source=file` seeds 7/1041/2026: correct verdict, exact replay, zero binding errors; one completed live scan reused |
 | Run 5 audio tooling | 8/8 pipeline tests; 2/2 bundled-fallback/segment tests; published coverage, alignment and size checks passed |
 | Strict validator, Run 6 saved-corpus replay | 0/96 and 0/48 attack bypasses; 20/34 natural holdout answers rejected (58.8%, down from 70.6%); inspected holdout is regression evidence |
@@ -82,7 +83,7 @@ Lens components compile through Lens Studio's `RecompileTypeScriptTool`, not Nod
 
 These measurements describe specific checkpoints. They are not a claim that the current Lens passed the full final suite. See the [validator study](docs/validator-study-2026-10-30.md), [Run 4 revalidation](Tooling/results/run4-b-validator-report.json), [production study](docs/production-study-2026-10-30.md), and [latest progress](docs/PROGRESS.md).
 
-Remaining gates include final art/UI/physical/ghost and narrated-moment visual acceptance, the integrated suite and continuous voiced capture. The strict twenty-pose and live-AI/Wren checks pass, but they do not certify the entire presentation. Native continuous recording is **not working** and there is **no 60–90 s clip**. S2 remains failed: the 10 s trace measured paired ProcessFrame + Render wall spans averaging **15.95 ms** (p90 20.30 ms), above the 8 ms target. Additive readability, spatial audio, ray-drop comfort, keyboard and ASR remain device checks. Feature freeze is Sun November 8 at 21:00 PKT. Multiplayer is deferred. No `m3-case` or submission tag is claimed.
+Remaining gates include final art/UI/physical/ghost and narrated-moment visual acceptance, the integrated suite and continuous voiced capture. The strict runtime checks do not certify the entire presentation. Native continuous recording is **not working** and there is **no 60–90 s clip**. S2 native clock/loop/overlap/stop behaviour now passes locally; its **8 ms target remains unmet**. A 600-frame sample averaged **25.881 ms**, maximum 83.994 ms. The earlier 10 s trace measured paired ProcessFrame + Render wall spans averaging **15.95 ms** (p90 20.30 ms); these are different measurements and neither meets the target. Additive readability, spatial audio, ray-drop comfort, keyboard and ASR remain device checks. Feature freeze is Sun November 8 at 21:00 PKT. Multiplayer is deferred. No `m3-case` or submission tag is claimed.
 
 The [Vale questions capture](docs/captures/2026-11-06-run7-vale-questions.png) is **diagnostic only**: it contains the red failed S2 assertion banner, an oversized foreground actor and subtitle/panel overlap. It must not be used as a finished promotional still. Runtime fixes and fresh clean captures remain separate acceptance work. The [live AI tape](Tooling/results/run7-live-ai-beat.json) records the passed live response and replay; it is not a video.
 
@@ -92,7 +93,7 @@ The [Vale questions capture](docs/captures/2026-11-06-run7-vale-questions.png) i
 
 Codex implements the build and runs CLAD's cross-runtime procedures inline. Parallel workers handle disjoint engine, content, audio, art and publication work. Claude Code contributed planning and independent reviews; local Claude API output was used for validator studies, judged performance-bank drafting and Run 7 simulated-room vision casting. Wadood directs scope, casting and release decisions.
 
-Run 7 installed the MIT Devpost Learn `plan-lens` pack project-locally under `Tooling/skills/plan-lens`. Planning predates the pack: it was used to formalise existing decisions, review AR placement/input/visibility and separate measured acceptance from ambitions. Its checklist produced an [actionable review](devpost/run7-skill-review.md), including the one-panel UI contract, recognition fallback and continuous-gameplay evidence. The [video plan](devpost/drafts/video-plan.md) leads with gameplay and includes the now-tested Dynamic case capability, while disclosing its Preview reload. The [publication checklist](devpost/run7-publication-checklist.md) tracks capture and claim acceptance.
+Run 7 installed the MIT Devpost Learn `plan-lens` pack project-locally under `Tooling/skills/plan-lens`. Planning predates the pack: it was used to formalise existing decisions, review AR placement/input/visibility and separate measured acceptance from ambitions. Its checklist produced an [actionable review](devpost/run7-skill-review.md), including the one-panel UI contract, recognition fallback and continuous-gameplay evidence. The [video plan](devpost/drafts/video-plan.md) puts gameplay in the first ten seconds, states the audience/promise by 0:20, reserves a genuine 60–90 s uncut segment and a 15 s AI voices/engine truth explanation, and shows **same room, new murder** in Dynamic while disclosing its Preview reload. Provider names are optional in the video; recorded-scan and Preview disclosures remain accurate. The [publication checklist](devpost/run7-publication-checklist.md) tracks capture and claim acceptance.
 
 VirtualScene is the scene-writing surface. The MCP supplies compilation, runtime logs, LEAF, asset import and Preview inspection. Package failures, rendering defects and rejected approaches remain documented. [Chronological CLAD log](devpost/clad-log.md) · [Raw log](devpost/clad-log-raw.md) · [Design brief](devpost/design-brief.md) · [Decisions](docs/decisions.md).
 

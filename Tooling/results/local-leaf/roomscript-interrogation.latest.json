@@ -1,0 +1,129 @@
+{
+  "requestId": "roomscript-interrogation:1793940311921:1",
+  "scenarioId": "roomscript-interrogation",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "09:45:35.495",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-interrogation",
+        "requestId": "roomscript-interrogation:1793940311921:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793940335495,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [],
+  "errors": [
+    {
+      "logTime": "09:45:59.191",
+      "text": "E 09:45:59.191 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'ToolCardUtils' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.193",
+      "text": "E 09:45:59.193 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'LensStudioAiStatusHandler' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.217",
+      "text": "E 09:45:59.217 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'ToolCardUtils' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.218",
+      "text": "E 09:45:59.218 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'LensStudioAiStatusHandler' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.220",
+      "text": "E 09:45:59.220 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'ToolCardUtils' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.221",
+      "text": "E 09:45:59.221 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'LensStudioAiStatusHandler' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.223",
+      "text": "E 09:45:59.223 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'ToolCardUtils' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.224",
+      "text": "E 09:45:59.224 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'LensStudioAiStatusHandler' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.225",
+      "text": "E 09:45:59.225 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'ToolCardUtils' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.226",
+      "text": "E 09:45:59.226 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'LensStudioAiStatusHandler' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.227",
+      "text": "E 09:45:59.227 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'ToolCardUtils' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.228",
+      "text": "E 09:45:59.228 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'LensStudioAiStatusHandler' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.230",
+      "text": "E 09:45:59.230 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'ToolCardUtils' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.232",
+      "text": "E 09:45:59.232 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'LensStudioAiStatusHandler' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.237",
+      "text": "E 09:45:59.237 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'ToolCardUtils' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.238",
+      "text": "E 09:45:59.238 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'LensStudioAiStatusHandler' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.240",
+      "text": "E 09:45:59.240 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'ToolCardUtils' has already been declared"
+    },
+    {
+      "logTime": "09:45:59.241",
+      "text": "E 09:45:59.241 StudioPlugins/AssistantAI/ChatUI/PanelPlugin/Src/WebPage/AssistantAiWebPageBase.cpp:88 Es::AssistantAiWebPageBase::javaScriptConsoleMessage] qrc:/Html/AssistantAi/index.html:1:Uncaught SyntaxError: Identifier 'LensStudioAiStatusHandler' has already been declared"
+    }
+  ],
+  "latest": {
+    "status": "running",
+    "scenarioId": "roomscript-interrogation",
+    "requestId": "roomscript-interrogation:1793940311921:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "240",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793940335495,
+    "finishedAt": 0,
+    "elapsedMs": 0,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 16250,
+  "evidenceLabel": "LEAF local-manager RUNNING",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 4896729,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-06T04:46:41.266Z"
+}

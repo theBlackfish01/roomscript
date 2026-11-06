@@ -1,3 +1,4 @@
+import {RectangleButton} from "SpectaclesUIKit.lspkg/Scripts/Components/Button/RectangleButton";
 import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
@@ -14,6 +15,13 @@ import {replayGame} from "./Engine/game/Reducer";
     const audioOrigin=clue.objection.tells.audio.getTransform().getWorldPosition(),camera=flow.actor.camera.getTransform(),cameraHome=camera.getWorldPosition(),cameraRotation=camera.getWorldRotation();
     expect(!!flow.actor.camera.getComponent("Component.AudioListenerComponent")).toBe(true);
     const starts:{busy:boolean;card:string}[]=[];clue.onSelection.add(()=>{const view=clue.diagnostics();starts.push({busy:view.busy,card:view.card});});
+    const checkRefutationBounds=()=>{const panel=findSceneObjectByName("RoomscriptRefutationCard"),transform=panel.getTransform(),world=transform.getWorldTransform(),inverse=transform.getInvertedWorldTransform();
+      const bottom=Math.min(...[-1,1].flatMap(x=>[-1,1].map(y=>world.multiplyPoint(new vec3(x*27,y*18,0)).y))),floor=room.getTransform().getWorldPosition().y;
+      expect(transform.getWorldScale().distance(vec3.one())<.001).toBe(true);expect(bottom>=floor+59.99).toBe(true);
+      const matches=findInteractablesByName("Close refutation",undefined,true);expect(matches.length).toBe(1);const node=matches[0].getSceneObject(),button=node.getComponent(RectangleButton.getTypeName()) as RectangleButton;expect(!!button).toBe(true);
+      const matrix=node.getTransform().getWorldTransform();for(const x of [-1,1])for(const y of [-1,1]){const local=inverse.multiplyPoint(matrix.multiplyPoint(new vec3(x*button.size.x/2,y*button.size.y/2,0)));expect(Math.abs(local.x)<=27.1).toBe(true);expect(Math.abs(local.y)<=18.1).toBe(true);}
+      console.log("REFUTATION_PANEL_BOUNDS|"+JSON.stringify({bottom,floor,scaleOne:true,closeInside:true}));
+    };
     const finishSweep=async()=>{for(let i=0;i<150&&clue.diagnostics().busy;i++)await sleep(100);expect(clue.diagnostics().busy).toBe(false);await sleep(200);};
     const tap=async(name:string)=>{const targets=findInteractablesByName(name,undefined,true);console.log("CLUE_TAP|"+name+"|"+targets.length);expect(targets.length).toBe(1);await hand.trigger(targets[0]);await sleep(100);};
     const dragPawn=async(id:string,zone:string)=>{const pawn=findInteractablesByName("RoomscriptPawn_"+id,undefined,true)[0],target=vec3.lerp(flow.actor.camera.getTransform().getWorldPosition(),room.zoneAnchor(zone).getTransform().getWorldPosition(),.3),vector=new vec3(1,0,0);
@@ -22,7 +30,7 @@ import {replayGame} from "./Engine/game/Reducer";
       await dragPawn("S1","Z1");expect(clue.diagnostics().pending).toBe("S1");expect(findSceneObjectByName("RoomscriptSuggestionGhost").enabled).toBe(true);expect(engine.snapshot().elapsedMinutes).toBe(0);
       await tap("RoomscriptObject_O1");expect(engine.snapshot().elapsedMinutes).toBe(15);expect(engine.snapshot().knowledge.evidenceIds.includes("E_CABLE")).toBe(false);expect(starts[0].busy).toBe(true);expect(starts[0].card).toBe("");
       await finishSweep();expect(clue.diagnostics().refuter).toBe("O8");expect(clue.diagnostics().visited.slice(-1)[0]).toBe("O8");expect(clue.diagnostics().card.length>0).toBe(true);expect(engine.snapshot().grid.suspects.includes("S1")).toBe(false);expect(findSceneObjectByName("RoomscriptSuspectGrid_S1").enabled).toBe(false);
-      expect(findSceneObjectByName("RoomscriptPawn_S1").getChildrenCount()>2).toBe(true);await tap("Close refutation");
+      expect(findSceneObjectByName("RoomscriptPawn_S1").getChildrenCount()>2).toBe(true);checkRefutationBounds();await tap("Close refutation");
       expect(findSceneObjectByName("RoomscriptCaseLidUI").getChild(0).getComponent("ColliderComponent").enabled).toBe(false);
       await tap("RoomscriptObject_O6");await tap("Close memory");expect(engine.snapshot().grid.suspects.includes("S1")).toBe(true);
       // The exclusion stays certified while its room marker yields to a nearby speaker.

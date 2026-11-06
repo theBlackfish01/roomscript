@@ -1,3 +1,4 @@
+import {placeReadingPanel} from "./RoomscriptReadingPanel";
 import {FrameVisibleWindow} from "./Engine/perf/FrameVisibleWindow";
 import {peripheralFeedback} from "./Engine/game/PeripheralFeedback";
 import {RoomscriptStoryMoments} from "./RoomscriptStoryMoments";
@@ -39,6 +40,7 @@ import {withDeadline} from "./Engine/ai/Deadlines";
     this.state=this.engine.snapshot();
     this.caseLid.onAction.add(action=>{
       if(action!=="Notebook"&&action!=="Evidence")return;
+      if(action==="Notebook"){const faces=this.engine.graphRef().cast.suspects.map(s=>this.interrogation.actorFor(s.id)).filter(a=>!!a).map(a=>a.getTransform().getWorldPosition().add(new vec3(0,145,0)));placeReadingPanel(this.notebook.getSceneObject(),this.interrogation.actor.camera,this.notebook.width,54,this.engine.roomRoot.getTransform().getWorldPosition().y,faces);}
       this.interrogation.controlsBlocked=true;this.caseLid.show(false);this.chips.show(false);this.verbs.show(false);this.notebook.show(action==="Notebook");this.wallet.show(action==="Evidence");this.audio.play("ChalkScratch");});
     const close=()=>{this.interrogation.controlsBlocked=false;this.notebook.show(false);this.wallet.show(false);this.interrogation.controlsBlocked=false;this.caseLid.show(true);this.interrogation.restoreControls();};
     this.notebook.onClose.add(close);this.wallet.onClose.add(close);

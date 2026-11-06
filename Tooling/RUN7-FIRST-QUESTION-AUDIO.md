@@ -1,0 +1,9 @@
+# First-question audio proposal (not published)
+
+Main's measured startup opens Rain, RoomTone and MainTheme during automatic placement, before the player can pull the crate. Their native starts consume about 10–12 seconds. The current quiet-tab probe also waits for introductory speech, so its approximately35-second duration is not a direct first-question measurement. Existing naive-player timing starts when its scenario runs; earlier OnStart work may be outside that clock. Compare cold-start-to-question separately from pull-to-question and first-answer completion.
+
+Staged `NarrativeAudioOpeningBackground.ts` moves only Rain, RoomTone and MainTheme from `placed` to the real `pull` beat. Knocks and all narrator/dialogue cues remain unchanged; `ready` still selects Interrogation and existing tension follows actual composure. Ready-only test setup continues to get Wren and Interrogation. No Opening or Main changes are needed, so this does not conflict with the proximity batch.
+
+This removes unconditional background-stream startup before interaction, but **moves rather than removes** their native cost. The pull callback may still block casting/first-question progress while those streams start. Do not publish it as a proven latency fix or claim the30-second goal is met until the pending naive first-answer measurement and a matched follow-up support it. Deferring ambience beyond the first answer would be a separate design choice; it is not staged here.
+
+Source guard: `Tooling/staging/run7-opening-background-source.json`. Three staged regression cases cover prelude speech, once-only pull streams, unchanged arrival/ready cues, graph/state purity and ready-only fallback. Run only after main releases testing: from Tooling, `vitest run --config staging/vitest-opening-background-staged.config.ts`. No tests were run during the active LEAF gate; no Assets writes or MCP calls were made.

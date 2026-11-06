@@ -1,3 +1,4 @@
+import {RoomscriptReadingPanelLeafScenario} from "./RoomscriptReadingPanelLeafScenario";
 import {RoomscriptGeneratedVoiceLeafScenario} from "./RoomscriptGeneratedVoiceLeafScenario";
 import {RoomscriptReconstructionDetailsLeafScenario} from "./RoomscriptReconstructionDetailsLeafScenario";
 import {RoomscriptStoryMomentsLeafScenario} from "./RoomscriptStoryMomentsLeafScenario";
@@ -44,6 +45,7 @@ import {RoomscriptMemoryCardLeafScenario} from "./RoomscriptMemoryCardLeafScenar
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-reading-panels",typename:RoomscriptReadingPanelLeafScenario.getTypeName()},
     {id:"roomscript-generated-voices",typename:RoomscriptGeneratedVoiceLeafScenario.getTypeName(),parameters:{seed:"7",source:"file"}},
     {id:"roomscript-casting-sweep",typename:RoomscriptCastingSweepLeafScenario.getTypeName(),parameters:{audit:"true",captureIndex:"-1"}},
     {id:"roomscript-story-moments",typename:RoomscriptStoryMomentsLeafScenario.getTypeName()},

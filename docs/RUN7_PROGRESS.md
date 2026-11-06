@@ -81,3 +81,12 @@ Native recording through local LEAF returned a file, but independent ffmpeg deco
 - Story beat fixture now yields between deterministic asks, avoiding a single synchronous native-audio burst. Story moments PASS 76.854 s verifies letter, voicemail, flight, blackout, persistent UV and exact replay.
 - Twelve focused cable/presentation/capture regressions pass. Native video acceptance is stricter: a five-second clip must contain five seconds, not merely positive duration. Current recording probes fail honestly; no continuous clip claimed.
 - These are strict local-manager LEAF results; MCP scenario-run transport remains separately unresolved. Scene saved idle with provider tokens blank. Integrated ending/hero/naive gates continue.
+
+### Nov 6 09:44 PKT — runtime interruption
+- Correct/wrong/timeout closing gates passed locally in 63.117/65.455/117.404 seconds. Initial ending stills saved; subsequent stamp-margin/pawn cleanup is compiled, awaiting rerun.
+- New strict IK reading-panel gate passed 49.343 s: notebook paging/close and free-question draft/cancel through actual hand interactions; scale one, controls within panel, bottom >= floor+60 cm, no investigation-time charge. Native keyboard typing is not covered.
+- Interrogation launch was interrupted between 04:24 and 09:43. Log reports Rain native play spanning 19,118,947 ms, with display/bridge reconnect messages during the gap. Cause is unproven (suspend vs audio/system stall); no GUI or extra process restart used. The pending scenario then timed out, so it is a failure, not gameplay latency evidence. Fresh Preview reset/retry now underway.
+
+
+### Final stop checkpoint ? 09:48 PKT
+Owner requested wrap and stop. Final554/70 pure suite and pure typecheck pass. Scene saved runner empty/tokensblank before graceful Lens exit09:45:59. Latest interrogation retry incomplete; no final milestone. See RUN7_REPORT.md. No further feature work.

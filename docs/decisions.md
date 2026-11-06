@@ -213,3 +213,7 @@ Replace the proximity scenario's fixed 400 ms sleep with bounded checks of the r
 Select the authored cable by object type, never an assumed fixture ID: the strict lift failure revealed O4 is poison and O1 is cord. The corrected default physical-memory scenario passed43.753 s with a lifted mesh, no photo fallback and unchanged anchor. Preserve the authored origin; the recorded scan did not detect a cable. Do not extend this default-path result to the separate IK route or human hand comfort. The art staging handoff's O4 reference is historical and superseded.
 
 Reject native recording on actual encoded duration and frame evidence, not API success or any positive duration. One frame at0.033 s falsely satisfied the old weak probe. The stricter five-second quiet/background run failed:159 LateUpdates but10 encoded frames/0.333 s. CameraModule can supply the room backdrop, but swapped RGB and missing continuous output remain unresolved. No60–90 s or finished-film claim. Preserve this failure and the earlier false acceptance for diagnosis.
+
+
+## 2026-11-06 ? Run7 owner stop and final acceptance
+Stopped at owner request. Preserve strict checkpoint-specific passes; do not promote latest build to m3-case. Reading-panel placement passes strict IK; last cosmetic closing/refutation changes compile but await their new gates. Keep expanded-card and audio A/B proposals in Tooling/staging only. Native recording duration remains a hard gate; no screenshot movie substituted. Saved tokens blank/runner idle; Lens subsequently exited gracefully.

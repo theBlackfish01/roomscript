@@ -1,0 +1,104 @@
+{
+  "requestId": "roomscript-interrogation:1793940287224:1",
+  "scenarioId": "roomscript-interrogation",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "09:45:07.816",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-interrogation",
+        "requestId": "roomscript-interrogation:1793940287224:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793940307816,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "09:45:14.260",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    },
+    {
+      "logTime": "09:45:21.624",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "ambience.play:Rain",
+        "ms": 2956,
+        "call": 12
+      }
+    },
+    {
+      "logTime": "09:45:27.361",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "ambience.track:RoomTone",
+        "ms": 5736,
+        "call": 13
+      }
+    },
+    {
+      "logTime": "09:45:28.750",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "ambience.play:RoomTone",
+        "ms": 1388,
+        "call": 15
+      }
+    },
+    {
+      "logTime": "09:45:35.471",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:MainTheme",
+        "ms": 6706,
+        "call": 18
+      }
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "running",
+    "scenarioId": "roomscript-interrogation",
+    "requestId": "roomscript-interrogation:1793940287224:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "240",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793940307816,
+    "finishedAt": 0,
+    "elapsedMs": 0,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 16040,
+  "evidenceLabel": "LEAF local-manager RUNNING",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 4896729,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-06T04:46:41.265Z"
+}

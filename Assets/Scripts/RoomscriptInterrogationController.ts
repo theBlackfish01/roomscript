@@ -1,3 +1,4 @@
+import {placeReadingPanel} from "./RoomscriptReadingPanel";
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {RoomscriptLlmClient} from "./RoomscriptLlmClient";
@@ -83,6 +84,7 @@ import {preferPreparedQuestions} from "./Engine/ai/ModelPolicy";
     return presentedQuestions(this.engine.graphRef(),this.engine.snapshot(),this.selected).concat([{topic:"free",label:"Ask anything",question:""}]);
   }
   reviewQuestion(text:string):void {const graph=this.engine.graphRef();
+    if(!this.questions.getSceneObject().enabled){const faces=graph.cast.suspects.map(s=>this.actorFor(s.id)).filter(a=>!!a).map(a=>a.getTransform().getWorldPosition().add(new vec3(0,145,0)));placeReadingPanel(this.questions.getSceneObject(),this.actor.camera,this.questions.width,39,this.engine.roomRoot.getTransform().getWorldPosition().y,faces);}
     this.controlsBlocked=true;this.questions.review(text,presentedIntent(graph,this.engine.snapshot(),this.selected,text).topic,this.choices().filter(c=>c.topic!=="free"));this.chips.show(false);this.verbs.show(false);}
   async askChip(topic:string):Promise<void> {if(topic==="free"){this.reviewQuestion("");return;}const choice=this.choices().find(c=>c.topic===topic);if(choice)await this.ask(choice.question,"chip",topic);}
   async askFree(question:string,topic?:string):Promise<void> {const graph=this.engine.graphRef();

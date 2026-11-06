@@ -1,0 +1,234 @@
+{
+  "requestId": "roomscript-closing:1793920661337:1",
+  "scenarioId": "roomscript-closing",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "04:17:58.831",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-closing",
+        "requestId": "roomscript-closing:1793920661337:1",
+        "config": {
+          "mode": "wrong",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793920678831,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "04:19:04.286",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-closing",
+        "requestId": "roomscript-closing:1793920661337:1",
+        "config": {
+          "mode": "wrong",
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793920678831,
+        "finishedAt": 1793920744286,
+        "elapsedMs": 65455,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "04:18:00.884",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1961,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "04:18:01.042",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:RoomTone",
+        "ms": 141,
+        "call": 24
+      }
+    },
+    {
+      "logTime": "04:18:05.391",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.track:Interrogation",
+        "ms": 4305,
+        "call": 26
+      }
+    },
+    {
+      "logTime": "04:18:08.635",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 3243,
+        "call": 28
+      }
+    },
+    {
+      "logTime": "04:18:10.350",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1715,
+        "call": 29
+      }
+    },
+    {
+      "logTime": "04:18:10.933",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "volume:music",
+        "ms": 247,
+        "call": 33
+      }
+    },
+    {
+      "logTime": "04:18:24.346",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Blackout",
+        "ms": 3346,
+        "call": 73
+      }
+    },
+    {
+      "logTime": "04:18:26.953",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Reconstruction",
+        "ms": 2576,
+        "call": 76
+      }
+    },
+    {
+      "logTime": "04:18:30.533",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Freeze",
+        "ms": 3502,
+        "call": 77
+      }
+    },
+    {
+      "logTime": "04:18:31.327",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Freeze",
+        "ms": 793,
+        "call": 78
+      }
+    },
+    {
+      "logTime": "04:18:35.370",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Release",
+        "ms": 2666,
+        "call": 81
+      }
+    },
+    {
+      "logTime": "04:18:45.557",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Typewriter",
+        "ms": 3337,
+        "call": 85
+      }
+    },
+    {
+      "logTime": "04:18:46.400",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Typewriter",
+        "ms": 843,
+        "call": 86
+      }
+    },
+    {
+      "logTime": "04:18:50.136",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Stamp",
+        "ms": 807,
+        "call": 87
+      }
+    },
+    {
+      "logTime": "04:18:52.638",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:Stamp",
+        "ms": 2502,
+        "call": 88
+      }
+    },
+    {
+      "logTime": "04:19:04.281",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:WrongEnding",
+        "ms": 3415,
+        "call": 91
+      }
+    },
+    {
+      "logTime": "04:19:04.285",
+      "name": "CLOSING_CHECK",
+      "data": {
+        "mode": "wrong",
+        "verdict": "wrong",
+        "result": "THE CULPRIT ESCAPED\nHolmes rating: 0 / 3\n☆ Solved\n☆ Proven\n☆ Broke the culprit\n0 / 4 deductions\nYou: 0 min · Par: 85\nHARLOW-1041@r_27fe6e25:evening-v2\nSeal fa4d9ec4"
+      }
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-closing",
+    "requestId": "roomscript-closing:1793920661337:1",
+    "config": {
+      "mode": "wrong",
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "240",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793920678831,
+    "finishedAt": 1793920744286,
+    "elapsedMs": 65455,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 15094,
+  "endLine": 15126,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 4456828,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T23:19:04.430Z"
+}

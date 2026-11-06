@@ -1,6 +1,6 @@
 # Run 7 publication checklist
 
-Latest pushed checkpoint: `8566d04`, November 6, 2026. Dynamic results remain tied to the earlier `338b0db` evidence. This is a claim/capture checklist, not permission to publish. Wadood controls public release and submission. Use the final Run 7 report to supersede the checkpoint.
+Publication checkpoint: `6ee7033`, November 6, 2026. Dynamic results remain tied to the earlier `338b0db` evidence. This is a claim/capture checklist, not permission to publish. Wadood controls public release and submission. Use the final Run 7 report to supersede the checkpoint.
 
 ## Claims supported now
 
@@ -14,6 +14,8 @@ Latest pushed checkpoint: `8566d04`, November 6, 2026. Dynamic results remain ti
 | Route statistics use actual admitted movement/inspection data | Pure route tests and adapter implementation | New trail visuals and reconstruction capture acceptance pending. |
 | Supplemental audio exists | 338 voice clips + 4 effects, 2,644,254 bytes, offline checks in `Tooling/audio/RUN7.md` | Listening and all new runtime cue/phrase paths need their own gates; not exported Lens size. |
 | Voice-agent spike has a decision | `Tooling/audio/RUN7-VOICE-AGENT.md` | Direct generated conversational stream **no-go**; no Lens WSS/mic trial or agent created. |
+| Physical/story features execute in Preview | Strict local-manager: memory/reset 34.846 s, default physical memory 43.753 s, proximity/target height 14.444 s, strict IK point/select/cancel 33.964 s, story moments 76.854 s | Default lift does not establish its IK route; simulated IK does not establish physical-device hands. Dedicated final captures still required. |
+| Recorded casting plays native narration | Strict local-manager sweep 92.159 s, seven marks/eight native voiced beats/zero fallback/truth unchanged | Director hold still is not a continuous sweep movie; the 30 s first-answer goal is not established. |
 
 ## Capture manifest to finish
 
@@ -37,13 +39,15 @@ The four scan images below exist as development evidence. The publication lane r
 | Continuous 60–90 s | **Not working / no clip**: native continuous recording has not delivered the required take | Room background, actual Lens audio, continuous source, first answer; visible hands separately checked |
 | README hero GIF | Pending accepted source clip | Extract from real verified footage, never a simulated composite presented as Lens output |
 
-The native texture-recording probe is documented in `Tooling/RUN7-NATIVE-CAPTURE.md`. Before calling it a gameplay video, inspect the actual media for room compositor and audio. A silent clip fails the voiced requirement. A default LEAF interactor does not establish visible hands; the IK path must pass without scripted fallback for that claim.
+The native texture-recording probe is documented in `Tooling/RUN7-NATIVE-CAPTURE.md`. Before calling it a gameplay video, inspect the actual media for room compositor, encoded duration, frame count and audio. A silent clip fails the voiced requirement. A default LEAF interactor does not establish visible hands; strict IK point/select/cancel now passes, but visible hands still need to be seen in the actual footage and the physical-memory IK route remains separate. The early positive-duration probe falsely accepted one 0.033 s frame; subsequent strict recording probes fail, and neither is a continuous take.
 
 ## Performance and capture blockers
 
 S2 target **8 ms not met**. A 10-second Preview trace measured 395 complete frames: ProcessFrame mean 10.71 ms and Render mean 5.24 ms; paired non-overlapping wall spans mean 15.95 ms, p90 20.30 ms. Frame starts average 25.27 ms apart (~39.6 Hz). These are CPU/wall-span observations, not a GPU attribution or proof that the Lens meets device performance. The visible red `roomscript-polish-foundation` assertion failure in the Vale capture must stay in diagnostic evidence; do not crop it into a supposed clean success shot.
 
 Native recording currently produces no accepted continuous 60–90 second clip. Keep the video requirement open, and report failed probes honestly. A strict test or replay tape is not a film artifact.
+
+S2 native clock behaviour now passes locally (37.371 s); its 600-frame timing remains mean25.881 ms/max83.994 ms. `local-manager` results retain installed LEAF assertions/cleanup, with explicit provenance; they do not claim the stalled MCP launch transport recovered. Later screenshots must replace outdated red-banner/overlap captures rather than erase their diagnostic history.
 
 ## Picture-lock checks
 

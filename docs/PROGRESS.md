@@ -1,3 +1,21 @@
+# Run 7 - stopped at owner request, Nov 6 09:48 PKT
+
+Final handoff: [RUN7_REPORT.md](RUN7_REPORT.md). Master was promoted after A2; final checkpoint commit/push is being completed. Lens name is Roomscript. No m3-case tag.
+
+- Final pure validation: **554/554 tests, 70 files, 124.28 s; pure typecheck PASS**. Latest Lens source compile/startup PASS at 04:23; final integrated gates incomplete.
+- Verified this run: new-cast A2 hero/bundle; actual recorded and live Preview room scan/compiler; Dynamic seeds 7/1041/2026 verdict/replay; live suspect/Wren beat; twenty poses; native clock behaviour; casting narration; distance controls; memory/cable lift; strict IK point accusation and reading panels; B1 story beats; correct/wrong/timeout endings at their recorded checkpoints.
+- Latest UI polish compiles; stamp/refutation/pawn follow-up gates and new captures remain pending. Expanded-card clearance and native audio A/B are staged only.
+- Final interrogation was interrupted by a multi-hour native call/system gap, then a fresh retry stopped without a terminal pass. Scene saved with runner idle and tokens blank. Lens exited gracefully at09:45:59; final MCP refresh/pause failed with endpoint unavailable. No further restart or development after stop request.
+- Costs: Claude **$0.081204 estimated / seven calls**; ElevenLabs **3,199 confirmed credits**, 338 voice clips/four effects. No new spend during wrap-up.
+
+## Needs Wadood / next run
+
+- Restart Lens for the next run and verify sign-in/project. Finish fresh hero/interrogation/all-tells/closing/naive/generated/T2/physical IK gates and clean captures before milestone tagging.
+- Native recorder produced no usable 60?90 s continuous voiced clip; human recording/physical hand footage still needed if native capture remains broken. First answer ~30 s and8 ms frame targets remain unmet (last frame mean25.881 ms).
+- Review cast/phrase joins, music eligibility, device comfort/input and final public submission. Expanded memory/story card surface clearance still needs verified fix.
+- Public relay was rejected by automatic approval review; no tunnel started. Working local file handoff remains the scan path.
+
+---
 # Run 7 — active, 2026-11-05 night
 
 ## Current state (supersedes historical entries)

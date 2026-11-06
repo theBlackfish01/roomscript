@@ -1,0 +1,219 @@
+{
+  "requestId": "roomscript-reading-panels:1793920995347:1",
+  "scenarioId": "roomscript-reading-panels",
+  "transport": "local-manager",
+  "mcpTransportPass": false,
+  "scopeComplete": true,
+  "events": [
+    {
+      "logTime": "04:23:32.445",
+      "record": {
+        "status": "running",
+        "scenarioId": "roomscript-reading-panels",
+        "requestId": "roomscript-reading-panels:1793920995347:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793921012445,
+        "finishedAt": 0,
+        "elapsedMs": 0,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    },
+    {
+      "logTime": "04:24:21.788",
+      "record": {
+        "status": "passed",
+        "scenarioId": "roomscript-reading-panels",
+        "requestId": "roomscript-reading-panels:1793920995347:1",
+        "config": {
+          "__leaf__log_level": "ERROR",
+          "__leaf__timeout_secs": "240",
+          "__leaf__diagnostic_policy": "fail-fast",
+          "__leaf__diagnostic_report_duration_ms": "-1"
+        },
+        "startedAt": 1793921012445,
+        "finishedAt": 1793921061788,
+        "elapsedMs": 49343,
+        "error": "",
+        "transport": "local-manager",
+        "strict": true
+      }
+    }
+  ],
+  "markers": [
+    {
+      "logTime": "04:23:34.228",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.track:Knock",
+        "ms": 1692,
+        "call": 19
+      }
+    },
+    {
+      "logTime": "04:23:36.667",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    },
+    {
+      "logTime": "04:23:42.751",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "score.play:Interrogation",
+        "ms": 2534,
+        "call": 36
+      }
+    },
+    {
+      "logTime": "04:23:43.808",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "clock.track",
+        "ms": 1055,
+        "call": 37
+      }
+    },
+    {
+      "logTime": "04:23:44.596",
+      "name": "READING_PANEL_STEP",
+      "data": "Notebook"
+    },
+    {
+      "logTime": "04:23:50.580",
+      "name": "AUDIO_NATIVE_SLOW",
+      "data": {
+        "label": "cue.play:ChalkScratch",
+        "ms": 2882,
+        "call": 55
+      }
+    },
+    {
+      "logTime": "04:23:51.026",
+      "name": "READING_PANEL_GEOMETRY",
+      "data": {
+        "panel": "RoomscriptNotepadUI",
+        "bottom": -116,
+        "floor": -176,
+        "worldScale": [
+          1,
+          1,
+          1
+        ],
+        "buttons": [
+          "Grid",
+          "Next notebook page",
+          "Close notebook"
+        ]
+      }
+    },
+    {
+      "logTime": "04:23:51.029",
+      "name": "READING_PANEL_STEP",
+      "data": "Next notebook page"
+    },
+    {
+      "logTime": "04:23:55.258",
+      "name": "READING_PANEL_STEP",
+      "data": "Close notebook"
+    },
+    {
+      "logTime": "04:23:57.104",
+      "name": "READING_PANEL_STEP",
+      "data": "Question S2"
+    },
+    {
+      "logTime": "04:24:02.459",
+      "name": "READING_PANEL_STEP",
+      "data": "More questions"
+    },
+    {
+      "logTime": "04:24:05.963",
+      "name": "READING_PANEL_STEP",
+      "data": "Question 2"
+    },
+    {
+      "logTime": "04:24:08.315",
+      "name": "READING_PANEL_GEOMETRY",
+      "data": {
+        "panel": "RoomscriptQuestionUI",
+        "bottom": -116,
+        "floor": -176,
+        "worldScale": [
+          1,
+          1,
+          1
+        ],
+        "buttons": [
+          "Type a question",
+          "Submit question",
+          "Close question"
+        ]
+      }
+    },
+    {
+      "logTime": "04:24:08.318",
+      "name": "READING_PANEL_STEP",
+      "data": "Free whereabouts"
+    },
+    {
+      "logTime": "04:24:11.424",
+      "name": "READING_PANEL_STEP",
+      "data": "Close question"
+    },
+    {
+      "logTime": "04:24:15.748",
+      "name": "READING_PANEL_CHECK",
+      "data": "strictIK,grounded_scene,world_scale_one,controls_inside,world_locked,no_clock_charge"
+    },
+    {
+      "logTime": "04:24:18.048",
+      "name": "AUTHORED_CABLE",
+      "data": {
+        "object": "O1",
+        "origin": "authored",
+        "role": "fictional rope",
+        "surface": "authored Preset support",
+        "triangles": 1200
+      }
+    }
+  ],
+  "errors": [],
+  "latest": {
+    "status": "passed",
+    "scenarioId": "roomscript-reading-panels",
+    "requestId": "roomscript-reading-panels:1793920995347:1",
+    "config": {
+      "__leaf__log_level": "ERROR",
+      "__leaf__timeout_secs": "240",
+      "__leaf__diagnostic_policy": "fail-fast",
+      "__leaf__diagnostic_report_duration_ms": "-1"
+    },
+    "startedAt": 1793921012445,
+    "finishedAt": 1793921061788,
+    "elapsedMs": 49343,
+    "error": "",
+    "transport": "local-manager",
+    "strict": true
+  },
+  "startLine": 15796,
+  "endLine": 15820,
+  "evidenceLabel": "LEAF strict local-manager PASS",
+  "source": {
+    "log": "C:/Users/wadoo/AppData/Local/Snap/Lens Studio/logs/LensStudioLog-2026-11-06-01-53-34-732-ab082.txt",
+    "logBytes": 4672641,
+    "tailTruncated": false
+  },
+  "harvestedAt": "2026-11-05T23:24:22.980Z"
+}

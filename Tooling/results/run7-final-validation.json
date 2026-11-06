@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-06T04:49:32.768Z",
+  "pure": {
+    "tests": 554,
+    "files": 70,
+    "status": "passed",
+    "durationSeconds": 124.28,
+    "typecheck": "passed"
+  },
+  "lens": {
+    "compile": "passed at04:23PKT",
+    "runtime": "startup clean at04:23PKT",
+    "integratedFinalGate": "incomplete",
+    "process": "graceful exit09:45:59PKT",
+    "savedRunnerId": "",
+    "savedSceneTokens": "blank"
+  },
+  "milestone": "no m3-case",
+  "stop": "owner requested"
+}

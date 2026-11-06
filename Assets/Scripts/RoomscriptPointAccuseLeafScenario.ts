@@ -32,14 +32,14 @@ import {recordedCrateSurfaceLayout} from "./Content/CrateSurfaceLayout";
       await hand.ready;await pinch("Question S2");await sleep(200);report("question selected");
       check("questions shown before accusation",targets("Question 1").length,1);check("verbs hidden before accusation",targets("Believe").length,0);
       check("body targeting initially off",cast.accusationTargeting(),false);check("body S4 initially hidden",targets("RoomscriptAccuse_S4").length,0);
-      closing.open();await sleep(400);report("accusation opened");check("accusation modal open",closing.diagnostics().opened,true);check("body targeting on",cast.accusationTargeting(),true);
+      closing.open();await sleep(400);report("accusation opened");check("accusation modal open",closing.diagnostics().opened,true);check("body targeting on",cast.accusationTargeting(),true);for(const person of engine.graphRef().cast.suspects)check("modal hides pawn "+person.id,findSceneObjectByName("RoomscriptPawn_"+person.id).enabled,false);
       check("name S4 hidden in accusation",targets("Question S4").length,0);check("questions hidden in accusation",targets("Question 1").length,0);check("verbs hidden in accusation",targets("Believe").length,0);
       const before=engine.snapshot().log.filter(a=>a.type==="Accuse").length,body=target("RoomscriptAccuse_S4");
       check("body S4 uses indirect hand ray",hand.right.isIndirect(body),true);await pinch("RoomscriptAccuse_S4");await sleep(250);report("body selection settled");
       check("body pinch selects S4",closing.diagnostics().picked.who,"S4");check("body pinch never seals",engine.snapshot().log.filter(a=>a.type==="Accuse").length,before);check("body pinch leaves verdict empty",engine.snapshot().verdict,null);
       await pinch("Cancel accusation");await sleep(350);report("cancel settled");
       check("cancel closes modal",closing.diagnostics().opened,false);check("cancel disables body targeting",cast.accusationTargeting(),false);check("cancel hides body S4",targets("RoomscriptAccuse_S4").length,0);
-      check("cancel restores only questions",targets("Question 1").length>0&&targets("Believe").length===0,true);check("cancel restores name S4",targets("Question S4").length,1);
+      check("cancel restores only questions",targets("Question 1").length>0&&targets("Believe").length===0,true);check("cancel restores name S4",targets("Question S4").length,1);for(const person of engine.graphRef().cast.suspects)check("cancel restores pawn "+person.id,findSceneObjectByName("RoomscriptPawn_"+person.id).enabled,true);
       check("cancel never seals",engine.snapshot().log.filter(a=>a.type==="Accuse").length,before);
       console.log("POINT_ACCUSE_CHECK|"+JSON.stringify({strictIK:true,indirect:true,picked:"S4",accusations:before,cancelRestored:true}));
     }catch(error){report("FAILED before cleanup",{error:String(error)});throw error;}
