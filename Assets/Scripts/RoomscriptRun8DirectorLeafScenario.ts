@@ -7,6 +7,7 @@ import {findInteractablesByName} from "Leaf.lspkg/Interactors/InteractableUtils"
 import {DefaultLeafInteractor} from "Leaf.lspkg/Interactors/interactor/DefaultLeafInteractor";
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
 import {RoomscriptMain} from "./RoomscriptMain";
+import {RoomscriptClosingController} from "./RoomscriptClosingController";
 
 /** Run 8 Director capture fixture: sets up one beat through real taps, then holds it for Preview captures.
  * Presentation only; every step goes through the same engine actions as play. */
@@ -29,6 +30,7 @@ import {RoomscriptMain} from "./RoomscriptMain";
     if(beat==="accuse"){await tap("Question "+suspect);await tap("Accuse");}
     if(beat==="ending"){const engine=flow.engine;const graph=engine.graphRef();engine.dispatch({type:"Accuse",who:graph.envelope.who,where:graph.envelope.where,what:graph.envelope.what});for(let i=0;i<600;i++){const p=findSceneObjectByName("RoomscriptNewspaper");if(p&&p.enabled)break;await sleep(100);}await sleep(1200);}
     if(beat==="replay"){const main=findSceneObjectByName("Roomscript").getComponent(RoomscriptMain.getTypeName()) as RoomscriptMain;main.replays.holdFor(hold);flow.engine.dispatch({type:"PinchObject",object:config?.get("object")||"O12"});await sleep(1500);}
+    if(beat==="frozen"){const closing=findSceneObjectByName("RoomscriptClosing").getComponent(RoomscriptClosingController.getTypeName()) as RoomscriptClosingController;closing.holdAtBeat("freeze",hold);const graph=flow.engine.graphRef();flow.engine.dispatch({type:"Accuse",who:graph.envelope.who,where:graph.envelope.where,what:graph.envelope.what});for(let i=0;i<600&&!findSceneObjectByName("RoomscriptFrozenTableau");i++)await sleep(100);await sleep(800);}
     if(beat==="storm"){const main=findSceneObjectByName("Roomscript").getComponent(RoomscriptMain.getTypeName()) as RoomscriptMain;main.storm.flashNow(hold);}
     console.log("RUN8_DIRECTOR_READY|"+JSON.stringify({beat,suspect,subtitle:flow.subtitles.visibleLine(),chips:flow.chips.topics()}));
     await sleep(hold*1000);

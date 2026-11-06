@@ -14,7 +14,10 @@ const BODILESS=["WREN","NARRATOR","DETECTIVE","SUGGESTION",""];
   private line:Text;private presentation=new SubtitlePresentation();private shown="";private holdUntil=0;
   /** Voices without a body (Wren, narrator, the detective, suggestions) use one head-locked line low in view. */
   private companion:Text;private companionRoot:SceneObject;private bodiless=false;
-  onAwake():void {this.createEvent("UpdateEvent").bind(()=>{if(this.line)this.paint(this.presentation.advance(getTime()));});}
+  onAwake():void {this.createEvent("UpdateEvent").bind(()=>{if(this.line)this.paint(this.presentation.advance(getTime()));});
+    // The head-locked companion line lives under the camera, so it follows this object's visibility by hand (the closing hides subtitles).
+    this.createEvent("OnDisableEvent").bind(()=>{if(this.companionRoot&&!isNull(this.companionRoot))this.companionRoot.enabled=false;});
+    this.createEvent("OnEnableEvent").bind(()=>{if(this.companionRoot&&!isNull(this.companionRoot))this.companionRoot.enabled=true;});}
   build():void {if(this.line)return;this.line=label(this.getSceneObject(),"Spoken subtitle","",this.lineWidth,4.2,this.ink||new vec4(1,.94,.84,1),"small",.82);
     this.line.horizontalOverflow=HorizontalOverflow.Overflow;this.line.outlineSettings.enabled=true;this.line.outlineSettings.size=.12;this.line.outlineSettings.fill.color=new vec4(0,0,0,1);}
   private paint(text:string):void {if(!text&&this.shown&&getTime()<this.holdUntil)return;const visible=subtitleWindow(text,this.maxChars);if(this.shown!==visible){this.shown=visible;this.line.text=this.bodiless?"":visible;if(this.companion)this.companion.text=this.bodiless?visible:"";}}

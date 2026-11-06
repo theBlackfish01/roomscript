@@ -15,6 +15,8 @@ import {caseExitPosition} from "./Engine/game/RoomPresentation";
 import {routeReplay,RouteReplay} from "./Engine/game/RouteReplay";
 import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
 import {RoomscriptNewspaper} from "./RoomscriptNewspaper";
+import {frozenTableau} from "./Engine/game/FrozenTableau";
+import {propDrawing} from "./RoomscriptPropArt";
 
 const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File deductions","Cancel accusation","Break seal"];
 /** Accusation UI submits the chosen cards; all reveal and rating data comes from the engine. */
@@ -127,7 +129,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     for(const person of [...graph.cast.suspects,graph.cast.victim]){const ghost=uiObject(this.cast.room.getSceneObject(),"RoomscriptReconstruction_"+person.id);ghost.createComponent("Component.Canvas");ghost.getTransform().setLocalScale(vec3.one().uniformScale(.75));const texture=person.id===graph.cast.victim.id?this.victimStanding:this.art[person.id].neutral;this.ghostMaterials.set(person.id,this.image(ghost,"Memory engraving",texture,85,170,true));this.ghosts.set(person.id,ghost);ghost.enabled=false;}
     this.route=routeReplay(state);this.buildRoute(graph);this.buildReconstructionDetails();
   }
-  private clearReconstructionDetails():void {
+  private clearReconstructionDetails():void {this.showTableau(false);
     if(this.dial&&!isNull(this.dial))this.dial.destroy();this.dial=null;this.dialTime="";this.ledgerRows=0;this.burnProgress=0;
     for(const slip of this.claimSlips){if(!isNull(slip.root))slip.root.destroy();for(const ash of slip.ashes)if(!isNull(ash))ash.destroy();}this.claimSlips=[];
   }
@@ -146,7 +148,27 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     }
     const index=this.frames.findIndex(b=>b.kind==="correction");this.correctionOffset=this.frames.slice(0,index).reduce((total,b)=>total+b.durationSeconds,0);
   }
+  /** Run 8 wow 5: at the freeze beat, the frozenTableau() extras: suspended objects hang in the air and the
+   * culprit's ghost holds the weapon. Revealed only by the engine's reconstruction (after a verdict). */
+  private holdKind="";private holdSeconds=0;
+  /** Director/film capture: pause the reconstruction when a beat of this kind begins (e.g. the 22:30 freeze for the orbit shot). */
+  holdAtBeat(kind:string,seconds:number):void {this.holdKind=kind;this.holdSeconds=seconds;}
+  private tableau:SceneObject|null=null;private tableauSpin:SceneObject[]=[];private tableauHidden:RenderMeshVisual[]=[];
+  /** While the freeze is up, the resting copy of a suspended or held object is hidden so it is not drawn twice. */
+  private hideResting(id:string):void {let anchor:SceneObject;try{anchor=this.cast.room.objectAnchor(id);}catch{return;}
+    const visit=(o:SceneObject)=>{for(const v of o.getComponents("Component.RenderMeshVisual") as RenderMeshVisual[])if(v.enabled){v.enabled=false;this.tableauHidden.push(v);}for(let i=0;i<o.getChildrenCount();i++)visit(o.getChild(i));};visit(anchor);}
+  private showTableau(active:boolean):void {
+    if(this.tableau&&!isNull(this.tableau))this.tableau.destroy();this.tableau=null;this.tableauSpin=[];for(const v of this.tableauHidden)if(!isNull(v))v.enabled=true;this.tableauHidden=[];if(!active||!this.sealedGraph||!this.sealedState)return;
+    const t=frozenTableau(this.sealedGraph,this.sealedState);if(!t)return;const room=this.cast.room,root=global.scene.createSceneObject("RoomscriptFrozenTableau");root.setParent(room.getSceneObject());this.tableau=root;
+    for(const item of t.suspended){const holder=global.scene.createSceneObject("Suspended "+item.object);holder.setParent(root);holder.getTransform().setLocalPosition(new vec3(item.position[0],item.position[1],item.position[2]));this.hideResting(item.object);
+      const object=this.sealedGraph.room.objects.find(o=>o.id===item.object);if(object)propDrawing(holder,item.object,object.type,false);
+      lineTubes(holder,"Suspension rings",[...circleEdges(9,24,new vec3(0,-3,0),"xz"),...circleEdges(13,24,new vec3(0,-6,0),"xz")],tinted(this.clue.objection.tells.lightMaterial,new vec4(1,.84,.04,.7)),.25);this.tableauSpin.push(holder);}
+    for(const figure of t.figures){if(!figure.holding)continue;const object=this.sealedGraph.room.objects.find(o=>o.id===figure.holding);if(!object)continue;
+      const holder=global.scene.createSceneObject("Held weapon");holder.setParent(root);holder.getTransform().setLocalPosition(new vec3(figure.position[0],82,figure.position[2]+14));this.hideResting(object.id);propDrawing(holder,object.id,object.type,true);}
+    this.clue.objection.tells.audio.playAt("GhostWhoosh",room.toWorld(t.suspended[0]?.position||[0,100,-300]));console.log("FROZEN_TABLEAU|"+JSON.stringify({slot:t.slot,zone:t.zone,suspended:t.suspended.map(x=>x.object),held:t.figures.filter(f=>f.holding).map(f=>f.holding)}));
+  }
   private showReconstructionDetail(kind:ReconstructionBeat["kind"]):void {
+    this.showTableau(kind==="freeze");
     const detail=reconstructionDetails(this.sealedGraph,this.sealedState,kind);if(!detail)return;
     this.dial.enabled=!!detail.time;this.dialTime=detail.time||"";this.dialLabel.text=this.dialTime;
     if(detail.time){this.dialFrom=this.dialTo.slice();this.dialTo=[detail.hourRadians,detail.minuteRadians];this.dialStarted=getTime();}
@@ -184,7 +206,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   }
   /** Director-only capture hold; never changes engine time or verdict. */
   holdFreeze(seconds=20):void {if(this.frames[this.frame]?.kind==="freeze")this.holdUntil=getTime()+Math.min(20,Math.max(0,seconds));}
-  private update():void {if(this.beam)this.updateSpotlight();
+  private update():void {if(this.beam)this.updateSpotlight();for(const spin of this.tableauSpin)if(!isNull(spin))spin.getTransform().setLocalRotation(quat.fromEulerAngles(.25,getTime()*.4,.15));
     if(this.heldAt>=0&&this.phase==="idle")this.sealLabel.text="SEAL "+Math.min(100,Math.floor((getTime()-this.heldAt)*100))+"%";
     if(this.phase!=="reconstruction")return;
     const camera=this.cast.flow.actor.camera.getTransform().getWorldPosition();for(const ghost of this.ghosts.values())if(ghost.enabled){const direction=camera.sub(ghost.getTransform().getWorldPosition());direction.y=0;if(direction.length>.01)ghost.getTransform().setWorldRotation(quat.lookAt(direction.normalize(),vec3.up()));}
@@ -192,7 +214,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     if(this.holdUntil>getTime()){this.began+=getDeltaTime();return;}
     const elapsed=getTime()-this.began;let total=0,index=0;for(;index<this.frames.length-1;index++){total+=this.frames[index].durationSeconds;if(elapsed<total)break;}
     if(this.escapeStart){this.escapeActor.getTransform().setWorldPosition(vec3.lerp(this.escapeStart,this.escapeDoor,Math.min(1,elapsed/4)));if(elapsed>=4)this.escapeActor.enabled=false;}
-    if(index!==this.frame){this.frame=index;const beat=this.frames[index],graph=this.sealedGraph;
+    if(index!==this.frame){this.frame=index;const beat=this.frames[index],graph=this.sealedGraph;if(this.holdKind&&beat.kind===this.holdKind){this.holdUntil=getTime()+this.holdSeconds;this.holdKind="";}
       this.title.text=beat.kind==="freeze"?beat.time+" — THE TRUTH":beat.kind==="stamp"?beat.caption:"RECONSTRUCTION / "+beat.kind.toUpperCase();
       this.body.text=wrapText(beat.kind==="correction"||beat.kind==="freeze"?this.routeText:beat.kind==="resume"?this.summary.filter(line=>!line.speaker)[0]?.text||beat.caption:beat.caption,40);
       for(const [id,ghost] of this.ghosts){let mark=beat.positions?.[id];if(beat.kind==="claims"){const claim=beat.claims?.find(c=>c.suspect===id),zone=graph.room.zones.find(z=>z.id===claim?.zone);mark=zone?[zone.anchor[0],0,zone.anchor[2]+55]:undefined;}

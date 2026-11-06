@@ -38,6 +38,8 @@ export function propDrawing(parent:SceneObject,id:string,kind:string,isWeapon:bo
     case "door":segments=[...rectEdges(5,12,v(0,0,0)),...polyline([v(0,0,.8),v(9,0,.8)]),...circleEdges(1.2,12,v(0,0,.8))];break; // latch plate and lever
     case "mirror":segments=[...rectEdges(60,80,v(0,0,0)),...polyline([v(0,-40,0),v(0,40,0)]),...polyline([v(-30,0,0),v(30,0,0)])];break; // window frame on the glass
     case "soft":segments=[...rectEdges(46,30,v(0,1,0),"xz"),...polyline([v(-20,1.5,-10),v(-5,1.5,-2),v(12,1.5,-12)])];break; // folded cover on the seat
+    case "cord":segments=[...polyline(Array.from({length:13},(_,i)=>{const t=i/12;return v(-18+36*t,-4*Math.sin(Math.PI*t),0);})), // drawn taut between two hands
+      ...circleEdges(2.4,12,v(-19.5,0,0),"xy"),...circleEdges(2.4,12,v(19.5,0,0),"xy"),...boxEdgesAt(2.2,1.6,3,v(23,0,0)),[v(24.5,.4,-.6),v(26.5,.4,-.6)],[v(24.5,.4,.6),v(26.5,.4,.6)]];break; // wraps and plug
     default:return null;
   }
   const drawing=lineTubes(parent,"RoomscriptPropVisual_"+id,segments,material,kind==="mirror"?.6:.35).getSceneObject();

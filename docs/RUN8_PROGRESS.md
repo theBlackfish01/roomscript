@@ -50,3 +50,10 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 - Morning Edition newspaper ending, built from engine data.
 - **Planned restart 17:39:46 → relaunch 17:39:54 PKT** (the process had degraded: native audio calls took 1.3–2.7 s). Handshake 17:40:58. After the restart the MCP scenario launch stalls again, so I'm using the local-manager runner: strict closing correct PASS 39.6 s.
 - Pending: wow moments, naive-player LEAF, the clue fixture (it tests the old refutation card), and recapturing all beats.
+
+## 18:40 — Wow 5: frozen murder at 22:30
+- Closing reconstruction: at the freeze beat, `frozenTableau()` draws the disturbed objects suspended 18 cm up in slowly turning gold rings, and the culprit's ghost holds the weapon (new "cord" line drawing). The resting copies of those objects are hidden while the freeze is up, so nothing is drawn twice.
+- `holdAtBeat(kind, seconds)` pauses the reconstruction when a beat starts. The Director beat `frozen` accuses correctly and holds the freeze (local-manager run: RUN8_DIRECTOR_READY + FROZEN_TABLEAU `{"slot":"22:30","zone":"Z1","suspended":["O9"],"held":["O1"]}`).
+- Fix: the head-locked companion subtitle line now hides with the subtitles (a stale opening narrator line was showing through the closing).
+- Captures: docs/captures/2026-11-06-run8-frozen-v1.png (before: stale line, doubled mug and cord), -v2, -v3, -frozen-orbit-a.png, -frozen-orbit-b.png.
+- Orbit path for the video (MovePreviewCamera, freeze held): setPosition (60,-40,-250) → lookAt (-5,-100,-400); then setPosition (-110,-45,-270) → lookAt (0,-100,-410). Avoid relative `orbit` calls stacking on an unreset pose: they swing the camera through the other ghosts.
