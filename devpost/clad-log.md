@@ -155,3 +155,10 @@ VirtualScene authored the crate on the measured coffee-table support; RecompileT
 2026-11-07 04:51–05:16 PKT (Claude Code, Run 9) | `RecompileTypeScriptTool`, `RunAndCollectLogsTool`, `QueryRuntimeSceneTool` (found the board under the floor), `MovePreviewCamera`, `PreviewPanelTool screenshot`, LEAF strict closing PASS 144 s and memory-cards PASS | paper objects (folders, wax seal, newsprint, cork board), stamp-for-details, board height regression check.
 2026-11-07 05:34–05:45 PKT (Claude Code, Run 9) | `RecompileTypeScriptTool` (compile succeeded per the Lens log after the MCP call timed out), new LEAF scenario `roomscript-next-glow` written and registered (not yet run) | next-object glow; Lens Studio then crashed with all 3 rule-16 restarts used, session paused
 2026-11-07 14:12–17:50 PKT (Claude Code, Run 9 session 2) | `ls-clad:editor-api` (project save via `ExecuteEditorCode`), `RecompileTypeScriptTool`, `RunAndCollectLogsTool`, LEAF `list/run_leaf_scenario` + `open_leaf_panel`, `MovePreviewCamera`, `CapturePanelScreenshotTool`, `QueryRuntimeSceneTool`, `asset-graphql` (deleted 22 line-card textures, checked imports) | next-glow fixed and PASS; naive-player, suspect-actor, closing PASS; captures next-glow-suspect/-object, vale-1p4m-v2. LEAF launches stopped starting at 15:25 (Lens degraded; graceful close refused), so later Lens-side changes await a restart.
+
+## Nov 8 — Run 10 baseline (Codex)
+- lens-studio-router preflight, editor-api and lens-studio-field-notes read inline; ListAllPanels + ExecuteEditorCode confirmed correct project, signed in, Lens 5.23.2.
+- RecompileTypeScriptTool succeeded; RunAndCollectLogsTool refresh showed no Lens script errors.
+- live-lens-tester agent and specs-leaf-run-in-preview followed inline; MCP strict roomscript-interrogation succeeded.
+- lens-api and specs-build-ui loaded for the redesign implementation.
+

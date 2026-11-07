@@ -289,3 +289,10 @@ Wadood signed off the illustrated cast. `CHARACTER_ART` and the "line" mode are 
 - **Paper.** gpt-image-2 swatches replace the procedural cork, manila, newsprint and photo paper ($0.43); the PNGs are no longer palette-quantised (the pixelation). Code still draws every word.
 - **Case board.** Room and weapon cards carry cast-style pictures (gpt-image-2 edits with the style reference, $0.66), mapped by clue name and object type (`Content/BoardArt.ts`, vitest). Qadir: the engine layout pins all four suspects; corkboard-v1 cut off the board's first column (Qadir, the Study, the cable). memory-cards now asserts the card counts (`BOARD_CARDS_CHECK`).
 - **Cable.** A round braided tube mesh in code (`tubeMesh`, `CableBraid.png` with baked shading) replaces the line drawing. The knife already maps to the SPECS text-to-3D `LetterKnife.glb`; why it read as a coral line in props-console-v1 is still to be checked in Preview (and regenerated if the mesh is the problem).
+
+## Run 10 baseline — Nov 8
+- Follow REDESIGN_2026-11-07 as primary flow/audio spec; preserve engine truth and signed-off cast.
+- Latest owner instruction authorizes pushes to existing private theBlackfish01/roomscript and generation budgets. Remote verified with gh: owner account and ADMIN permission.
+- Checkpoint Run 9 visuals without claiming Preview verification; d1b2dbc includes every file in its commit body.
+- No plan tool exposed; RUN10_PROGRESS checklist tracks milestones. Two disjoint lightweight workers: Tooling/audio script/voices; new pure Engine/perf speech/focus policies and their targeted test. All Lens work stays main-session.
+

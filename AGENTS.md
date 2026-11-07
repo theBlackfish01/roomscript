@@ -102,7 +102,8 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
 - [`docs/README.md`](docs/README.md) — index of the design docs.
 - [`docs/PROGRESS.md`](docs/PROGRESS.md) — current state. Read it first after any context reset.
 - [`docs/REVIEW_2026-11-03.md`](docs/REVIEW_2026-11-03.md) — the latest independent review: the final polish plan, work packages and schedule for the current runs. Earlier reviews are historical.
-- [`docs/WEARER_UX_2026-11-06.md`](docs/WEARER_UX_2026-11-06.md) — **the primary design spec from Run 8 onward:** object-based UI, the wow moments and the visual acceptance checklist. Read it before any UI, interaction, art or video work.
+- [`docs/REDESIGN_2026-11-07.md`](docs/REDESIGN_2026-11-07.md) — **the primary design spec from Run 10 onward:** "find, ask, catch". It covers the loop, the remapped hero case, the Ask · Show · Accuse row, one voice at a time and what leaves the flow. It follows Wadood's own playthrough on Nov 7. Read it before any flow, UI, interaction, audio or script work. It wins over WEARER_UX where they differ.
+- [`docs/WEARER_UX_2026-11-06.md`](docs/WEARER_UX_2026-11-06.md) — the Run 8 design spec. Its principles for the wearer and its visual acceptance checklist still apply. Its object-based UI and wow-moment list are superseded where the redesign says so.
 - [`docs/ART_2D_2026-11-07.md`](docs/ART_2D_2026-11-07.md) — **the primary art spec from Run 9 onward:** stylised illustrated characters from an image model, matched to `docs/art/2026-11-07-vale-style-reference.png`; real 3D props from Snap's generator; textured paper objects. Read it before any character, prop or material work. [`docs/REVIEW_2026-11-06-run8.md`](docs/REVIEW_2026-11-06-run8.md) has the Run 8 review behind it. (`docs/ART_3D_2026-11-06.md`, the Meshy plan, is superseded.)
 - [`docs/REVIEW_SESSION_2026-11-05.md`](docs/REVIEW_SESSION_2026-11-05.md) — what the hackathon judges said in their Nov 5 live review, and the design changes that follow (R1–R10). Read it before any UI, interaction or video work.
 
@@ -159,7 +160,7 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
     3. Gracefully restart Lens Studio from the shell: close it without force, wait, relaunch it with this project, wait for the MCP to reconnect, and confirm the project and sign-in.
     4. Retry once.
 
-    Up to 3 restarts per run. If it still fails, keep doing all Node-side and offline work, and retry Lens after the next restart. Never use GUI tools for any of this (rule 15).
+    Up to 3 restarts per run, unless the run prompt allows more. If it still fails, keep doing all Node-side and offline work, and retry Lens after the next restart. Never use GUI tools for any of this (rule 15). A forced close (`taskkill /F` on the Lens Studio process only) is allowed only when the run prompt says so, and only after a graceful close has failed twice.
 17. **Local model bridge.** The project is developed and demoed in Lens Studio Preview on Wadood's laptop, so any model provider is fine.
     - A local Tooling process may call Claude Opus (`claude-opus-5-5`, key from `Tooling/.env`) for room casting, live answers or Wren, if it beats the gateway models.
     - The key never enters `Assets/`, the scene or the lens.
@@ -168,7 +169,7 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
 18. **Budgets and quotas never block development.** On a quota or budget limit (ElevenLabs, Claude, the gateway), stop only that kind of generation, use fallbacks (existing takes, phrase pieces, live TTS, subtitles), record what's missing under Needs Wadood, and keep building.
 19. **Visual review loop.** After every UI, staging, art or wow change:
     1. Capture Preview through the CLAD capture tool.
-    2. Look at the image (Claude Code can read PNGs) as if wearing the glasses.
+    2. Look at the image (Codex and Claude Code can both view images) as if wearing the glasses.
     3. Check it against the checklist in `docs/WEARER_UX_2026-11-06.md`.
     4. Fix, recapture, and keep before/after images in `docs/captures/`.
 
@@ -178,5 +179,11 @@ Roomscript is "Clue meets L.A. Noire, in your room": a Specs lens for Snap's "Le
     - **Characters:** stylised illustrations matched to the reference image, never photorealistic, with the same person across frames. Record prompts, models and choices in the ledger and in `decisions.md`.
     - **Props:** gate every GLB/FBX with CLAD's `analyze_glb.js` before import (normals, real-world scale, facing). A mesh without normals doesn't render (Run 8's props).
     - **Files and budgets:** keep source and intermediate files in `Tooling/art2d/` (large files and the venv gitignored), and only shipped assets in `Assets/Art/`. Keep the spec's budgets, and measure the exported lens size after each batch of imports.
-    - **Fallback switch:** keep the old line cards behind the `characterArt` switch until Wadood signs off.
+    - **The cast is signed off** (Nov 7). The line cards and the `characterArt` switch are gone; don't regenerate the cast.
     - **Never stop the run over art:** take the spec's fallback and keep building.
+22. **Find, ask, catch** (from Run 10; the spec is `docs/REDESIGN_2026-11-07.md`).
+    - **One voice at a time:** every spoken line (narrator, Wren, suspects, dialogue) goes through the one speech arbiter. A line that starts finishes, unless the case changes or ends.
+    - **No mechanics out loud:** spoken lines never explain the controls or name a mechanic (witness, memory, pinch, tap, button, notebook, palm, drag, token). Check every new line in `docs/SCRIPT_2026-11-08.md`.
+    - **Items make sense:** every evidence item is something a person in the story touched, and it answers something a suspect lied about. Room furniture is the stage, not a witness.
+    - **One way to act:** look and pinch once. The Ask · Show · Accuse row is the only conversation UI. No drags, holds or palm menus in the main flow.
+    - **No speech recognition** this submission (Wadood, Nov 7). The typed free question stays.

@@ -1,3 +1,9 @@
+# Run 10 active — Nov 8, Codex
+
+Primary running log and plan: [RUN10_PROGRESS.md](RUN10_PROGRESS.md). Primary design: [REDESIGN_2026-11-07.md](REDESIGN_2026-11-07.md). Baseline compile and strict interrogation passed. Run 9 leftovers checkpoint: d1b2dbc. Owner restarted Lens and signed off cast; older Needs Wadood entries below are historical except measured export/package ID.
+
+---
+
 # Run 8 (Claude Code) - stopped at owner request, Nov 6 18:45 PKT
 
 Running log: [RUN8_PROGRESS.md](RUN8_PROGRESS.md). Interim report: [RUN8_REPORT.md](RUN8_REPORT.md). Design spec: [WEARER_UX_2026-11-06.md](WEARER_UX_2026-11-06.md). Last code commit `db6ac10` (pushed to origin/master).

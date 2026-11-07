@@ -1,5 +1,169 @@
 # Kickoff prompts
 
+## Run 10: find, ask, catch (Sat Nov 7, night, Codex)
+
+The spec is `docs/REDESIGN_2026-11-07.md`. It follows Wadood's own playthrough of the Run 9 build and his decision to do all three directions (fix what hurts, rebuild the loop around the conversations, and the voice layer). He then dropped speech recognition ("Skip the speech recognition then").
+
+How to start it:
+1. Close the Run 9 Claude Code session and any other agent on this project, so only one agent edits it.
+2. Restart Lens Studio, open RoomScriptF, sign in, and set Preview to Spectacles, Interactive. Keep the laptop plugged in and awake.
+3. In a terminal, `cd C:\Users\wadoo\Desktop\SPECS_Hackathon\RoomScriptF`, then run `codex --approve-for-me`. Check that `/mcp` lists lens-studio.
+4. Paste the prompt below.
+
+```
+Continue the Roomscript build: this is Run 10, the redesign run. Lens Studio was just restarted, it's open on this project, and I'm signed in. You're running in Codex: follow §1b of docs/FIRST_PASS.md for how CLAD's skills, agents and the Lens Studio MCP tools work here.
+
+I played the Run 9 build myself. The art is good and talking to the suspects works. The rest has grown into too many systems that don't fit together. This run rebuilds the game around what works: find, ask, catch.
+
+**Read first:**
+1. **docs/REDESIGN_2026-11-07.md**, the primary spec for this run. It has:
+   - what I found in my playthrough, and the causes already found in the code;
+   - the design rules and the new loop;
+   - the remapped hero case;
+   - the UI and the audio rules;
+   - "Done when".
+2. docs/ART_2D_2026-11-07.md (art, unchanged), plus the "Principles for the wearer" and "Visual acceptance checklist" sections of docs/WEARER_UX_2026-11-06.md.
+3. docs/RUN9_PROGRESS.md. Run 9 ended without a report; its last checkpoint is 17:50 on Nov 7.
+4. AGENTS.md rules 12–22 (22 is new).
+
+**Goal:** a coherent, complete game that a first-time player understands in their first minute: walk up to people, ask, show them what you've found, catch the lie, name the killer.
+- One voice at a time, and nobody is cut off.
+- One steady row of three actions.
+- Items that make sense in the story.
+- A narrator who sets the mood instead of explaining the rules.
+- Everything stays true to the engine.
+
+**Speech recognition is out** (my decision): no ASR work. The typed free question stays, as "Ask your own…".
+
+Quality matters more than speed, and I'm not setting a finish time. Keep a working build at every stage (the tags below), so I can stop the run whenever I need to film.
+
+## How to work
+- **Codex setup (§1b):**
+  - start with CLAD's `lens-studio-router` preflight;
+  - read a CLAD skill's SKILL.md from the ls-clad install folder when it can't be invoked;
+  - run CLAD agents inline;
+  - the Lens tools are `mcp__lens_studio.*`;
+  - use your plan tool.
+- **Lens Studio stability.** Preview audio grows the Windows audio process (audiodg) by about 1 GB every 40 minutes, and Lens then stops responding. It happened twice in Run 9.
+  - Restart Lens before every long LEAF or capture batch, and keep each Preview session short.
+  - Mute audio in LEAF runs that don't test audio.
+  - If Lens stops responding and a graceful close fails twice, you may force-close the Lens Studio process only (`taskkill /F /IM "Lens Studio.exe"`). Then relaunch it with this project and wait for the MCP to reconnect.
+  - Up to 4 restarts this run. Log each one in RUN10_PROGRESS.
+- **Rule 19 visual loop** after every visual change: capture, look at the image, check it against the WEARER_UX checklist, fix, recapture.
+- **Subagents:** if your Codex build can spawn workers, at most 2 at a time, on disjoint folders. My laptop has 16 GB, shared with Lens.
+  - A good split: one worker writes the script and generates the voices in Tooling/audio; the main session does all the Lens work.
+  - One Chromium at a time. No full test suite during LEAF runs or renders.
+- **Don't stop to ask me.** Decide, log it in docs/decisions.md, and keep going.
+  - docs/RUN10_PROGRESS.md is your running log and your memory across compaction.
+  - Blockers go under Needs Wadood.
+- **Git:** you're on master at `56aaa73`, with Run 9's uncommitted work (step 0).
+  - Commit and push after every verified step.
+  - Keep PROGRESS, decisions.md, NOTICE and devpost/clad-log.md current.
+
+**Budgets:**
+- ElevenLabs: about 15,000 credits.
+- OpenAI images: up to $15, for props or paper art only (the cast is signed off).
+- Claude API (Tooling only): up to $30.
+- Rule 18: a quota stops only that kind of generation, never development.
+
+## Work order
+
+### 0. Baseline
+- Preflight, compile, and the strict interrogation handshake.
+- **Close out Run 9:** write a 10-line summary at the top of docs/RUN10_PROGRESS.md from RUN9_PROGRESS: what was done, what's unverified, and what the redesign drops.
+- **Commit Run 9's uncommitted work as one checkpoint.** That's the paper textures, two-row subtitles, caption routing, board pictures, braided cable and the memory-cards board check.
+  - Compile first.
+  - Label the commit "Run 9 leftovers, not verified in Preview", and list each file in the commit message.
+  - Tag `run9-end` and push the tag.
+- Commit docs/REDESIGN_2026-11-07.md, the AGENTS.md changes and this prompt.
+
+### 1. Fix what hurts in the current flow (the spec's "Causes", items 1–4)
+Do these first so there's a better build early. Build each one the way the new loop needs it, so nothing is done twice.
+1. **One speech channel** (spec "Audio"):
+   - Wren, the narrator, suspects and dialogue all go through one arbiter, with the spec's priorities;
+   - Wren follows her rules from the spec;
+   - sound effects duck under speech;
+   - fix W5's always-on timer.
+2. **Nobody is cut off:**
+   - a line that starts finishes;
+   - the filler rule;
+   - walking away doesn't stop speech;
+   - selecting another guest, or presenting to one, waits for the current line.
+3. **The row:** replace the chip bar and verb bar with the Ask · Show · Accuse row, using the spec's hysteresis and placement. For now, wire it to today's actions: Ask to today's questions, Show to today's present, Accuse to today's accusation.
+4. **Silence the over-explaining.** Take the casting sweep and every line that explains a mechanic out of the flow now. Silence beats "Your chair: a witness". The new lines come in phase 3.
+
+Then:
+- Add the audio-overlap LEAF and the row-stability LEAF from "Done when", and keep both green from here on.
+- Verify with strict LEAF runs plus captures, commit, and tag `run10-fixes`. This is the fallback build for filming.
+
+### 2. The new loop (spec "The loop", "The hero case, remapped", "UI")
+1. **Case remap** in `Content/`, with the engine's truth unchanged:
+   - move the evidence holders as in the table;
+   - add the debt note and the certificate as paper props, and make the letter one physical letter;
+   - drop the furniture memories, baseline tell questions, Clue suggestions and refutation from the flow.
+
+   Solver, fuzz and vitest must pass. Log every change in decisions.md.
+2. **Find:** items sit on their surfaces in their places, and one pinch finds an item. Use a placeholder subtitle for its observation line until phase 3.
+3. **Ask:** at most four natural questions per person, plus "Ask your own…".
+4. **Show:** found items appear as pictures in the row. Breaking a statement plays the crack, the next-layer line and the 5-second ghost replay of the truth at its place.
+5. **Accuse:**
+   - the who comes from the row;
+   - "Where?" shows chalk-label cards, with the place glowing in the room;
+   - "With what?" shows item pictures;
+   - the seal takes one pinch;
+   - then the reaction, the frozen murder, the newspaper (real stats) and "Another case?".
+6. **Opening:**
+   - Harlow's voicemail, then two narrator lines;
+   - the guests are already in the room;
+   - the door tape, the chalk outline and the rain;
+   - one case file that opens with one pinch.
+
+   The crate ceremony and the two-file choice go.
+7. **Remove** everything the spec takes out of the flow, from the scene as well as the flow.
+   - Delete code nothing references any more. Git keeps the history; list the removed files in decisions.md.
+   - Retire or update the LEAF scenarios that covered removed features. None may be left failing.
+8. **Props:**
+   - use existing props where they exist;
+   - make missing solid ones with CLAD `build-mesh` (SPECS text-to-3D), gated by `analyze_glb.js`;
+   - make papers from the Tooling/art paper textures, with code-drawn text.
+
+Then:
+- Update the naive-player LEAF to the new loop (no drags) and run it strict.
+- Do your own fresh-eyes Preview pass, from the case file to the newspaper, and fix whatever is unclear.
+- Commit and tag `run10-loop`.
+
+### 3. Script and voices
+- Write docs/SCRIPT_2026-11-08.md: every new or changed narrator, Wren and suspect line. Run the spec's wording check over it.
+- Generate the lines with the cast voices (Tooling/audio, ElevenLabs), and wire them into the manifests with alignment.
+- Verify in Preview that the subtitles match and nothing overlaps (the audio-overlap LEAF).
+- Commit.
+
+### 4. Generated cases (lower priority)
+- The same row, the same audio rules, and no casting sweep.
+- Evidence must have a physical reason, or use placed props.
+- If it isn't ready, keep it behind "Another case?" with a known-issues note.
+
+### 5. Captures, size and video plan
+- The Director captures from item 5 of "Done when", plus before/after pairs for the row and the opening, in docs/captures/.
+- Measure the exported lens size (the published limit is 25 MB).
+- Update devpost/drafts/video-plan.md for the new loop, including one uncut continuous stretch (the judges asked for one).
+
+If everything above is done, start the final gate early:
+- the integrated LEAF;
+- a new hero tape;
+- a full-history secret scan;
+- `m3-case` if it passes.
+
+## Finish with a report (docs/RUN10_REPORT.md, and a summary in chat)
+- done, partial or not started per item, against "Done when";
+- what was removed, and anything that fell back;
+- the captures I should look at, as file paths;
+- the tags (`run9-end`, `run10-fixes`, `run10-loop`) and which one you'd film;
+- Needs Wadood;
+- costs (ElevenLabs, OpenAI images, Claude API);
+- a list for the final gate.
+```
+
 ## Run 4: the big final-polish run (Tue Nov 3, overnight)
 
 Before pasting:
