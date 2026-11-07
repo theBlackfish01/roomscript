@@ -121,3 +121,11 @@
 - Newspaper portrait layering/aspect fixed; final capture accepted with real2catches/10items/1question/105minutes. All seven Director views accepted. Preview paused and project saved;4/4 graceful restarts, no force.
 - Engine/content focused final check34/34 passed after paper footprint corrections. Full655-test suite and5000-case fuzz remain green; no engine logic changed after them.
 - Final exact graph/action capture: Tooling/results/run10-final-fullplay.json and run10-final-hero-capture.log. Git/tape/history/report closeout follows.
+
+### Checkpoint pushed —03:40 PKT
+- 639d501: Run10 find/ask/catch loop, final voices/native completion handling, removals, tests, exact tape and seven captures. Pre-commit staged secret check passed. run10-loop annotated tag created and pushed with master to the existing private origin; run9-end and run10-fixes already pushed.
+- Filming choice: run10-loop. Export-size gate remains blocked; m3-case not awarded. Full-history final checkpoint scan running.
+
+### Report closeout
+- Full reachable-history scan at pushed639d501:123commits,7497blobs,33scene versions,196085081bytes,zero findings,15.813s. Updated committed receipt and report. Final report-HEAD scan will be saved to ignored run10-history-final.local.json to avoid a self-referential audit commit.
+- All requested tags pushed:run9-end,run10-fixes,run10-loop. No m3-case because actual export remains blocked by packageId. Run10 report is complete; generated-case deferral and certificate support fallback are explicit.

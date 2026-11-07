@@ -1,6 +1,6 @@
 # Run 10 report — find, ask, catch
 
-The redesigned hero game is implemented and verified in Preview. **Film the run10-loop checkpoint** for the new game; run10-fixes remains the earlier fallback. The remaining acceptance blocker is the actual exported-size measurement: Lens packaging requires a package ID that this project does not yet have. **m3-case is not awarded.** Tag/push confirmation is recorded in RUN10_PROGRESS.
+The redesigned hero game is implemented and verified in Preview. **Film the run10-loop checkpoint** for the new game; run10-fixes remains the earlier fallback. The remaining acceptance blocker is the actual exported-size measurement: Lens packaging requires a package ID that this project does not yet have. **m3-case is not awarded.** The code checkpoint **639d501** and all three requested tags are pushed.
 
 ## Work order
 
@@ -65,7 +65,7 @@ The updated devpost/drafts/video-plan.md includes one uncut case-file → Vale �
 | --- | --- |
 | run9-end | Pushed recovery checkpoint; Run 9 leftovers explicitly not Preview-verified. |
 | run10-fixes | Pushed, verified earlier filming fallback. |
-| run10-loop | Verified redesign checkpoint and filming choice; push confirmation in RUN10_PROGRESS. |
+| run10-loop | Created and pushed at639d501; verified redesign and filming choice. |
 | m3-case | Withheld until the remaining export-size gate passes. |
 
 **Costs:** ElevenLabs **609 credits**; OpenAI images **$0**; Claude API **$0**. The 26 source MP3s total 316,626 bytes; the exact 3.840-second PCM note derivative adds 338,766 bytes. These are source audio bytes, not packaged lens size. Ledgers and NOTICE are current.
@@ -74,7 +74,7 @@ Final-gate list:
 - [x] Integrated fail-fast full-loop, audio, row, interrogation and boundary coverage.
 - [x] New exact-graph hero tape and replay validation.
 - [x] Seven accepted visual views and updated continuous-video plan.
-- [ ] Final checkpoint/history-scan receipt and push closeout (updated below after Git operations).
+- [x] Code checkpoint639d501 and run10-loop pushed. Full reachable-history scan:123commits,7497blobs,33scene versions,196085081bytes,zero findings in15.813s. Committed receipt:Tooling/results/run10-history-secret-audit.json. A final report-HEAD receipt is retained locally as Tooling/results/run10-history-final.local.json.
 - [ ] Actual exported lens measured below 25 MB.
 - [ ] m3-case only after the remaining gate passes.
 

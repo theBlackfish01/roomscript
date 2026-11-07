@@ -175,3 +175,5 @@ CLAD router/editor-api/lens-api/specs-build-ui/LEAF workflow run inline in Codex
 - Run10 final batch: CLAD LEAF fail-fast audio-overlap and row-stability passed; strict replay boundary exposed a destroyed pinch target, fixed by retaining one disabled prior newspaper. Native end diagnostic reconciled EOF callback with stale stopped position. All captures continue via Lens MCP only.
 
 - Final CLAD verification: explicit Preview refresh + runtime revision marker, fail-fast audio-overlap and integrated naive-player PASS (25pinches,879caption samples,zero overlap/mismatch/early ends). Rule19 caught and fixed floating certificate, page overhang and newspaper portrait layering. Seven accepted Director views in docs/captures; project saved and Preview paused.
+
+- Closeout: exact-graph hero tape validated (hasha5895dbc,76actions,correct verdict); full-history scan of639d501/allrefs passed123commits/7497blobs withzero findings. run10-loop pushed. Actual production export blocked by empty packageId; no publishing/signing metadata invented.

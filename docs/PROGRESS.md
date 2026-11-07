@@ -1,6 +1,6 @@
 # Run 10 verified redesign — Nov 8, Codex
 
-Report: [RUN10_REPORT.md](RUN10_REPORT.md). Running evidence: [RUN10_PROGRESS.md](RUN10_PROGRESS.md). Find/ask/catch hero loop verified:25pinches; final full native play879caption samples,zero mismatches/overlaps/early ends;655unit tests and5000-case fuzz pass. All seven Director views accepted. Filming checkpoint:run10-loop; prior fallback:run10-fixes.
+Report: [RUN10_REPORT.md](RUN10_REPORT.md). Running evidence: [RUN10_PROGRESS.md](RUN10_PROGRESS.md). Find/ask/catch hero loop verified:25pinches; final full native play879caption samples,zero mismatches/overlaps/early ends;655unit tests and5000-case fuzz pass. All seven Director views accepted. Filming checkpoint:run10-loop at639d501 (pushed); prior fallback:run10-fixes.
 
 ## Needs Wadood (current)
 - Actual export size remains blocked by empty packageId. Supply an owned package ID, package and measure against25MB; m3-case withheld.

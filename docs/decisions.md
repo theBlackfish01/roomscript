@@ -326,3 +326,5 @@ Wadood signed off the illustrated cast. `CHARACTER_ART` and the "line" mode are 
 - Final dependency audit removed Assets/Scripts/RoomscriptReadingPanel.ts and its .meta (no Assets/Scene/Tooling references). Total20 retired production adapters. Newspaper photo now draws after its opaque backing and retains cast aspect ratio; Run10 stats count unique PinchObject actions, Ask actions, successful catches and elapsed minutes from the sealed log.
 
 - N10_DEBT repeated native stalls in the final long Windows Preview session. Preserve the exact full take as a44.1kHz mono16-bit PCM WAV, verified byte-for-byte against the decoded/resampled MP3, and wire that derivative for native playback.338766bytes,3.840s,no API cost. Focused audio regression now explicitly plays the note.
+
+- Final acceptance used an explicit Preview refresh and RUN10_AUDIO_BUILD marker. The marked revision passed both focused audio and full native play (879caption samples,zero overlaps/mismatches/premature ends). Earlier failed long-session attempts remain documented; no claim that audiodg growth itself is fixed.
