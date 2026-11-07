@@ -25,6 +25,7 @@ const v=(x:number,y:number,z:number)=>new vec3(x,y,z);
 /** Procedural engraved drawings for kinds that have no model. Returns null when the real fixture should carry no drawing. */
 export function propDrawing(parent:SceneObject,id:string,kind:string,isWeapon:boolean):SceneObject|null {
   {const model=propModel(parent,id,kind);if(model)return model;} // Run 9: textured mesh when the kind has one
+  if(kind==="cord")return cableModel(parent,id); // Run 9 (Wadood's review): a solid braided cable, not lines
   const color=isWeapon?PROP_CORAL:kind==="kettle"||kind==="cup"?PROP_CYAN:PROP_BRASS,material=tinted(lineBase(),color);let segments:Segment[]=[];
   switch(kind){
     case "kettle":segments=[...latheSegments([[7,0],[8.5,3],[8.5,8],[7,11.5],[3.5,13.5],[1.5,14.5]],6),
@@ -48,4 +49,34 @@ export function propDrawing(parent:SceneObject,id:string,kind:string,isWeapon:bo
   // Wall fixtures (door latch, window glass) face into the room: towards the room centre over the coffee table.
   if(kind==="door"||kind==="mirror"){const p=parent.getTransform().getWorldPosition(),toward=new vec3(-p.x,0,-300-p.z);if(toward.length>1)drawing.getTransform().setWorldRotation(quat.lookAt(toward.normalize(),vec3.up()));}
   return drawing;
+}
+
+/** A round tube along a path: `sides` facets, u along the length (one texture repeat per `repeat` cm), v around. */
+export function tubeMesh(parent:SceneObject,name:string,points:vec3[],radius:number,material:Material,sides=10,repeat=4):RenderMeshVisual {
+  const o=global.scene.createSceneObject(name);o.setParent(parent);
+  const b=new MeshBuilder([{name:"position",components:3},{name:"normal",components:3},{name:"texture0",components:2}]);b.topology=MeshTopology.Triangles;b.indexType=MeshIndexType.UInt16;
+  let along=0,prevN:vec3|null=null;
+  for(let i=0;i<points.length;i++){
+    const t=(i<points.length-1?points[i+1].sub(points[i]):points[i].sub(points[i-1])).normalize();
+    // A stable frame that keeps the seam on the same side as the path turns.
+    let n=prevN?prevN.sub(t.uniformScale(prevN.dot(t))):(Math.abs(t.y)<.9?vec3.up():vec3.right()).cross(t);n=n.normalize();prevN=n;const bn=t.cross(n).normalize();
+    if(i>0)along+=points[i].distance(points[i-1]);
+    for(let k=0;k<=sides;k++){const a=k/sides*2*Math.PI,dir=n.uniformScale(Math.cos(a)).add(bn.uniformScale(Math.sin(a))),p=points[i].add(dir.uniformScale(radius));
+      b.appendVerticesInterleaved([p.x,p.y,p.z,dir.x,dir.y,dir.z,along/repeat,k/sides]);}
+    if(i>0){const r0=(i-1)*(sides+1),r1=i*(sides+1);for(let k=0;k<sides;k++)b.appendIndices([r0+k,r1+k,r1+k+1,r0+k,r1+k+1,r0+k+1]);}
+  }
+  const visual=o.createComponent("Component.RenderMeshVisual") as RenderMeshVisual;visual.mesh=b.getMesh();visual.mainMaterial=material;b.updateMesh();return visual;
+}
+/** The charger cable lying loosely on its surface: a coil of two overlapping loops and a tail with a plug. */
+function cableModel(parent:SceneObject,id:string):SceneObject {
+  const root=global.scene.createSceneObject("RoomscriptPropVisual_"+id);root.setParent(parent);root.getTransform().setLocalPosition(vec3.zero());
+  const braid=lineBase().clone();braid.mainPass.baseTex=requireAsset("../Art/Paper/CableBraid.png") as Texture;braid.mainPass.baseColor=new vec4(1,1,1,1);
+  const r=.42,pts:vec3[]=[];
+  for(let i=0;i<=96;i++){const t=i/96,a=t*4*Math.PI,loop=t<.5?0:1,cx=loop?2.2:-1.4,rx=7.5-loop*1.2,rz=5-loop*.6;
+    pts.push(new vec3(cx+rx*Math.cos(a),r+.35*Math.sin(a*1.5)+(loop?.5:0),rz*Math.sin(a)));}
+  const end=pts[pts.length-1];for(let i=1;i<=10;i++){const t=i/10;pts.push(new vec3(end.x+t*9,r,end.z+Math.sin(t*Math.PI)*2.5+t*1.5));}
+  tubeMesh(root,"Cable",pts,r,braid);
+  const last=pts[pts.length-1],plug=lineBase().clone();plug.mainPass.baseTex=requireAsset("../Art/Paper/CableBraid.png") as Texture;plug.mainPass.baseColor=new vec4(1.6,1.6,1.7,1);
+  tubeMesh(root,"Plug",[last,last.add(new vec3(1.2,0,.2)),last.add(new vec3(3,0,.5))],.85,plug,8,20);
+  return root;
 }

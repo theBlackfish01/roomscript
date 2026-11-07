@@ -52,6 +52,9 @@ import {RectangleButton} from "SpectaclesUIKit.lspkg/Scripts/Components/Button/R
     const generatedView={...engine.graphRef(),caseId:"generated-card-guard"};expect(admittedCard(generatedView,engine.snapshot(),"E_KETTLE_COLD")!.authored).toBe(false);
     await tap("Close evidence");console.log("MEMORY_CARD_CHECK|"+JSON.stringify({unknownHidden:true,expandedPreserved:true,dynamicBlankFrame:true,knowledge:engine.snapshot().knowledge.evidenceIds.length}));
     expect(engine.configureDynamic(7,EVENING_ROOM_SCAN).ok).toBe(true);expect(opening.cast.room.propCount()).toBe(engine.graphRef().room.objects.filter(o=>o.virtual).length);engine.configurePreset();opening.finish();expect(opening.cast.room.propCount()).toBe(presetObjects);expect(opening.cast.room.legacyPropDiagnostics().visible).toBe(0);expect(opening.cast.room.legacyPropDiagnostics().hidden).toBe(legacy.hidden);assertCrateSurface();console.log("PROP_RESET_CHECK|preset,dynamic_virtual_only,preset_restored_no_legacy");
-    {const board=RoomscriptCaseBoard.current!,y=board.root.getTransform().getWorldPosition().y-EVENING_ROOM_FLOOR_Y;console.log("BOARD_HEIGHT_CHECK|"+y.toFixed(1));expect(board.root.enabled&&y>80&&y<200).toBe(true);} // Run 9 regression: the board hung under the floor
+    {const board=RoomscriptCaseBoard.current!,y=board.root.getTransform().getWorldPosition().y-EVENING_ROOM_FLOOR_Y;console.log("BOARD_HEIGHT_CHECK|"+y.toFixed(1));expect(board.root.enabled&&y>80&&y<200).toBe(true);
+      // Run 9 (Wadood's review: Qadir looked missing in corkboard-v1): every suspect, room and weapon has a card.
+      const graph=engine.graphRef(),cards=board.drawnCards();console.log("BOARD_CARDS_CHECK|"+JSON.stringify(cards));
+      expect(cards.who).toBe(graph.cast.suspects.length);expect(cards.where).toBe(graph.room.zones.length);expect(cards.what).toBe(graph.weapons.length);} // Run 9 regression: the board hung under the floor
   }
 }

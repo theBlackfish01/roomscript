@@ -60,7 +60,7 @@ export interface StageHeights {face:number;eyes:number;chin:number;facing:number
 export function stageHeights(role:string):StageHeights {
   const art=actorArt(role),f=frameArt(art,"neutral"),face=boxCm(f,f.faceBox),eyes=anchorCm(f,f.eyes).y,s=frameSizeCm(f);
   const chin=face.bottom,mid=(face.bottom+face.top)/2;
-  return {face:mid,eyes,chin,facing:chin-12,chest:chin-30,thread:chin-30,spotlight:chin-32,token:chin-12,subtitle:chin-24,top:face.top+4,width:s.w};}
+  return {face:mid,eyes,chin,facing:chin-12,chest:chin-30,thread:chin-30,spotlight:chin-32,token:chin-12,subtitle:chin-9,top:face.top+4,width:s.w};}
 `;
 writeFileSync(join(root,'Assets/Scripts/Content/ActorArt.ts'),ts);
 const cases=[...files].sort().map(f=>`    case ${JSON.stringify(f)}:return requireAsset(${JSON.stringify('../Art/Cast/'+f)}) as Texture;`).join('\n');

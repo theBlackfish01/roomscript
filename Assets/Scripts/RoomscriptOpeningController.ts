@@ -35,8 +35,13 @@ import {engraveCrate} from "./RoomscriptCrateArt";
     const crateLayout=recordedCrateSurfaceLayout(),card=crateLayout.openingCard,pull=crateLayout.pullTab;
     if(!this.crateEngraved){this.crateEngraved=true;engraveCrate(this.crate.getSceneObject(),this.clue.objection.tells.lightMaterial);}
     // Run 8: one caption line above the crate; the two case files replace the mode buttons and pull tab.
-    this.panel=uiObject(this.crate.getSceneObject(),"RoomscriptOpeningCard");this.panel.getTransform().setLocalPosition(new vec3(card.position[0],card.position[1]+12,card.position[2]-18));
-    this.caption=flatText(this.panel,"Opening cue","",4.2,new vec4(1,.94,.84,1),"body",70,6);
+    // Run 9: on the crate front just under the folders, not behind them where it crossed the kettle.
+    this.panel=uiObject(this.crate.getSceneObject(),"RoomscriptOpeningCard");this.panel.getTransform().setLocalPosition(new vec3(card.position[0],7,card.position[2]+6));
+    // Run 9 (Wadood's review): the 70 x 6 box (52 cm after the crate's 0.75 scale) was oversized and cut off at the
+    // view edges. Size-to-fit fills the box, so the box sets the size: about 30 cm wide, 2.7 cm tall, one row.
+    this.caption=flatText(this.panel,"Opening cue","",4.2,new vec4(1,.94,.84,1),"body",40,3.6);
+    // One text layer per direction: narration borrows this caption while the crate is in view.
+    this.cast.flow.subtitles.setBodilessSlot(this.caption);
     const mode=this.cast.flow.engine.mode()==="preset"?"preset":"dynamic";
     this.files=new RoomscriptCaseFiles(this,this.crate.getSceneObject(),ink,mode,chosen=>this.chooseFile(chosen),cue=>this.clue.objection.tells.audio.play(cue));
     this.tab=this.files.root;this.tab.enabled=false;

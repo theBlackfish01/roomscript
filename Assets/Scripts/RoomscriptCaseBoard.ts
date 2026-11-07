@@ -1,6 +1,8 @@
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
 import {caseBoardLayout,CaseBoard,BoardItem,verdictStampText} from "./Engine/perf/CaseBoardLayout";
+import {roomArtKey,weaponArtKey} from "./Content/BoardArt";
+import {boardArtTexture} from "./RoomscriptBoardArt";
 import {chooseBoardWall} from "./Engine/perf/WallBoard";
 import {lineTubes,rectEdges,circleEdges,polyline,flatText,tinted,Segment} from "./RoomscriptLineArt";
 import {iconImage} from "./RoomscriptGlyphUI";
@@ -70,6 +72,9 @@ export class RoomscriptCaseBoard {
     if(filed.length&&!force){this.clearStamps("FILED");this.stamp("FILED",CORAL);}
     if(state.verdict&&!force&&!this.closed){this.closed=true;this.clearStamps("FILED");this.stamp(verdictStampText(state.verdict),state.verdict==="correct"?BRASS:CORAL);}
   }
+  /** Drawn cards per kind (who/where/what/photo), for the LEAF check that every suspect, room and weapon is pinned. */
+  drawnCards():Record<string,number> {const out:Record<string,number>={};if(!this.content||isNull(this.content))return out;
+    for(let i=0;i<this.content.getChildrenCount();i++){const m=this.content.getChild(i).name.match(/^Board item (\w+):/);if(m)out[m[1]]=(out[m[1]]||0)+1;}return out;}
   private find(id:string):SceneObject|null {for(let i=0;i<this.content.getChildrenCount();i++){const c=this.content.getChild(i);if(c.name==="Board item "+id)return c;}return null;}
   private draw(board:CaseBoard,state:GameState):void {
     const v=(x:number,y:number,z=0)=>new vec3(x,y,z);
@@ -83,6 +88,10 @@ export class RoomscriptCaseBoard {
       paperQuad(node,"Card paper","PhotoPaper",item.w,item.h,v(0,0,0),item.crossed?new vec4(.78,.76,.72,1):new vec4(1,1,1,1));
       paperQuad(node,"Pushpin","BrassPin",1.7,1.7,v(0,item.h/2-.6,.7));
       if(item.kind==="suspect"){const actor=flow.actorFor(item.id.slice(4)),portrait=actor?.portrait();if(portrait?.texture)iconImage(node,"Portrait",portrait.texture,portrait.aspect<1?Math.min(item.h*.82,item.w*1.6):Math.min(item.w,item.h)*.8,new vec4(1,1,1,item.crossed?.35:1),v(0,item.h*.08,.2),true,portrait.aspect);}
+      // Run 9 (Wadood's review): room and weapon cards carry a small cast-style picture above the label.
+      if(item.kind==="zone"||item.kind==="weapon"){const g=this.engine.graphRef(),id=item.id.slice(item.id.indexOf(":")+1);
+        const key=item.kind==="zone"?roomArtKey(g.room.zones.find(z=>z.id===id)?.clueName||""):weaponArtKey(g.room.objects.find(o=>o.id===id)?.type||""),picture=boardArtTexture(key);
+        if(picture)iconImage(node,"Picture",picture,Math.min(item.w*.86,item.h*.66),new vec4(1,1,1,item.crossed?.35:1),v(0,item.h*.1,.2),true);}
       if(item.kind==="photo"){const card=admittedCard(this.engine.graphRef(),state,item.id.slice(6));if(card)iconImage(node,"Photo",card.texture,Math.min(item.w,item.h)*.86,new vec4(1,1,1,1),v(0,item.h*.06,.2),true);
 }
       const label=flatText(node,"Card label",item.label,1.6,color,"body",item.w-1,2.2);label.getSceneObject().getTransform().setLocalPosition(v(0,-item.h/2+1.4,.5));

@@ -28,14 +28,9 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    broken: false
     camera: false
     engine: false
-    listening: false
     material: false
-    neutral: false
-    rattled: false
-    smug: false
     suspect: false
   ScriptTypesHidden:
     {}
@@ -47,11 +42,6 @@
     []
   DefaultScriptInputs:
     - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
-      neutral: !<reference.Texture> 00000000-0000-0000-0000-000000000000
-      listening: !<reference.Texture> 00000000-0000-0000-0000-000000000000
-      rattled: !<reference.Texture> 00000000-0000-0000-0000-000000000000
-      broken: !<reference.Texture> 00000000-0000-0000-0000-000000000000
-      smug: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       engine: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
       camera: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       suspect: S2
@@ -61,11 +51,6 @@
   InputLines:
     - '// @ui {"widget":"group_start", "label":"References"}'
     - '// @input Asset.Material material {"hint":"Puppet shader material"}'
-    - '// @input Asset.Texture neutral {"hint":"Neutral portrait"}'
-    - '// @input Asset.Texture listening {"hint":"Speaking portrait"}'
-    - '// @input Asset.Texture rattled {"hint":"Rattled portrait"}'
-    - '// @input Asset.Texture broken {"hint":"Broken portrait"}'
-    - '// @input Asset.Texture smug {"hint":"Smug reaction after an engine-rejected objection; neutral fallback"}'
     - '// @input AssignableType_1 engine {"hint":"Deterministic case owner"}'
     - '// @input SceneObject camera {"hint":"Player camera for facing"}'
     - '// @ui {"widget":"group_end"}'
