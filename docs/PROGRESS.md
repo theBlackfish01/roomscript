@@ -27,6 +27,7 @@ Running log: [RUN8_PROGRESS.md](RUN8_PROGRESS.md). Interim report: [RUN8_REPORT.
 
 ## Needs Wadood (Run 9, current)
 
+- **Lens Studio crashed at about 05:45 PKT on Nov 7, after all 3 rule-16 restarts were used.** Lens work is paused until you OK a 4th restart. The next-object glow is written but unverified and uncommitted; the resume steps are at the end of `docs/RUN9_PROGRESS.md`.
 - **A measured lens export needs a package ID.** CLAD `specs-publish/scripts/package.ts` stops with `missing_submission_metadata` ("The project needs a package ID before it can be submitted"), which comes from publish registration. Run 9 measured the bundled assets instead: 22.5 MB of referenced media plus 2.3 MB of scripts (about 24.8 MB raw, before the build re-encodes anything), against the 25 MB limit. The Run 10 gate should register the lens (your call) and run `package.ts` for the real number.
 - **After you sign off the illustrated cast,** deleting the Run 8 line cards (`Assets/Art/Actors`, 3.8 MB) and setting `CHARACTER_ART` permanently gives the most headroom. They stay until then (rule 21).
 

@@ -63,3 +63,19 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 ### 05:34 PKT — followability (phase 5, part 1)
 - Wren hints W3–W12, W14 wired once each; the Preview controls hint. LEAF strict naive-player PASS 117.3 s: 28 actions (limit 40), first answer at 39.4 s, verdict correct; hints fired once each: W14, W5, W3, W4, W9, W10 (W8 not needed: the file was pulled at once); the controls hint is gone after the pull.
 - Still to do in phase 5: the glow on the next useful object; a fresh-eyes pass.
+
+### 05:45 PKT — next-object glow (written, not verified); Lens Studio crashed; session paused
+- Written, compiled once, **not run and not committed**: `RoomscriptNextGlow.ts`, a soft brass ring on the one next useful object after the player stalls (12 s before any question, else 20 s). In order: an unquestioned suspect (ring at the feet), an unexamined non-latent clue object (ring at the prop's base), then the lid's Accuse seal once `arguments >= requiredDeductions`. One ring at a time; it goes out on any engine event, and is hidden in film mode, while the accusation is open, during a story moment, with the notebook or evidence open, and while a suspect speaks. Logs `NEXT_GLOW|kind|id`. Presentation only: it reads the cached onState snapshot and never dispatches.
+- Supporting edits (also uncommitted): `RoomscriptCaseLidUI.tokenRoot(id)`, `static current` on the opening and closing controllers, wiring in `RoomscriptMain.ts`, and a new LEAF scenario `roomscript-next-glow` (registered in `RoomscriptLeafIndex.ts`, parameter `hold` for captures). It opens the case, expects a suspect ring after the stall, asks one question, expects the ring out, then expects a ring on a clue object or another suspect.
+- Lens Studio crashed during the recompile for the new scenario (no process running). All 3 restarts allowed this run (rule 16) were already used (02:35, 04:06, 05:09), so Lens work stopped; asked Wadood about a 4th restart. Likely cause, as before: Preview audio growing audiodg until memory runs out.
+- Session paused at Wadood's request.
+
+**Resume here:**
+1. Restart Lens Studio (with Wadood's OK), confirm `TypeScript compilation succeeded`, then `list_leaf_scenarios` and run `roomscript-next-glow` strict, then once with `hold=6` to capture both rings (rule 19) to `docs/captures/2026-11-07-run9-next-glow-*.jpg`.
+2. Re-run `roomscript-naive-player` (the glow must not change its 28 actions), then commit the glow and push.
+3. Phase 4 remainder: storm on the real window bounds (branching bolt, soft rain), smaller chalk crosses, fewer evidence-web elements, subtitles never crossing suspects or tokens, the "KITCHEN" chalk label crossing the sofa view.
+4. Phase 6 LEAF upkeep: shell, hero-demo, story-moments, all-tells, actor and pose capture, generated cases, casting sweep, closing timeout, clue; carry and place the crate.
+5. Phase 7: Director captures of every beat with the new cast, contact sheets and line-up for Wadood's cast review, `devpost/drafts/video-plan.md`.
+6. `docs/RUN9_REPORT.md`.
+- Keep Preview sessions short (audio memory growth); restart before long LEAF or capture batches.
+- Costs so far: OpenAI images $3.78 / $25, ElevenLabs 0, Claude API $0; SPECS text-to-3D free via Lens.
