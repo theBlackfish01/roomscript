@@ -18,7 +18,6 @@ import {endingSummary,CitedSentence} from "./Engine/game/CaseClarity";
 import {scoreCase} from "./Engine/game/Scoring";
 import {caseExitPosition} from "./Engine/game/RoomPresentation";
 import {routeReplay,RouteReplay} from "./Engine/game/RouteReplay";
-import {isHarlowPreset} from "./Engine/game/NarrativeAudio";
 import {RoomscriptNewspaper} from "./RoomscriptNewspaper";
 import {frozenTableau} from "./Engine/game/FrozenTableau";
 import {propDrawing} from "./RoomscriptPropArt";
@@ -42,14 +41,6 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   private claimSlips:{root:SceneObject;home:vec3;material:Material;ashes:SceneObject[]}[]=[];private burnProgress=0;private correctionOffset=0;private ledgerRows=0;
   private imageTemplate=requireAsset("../RoomscriptProbeImage.mat") as Material;
   private stampTexture=requireAsset("../Art/Run7/VerdictStamp.png") as Texture;
-  private victimStanding=requireAsset("../Art/Actors/Harlow/Harlow-standing.png") as Texture;
-  private victimFalling=requireAsset("../Art/Actors/Harlow/Harlow-falling.png") as Texture;
-  private art:Record<string,{claim:Texture;truth:Texture;neutral:Texture}>={
-    S1:{claim:requireAsset("../Art/Actors/Qadir/Qadir-neutral.png") as Texture,truth:requireAsset("../Art/Actors/Qadir/Qadir-neutral.png") as Texture,neutral:requireAsset("../Art/Actors/Qadir/Qadir-neutral.png") as Texture},
-    S2:{claim:requireAsset("../Art/Actors/Vale/Vale-neutral.png") as Texture,truth:requireAsset("../Art/Actors/Vale/Vale-neutral.png") as Texture,neutral:requireAsset("../Art/Actors/Vale/Vale-neutral.png") as Texture},
-    S3:{claim:requireAsset("../Art/Actors/Okafor/Okafor-neutral.png") as Texture,truth:requireAsset("../Art/Actors/Okafor/Okafor-neutral.png") as Texture,neutral:requireAsset("../Art/Actors/Okafor/Okafor-neutral.png") as Texture},
-    S4:{claim:requireAsset("../Art/Actors/Pike/Pike-neutral.png") as Texture,truth:requireAsset("../Art/Actors/Pike/Pike-neutral.png") as Texture,neutral:requireAsset("../Art/Actors/Pike/Pike-neutral.png") as Texture}
-  };
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
   private build():void {
     if(this.panel)return;RoomscriptClosingController.current=this;const flow=this.cast.flow;flow.engine.initialize();this.cast.room.initialize();const graph=flow.engine.graphRef();this.picked={who:graph.cast.suspects[0].id,where:UNSET,what:UNSET};
@@ -142,7 +133,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     const score=scoreCase(graph,state);this.resultText=(state.verdict==="correct"?"CASE CLOSED":"THE CULPRIT ESCAPED")+"\nHolmes rating: "+score.rating+" / 3\n"+score.stars.map(star=>(star.earned?"★ ":"☆ ")+star.name).join("\n")+"\n"+score.deductions+" / "+score.required+" deductions\n"+"You: "+state.elapsedMinutes+" min · Par: "+score.minimumMinutes+"\n"+graph.caseId+"\nSeal "+graph.pitchHash;
     const hideRows=(root:SceneObject)=>{for(let i=0;i<root.getChildrenCount();i++){const child=root.getChild(i);if(RIG_CONTROLS.includes(child.name))child.enabled=false;else hideRows(child);}};hideRows(this.panel);
     if(state.verdict==="wrong"){this.escapeActor=this.cast.flow.actorFor(graph.envelope.who)!.getSceneObject();this.escapeStart=this.escapeActor.getTransform().getWorldPosition();this.escapeDoor=this.cast.room.toWorld(caseExitPosition(graph));this.escapeDoor.y=this.escapeStart.y;}
-    for(const person of [...graph.cast.suspects,graph.cast.victim]){const ghost=uiObject(this.cast.room.getSceneObject(),"RoomscriptReconstruction_"+person.id);ghost.createComponent("Component.Canvas");const illustrated=!!ghostArt(person.id,"neutral");ghost.getTransform().setLocalScale(vec3.one().uniformScale(illustrated?1:.75));const texture=person.id===graph.cast.victim.id?this.victimStanding:this.art[person.id].neutral;this.ghostMaterials.set(person.id,this.image(ghost,"Memory engraving",texture,85,170,true));this.ghostScreens.set(person.id,ghost.getChild(0).getComponent("Component.ScreenTransform") as ScreenTransform);this.ghosts.set(person.id,ghost);ghost.enabled=false;}
+    for(const person of [...graph.cast.suspects,graph.cast.victim]){const ghost=uiObject(this.cast.room.getSceneObject(),"RoomscriptReconstruction_"+person.id);ghost.createComponent("Component.Canvas");const texture=ghostArt(person.id,person.id===graph.cast.victim.id?"standing":"neutral")?.texture;if(!texture){ghost.destroy();continue;}this.ghostMaterials.set(person.id,this.image(ghost,"Memory engraving",texture,85,170,true));this.ghostScreens.set(person.id,ghost.getChild(0).getComponent("Component.ScreenTransform") as ScreenTransform);this.ghosts.set(person.id,ghost);ghost.enabled=false;}
     this.route=routeReplay(state);this.buildRoute(graph);this.buildReconstructionDetails();
   }
   private clearReconstructionDetails():void {this.showTableau(false);
@@ -270,9 +261,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
         const material=this.ghostMaterials.get(id)!,g=this.ghostFrame(id,beat.kind,graph);
         if(g){material.mainPass.baseTex=g.texture;this.ghostScreens.get(id).offsets=ghostRect(g);this.ghostFrames.set(id,g.frame);
           material.mainPass.baseColor=id===graph.cast.victim.id?GHOST_TINT.victim:beat.kind==="claims"?GHOST_TINT.claim:id===graph.envelope.who&&["correction","freeze","resume"].includes(beat.kind)?GHOST_TINT.culprit:GHOST_TINT.truth;}
-        else if(id===graph.cast.victim.id){material.mainPass.baseTex=beat.kind==="freeze"?this.victimFalling:this.victimStanding;material.mainPass.baseColor=new vec4(1,1,1,.75);}
-        else if(isHarlowPreset(graph)){material.mainPass.baseTex=beat.kind==="claims"?this.art[id].claim:this.art[id].truth;material.mainPass.baseColor=new vec4(1,1,1,.8);}
-        else{material.mainPass.baseTex=this.art[id].neutral;material.mainPass.baseColor=beat.kind==="claims"?new vec4(.247,.89,1,.7):id===graph.envelope.who?new vec4(1,.42,.35,.85):new vec4(1,1,1,.75);}}
+}
       if(this.routeRoot)this.routeRoot.enabled=["correction","freeze","ledger"].includes(beat.kind)&&this.route.points.length>1;
       this.showReconstructionDetail(beat.kind);this.clue.objection.tells.audio.reconstructionBeat(beat.kind);
     }
@@ -290,7 +279,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
         const from=figure.getTransform().getWorldPosition(),to=new vec3(door.x,from.y,door.z),isAccused=figure===accused;
         if(isAccused)figure.capturePose(this.sealedState.verdict==="correct"?"broken":"smug",4);
         this.exits.push({actor:object,from,to,start:getTime()+(isAccused?4:.4*k++),duration:Math.max(2,from.distance(to)/90)});}}
-    this.newspaper=new RoomscriptNewspaper(this,this.getSceneObject(),this.cast.flow.actor.camera,this.sealedGraph,this.sealedState,this.clue.objection.tells.lightMaterial,accused?.portrait()?.texture||accused?.neutral||null,cue=>this.clue.objection.tells.audio.play(cue));this.result=this.newspaper.root;
+    this.newspaper=new RoomscriptNewspaper(this,this.getSceneObject(),this.cast.flow.actor.camera,this.sealedGraph,this.sealedState,this.clue.objection.tells.lightMaterial,accused?.portrait()?.texture||null,cue=>this.clue.objection.tells.audio.play(cue));this.result=this.newspaper.root;
     RoomscriptCaseBoard.current?.setStampAction(()=>this.openDetails()); // Run 9: pinch the verdict stamp for details
     this.clue.objection.tells.audio.silence(false);this.clue.objection.tells.audio.endingBeat();
   }

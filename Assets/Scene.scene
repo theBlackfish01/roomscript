@@ -2180,11 +2180,6 @@
   ScriptInputs:
     "":
       material: !<reference.Material> 57c683e6-809f-4f9f-b357-ea0ad5c57fdf
-      neutral: !<reference.Texture> d0a7a213-8af2-4cc8-a393-e5ff00695d56
-      listening: !<reference.Texture> 28008ba7-1d51-4f74-aee3-bdd35ef79c4a
-      rattled: !<reference.Texture> a8b75d00-b1ae-48f0-95e1-e3c74c59e8fe
-      broken: !<reference.Texture> 33ad28e7-ce10-4ded-a551-ae5878fd2cd6
-      smug: !<reference.Texture> 4891a9bd-9403-467e-9e1c-26b3df3d0ddf
       engine: !<MappingBased.AssignableType_1> 5fb41fee-e1d9-4791-b111-d0fa6fc95300
       camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
       suspect: S4
@@ -2606,11 +2601,6 @@
   ScriptInputs:
     "":
       material: !<reference.Material> 57c683e6-809f-4f9f-b357-ea0ad5c57fdf
-      neutral: !<reference.Texture> 2eddd843-5cbf-4ba9-86bf-ffd97f34fbf0
-      listening: !<reference.Texture> fd520f50-c427-4e3d-8ff0-068f235a4014
-      rattled: !<reference.Texture> 456eccce-14aa-4e44-b820-91c4fd6fbd2f
-      broken: !<reference.Texture> 7e7c39d4-a9d6-4600-b186-30a25ba36460
-      smug: !<reference.Texture> adea7e37-af0c-4a40-bec9-4c571ce87db9
       engine: !<MappingBased.AssignableType_1> 5fb41fee-e1d9-4791-b111-d0fa6fc95300
       camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
       suspect: S2
@@ -3570,11 +3560,6 @@
   ScriptInputs:
     "":
       material: !<reference.Material> 57c683e6-809f-4f9f-b357-ea0ad5c57fdf
-      neutral: !<reference.Texture> 26d59f0c-336f-494a-95ea-0aa54b4d6290
-      listening: !<reference.Texture> 25d3f640-5157-4f4d-b07d-005a01f638ad
-      rattled: !<reference.Texture> 415f4213-70c0-4550-8a1b-f860159f7470
-      broken: !<reference.Texture> 260fe8bc-e87d-4c15-909c-752018b23f73
-      smug: !<reference.Texture> 72e51b81-1400-4716-b610-9f806499933d
       engine: !<MappingBased.AssignableType_1> 5fb41fee-e1d9-4791-b111-d0fa6fc95300
       camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
       suspect: S3
@@ -5997,11 +5982,6 @@
   ScriptInputs:
     "":
       material: !<reference.Material> 57c683e6-809f-4f9f-b357-ea0ad5c57fdf
-      neutral: !<reference.Texture> f7f29e28-e444-44db-9419-93a22337639d
-      listening: !<reference.Texture> 5adab518-3a15-4283-a4b0-249a54ad6bee
-      rattled: !<reference.Texture> 1f6fbd9c-e256-4332-86af-8185c0e7b365
-      broken: !<reference.Texture> fbbf3092-8fe9-4b07-aa4a-85dbf6cdd454
-      smug: !<reference.Texture> 2ed8ad62-9f70-4e9a-8621-6403f518640c
       engine: !<MappingBased.AssignableType_1> 5fb41fee-e1d9-4791-b111-d0fa6fc95300
       camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
       suspect: S1

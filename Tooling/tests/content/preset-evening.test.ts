@@ -74,11 +74,15 @@ describe("recorded Evening Room Preset placement",()=>{
     expect(byZone("Z3")).toContain("door");expect(byZone("Z5")).toContain("window");
     for(const a of graph.room.objects)for(const b of graph.room.objects)if(a.id<b.id)expect(Math.hypot(...a.pos.map((v,i)=>v-b.pos[i])),a.id+"/"+b.id).toBeGreaterThan(15);
   });
-  it("uses bottom-origin GLBs with centimeter conversion exactly once",()=>{
-    for(const name of ["BrassCandlestick","ChippedMug","DictationRecorder","EvidenceClock","LetterKnife","MarbleBookend"]){
-      const bytes=readFileSync(resolve("../Assets/Art/Props",name+".glb")),doc=JSON.parse(bytes.subarray(20,20+bytes.readUInt32LE(12)).toString());
-      const positions=doc.accessors.filter((a:any)=>a.type==="VEC3");expect(Math.min(...positions.map((a:any)=>a.min[1]))).toBeCloseTo(0,5);
-      expect(readFileSync(resolve("../Assets/Art/Props",name+".glb.meta"),"utf8")).toContain("ConvertMetersToCentimeters: true");
+  // Run 9: the SPECS text-to-3D props replaced the Run 8 Art/Props meshes (3dcbd10).
+  it("uses real-scale GLBs with normals and centimeter conversion exactly once",()=>{
+    for(const name of ["Bookend","Candlestick","DeskLamp","Kettle","LetterKnife","MantelClock","MedicineBottle","Mug","Recorder"]){
+      const bytes=readFileSync(resolve("../Assets/Art/Props3D",name+".glb")),doc=JSON.parse(bytes.subarray(20,20+bytes.readUInt32LE(12)).toString());
+      const prims=doc.meshes.flatMap((m:any)=>m.primitives);expect(prims.every((p:any)=>p.attributes.NORMAL!==undefined),name+" normals").toBe(true);
+      // Real-world size in metres (the import converts to cm once); a dropped normalisation would read ~1 m.
+      const extent=Math.max(...[0,1,2].map(i=>Math.max(...prims.map((p:any)=>doc.accessors[p.attributes.POSITION].max[i]))-Math.min(...prims.map((p:any)=>doc.accessors[p.attributes.POSITION].min[i]))));
+      expect(extent,name+" size").toBeGreaterThan(.02);expect(extent,name+" size").toBeLessThan(.6);
+      expect(readFileSync(resolve("../Assets/Art/Props3D",name+".glb.meta"),"utf8")).toContain("ConvertMetersToCentimeters: true");
     }
   });
   it("keeps all actor floor marks distinct and computes clockwise order from those exact marks",()=>{

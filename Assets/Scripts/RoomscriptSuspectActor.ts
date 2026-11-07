@@ -1,21 +1,16 @@
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {GameState} from "./Engine/core/Types";
-import {ArtFrame,CharacterArt,FrameArt,characterArt,frameArt,frameSizeCm,stageHeights,StageHeights} from "./Content/ActorArt";
+import {ArtFrame,CharacterArt,FrameArt,actorArt,frameArt,frameSizeCm,stageHeights,StageHeights} from "./Content/ActorArt";
 import {castTexture} from "./RoomscriptCastTextures";
 const POSES=["neutral","listening","rattled","broken","smug","tell","tableau"];
 /** Paper-theatre presentation. Engine state selects posture; audio amplitude drives the mouth.
  * Run 9 (ART_2D): with the illustrated cast, the actor is a real-scale figure pivoted at the feet: a body layer
  * plus a sharp head layer drawn on top, a soft contact shadow, a breathing sway, a bob on speech and a lean
- * while gliding. Expressions and the lip flap swap textures only. CHARACTER_ART="line" keeps the Run 8 card.
+ * while gliding. Expressions and the lip flap swap textures only.
  */
 @component export class RoomscriptSuspectActor extends BaseScriptComponent {
   @ui.group_start("References")
   @input @hint("Puppet shader material") material:Material;
-  @input @hint("Neutral portrait") neutral:Texture;
-  @input @hint("Speaking portrait") listening:Texture;
-  @input @hint("Rattled portrait") rattled:Texture;
-  @input @hint("Broken portrait") broken:Texture;
-  @input @allowUndefined @hint("Smug reaction after an engine-rejected objection; neutral fallback") smug:Texture;
   @input @hint("Deterministic case owner") engine:RoomscriptEngineBridge;
   @input @hint("Player camera for facing") camera:SceneObject;
   @ui.group_end
@@ -28,7 +23,7 @@ const POSES=["neutral","listening","rattled","broken","smug","tell","tableau"];
   private samples=new Float32Array(1024);
   private alignment:{characters:string[];starts:number[];ends:number[]}|undefined;private playhead:(()=>number)|undefined;private character=0;
   // Run 9 illustrated figure.
-  private art:CharacterArt|null=null;private figure:SceneObject;private body:SceneObject;private head:SceneObject;private headSurface:Material;private headVisual:RenderMeshVisual;
+  private art:CharacterArt;private figure:SceneObject;private body:SceneObject;private head:SceneObject;private headSurface:Material;private headVisual:RenderMeshVisual;
   private shadow:SceneObject;private shownBody="";private shownHead="";private shownFrame:ArtFrame|null=null;private tellUntil=0;private frameOverride:ArtFrame|null=null;
   private lastPosition:vec3|null=null;private speed=0;private lean=0;private phase=0;private scratch=new vec3(0,0,0);
   setAlignment(alignment:{characters:string[];starts:number[];ends:number[]}|undefined,playhead:()=>number):void {this.alignment=alignment;this.playhead=playhead;this.character=0;}
@@ -45,16 +40,9 @@ const POSES=["neutral","listening","rattled","broken","smug","tell","tableau"];
     visual.mesh=b.getMesh();visual.mainMaterial=material;b.updateMesh();return visual;
   }
   private build():void {
-    this.surface=this.material.clone();this.art=characterArt(this.suspect);
+    this.surface=this.material.clone();this.art=actorArt(this.suspect);
     let seed=0;for(const c of this.suspect)seed=(seed*31+c.charCodeAt(0))%997;this.phase=seed/997*Math.PI*2;
-    if(!this.art){
-      const b=new MeshBuilder([{name:"position",components:3},{name:"normal",components:3},{name:"texture0",components:2}]);
-      b.topology=MeshTopology.Triangles;b.indexType=MeshIndexType.UInt16;
-      // Line card: 170 cm tall, grounded at the authored mark.
-      b.appendVerticesInterleaved([-42.5,0,0,0,0,1,0,0,42.5,0,0,0,0,1,1,0,42.5,170,0,0,0,1,1,1,-42.5,170,0,0,0,1,0,1]);
-      b.appendIndices([0,1,2,0,2,3]);this.visual=this.getSceneObject().createComponent("Component.RenderMeshVisual") as RenderMeshVisual;
-      this.visual.mesh=b.getMesh();this.visual.mainMaterial=this.surface;b.updateMesh();
-    }else{
+    {
       // Unit quads (x -0.5..0.5, y 0..1) scaled per frame, so frames with other canvases (the tableau) swap cleanly.
       this.figure=global.scene.createSceneObject("RoomscriptFigure_"+this.suspect);this.figure.setParent(this.getSceneObject());
       this.visual=this.quad(this.figure,"Figure body",this.surface,-.5,.5,0,1);this.body=this.visual.getSceneObject();
@@ -79,9 +67,7 @@ const POSES=["neutral","listening","rattled","broken","smug","tell","tableau"];
   private renderPose():void {
     const s=this.state?.suspects[this.suspect];if(!s||!this.surface||this.frozen)return;
     this.pose=this.captureOverride||(this.frameOverride?this.frameOverride:getTime()<this.tellUntil&&s.layer<2&&s.composure>0?"tell":s.layer>=2||s.composure<=0?"broken":s.layer>0||this.stress>=0.3?"rattled":getTime()<this.smugUntil?"smug":this.speaking?"listening":"neutral");
-    if(this.art){this.applyFrame(this.pose==="listening"?"speaking":this.pose as ArtFrame);return;}
-    const texture=this.pose==="broken"?this.broken:this.pose==="rattled"?this.rattled:this.pose==="listening"?this.listening:this.pose==="smug"?this.smug:this.neutral;
-    this.surface.mainPass.baseTex=texture||this.neutral;
+    this.applyFrame(this.pose==="listening"?"speaking":this.pose as ArtFrame);
   }
   /** Shows one illustrated frame: body texture and size, head layer texture and placement. */
   private applyFrame(frame:ArtFrame,headFrame?:ArtFrame):void {
@@ -105,11 +91,11 @@ const POSES=["neutral","listening","rattled","broken","smug","tell","tableau"];
   voice():string {this.engine.initialize();return this.engine.graphRef().cast.suspects.find(s=>s.id===this.suspect)?.voice || "onyx";}
   setVoice(track:AudioTrackAsset|null):void {this.track=track;this.setListening(!!track);this.alignment=undefined;if(!track)this.amplitude=0;}
   setAudioAmplitude(value:number):void {this.amplitude=Math.max(0,Math.min(1,value));}
-  diagnostics():{pose:string;stress:number;jaw:number;art:string;frame:string|null;head:string} {return {pose:this.pose,stress:this.stress,jaw:this.jaw,art:this.art?"illustrated":"line",frame:this.shownFrame,head:this.shownHead};}
+  diagnostics():{pose:string;stress:number;jaw:number;art:string;frame:string|null;head:string} {return {pose:this.pose,stress:this.stress,jaw:this.jaw,art:"illustrated",frame:this.shownFrame,head:this.shownHead};}
   /** Heights above the feet for staging (face, chin, token, subtitle...), from the art anchors. */
   heights():StageHeights {return stageHeights(this.suspect);}
   /** A board/newspaper portrait: the sharp head layer for the illustrated cast, else the line card. */
-  portrait():{texture:Texture;aspect:number} {if(this.art){const f=frameArt(this.art,"neutral"),t=f.head?castTexture(this.art.name+"/"+f.head):null;if(t)return {texture:t,aspect:1};}return {texture:this.neutral,aspect:.5};}
+  portrait():{texture:Texture;aspect:number} {if(this.art){const f=frameArt(this.art,"neutral"),t=f.head?castTexture(this.art.name+"/"+f.head):null;if(t)return {texture:t,aspect:1};}const body=castTexture(this.art.name+"/"+frameArt(this.art,"neutral").body);return {texture:body!,aspect:.5};}
   /** The current frame's art (for anchors such as the right hand), or null for the line card. */
   frameArt():FrameArt|null {return this.art?frameArt(this.art,this.shownFrame||"neutral"):null;}
   private update():void {
@@ -122,7 +108,6 @@ const POSES=["neutral","listening","rattled","broken","smug","tell","tableau"];
     else if(this.track){const control=this.track.control as FileAudioTrackProvider;
       if(control.isOfType("Provider.FileAudioTrackProvider")){const shape=control.getAudioFrame(this.samples);const count=Math.min(this.samples.length,Math.max(0,shape.x*shape.y));let square=0;for(let i=0;i<count;i++)square+=this.samples[i]*this.samples[i];this.amplitude=count?Math.min(1,Math.sqrt(square/count)*5):0;}}
     const dt=Math.max(.001,Math.min(getDeltaTime(),.1));this.jaw+=(this.amplitude-this.jaw)*Math.min(1,dt*18);
-    if(!this.art){const distanceDetail=this.captureOverride||this.speaking?0:Math.max(0,Math.min(1,(delta.length-200)/160));this.surface.mainPass.appearance=new vec4(this.stress,this.jaw,distanceDetail,0);return;}
     // Illustrated: the lip flap swaps only the head layer while the neutral speaking body stays.
     if(this.pose==="listening")this.applyFrame("speaking",this.jaw>.5?"mouthopen":this.jaw>.15?"speaking":"neutral");
     this.surface.mainPass.appearance=new vec4(this.stress,0,0,0);this.headSurface.mainPass.appearance=new vec4(this.stress,0,0,1);
