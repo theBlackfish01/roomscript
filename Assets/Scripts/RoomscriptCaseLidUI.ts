@@ -56,6 +56,8 @@ import {uiObject} from "./RoomscriptPanelUI";
   setCounters(minutes:number,pips:number,hunches:number):void {this.build();this.clock.text=minutes+" min";
     if(pips<this.pips){this.onSound?.("LensCrack");this.crackFlash=getTime()+.6;this.lens.getTransform().setLocalScale(vec3.one().uniformScale(1.5));}
     this.pips=pips;this.cracks.forEach((crack,i)=>crack.enabled=i<5-Math.max(0,pips));}
+  /** The glyph token root for an action ("Notebook", "Evidence", "Accuse"), for highlights that sit on it. */
+  tokenRoot(id:string):SceneObject|null {const token=this.tokens.find(t=>t.root.name===id||t.root.name.endsWith(id));return token?token.root:null;}
   setStatus(text:string):void {this.build();this.clock.text=text;}
   setTimeline(lines:string[]):void {}
   setMode(text:string):void {this.build();}

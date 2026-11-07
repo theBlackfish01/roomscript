@@ -79,3 +79,12 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 6. `docs/RUN9_REPORT.md`.
 - Keep Preview sessions short (audio memory growth); restart before long LEAF or capture batches.
 - Costs so far: OpenAI images $3.78 / $25, ElevenLabs 0, Claude API $0; SPECS text-to-3D free via Lens.
+
+## Session 2 (Sat Nov 7, from 14:12 PKT; Wadood restarted Lens Studio; restarts used this session: 0 of 3)
+
+Wadood's additions before phase 6: the cast is signed off (delete `Assets/Art/Actors`, CHARACTER_ART permanent); text collisions (subtitle across Vale and into the Ask token at 1.4 m; oversized cut-off opening caption); clean image-model paper textures (code draws all text); case board pictures for rooms and weapons and all four suspects; solid cable and letter knife; newspaper portrait and stats in a played-through capture.
+
+### 14:48 PKT — next-object glow verified
+- Three fixes found by the LEAF run: the glow waits for the furniture narration (`RoomscriptCastingController.running`); any block restarts the stall clock; `PlayerMoved` (dispatched about once a second) no longer counts as progress. Diagnostics now say why the glow is waiting.
+- LEAF strict: next-glow PASS 90.6 s (ring on S4 after 12 s idle, out on the question, then on O13); naive-player PASS 110.9 s, still 28 actions, verdict correct.
+- Captures: `docs/captures/2026-11-07-run9-next-glow-suspect.jpg`, `-next-glow-object.jpg`. Seen: storm rain falls inside the room in front of Pike; the KITCHEN chalk label crosses the sofa (both in step 3).

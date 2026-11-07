@@ -1,4 +1,5 @@
 import {RoomscriptRun8DustLeafScenario} from "./RoomscriptRun8DustLeafScenario";
+import {RoomscriptNextGlowLeafScenario} from "./RoomscriptNextGlowLeafScenario";
 import {RoomscriptRun9CancelPullLeafScenario} from "./RoomscriptRun9CancelPullLeafScenario";
 import {RoomscriptRun8PresentLeafScenario} from "./RoomscriptRun8PresentLeafScenario";
 import {RoomscriptRun8DirectorLeafScenario} from "./RoomscriptRun8DirectorLeafScenario";
@@ -66,6 +67,7 @@ export class RoomscriptLeafIndex extends BaseScriptComponent {
     {id:"roomscript-point-accuse",typename:RoomscriptPointAccuseLeafScenario.getTypeName()},
     {id:"roomscript-generated-cases",typename:RoomscriptGeneratedCaseLeafScenario.getTypeName(),parameters:{seed:"7",source:"recorded"}},
     {id:"roomscript-naive-player",typename:RoomscriptNaivePlayerLeafScenario.getTypeName()},
+    {id:"roomscript-next-glow",typename:RoomscriptNextGlowLeafScenario.getTypeName(),parameters:{hold:"0"}},
     {id:"roomscript-physical-memory",typename:RoomscriptPhysicalMemoryLeafScenario.getTypeName(),parameters:{ik:"false",hold:"false"}},
     {id:"roomscript-room-scan-probe",typename:RoomscriptRoomScanLeafScenario.getTypeName(),parameters:{view:"-1"}},
     {id:"roomscript-bundled-voices",typename:RoomscriptBundledVoiceLeafScenario.getTypeName()},

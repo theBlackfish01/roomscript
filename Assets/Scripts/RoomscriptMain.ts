@@ -24,6 +24,10 @@ import {RoomscriptEvidenceThreads} from "./RoomscriptEvidenceThreads";
 import {RoomscriptRoomBinding} from "./RoomscriptRoomBinding";
 import {RoomscriptObjectReplay} from "./RoomscriptObjectReplay";
 import {RoomscriptHandMoments} from "./RoomscriptHandMoments";
+import {RoomscriptNextGlow} from "./RoomscriptNextGlow";
+import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
+import {RoomscriptClosingController} from "./RoomscriptClosingController";
+import {RoomscriptCastingController} from "./RoomscriptCastingController";
 import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjectionController";
 /** Scene wiring only. Engine bridge will own all case state; UI receives values/events. */
 @component export class RoomscriptMain extends BaseScriptComponent {
@@ -38,7 +42,7 @@ import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjection
   @input @hint("Production question and speech flow") interrogation:RoomscriptInterrogationController;
   @ui.group_end
   storyMoments:RoomscriptStoryMoments;
-  caseBoard:RoomscriptCaseBoard;wren:RoomscriptWrenHints;
+  caseBoard:RoomscriptCaseBoard;wren:RoomscriptWrenHints;nextGlow:RoomscriptNextGlow;
   storm:RoomscriptWindowStorm;
   threads:RoomscriptEvidenceThreads;
   replays:RoomscriptObjectReplay;
@@ -71,6 +75,8 @@ import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjection
     {let objection:RoomscriptSpatialObjectionController|null=null;const find=(o:SceneObject):SceneObject|null=>{if(o.name==="RoomscriptObjection")return o;for(let i=0;i<o.getChildrenCount();i++){const f=find(o.getChild(i));if(f)return f;}return null;};const node=find(this.getSceneObject());if(node)objection=node.getComponent(RoomscriptSpatialObjectionController.getTypeName()) as RoomscriptSpatialObjectionController;
       if(roomBinding)this.hands=new RoomscriptHandMoments(this,this.engine,this.interrogation,roomBinding,objection,()=>this.storyMoments?.diagnostics().active==="blackout",()=>this.caseBoard?.root.enabled?this.caseBoard.root.getTransform().getWorldPosition():null,(cue,at)=>{if(at)this.audio.playAt(cue,at);else this.audio.play(cue);});}
     this.storyMoments=new RoomscriptStoryMoments(this,this.engine,this.interrogation,this.caseLid,this.audio);
+    this.nextGlow=new RoomscriptNextGlow(this,this.engine,this.interrogation,this.caseLid);
+    this.nextGlow.blocked=()=>RoomscriptOpeningController.current?.filmMode?"film":RoomscriptCastingController.current?.running?"casting":RoomscriptClosingController.current?.diagnostics().opened?"accusation":this.storyMoments?.diagnostics().active?"story "+this.storyMoments.diagnostics().active:this.notebook?.getSceneObject().enabled?"notebook":this.wallet?.getSceneObject().enabled?"evidence":"";
     this.storm.isBlackout=()=>this.storyMoments?.diagnostics().active==="blackout";
     this.notebook.onWren.add(()=>{this.notebook.show(false);void this.askWren("What do we know?");});
     const toast=uiObject(this.engine.player,"RoomscriptPeripheralToast");toast.getTransform().setLocalPosition(new vec3(25,-27,-110));this.toastText=new PanelUI(toast,35,7,1.15,new vec4(.25,.89,1,1),true,true).text("Toast","",5,"small");

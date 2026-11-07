@@ -28,6 +28,7 @@ const UNSET="";
 const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File deductions","Cancel accusation","Break seal"];
 /** Accusation UI submits the chosen cards; all reveal and rating data comes from the engine. */
 @component export class RoomscriptClosingController extends BaseScriptComponent {
+  static current:RoomscriptClosingController|null=null;
   @input @hint("Suggestion selection and shared presentation") clue:RoomscriptClueController;
   @input @hint("Persistent visible cast") cast:RoomscriptCastController;
   private panel:SceneObject;private title:Text;private body:Text;private labels:Text[];private controls:SceneObject;
@@ -51,7 +52,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   };
   onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
   private build():void {
-    if(this.panel)return;const flow=this.cast.flow;flow.engine.initialize();this.cast.room.initialize();const graph=flow.engine.graphRef();this.picked={who:graph.cast.suspects[0].id,where:UNSET,what:UNSET};
+    if(this.panel)return;RoomscriptClosingController.current=this;const flow=this.cast.flow;flow.engine.initialize();this.cast.room.initialize();const graph=flow.engine.graphRef();this.picked={who:graph.cast.suspects[0].id,where:UNSET,what:UNSET};
     this.buildRig();
     this.clue.objection.tells.audio.onNarrationSubtitle.add(({speaker,text})=>{if(this.phase==="reconstruction"&&this.frames[this.frame]?.kind==="resume"&&speaker==="NARRATOR")this.body.text=wrapText(text,40);});
     flow.engine.onState.add(state=>this.onState(state));flow.engine.onCaseChanged.add(()=>this.resetForCase());this.clue.objection.caseLid.onAction.add(action=>{if(action==="Accuse")this.open();});this.panel.enabled=false;

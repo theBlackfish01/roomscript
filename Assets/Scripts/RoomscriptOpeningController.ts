@@ -27,7 +27,8 @@ import {engraveCrate} from "./RoomscriptCrateArt";
   private chalk:SceneObject[]=[];private tape:SceneObject;private motes:SceneObject[]=[];private beam:SceneObject;
   private envelopeHome:vec3;private crateHome:vec3;private lastTick=0;private trace:string[]=[];
   private files:RoomscriptCaseFiles;private crateEngraved=false;private placement:SceneObject;private placementText:Text;private floorMarker:SceneObject;private floorOffset=0;private yaw=0;
-  onAwake():void {this.createEvent("OnStartEvent").bind(()=>{this.build();this.buildControlsHint();});this.createEvent("UpdateEvent").bind(()=>this.update());}
+  static current:RoomscriptOpeningController|null=null;
+  onAwake():void {RoomscriptOpeningController.current=this;this.createEvent("OnStartEvent").bind(()=>{this.build();this.buildControlsHint();});this.createEvent("UpdateEvent").bind(()=>this.update());}
   private build():void {
     this.cast.flow.initialize();this.cast.room.initialize();const graph=this.cast.flow.engine.graphRef();this.riffle=[...graph.room.zones.map(z=>z.clueName),...graph.room.objects.map(o=>o.label)];
     if(!this.subscribed){this.subscribed=true;this.cast.flow.engine.onState.add(state=>{this.verdict=!!state.verdict;this.syncClock();});this.cast.flow.engine.onCaseChanged.add(()=>this.resetForCase());}const room=this.cast.room,ink=this.clue.objection.tells.lightMaterial.clone();ink.mainPass.baseColor=new vec4(.91,.69,.29,1);

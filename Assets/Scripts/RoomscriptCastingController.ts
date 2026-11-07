@@ -6,9 +6,13 @@ type CastingBeat={index:number;id:string;text:string;position:number[];started:n
 /** One furniture label at a time. Saved observations never determine case truth. */
 @component export class RoomscriptCastingController extends BaseScriptComponent {
   @input @hint("Tracked camera for label orientation") camera:Camera;
+  static current:RoomscriptCastingController|null=null;
+  private runRevision=-1;
+  /** True while the furniture narration is still playing (presenters wait for it). */
+  get running():boolean {return this.began>=0&&!this.complete&&this.runRevision===this.revision;}
   private marks:SceneObject[]=[];private badges:Text[]=[];private active=-1;private complete=false;private revision=0;private room:RoomInput=EVENING_ROOM_SCAN;
   private began=-1;private finished=-1;private trace:CastingBeat[]=[];private fallback=0;private captureIndex=-1;private captureUntil=0;
-  onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());this.createEvent("OnDestroyEvent").bind(()=>{this.revision++;});}
+  onAwake():void {RoomscriptCastingController.current=this;this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());this.createEvent("OnDestroyEvent").bind(()=>{this.revision++;});}
   private objects(){return this.room.objects.filter(o=>!o.virtual);}
   private build():void {
     for(const object of this.objects()){const mark=uiObject(this.getSceneObject(),"RoomscriptScanMark_"+object.id);mark.getTransform().setWorldPosition(new vec3(object.pos[0],object.pos[1]+EVENING_ROOM_FLOOR_Y+12,object.pos[2]));
@@ -22,7 +26,7 @@ type CastingBeat={index:number;id:string;text:string;position:number[];started:n
     if(!played){this.fallback++;console.log("CASTING_CAPTION_FALLBACK|"+JSON.stringify({index:beat.index,id:beat.id}));const remaining=Math.max(0,2.4-(getTime()-beat.started));if(remaining>0)await this.delay(remaining);}
     beat.ended=getTime();console.log("CASTING_BEAT|"+JSON.stringify(beat));
   }
-  async begin(mode:"preset"|"dynamic"="preset",room:RoomInput=EVENING_ROOM_SCAN):Promise<void> {const revision=++this.revision;this.marks.forEach(o=>{if(!isNull(o))o.destroy();});this.marks=[];this.badges=[];this.room=room;this.build();this.active=-1;this.complete=false;this.captureIndex=-1;this.began=getTime();this.finished=-1;this.trace=[];this.fallback=0;
+  async begin(mode:"preset"|"dynamic"="preset",room:RoomInput=EVENING_ROOM_SCAN):Promise<void> {const revision=++this.revision;this.runRevision=revision;this.marks.forEach(o=>{if(!isNull(o))o.destroy();});this.marks=[];this.badges=[];this.room=room;this.build();this.active=-1;this.complete=false;this.captureIndex=-1;this.began=getTime();this.finished=-1;this.trace=[];this.fallback=0;
     const objects=this.objects();console.log("CASTING_BEGIN|"+JSON.stringify({mode,objects:objects.length,at:this.began,source:mode==="preset"?"recorded scan":"live scan"}));
     for(let i=0;i<objects.length;i++){if(revision!==this.revision)return;this.visible(i);try{RoomscriptAudio.active?.play("CastingChime");}catch{console.log("CASTING_CHIME_UNAVAILABLE");}const object=objects[i],role=object.type==="container"||object.type==="soft"?"a hiding place":object.type==="blunt"?"a possible weapon":"a witness",position=this.marks[i].getTransform().getWorldPosition();
       const beat:CastingBeat={index:i,id:object.id,text:"Your "+object.label+": "+role+".",position:[position.x,position.y,position.z],started:getTime(),ended:-1,spoken:false,nativeObserved:false};this.trace.push(beat);await this.say(beat.text,beat,revision);}
