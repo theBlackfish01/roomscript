@@ -54,3 +54,8 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 - Bug: the Preset board hung 40 cm under the floor since fix 6 (world height in a floor-local frame). Fixed and checked in memory-cards LEAF (`BOARD_HEIGHT_CHECK|136.0`).
 - LEAF strict: closing correct PASS 144.0 s (details via the stamp), memory-cards PASS. Captures: `-folders-v1.jpg`, `-newspaper-v1.jpg` (before the portrait and stats fix), `-corkboard-v1.jpg`, `-paper-textures.png`.
 - Restart 3 of 3 at 05:09. Preview audio grows the Windows audio engine (audiodg) by about 1 GB in 40 minutes; closing Lens frees it. No restarts left this run: keep sessions short and avoid long audio-heavy runs.
+
+### 05:24 PKT — composition, part 1
+- No doubled opening line; the accusation is tokens + seal (no stacked title/summary); real door tape (`docs/captures/2026-11-07-run9-door-tape-v2.jpg`).
+- LEAF strict: closing wrong PASS 52.8 s.
+- Run 10 note: the door-latch highlight (O8) floats mid-door, about 45 cm from the real handle; moving it changes an engine position (tapes), so it waits.

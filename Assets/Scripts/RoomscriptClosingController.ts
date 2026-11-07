@@ -31,7 +31,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   @input @hint("Persistent visible cast") cast:RoomscriptCastController;
   private panel:SceneObject;private title:Text;private body:Text;private labels:Text[];private controls:SceneObject;
   private picked:Hypothesis;private opened=false;private heldAt=-1;private phase="idle";private began=0;private frame=-1;
-  private frames:ReconstructionBeat[]=[];private summary:CitedSentence[]=[];private ghostMaterials=new Map<string,Material>();private holdUntil=0;private escapeActor:SceneObject;private escapeDoor:vec3;private sealLabel:Text;private ghosts=new Map<string,SceneObject>();private ghostScreens=new Map<string,ScreenTransform>();private ghostFrames=new Map<string,ArtFrame>();private exits:{actor:SceneObject;from:vec3;to:vec3;start:number;duration:number}[]=[];private resultText="";
+  private frames:ReconstructionBeat[]=[];private summary:CitedSentence[]=[];private ghostMaterials=new Map<string,Material>();private holdUntil=0;private escapeActor:SceneObject;private escapeDoor:vec3;private sealLabel:Text;private fileWord:Text;private ghosts=new Map<string,SceneObject>();private ghostScreens=new Map<string,ScreenTransform>();private ghostFrames=new Map<string,ArtFrame>();private exits:{actor:SceneObject;from:vec3;to:vec3;start:number;duration:number}[]=[];private resultText="";
   private escapeStart:vec3|null=null;private beam:SceneObject;private spot:SceneObject;private sealRing:SceneObject;private newspaper:RoomscriptNewspaper;private heldTime=0;
   private result:SceneObject;
   private details:SceneObject;private routeRoot:SceneObject;private route:RouteReplay;private routeText="";private sealedState:GameState;private sealedGraph:CaseGraph;
@@ -66,7 +66,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     const specs:[string,string,vec4][]=[["Accused suspect","name",new vec4(1,.94,.84,1)],["Accused room","where",new vec4(.247,.89,1,1)],["Accused weapon","lie",new vec4(1,.42,.35,1)]];
     this.labels=specs.map(([id,icon,ink],i)=>{const token=glyphButton(this.panel,id,15,5,()=>cycle(id),ink);token.set(glyphTexture(icon as any),"");token.root.getTransform().setLocalPosition(new vec3((i-1)*16.5,4,.6));return token.word;});
     const file=glyphButton(this.panel,"File deductions",15,4.4,()=>{if(this.phase!=="idle")return;for(const claim of availableArguments(flow.engine.graphRef(),flow.engine.snapshot()))flow.engine.dispatch({type:"ArgumentClaim",...claim});this.render();},new vec4(.91,.69,.29,1));
-    file.set(glyphTexture("noted"),"File proof");file.root.getTransform().setLocalPosition(new vec3(-16.5,-4,.6));
+    file.set(glyphTexture("noted"),"File proof");this.fileWord=file.word;file.root.getTransform().setLocalPosition(new vec3(-16.5,-4,.6));
     const cancel=glyphButton(this.panel,"Cancel accusation",15,4.4,()=>{if(this.phase==="idle"&&flow.engine.snapshot().verdict!=="timeout")this.close();});cancel.set(glyphTexture("ask"),"Not yet");cancel.root.getTransform().setLocalPosition(new vec3(16.5,-4,.6));
     // The wax seal: press your thumb in and hold.
     const seal=uiObject(this.panel,"Break seal");seal.getTransform().setLocalPosition(new vec3(0,-6,1));
@@ -117,7 +117,10 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
   private close():void {this.heldAt=-1;this.opened=false;this.panel.enabled=false;this.showInvestigation(true);}
   private render():void {
     const graph=this.cast.flow.engine.graphRef(),state=this.cast.flow.engine.snapshot();
-    this.title.text=state.verdict==="timeout"?"TIME IS UP — ONE ACCUSATION":"FINAL ACCUSATION";
+    // Run 9 (not a stacked panel): while choosing, the tokens, the seal prompt and the proof count on its token
+    // carry everything; the title shows only when time is up. Reconstruction and details turn them back on.
+    this.title.text=state.verdict==="timeout"?"TIME IS UP — ONE ACCUSATION":"FINAL ACCUSATION";this.title.getSceneObject().enabled=state.verdict==="timeout";this.body.getSceneObject().enabled=false;
+    if(this.fileWord)this.fileWord.text="Proof "+state.arguments.length+"/"+graph.requiredDeductions.length;
     this.labels[0].text=graph.cast.suspects.find(s=>s.id===this.picked.who)!.name.split(" ").slice(-1)[0];this.labels[1].text=graph.room.zones.find(z=>z.id===this.picked.where)?.clueName||"?";this.labels[2].text=graph.room.objects.find(o=>o.id===this.picked.what)?.label.split(/\s+/).slice(-1)[0]||"?";if(this.heldAt<0)this.sealLabel.text=this.sealPrompt();
     this.body.text=state.arguments.length+" / "+graph.requiredDeductions.length+" proof filed · point · hold the seal";
   }
@@ -212,7 +215,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     if(detail.time){this.dialFrom=this.dialTo.slice();this.dialTo=[detail.hourRadians,detail.minuteRadians];this.dialStarted=getTime();}
     for(const slip of this.claimSlips){slip.root.enabled=kind==="claims"||kind==="correction";slip.root.getTransform().setLocalPosition(slip.home);slip.root.getTransform().setLocalScale(vec3.one());slip.material.mainPass.baseColor=new vec4(.247,.89,1,.9);slip.ashes.forEach(ash=>ash.enabled=false);}
     this.ledgerRows=detail.ledger.length;
-    if(kind==="ledger"){this.title.text="YOUR DEDUCTIONS";this.body.text=detail.ledger.map(row=>(row.filed?"✓ ":"○ ")+row.label+(row.filed?"":" — unfiled")).join("\n");}
+    if(kind==="ledger"){this.title.getSceneObject().enabled=true;this.body.getSceneObject().enabled=true;this.title.text="YOUR DEDUCTIONS";this.body.text=detail.ledger.map(row=>(row.filed?"✓ ":"○ ")+row.label+(row.filed?"":" — unfiled")).join("\n");}
   }
   private animateReconstructionDetails():void {
     if(this.dial?.enabled){const t=Math.min(1,Math.max(0,(getTime()-this.dialStarted)/.8));this.dialHour.getTransform().setLocalRotation(quat.angleAxis(-(this.dialFrom[0]+(this.dialTo[0]-this.dialFrom[0])*t),vec3.forward()));this.dialMinute.getTransform().setLocalRotation(quat.angleAxis(-(this.dialFrom[1]+(this.dialTo[1]-this.dialFrom[1])*t),vec3.forward()));}
@@ -254,6 +257,7 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     const elapsed=getTime()-this.began;let total=0,index=0;for(;index<this.frames.length-1;index++){total+=this.frames[index].durationSeconds;if(elapsed<total)break;}
     if(this.escapeStart){this.escapeActor.getTransform().setWorldPosition(vec3.lerp(this.escapeStart,this.escapeDoor,Math.min(1,elapsed/4)));if(elapsed>=4)this.escapeActor.enabled=false;}
     if(index!==this.frame){this.frame=index;const beat=this.frames[index],graph=this.sealedGraph;if(this.holdKind&&beat.kind===this.holdKind){this.holdUntil=getTime()+this.holdSeconds;this.holdKind="";}
+      this.title.getSceneObject().enabled=true;this.body.getSceneObject().enabled=true;
       this.title.text=beat.kind==="freeze"?beat.time+" — THE TRUTH":beat.kind==="stamp"?beat.caption:"RECONSTRUCTION / "+beat.kind.toUpperCase();
       this.body.text=wrapText(beat.kind==="correction"||beat.kind==="freeze"?this.routeText:beat.kind==="resume"?this.summary.filter(line=>!line.speaker)[0]?.text||beat.caption:beat.caption,40);
       const marks=this.presentationMarks(beat,graph);

@@ -1,3 +1,4 @@
+import {paperQuad,INK} from "./RoomscriptPaper";
 import {RoomscriptCastController} from "./RoomscriptCastController";
 import {RoomscriptClueController} from "./RoomscriptClueController";
 import {RoomscriptCaseCrate} from "./RoomscriptCaseCrate";
@@ -33,14 +34,16 @@ import {engraveCrate} from "./RoomscriptCrateArt";
     if(!this.crateEngraved){this.crateEngraved=true;engraveCrate(this.crate.getSceneObject(),this.clue.objection.tells.lightMaterial);}
     // Run 8: one caption line above the crate; the two case files replace the mode buttons and pull tab.
     this.panel=uiObject(this.crate.getSceneObject(),"RoomscriptOpeningCard");this.panel.getTransform().setLocalPosition(new vec3(card.position[0],card.position[1]+12,card.position[2]-18));
-    this.caption=flatText(this.panel,"Opening cue","Listen at the door.",4.2,new vec4(1,.94,.84,1),"body",70,6);
+    this.caption=flatText(this.panel,"Opening cue","",4.2,new vec4(1,.94,.84,1),"body",70,6);
     const mode=this.cast.flow.engine.mode()==="preset"?"preset":"dynamic";
     this.files=new RoomscriptCaseFiles(this,this.crate.getSceneObject(),ink,mode,chosen=>this.chooseFile(chosen),cue=>this.clue.objection.tells.audio.play(cue));
     this.tab=this.files.root;this.tab.enabled=false;
     const doorObject=graph.room.objects.find(o=>o.type==="door"),door=doorObject?room.objectAnchor(doorObject.id):room.zoneAnchor(graph.room.zones[0].id);// Run 8 (wow 1): crime-scene tape across the real doorway, in the door wall plane, facing into the room.
     {const tapeInk=ink.clone();tapeInk.mainPass.baseColor=new vec4(1,.84,.04,1);this.tape=global.scene.createSceneObject("RoomscriptDoorTape");this.tape.setParent(door);
-      worldLines(this.tape,"Tape band A",[[new vec3(-48,-38,3),new vec3(48,8,3)]],tapeInk,6);worldLines(this.tape,"Tape band B",[[new vec3(-48,6,3.5),new vec3(48,-40,3.5)]],tapeInk,6);
-      const word=flatText(this.tape,"Tape words","DO NOT CROSS  ·  CRIME SCENE",3.2,new vec4(1,.84,.04,1),"title",80,4.4);word.getSceneObject().getTransform().setLocalPosition(new vec3(-2,-9,4.2));word.getSceneObject().getTransform().setLocalRotation(quat.fromEulerAngles(0,0,Math.atan2(46,96)));
+      // Run 9: real tape, not an X: two opaque yellow strips across the doorway with the words printed in black.
+      const band=(name:string,y:number,z:number,angle:number)=>{const strip=paperQuad(this.tape,name,"PhotoPaper",104,6.4,new vec3(0,y,z),new vec4(1,.84,.04,1)).object;strip.getTransform().setLocalRotation(quat.fromEulerAngles(0,0,angle));
+        const words=flatText(strip,"Tape words","CRIME SCENE  ·  DO NOT CROSS  ·  CRIME SCENE",2.8,INK.black,"title",100,5);words.getSceneObject().getTransform().setLocalPosition(new vec3(0,0,.3));};
+      band("Tape band A",-2,3,.04);band("Tape band B",-24,3.6,-.11);
       const d=door.getTransform().getWorldPosition(),toward=new vec3(-d.x,0,-300-d.z);if(toward.length>1)this.tape.getTransform().setWorldRotation(quat.lookAt(toward.normalize(),vec3.up()));}this.tape.enabled=false;
     // Run 8: the chalk outline lies on measured free floor in front of the console (Preset), facing along the console.
     const preset=this.cast.flow.engine.mode()==="preset",body=preset?(()=>{const o=global.scene.createSceneObject("RoomscriptChalkBody");o.setParent(room.getSceneObject());o.getTransform().setLocalPosition(new vec3(22,0,-405));o.getTransform().setLocalRotation(quat.fromEulerAngles(0,Math.PI/2,0));o.getTransform().setLocalScale(vec3.one().uniformScale(.62));this.fixtures.push(o);return o;})():room.zoneAnchor("Z1"),path=[[-35,-20],[-20,-10],[-15,15],[-25,25],[-23,40],[-10,45],[0,40],[2,25],[15,15],[20,-10],[35,-20],[25,-28],[8,-15],[8,-55],[20,-78],[12,-84],[-2,-62],[-8,-40],[-16,-62],[-28,-80],[-35,-74],[-20,-52],[-20,-15],[-35,-20]];
@@ -94,7 +97,7 @@ import {engraveCrate} from "./RoomscriptCrateArt";
     }
     if(this.phase==="boot")return;const t=getTime()-this.began,audio=this.clue.objection.tells.audio,room=this.cast.room;
     if(this.phase==="knocks"){
-      if(t>=this.nextBeat){const step=++this.step;this.nextBeat=t+.65;const exit=room.toWorld(caseExitPosition(this.cast.flow.engine.graphRef()));if(step<3){audio.playAt("Knock",exit);this.beat("knock");}if(step===3){this.tape.enabled=true;audio.playAt("TapeZip",exit);this.caption.text="Nobody leaves.";this.beat("tape");}if(step>=5){audio.playAt("CrateThud",this.crate.getTransform().getWorldPosition());this.phase="tab";this.tab.enabled=true;this.caption.text="Pick a file. Pull it open.";this.beat("crate");}}
+      if(t>=this.nextBeat){const step=++this.step;this.nextBeat=t+.65;const exit=room.toWorld(caseExitPosition(this.cast.flow.engine.graphRef()));if(step<3){audio.playAt("Knock",exit);this.beat("knock");}if(step===3){this.tape.enabled=true;audio.playAt("TapeZip",exit);this.beat("tape");/* the narrator says "Nobody leaves.": subtitle only */}if(step>=5){audio.playAt("CrateThud",this.crate.getTransform().getWorldPosition());this.phase="tab";this.tab.enabled=true;this.caption.text="Pick a file. Pull it open.";this.beat("crate");}}
     }else if(this.phase==="reveal"){
       const target=Math.floor(t);
       // A stalled frame (native audio can block ~1 s) must not skip beats: play every missed step in order.
