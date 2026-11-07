@@ -29,7 +29,6 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     cast: false
-    clue: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -39,11 +38,9 @@
   Attachments:
     []
   DefaultScriptInputs:
-    - clue: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
-      cast: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+    - cast: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    - '// @input AssignableType_1 clue {"hint":"Suggestion selection and shared presentation"}'
-    - '// @input AssignableType_2 cast {"hint":"Persistent visible cast"}'
+    - // @input AssignableType_1 cast

@@ -29,13 +29,11 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     actor: false
-    chips: false
     client: false
     engine: false
     questions: false
     subtitles: false
     tts: false
-    verbs: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -49,10 +47,8 @@
       client: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
       tts: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
       actor: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
-      chips: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
-      verbs: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
-      subtitles: !<MappingBased.AssignableType_7> 00000000-0000-0000-0000-000000000000
-      questions: !<MappingBased.AssignableType_8> 00000000-0000-0000-0000-000000000000
+      subtitles: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+      questions: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -61,7 +57,5 @@
     - '// @input AssignableType_2 client {"hint":"Gateway transport"}'
     - '// @input AssignableType_3 tts {"hint":"Sentence audio player"}'
     - '// @input AssignableType_4 actor {"hint":"Current suspect actor"}'
-    - '// @input AssignableType_5 chips {"hint":"Question chip UI"}'
-    - '// @input AssignableType_6 verbs {"hint":"Canonical statement and verbs"}'
-    - '// @input AssignableType_7 subtitles {"hint":"Speaker-local subtitles"}'
-    - '// @input AssignableType_8 questions {"hint":"Free question draft and correction"}'
+    - '// @input AssignableType_5 subtitles {"hint":"Speaker-local subtitles"}'
+    - '// @input AssignableType_6 questions {"hint":"Free question draft and correction"}'

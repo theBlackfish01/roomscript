@@ -14,10 +14,11 @@
 - [x] Preflight, compile, strict interrogation handshake.
 - [x] Checkpoint Run 9 and push run9-end; commit redesign instructions/prompt.
 - [x] Speech arbiter, no interruption, steady row, silence mechanics; strict audio/row LEAF + captures; run10-fixes.
-- [ ] Remap, find/ask/show/accuse, opening, remove retired flow; solver/fuzz/vitest + naive player + captures; run10-loop.
-- [ ] Script, aligned voices, matching subtitles in Preview; generated-case fallback.
-- [ ] Director captures, measured export, video plan, integrated LEAF, hero tape, history scan; m3-case only if passed.
-- [ ] RUN10_REPORT.md against every Done when criterion.
+- [x] Remap, find/ask/show/accuse, opening, remove retired flow; solver/fuzz/vitest + naive player + captures; run10-loop.
+- [x] Script, aligned voices, matching subtitles in Preview; generated-case fallback.
+- [x] Director captures, video plan, integrated LEAF and exact hero tape. History/push closeout below.
+- [ ] Actual export blocked by packageId; m3-case withheld.
+- [x] RUN10_REPORT.md against every Done when criterion.
 
 ## Session handshake — Nov 8, approximately 01:11 PKT
 - Branch master at 56aaa73 plus documented Run 9 leftovers.
@@ -30,7 +31,7 @@
 - User explicitly authorizes checkpoint pushes and budgets, superseding older no-push instructions.
 
 ## Costs this run
-- ElevenLabs:557 credits (shared ledger merged); OpenAI images:$0; Claude API:$0.
+- ElevenLabs:609 credits (shared ledger merged); OpenAI images:$0; Claude API:$0.
 
 ## Needs Wadood
 - Actual lens packaging previously required a registered package ID. Recheck at size gate; do not claim raw asset totals are exported size.
@@ -68,3 +69,55 @@
 - Accepted row image: docs/captures/2026-11-08-run10-row-v4.jpg. Before: docs/captures/2026-11-07-run9-vale-1p4m-v2.jpg; v3 documents rejected tiny text.
 - Phase1 includes aligned speech imports early because per-speaker dialogue captions required them. Full-play audio gate remains phase2/final work.
 - Preview paused. Restarts2/4. New content/CaughtReplay are prepared but not yet wired or included in the fixes checkpoint.
+
+### Phase2 integration — approximately02:20 PKT
+- Rewrote physical Find, shared row choice expansion, simplified typed question, single case file opening, persistent cast, successful-catch ghost, Pike flight and one-pinch accusation→reaction→frozen truth→newspaper. Generated cases deferred behind Another case? note; Replay Harlow offered.
+- Reparented four retained crate children and deleted obsolete scene systems through VirtualScene. Removed19 unused production adapters and metadata. LEAF worker is migrating retained gates and retiring removed-feature scenarios.
+- Run10 content focused solver/replay64seed fuzz6/6, CaughtReplay16/16, ShowItem6/6 passed offline. Full suite underway with Preview paused. No new Preview acceptance yet.
+- Imported final4 aligned dismissal clips;26total,609 ElevenLabs credits; no images/Claude spend. Restarts remain2/4.
+
+### Restart3/4 — 02:18 PKT
+- Phase2 compile succeeded. Saved scene; PID26852 graceful close returned true and exited normally. Relaunched project for strict full-loop/capture batch. No force used.
+
+### First strict fullplay — 02:18 PKT
+- Restart3 PID16268 (actual start02:16:10), project/auth confirmed. roomscript-naive-player fail-fast passed87.197s:25pinches,0drags/holds,firstanswer13.58s,correct verdict,105engine minutes,5pips. Exact action replay matched.
+- Fullplay audio:1110samples,0subtitle mismatches,0native overlapframes,0TTS earlyends. Every speech start/end is saved in Tooling/results/run10-fullplay-audio.json; source action tape in run10-hero-action-tape.json.
+- Initial visual check rejected cast staging: :run10 suffix bypassed measured free-floor predicate. Fixed with focused6/6 regression. Frozen truth renders signed-off culprit/victim art; newspaper needs a downward viewing angle for full-page capture.
+- Read-only review prompted serialized Ask/Show intents, spatial dialogue/dismissals, guaranteed opening intro and timeout/final-accusation handling. Preview paused during these corrections; rerun gates after edits.
+- Package size recheck: CLAD package.ts returned ACTION_REQUIRED missing_submission_metadata because packageId is empty. Cannot truthfully report exported size yet.
+
+### 02:38 PKT — muted capture recovery
+- Director row and corrected Show pass visually, saved final images. Where staging failed132.4s with speech-idle timeout during muted N10_LETTER. Lens responsive; audiodg606MB. Preview paused, asset writes settled.
+- Muted narration/TTS now use timed captions without opening native speech streams; the audio gates still explicitly unmute and inspect native completions. Added narrator early-end audit and native-start wait for TTS. Final allowed restart4 planned before retest.
+- Corrected ConvertSvg outputFolder double Assets prefix via asset_graphql moveAsset; shipped paper thumbnail paths now match requireAsset.
+- Full offline suite after retirement/staging corrections:85files,655tests PASS in45.45s at02:38:42. Includes200generated cases,1000historical random players,64remapped-case seeds and exact Run10 solver/replay proofs.
+- Full reachable history scan at fixes HEAD:122commits,7366blobs,193276980bytes,zero findings in20.62s; final-HEAD rerun required after commit.
+
+### Restart4/4 — 02:40 PKT
+- Saved after compile, closed PID16268 gracefully (true/exitedtrue), no force. Lens remains closed during full5000-case fuzz. Relaunch before remaining exclusive Preview batch; restart budget exhausted after this relaunch.
+
+- Full 5000-case compiler fuzz passed all five fixtures (1000 each), acceptance100%, zero failures, max153.64ms; six tests passed135.63s. Final Preview relaunch follows.
+
+- Restart4 relaunched PID28796 at02:44:28. MCP startup initially returned Tool not found while plugins loaded; settled and confirmed correct project/isAuthorized=true. No force,4/4 used. Final compile/Preview batch running.
+
+### Final audio audit correction — 02:50 PKT
+- Expanded audio-overlap first failed narrator early-end audit: native EOF leaves a stale stopped position (observed1.98/2.15 for2.48s clips). Files/manifests checked; no shortened exports. Both playback waiters now retain high-water progress and require native finish callback for a short stopped position; explicit reset/cancel remains distinguished.
+- Latest unmuted audio-overlap PASS, including walking800cm away and queued Ask/Object/Ask, zero overlaps/caption mismatches. Row-stability PASS. Preview boundary/fullplay/captures ongoing.
+
+### Full play and Director acceptance — approximately03:08 PKT
+- Latest full unmuted naive-player PASS107.748s:25pinches, first answer13.417s, correct verdict105minutes/5pips,967caption samples,0mismatches/overlaps/TTS or narrator premature ends;34start/end events. Exact captured graph and76actions saved.
+- Boundary test PASS after retaining the replay pinch target; typed interrogation PASS.
+- Director opening, row, Show, caught ghost, Where and frozen murder accepted. Paper audit rejected floating certificate and overhanging page footprints, corrected to measured console supports; debt/certificate final images accepted. Fullplay/tape will be refreshed for final paper positions. Newspaper capture ongoing.
+
+### Native seek stall —03:14 PKT
+- Latest fullplay stalled at N10_DEBT and reported a60s native completion timeout. audiodg~1063MB, Lens responsive, restart budget exhausted. Preview paused. Earlier107.748s fullplay passed, but this rerun is not counted as a pass.
+- Removed unnecessary post-play seeks from complete per-line narration/TTS assets; alignment still subtracts the authored leading-silence offset. Files remain complete, preserving the whole line. Retesting without a fifth restart.
+
+- Post-seek-removal audio-overlap PASS, but fullplay again stalled on N10_DEBT (163.418s fail). The prior seek change was insufficient. Testing a lossless PCM derivative of this exact take, no regeneration/extra cost, with the note included in audio-overlap regression. No additional restart.
+
+### Final marked-runtime gate —03:37 PKT
+- Explicit pause→compile→refresh→resume, confirmed RUN10_AUDIO_BUILD|pcm-note-native-finish. Native completion now honors the finish callback even if Windows still reports playing; complete files avoid post-play seeks. Expanded audio-overlap including PCM debt note PASS.
+- Final full unmuted naive-player PASS131.844s:25pinches,0drags/holds, first answer16.287s, correct verdict105minutes/5pips,879caption samples,0mismatches,0native overlaps,0narrator/TTS early ends,34speech start/end events. Both previously stalling observations completed.
+- Newspaper portrait layering/aspect fixed; final capture accepted with real2catches/10items/1question/105minutes. All seven Director views accepted. Preview paused and project saved;4/4 graceful restarts, no force.
+- Engine/content focused final check34/34 passed after paper footprint corrections. Full655-test suite and5000-case fuzz remain green; no engine logic changed after them.
+- Final exact graph/action capture: Tooling/results/run10-final-fullplay.json and run10-final-hero-capture.log. Git/tape/history/report closeout follows.

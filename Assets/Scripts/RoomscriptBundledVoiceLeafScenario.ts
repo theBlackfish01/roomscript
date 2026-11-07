@@ -8,7 +8,7 @@ import {RoomscriptInterrogationController} from "./RoomscriptInterrogationContro
   async run():Promise<void>{await enterCase();const flow=findSceneObjectByName("RoomscriptInterrogation").getComponent(RoomscriptInterrogationController.getTypeName()) as RoomscriptInterrogationController;
     flow.client.stageMode=true;const calls=flow.client.requestCount();let lines=0,peak=0,maxStart=0;
     const remove=flow.tts.onAudioStarted.add(e=>{expect(e.voice.startsWith("bundle:")).toBe(true);maxStart=Math.max(maxStart,e.latencyMs);lines++;});
-    try{for(const id of ["S1","S2","S3","S4"]){flow.selectSuspect(id);const old=flow.tts.diagnostics();const pending=flow.askChip("baseline:name");let frames=0;
+    try{for(const id of ["S1","S2","S3","S4"]){flow.selectSuspect(id);const old=flow.tts.diagnostics();const pending=flow.askChip("where@22:30");let frames=0;
       while(flow.diagnostics().busy&&frames++<1200){await nextFrame();peak=Math.max(peak,flow.actor.diagnostics().jaw);}
       await pending;expect(flow.tts.diagnostics().played>old.played).toBe(true);expect(flow.tts.diagnostics().fallback).toBe(old.fallback);
     }expect(lines>=4).toBe(true);expect(peak>.3).toBe(true);expect(flow.client.requestCount()).toBe(calls);console.log("BUNDLED_VOICE_CHECK|"+JSON.stringify({lines,peak,maxStart,calls:flow.client.requestCount()-calls,fallback:flow.tts.diagnostics().fallback}));}

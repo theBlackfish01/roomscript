@@ -14,6 +14,8 @@ const WREN_INK=new vec4(.247,.89,1,1);
   @input('vec4','{1,0.94,0.84,1}') @hint("Subtitle ink") @widget(new ColorWidget()) ink:vec4;
   /** Two rows of up to 22 characters at about 2.4 cm cap height: about 28 cm wide, readable at 1.4 m. */
   readonly maxChars=22;readonly rows=2;readonly lineWidth=30;
+  private suppressed=false;
+  setSuppressed(value:boolean):void{if(this.suppressed===value)return;this.suppressed=value;if(this.line)this.show();}
   private line:Text;private presentation=new SubtitlePresentation();private shown="";private holdUntil=0;
   /** Voices without a body (Wren, narrator, the detective, suggestions) use one head-locked line low in view. */
   private companion:Text;private companionRoot:SceneObject;private bodiless=false;
@@ -43,7 +45,7 @@ const WREN_INK=new vec4(.247,.89,1,1);
   /** Also decided on every text change: during the opening this object is disabled, so its update never runs. */
   private pickTarget():"line"|"slot"|"companion" {return this.slot&&this.inView(this.slot.getSceneObject())?"slot":this.inView(this.getSceneObject())?"line":"companion";}
   private releaseSlot():void {if(this.slotOwned&&this.slot&&!isNull(this.slot))this.slot.text=this.slotSaved;this.slotOwned=false;}
-  private show():void {if(this.bodiless)this.target=this.pickTarget();const target=this.bodiless?this.target:"line";
+  private show():void {if(this.suppressed&&getTime()>=this.holdUntil){this.releaseSlot();this.line.text="";if(this.companion)this.companion.text="";return;}if(this.bodiless)this.target=this.pickTarget();const target=this.bodiless?this.target:"line";
     if(target==="slot"&&this.shown&&this.slot){if(!this.slotOwned){this.slotSaved=this.slot.text;this.slotOwned=true;}this.slotWritten=this.shown;this.slot.text=this.shown;}else this.releaseSlot();
     this.line.text=target==="line"?this.shown:"";this.line.textFill.color=this.bodiless?WREN_INK:this.ink||new vec4(1,.94,.84,1);if(this.companion)this.companion.text=target==="companion"?this.shown:"";}
   private route(speaker:string):void {this.lastRaw=null;this.bodiless=BODILESS.includes((speaker||"").toUpperCase());this.nextPlace=0;this.target="companion";if(this.bodiless&&!this.companion)this.buildCompanion();}

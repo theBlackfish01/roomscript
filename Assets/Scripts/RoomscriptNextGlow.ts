@@ -1,6 +1,6 @@
+import {RUN10_FIND_OBJECTS} from "./Content/Run10HeroCase";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
-import {RoomscriptCaseLidUI} from "./RoomscriptCaseLidUI";
 import {GameState} from "./Engine/core/Types";
 import {circleEdges,lineTubes,tinted} from "./RoomscriptLineArt";
 import {BRASS} from "./RoomscriptGlyphUI";
@@ -17,7 +17,7 @@ export class RoomscriptNextGlow {
   blocked:()=>string=()=>"";
   private state:GameState|null=null;private lastSeq=-1;private lastChange=0;private nextPick=0;
   private ring:SceneObject;private lidRing:SceneObject;private target:{kind:NextGlowKind;id:string}|null=null;private visuals=new Map<string,SceneObject|null>();private reason="";private resetBy="";
-  constructor(owner:BaseScriptComponent,private engine:RoomscriptEngineBridge,private interrogation:RoomscriptInterrogationController,private lid:RoomscriptCaseLidUI){
+  constructor(owner:BaseScriptComponent,private engine:RoomscriptEngineBridge,private interrogation:RoomscriptInterrogationController){
     RoomscriptNextGlow.current=this;
     const material=tinted(requireAsset("../Materials/RoomscriptCyan.mat") as Material,BRASS);
     this.ring=global.scene.createSceneObject("RoomscriptNextGlow");
@@ -47,7 +47,7 @@ export class RoomscriptNextGlow {
       if(!this.target||this.target.kind!==pick.kind||this.target.id!==pick.id){this.target=pick;console.log("NEXT_GLOW|"+pick.kind+"|"+pick.id);}}
     if(!this.target){this.hide();return;}
     const pulse=1+.08*Math.sin(getTime()*3.2);
-    if(this.target.kind==="accuse"){const token=this.lid.tokenRoot("Accuse");this.ring.enabled=false;if(!token||!token.isEnabledInHierarchy){this.lidRing.enabled=false;return;}
+    if(this.target.kind==="accuse"){const token=this.interrogation.row.actionRoot("Accuse");this.ring.enabled=false;if(!token||!token.isEnabledInHierarchy){this.lidRing.enabled=false;return;}
       if(this.lidRing.getParent()!==token){this.lidRing.setParent(token);this.lidRing.getTransform().setLocalPosition(new vec3(0,0,.3));this.lidRing.getTransform().setLocalRotation(quat.quatIdentity());}
       this.lidRing.getTransform().setLocalScale(vec3.one().uniformScale(pulse));this.lidRing.enabled=true;return;}
     this.lidRing.enabled=false;
@@ -62,8 +62,8 @@ export class RoomscriptNextGlow {
     const suspectAt=(id:string)=>{const a=this.interrogation.actorFor(id);return a&&a.getSceneObject().isEnabledInHierarchy?a.getTransform().getWorldPosition():null;};
     const unheard=graph.cast.suspects.filter(s=>!heard.has(s.id));
     if(state.notebook.length===0){const s=nearest(unheard,s=>suspectAt(s.id));return s?{kind:"suspect",id:s.id}:null;}
-    if(state.arguments.length>=graph.requiredDeductions.length)return {kind:"accuse",id:"Accuse"};
-    const objects=new Set(graph.room.objects.map(o=>o.id)),known=new Set(state.knowledge.evidenceIds);
+    if(state.suspects.S2?.layer>=2&&["E_CABLE","E_LETTER","E_RECORDING","E_KETTLE_COLD"].every(id=>state.knowledge.evidenceIds.includes(id)))return {kind:"accuse",id:"Accuse"};
+    const objects=new Set(graph.room.objects.filter(o=>RUN10_FIND_OBJECTS.includes(o.id)).map(o=>o.id)),known=new Set(state.knowledge.evidenceIds);
     const unseen=graph.evidence.filter(e=>!e.latent&&objects.has(e.holder)&&!known.has(e.id)).map(e=>e.holder);
     const o=nearest([...new Set(unseen)],id=>this.objectAt(id));if(o)return {kind:"object",id:o};
     const s=nearest(unheard,s=>suspectAt(s.id));if(s)return {kind:"suspect",id:s.id};

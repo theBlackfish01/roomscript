@@ -1,59 +1,27 @@
-import {RoomscriptWrenHints} from "./RoomscriptWrenHints";
-import {ghostArt,ghostImage,GHOST_TINT} from "./RoomscriptGhostArt";
+
+import {caughtReplay,CaughtReplay} from "./Engine/game/CaughtReplay";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
 import {RoomscriptRoomBinding} from "./RoomscriptRoomBinding";
-import {objectReplay,ReplayVignette} from "./Engine/game/ObjectReplay";
-import {lineTubes,circleEdges,flatText,tinted} from "./RoomscriptLineArt";
-import {iconImage} from "./RoomscriptGlyphUI";
-import {GameState} from "./Engine/core/Types";
-/** Run 8 wow 3: objects replay what they saw. A newly collected memory blooms into a ~5 s, real-scale
- * ghost vignette at the object, built only from objectReplay() (that memory's own engine facts). */
-/** A memory that records no person is not proof the place was empty: only say so when the memory does. */
-const SAYS_EMPTY=/(no one|nobody|empty|no beat|no sign of anyone)/i;
-const GHOST:Record<string,string>={S1:"Qadir",S2:"Vale",S3:"Okafor",S4:"Pike"};
+import {ghostArt,ghostImage,GHOST_TINT} from "./RoomscriptGhostArt";
+import {chalkSpot} from "./Content/ChalkSpots";
+import {RoomscriptAudio} from "./RoomscriptAudio";
+/** A caught lie earns one five-second ghost, after the next account has finished. */
 export class RoomscriptObjectReplay {
-  private known=new Set<string>();private queue:ReplayVignette[]=[];private active:{root:SceneObject;began:number;figures:SceneObject[];rings:SceneObject[]}|null=null;private line:Material;
-  constructor(owner:BaseScriptComponent,private engine:RoomscriptEngineBridge,private flow:RoomscriptInterrogationController,private room:RoomscriptRoomBinding,private sound:(cue:string,at:vec3)=>void){
-    this.line=requireAsset("../Materials/RoomscriptCyan.mat") as Material;this.known=new Set(engine.snapshot().knowledge.evidenceIds);
-    engine.onState.add(state=>this.accept(state));engine.onCaseChanged.add(()=>{this.stop();this.queue=[];this.known=new Set(engine.snapshot().knowledge.evidenceIds);});
-    owner.createEvent("UpdateEvent").bind(()=>this.update());
-  }
-  private accept(state:GameState):void {
-    if(state.verdict)return;const graph=this.engine.graphRef();
-    for(const id of state.knowledge.evidenceIds){if(this.known.has(id))continue;this.known.add(id);
-      const evidence=graph.evidence.find(e=>e.id===id);if(!evidence)continue;const vignette=objectReplay(graph,state,evidence.holder,{evidence:id});if(vignette)this.queue.push(vignette);}
-  }
-  /** Director/LEAF: replay a collected object's memory on demand. */
-  replay(objectId:string):boolean {const vignette=objectReplay(this.engine.graphRef(),this.engine.snapshot(),objectId);if(!vignette)return false;this.queue.unshift(vignette);this.stop();return true;}
-  private start(v:ReplayVignette):void {
-    let anchor:vec3;try{anchor=this.room.objectAnchor(v.object).getTransform().getWorldPosition();}catch{return;}
-    const root=global.scene.createSceneObject("RoomscriptReplay_"+v.object);root.createComponent("Component.Canvas");root.getTransform().setWorldPosition(anchor);
-    const eye=this.flow.actor.camera.getTransform().getWorldPosition();let toward=eye.sub(anchor);toward.y=0;toward=toward.length>1?toward.normalize():vec3.forward();root.getTransform().setWorldRotation(quat.lookAt(toward,vec3.up()));
-    const rings=[0,1,2,3].map(i=>lineTubes(root,"Memory ring "+i,circleEdges(10+i*11,36,vec3.zero(),"xz"),tinted(this.line,new vec4(.247,.89,1,.8)),.3).getSceneObject());
-    const stamp=flatText(root,"Replay time",v.slot==="earlier"?"EARLIER":v.slot,9,new vec4(.91,.69,.29,1),"title",20,6);stamp.getSceneObject().getTransform().setLocalPosition(new vec3(0,30,0));
-    const floorY=this.room.getTransform().getWorldPosition().y,figures:SceneObject[]=[];
-    v.figures.forEach((figure,i)=>{const node=global.scene.createSceneObject("Replay figure "+i);node.setParent(root);node.createComponent("Component.Canvas");
-      // Real scale, standing on the real floor beside the object, offset towards the viewer.
-      const side=(i-(v.figures.length-1)/2)*55,art=figure.suspect?ghostArt(figure.suspect,figure.suspect==="V"?"standing":"neutral"):null;
-      node.getTransform().setLocalPosition(new vec3(side,floorY-anchor.y+(art?0:85),38));
-      if(art)ghostImage(node,"Ghost",art,GHOST_TINT.replay);
-      else{lineTubes(node,"Nobody here",circleEdges(30,30,new vec3(0,-84,0),"xz"),tinted(this.line,new vec4(.6,.9,1,.6)),.5);const none=flatText(node,"No one",figure.pose==="absent"&&SAYS_EMPTY.test(v.caption)?"NO ONE":"",4,new vec4(.6,.9,1,.8),"title",30,5);none.getSceneObject().getTransform().setLocalPosition(new vec3(0,-70,0));}
-      node.enabled=false;figures.push(node);});
-    this.active={root,began:getTime(),figures,rings};this.sound("ReplayRewind",anchor);
-    if(this.engine.graphRef().room.objects.find(o=>o.id===v.object)?.type==="kettle")RoomscriptWrenHints.current?.say("W14");
-    this.flow.subtitles.set("NARRATOR",v.caption);console.log("OBJECT_REPLAY|"+JSON.stringify({object:v.object,slot:v.slot,figures:v.figures.map(f=>f.suspect),evidence:v.evidence}));
-  }
-  private holdUntil=0;
-  /** Director/film capture only: freeze the current replay at full bloom for a few seconds. */
-  holdFor(seconds:number):void {this.holdUntil=getTime()+seconds;}
-  private stop():void {if(this.active&&!isNull(this.active.root))this.active.root.destroy();this.active=null;}
-  private update():void {
-    if(!this.active){const next=this.queue.shift();if(next)this.start(next);return;}
-    if(getTime()<this.holdUntil)this.active.began=getTime()-2;const t=getTime()-this.active.began;
-    {const phase=Math.floor(t*5)%6;this.active.rings.forEach((ring,i)=>ring.enabled=t<4.6&&(phase===i||phase===i+1));}
-    if(t>.6&&!this.active.figures[0]?.enabled&&this.active.figures.length){this.active.figures.forEach(f=>f.enabled=true);this.sound("GhostWhoosh",this.active.root.getTransform().getWorldPosition());}
-    if(t>5.2)this.stop();
-  }
-  diagnostics():{active:string|null;queued:number}{return {active:this.active?this.active.root.name:null,queued:this.queue.length};}
+ private pending:CaughtReplay[]=[];private active:SceneObject=null;private until=0;private readyAt=0;private holdUntil=0;private seen=-1;
+ constructor(owner:BaseScriptComponent,private engine:RoomscriptEngineBridge,private flow:RoomscriptInterrogationController,private room:RoomscriptRoomBinding,private sound:(cue:string,at:vec3)=>void){
+   engine.onState.add(state=>{if(state.verdict){this.stop();this.pending=[];return;}if(state.lastSeq===this.seen)return;this.seen=state.lastSeq;const replay=caughtReplay(engine.graphRef(),state);if(replay){this.pending.push(replay);this.readyAt=getTime()+.25;}});
+   engine.onCaseChanged.add(()=>{this.stop();this.pending=[];this.seen=-1;});owner.createEvent("UpdateEvent").bind(()=>this.update());
+ }
+ private stop():void{if(this.active&&!isNull(this.active))this.active.destroy();this.active=null;}
+ private update():void{
+   if(this.active){const eye=this.flow.actor.camera.getTransform().getWorldPosition(),d=eye.sub(this.active.getTransform().getWorldPosition());d.y=0;if(d.length>1)this.active.getTransform().setWorldRotation(quat.lookAt(d.normalize(),vec3.up()));if(getTime()>Math.max(this.until,this.holdUntil))this.stop();return;}
+   if(!this.pending.length||getTime()<this.readyAt||this.flow.diagnostics().busy||RoomscriptAudio.active?.speechBusy())return;
+   const replay=this.pending.shift()!,graph=this.engine.graphRef(),spot=chalkSpot(graph,replay.zone,this.engine.mode()),art=ghostArt(replay.actor,"neutral");if(!art)return;
+   const root=global.scene.createSceneObject("RoomscriptCaughtGhost_"+replay.actor);root.setParent(this.room.getSceneObject());root.createComponent("Component.Canvas");
+   root.getTransform().setLocalPosition(new vec3(spot.center[0]+(spot.radius>40?spot.radius+12:0),0,spot.center[2]));ghostImage(root,"Truth ghost",art,GHOST_TINT.replay);this.active=root;this.until=getTime()+replay.durationSeconds;
+   this.sound("GhostWhoosh",root.getTransform().getWorldPosition());console.log("CAUGHT_REPLAY|"+JSON.stringify(replay));
+ }
+ holdFor(seconds:number):void{this.holdUntil=getTime()+seconds;}
+ diagnostics(){return {active:this.active?.name||null,queued:this.pending.length};}
 }

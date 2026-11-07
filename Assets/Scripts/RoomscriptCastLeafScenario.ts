@@ -1,29 +1,14 @@
-import {enterCase} from "./RoomscriptLeafSetup";
-import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
+﻿import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
-import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
-import {findInteractablesByName} from "Leaf.lspkg/Interactors/InteractableUtils";
-import {DefaultLeafInteractor} from "Leaf.lspkg/Interactors/interactor/DefaultLeafInteractor";
-import {RoomscriptCastController} from "./RoomscriptCastController";
-import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjectionController";
-
-/** Visible identities, UI selection, voice routing, and crate-local card regression. */
+import {sleep,findSceneObjectByName} from "Leaf.lspkg/Utils/common/Utils";
+import {RoomscriptRun10LeafDriver} from "./RoomscriptRun10LeafDriver";
+/** Four persistent identities and their production row/voice routing. */
 @component export class RoomscriptCastLeafScenario extends Scenario {
-  async run():Promise<void> { await enterCase();
-    await sleep(2000);const cast=findSceneObjectByName("RoomscriptCast").getComponent(RoomscriptCastController.getTypeName()) as RoomscriptCastController;
-    const flow=cast.flow,hand=new DefaultLeafInteractor();flow.client.forceOffline=true;
-    try {
-      expect(cast.actors().length).toBe(4);const roots=cast.actors().map(a=>a.getSceneObject().uniqueIdentifier);expect(new Set(roots).size).toBe(4);
-      for(const id of ["S1","S3","S4","S2"]){const button=findInteractablesByName("Question "+id,undefined,true)[0];expect(!!button).toBe(true);await hand.trigger(button);await sleep(100);
-        expect(flow.actor.suspect).toBe(id);expect(flow.tts.actor.suspect).toBe(id);expect(flow.actor.getSceneObject().enabled).toBe(true);
-        expect(!!flow.actor.getSceneObject().getComponent("Component.RenderMeshVisual")).toBe(true);
-        await flow.askChip("baseline:name");expect(flow.engine.snapshot().activeSuspect).toBe(id);
-        expect(flow.actor.voice()).toBe(flow.engine.caseGraph().cast.suspects.find(s=>s.id===id)!.voice);
-      }
-      for(const name of ["RoomscriptChipBarUI","RoomscriptVerbBarUI","RoomscriptEvidenceWalletUI","RoomscriptSubtitleUI","RoomscriptObjection"])expect(findSceneObjectByName(name).getParent().name).toBe("RoomscriptCrate");
-      const objection=findSceneObjectByName("RoomscriptObjection").getComponent(RoomscriptSpatialObjectionController.getTypeName()) as RoomscriptSpatialObjectionController;
-      expect(objection.diagnostics().shatterEnabled).toBe(false);
-      console.log("CAST_CHECK|four visible selectable identities; authored voices; crate-local cards");
-    }finally{flow.cancel();flow.client.forceOffline=false;}
-  }
+ async run():Promise<void>{await sleep(700);const d=new RoomscriptRun10LeafDriver(),old=d.flow.client.forceOffline,muted=d.audio.speechMuted();d.flow.client.forceOffline=true;d.audio.silence(true);
+  try{await d.open();const actors=d.opening.cast.actors();expect(actors.length).toBe(4);expect(new Set(actors.map(a=>a.getSceneObject().uniqueIdentifier)).size).toBe(4);
+   for(const id of ["S1","S3","S4","S2"]){await d.ask(id);expect(d.flow.actor.suspect).toBe(id);expect(d.flow.tts.actor.suspect).toBe(id);expect(d.flow.actor.getSceneObject().enabled).toBe(true);expect(d.flow.actor.voice()).toBe(d.engine.graphRef().cast.suspects.find(s=>s.id===id)!.voice);expect(d.flow.row.diagnostics().visible).toBe(true);}
+   for(const name of ["RoomscriptCrate","RoomscriptChipBarUI","RoomscriptVerbBarUI","RoomscriptEvidenceWalletUI","RoomscriptObjection"])expect(!!findSceneObjectByName(name)).toBe(false);
+   console.log("CAST_CHECK|four identities,authored voices,single row,no retired scene nodes");
+  }finally{d.flow.client.forceOffline=old;d.audio.silence(muted);}
+ }
 }

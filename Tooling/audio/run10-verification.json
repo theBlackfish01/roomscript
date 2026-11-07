@@ -1,11 +1,11 @@
 {
-  "at": "2026-11-07T20:31:13.633Z",
+  "at": "2026-11-07T21:02:25.522Z",
   "status": "passed",
-  "lines": 22,
-  "expected": 22,
-  "credits": 557,
+  "lines": 26,
+  "expected": 26,
+  "credits": 609,
   "allCreditsHeaderConfirmed": true,
-  "bytes": 290142,
+  "bytes": 316626,
   "failures": [],
   "rows": [
     {
@@ -161,6 +161,34 @@
       "durationSeconds": 1.44,
       "bytes": 6189,
       "alignedCharacters": 22
+    },
+    {
+      "id": "D10_DISMISS_S1",
+      "speaker": "S1",
+      "durationSeconds": 1.44,
+      "bytes": 6189,
+      "alignedCharacters": 20
+    },
+    {
+      "id": "D10_DISMISS_S2",
+      "speaker": "S2",
+      "durationSeconds": 2,
+      "bytes": 8493,
+      "alignedCharacters": 20
+    },
+    {
+      "id": "D10_DISMISS_S3",
+      "speaker": "S3",
+      "durationSeconds": 1.36,
+      "bytes": 5901,
+      "alignedCharacters": 20
+    },
+    {
+      "id": "D10_DISMISS_S4",
+      "speaker": "S4",
+      "durationSeconds": 1.36,
+      "bytes": 5901,
+      "alignedCharacters": 20
     }
   ],
   "previewVerified": false,

@@ -29,7 +29,7 @@ export function iconImage(parent:SceneObject,name:string,texture:Texture,size:nu
   const object=uiObject(parent,name);object.getTransform().setLocalPosition(new vec3(0,0,position.z));
   const screen=object.createComponent("Component.ScreenTransform") as ScreenTransform;screen.anchors=Rect.create(0,0,0,0);
   // aspect = width/height of the texture (portraits are 0.5): size is the height, so 512x1024 art is never stretched.
-  const w=size*aspect;screen.offsets=Rect.create(position.x-w/2,position.x+w/2,position.y-size/2,position.y+size/2);
+  const w=size*aspect;screen.offsets=Rect.create(position.x-w/2,position.x+w/2,position.y-size/2,position.y+size/2);screen.position=new vec3(0,0,position.z);
   const image=object.createComponent("Component.Image") as Image,key=[tint.x,tint.y,tint.z,tint.w].map(v=>Math.round(v*1000)).join(",");
   let cache=shared?SHARED_ICONS.get(texture):undefined;if(shared&&!cache){cache=new Map();SHARED_ICONS.set(texture,cache);}
   const cached=cache?.get(key);if(cached&&!isNull(cached)){image.clearMaterials();image.addMaterial(cached);return cached;}

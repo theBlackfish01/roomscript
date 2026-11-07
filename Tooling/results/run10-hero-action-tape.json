@@ -1,0 +1,726 @@
+[
+  {
+    "type": "SetupCase",
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "forward": [
+      0,
+      0,
+      -1
+    ],
+    "seq": 1,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 4526,
+    "seq": 2,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 5530,
+    "seq": 3,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 6548,
+    "seq": 4,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 7558,
+    "seq": 5,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 8585,
+    "seq": 6,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 9604,
+    "seq": 7,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 10619,
+    "seq": 8,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 11649,
+    "seq": 9,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 12682,
+    "seq": 10,
+    "by": "P1"
+  },
+  {
+    "type": "Ask",
+    "suspect": "S2",
+    "topic": "where@22:30",
+    "question": "Where were you at 22:30?",
+    "seq": 11,
+    "by": "P1"
+  },
+  {
+    "type": "LineSpoken",
+    "suspect": "S2",
+    "key": "performance-6",
+    "answer": {
+      "topic": "where@22:30",
+      "cites": [
+        "r186b3327f6a0bb43"
+      ],
+      "line": "Once more, then. I was in the Kitchen making tea at 22:30.",
+      "emotion": "irritated"
+    },
+    "mode": "answer",
+    "seq": 12,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 15025,
+    "seq": 13,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 16035,
+    "seq": 14,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 17050,
+    "seq": 15,
+    "by": "P1"
+  },
+  {
+    "type": "PinchObject",
+    "object": "O11",
+    "seq": 16,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 18374,
+    "seq": 17,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 19381,
+    "seq": 18,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 20406,
+    "seq": 19,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 21415,
+    "seq": 20,
+    "by": "P1"
+  },
+  {
+    "type": "Object",
+    "suspect": "S2",
+    "statement": "C_VALE_ALIBI_0",
+    "evidence": [
+      "E_KETTLE_COLD"
+    ],
+    "seq": 21,
+    "by": "P1"
+  },
+  {
+    "type": "LineSpoken",
+    "suspect": "S2",
+    "key": "performance-7",
+    "answer": {
+      "topic": "where@22:30",
+      "cites": [
+        "r176b3194f5a0b9b0"
+      ],
+      "line": "Well. I reached the Study at 22:30. Harlow was already dead.",
+      "emotion": "guarded"
+    },
+    "mode": "broken",
+    "seq": 22,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 23827,
+    "seq": 23,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 24837,
+    "seq": 24,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 25861,
+    "seq": 25,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 27006,
+    "seq": 26,
+    "by": "P1"
+  },
+  {
+    "type": "PinchObject",
+    "object": "O12",
+    "seq": 27,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 28036,
+    "seq": 28,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 29067,
+    "seq": 29,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 30077,
+    "seq": 30,
+    "by": "P1"
+  },
+  {
+    "type": "Object",
+    "suspect": "S2",
+    "statement": "C_VALE_ALIBI_1",
+    "evidence": [
+      "E_RECORDING"
+    ],
+    "seq": 31,
+    "by": "P1"
+  },
+  {
+    "type": "LineSpoken",
+    "suspect": "S2",
+    "key": "performance-8",
+    "answer": {
+      "topic": "where@22:30",
+      "cites": [
+        "r1a6b364df8a0be69"
+      ],
+      "line": "With respect, I met Harlow in the Study at 22:30. The cable was in my hands. That is all.",
+      "emotion": "guarded"
+    },
+    "mode": "broken",
+    "seq": 32,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 32614,
+    "seq": 33,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 33640,
+    "seq": 34,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 34647,
+    "seq": 35,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 35667,
+    "seq": 36,
+    "by": "P1"
+  },
+  {
+    "type": "PinchObject",
+    "object": "O1",
+    "seq": 37,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 36697,
+    "seq": 38,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 37712,
+    "seq": 39,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 38745,
+    "seq": 40,
+    "by": "P1"
+  },
+  {
+    "type": "PinchObject",
+    "object": "O2",
+    "seq": 41,
+    "by": "P1"
+  },
+  {
+    "type": "PinchObject",
+    "object": "O3",
+    "seq": 42,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 39753,
+    "seq": 43,
+    "by": "P1"
+  },
+  {
+    "type": "PinchObject",
+    "object": "O4",
+    "seq": 44,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 40778,
+    "seq": 45,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 41786,
+    "seq": 46,
+    "by": "P1"
+  },
+  {
+    "type": "PinchObject",
+    "object": "O5",
+    "seq": 47,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 43040,
+    "seq": 48,
+    "by": "P1"
+  },
+  {
+    "type": "PinchObject",
+    "object": "O13",
+    "seq": 49,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 44233,
+    "seq": 50,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 45253,
+    "seq": 51,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 46259,
+    "seq": 52,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 47264,
+    "seq": 53,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 48283,
+    "seq": 54,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 49287,
+    "seq": 55,
+    "by": "P1"
+  },
+  {
+    "type": "PinchObject",
+    "object": "O14",
+    "seq": 56,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 50356,
+    "seq": 57,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 51365,
+    "seq": 58,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 52377,
+    "seq": 59,
+    "by": "P1"
+  },
+  {
+    "type": "PinchObject",
+    "object": "O15",
+    "seq": 60,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 53392,
+    "seq": 61,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 54419,
+    "seq": 62,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 55435,
+    "seq": 63,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 56440,
+    "seq": 64,
+    "by": "P1"
+  },
+  {
+    "type": "PlayerMoved",
+    "position": [
+      0,
+      176,
+      0
+    ],
+    "atMs": 57460,
+    "seq": 65,
+    "by": "P1"
+  },
+  {
+    "type": "ArgumentClaim",
+    "deduction": "D_OPPORTUNITY",
+    "refs": [
+      "E_VALE_LAMP"
+    ],
+    "seq": 66,
+    "by": "P1"
+  },
+  {
+    "type": "ArgumentClaim",
+    "deduction": "D_MEANS",
+    "refs": [
+      "E_CABLE"
+    ],
+    "seq": 67,
+    "by": "P1"
+  },
+  {
+    "type": "ArgumentClaim",
+    "deduction": "D_ALIBI",
+    "refs": [
+      "C_VALE_ALIBI_0",
+      "E_KETTLE_COLD"
+    ],
+    "seq": 68,
+    "by": "P1"
+  },
+  {
+    "type": "ArgumentClaim",
+    "deduction": "D_MOTIVE",
+    "refs": [
+      "E_TRUST_NOTE"
+    ],
+    "seq": 69,
+    "by": "P1"
+  },
+  {
+    "type": "Accuse",
+    "who": "S2",
+    "where": "Z1",
+    "what": "O1",
+    "seq": 70,
+    "by": "P1"
+  }
+]

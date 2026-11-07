@@ -1,0 +1,17 @@
+{
+  "at": "2026-11-07T21:09:22.694Z",
+  "staged": 26,
+  "exported": 26,
+  "runtime": 22,
+  "wordingMismatches": [],
+  "pendingImport": [
+    "D10_DISMISS_S1",
+    "D10_DISMISS_S2",
+    "D10_DISMISS_S3",
+    "D10_DISMISS_S4"
+  ],
+  "ledgerEntries": 25,
+  "credits": 609,
+  "unresolved": 0,
+  "headerConfirmed": true
+}

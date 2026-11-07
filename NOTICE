@@ -173,3 +173,9 @@ Case board card pictures (Assets/Art/Board: five rooms, five weapons)
   resized to 256x256 JPEG with sharp (Apache-2.0).
 
 Run 10 (2026-11-08): 22 shipped aligned voice clips in Assets/Audio/Run10, generated with ElevenLabs using the existing licensed cast voice IDs; two dialogue clips reuse cached Run 6 takes. ElevenLabs service terms apply. Script and provenance: docs/SCRIPT_2026-11-08.md; Tooling/audio/run10-voice-manifest.json and run10-elevenlabs-ledger.json. 557 credits includes one rejected certificate take. No new character art.
+
+Run 10 final audio batch: 26 shipped aligned ElevenLabs cast clips (316,626 bytes), cumulative609 credits confirmed by character-cost headers. Four cast-specific dismissal takes added; no new cast identities. Tooling/audio/run10-elevenlabs-ledger.json records generation, source/reuse and terms.
+
+Run10 item thumbnails: Kettle and Recorder are orthographic Lens Studio captures of the existing SPECS-generated gated models (no new generation). Letter, DebtNote and Certificate use existing procedural PhotoPaper with code-drawn SVG text, rasterized by CLAD ConvertSvgToTexture. Sources: Tooling/art2d/run10; shipped: Assets/Art/ItemPictures. No additional model API cost.
+
+Run10 native playback derivative: N10_DEBT.wav is an offline ffmpeg44.1kHz mono16-bit PCM transcode of the existing ElevenLabs N10_DEBT take (3.840s,338766bytes), with no new generated content or API charge. Original MP3 and alignment metadata retain provenance.

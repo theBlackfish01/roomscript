@@ -1,3 +1,4 @@
+import {RoomscriptAudio} from "./RoomscriptAudio";
 import {captureAcceptance} from "./Engine/perf/CaptureAcceptance";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {ScenarioConfig} from "Leaf.lspkg/Scenarios/scenario/ScenarioConfig";
@@ -40,8 +41,8 @@ import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
     // Disable the factory's scripted fallback: a failed IK reach is evidence, not filmable hand success.
     const ik=input==="ik"?createIKInteractor({avatar:{debugOverlay:false},body:{fallback:undefined,sikHandVisuals:{hide:false}}}):null;
     if(ik)await bounded(ik.ready,15000,"IK avatar ready");
-    if(quiet){const until=Date.now()+45000,audio=opening.clue.objection.tells.audio;let stableSince=-1,lastCalls=-1,quietReady=false;
-      for(let i=0;i<2000&&Date.now()<until;i++){const n=audio.narrativeDiagnostics(),calls=audio.loopDiagnostics().nativeCalls,phase=opening.diagnostics().phase,eligible=["tab","ready"].includes(phase)&&!n.playing&&n.queued===0&&!flow.diagnostics().busy;
+    if(quiet){RoomscriptAudio.active.silence(true);const until=Date.now()+45000,audio=RoomscriptAudio.active;let stableSince=-1,lastCalls=-1,quietReady=false;
+      for(let i=0;i<2000&&Date.now()<until;i++){const n=audio.narrativeDiagnostics(),calls=audio.loopDiagnostics().nativeCalls,phase=opening.diagnostics().phase,eligible=["file","ready"].includes(phase)&&!n.playing&&n.queued===0&&!flow.diagnostics().busy;
         if(!eligible||calls!==lastCalls)stableSince=-1;else if(stableSince<0)stableSince=getTime();
         lastCalls=calls;if(stableSince>=0&&getTime()-stableSince>=1){quietReady=true;break;}await nextFrame();}
       console.log("CONTINUOUS_CAPTURE_QUIET|"+JSON.stringify({ready:quietReady,phase:opening.diagnostics().phase,narration:audio.narrativeDiagnostics()}));expect(quietReady).toBe(true);
@@ -87,26 +88,19 @@ import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
         camera.inputTexture=texture;camera.enableClearColor=true;await nextFrame();await nextFrame();
         console.log("CAPTURE_BACKDROP_READY|"+JSON.stringify({frames,width:texture.getWidth(),height:texture.getHeight(),targetWidth:source.getWidth(),targetHeight:source.getHeight(),clear:camera.enableClearColor,source:"Preview CameraModule Default_Color",stereoAlignmentVerified:false,colorOrderVerified:false}));
       }
-      if(full){expect(flow.engine.mode()).toBe("preset");expect(["placement","knocks","tab"].includes(opening.diagnostics().phase)).toBe(true);}
+      if(full){expect(flow.engine.mode()).toBe("preset");expect(opening.diagnostics().phase==="file").toBe(true);}
       const options=new VideoRecorder.Options(source);options.saveThumbnail=false;options.textureScale=1;this.recorder=VideoRecorder.create(options);
       this.recorder.startRecording();this.recording=true;started=getTime();stopAt=started+seconds;recordingWallDeadline=Date.now()+(full?150000:30000);
       console.log("CONTINUOUS_CAPTURE_STARTED|"+JSON.stringify({utc:new Date().toISOString(),seconds,input,quiet,backdrop,targetWidth,requestedSource,actualSource,source:source.name,width:source.getWidth(),height:source.getHeight(),scale:options.textureScale,audio:"unverified; no recorder audio option"}));
       await nextFrame();
       if(full){
-        if(opening.diagnostics().phase==="placement")await tap("Place case");
-        for(let i=0;i<100&&opening.diagnostics().phase!=="tab"&&getTime()<stopAt;i++)await sleep(100);
-        expect(opening.diagnostics().phase).toBe("tab");const tab=await control("RoomscriptPullTab");mark("Pull crate tab");
-        await bounded(ik?ik.drag(tab,new vec3(12,0,0)):hand!.drag(tab,new vec3(12,0,0),500),10000,"Pull crate tab");
-        for(let i=0;i<250&&opening.diagnostics().phase!=="ready"&&getTime()<stopAt;i++)await sleep(100);
-        expect(opening.diagnostics().phase).toBe("ready");mark("Room ready");await tap("Question S2");
-        for(let i=0;i<6&&!flow.chips.topics().includes("where@22:30");i++)await tap("More questions");
-        const index=flow.chips.topics().indexOf("where@22:30");expect(index>=0).toBe(true);
-        const before=flow.tts.diagnostics().played;await tap("Question "+(index+1));
-        for(let i=0;i<300&&flow.diagnostics().busy&&getTime()<stopAt;i++)await sleep(100);
-        expect(flow.diagnostics().busy).toBe(false);expect(flow.tts.diagnostics().played>before).toBe(true);
-        firstAnswer=getTime()-started;mark("First voiced answer complete");
-        // Continue the same recording with a readable memory rather than padding a frozen frame.
-        if(getTime()<stopAt-12){await tap("RoomscriptObject_O11");await tap("Expand memory");await sleep(3500);await tap("Close memory");mark("Kettle memory filed");}
+        await tap("Open case file");
+        for(let i=0;i<600&&(RoomscriptAudio.active.speechBusy()||flow.diagnostics().busy)&&getTime()<stopAt;i++)await sleep(100);
+        expect(opening.diagnostics().phase).toBe("ready");mark("Room ready");await tap("Question S2");await tap("Ask");
+        const before=flow.tts.diagnostics().played;await tap("Ask where@22:30");
+        for(let i=0;i<300&&(flow.diagnostics().busy||RoomscriptAudio.active.speechBusy())&&getTime()<stopAt;i++)await sleep(100);
+        expect(flow.diagnostics().busy).toBe(false);expect(flow.tts.diagnostics().played>before).toBe(true);firstAnswer=getTime()-started;mark("First voiced answer complete");
+        if(getTime()<stopAt-16){await tap("RoomscriptObject_O11");for(let i=0;i<200&&RoomscriptAudio.active.speechBusy()&&getTime()<stopAt;i++)await sleep(100);mark("Kettle found");if(getTime()<stopAt-8){await tap("Show");await tap("Show O11");mark("Kettle shown");}}
       }
       // Wall/simulation time can advance while a native call blocks rendering. Wait for frame delivery too.
       const minimumFrames=Math.ceil(seconds*30);

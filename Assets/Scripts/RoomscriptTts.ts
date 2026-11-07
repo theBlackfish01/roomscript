@@ -28,14 +28,14 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
   readonly onSubtitle=new Event<string>();
   readonly onSubtitleAligned=new Event<string>();
   private audio:AudioComponent;private cache=new Map<string,AudioTrackAsset>();private source:CancellationSource;
-  private earlyEnds=0;private finishedClips=0;
+  private earlyEnds=0;private finishedClips=0;private nativeFinishes=0;
   playbackAudit(){return {earlyEnds:this.earlyEnds,finishedClips:this.finishedClips};}
-  private async waitForAudio(end:number,token:CancellationToken):Promise<void>{const start=this.client.clock.nowMs();while(this.audio.isPlaying()&&this.audio.position<end-.025){token.throwIfCancelled();if(this.client.clock.nowMs()-start>60000){this.earlyEnds++;throw new LlmError("timeout");}await delay(25,this.client.clock,token);}token.throwIfCancelled();this.finishedClips++;console.log("SPEECH_CLIP_END|"+JSON.stringify({speaker:this.actor.suspect,position:this.audio.position,end}));}
+  private async waitForAudio(end:number,token:CancellationToken):Promise<void>{const start=this.client.clock.nowMs(),finishAt=this.nativeFinishes;let observed=false,maxPosition=0;while(true){token.throwIfCancelled();const playing=this.audio.isPlaying(),at=this.audio.position;observed=observed||playing;maxPosition=Math.max(maxPosition,at);if(observed&&(this.nativeFinishes>finishAt||at>=end-.025||!playing)){if(!playing&&maxPosition<end-.12&&this.nativeFinishes===finishAt){await delay(100,this.client.clock,token);token.throwIfCancelled();if(this.nativeFinishes===finishAt){this.earlyEnds++;throw new LlmError("timeout");}}break;}if(this.client.clock.nowMs()-start>(observed?60000:3000)){this.earlyEnds++;throw new LlmError("timeout");}await delay(25,this.client.clock,token);}token.throwIfCancelled();this.finishedClips++;console.log("SPEECH_CLIP_END|"+JSON.stringify({speaker:this.actor.suspect,position:this.audio.position,end}));}
   private played=0;private fallback=0;private hit=0;private liveAttempts=0;private livePlayed=0;
   private caption:SubtitleCue[]=[];private captionIndex=0;private captionOffset=0;private captionText="";
   private static phrases:Map<string,VoiceRecord>;
   onAwake():void {
-    this.createEvent("OnStartEvent").bind(()=>{this.audio=this.getSceneObject().createComponent("Component.AudioComponent") as AudioComponent;this.audio.playbackMode=Audio.PlaybackMode.LowLatency;this.audio.volume=0.9;this.audio.spatialAudio.enabled=true;});
+    this.createEvent("OnStartEvent").bind(()=>{this.audio=this.getSceneObject().createComponent("Component.AudioComponent") as AudioComponent;this.audio.setOnFinish(()=>{this.nativeFinishes++;});this.audio.playbackMode=Audio.PlaybackMode.LowLatency;this.audio.volume=0.9;this.audio.spatialAudio.enabled=true;});
     this.createEvent("OnDestroyEvent").bind(()=>this.stop());
     this.createEvent("UpdateEvent").bind(()=>{if(this.audio)this.audio.volume=RoomscriptAudio.active?.speechMuted()?0:.9;if(this.audio&&this.actor)this.audio.getTransform().setWorldPosition(this.actor.getTransform().getWorldPosition().add(new vec3(0,this.actor.heights().face,0)));if(!this.caption.length||!this.audio?.audioTrack||!this.audio.isPlaying())return;const time=this.audio.position-this.captionOffset;let text:string|undefined;while(this.captionIndex<this.caption.length&&this.caption[this.captionIndex].at<=time)text=this.caption[this.captionIndex++].text;if(text!==undefined)this.onSubtitleAligned.invoke(text);});
   }
@@ -90,6 +90,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
     const unsubscribe=parent?.onCancel(()=>{source.cancel();if(this.source===source){if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);}})||(()=>{});
     const began=questionStartedAt??this.client.clock.nowMs();this.onSubtitle.invoke(line);let first=true;
     try {
+      if(RoomscriptAudio.active?.speechMuted()){await delay(Math.max(600,line.split(/\s+/).length*300),this.client.clock,source.token);this.onSubtitleAligned.invoke(line);return true;}
       RoomscriptAudio.active?.duckSpeech(true);
       const dynamic=this.actor.engine.mode()==="dynamic";
       let captionCursor=0;
@@ -97,7 +98,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
         const at=line.indexOf(clip.record.text,captionCursor);captionCursor=at<0?captionCursor:at+clip.record.text.length;
         return {...clip,raw:clip.record.text,prefix:at<0?"":line.slice(0,at)};
       });
-      if(bundled){let lastAligned=false;for(const clip of bundled){source.token.throwIfCancelled();const record=clip.record;this.audio.audioTrack=clip.track;this.audio.play(1);if(record.startSeconds)this.audio.position=record.startSeconds;
+      if(bundled){let lastAligned=false;for(const clip of bundled){source.token.throwIfCancelled();const record=clip.record;this.audio.audioTrack=clip.track;this.audio.play(1); // Complete per-line file; avoid Windows MP3 seek/position race.
         this.caption=accumulatedPhraseCues(clip.raw,clip.prefix,record);lastAligned=this.caption.length>0;this.captionIndex=0;this.captionOffset=record.startSeconds||0;this.captionText=clip.prefix+clip.raw;if(this.caption.length)this.onSubtitleAligned.invoke(clip.prefix);else this.onSubtitle.invoke(line);
         this.played++;this.hit++;first=false;this.actor.setVoice(clip.track);this.actor.setAlignment(record.alignment,()=>this.audio.position-(record.startSeconds||0));
         const duration=(record.endSeconds??this.audio.duration)-(record.startSeconds||0);

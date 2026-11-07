@@ -1,0 +1,297 @@
+{
+  "samples": 1110,
+  "captionMismatch": 0,
+  "overlap": 0,
+  "earlyEnds": 0,
+  "events": [
+    {
+      "type": "start",
+      "id": "narration-1",
+      "role": "narrator",
+      "speaker": "V",
+      "text": "Detective. Edmund Harlow. Come tonight. There is something I need you to hear.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-1",
+      "role": "narrator",
+      "speaker": "V",
+      "text": "Detective. Edmund Harlow. Come tonight. There is something I need you to hear.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-2",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "By the time I arrived, Harlow was dead.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-2",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "By the time I arrived, Harlow was dead.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-3",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Four guests. Rain at the glass. Nobody eager to leave.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-3",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Four guests. Rain at the glass. Nobody eager to leave.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "suspect-4",
+      "role": "suspect",
+      "speaker": "S2",
+      "text": "Once more, then. I was in the Kitchen making tea at 22:30.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "suspect-4",
+      "role": "suspect",
+      "speaker": "S2",
+      "text": "Once more, then. I was in the Kitchen making tea at 22:30.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-5",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Stone cold. Nobody made tea tonight.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-5",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Stone cold. Nobody made tea tonight.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "suspect-6",
+      "role": "suspect",
+      "speaker": "S2",
+      "text": "Well. I reached the Study at 22:30. Harlow was already dead.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "suspect-6",
+      "role": "suspect",
+      "speaker": "S2",
+      "text": "Well. I reached the Study at 22:30. Harlow was already dead.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-7",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "That's Harlow answering Vale. He was still alive.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-7",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "That's Harlow answering Vale. He was still alive.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "suspect-8",
+      "role": "suspect",
+      "speaker": "S2",
+      "text": "With respect, I met Harlow in the Study at 22:30. The cable was in my hands. That is all.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "suspect-8",
+      "role": "suspect",
+      "speaker": "S2",
+      "text": "With respect, I met Harlow in the Study at 22:30. The cable was in my hands. That is all.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-9",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Collar fibres, caught in the braid. I don't like that.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-9",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Collar fibres, caught in the braid. I don't like that.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-10",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Okafor's handwriting. A bottle she never logged.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-10",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Okafor's handwriting. A bottle she never logged.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-11",
+      "role": "suspect",
+      "speaker": "S2",
+      "text": "Edmund?",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-11",
+      "role": "suspect",
+      "speaker": "S2",
+      "text": "Edmund?",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-12",
+      "role": "narrator",
+      "speaker": "V",
+      "text": "Vale. I intend to expose your forged trust accounts.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-12",
+      "role": "narrator",
+      "speaker": "V",
+      "text": "Vale. I intend to expose your forged trust accounts.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-13",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Harlow was going to expose Vale's forged accounts.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-13",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Harlow was going to expose Vale's forged accounts.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-14",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Imran's signature. This came from Harlow's coat.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-14",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Imran's signature. This came from Harlow's coat.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-15",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Pike's certificate. Rain-spotted, and forged.",
+      "revision": 1
+    },
+    {
+      "type": "end",
+      "id": "narration-15",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "Pike's certificate. Rain-spotted, and forged.",
+      "revision": 1,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-16",
+      "role": "suspect",
+      "speaker": "S2",
+      "text": "I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts.",
+      "revision": 2
+    },
+    {
+      "type": "end",
+      "id": "narration-16",
+      "role": "suspect",
+      "speaker": "S2",
+      "text": "I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts.",
+      "revision": 2,
+      "reason": "completed"
+    },
+    {
+      "type": "start",
+      "id": "narration-17",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "I came for the truth. Harlow finally has it.",
+      "revision": 2
+    },
+    {
+      "type": "end",
+      "id": "narration-17",
+      "role": "narrator",
+      "speaker": "NARRATOR",
+      "text": "I came for the truth. Harlow finally has it.",
+      "revision": 2,
+      "reason": "completed"
+    }
+  ]
+}

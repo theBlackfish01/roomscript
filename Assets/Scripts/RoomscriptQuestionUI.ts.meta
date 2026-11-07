@@ -47,6 +47,6 @@
     -
       {}
   InputLines:
-    - '// @input float width = 58 {"hint":"Question review width cm"}'
-    - '// @input float fontScale = 1.4 {"hint":"Question typography scale"}'
-    - '// @input vec4 ink = "{1,0.94,0.84,1}" {"hint":"Question ink", "widget":"color"}'
+    - // @input float width = 40
+    - // @input float fontScale = 1.4
+    - '// @input vec4 ink = "{1,0.94,0.84,1}"'

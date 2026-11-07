@@ -62,3 +62,9 @@ Tooling/staging/
 Tooling/results/run7-native-video/
 Tooling/results/run7-preview-settings/
 Tooling/art2d/LEAF_RUNNING
+
+# Run 10 local import staging and final-HEAD scan receipts
+Tooling/results/run10-stage/
+Tooling/results/*-message.txt
+Tooling/results/run10-import-audio.ts
+Tooling/results/*.local.json

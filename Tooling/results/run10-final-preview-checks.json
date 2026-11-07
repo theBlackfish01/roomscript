@@ -1,0 +1,248 @@
+{
+  "audio": {
+    "samples": 61,
+    "captionMismatch": 0,
+    "nativeOverlapFrames": 0,
+    "earlyEnds": 0,
+    "events": [
+      {
+        "type": "start",
+        "id": "suspect-3",
+        "role": "suspect",
+        "speaker": "S2",
+        "text": "If you must know, I was in the Kitchen making tea at 22:30.",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "suspect-3",
+        "role": "suspect",
+        "speaker": "S2",
+        "text": "If you must know, I was in the Kitchen making tea at 22:30.",
+        "revision": 1,
+        "reason": "completed"
+      },
+      {
+        "type": "start",
+        "id": "narration-4",
+        "role": "narrator",
+        "speaker": "NARRATOR",
+        "text": "Tonight, this room is Harlow's study.",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "narration-4",
+        "role": "narrator",
+        "speaker": "NARRATOR",
+        "text": "Tonight, this room is Harlow's study.",
+        "revision": 1,
+        "reason": "completed"
+      },
+      {
+        "type": "start",
+        "id": "narration-5",
+        "role": "wren",
+        "speaker": "WREN",
+        "text": "What did Harlow leave us?",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "narration-5",
+        "role": "wren",
+        "speaker": "WREN",
+        "text": "What did Harlow leave us?",
+        "revision": 1,
+        "reason": "completed"
+      },
+      {
+        "type": "start",
+        "id": "narration-6",
+        "role": "suspect",
+        "speaker": "S2",
+        "text": "Good evening, Detective.",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "narration-6",
+        "role": "suspect",
+        "speaker": "S2",
+        "text": "Good evening, Detective.",
+        "revision": 1,
+        "reason": "completed"
+      },
+      {
+        "type": "start",
+        "id": "narration-7",
+        "role": "suspect",
+        "speaker": "S1",
+        "text": "Quite an entrance, Detective.",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "narration-7",
+        "role": "suspect",
+        "speaker": "S1",
+        "text": "Quite an entrance, Detective.",
+        "revision": 1,
+        "reason": "completed"
+      },
+      {
+        "type": "start",
+        "id": "narration-8",
+        "role": "suspect",
+        "speaker": "S3",
+        "text": "Please be precise.",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "narration-8",
+        "role": "suspect",
+        "speaker": "S3",
+        "text": "Please be precise.",
+        "revision": 1,
+        "reason": "completed"
+      },
+      {
+        "type": "start",
+        "id": "narration-9",
+        "role": "suspect",
+        "speaker": "S4",
+        "text": "Easy, Detective.",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "narration-9",
+        "role": "suspect",
+        "speaker": "S4",
+        "text": "Easy, Detective.",
+        "revision": 1,
+        "reason": "completed"
+      },
+      {
+        "type": "start",
+        "id": "suspect-10",
+        "role": "suspect",
+        "speaker": "S2",
+        "text": "Really, now. I was in the Kitchen making tea at 22:30.",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "suspect-10",
+        "role": "suspect",
+        "speaker": "S2",
+        "text": "Really, now. I was in the Kitchen making tea at 22:30.",
+        "revision": 1,
+        "reason": "completed"
+      },
+      {
+        "type": "start",
+        "id": "suspect-11",
+        "role": "suspect",
+        "speaker": "S2",
+        "text": "Well. I reached the Study at 22:30. Harlow was already dead.",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "suspect-11",
+        "role": "suspect",
+        "speaker": "S2",
+        "text": "Well. I reached the Study at 22:30. Harlow was already dead.",
+        "revision": 1,
+        "reason": "completed"
+      },
+      {
+        "type": "start",
+        "id": "suspect-12",
+        "role": "suspect",
+        "speaker": "S2",
+        "text": "Forgive me. I reached the Study at 22:30. Harlow was already dead.",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "suspect-12",
+        "role": "suspect",
+        "speaker": "S2",
+        "text": "Forgive me. I reached the Study at 22:30. Harlow was already dead.",
+        "revision": 1,
+        "reason": "completed"
+      },
+      {
+        "type": "start",
+        "id": "narration-13",
+        "role": "narrator",
+        "speaker": "NARRATOR",
+        "text": "Imran's signature. This came from Harlow's coat.",
+        "revision": 1
+      },
+      {
+        "type": "end",
+        "id": "narration-13",
+        "role": "narrator",
+        "speaker": "NARRATOR",
+        "text": "Imran's signature. This came from Harlow's coat.",
+        "revision": 1,
+        "reason": "completed"
+      }
+    ]
+  },
+  "queued": {
+    "route": [
+      {
+        "type": "Ask",
+        "suspect": "S2",
+        "topic": "where@22:30",
+        "question": "Where were you at 22:30?",
+        "seq": 17,
+        "by": "P1"
+      },
+      {
+        "type": "Object",
+        "suspect": "S2",
+        "statement": "C_VALE_ALIBI_0",
+        "evidence": [
+          "E_KETTLE_COLD"
+        ],
+        "seq": 21,
+        "by": "P1"
+      },
+      {
+        "type": "Ask",
+        "suspect": "S2",
+        "topic": "where@22:30",
+        "question": "Where were you at 22:30?",
+        "seq": 25,
+        "by": "P1"
+      }
+    ],
+    "layer": 1,
+    "pips": 5,
+    "walkingAwayCm": 800
+  },
+  "row": "jitterToggles=0",
+  "boundaries": {
+    "fixtureAsks": 36,
+    "timeoutFinalAccusation": true,
+    "replayRequiresFilePinch": true,
+    "replayIntroduction": true,
+    "earlyOpenIntroduction": true,
+    "actions": [
+      "Open case file",
+      "Question S2",
+      "Accuse",
+      "Where Z1",
+      "Weapon O1",
+      "Break seal",
+      "Another case",
+      "Replay Harlow"
+    ]
+  }
+}

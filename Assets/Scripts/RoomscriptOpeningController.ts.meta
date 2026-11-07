@@ -29,8 +29,6 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     cast: false
-    clue: false
-    crate: false
     filmMode: false
   ScriptTypesHidden:
     {}
@@ -42,14 +40,10 @@
     []
   DefaultScriptInputs:
     - cast: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
-      clue: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
-      crate: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
       filmMode: false
   ScriptTypes:
     -
       {}
   InputLines:
-    - '// @input AssignableType_1 cast {"hint":"Persistent actors and room"}'
-    - '// @input AssignableType_2 clue {"hint":"Envelope and shared presentation"}'
-    - '// @input AssignableType_3 crate {"hint":"Hinged case"}'
-    - '// @input bool filmMode {"hint":"Clean film presentation: auto-place and hide Preview/debug geometry"}'
+    - // @input AssignableType_1 cast
+    - // @input bool filmMode

@@ -1,3 +1,6 @@
+import {RUN10_FIND_OBJECTS,RUN10_PAPERS} from "./Content/Run10HeroCase";
+import {paperQuad,INK} from "./RoomscriptPaper";
+import {flatText} from "./RoomscriptLineArt";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {Vec3} from "./Engine/core/Types";
 import {EVENING_ROOM_FLOOR_Y} from "./Content/EveningRoomScan";
@@ -26,7 +29,7 @@ import {propDrawing} from "./RoomscriptPropArt";
     this.generated.forEach(o=>{if(!isNull(o))o.destroy();});this.generated=[];this.objects.clear();this.zones.clear();
     const preset=this.engine.mode()==="preset";this.authoredObjects.forEach(o=>o.enabled=preset);this.authoredZones.forEach(o=>o.enabled=preset);
     if(preset){this.getTransform().setWorldPosition(new vec3(0,EVENING_ROOM_FLOOR_Y,0));this.getTransform().setWorldRotation(quat.quatIdentity());this.objects=new Map(this.authoredObjects);this.zones=new Map(this.authoredZones);
-      graph.room.objects.forEach(o=>this.objects.get(o.id)?.getTransform().setLocalPosition(new vec3(o.pos[0],o.pos[1],o.pos[2])));
+      graph.room.objects.forEach(o=>{if(!this.objects.has(o.id)){const anchor=global.scene.createSceneObject("RoomscriptObject_"+o.id);anchor.setParent(root);this.objects.set(o.id,anchor);this.generated.push(anchor);}this.objects.get(o.id)!.getTransform().setLocalPosition(new vec3(...o.pos));});
       graph.room.zones.forEach(z=>this.zones.get(z.id)?.getTransform().setLocalPosition(new vec3(z.anchor[0],z.anchor[1],z.anchor[2])));
     }
     else{this.getTransform().setWorldPosition(new vec3(0,EVENING_ROOM_FLOOR_Y,0));this.getTransform().setWorldRotation(quat.quatIdentity());
@@ -34,11 +37,18 @@ import {propDrawing} from "./RoomscriptPropArt";
       graph.room.objects.forEach(o=>this.objects.set(o.id,make("RoomscriptObject_"+o.id,o.pos)));graph.room.zones.forEach(z=>this.zones.set(z.id,make("RoomscriptZone_"+z.id,z.anchor)));
     }
     // Run 9: every Preset prop is a textured mesh (RoomscriptPropModels) where its kind has one, else an engraved line drawing.
-    if(preset)for(const object of graph.room.objects){if(presetCableObject(graph)?.id===object.id)continue;const anchor=this.objectAnchor(object.id),drawing=propDrawing(anchor,object.id,object.type,graph.weapons.includes(object.id));if(!drawing)continue;this.hideReplacedLegacy(anchor,drawing);this.replacedProps.push(object.id);this.generated.push(drawing);}
+    if(preset)for(const object of graph.room.objects){if(!RUN10_FIND_OBJECTS.includes(object.id)||RUN10_PAPERS[object.id]||presetCableObject(graph)?.id===object.id)continue;const anchor=this.objectAnchor(object.id),drawing=propDrawing(anchor,object.id,object.type,graph.weapons.includes(object.id));if(!drawing)continue;this.hideReplacedLegacy(anchor,drawing);this.replacedProps.push(object.id);this.generated.push(drawing);}
     // Run 8: props with no model get engraved line drawings (Preset fictional items; Dynamic virtual substitutes).
     const cableId=preset?presetCableObject(graph)?.id:undefined;
-    for(const object of graph.room.objects){if(object.id===cableId||this.replacedProps.includes(object.id)||(!preset&&!object.virtual))continue;const drawing=propDrawing(this.objectAnchor(object.id),object.id,object.type,graph.weapons.includes(object.id));if(drawing)this.generated.push(drawing);}
+    for(const object of graph.room.objects){if(!RUN10_FIND_OBJECTS.includes(object.id)||RUN10_PAPERS[object.id]||object.id===cableId||this.replacedProps.includes(object.id)||(!preset&&!object.virtual))continue;const drawing=propDrawing(this.objectAnchor(object.id),object.id,object.type,graph.weapons.includes(object.id));if(drawing)this.generated.push(drawing);}
     const cableObject=preset?presetCableObject(graph):undefined;if(cableObject){const cable=createAuthoredCable(this.objectAnchor(cableObject.id),cableObject.id);if(cable)this.generated.push(cable);}
+    if(preset)for(const object of graph.room.objects){const anchor=this.objectAnchor(object.id);if(!RUN10_FIND_OBJECTS.includes(object.id)){for(let i=0;i<anchor.getChildrenCount();i++)anchor.getChild(i).enabled=false;continue;}
+      const paper=RUN10_PAPERS[object.id];if(paper){for(let i=0;i<anchor.getChildrenCount();i++)anchor.getChild(i).enabled=false;
+        const sheet=paperQuad(anchor,"RoomscriptPaper_"+object.id,"PhotoPaper",18,24,new vec3(0,.5,0)).object;sheet.createComponent("Component.Canvas");sheet.getTransform().setLocalRotation(quat.fromEulerAngles(-Math.PI/2,0,0));
+        flatText(sheet,"Paper title",paper.title,1.5,INK.oxblood,"title",16,5).getSceneObject().getTransform().setLocalPosition(new vec3(0,7,.2));
+        flatText(sheet,"Paper body",paper.body,1.1,INK.black,"body",16,13).getSceneObject().getTransform().setLocalPosition(new vec3(0,-2,.2));this.generated.push(sheet);
+      }
+    }
     this.boundCase=graph.caseId;if(!this.subscribed){this.subscribed=true;this.engine.onCaseChanged.add(()=>{this.boundCase="";this.initialize();});}
     const failures=this.audit();if(failures.length)throw new Error("Room binding: "+failures.join(", "));
   }

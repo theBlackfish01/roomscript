@@ -51,8 +51,8 @@
     -
       {}
   InputLines:
-    - '// @input AssignableType_1 flow {"hint":"Question and voice routing"}'
-    - '// @input AssignableType_2 room {"hint":"Shared case floor frame"}'
-    - '// @input AssignableType_3 qadir {"hint":"Qadir actor"}'
-    - '// @input AssignableType_4 okafor {"hint":"Okafor actor"}'
-    - '// @input AssignableType_5 pike {"hint":"Pike actor"}'
+    - // @input AssignableType_1 flow
+    - // @input AssignableType_2 room
+    - // @input AssignableType_3 qadir
+    - // @input AssignableType_4 okafor
+    - // @input AssignableType_5 pike

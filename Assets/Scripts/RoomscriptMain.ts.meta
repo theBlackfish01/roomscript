@@ -29,13 +29,8 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     audio: false
-    caseLid: false
-    chips: false
     engine: false
     interrogation: false
-    notebook: false
-    verbs: false
-    wallet: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -45,25 +40,13 @@
   Attachments:
     []
   DefaultScriptInputs:
-    - caseLid: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
-      chips: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
-      verbs: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
-      notebook: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
-      wallet: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
-      audio: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
-      engine: !<MappingBased.AssignableType_7> 00000000-0000-0000-0000-000000000000
-      interrogation: !<MappingBased.AssignableType_8> 00000000-0000-0000-0000-000000000000
+    - audio: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      engine: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      interrogation: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    - '// @ui {"widget":"group_start", "label":"References"}'
-    - '// @input AssignableType_1 caseLid {"hint":"Case HUD"}'
-    - '// @input AssignableType_2 chips {"hint":"Question chips"}'
-    - '// @input AssignableType_3 verbs {"hint":"Statement and verbs"}'
-    - '// @input AssignableType_4 notebook {"hint":"Notebook"}'
-    - '// @input AssignableType_5 wallet {"hint":"Evidence wallet"}'
-    - '// @input AssignableType_6 audio {"hint":"Audio cues and music"}'
-    - '// @input AssignableType_7 engine {"hint":"Deterministic case owner"}'
-    - '// @input AssignableType_8 interrogation {"hint":"Production question and speech flow"}'
-    - '// @ui {"widget":"group_end"}'
+    - // @input AssignableType_1 audio
+    - // @input AssignableType_2 engine
+    - // @input AssignableType_3 interrogation

@@ -1,78 +1,46 @@
+
 import {ConversationFocus} from "./Engine/perf/ConversationFocus";
 import {RoomscriptAudio} from "./RoomscriptAudio";
 import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
 import {RoomscriptSuspectActor} from "./RoomscriptSuspectActor";
 import {RoomscriptRoomBinding} from "./RoomscriptRoomBinding";
-import {uiObject} from "./RoomscriptPanelUI";
-import {glyphButton,glyphTexture} from "./RoomscriptGlyphUI";
 import {actorPresentationMarks} from "./Content/ActorPresentationMarks";
-
-/** Shoulder token column centre and subtitle line, cm above the floor mark (170 cm figure, face ~150 cm). */
-const TOKEN_HEIGHT_CM=136,TOKEN_SIDE_CM=29,SUBTITLE_HEIGHT_CM=125;
-/** Registers four persistent identities. Selecting one changes presentation, never engine truth. */
+/** Persistent people and one hysteretic conversation surface. */
 @component export class RoomscriptCastController extends BaseScriptComponent {
-  @input @hint("Question and voice routing") flow:RoomscriptInterrogationController;
-  @input @hint("Shared case floor frame") room:RoomscriptRoomBinding;
-  @input @hint("Qadir actor") qadir:RoomscriptSuspectActor;
-  @input @hint("Okafor actor") okafor:RoomscriptSuspectActor;
-  @input @hint("Pike actor") pike:RoomscriptSuspectActor;
-  private focusPolicy=new ConversationFocus();
-  private guestTargets=false;private proximityChecks=0;private proximityReason="startup";private automaticSelection=false;private accusationTargets:SceneObject[]=[];private accusationSelect:((id:string)=>void)|null=null;
-  private cast:RoomscriptSuspectActor[]=[];private cards:SceneObject[]=[];private nearest="";private nextCheck=0;private previewFocusUntil=0;
-  onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.proximity());}
-  private build():void {
-    this.flow.initialize();this.room.initialize();this.cast=[this.qadir,this.flow.actor,this.okafor,this.pike];
-    this.resetForCase();this.flow.engine.onCaseChanged.add(()=>this.resetForCase());this.flow.onSuspectSelected.add(id=>{this.placeUI(id);if(global.deviceInfoSystem.isEditor()&&!this.automaticSelection)this.previewFocusUntil=getTime()+60;});
-  }
-  private resetForCase():void {
-    this.room.initialize();this.cards.forEach(o=>{if(!isNull(o))o.destroy();});this.cards=[];this.accusationTargets.forEach(o=>{if(!isNull(o))o.destroy();});this.accusationTargets=[];this.accusationSelect=null;this.nearest="";this.previewFocusUntil=0;this.focusPolicy.reset();
-    const graph=this.flow.engine.graphRef(),marks=actorPresentationMarks(graph,this.flow.engine.mode());
-    const used:vec3[]=[];
-    for(const actor of this.cast){this.flow.registerActor(actor);let mark=this.room.toWorld(marks[actor.suspect]);while(used.some(p=>p.distance(mark)<65))mark=mark.add(new vec3(70,0,0));used.push(mark);actor.getTransform().setWorldPosition(mark);actor.getSceneObject().enabled=true;
-      const person=graph.cast.suspects.find(p=>p.id===actor.suspect)!,card=uiObject(actor.getSceneObject(),"RoomscriptSelect_"+actor.suspect);
-      const target=global.scene.createSceneObject("RoomscriptAccuse_"+actor.suspect);target.setParent(actor.getSceneObject());const h=actor.heights();target.getTransform().setLocalPosition(new vec3(0,h.top*.5,8));
-      const shape=Shape.createBoxShape();shape.size=new vec3(Math.min(64,h.width*.72),h.top*.78,18); // Run 9: from the art anchors
-      const collider=target.createComponent("Physics.ColliderComponent");collider.shape=shape;
-      const interaction=target.createComponent(Interactable.getTypeName()) as Interactable;interaction.targetingMode=3;
-      interaction.onTriggerEnd.add(()=>{if(this.accusationSelect){this.accusationSelect(actor.suspect);return;}
-        // Run 8: pointing at another guest while talking to a suspect asks about that guest.
-        const talking=this.flow.diagnostics().suspect;if(this.guestTargets&&talking!==actor.suspect&&!this.flow.controlsBlocked)void this.flow.askAboutGuest(actor.suspect);});target.enabled=false;this.accusationTargets.push(target);
-      // Run 8: a small knee-height name token, never over the face (Preview fallback for walking up).
-      this.cards.push(card);card.getTransform().setLocalPosition(new vec3(0,34,14));card.createComponent("Component.Canvas");
-      const tag=glyphButton(card,"Question "+actor.suspect,15,5.4,()=>{if(this.accusationSelect){this.accusationSelect(actor.suspect);return;}this.previewFocusUntil=getTime()+60;this.focus(actor.suspect);});tag.set(glyphTexture("name"),person.name.split(" ").slice(-1)[0]);
-    }
-    this.automaticSelection=true;this.flow.selectSuspect(graph.cast.suspects.find(s=>s.id==="S2")?.id||graph.cast.suspects[0].id);this.automaticSelection=false;this.placeUI(graph.cast.suspects.find(s=>s.id==="S2")?.id||graph.cast.suspects[0].id);
-  }
-  /** SIK indirect ray + pinch changes the candidate only; Closing owns the seal. */
-  setAccusationTargeting(select:((id:string)=>void)|null):void {this.accusationSelect=select;this.guestTargets=false;this.accusationTargets.forEach(o=>o.enabled=!!select);this.cards.forEach(o=>o.enabled=!select);}
-  accusationTargeting():boolean {return !!this.accusationSelect;}
-  /** Run 8 staging: tokens beside the right shoulder, subtitle one line under the face, both facing the viewer.
-   * Offsets follow the viewer so nothing crosses the face from any approach angle. */
-  private placeUI(id:string):void {const actor=this.flow.actorFor(id);if(!actor)return;const camera=this.flow.actor.camera.getTransform(),eye=camera.getWorldPosition(),p=actor.getTransform().getWorldPosition();
-    let toward=eye.sub(p);toward.y=0;toward=toward.length>1?toward.normalize():vec3.forward();const right=vec3.up().cross(toward).normalize();
-    for(const panel of [this.flow.chips,this.flow.verbs,this.flow.subtitles])panel.getTransform().setWorldScale(vec3.one());
-    const h=actor.heights(),shoulder=p.add(new vec3(0,h.token,0)).add(right.uniformScale(Math.max(TOKEN_SIDE_CM,h.width*.33))).add(toward.uniformScale(16));
-    if(this.flow.row){this.flow.row.root.getTransform().setWorldPosition(p.add(new vec3(0,h.chest,0)).add(right.uniformScale(24)).add(toward.uniformScale(20)));this.flow.row.root.getTransform().setWorldRotation(quat.lookAt(toward,vec3.up()));}
-    this.flow.chips.getTransform().setWorldPosition(shoulder);this.flow.verbs.getTransform().setWorldPosition(shoulder);
-    this.flow.subtitles.getTransform().setWorldPosition(p.add(new vec3(0,h.subtitle,0)).add(toward.uniformScale(20)));
-    const facing=quat.lookAt(toward,vec3.up());for(const panel of [this.flow.chips,this.flow.verbs,this.flow.subtitles])panel.getTransform().setWorldRotation(facing);}
-  /** Other guests become pinch/point targets only during a conversation (never over the accusation). */
-  private syncGuestTargets(active:boolean):void {if(this.accusationSelect)return;this.guestTargets=active;const talking=this.flow.diagnostics().suspect;
-    this.accusationTargets.forEach(o=>{if(!isNull(o))o.enabled=active&&!o.name.endsWith("_"+talking);});}
-  private focus(id:string):void {this.nearest=id;this.focusPolicy.select(id);this.automaticSelection=true;this.flow.selectSuspect(id);this.automaticSelection=false;this.placeUI(id);this.flow.showRow(true);this.syncGuestTargets(false);}
-  private proximity():void {
-    if(!this.cast.length||getTime()<this.nextCheck)return;this.nextCheck=getTime()+.05;this.proximityChecks++;
-    const camera=this.flow.actor.camera.getTransform(),eye=camera.getWorldPosition(),forward=camera.getWorldRotation().multiplyVec3(vec3.back());
-    const speaker=RoomscriptAudio.active?.speech.diagnostics().active?.speaker;this.placeUI(speaker&&this.flow.actorFor(speaker)?speaker:this.flow.diagnostics().suspect);
-    this.proximityReason=this.flow.controlsBlocked?"modal":this.accusationSelect?"accusation":!this.flow.engine.investigationEnabled?"opening":this.flow.diagnostics().busy?"speaking":getTime()<this.previewFocusUntil?"Preview fallback":"scanned";
-    if(this.proximityReason!=="scanned"){this.flow.showRow(this.proximityReason==="Preview fallback"||this.proximityReason==="speaking");return;}
-    const samples=this.cast.filter(a=>a.getSceneObject().enabled).map(actor=>{const delta=actor.getTransform().getWorldPosition().add(new vec3(0,actor.heights().facing,0)).sub(eye);return {id:actor.suspect,distanceCm:delta.length,dot:delta.length>.01?delta.normalize().dot(forward):1};});
-    const best=this.focusPolicy.update(getTime(),samples);
-    if(best&&best!==this.nearest)this.focus(best);else if(!best){this.nearest="";this.flow.showRow(false);this.syncGuestTargets(false);}else this.flow.showRow(true);
-  }
-  clearPreviewFocus():void {this.previewFocusUntil=0;}
-
-  proximityState():{nearest:string;previewFallback:boolean;checks:number;reason:string}{return {nearest:this.nearest,previewFallback:getTime()<this.previewFocusUntil,checks:this.proximityChecks,reason:this.proximityReason};}
-  actors():RoomscriptSuspectActor[] {return this.cast.slice();}
+ @input flow:RoomscriptInterrogationController;@input room:RoomscriptRoomBinding;
+ @input qadir:RoomscriptSuspectActor;@input okafor:RoomscriptSuspectActor;@input pike:RoomscriptSuspectActor;
+ private policy=new ConversationFocus();private cast:RoomscriptSuspectActor[]=[];private targets:SceneObject[]=[];
+ private nearest="";private nextCheck=0;private previewFocusUntil=0;private automatic=false;private checks=0;private reason="";
+ onAwake():void{this.createEvent("OnStartEvent").bind(()=>{this.flow.initialize();this.cast=[this.qadir,this.flow.actor,this.okafor,this.pike];this.reset();this.flow.engine.onCaseChanged.add(()=>this.reset());this.flow.onSuspectSelected.add(id=>{this.placeUI(id);if(global.deviceInfoSystem.isEditor()&&!this.automatic)this.previewFocusUntil=getTime()+60;});});this.createEvent("UpdateEvent").bind(()=>this.update());}
+ private reset():void{
+   this.room.initialize();for(const t of this.targets)if(!isNull(t))t.destroy();this.targets=[];this.policy.reset();this.nearest="";this.previewFocusUntil=0;
+   const graph=this.flow.engine.graphRef(),marks=actorPresentationMarks(graph,this.flow.engine.mode());
+   for(const actor of this.cast){this.flow.registerActor(actor);actor.getTransform().setWorldPosition(this.room.toWorld(marks[actor.suspect]));actor.getSceneObject().enabled=true;
+     const target=global.scene.createSceneObject("Question "+actor.suspect);target.setParent(actor.getSceneObject());const h=actor.heights();target.getTransform().setLocalPosition(new vec3(0,h.top*.5,8));
+     const shape=Shape.createBoxShape();shape.size=new vec3(Math.min(64,h.width*.72),h.top*.78,18);const collider=target.createComponent("Physics.ColliderComponent");collider.shape=shape;
+     const pinch=target.createComponent(Interactable.getTypeName()) as Interactable;pinch.targetingMode=3;pinch.onTriggerEnd.add(()=>{if(this.flow.controlsBlocked||!this.flow.engine.investigationEnabled)return;this.previewFocusUntil=global.deviceInfoSystem.isEditor()?getTime()+60:0;this.focus(actor.suspect);});this.targets.push(target);
+   }
+   this.automatic=true;this.flow.selectSuspect("S2");this.automatic=false;
+ }
+ private placeUI(id:string):void{
+   const actor=this.flow.actorFor(id);if(!actor)return;const eye=this.flow.actor.camera.getTransform().getWorldPosition(),p=actor.getTransform().getWorldPosition(),h=actor.heights();
+   let toward=eye.sub(p);toward.y=0;toward=toward.length>1?toward.normalize():vec3.forward();const right=vec3.up().cross(toward).normalize(),facing=quat.lookAt(toward,vec3.up());
+   if(this.flow.row){const t=this.flow.row.root.getTransform();t.setWorldScale(vec3.one());t.setWorldPosition(p.add(new vec3(0,h.chest,0)).add(right.uniformScale(24)).add(toward.uniformScale(20)));t.setWorldRotation(facing);}
+   const caption=this.flow.subtitles.getTransform();caption.setWorldScale(vec3.one());caption.setWorldPosition(p.add(new vec3(0,h.subtitle,0)).add(toward.uniformScale(20)));caption.setWorldRotation(facing);
+ }
+ private focus(id:string):void{this.nearest=id;this.policy.select(id);this.automatic=true;this.flow.selectSuspect(id);this.automatic=false;this.flow.showRow(true);}
+ private update():void{
+   if(!this.cast.length||getTime()<this.nextCheck)return;this.nextCheck=getTime()+.05;this.checks++;
+   const speaker=RoomscriptAudio.active?.speech.diagnostics().active?.speaker;this.placeUI(speaker&&this.flow.actorFor(speaker)?speaker:this.flow.diagnostics().suspect);
+   if(this.flow.modalRow)return;
+   this.reason=this.flow.controlsBlocked?"modal":!this.flow.engine.investigationEnabled?"opening":this.flow.diagnostics().busy?"speaking":getTime()<this.previewFocusUntil?"Preview fallback":"scanned";
+   if(this.reason!=="scanned"){this.flow.showRow(this.reason==="speaking"||this.reason==="Preview fallback");return;}
+   const cam=this.flow.actor.camera.getTransform(),eye=cam.getWorldPosition(),forward=cam.getWorldRotation().multiplyVec3(vec3.back());
+   const samples=this.cast.filter(a=>a.getSceneObject().enabled).map(a=>{const d=a.getTransform().getWorldPosition().add(new vec3(0,a.heights().facing,0)).sub(eye);return {id:a.suspect,distanceCm:d.length,dot:d.length>.01?d.normalize().dot(forward):1};});
+   const best=this.policy.update(getTime(),samples);if(best&&best!==this.nearest)this.focus(best);else if(!best){this.nearest="";this.flow.showRow(false);}else this.flow.showRow(true);
+ }
+ clearPreviewFocus():void{this.previewFocusUntil=0;}
+ proximityState(){return {nearest:this.nearest,previewFallback:getTime()<this.previewFocusUntil,checks:this.checks,reason:this.reason};}
+ actors():RoomscriptSuspectActor[]{return this.cast.slice();}
 }

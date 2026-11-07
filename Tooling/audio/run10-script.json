@@ -22,7 +22,11 @@
     {"id":"V10_OPEN","speaker":"V","text":"Detective. Edmund Harlow. Come tonight. There is something I need you to hear."},
     {"id":"D10_EDMUND","speaker":"S2","text":"Edmund?","direction":"[quietly]","stability":0.5},
     {"id":"D10_HARLOW","speaker":"V","text":"Vale. I intend to expose your forged trust accounts.","direction":"[firmly]","stability":0.5},
-    {"id":"D10_ESCAPE","speaker":"S2","text":"Good night, Detective.","direction":"[coolly]","stability":0.5}
+    {"id":"D10_ESCAPE","speaker":"S2","text":"Good night, Detective.","direction":"[coolly]","stability":0.5},
+    {"id":"D10_DISMISS_S1","speaker":"S1","text":"That proves nothing."},
+    {"id":"D10_DISMISS_S2","speaker":"S2","text":"That proves nothing."},
+    {"id":"D10_DISMISS_S3","speaker":"S3","text":"That proves nothing."},
+    {"id":"D10_DISMISS_S4","speaker":"S4","text":"That proves nothing."}
   ],
   "retained": [
     {"id":"C_VALE_ALIBI_1","speaker":"S2","text":"I reached the Study at 22:30. Harlow was already dead."},

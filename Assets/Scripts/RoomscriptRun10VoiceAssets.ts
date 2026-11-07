@@ -6,7 +6,7 @@ export const ROOMScriptRun10VoiceAssets:AudioTrackAsset[] = [
   requireAsset("../Audio/Run10/NARRATOR/N10_RECORDER.mp3") as AudioTrackAsset,
   requireAsset("../Audio/Run10/NARRATOR/N10_CABLE.mp3") as AudioTrackAsset,
   requireAsset("../Audio/Run10/NARRATOR/N10_LETTER.mp3") as AudioTrackAsset,
-  requireAsset("../Audio/Run10/NARRATOR/N10_DEBT.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_DEBT.wav") as AudioTrackAsset,
   requireAsset("../Audio/Run10/NARRATOR/N10_MEDICINE.mp3") as AudioTrackAsset,
   requireAsset("../Audio/Run10/NARRATOR/N10_CERTIFICATE.mp3") as AudioTrackAsset,
   requireAsset("../Audio/Run10/NARRATOR/N10_END_CORRECT.mp3") as AudioTrackAsset,
@@ -21,5 +21,9 @@ export const ROOMScriptRun10VoiceAssets:AudioTrackAsset[] = [
   requireAsset("../Audio/Run10/V/V10_OPEN.mp3") as AudioTrackAsset,
   requireAsset("../Audio/Run10/S2/D10_EDMUND.mp3") as AudioTrackAsset,
   requireAsset("../Audio/Run10/V/D10_HARLOW.mp3") as AudioTrackAsset,
-  requireAsset("../Audio/Run10/S2/D10_ESCAPE.mp3") as AudioTrackAsset
+  requireAsset("../Audio/Run10/S2/D10_ESCAPE.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/S1/D10_DISMISS_S1.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/S2/D10_DISMISS_S2.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/S3/D10_DISMISS_S3.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/S4/D10_DISMISS_S4.mp3") as AudioTrackAsset
 ];

@@ -1,6 +1,5 @@
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
-import {createHeroCase} from "./Content/HeroCaseHarlow1041";
-import {applyPresetEveningRoom} from "./Content/PresetEveningRoom";
+import {createRun10HeroCase} from "./Content/Run10HeroCase";
 import {verifyCase} from "./Engine/case/Solver";
 import {ActionPayload,CaseGraph,GameState,LineBankEntry,RoomObject} from "./Engine/core/Types";
 import {createGameState} from "./Engine/game/GameState";
@@ -30,7 +29,7 @@ export interface RoomscriptCaseChange {mode:RoomscriptCaseMode;graph:CaseGraph;s
     this.installPreset(false);
   }
   private installPreset(notify:boolean):void {
-    const graph=applyPresetEveningRoom(createHeroCase());const report=verifyCase(graph);
+    const graph=createRun10HeroCase();const report=verifyCase(graph);
     if(!report.ok)throw new Error("Roomscript solver rejected hero: "+report.issues.map(i=>i.code).join(","));
     graph.solver=report;graph.performances={variants:HERO_VARIANTS,register:HERO_REGISTER};
     this.install(graph,"preset",heroLineBank,[],graph.room.zones.map(z=>z.id),notify);

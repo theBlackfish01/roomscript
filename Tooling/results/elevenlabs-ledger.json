@@ -11391,9 +11391,45 @@
       "credits": 30,
       "estimate": false,
       "at": "2026-11-07T20:30:47.933Z"
+    },
+    {
+      "id": "8ddf701715e27b735bb2227bf95cbc0ffddd40c6f28720f33310a356d9311e6c",
+      "label": "run10:S1:D10_DISMISS_S1",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 13,
+      "estimate": false,
+      "at": "2026-11-07T21:01:50.875Z"
+    },
+    {
+      "id": "9d300bc57f81f004119a8cbfe99edda363095c67d9fb95f2a24a34efd8baa08b",
+      "label": "run10:S2:D10_DISMISS_S2",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 13,
+      "estimate": false,
+      "at": "2026-11-07T21:01:53.645Z"
+    },
+    {
+      "id": "2bf9859311fa42cd75ad1aacd5a9a6e23f2a51df5ed61db978570cba3a53b3ca",
+      "label": "run10:S3:D10_DISMISS_S3",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 13,
+      "estimate": false,
+      "at": "2026-11-07T21:01:55.885Z"
+    },
+    {
+      "id": "1b8e9696d900c2d9d9450c97fcf24db48cc914704ae745804e02aa0f87f40200",
+      "label": "run10:S4:D10_DISMISS_S4",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 13,
+      "estimate": false,
+      "at": "2026-11-07T21:01:57.775Z"
     }
   ],
-  "totalCredits": 92289,
+  "totalCredits": 92341,
   "segments": [
     {
       "id": "run5-2026-11-04",

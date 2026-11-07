@@ -165,3 +165,13 @@ VirtualScene authored the crate on the measured coffee-table support; RecompileT
 
 ### Run10 phase1 — shared speech and stable actions
 CLAD router/editor-api/lens-api/specs-build-ui/LEAF workflow run inline in Codex. Lens MCP imported22 aligned MP3s, compiled the arbiter/UI changes, ran fail-fast audio-overlap/row-stability/interrogation and captured Vale at1.4m. Visual iterations corrected clipped Accuse and world-space typography; final row v4 accepted. Native-audio startup and SIK release lifetime bugs were found in Preview and fixed before the checkpoint. Two graceful Lens restarts, no GUI/rawHTTP. Pure policy tests7/7; NarrativeAudio focused15/15.
+
+### Run10 phase2 — Nov8
+- CLAD scene-construction/editor-api inline: VirtualScene reparented retained cast/ending/typed-question/subtitle objects, deleted crate/Clue/Objection/Casting/CaseModes and permanent zone plaques; Editor API saved and imported4final aligned dismissal takes.
+- RecompileTypeScriptTool accepted redesigned production/LEAF adapters. CLAD live-lens-tester patterns used in real-pinch naive route and Director fixtures. Preview visual acceptance pending in this batch.
+- No new mesh generation needed: signed-off cast and existing gated solid props reused; missing debt/certificate made from existing paper textures with code-drawn text.
+- Run10 visual loop rejected dark legacy Show cards; CaptureRuntimeViewTool captured actual kettle/recorder meshes, and ConvertSvgToTexture rasterized three code-drawn paper pictures. Tool input must include Assets/ prefix; incorrect project paths returned file-not-found and were corrected. No HTTP bypass or restart needed for a path validation error.
+
+- Run10 final batch: CLAD LEAF fail-fast audio-overlap and row-stability passed; strict replay boundary exposed a destroyed pinch target, fixed by retaining one disabled prior newspaper. Native end diagnostic reconciled EOF callback with stale stopped position. All captures continue via Lens MCP only.
+
+- Final CLAD verification: explicit Preview refresh + runtime revision marker, fail-fast audio-overlap and integrated naive-player PASS (25pinches,879caption samples,zero overlap/mismatch/early ends). Rule19 caught and fixed floating certificate, page overhang and newspaper portrait layering. Seven accepted Director views in docs/captures; project saved and Preview paused.

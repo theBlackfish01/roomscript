@@ -1,6 +1,12 @@
-# Run 10 active — Nov 8, Codex
+# Run 10 verified redesign — Nov 8, Codex
 
-Primary running log and plan: [RUN10_PROGRESS.md](RUN10_PROGRESS.md). Primary design: [REDESIGN_2026-11-07.md](REDESIGN_2026-11-07.md). Baseline compile and strict interrogation passed. Run 9 leftovers checkpoint: d1b2dbc. Owner restarted Lens and signed off cast; older Needs Wadood entries below are historical except measured export/package ID.
+Report: [RUN10_REPORT.md](RUN10_REPORT.md). Running evidence: [RUN10_PROGRESS.md](RUN10_PROGRESS.md). Find/ask/catch hero loop verified:25pinches; final full native play879caption samples,zero mismatches/overlaps/early ends;655unit tests and5000-case fuzz pass. All seven Director views accepted. Filming checkpoint:run10-loop; prior fallback:run10-fixes.
+
+## Needs Wadood (current)
+- Actual export size remains blocked by empty packageId. Supply an owned package ID, package and measure against25MB; m3-case withheld.
+- Generated cases deliberately deferred behind Another case? with Replay Harlow.
+
+Preview paused;4/4 graceful restarts used. ElevenLabs609credits, OpenAIimages$0, Claude$0. Older sections below are historical.
 
 ---
 
@@ -485,3 +491,5 @@ Run7 02:34 PKT verified checkpoint: strict roomscript-actor-pose-capture passed1
 
 ## Run10 fixes checkpoint (Nov8 ~02:00 PKT)
 Run9 checkpoint d1b2dbc/run9-end pushed. Phase1 compile + fail-fast audio-overlap, row-stability and new-row interrogation passed; row v4 capture accepted. run10-fixes is the fallback filming checkpoint. Restarts2/4; Preview paused during loop implementation. Run10 cost557 ElevenLabs credits; images/Claude$0. Follow docs/RUN10_PROGRESS.md for active status.
+
+Run10 size gate remains blocked: package.ts cannot export a SnapOS Package without a registered project packageId. Needs Wadood: supply/register the Lens package ID before size/publish acceptance. No generated metadata was assigned.
