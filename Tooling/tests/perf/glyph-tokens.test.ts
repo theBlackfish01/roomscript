@@ -1,5 +1,5 @@
 import {describe,it,expect} from "vitest";
-import {questionGlyph,verbGlyph,subtitleWindow} from "../../../Assets/Scripts/Engine/perf/GlyphTokens";
+import {questionGlyph,verbGlyph,subtitleWindow,subtitleLines} from "../../../Assets/Scripts/Engine/perf/GlyphTokens";
 import {presentedQuestions} from "../../../Assets/Scripts/Engine/perf/QuestionPresentation";
 import {createHeroCase} from "../../../Assets/Scripts/Content/HeroCaseHarlow1041";
 import {applyPresetEveningRoom} from "../../../Assets/Scripts/Content/PresetEveningRoom";
@@ -26,5 +26,15 @@ describe("Run 8 glyph tokens",()=>{
     const long="I was in the kitchen making tea for Edmund when the lights went out and I heard the door";
     const line=subtitleWindow(long,38);expect(line.length).toBeLessThanOrEqual(38);expect(line.startsWith("…")).toBe(true);expect(long.endsWith(line.slice(1))).toBe(true);
     expect(subtitleWindow("Supercalifragilisticexpialidociousnessness",20).length).toBeLessThanOrEqual(20);
+  });
+  // Run 9 (Wadood's review): the 38-character line ran across Vale and into the Ask token at 1.4 m.
+  it("keeps the caption to two narrow rows of the newest words",()=>{
+    expect(subtitleLines("I was in the study.")).toBe("I was in the study.");
+    const long="I was in the kitchen making tea for Edmund when the lights went out and I heard the door";
+    const rows=subtitleLines(long,22,2).split("\n");expect(rows.length).toBe(2);
+    for(const r of rows)expect(r.length).toBeLessThanOrEqual(22);
+    expect(rows[0].startsWith("…")).toBe(true);expect(long.endsWith(rows[0].slice(1)+" "+rows[1])).toBe(true);
+    expect(subtitleLines("Once more, then. I was in the Kitchen",22,2)).toBe("Once more, then.\nI was in the Kitchen");
+    for(const r of subtitleLines("Supercalifragilisticexpialidociousnessness is long",12,2).split("\n"))expect(r.length).toBeLessThanOrEqual(12);
   });
 });

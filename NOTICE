@@ -159,6 +159,15 @@ Illustrated characters (Assets/Art/Cast, imported from Tooling/art2d/out/: Vale,
   real-world scale, yaw and grounding; Tooling/scripts/repack-prop-glb.mjs bakes the lightmap into one
   512x512 JPEG with sharp (Apache-2.0) and libvips (LGPL-2.1+).
 
-Paper textures (Assets/Art/Paper: FolderBack, FolderCover, WaxSeal, Newsprint, PhotoPaper, Cork, BrassPin)
-  Generated procedurally by our own Tooling/scripts/make-paper-textures.mjs (seeded value noise) with sharp
-  (Apache-2.0) and libvips (LGPL-2.1+). No third-party art.
+Paper textures (Assets/Art/Paper: FolderBack, FolderCover, Newsprint, PhotoPaper, Cork; Run 9 session 2)
+  Surfaces generated with OpenAI gpt-image-2 (images/generations, 1024x1024, medium) from text prompts only,
+  November 7 2026; the user owns the output under OpenAI's Terms of Use. Picks kept in Tooling/art2d/paper,
+  prompts and usage in Tooling/results/openai-images-ledger.json. Resized, masked and framed by our own
+  Tooling/scripts/make-paper-textures.mjs with sharp (Apache-2.0) and libvips (LGPL-2.1+). WaxSeal, BrassPin and
+  CableBraid are procedural (our own code). All text on paper objects is drawn by code.
+
+Case board card pictures (Assets/Art/Board: five rooms, five weapons)
+  Generated with OpenAI gpt-image-2 (images/edits, 1024x1024, medium), November 7 2026, with our own cast style
+  reference (docs/art/2026-11-07-vale-style-reference.png) as the style input; no people drawn. The user owns the
+  output under OpenAI's Terms of Use. Prompts and usage in Tooling/results/openai-images-ledger.json; cropped and
+  resized to 256x256 JPEG with sharp (Apache-2.0).

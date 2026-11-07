@@ -37,6 +37,17 @@ export function verbGlyph(verb:string):GlyphToken {
   }
 }
 /** One short subtitle line: the newest words that fit, cut at a word boundary. */
+/** Run 9: a compact caption of the newest words, at most `lines` rows of `perLine` characters, so the
+ * subtitle stays narrow under the speaker's face and clear of the tokens. "…" marks dropped earlier words. */
+export function subtitleLines(text:string,perLine=22,lines=2):string {
+  const words=text.replace(/\s+/g," ").trim().split(" ").filter(w=>w).map(w=>w.length>perLine?w.slice(0,perLine-1)+"…":w);
+  const rows:string[]=[];let row="",i=words.length-1;
+  for(;i>=0;i--){const next=row?words[i]+" "+row:words[i];if(next.length<=perLine){row=next;continue;}
+    if(rows.length+1>=lines)break;rows.unshift(row);row=words[i];}
+  if(row)rows.unshift(row);
+  if(i>=0){let first=rows[0];while(first.length+1>perLine&&first.includes(" "))first=first.slice(first.indexOf(" ")+1);rows[0]="…"+first;}
+  return rows.join("\n");
+}
 export function subtitleWindow(text:string,maxChars=38):string {
   const flat=text.replace(/\s+/g," ").trim();if(flat.length<=maxChars)return flat;
   const words=flat.split(" ");let line="";

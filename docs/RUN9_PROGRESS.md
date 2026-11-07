@@ -88,3 +88,14 @@ Wadood's additions before phase 6: the cast is signed off (delete `Assets/Art/Ac
 - Three fixes found by the LEAF run: the glow waits for the furniture narration (`RoomscriptCastingController.running`); any block restarts the stall clock; `PlayerMoved` (dispatched about once a second) no longer counts as progress. Diagnostics now say why the glow is waiting.
 - LEAF strict: next-glow PASS 90.6 s (ring on S4 after 12 s idle, out on the question, then on O13); naive-player PASS 110.9 s, still 28 actions, verdict correct.
 - Captures: `docs/captures/2026-11-07-run9-next-glow-suspect.jpg`, `-next-glow-object.jpg`. Seen: storm rain falls inside the room in front of Pike; the KITCHEN chalk label crosses the sofa (both in step 3).
+
+### 15:55 PKT — Lens Studio degraded; graceful restart refused
+- At 15:25 LEAF launches stopped starting (MCP timeouts; audiodg 1.2 GB, Lens 3.3 GB, 0.9 GB free RAM). Saved the project, then asked Lens to close three ways (CloseMainWindow twice, `taskkill` without /F): it stays open and responsive with no dialog. A forced close was refused by the session's permission check, so it was not done.
+- **Needs Wadood:** please close and reopen Lens Studio (the project is saved; the window title may show `*` from the open preview). Until then: offline work (paper textures, board art, cable/knife meshes, docs).
+- Uncommitted and not yet visually verified in Preview: the two-row subtitle with backing (Vale capture `-vale-1p4m-v2.jpg` passed), Wren/narrator lines borrowing the caption slot in view, the smaller opening caption on the crate front (third position, not yet captured).
+
+### 17:50 PKT — Wadood's items 1–4 written; waiting on a Lens restart to verify
+- Done offline and checked by vitest: two-row subtitles (`subtitleLines`), board picture mapping (`BoardArt`), the Props3D GLB test. New art: four paper swatches ($0.43) and ten board pictures ($0.66); OpenAI images now $4.86 of $25.
+- Written, compiled once (before Lens stopped responding), not yet seen in Preview: caption slot routing for Wren/narrator, opening caption on the crate front, board pictures, braided cable tube, `drawnCards()` and the `BOARD_CARDS_CHECK` in memory-cards. Captured and passing: `-vale-1p4m-v2.jpg` (one text layer, clear of tokens).
+- Lens Studio: not responding at 17:47 (2.5 GB, 1.45 GB free RAM). Graceful closes refused; force-close not permitted. **Needs Wadood: restart Lens Studio.**
+- After the restart: compile; memory-cards LEAF (board counts); Director captures of the opening, Vale at 1.4 m, the board, the console props (cable, knife); check the knife in Preview (QueryRuntime `RoomscriptPropVisual_O3`), regenerate it with SPECS text-to-3D if needed; newspaper in a played-through capture; then steps 3–6.
