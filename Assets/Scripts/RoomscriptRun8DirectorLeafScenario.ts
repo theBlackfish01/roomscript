@@ -1,3 +1,4 @@
+import {RoomscriptAudio} from "./RoomscriptAudio";
 import {enterCase} from "./RoomscriptLeafSetup";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {ScenarioConfig} from "Leaf.lspkg/Scenarios/scenario/ScenarioConfig";
@@ -22,6 +23,12 @@ import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
     const hand=new DefaultLeafInteractor();
     const tap=async(name:string)=>{let hits=findInteractablesByName(name,undefined,true);for(let i=0;i<30&&!hits.length;i++){await sleep(50);hits=findInteractablesByName(name,undefined,true);}expect(hits.length).toBe(1);await hand.trigger(hits[0]);await sleep(250);};
     const done=async()=>{for(let i=0;i<80&&flow.diagnostics().busy;i++)await sleep(200);};
+    RoomscriptAudio.active.silence(true);
+    if(beat==="question"||beat==="answer"){
+      const eye=global.scene.createSceneObject("DirectorConversationEye"),at=new vec3(-200,-20,-210),target=new vec3(-130,-40,-340);
+      eye.getTransform().setWorldPosition(at);eye.getTransform().setWorldRotation(quat.lookAt(at.sub(target).normalize(),vec3.up()));
+      opening.cast.actors().forEach(actor=>actor.camera=eye);
+    }
     flow.client.forceOffline=true;flow.subtitles.holdForCapture(hold+30);
     if(beat==="question"||beat==="answer"){await tap("Question "+suspect);}
     if(beat==="answer"){await tap("Question 1");await done();}

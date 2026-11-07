@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "segment": "run10-2026-11-08",
+  "allowanceCredits": 15000,
+  "entries": [
+    {
+      "id": "6e0b58f0206620b69da18f42d39614c79de2aaf194d3e5446efa92bc03ca727e",
+      "label": "run10:NARRATOR:N10_OPEN_1",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 22,
+      "estimate": false,
+      "at": "2026-11-07T20:14:39.848Z"
+    },
+    {
+      "id": "c226031547876dc246c59a3d0428464d0f27e57df068fd8a5390298703455490",
+      "label": "run10:NARRATOR:N10_OPEN_2",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 30,
+      "estimate": false,
+      "at": "2026-11-07T20:14:44.558Z"
+    },
+    {
+      "id": "9a4e8e8f022323c56c7bb148a220c9eb60c8134f56309b6b994ec35505fab4c7",
+      "label": "run10:NARRATOR:N10_KETTLE",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 21,
+      "estimate": false,
+      "at": "2026-11-07T20:14:47.548Z"
+    },
+    {
+      "id": "ace7135abfbc370b755dbd7c2846e2498a835d0a23d09fea79c9d1d10aaeeeaa",
+      "label": "run10:NARRATOR:N10_RECORDER",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 27,
+      "estimate": false,
+      "at": "2026-11-07T20:14:49.581Z"
+    },
+    {
+      "id": "892b5e6b5d4b08a34c4a64e67a28fc333723f3151c9f4b05f953392cf061e3bc",
+      "label": "run10:NARRATOR:N10_CABLE",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 30,
+      "estimate": false,
+      "at": "2026-11-07T20:14:51.453Z"
+    },
+    {
+      "id": "0a27c62e1097472d50a9e83b004452313dfd4586671a0ef93cc45fc34cb5a754",
+      "label": "run10:NARRATOR:N10_LETTER",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 28,
+      "estimate": false,
+      "at": "2026-11-07T20:14:53.789Z"
+    },
+    {
+      "id": "dbc4c022f37eb8855664d06df50f26328c478f752a41784f841379557742898e",
+      "label": "run10:NARRATOR:N10_DEBT",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 27,
+      "estimate": false,
+      "at": "2026-11-07T20:15:15.541Z"
+    },
+    {
+      "id": "a46da212a7acdcf7a584d7d7b685b06bf534f6060ab82c6c85c919a2ee3ab04d",
+      "label": "run10:NARRATOR:N10_MEDICINE",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 27,
+      "estimate": false,
+      "at": "2026-11-07T20:15:18.286Z"
+    },
+    {
+      "id": "94da5479b448eabe52ba8d0c7833e95380e0775cbdba589f208c4cddb5a3a5fe",
+      "label": "run10:NARRATOR:N10_CERTIFICATE",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 25,
+      "estimate": false,
+      "at": "2026-11-07T20:15:20.974Z"
+    },
+    {
+      "id": "d53077d3e6961b4f0c1c61efa3525d936c9ad8ff0388354793bca5af760459c4",
+      "label": "run10:NARRATOR:N10_CERTIFICATE",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 25,
+      "estimate": false,
+      "at": "2026-11-07T20:16:10.647Z"
+    },
+    {
+      "id": "cd24f5798036f0a0767edb3422ccf51bd6a42a1bdc0bd7e05b6db908a674c766",
+      "label": "run10:NARRATOR:N10_END_CORRECT",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 25,
+      "estimate": false,
+      "at": "2026-11-07T20:16:13.562Z"
+    },
+    {
+      "id": "0e697698c3214fd49deaaf0c65f1badd92d3f24611ce353ab3f71a33ba03eeb7",
+      "label": "run10:NARRATOR:N10_END_WRONG",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 28,
+      "estimate": false,
+      "at": "2026-11-07T20:16:16.374Z"
+    },
+    {
+      "id": "8ea00c63f1ff9b2a40487e67d4086db8a33cbd3e56c877485ec0aa4ca34af5fc",
+      "label": "run10:NARRATOR:N10_END_TIMEOUT",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 24,
+      "estimate": false,
+      "at": "2026-11-07T20:16:18.612Z"
+    },
+    {
+      "id": "f9dd0517f94a66f37bddcd527ec1a859176a053169f01cece26393a89aed58b2",
+      "label": "run10:WREN:W10_CASE",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 17,
+      "estimate": false,
+      "at": "2026-11-07T20:16:20.284Z"
+    },
+    {
+      "id": "94a08305c85e8e65f481d9c4c67db3619f8e74039ce17e7244da186c78bf4aa8",
+      "label": "run10:WREN:W10_GUESTS",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 27,
+      "estimate": false,
+      "at": "2026-11-07T20:16:22.018Z"
+    },
+    {
+      "id": "eb3dd0f926834db01ff7d14896895a8cb1e1a9f790d5726f67d47a0a33cb0c62",
+      "label": "run10:WREN:W10_KETTLE",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 30,
+      "estimate": false,
+      "at": "2026-11-07T20:16:59.325Z"
+    },
+    {
+      "id": "cbffc597050e98f6d36716390e693c99c102a4b13c7f880f1ed31e15c94c3f1e",
+      "label": "run10:WREN:W10_RECORDER",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 28,
+      "estimate": false,
+      "at": "2026-11-07T20:17:02.048Z"
+    },
+    {
+      "id": "1c0297619890f975eac1c2dbd476f15deca66ff0d4c0a385fe21d52cfc09dfb9",
+      "label": "run10:WREN:W10_CABLE",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 17,
+      "estimate": false,
+      "at": "2026-11-07T20:17:04.811Z"
+    },
+    {
+      "id": "5bb723d701e9c94495626af999bd0dae82920652910ba2ab0281d45ca51cd637",
+      "label": "run10:WREN:W10_READY",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 28,
+      "estimate": false,
+      "at": "2026-11-07T20:17:06.023Z"
+    },
+    {
+      "id": "7656c966754baf04feb5cef4593d73789fa394787c3a98d79971d52b8a1fdbda",
+      "label": "run10:V:V10_OPEN",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 41,
+      "estimate": false,
+      "at": "2026-11-07T20:17:54.436Z"
+    },
+    {
+      "id": "7dc695457f2a77ab99dc95bfdf2f2b171160c0a84520bf17de8c7f6f5eb8816a",
+      "label": "run10:V:D10_HARLOW",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 30,
+      "estimate": false,
+      "at": "2026-11-07T20:30:47.933Z"
+    }
+  ],
+  "totalCredits": 557
+}

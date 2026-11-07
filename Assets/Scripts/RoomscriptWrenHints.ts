@@ -1,30 +1,31 @@
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {GameState} from "./Engine/core/Types";
-/** Run 9 (phase 5, followability): Wren's recorded hints W3-W12 and W14, each said at most once per case, at the
- * moment it is needed. A delayed hint is dropped if the player has already done the thing. Presentation only:
- * it reads engine state from onState events and never dispatches. */
-export const WREN_HINT_IDS=["W3","W4","W5","W6","W7","W8","W9","W10","W11","W12","W14"];
+export const WREN_HINT_IDS=["W10_CASE","W10_GUESTS","W10_KETTLE","W10_RECORDER","W10_CABLE","W10_READY"];
+const LINES:Record<string,string>={W10_CASE:"What did Harlow leave us?",W10_GUESTS:"Why are they all so certain where they were?",W10_KETTLE:"What was she doing in a kitchen with a cold kettle?",W10_RECORDER:"How could he answer her if he was already dead?",W10_CABLE:"What caught those fibres?",W10_READY:"Who can we place in that room, with that cable?"};
+/** Authored partner questions only, after a real stall. Furniture never speaks. */
 export class RoomscriptWrenHints {
-  static current:RoomscriptWrenHints|null=null;
-  private said=new Set<string>();private timers:{id:string;at:number;needed:()=>boolean;where?:()=>vec3|undefined}[]=[];private state:GameState|null=null;
-  constructor(owner:BaseScriptComponent,private engine:RoomscriptEngineBridge,private play:(cue:string,at?:vec3)=>void){
-    RoomscriptWrenHints.current=this;
-    engine.onState.add(state=>this.onState(state));engine.onCaseChanged.add(()=>{this.said.clear();this.timers=[];this.state=null;});
-    owner.createEvent("UpdateEvent").bind(()=>this.tick());
-  }
-  /** Say a hint now (once per case). */
-  say(id:string,at?:vec3):boolean {if(this.said.has(id)||!WREN_HINT_IDS.includes(id))return false;this.said.add(id);this.timers=this.timers.filter(t=>t.id!==id);this.play(id,at);console.log("WREN_HINT|"+id);return true;}
-  /** Say a hint after `seconds` if `needed()` is still true then (the player has not found it alone). */
-  later(id:string,seconds:number,needed:()=>boolean,where?:()=>vec3|undefined):void {if(this.said.has(id)||this.timers.some(t=>t.id===id))return;this.timers.push({id,at:getTime()+seconds,needed,where});}
-  cancel(id:string):void {this.timers=this.timers.filter(t=>t.id!==id);}
-  saidIds():string[] {return [...this.said];}
-  private tick():void {if(!this.timers.length)return;const now=getTime();for(const t of this.timers.slice()){if(now<t.at)continue;this.timers.splice(this.timers.indexOf(t),1);if(t.needed())this.say(t.id,t.where?.());}}
-  private onState(state:GameState):void {
-    this.state=state;if(state.verdict)return;
-    if(this.engine.investigationEnabled)this.later("W5",25,()=>true); // the palm notebook, once the case is under way
-    const speakers=new Set(state.notebook.map(c=>c.speaker));
-    if(speakers.size===1)this.later("W4",20,()=>!!this.state&&new Set(this.state.notebook.map(c=>c.speaker)).size===1&&!this.state.verdict);
-    const objected=(s:GameState)=>s.events.some(e=>e.type==="objectionCorrect"||e.type==="objectionWrong");
-    if(state.notebook.length>=3&&!objected(state))this.later("W6",30,()=>!!this.state&&!objected(this.state)&&!this.state.verdict);
-  }
+ static current:RoomscriptWrenHints|null=null;
+ private said=new Set<string>();private state:GameState;private progressAt=0;private lastAt=-100;private seq=-1;
+ constructor(owner:BaseScriptComponent,private engine:RoomscriptEngineBridge,private play:(text:string,at:vec3)=>boolean){
+  RoomscriptWrenHints.current=this;this.progressAt=getTime();this.state=engine.snapshot();
+  engine.onCaseChanged.add(()=>{this.said.clear();this.progressAt=getTime();this.lastAt=-100;this.seq=-1;});
+  engine.onState.add(state=>{this.state=state;if(state.lastSeq!==this.seq){this.seq=state.lastSeq;const action=state.log[state.log.length-1];if(action&&action.type!=="PlayerMoved"&&action.type!=="WrenSpoken")this.progressAt=getTime();}});
+  owner.createEvent("UpdateEvent").bind(()=>this.tick());
+ }
+ say(id:string,_at?:vec3):boolean {
+  const now=getTime();if(!LINES[id]||this.said.has(id)||now-this.progressAt<25||now-this.lastAt<45||!this.engine.investigationEnabled||this.state?.verdict)return false;
+  const camera=this.engine.player.getTransform(),behind=camera.getWorldPosition().add(camera.getWorldRotation().multiplyVec3(new vec3(0,0,70)));
+  if(!this.play(LINES[id],behind))return false;this.said.add(id);this.lastAt=now;console.log("WREN_HINT|"+id);return true;
+ }
+ // Legacy presentation hooks are inert until their callers are removed in phase 2.
+ later(_id:string,_seconds:number,_needed:()=>boolean,_where?:()=>vec3|undefined):void {}
+ cancel(_id:string):void {}
+ saidIds():string[]{return [...this.said];}
+ private tick():void {
+  if(!this.state||!this.engine.investigationEnabled||this.state.verdict||getTime()-this.progressAt<25)return;
+  const s=this.state,k=s.knowledge,graph=this.engine.graphRef();if(!graph.caseId.startsWith("HARLOW-1041"))return;
+  const known=(id:string)=>k.evidenceIds.includes(id),heard=(id:string)=>k.statementIds.includes(id);
+  const id=known("E_CABLE")&&s.suspects.S2?.layer>=2?"W10_READY":known("E_RECORDING")&&s.suspects.S2?.layer===1?"W10_RECORDER":known("E_KETTLE_COLD")&&s.activeSuspect==="S2"&&s.suspects.S2?.layer===0?"W10_KETTLE":known("E_CABLE")?"W10_CABLE":k.statementIds.length?"W10_GUESTS":"W10_CASE";
+  this.say(id);
+ }
 }

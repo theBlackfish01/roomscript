@@ -1,7 +1,7 @@
 import {SubtitlePresentation} from "./Engine/perf/SubtitlePresentation";
 import {subtitleLines} from "./Engine/perf/GlyphTokens";
 import {label} from "./RoomscriptGlyphUI";
-const BODILESS=["WREN","NARRATOR","DETECTIVE","SUGGESTION",""];
+const BODILESS=["WREN","NARRATOR","V","DETECTIVE","SUGGESTION",""];
 const WREN_INK=new vec4(.247,.89,1,1);
 /** Passive speaker-local captions. Missing alignment uses estimated 0.30 s/word timing.
  * Run 8: one short line below the speaker's face; the newest revealed words roll in.

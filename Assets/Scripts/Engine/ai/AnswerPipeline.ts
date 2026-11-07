@@ -38,6 +38,7 @@ export interface AnswerPipelineOptions {
   fallbackModel?: ModelConfig;
   lineBank: readonly LineBankEntry[];
   preferAuthored?:()=>boolean;
+  firstFillerMs?:number;
 }
 
 /** Presentation orchestration only. This class never dispatches game actions or changes state. */
@@ -109,7 +110,7 @@ export class AnswerPipeline {
     }
     const filler = canonicalFallback(sheet, "unclear", "filler");
     if (!validateLine(filler, sheet, graph, "filler").ok) throw new Error("Invalid filler floor");
-    for (const [index, at] of [[1, DEADLINES.firstFillerMs], [2, DEADLINES.secondFillerMs]] as const) {
+    for (const [index, at] of [[1, this.options.firstFillerMs??DEADLINES.firstFillerMs], [2, DEADLINES.secondFillerMs]] as const) {
       timers.push(this.options.clock.after(at, () => {
         if (active()) notify(callbacks.filler ? () => callbacks.filler!({id, index, mode: "filler",
           answer: {...filler, cites: filler.cites.slice()}, latencyMs: Math.max(0, this.options.clock.nowMs() - started)}) : undefined);

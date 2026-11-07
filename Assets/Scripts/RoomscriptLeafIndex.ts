@@ -1,3 +1,5 @@
+import {RoomscriptAudioOverlapLeafScenario} from "./RoomscriptAudioOverlapLeafScenario";
+import {RoomscriptRowStabilityLeafScenario} from "./RoomscriptRowStabilityLeafScenario";
 import {RoomscriptRun8DustLeafScenario} from "./RoomscriptRun8DustLeafScenario";
 import {RoomscriptNextGlowLeafScenario} from "./RoomscriptNextGlowLeafScenario";
 import {RoomscriptRun9CancelPullLeafScenario} from "./RoomscriptRun9CancelPullLeafScenario";
@@ -50,6 +52,8 @@ import {RoomscriptMemoryCardLeafScenario} from "./RoomscriptMemoryCardLeafScenar
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-audio-overlap",typename:RoomscriptAudioOverlapLeafScenario.getTypeName()},
+    {id:"roomscript-row-stability",typename:RoomscriptRowStabilityLeafScenario.getTypeName()},
     {id:"roomscript-run9-cancel-pull",typename:RoomscriptRun9CancelPullLeafScenario.getTypeName()},
     {id:"roomscript-run8-dust",typename:RoomscriptRun8DustLeafScenario.getTypeName()},
     {id:"roomscript-run8-present",typename:RoomscriptRun8PresentLeafScenario.getTypeName()},

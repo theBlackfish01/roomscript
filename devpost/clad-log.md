@@ -162,3 +162,6 @@ VirtualScene authored the crate on the measured coffee-table support; RecompileT
 - live-lens-tester agent and specs-leaf-run-in-preview followed inline; MCP strict roomscript-interrogation succeeded.
 - lens-api and specs-build-ui loaded for the redesign implementation.
 
+
+### Run10 phase1 — shared speech and stable actions
+CLAD router/editor-api/lens-api/specs-build-ui/LEAF workflow run inline in Codex. Lens MCP imported22 aligned MP3s, compiled the arbiter/UI changes, ran fail-fast audio-overlap/row-stability/interrogation and captured Vale at1.4m. Visual iterations corrected clipped Accuse and world-space typography; final row v4 accepted. Native-audio startup and SIK release lifetime bugs were found in Preview and fixed before the checkpoint. Two graceful Lens restarts, no GUI/rawHTTP. Pure policy tests7/7; NarrativeAudio focused15/15.

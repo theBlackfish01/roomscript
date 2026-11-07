@@ -1,0 +1,168 @@
+{
+  "at": "2026-11-07T20:31:13.633Z",
+  "status": "passed",
+  "lines": 22,
+  "expected": 22,
+  "credits": 557,
+  "allCreditsHeaderConfirmed": true,
+  "bytes": 290142,
+  "failures": [],
+  "rows": [
+    {
+      "id": "N10_OPEN_1",
+      "speaker": "NARRATOR",
+      "durationSeconds": 2.48,
+      "bytes": 10413,
+      "alignedCharacters": 39
+    },
+    {
+      "id": "N10_OPEN_2",
+      "speaker": "NARRATOR",
+      "durationSeconds": 5.44,
+      "bytes": 22221,
+      "alignedCharacters": 54
+    },
+    {
+      "id": "N10_KETTLE",
+      "speaker": "NARRATOR",
+      "durationSeconds": 3.28,
+      "bytes": 13581,
+      "alignedCharacters": 36
+    },
+    {
+      "id": "N10_RECORDER",
+      "speaker": "NARRATOR",
+      "durationSeconds": 3.28,
+      "bytes": 13581,
+      "alignedCharacters": 49
+    },
+    {
+      "id": "N10_CABLE",
+      "speaker": "NARRATOR",
+      "durationSeconds": 4,
+      "bytes": 16461,
+      "alignedCharacters": 54
+    },
+    {
+      "id": "N10_LETTER",
+      "speaker": "NARRATOR",
+      "durationSeconds": 3.6,
+      "bytes": 14829,
+      "alignedCharacters": 50
+    },
+    {
+      "id": "N10_DEBT",
+      "speaker": "NARRATOR",
+      "durationSeconds": 3.84,
+      "bytes": 15789,
+      "alignedCharacters": 48
+    },
+    {
+      "id": "N10_MEDICINE",
+      "speaker": "NARRATOR",
+      "durationSeconds": 3.84,
+      "bytes": 15789,
+      "alignedCharacters": 48
+    },
+    {
+      "id": "N10_CERTIFICATE",
+      "speaker": "NARRATOR",
+      "durationSeconds": 4,
+      "bytes": 16461,
+      "alignedCharacters": 45
+    },
+    {
+      "id": "N10_END_CORRECT",
+      "speaker": "NARRATOR",
+      "durationSeconds": 3.68,
+      "bytes": 15213,
+      "alignedCharacters": 44
+    },
+    {
+      "id": "N10_END_WRONG",
+      "speaker": "NARRATOR",
+      "durationSeconds": 4.32,
+      "bytes": 17709,
+      "alignedCharacters": 51
+    },
+    {
+      "id": "N10_END_TIMEOUT",
+      "speaker": "NARRATOR",
+      "durationSeconds": 2.48,
+      "bytes": 10413,
+      "alignedCharacters": 42
+    },
+    {
+      "id": "W10_CASE",
+      "speaker": "WREN",
+      "durationSeconds": 1.76,
+      "bytes": 7533,
+      "alignedCharacters": 25
+    },
+    {
+      "id": "W10_GUESTS",
+      "speaker": "WREN",
+      "durationSeconds": 2.4,
+      "bytes": 10029,
+      "alignedCharacters": 44
+    },
+    {
+      "id": "W10_KETTLE",
+      "speaker": "WREN",
+      "durationSeconds": 2.64,
+      "bytes": 10989,
+      "alignedCharacters": 51
+    },
+    {
+      "id": "W10_RECORDER",
+      "speaker": "WREN",
+      "durationSeconds": 2.72,
+      "bytes": 11373,
+      "alignedCharacters": 47
+    },
+    {
+      "id": "W10_CABLE",
+      "speaker": "WREN",
+      "durationSeconds": 1.84,
+      "bytes": 7821,
+      "alignedCharacters": 25
+    },
+    {
+      "id": "W10_READY",
+      "speaker": "WREN",
+      "durationSeconds": 3.2,
+      "bytes": 13293,
+      "alignedCharacters": 47
+    },
+    {
+      "id": "V10_OPEN",
+      "speaker": "V",
+      "durationSeconds": 4.64,
+      "bytes": 19053,
+      "alignedCharacters": 78
+    },
+    {
+      "id": "D10_EDMUND",
+      "speaker": "S2",
+      "durationSeconds": 1.6,
+      "bytes": 6861,
+      "alignedCharacters": 7
+    },
+    {
+      "id": "D10_HARLOW",
+      "speaker": "V",
+      "durationSeconds": 3.52,
+      "bytes": 14541,
+      "alignedCharacters": 52
+    },
+    {
+      "id": "D10_ESCAPE",
+      "speaker": "S2",
+      "durationSeconds": 1.44,
+      "bytes": 6189,
+      "alignedCharacters": 22
+    }
+  ],
+  "previewVerified": false,
+  "note": "Metadata and decode validation only; listening, subtitle composition and speech arbitration require Lens Preview."
+}

@@ -1,0 +1,25 @@
+/** Generated Run 10 speech assets, manifest index order. */
+export const ROOMScriptRun10VoiceAssets:AudioTrackAsset[] = [
+  requireAsset("../Audio/Run10/NARRATOR/N10_OPEN_1.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_OPEN_2.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_KETTLE.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_RECORDER.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_CABLE.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_LETTER.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_DEBT.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_MEDICINE.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_CERTIFICATE.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_END_CORRECT.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_END_WRONG.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/NARRATOR/N10_END_TIMEOUT.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/WREN/W10_CASE.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/WREN/W10_GUESTS.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/WREN/W10_KETTLE.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/WREN/W10_RECORDER.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/WREN/W10_CABLE.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/WREN/W10_READY.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/V/V10_OPEN.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/S2/D10_EDMUND.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/V/D10_HARLOW.mp3") as AudioTrackAsset,
+  requireAsset("../Audio/Run10/S2/D10_ESCAPE.mp3") as AudioTrackAsset
+];

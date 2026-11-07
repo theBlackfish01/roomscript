@@ -1,3 +1,5 @@
+import {RoomscriptAudio} from "./RoomscriptAudio";
+import {RoomscriptConversationRow} from "./RoomscriptConversationRow";
 import {placeReadingPanel} from "./RoomscriptReadingPanel";
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
@@ -23,6 +25,11 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
 @component export class RoomscriptInterrogationController extends BaseScriptComponent {
   /** Modal room UI owns focus; proximity cannot open questions over it. */
   controlsBlocked=false;
+  row:RoomscriptConversationRow;readonly onAccuseRequested=new Event<void>();private selectionRequest=0;private intents:Promise<void>=Promise.resolve();
+  private async waitForSpeech():Promise<void>{while(this.busy)await new Promise<void>(resolve=>{const e=this.createEvent("DelayedCallbackEvent");e.bind(()=>{this.removeEvent(e);resolve();});e.reset(.05);});await RoomscriptAudio.active?.speech.idle();}
+  showRow(value:boolean):void {this.chips.show(false);this.verbs.show(false);this.row?.show(value&&!this.controlsBlocked&&this.engine.investigationEnabled);}
+  private openAsk():void {if(this.busy||RoomscriptAudio.active?.speechBusy())return;this.row.choices("ask",this.choices().filter(c=>c.topic!=="free").slice(0,4).concat([{topic:"free",label:"Ask your own…",question:""}]).map(c=>({id:"Ask "+c.topic,label:c.topic==="free"?c.label:c.question,choose:()=>{if(c.topic==="free")this.reviewQuestion("");else void this.askChip(c.topic);}})));}
+  private openShow():void {const state=this.engine.snapshot(),graph=this.engine.graphRef();const ids=[...new Set(graph.evidence.filter(e=>state.knowledge.evidenceIds.includes(e.id)).map(e=>e.holder))];this.row.choices("show",ids.map(id=>({id:"Show "+id,label:graph.room.objects.find(o=>o.id===id)?.label||id,choose:()=>{void this.presentObjectTo(this.selected,id);}})));}
   @input @hint("Deterministic case owner") engine:RoomscriptEngineBridge;
   @input @hint("Gateway transport") client:RoomscriptLlmClient;
   @input @hint("Sentence audio player") tts:RoomscriptTts;
@@ -41,11 +48,13 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
   private selected="S2";private revision=0;private busy=false;private last:ChosenAnswer|null=null;private lastAudioMs:number|null=null;
   private questionPage=0;
   private speaking:{suspect:string;statement:string|null;mode:InterrogationMode;seq:number}|null=null;
-  onAwake():void {this.createEvent("OnDestroyEvent").bind(()=>{this.warming?.cancel();this.cancel();});}
+  onAwake():void {this.createEvent("OnDestroyEvent").bind(()=>{this.warming?.cancel();this.cancel(true);});}
   initialize():void {
     if(this.pipeline)return;this.engine.initialize();this.chips.build();this.verbs.build();this.subtitles.build();this.questions.build();
+    this.row=new RoomscriptConversationRow(this,this.getSceneObject(),()=>this.openAsk(),()=>this.openShow(),()=>this.onAccuseRequested.invoke());
+    this.createEvent("UpdateEvent").bind(()=>{this.row.speaking(this.busy||!!RoomscriptAudio.active?.speechBusy());if(this.controlsBlocked||!this.engine.investigationEnabled)this.row.show(false);this.chips.show(false);this.verbs.show(false);});
     this.rebuildPipeline();
-    this.engine.onCaseChanged.add(()=>{this.warming?.cancel();this.cancel();this.last=null;this.lastAudioMs=null;this.questions.show(false);this.chips.show(true);this.verbs.show(true);this.subtitles.set("WREN","A new case. Which guest will you question?");this.rebuildPipeline();this.selectSuspect(this.selected);});
+    this.engine.onCaseChanged.add(()=>{this.warming?.cancel();this.cancel(true);this.last=null;this.lastAudioMs=null;this.questions.show(false);this.chips.show(true);this.verbs.show(true);this.subtitles.set("WREN","A new case. Which guest will you question?");this.rebuildPipeline();this.selectSuspect(this.selected);});
     this.chips.onQuestion.add(topic=>{if(topic==="more"){this.questionPage=(this.questionPage+1)%Math.max(1,Math.ceil(this.choices().length/3));this.render(this.engine.snapshot());}else if(topic==="free")this.reviewQuestion("");else void this.askChip(topic);});
     this.questions.onDraft.add(text=>this.reviewQuestion(text));
     this.questions.onSubmit.add(draft=>{this.questions.show(false);this.showQuestions();void this.askFree(draft.question,draft.topic);});
@@ -54,7 +63,7 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
       const state=this.engine.dispatch({type:verb==="Press"?"Press":"Believe",suspect:this.selected});
       if(verb==="Press"&&!this.rejected(state))void this.perform("Answer the detective's challenge.","chip",this.topic(state));});
     this.tts.onAudioStarted.add(event=>{if(this.speaking){this.lastAudioMs=event.latencyMs;this.onSpeaking.invoke(this.speaking);this.speaking=null;}});
-    this.tts.onSubtitle.add(text=>this.subtitles.untimed(text));
+    this.tts.onSubtitle.add(text=>{const person=this.engine.graphRef().cast.suspects.find(s=>s.id===this.selected);this.subtitles.set(person?.name||this.selected,text);this.subtitles.untimed(text);});
     this.tts.onSubtitleAligned.add(text=>this.subtitles.reveal(text));
     this.engine.onState.add(state=>this.render(state));this.selectSuspect(this.actor.suspect);
   }
@@ -65,12 +74,13 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
     const liveFree={complete:(request:import("./Engine/ai/LlmPort").LlmRequest,token?:import("./Engine/ai/LlmPort").CancellationToken)=>this.client.completeFree(request,token)};
     // Both pipelines share occurrence numbering; cancellation belongs to each request token.
     const tape=new TapeClient({mode:"RECORD",clock:this.client.clock,live:liveFree,emit:event=>{if(this.engine.graphRef().caseId===caseId)this.engine.dispatch(event);},log:line=>console.log(line)});
-    this.pipeline=new AnswerPipeline({clock:this.client.clock,scheduler:this.client.scheduler,llm:tape,lineBank:this.engine.lineBank(),model:{provider:"gemini",model:"gemini-2.5-flash"},preferAuthored:()=>preferPreparedQuestions(caseMode,this.client.stageMode,this.client.forceOffline,this.availability.preferAuthored)});
-    this.freePipeline=new AnswerPipeline({clock:this.client.clock,scheduler:this.client.scheduler,llm:tape,lineBank:this.engine.lineBank(),model:{provider:"gemini",model:"gemini-2.5-flash"},preferAuthored:()=>!this.client.canAnswerFree()});
+    this.pipeline=new AnswerPipeline({firstFillerMs:1200,clock:this.client.clock,scheduler:this.client.scheduler,llm:tape,lineBank:this.engine.lineBank(),model:{provider:"gemini",model:"gemini-2.5-flash"},preferAuthored:()=>preferPreparedQuestions(caseMode,this.client.stageMode,this.client.forceOffline,this.availability.preferAuthored)});
+    this.freePipeline=new AnswerPipeline({firstFillerMs:1200,clock:this.client.clock,scheduler:this.client.scheduler,llm:tape,lineBank:this.engine.lineBank(),model:{provider:"gemini",model:"gemini-2.5-flash"},preferAuthored:()=>!this.client.canAnswerFree()});
   }
   availabilityLabel():string{return this.client.stageMode?(this.client.canAnswerFree()?"Recorded voices / free questions":"Stage / bundled voices"):this.availability?.label||"Offline case / captions";}
-  cancel():void {this.revision++;this.pipeline?.cancel();this.freePipeline?.cancel();this.tts?.stop();if(this.subtitles)this.subtitles.untimed(this.subtitles.text());this.busy=false;this.speaking=null;}
+  cancel(force=false):void {if(!force&&(this.busy||RoomscriptAudio.active?.speechBusy()))return;this.revision++;this.pipeline?.cancel();this.freePipeline?.cancel();if(force)this.tts?.stop();if(this.subtitles)this.subtitles.untimed(this.subtitles.text());this.busy=false;this.speaking=null;}
   selectSuspect(id:string):void {
+    if(this.busy||RoomscriptAudio.active?.speechBusy()){const request=++this.selectionRequest,graph=this.engine.graphRef();void this.waitForSpeech().then(()=>{if(request===this.selectionRequest&&graph===this.engine.graphRef())this.selectSuspect(id);});return;}
     this.cancel();const graph=this.engine.graphRef();if(!graph.cast.suspects.some(s=>s.id===id))throw new Error("Unknown suspect");
     this.selected=id;this.questionPage=0;this.actor=this.actors.get(id)||this.actor;this.actor.suspect=id;this.tts.actor=this.actor;this.actor.applyState(this.engine.snapshot());this.render(this.engine.snapshot());this.showQuestions();this.onSuspectSelected.invoke(id);
     this.warming?.cancel();this.warming=new CancellationSource();void this.tts.precacheCurrent(this.warming.token);
@@ -78,25 +88,26 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
   registerActor(actor:RoomscriptSuspectActor):void {this.actors.set(actor.suspect,actor);}
   prepareAudioProbe(warm:boolean):void {this.warming?.cancel();this.tts.clearCacheForProbe();if(warm){this.warming=new CancellationSource();void this.tts.precacheCurrent(this.warming.token);}}
   actorFor(id:string):RoomscriptSuspectActor|undefined {return this.actors.get(id);}
-  showQuestions():void {this.controlsBlocked=false;this.chips.show(true);this.verbs.show(false);}
-  showAnswerControls():void {this.chips.show(false);this.verbs.show(true);}
+  showQuestions():void {this.controlsBlocked=false;this.row?.close();this.showRow(true);}
+  showAnswerControls():void {this.showRow(true);}
   restoreControls():void {this.controlsBlocked=false;const state=this.engine.snapshot();if(state.activeStatement&&state.activeSuspect===this.selected)this.showAnswerControls();else this.showQuestions();}
   private choices():{topic:string;label:string;question:string}[] {
-    return presentedQuestions(this.engine.graphRef(),this.engine.snapshot(),this.selected).concat([{topic:"free",label:"Ask anything",question:""}]);
+    return presentedQuestions(this.engine.graphRef(),this.engine.snapshot(),this.selected).concat([{topic:"free",label:"Ask your own…",question:""}]);
   }
   reviewQuestion(text:string):void {const graph=this.engine.graphRef();
     if(!this.questions.getSceneObject().enabled){const faces=graph.cast.suspects.map(s=>this.actorFor(s.id)).filter(a=>!!a).map(a=>a.getTransform().getWorldPosition().add(new vec3(0,a.heights().face,0)));placeReadingPanel(this.questions.getSceneObject(),this.actor.camera,this.questions.width,39,this.engine.roomRoot.getTransform().getWorldPosition().y,faces);}
     this.controlsBlocked=true;this.questions.review(text,presentedIntent(graph,this.engine.snapshot(),this.selected,text).topic,this.choices().filter(c=>c.topic!=="free"));this.chips.show(false);this.verbs.show(false);}
   async askChip(topic:string):Promise<void> {if(topic==="free"){this.reviewQuestion("");return;}const choice=this.choices().find(c=>c.topic===topic);if(choice)await this.ask(choice.question,"chip",topic);}
   /** Run 8: a memory photo held up to a suspect asks them about that object (an ordinary engine Ask). */
-  async presentObjectTo(suspect:string,objectId:string):Promise<boolean> {if(suspect!==this.selected)this.selectSuspect(suspect);const ask=presentObject(this.engine.graphRef(),this.engine.snapshot(),this.selected,objectId);if(!ask)return false;
+  async presentObjectTo(suspect:string,objectId:string):Promise<boolean> {const graph=this.engine.graphRef();await this.waitForSpeech();if(this.engine.graphRef()!==graph||this.engine.snapshot().verdict)return false;if(suspect!==this.selected)this.selectSuspect(suspect);const ask=presentObject(this.engine.graphRef(),this.engine.snapshot(),this.selected,objectId);if(!ask)return false;
     console.log("PRESENT|"+JSON.stringify({suspect:this.selected,object:objectId,topic:ask.topic,kind:ask.kind}));if(ask.kind==="chip")await this.ask(ask.question,"chip",ask.topic);else await this.askFree(ask.question);return true;}
   /** Run 8: pointing at another guest while facing a suspect asks about that guest. */
   async askAboutGuest(guest:string):Promise<boolean> {const ask=presentGuest(this.engine.graphRef(),this.engine.snapshot(),this.selected,guest);if(!ask)return false;
     console.log("POINT_GUEST|"+JSON.stringify({suspect:this.selected,guest,topic:ask.topic,kind:ask.kind}));if(ask.kind==="chip")await this.ask(ask.question,"chip",ask.topic);else await this.askFree(ask.question);return true;}
   async askFree(question:string,topic?:string):Promise<void> {const graph=this.engine.graphRef();
     await this.ask(question,"free",topic??presentedIntent(graph,this.engine.snapshot(),this.selected,question).topic);}
-  private async ask(question:string,kind:"chip"|"free",topic:string):Promise<void> {
+  private ask(question:string,kind:"chip"|"free",topic:string):Promise<void> {const graph=this.engine.graphRef(),suspect=this.selected;const next=this.intents.then(async()=>{await this.waitForSpeech();if(this.engine.graphRef()!==graph||this.engine.snapshot().verdict)return;this.selectSuspect(suspect);await this.askNow(question,kind,topic);});this.intents=next.catch(()=>{});return next;}
+  private async askNow(question:string,kind:"chip"|"free",topic:string):Promise<void> {
     this.cancel();const state=this.engine.dispatch({type:"Ask",suspect:this.selected,topic,question});
     if(this.rejected(state)){this.subtitles.set("WREN",state.verdict?"The case is closed.":"Give this suspect some space.");return;}
     await this.perform(question,kind,topic);
@@ -106,16 +117,16 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
   async perform(question:string,kind:"chip"|"free",topic:string):Promise<void> {
     const graph=this.engine.graphRef(),state=this.engine.snapshot(),suspect=this.selected,revision=this.revision;
     const derived=performanceMode(graph,state,suspect,topic);if(derived==="confession")return;
-    const mode=derived as InterrogationMode,began=this.client.clock.nowMs();this.busy=true;this.lastAudioMs=null;
+    const mode=derived as InterrogationMode,began=this.client.clock.nowMs();let filler:Promise<boolean>|null=null;this.busy=true;this.lastAudioMs=null;
     const isCurrent=()=>revision===this.revision&&this.engine.snapshot().elapsedMinutes===state.elapsedMinutes&&this.engine.snapshot().activeStatement===state.activeStatement;
     this.task=(kind==="free"?this.freePipeline:this.pipeline).start({graph,state,suspect,question,kind,topic,mode},{
       detective:()=>{this.subtitles.set("DETECTIVE",question);this.chips.setTopic(this.choices().find(c=>c.topic===topic)?.label||topic);},
       rejected:event=>{event.codes.forEach(code=>this.availability.failure(code));if(!this.client.localBridgeAvailable()&&!this.client.hasCredentials("gemini")&&!this.client.hasCredentials("openai"))this.availability.offline();this.onAvailability.invoke(this.availabilityLabel());},
-      filler:event=>{if(isCurrent()){this.admit(event.answer,"filler");if(this.tts.cached(event.answer.line))void this.tts.speak(event.answer.line,undefined,this.task?.token,began);}}
+      filler:event=>{if(isCurrent()&&this.client.clock.nowMs()-began>=1200&&!filler&&this.tts.cached(event.answer.line)){if(this.admit(event.answer,"filler"))filler=this.tts.speak(event.answer.line,undefined,this.task?.token,began);}}
     });
     const task=this.task;
     try {
-      const chosen=await task.promise;if(!isCurrent())return;
+      const chosen=await task.promise;if(filler)await filler;if(!isCurrent())return;
       if(chosen.origin==="model")this.availability.success();
       if(!this.admit(chosen.answer,chosen.mode))return;
       this.last=chosen;this.speaking={suspect,statement:state.activeStatement,mode:chosen.mode,seq:state.lastSeq};
@@ -130,9 +141,10 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
     const state=this.engine.dispatch({type:"LineSpoken",suspect:this.selected,key:"performance-"+this.revision,answer,mode});
     const spoken=state.events.find(event=>event.seq===state.lastSeq&&event.type==="lineSpoken");
     if(!spoken)return false;const person=this.engine.graphRef().cast.suspects.find(s=>s.id===this.selected)!;
-    this.subtitles.set(person.name,spoken.text!);if(mode!=="filler")this.showAnswerControls();return true;
+    return true;
   }
   private render(state:GameState):void {
+    this.row?.canShow(state.knowledge.evidenceIds.length>0);
     const graph=this.engine.graphRef(),person=graph.cast.suspects.find(s=>s.id===this.selected)!;
     this.chips.setPerson(person.name);const choices=this.choices();this.questionPage=Math.min(this.questionPage,Math.max(0,Math.ceil(choices.length/3)-1));this.chips.setQuestions(choices.slice(this.questionPage*3,this.questionPage*3+3));this.chips.setPage(this.questionPage,Math.ceil(choices.length/3));
     this.verbs.setClaim(state.activeSuspect===this.selected?graph.statements.find(s=>s.id===state.activeStatement)?.canonical||"Ask a question to file a statement.":"Ask a question to file a statement.");

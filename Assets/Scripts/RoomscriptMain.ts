@@ -63,11 +63,13 @@ import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjection
     this.notebook.onClose.add(close);this.wallet.onClose.add(close);
     this.interrogation?.initialize();
     this.engine.onCaseChanged.add(()=>{this.caseLid.setTitle(this.engine.mode()==="preset"?"THE HARLOW TRUST":"SAME ROOM. NEW MURDER.");this.notebook.show(false);this.wallet.show(false);});
-    this.audio.bindNarrative(this.engine,()=>this.interrogation.diagnostics().busy,id=>{const o=this.engine.graphRef().room.objects.find(o=>o.id===id);return o?this.engine.roomRoot.getTransform().getWorldTransform().multiplyPoint(new vec3(o.pos[0],o.pos[1],o.pos[2])):undefined;});
-    this.audio.onNarrationSubtitle.add(({speaker,text})=>{if(!this.interrogation.diagnostics().busy)this.interrogation.subtitles.set(speaker,text);});
-    this.audio.onNarrationSubtitleAligned.add(({speaker,text,fullText})=>{if(this.interrogation.diagnostics().busy)return;const subtitles=this.interrogation.subtitles;if(subtitles.fullText()!==fullText)subtitles.set(speaker,fullText);subtitles.reveal(text);});
+    this.audio.suspectPlaying=()=>this.interrogation.tts.diagnostics().playing;
+    this.interrogation.onAccuseRequested.add(()=>RoomscriptClosingController.current?.open());
+    this.audio.bindNarrative(this.engine,()=>false,id=>{const o=this.engine.graphRef().room.objects.find(o=>o.id===id);return o?this.engine.roomRoot.getTransform().getWorldTransform().multiplyPoint(new vec3(o.pos[0],o.pos[1],o.pos[2])):undefined;});
+    this.audio.onNarrationSubtitle.add(({speaker,text})=>{this.interrogation.subtitles.set(speaker,text);});
+    this.audio.onNarrationSubtitleAligned.add(({speaker,text,fullText})=>{const subtitles=this.interrogation.subtitles;if(subtitles.fullText()!==fullText)subtitles.set(speaker,fullText);subtitles.reveal(text);});
     this.storm=new RoomscriptWindowStorm(this,this.engine,this.audio);
-    this.wren=new RoomscriptWrenHints(this,this.engine,(cue,at)=>{if(at)this.audio.playAt(cue,at);else this.audio.play(cue);});
+    this.wren=new RoomscriptWrenHints(this,this.engine,(text,at)=>this.audio.hint(text,at));
     this.caseBoard=new RoomscriptCaseBoard(this,this.engine,this.interrogation,(cue,at)=>{if(at)this.audio.playAt(cue,at);else this.audio.play(cue);});
     const roomBinding=this.engine.roomRoot.getComponent(RoomscriptRoomBinding.getTypeName()) as RoomscriptRoomBinding;
     if(roomBinding)this.replays=new RoomscriptObjectReplay(this,this.engine,this.interrogation,roomBinding,(cue,at)=>this.audio.playAt(cue,at));
@@ -100,7 +102,7 @@ import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjection
       if(this.engine.graphRef()!==graph||this.engine.snapshot().verdict||!this.engine.investigationEnabled)return;
       const current=buildKnowledgeBrief(graph,this.state.knowledge);choice=admitWrenChoice(current,{optionId:choice.id})||answerWren(current,question);
       const state=this.engine.dispatch({type:"WrenSpoken",key,optionId:choice.id}),spoken=state.events.find(e=>e.seq===state.lastSeq&&e.type==="wrenSpoken");
-      if(spoken?.text){this.interrogation.subtitles.set("WREN",spoken.text);await this.audio.narrateAdmittedWren(this.engine,this.interrogation.client,key);}
+      if(spoken?.text){await this.audio.narrateAdmittedWren(this.engine,this.interrogation.client,key);}
       if(this.engine.graphRef()!==graph||this.engine.snapshot().verdict||!this.engine.investigationEnabled)return;
       this.interrogation.controlsBlocked=false;this.caseLid.show(true);this.interrogation.restoreControls();
     }finally{this.wrenBusy=false;}

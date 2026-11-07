@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "lines": [
+    {"id":"N10_OPEN_1","speaker":"NARRATOR","text":"By the time I arrived, Harlow was dead."},
+    {"id":"N10_OPEN_2","speaker":"NARRATOR","text":"Four guests. Rain at the glass. Nobody eager to leave."},
+    {"id":"N10_KETTLE","speaker":"NARRATOR","text":"Stone cold. Nobody made tea tonight."},
+    {"id":"N10_RECORDER","speaker":"NARRATOR","text":"That's Harlow answering Vale. He was still alive."},
+    {"id":"N10_CABLE","speaker":"NARRATOR","text":"Collar fibres, caught in the braid. I don't like that."},
+    {"id":"N10_LETTER","speaker":"NARRATOR","text":"Harlow was going to expose Vale's forged accounts."},
+    {"id":"N10_DEBT","speaker":"NARRATOR","text":"Imran's signature. This came from Harlow's coat."},
+    {"id":"N10_MEDICINE","speaker":"NARRATOR","text":"Okafor's handwriting. A bottle she never logged."},
+    {"id":"N10_CERTIFICATE","speaker":"NARRATOR","text":"Pike's certificate. Rain-spotted, and forged.","seed":1042},
+    {"id":"N10_END_CORRECT","speaker":"NARRATOR","text":"I came for the truth. Harlow finally has it."},
+    {"id":"N10_END_WRONG","speaker":"NARRATOR","text":"I named the wrong person. The room kept its secret."},
+    {"id":"N10_END_TIMEOUT","speaker":"NARRATOR","text":"The night ran out before my questions did."},
+    {"id":"W10_CASE","speaker":"WREN","text":"What did Harlow leave us?"},
+    {"id":"W10_GUESTS","speaker":"WREN","text":"Why are they all so certain where they were?"},
+    {"id":"W10_KETTLE","speaker":"WREN","text":"What was she doing in a kitchen with a cold kettle?"},
+    {"id":"W10_RECORDER","speaker":"WREN","text":"How could he answer her if he was already dead?"},
+    {"id":"W10_CABLE","speaker":"WREN","text":"What caught those fibres?"},
+    {"id":"W10_READY","speaker":"WREN","text":"Who can we place in that room, with that cable?"},
+    {"id":"V10_OPEN","speaker":"V","text":"Detective. Edmund Harlow. Come tonight. There is something I need you to hear."},
+    {"id":"D10_EDMUND","speaker":"S2","text":"Edmund?","direction":"[quietly]","stability":0.5},
+    {"id":"D10_HARLOW","speaker":"V","text":"Vale. I intend to expose your forged trust accounts.","direction":"[firmly]","stability":0.5},
+    {"id":"D10_ESCAPE","speaker":"S2","text":"Good night, Detective.","direction":"[coolly]","stability":0.5}
+  ],
+  "retained": [
+    {"id":"C_VALE_ALIBI_1","speaker":"S2","text":"I reached the Study at 22:30. Harlow was already dead."},
+    {"id":"C_VALE_ALIBI_2","speaker":"S2","text":"I met Harlow in the Study at 22:30. The cable was in my hands."},
+    {"id":"C_S1_ALIBI_1","speaker":"S1","text":"I was in the Hall at 22:30. I stole my debt note before that."},
+    {"id":"C_S3_ALIBI_1","speaker":"S3","text":"I was in the Kitchen at 22:30. I had borrowed medicine without logging it."},
+    {"id":"C_S4_ALIBI_1","speaker":"S4","text":"I was in the Conservatory at 22:30. I brought a forged certificate."},
+    {"id":"D10_ARRIVE_S2","speaker":"S2","text":"Good evening, Detective."},
+    {"id":"D10_ARRIVE_S1","speaker":"S1","text":"Quite an entrance, Detective."},
+    {"id":"D10_ARRIVE_S3","speaker":"S3","text":"Please be precise."},
+    {"id":"D10_ARRIVE_S4","speaker":"S4","text":"Easy, Detective."},
+    {"id":"D10_CONFESSION","speaker":"S2","text":"I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts."}
+  ]
+}

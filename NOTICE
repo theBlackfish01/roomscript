@@ -171,3 +171,5 @@ Case board card pictures (Assets/Art/Board: five rooms, five weapons)
   reference (docs/art/2026-11-07-vale-style-reference.png) as the style input; no people drawn. The user owns the
   output under OpenAI's Terms of Use. Prompts and usage in Tooling/results/openai-images-ledger.json; cropped and
   resized to 256x256 JPEG with sharp (Apache-2.0).
+
+Run 10 (2026-11-08): 22 shipped aligned voice clips in Assets/Audio/Run10, generated with ElevenLabs using the existing licensed cast voice IDs; two dialogue clips reuse cached Run 6 takes. ElevenLabs service terms apply. Script and provenance: docs/SCRIPT_2026-11-08.md; Tooling/audio/run10-voice-manifest.json and run10-elevenlabs-ledger.json. 557 credits includes one rejected certificate take. No new character art.

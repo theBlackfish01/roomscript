@@ -296,3 +296,9 @@ Wadood signed off the illustrated cast. `CHARACTER_ART` and the "line" mode are 
 - Checkpoint Run 9 visuals without claiming Preview verification; d1b2dbc includes every file in its commit body.
 - No plan tool exposed; RUN10_PROGRESS checklist tracks milestones. Two disjoint lightweight workers: Tooling/audio script/voices; new pure Engine/perf speech/focus policies and their targeted test. All Lens work stays main-session.
 
+
+### Run 10 — shared speech and voice delivery
+- Every spoken line uses a non-preemptive priority arbiter: suspect, narrator, Wren. Only a case change or ending cancels active speech. Native playback completion owns release; selection and presentation wait.
+- Retired mixed dialogue playback in favor of aligned individual speaker takes with unchanged engine fact/verdict gates. Removed direction tags from captions; confession uses the existing broken take. OpeningExchange remains excluded.
+- Imported 22 Run10 aligned clips (290142 source MP3 bytes), 557 ElevenLabs credits. Seeds 1041; certificate replacement1042 after invalid source alignment. No new image/Claude spend.
+- LEAF strict policy is fail-fast in this plugin; strict is unrecognized. Corrected the initial baseline claim.

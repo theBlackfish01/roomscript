@@ -1,0 +1,115 @@
+{
+  "at": "2026-11-07T20:31:12.489Z",
+  "status": "passed",
+  "excluded": [
+    "OpeningExchange"
+  ],
+  "failures": [],
+  "dialogues": [
+    {
+      "name": "ArrivalDialogue",
+      "factIds": [],
+      "verdictOnly": false,
+      "phone": false,
+      "lines": [
+        {
+          "speaker": "S2",
+          "originalText": "Good evening, Detective.",
+          "text": "Good evening, Detective.",
+          "take": "steady",
+          "path": "Assets/Audio/Voice/S2/3a5989919ad7555647b7.mp3",
+          "source": "existing_voice"
+        },
+        {
+          "speaker": "S1",
+          "originalText": "Quite an entrance, Detective.",
+          "text": "Quite an entrance, Detective.",
+          "take": "steady",
+          "path": "Assets/Audio/Voice/S1/f7c736bcfc45fbee8ae1.mp3",
+          "source": "existing_voice"
+        },
+        {
+          "speaker": "S3",
+          "originalText": "Please be precise.",
+          "text": "Please be precise.",
+          "take": "steady",
+          "path": "Assets/Audio/Voice/S3/e23d2c4926cff002fd56.mp3",
+          "source": "existing_voice"
+        },
+        {
+          "speaker": "S4",
+          "originalText": "Easy, Detective.",
+          "text": "Easy, Detective.",
+          "take": "steady",
+          "path": "Assets/Audio/Voice/S4/7c741208741f21d8540d.mp3",
+          "source": "existing_voice"
+        }
+      ]
+    },
+    {
+      "name": "HarlowVoicemail",
+      "factIds": [
+        "F_REPLY_AFTER_ARRIVAL",
+        "F_VALE_MOTIVE"
+      ],
+      "verdictOnly": false,
+      "phone": true,
+      "lines": [
+        {
+          "speaker": "S2",
+          "originalText": "[quietly] Edmund?",
+          "text": "Edmund?",
+          "take": "steady",
+          "path": "Assets/Audio/Run10/S2/D10_EDMUND.mp3",
+          "source": "run10_supplement",
+          "supplementId": "D10_EDMUND"
+        },
+        {
+          "speaker": "V",
+          "originalText": "[firmly] Vale. I intend to expose your forged trust accounts.",
+          "text": "Vale. I intend to expose your forged trust accounts.",
+          "take": "steady",
+          "path": "Assets/Audio/Run10/V/D10_HARLOW.mp3",
+          "source": "run10_supplement",
+          "supplementId": "D10_HARLOW"
+        }
+      ]
+    },
+    {
+      "name": "ValeConfession",
+      "factIds": [
+        "F_MURDER_SPINE",
+        "F_VALE_MOTIVE"
+      ],
+      "verdictOnly": true,
+      "phone": false,
+      "lines": [
+        {
+          "speaker": "S2",
+          "originalText": "[sad] I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts.",
+          "text": "I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts.",
+          "take": "broken",
+          "path": "Assets/Audio/Voice/S2/f35cfc05a4879a6b8ce2.mp3",
+          "source": "existing_voice"
+        }
+      ]
+    },
+    {
+      "name": "WrongEscape",
+      "factIds": [],
+      "verdictOnly": true,
+      "phone": false,
+      "lines": [
+        {
+          "speaker": "S2",
+          "originalText": "[coolly] Good night, Detective.",
+          "text": "Good night, Detective.",
+          "take": "steady",
+          "path": "Assets/Audio/Run10/S2/D10_ESCAPE.mp3",
+          "source": "run10_supplement",
+          "supplementId": "D10_ESCAPE"
+        }
+      ]
+    }
+  ]
+}

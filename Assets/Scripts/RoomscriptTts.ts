@@ -28,13 +28,16 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
   readonly onSubtitle=new Event<string>();
   readonly onSubtitleAligned=new Event<string>();
   private audio:AudioComponent;private cache=new Map<string,AudioTrackAsset>();private source:CancellationSource;
+  private earlyEnds=0;private finishedClips=0;
+  playbackAudit(){return {earlyEnds:this.earlyEnds,finishedClips:this.finishedClips};}
+  private async waitForAudio(end:number,token:CancellationToken):Promise<void>{const start=this.client.clock.nowMs();while(this.audio.isPlaying()&&this.audio.position<end-.025){token.throwIfCancelled();if(this.client.clock.nowMs()-start>60000){this.earlyEnds++;throw new LlmError("timeout");}await delay(25,this.client.clock,token);}token.throwIfCancelled();this.finishedClips++;console.log("SPEECH_CLIP_END|"+JSON.stringify({speaker:this.actor.suspect,position:this.audio.position,end}));}
   private played=0;private fallback=0;private hit=0;private liveAttempts=0;private livePlayed=0;
   private caption:SubtitleCue[]=[];private captionIndex=0;private captionOffset=0;private captionText="";
   private static phrases:Map<string,VoiceRecord>;
   onAwake():void {
-    this.createEvent("OnStartEvent").bind(()=>{this.audio=this.getSceneObject().createComponent("Component.AudioComponent") as AudioComponent;this.audio.playbackMode=Audio.PlaybackMode.LowLatency;this.audio.volume=0.9;});
+    this.createEvent("OnStartEvent").bind(()=>{this.audio=this.getSceneObject().createComponent("Component.AudioComponent") as AudioComponent;this.audio.playbackMode=Audio.PlaybackMode.LowLatency;this.audio.volume=0.9;this.audio.spatialAudio.enabled=true;});
     this.createEvent("OnDestroyEvent").bind(()=>this.stop());
-    this.createEvent("UpdateEvent").bind(()=>{if(!this.caption.length||!this.audio?.audioTrack||!this.audio.isPlaying())return;const time=this.audio.position-this.captionOffset;let text:string|undefined;while(this.captionIndex<this.caption.length&&this.caption[this.captionIndex].at<=time)text=this.caption[this.captionIndex++].text;if(text!==undefined)this.onSubtitleAligned.invoke(text);});
+    this.createEvent("UpdateEvent").bind(()=>{if(this.audio)this.audio.volume=RoomscriptAudio.active?.speechMuted()?0:.9;if(this.audio&&this.actor)this.audio.getTransform().setWorldPosition(this.actor.getTransform().getWorldPosition().add(new vec3(0,this.actor.heights().face,0)));if(!this.caption.length||!this.audio?.audioTrack||!this.audio.isPlaying())return;const time=this.audio.position-this.captionOffset;let text:string|undefined;while(this.captionIndex<this.caption.length&&this.caption[this.captionIndex].at<=time)text=this.caption[this.captionIndex++].text;if(text!==undefined)this.onSubtitleAligned.invoke(text);});
   }
   stop():void {this.source?.cancel();this.caption=[];if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor?.setVoice(null);}
   diagnostics():{played:number;fallback:number;cache:number;hits:number;playing:boolean} {return {played:this.played,fallback:this.fallback,cache:this.cache.size,hits:this.hit,playing:!!this.audio?.audioTrack&&this.audio.isPlaying()};}
@@ -78,7 +81,12 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
     return track;
   }
   async speak(line:string,voice?:string,parent?:CancellationToken,questionStartedAt?:number,take="steady",allowTell=false,scope:"standard"|"free"="standard"):Promise<boolean> {
-    this.stop();const source=new CancellationSource();this.source=source;const selectedVoice=voice??this.actor.voice();
+    const audio=RoomscriptAudio.active;
+    if(audio)return audio.suspectSpeech(this.actor.suspect,line,token=>this.playLine(line,voice,token,questionStartedAt,take,allowTell,scope),()=>!parent?.cancelled);
+    return this.playLine(line,voice,parent,questionStartedAt,take,allowTell,scope);
+  }
+  private async playLine(line:string,voice?:string,parent?:CancellationToken,questionStartedAt?:number,take="steady",allowTell=false,scope:"standard"|"free"="standard"):Promise<boolean> {
+    const source=new CancellationSource();this.source=source;const selectedVoice=voice??this.actor.voice();
     const unsubscribe=parent?.onCancel(()=>{source.cancel();if(this.source===source){if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);}})||(()=>{});
     const began=questionStartedAt??this.client.clock.nowMs();this.onSubtitle.invoke(line);let first=true;
     try {
@@ -94,7 +102,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
         this.played++;this.hit++;first=false;this.actor.setVoice(clip.track);this.actor.setAlignment(record.alignment,()=>this.audio.position-(record.startSeconds||0));
         const duration=(record.endSeconds??this.audio.duration)-(record.startSeconds||0);
         this.onAudioStarted.invoke({text:record.text,latencyMs:this.client.clock.nowMs()-began,voice:"bundle:"+record.speaker+":"+record.take,durationMs:duration*1000});
-        await delay(Math.max(100,duration*1000),this.client.clock,source.token);source.token.throwIfCancelled();if(this.caption.length)this.onSubtitleAligned.invoke(clip.prefix+clip.raw);this.caption=[];if(this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);
+        await this.waitForAudio((record.startSeconds||0)+duration,source.token);source.token.throwIfCancelled();if(this.caption.length)this.onSubtitleAligned.invoke(clip.prefix+clip.raw);this.caption=[];if(this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);
       }if(lastAligned)this.onSubtitleAligned.invoke(line);return true;}
       if(scope==="free"){
         const engine=this.actor.engine,graph=engine.graphRef(),ticket=admittedFreeSpeech(engine.snapshot(),this.actor.suspect,line,"free");
@@ -104,7 +112,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
         source.token.throwIfCancelled();this.audio.audioTrack=track;this.audio.play(1);this.played++;this.livePlayed++;this.actor.setVoice(track);
         const duration=(track.control as FileAudioTrackProvider).duration;this.onSubtitle.invoke(line);
         this.onAudioStarted.invoke({text:line,latencyMs:this.client.clock.nowMs()-began,voice:selectedVoice,durationMs:duration*1000});
-        await delay(Math.max(100,Number.isFinite(duration)?duration*1000:line.length*75),this.client.clock,source.token);return true;
+        await this.waitForAudio(Number.isFinite(duration)?duration:this.audio.duration,source.token);return true;
       }
       const clips=prepareSpeech(line,(sentence,index)=>this.synthesize(sentence,selectedVoice,"live",audioBudgetMs(began,this.client.clock.nowMs(),index),source.token));
       for(const clip of clips) {
@@ -113,7 +121,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
         first=false;this.audio.audioTrack=prepared.track;this.audio.play(1);this.played++;this.actor.setVoice(prepared.track);
         const duration=(prepared.track.control as FileAudioTrackProvider).duration;
         this.onAudioStarted.invoke({text:clip.sentence,latencyMs:this.client.clock.nowMs()-began,voice:selectedVoice,durationMs:duration*1000});
-        await delay(Math.max(100,Number.isFinite(duration)?duration*1000:clip.sentence.length*75),this.client.clock,source.token);
+        await this.waitForAudio(Number.isFinite(duration)?duration:this.audio.duration,source.token);
         this.actor.setVoice(null);
       }
       return !first;
@@ -121,6 +129,6 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
       source.cancel();
       if(!(error instanceof LlmError)||error.code!=="cancelled") {this.fallback++;if(this.source===source){this.caption=[];this.onSubtitle.invoke(line);}console.log("TTS|subtitle_fallback");}
       return false;
-    } finally {unsubscribe();if(this.source===source){this.actor.setVoice(null);RoomscriptAudio.active?.duckSpeech(false);}}
+    } finally {unsubscribe();if(this.source===source){this.caption=[];if(this.audio?.audioTrack&&this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);RoomscriptAudio.active?.duckSpeech(false);}}
   }
 }
