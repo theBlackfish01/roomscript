@@ -48,3 +48,9 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 ### 04:50 PKT — fix 10, lens size
 - Export blocked on a package ID (needs publish registration; under Needs Wadood). Measured instead with `Tooling/scripts/asset-budget.mjs`: 30.7 → 22.5 MB of media after deleting 57 unreferenced files; voice manifests 2.55 → 1.02 MB (`minify-voice-manifest.mjs`); scripts total 2.3 MB. About 24.8 MB raw against the 25 MB limit, before build compression. The line cards (3.8 MB) can go once the cast is signed off.
 - Checks: no missing-asset errors after the deletions; vitest voice/subtitle files pass (27 tests); LEAF bundled-voices PASS 75.8 s strict.
+
+### 05:16 PKT — paper objects (phase 3, part 2)
+- Folders, wax seals, newsprint Morning Edition, photo-paper memories on a cork board with brass pins (procedural textures, `RoomscriptPaper.ts`). The "Details" bar is gone: pinch the verdict stamp. Newspaper stats never print "0 of 0" (vitest).
+- Bug: the Preset board hung 40 cm under the floor since fix 6 (world height in a floor-local frame). Fixed and checked in memory-cards LEAF (`BOARD_HEIGHT_CHECK|136.0`).
+- LEAF strict: closing correct PASS 144.0 s (details via the stamp), memory-cards PASS. Captures: `-folders-v1.jpg`, `-newspaper-v1.jpg` (before the portrait and stats fix), `-corkboard-v1.jpg`, `-paper-textures.png`.
+- Restart 3 of 3 at 05:09. Preview audio grows the Windows audio engine (audiodg) by about 1 GB in 40 minutes; closing Lens frees it. No restarts left this run: keep sessions short and avoid long audio-heavy runs.

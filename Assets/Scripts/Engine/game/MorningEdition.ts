@@ -27,13 +27,14 @@ export function morningEdition(graph:CaseGraph,state:GameState):Newspaper|null {
   const won=state.events.filter(e=>e.type==="objectionCorrect").length,lost=state.events.filter(e=>e.type==="objectionWrong").length;
   const broken=state.notebook.filter(c=>c.broken).length,heard=state.notebook.length;
   const proved=state.arguments.length,required=graph.requiredDeductions.length,clues=state.knowledge.evidenceIds.length;
+  // Run 9 (review: never "0 of 0"): a stat appears only when the play produced something to count.
   const columns=[
-    "Objections won: "+won+(lost?", lost: "+lost:"")+".",
-    plural(broken,"statement","statements")+" broken of "+heard+" heard.",
-    plural(clues,"clue","clues")+" lifted from the room.",
-    "Deductions proved: "+proved+" of "+required+".",
-    "Minutes used: "+state.elapsedMinutes+" of "+state.clockMinutes+"."
-  ];
+    won+lost>0?"Objections won: "+won+(lost?", lost: "+lost:"")+".":"",
+    heard>0?plural(broken,"statement","statements")+" broken of "+heard+" heard.":"",
+    clues>0?plural(clues,"clue","clues")+" lifted from the room.":"",
+    required>0?"Deductions proved: "+proved+" of "+required+".":"",
+    state.elapsedMinutes>0?"Minutes used: "+state.elapsedMinutes+" of "+state.clockMinutes+".":""
+  ].filter(Boolean);
   const masthead="THE MORNING EDITION",date=fitText("The morning after · alarm raised "+graph.bodyFound,SUBHEAD_MAX);
   const accused=state.accusation;
   if(state.verdict==="correct"&&accused){

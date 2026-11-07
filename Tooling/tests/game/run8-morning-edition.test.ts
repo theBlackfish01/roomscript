@@ -41,3 +41,8 @@ it("keeps every possible headline and subhead within limits",()=>{
     if(s.id!=="S2"||z.id!=="Z1"||w!=="O1")expect(paper.subhead.endsWith(graph.room.zones.find(x=>x.id===z.id)!.clueName)).toBe(true);
   }
 });
+it("never prints an empty stat such as 0 of 0 (Run 9 review)",()=>{
+  const graph=createHeroCase(),accuse={...(tape.log as Action[]).find(x=>x.type==="Accuse")!,seq:1} as Action,state=reduceGame(graph,createGameState(graph),accuse),paper=morningEdition(graph,state)!;
+  expect(paper).not.toBeNull();for(const line of paper.columns){expect(line).not.toMatch(/0 of 0|of 0 heard|^Objections won: 0\.$|^0 clues|Minutes used: 0 /);}
+  expect(paper.columns.some(line=>line.startsWith("Deductions proved:"))).toBe(true);
+});

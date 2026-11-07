@@ -6,19 +6,26 @@ import {lineTubes,rectEdges,circleEdges,polyline,flatText,tinted,Segment} from "
 import {iconImage} from "./RoomscriptGlyphUI";
 import {admittedCard} from "./RoomscriptArtLibrary";
 import {GameState} from "./Engine/core/Types";
+import {paperQuad,INK} from "./RoomscriptPaper";
+import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
 /** Run 8 case board on a real wall (WEARER_UX object UI 5, wow 4).
  * The Clue grid, pinned memory photos and red string live on the wall; you walk over to read it.
  * Everything drawn comes from caseBoardLayout/evidenceWeb, i.e. engine knowledge only.
  */
 const BRASS=new vec4(.91,.69,.29,1),IVORY=new vec4(1,.94,.84,1),CORAL=new vec4(1,.42,.35,1),CHALK=new vec4(.93,.96,1,1),DIM=new vec4(1,.94,.84,.45);
 /** Evening Room left wall (x=-271). Centre 136 cm above the floor at z=-172, clear of every suspect sightline, facing +x. */
-export const PRESET_BOARD={center:new vec3(-268.5,-40,-172),normal:new vec3(1,0,0),width:100,height:66};
+/** Floor-local (the board is parented to the room root at the floor): centre 136 cm up the left wall.
+ * Run 9 fix: the Run 8 value (y -40) was a world height and put the board 40 cm under the floor once re-parented. */
+export const PRESET_BOARD={center:new vec3(-268.5,136,-172),normal:new vec3(1,0,0),width:100,height:66};
 export class RoomscriptCaseBoard {
+  /** The one wall board, so the ending can hand it the details action (WEARER_UX: pinch the stamp for details). */
+  static current:RoomscriptCaseBoard|null=null;private stampAction:(()=>void)|null=null;
   readonly root:SceneObject;private content:SceneObject;private key="";private line:Material;private items=new Map<string,BoardItem>();
   private flights:{object:SceneObject;from:vec3;to:SceneObject;began:number}[]=[];private stamps:{object:SceneObject;began:number}[]=[];private stampNodes:SceneObject[]=[];
   private placed=false;private hits:{position:[number,number,number];normal:[number,number,number]}[]=[];private session:HitTestSession|null=null;private nextProbe=0;
   private lastEvidence=new Set<string>();private lastSeq=0;private closed=false;
   constructor(private owner:BaseScriptComponent,private engine:RoomscriptEngineBridge,private flow:RoomscriptInterrogationController,private sound:(cue:string,at?:vec3)=>void){
+    RoomscriptCaseBoard.current=this;
     this.line=requireAsset("../Materials/RoomscriptCyan.mat") as Material;
     // Run 9 (review item 10): the board lives in the room root's frame, so it follows the case when it is placed elsewhere.
     this.root=global.scene.createSceneObject("RoomscriptCaseBoard");this.root.setParent(engine.roomRoot);this.root.createComponent("Component.Canvas");
@@ -66,16 +73,18 @@ export class RoomscriptCaseBoard {
   private find(id:string):SceneObject|null {for(let i=0;i<this.content.getChildrenCount();i++){const c=this.content.getChild(i);if(c.name==="Board item "+id)return c;}return null;}
   private draw(board:CaseBoard,state:GameState):void {
     const v=(x:number,y:number,z=0)=>new vec3(x,y,z);
-    lineTubes(this.content,"Board frame",[...rectEdges(board.width,board.height),...rectEdges(board.width-3,board.height-3)],tinted(this.line,BRASS),.5);
+    // Run 9 (ART_2D paper objects): a cork board in a dark frame, cards on photo paper, brass pins, ink labels.
+    paperQuad(this.content,"Cork board","Cork",board.width,board.height,v(0,0,-.2));
     const title=flatText(this.content,"Board title",this.engine.mode()==="preset"?"THE HARLOW TRUST":"SAME ROOM. NEW MURDER.",3,BRASS,"title",60,4);title.getSceneObject().getTransform().setLocalPosition(v(0,board.height/2+3.2,.4));
     const flow=this.flow;
     for(const item of board.items){this.items.set(item.id,item);if(item.kind==="stamp")continue; // drawn once, as the landing stamp
       const node=global.scene.createSceneObject("Board item "+item.id);node.setParent(this.content);node.getTransform().setLocalPosition(v(item.x,item.y,.3));
-      const ink=item.kind==="weapon"?CORAL:item.kind==="zone"?CHALK:item.kind==="photo"?BRASS:IVORY,color=item.crossed?DIM:ink;
-      lineTubes(node,"Card outline",rectEdges(item.w,item.h),tinted(this.line,color),.22);
+      const ink=item.kind==="weapon"?INK.oxblood:item.kind==="zone"?INK.navy:INK.black,color=item.crossed?new vec4(ink.r,ink.g,ink.b,.45):ink;
+      paperQuad(node,"Card paper","PhotoPaper",item.w,item.h,v(0,0,0),item.crossed?new vec4(.78,.76,.72,1):new vec4(1,1,1,1));
+      paperQuad(node,"Pushpin","BrassPin",1.7,1.7,v(0,item.h/2-.6,.7));
       if(item.kind==="suspect"){const actor=flow.actorFor(item.id.slice(4)),portrait=actor?.portrait();if(portrait?.texture)iconImage(node,"Portrait",portrait.texture,portrait.aspect<1?Math.min(item.h*.82,item.w*1.6):Math.min(item.w,item.h)*.8,new vec4(1,1,1,item.crossed?.35:1),v(0,item.h*.08,.2),true,portrait.aspect);}
       if(item.kind==="photo"){const card=admittedCard(this.engine.graphRef(),state,item.id.slice(6));if(card)iconImage(node,"Photo",card.texture,Math.min(item.w,item.h)*.86,new vec4(1,1,1,1),v(0,item.h*.06,.2),true);
-        lineTubes(node,"Pushpin",circleEdges(.7,10,v(0,item.h/2-.6,.6)),tinted(this.line,CORAL),.35);}
+}
       const label=flatText(node,"Card label",item.label,1.6,color,"body",item.w-1,2.2);label.getSceneObject().getTransform().setLocalPosition(v(0,-item.h/2+1.4,.5));
       if(item.crossed)lineTubes(node,"Crossed out",[[v(-item.w/2+.6,-item.h/2+.6,.8),v(item.w/2-.6,item.h/2-.6,.8)],[v(-item.w/2+.6,item.h/2-.6,.8),v(item.w/2-.6,-item.h/2+.6,.8)]],tinted(this.line,CORAL),.45);
     }
@@ -85,11 +94,17 @@ export class RoomscriptCaseBoard {
     if(strings.length)lineTubes(this.content,"Red string",strings,tinted(this.line,CORAL),.25);
   }
   /** Stamps live on the board root (they survive layout refreshes), so a new case must clear them. */
+  /** What pinching the verdict stamp does (the closing controller opens the ending details). */
+  setStampAction(action:(()=>void)|null):void {this.stampAction=action;}
   private clearStamps(text?:string):void {for(const node of this.stampNodes.slice())if(!text||node.name==="Board stamp "+text){if(!isNull(node))node.destroy();this.stampNodes.splice(this.stampNodes.indexOf(node),1);}}
   private stamp(text:string,color:vec4):void {
     const node=global.scene.createSceneObject("Board stamp "+text);node.setParent(this.root);node.getTransform().setLocalPosition(new vec3(22,-24,1.4));node.getTransform().setLocalRotation(quat.fromEulerAngles(0,0,-.18));
     lineTubes(node,"Stamp frame",[...rectEdges(text.length>8?34:20,8),...rectEdges(text.length>8?32:18,6)],tinted(this.line,color),.4);
     flatText(node,"Stamp word",text,4.2,color,"title",text.length>8?30:16,5.4);this.stamps.push({object:node,began:getTime()});this.stampNodes.push(node);
+    // Run 9: the verdict stamp replaces the Run 8 "Details" bar: pinch it for the ending details.
+    if(text!=="FILED"){const target=global.scene.createSceneObject("Ending details");target.setParent(node);const shape=Shape.createBoxShape();shape.size=new vec3(text.length>8?34:20,8,3);
+      (target.createComponent("Physics.ColliderComponent") as ColliderComponent).shape=shape;const press=target.createComponent(Interactable.getTypeName()) as Interactable;press.targetingMode=3;
+      press.onTriggerEnd.add(()=>this.stampAction?.());}
     this.sound("StampThump",this.root.getTransform().getWorldPosition());
   }
   private update():void {

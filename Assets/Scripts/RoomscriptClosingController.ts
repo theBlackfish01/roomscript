@@ -1,3 +1,4 @@
+import {RoomscriptCaseBoard} from "./RoomscriptCaseBoard";
 import {ghostArt,ghostRect,GHOST_TINT,hasFrame,GhostArt} from "./RoomscriptGhostArt";
 import {chalkSpot} from "./Content/ChalkSpots";
 import {ArtFrame} from "./Content/ActorArt";
@@ -281,7 +282,8 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
         const from=figure.getTransform().getWorldPosition(),to=new vec3(door.x,from.y,door.z),isAccused=figure===accused;
         if(isAccused)figure.capturePose(this.sealedState.verdict==="correct"?"broken":"smug",4);
         this.exits.push({actor:object,from,to,start:getTime()+(isAccused?4:.4*k++),duration:Math.max(2,from.distance(to)/90)});}}
-    this.newspaper=new RoomscriptNewspaper(this,this.getSceneObject(),this.cast.flow.actor.camera,this.sealedGraph,this.sealedState,this.clue.objection.tells.lightMaterial,accused?.neutral||null,()=>this.openDetails(),cue=>this.clue.objection.tells.audio.play(cue));this.result=this.newspaper.root;
+    this.newspaper=new RoomscriptNewspaper(this,this.getSceneObject(),this.cast.flow.actor.camera,this.sealedGraph,this.sealedState,this.clue.objection.tells.lightMaterial,accused?.portrait()?.texture||accused?.neutral||null,cue=>this.clue.objection.tells.audio.play(cue));this.result=this.newspaper.root;
+    RoomscriptCaseBoard.current?.setStampAction(()=>this.openDetails()); // Run 9: pinch the verdict stamp for details
     this.clue.objection.tells.audio.silence(false);this.clue.objection.tells.audio.endingBeat();
   }
   /** Ending exits: a paper-theatre glide to the door (the actor adds its own bob and lean), then gone. */

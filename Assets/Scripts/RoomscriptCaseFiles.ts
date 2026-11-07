@@ -1,11 +1,12 @@
 import {RoomscriptDragInteraction} from "./RoomscriptDragInteraction";
-import {lineTubes,rectEdges,circleEdges,polyline,flatText,tinted,Segment} from "./RoomscriptLineArt";
+import {lineTubes,circleEdges,flatText,tinted} from "./RoomscriptLineArt";
+import {paperQuad,INK} from "./RoomscriptPaper";
 /** Run 8 opening (WEARER_UX object UI 1): two case files on the crate replace the mode buttons.
  * Lift a folder and pull it open to choose. Presentation only: the opening controller owns phases
  * and the case modes own engine configuration.
  */
 export type CaseFileMode="preset"|"dynamic";
-const BRASS=new vec4(.91,.69,.29,1),CORAL=new vec4(1,.42,.35,1),IVORY=new vec4(1,.94,.84,1),CYAN=new vec4(.247,.89,1,1);
+const CORAL=new vec4(1,.42,.35,1),CYAN=new vec4(.247,.89,1,1);
 const W=24,H=16;
 interface Folder {mode:CaseFileMode;root:SceneObject;cover:SceneObject;page:Text;home:vec3;homeRotation:quat;openT:number;opening:boolean;title:Text;drag:RoomscriptDragInteraction;}
 export class RoomscriptCaseFiles {
@@ -20,19 +21,18 @@ export class RoomscriptCaseFiles {
   private folder(name:string,mode:CaseFileMode,position:vec3,line:Material,current:CaseFileMode):Folder {
     const root=global.scene.createSceneObject(name);root.setParent(this.root);root.getTransform().setLocalPosition(position);
     const tilt=quat.fromEulerAngles(-25*Math.PI/180,0,0);root.getTransform().setLocalRotation(tilt);
-    const ink=mode==="preset"?BRASS:IVORY,accent=mode==="preset"?CORAL:CYAN;
-    // Back board, tab and inside page lines.
-    lineTubes(root,"Folder back",[...rectEdges(W,H,new vec3(0,0,-.4)),...polyline([new vec3(-W/2+1,H/2,-.4),new vec3(-W/2+2,H/2+2,-.4),new vec3(-W/2+8,H/2+2,-.4),new vec3(-W/2+9,H/2,-.4)])],tinted(line,ink),.35);
-    const page=flatText(root,"Folder page","",2.2,IVORY,"body",W-4,H-5);page.getSceneObject().getTransform().setLocalPosition(new vec3(0,-1,-.3));page.getSceneObject().enabled=false;
+    // Run 9: opaque manila paper (back board with its tab, and the cover), titles printed in ink on the cover.
+    paperQuad(root,"Folder back","FolderBack",W,H+2,new vec3(0,1,-.4));
+    const page=flatText(root,"Folder page","",2.2,INK.brown,"body",W-4,H-5);page.getSceneObject().getTransform().setLocalPosition(new vec3(0,-1,-.3));page.getSceneObject().enabled=false;
     // Cover hinged on its left edge.
     const cover=global.scene.createSceneObject("Folder cover");cover.setParent(root);cover.getTransform().setLocalPosition(new vec3(-W/2,0,.2));
     const c=(x:number,y:number)=>new vec3(x+W/2,y,0);
-    lineTubes(cover,"Cover outline",rectEdges(W,H,c(0,0)),tinted(line,ink),.45);
-    const title=flatText(cover,"Cover title",mode==="preset"?"THE HARLOW TRUST":current==="dynamic"?"SAME ROOM. NEW MURDER.":"CAST THIS ROOM",3.4,accent,"title",W-4,4.5);title.getSceneObject().getTransform().setLocalPosition(c(0,3.2).add(new vec3(0,0,.3)));
-    const sub=flatText(cover,"Cover subtitle",mode==="preset"?"CASE 1041 · SEALED":"YOUR ROOM · NEW CASE",1.4,ink,"body",W-8,2.2);sub.getSceneObject().getTransform().setLocalPosition(c(0,-.6).add(new vec3(0,0,.3)));
+    paperQuad(cover,"Cover paper","FolderCover",W,H,c(0,0).add(new vec3(0,0,.1)));
+    const title=flatText(cover,"Cover title",mode==="preset"?"THE HARLOW TRUST":current==="dynamic"?"SAME ROOM. NEW MURDER.":"CAST THIS ROOM",3.4,mode==="preset"?INK.oxblood:INK.navy,"title",W-4,4.5);title.getSceneObject().getTransform().setLocalPosition(c(0,3.2).add(new vec3(0,0,.3)));
+    const sub=flatText(cover,"Cover subtitle",mode==="preset"?"CASE 1041 · SEALED":"YOUR ROOM · NEW CASE",1.4,INK.brown,"body",W-8,2.2);sub.getSceneObject().getTransform().setLocalPosition(c(0,-.6).add(new vec3(0,0,.3)));
     if(mode==="preset"){
       // Wax seal across the opening edge.
-      lineTubes(cover,"Wax seal",[...circleEdges(2.1,20,c(W/2-1.2,-4.2)),...circleEdges(1.3,14,c(W/2-1.2,-4.2))],tinted(line,CORAL),.4);
+      paperQuad(cover,"Wax seal","WaxSeal",4.6,4.6,c(W/2-1.2,-4.2).add(new vec3(0,0,.35)));
       lineTubes(cover,"Seal ribbon",[[c(W/2-6,-4.2),c(W/2-3.3,-4.2)]],tinted(line,CORAL),.3);
     }else{
       // Magnifier resting on the blank file.
