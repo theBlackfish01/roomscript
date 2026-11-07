@@ -1,3 +1,4 @@
+import {RoomscriptWrenHints} from "./RoomscriptWrenHints";
 import {Scenario} from "Leaf.lspkg/Scenarios/scenario/Scenario";
 import {expect} from "Leaf.lspkg/Utils/common/Expect";
 import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
@@ -32,7 +33,7 @@ import {replayGame} from "./Engine/game/Reducer";
       expect(opening.diagnostics().phase).toBe("tab");
       const tab=await control("RoomscriptPullTab");count("Open the Harlow Trust file");await hand.drag(tab,new vec3(12,0,0),500);
       for(let i=0;i<200&&opening.diagnostics().phase!=="ready";i++)await sleep(100);
-      expect(opening.diagnostics().phase).toBe("ready");
+      expect(opening.diagnostics().phase).toBe("ready");expect(opening.controlsHintVisible()).toBe(false); // Run 9: the Preview controls hint goes after the first pull
       // Preview's large actor target substitutes for walking to Vale. The question remains public UI.
       await tap("Question S2");
       for(let i=0;i<6&&!flow.chips.topics().includes("where@22:30");i++)await tap("More questions");
@@ -63,6 +64,7 @@ import {replayGame} from "./Engine/game/Reducer";
       for(let i=0;i<350&&closing.diagnostics().phase!=="ending";i++)await sleep(100);
       expect(closing.diagnostics().phase).toBe("ending");expect(actions.length<=40).toBe(true);expect(flow.client.requestCount()).toBe(calls);
       expect(JSON.stringify(replayGame(graph,engine.snapshot().log))).toBe(JSON.stringify(engine.snapshot()));
+      console.log("NAIVE_WREN_HINTS|"+JSON.stringify(RoomscriptWrenHints.current?.saidIds()||[]));
       console.log("NAIVE_PLAYER_CHECK|"+JSON.stringify({actions:actions.length,limit:40,firstAnswerSeconds,verdict:engine.snapshot().verdict,proof:engine.snapshot().arguments.length,minutes:engine.snapshot().elapsedMinutes,route:actions}));
       console.log("NAIVE_PLAYER_ACTION_TAPE|"+JSON.stringify(engine.snapshot().log));
     }finally{flow.cancel();flow.client.forceOffline=offline;}

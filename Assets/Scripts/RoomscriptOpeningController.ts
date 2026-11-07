@@ -1,3 +1,4 @@
+import {RoomscriptWrenHints} from "./RoomscriptWrenHints";
 import {paperQuad,INK} from "./RoomscriptPaper";
 import {RoomscriptCastController} from "./RoomscriptCastController";
 import {RoomscriptClueController} from "./RoomscriptClueController";
@@ -26,7 +27,7 @@ import {engraveCrate} from "./RoomscriptCrateArt";
   private chalk:SceneObject[]=[];private tape:SceneObject;private motes:SceneObject[]=[];private beam:SceneObject;
   private envelopeHome:vec3;private crateHome:vec3;private lastTick=0;private trace:string[]=[];
   private files:RoomscriptCaseFiles;private crateEngraved=false;private placement:SceneObject;private placementText:Text;private floorMarker:SceneObject;private floorOffset=0;private yaw=0;
-  onAwake():void {this.createEvent("OnStartEvent").bind(()=>this.build());this.createEvent("UpdateEvent").bind(()=>this.update());}
+  onAwake():void {this.createEvent("OnStartEvent").bind(()=>{this.build();this.buildControlsHint();});this.createEvent("UpdateEvent").bind(()=>this.update());}
   private build():void {
     this.cast.flow.initialize();this.cast.room.initialize();const graph=this.cast.flow.engine.graphRef();this.riffle=[...graph.room.zones.map(z=>z.clueName),...graph.room.objects.map(o=>o.label)];
     if(!this.subscribed){this.subscribed=true;this.cast.flow.engine.onState.add(state=>{this.verdict=!!state.verdict;this.syncClock();});this.cast.flow.engine.onCaseChanged.add(()=>this.resetForCase());}const room=this.cast.room,ink=this.clue.objection.tells.lightMaterial.clone();ink.mainPass.baseColor=new vec4(.91,.69,.29,1);
@@ -72,6 +73,16 @@ import {engraveCrate} from "./RoomscriptCrateArt";
   private chooseFile(mode:"preset"|"dynamic"):void {if(this.phase!=="tab")return;if(this.cast.flow.engine.mode()===mode)this.pull();else this.onMode.invoke(mode);}
   /** Director/film runs only: clean presentation including the LEAF overlay roots. */
   setFilmMode(active:boolean):void {this.filmMode=active;this.hidePreviewGeometry(active);if(active)hideLeafOverlays();}
+  /** Run 9 (phase 5): a Preview-only controls hint, high in view, away from the companion line. It never builds on
+   * device, hides in film mode, and goes once the first file is pulled (the first pinch). */
+  private controlsHint:SceneObject=null;
+  private buildControlsHint():void {
+    if(!global.deviceInfoSystem.isEditor()||this.controlsHint)return;let camera:SceneObject=null;
+    for(let i=0;i<global.scene.getRootObjectsCount();i++){const o=global.scene.getRootObject(i);if(o.getComponent("Component.Camera")&&o.name==="Camera Object"){camera=o;break;}}
+    if(!camera)return;this.controlsHint=global.scene.createSceneObject("RoomscriptControlsHint");this.controlsHint.setParent(camera);this.controlsHint.getTransform().setLocalPosition(new vec3(0,22,-105));
+    flatText(this.controlsHint,"Controls hint","click = pinch  ·  drag = pull  ·  right-drag = look  ·  WASD = walk",1.5,new vec4(1,.94,.84,.6),"body",80,2.4);
+  }
+  controlsHintVisible():boolean {return !!this.controlsHint&&!isNull(this.controlsHint)&&this.controlsHint.enabled;}
   private hidePreviewGeometry(active:boolean):void {const hidden=["RoomscriptProbeLab","PreviewRoom","InterrogationMark"];
     const visit=(object:SceneObject)=>{if(hidden.includes(object.name)||object.name.startsWith("Standin")||["Study plaque","Lounge plaque","Hall plaque","Kitchen plaque","Conservatory plaque"].includes(object.name))object.enabled=!active;for(let i=0;i<object.getChildrenCount();i++)visit(object.getChild(i));};for(let i=0;i<global.scene.getRootObjectsCount();i++)visit(global.scene.getRootObject(i));}
   private applyPlacement():void {this.floorOffset=Math.max(-80,Math.min(80,this.floorOffset));const root=this.getSceneObject().getParent(),head=this.cast.flow.actor.camera.getTransform().getWorldPosition();root.getTransform().setWorldPosition(new vec3(head.x,this.floorOffset,head.z));root.getTransform().setWorldRotation(quat.fromEulerAngles(0,this.yaw,0));this.placementText.text="Floor height adjusted "+this.floorOffset+" cm.\nAlign the cross with your floor.\nThen place the case.";}
@@ -82,6 +93,8 @@ import {engraveCrate} from "./RoomscriptCrateArt";
   /** Test setup may skip the pre-show; the opening scenario exercises the real pull. */
   finish():void {if(this.phase==="boot")return;this.cast.flow.engine.investigationEnabled=true;this.cast.flow.engine.configurePose();this.clue.syncSetupPose();this.phase="ready";this.placement.enabled=false;this.floorMarker.enabled=false;this.panel.enabled=false;this.tab.enabled=false;this.tape.enabled=true;this.beam.enabled=false;this.chalk.forEach(o=>o.enabled=true);this.clue.envelope.enabled=true;this.clue.envelope.getTransform().setLocalPosition(this.envelopeHome.add(new vec3(0,-6,-10)));this.clue.envelopeRest=vec3.one().uniformScale(.45);this.clue.envelope.getTransform().setLocalScale(this.clue.envelopeRest);this.crate.getTransform().setLocalPosition(this.crateHome);this.crate.restart();this.cast.flow.engine.graphRef().cast.suspects.forEach(s=>this.cast.flow.actorFor(s.id)!.getSceneObject().enabled=true);this.showPlay(true);this.clue.objection.tells.audio.silence(false);this.beat("ready");this.syncClock();}
   private update():void {
+    {const wren=RoomscriptWrenHints.current;if(wren){if(this.phase==="placement")wren.later("W7",4,()=>this.phase==="placement");if(this.phase==="tab")wren.later("W8",8,()=>this.phase==="tab");}}
+    if(this.controlsHint&&!isNull(this.controlsHint)&&this.controlsHint.enabled&&(this.filmMode||this.phase==="reveal"||this.phase==="ready"||this.phase==="scan"))this.controlsHint.enabled=false;
     if(getTime()>=this.nextDetail){
       this.nextDetail=getTime()+.2;if(this.filmMode)hideLeafOverlays();const flow=this.cast.flow,camera=flow.actor.camera.getTransform(),eye=camera.getWorldPosition(),rotation=camera.getWorldRotation(),forward=rotation.multiplyVec3(vec3.back());
       const face=flow.actor.getTransform().getWorldPosition().add(new vec3(0,flow.actor.heights().facing,0)).sub(eye),facing=face.length>.1&&face.normalize().dot(forward)>.5;

@@ -1,3 +1,4 @@
+import {RoomscriptWrenHints} from "./RoomscriptWrenHints";
 import {ghostArt,ghostImage,GHOST_TINT} from "./RoomscriptGhostArt";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
@@ -48,6 +49,7 @@ export class RoomscriptObjectReplay {
       else{lineTubes(node,"Nobody here",circleEdges(30,30,new vec3(0,-84,0),"xz"),tinted(this.line,new vec4(.6,.9,1,.6)),.5);const none=flatText(node,"No one",figure.pose==="absent"&&SAYS_EMPTY.test(v.caption)?"NO ONE":"",4,new vec4(.6,.9,1,.8),"title",30,5);none.getSceneObject().getTransform().setLocalPosition(new vec3(0,-70,0));}
       node.enabled=false;figures.push(node);});
     this.active={root,began:getTime(),figures,rings};this.sound("ReplayRewind",anchor);
+    if(this.engine.graphRef().room.objects.find(o=>o.id===v.object)?.type==="kettle")RoomscriptWrenHints.current?.say("W14");
     this.flow.subtitles.set("NARRATOR",v.caption);console.log("OBJECT_REPLAY|"+JSON.stringify({object:v.object,slot:v.slot,figures:v.figures.map(f=>f.suspect),evidence:v.evidence}));
   }
   private holdUntil=0;

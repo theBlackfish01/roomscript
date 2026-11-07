@@ -18,6 +18,7 @@ import {localBridgeAvailable,localBridgePost} from "./RoomscriptLocalBridge";
 import {PanelUI,uiObject} from "./RoomscriptPanelUI";
 import {withDeadline} from "./Engine/ai/Deadlines";
 import {RoomscriptCaseBoard} from "./RoomscriptCaseBoard";
+import {RoomscriptWrenHints} from "./RoomscriptWrenHints";
 import {RoomscriptWindowStorm} from "./RoomscriptWindowStorm";
 import {RoomscriptEvidenceThreads} from "./RoomscriptEvidenceThreads";
 import {RoomscriptRoomBinding} from "./RoomscriptRoomBinding";
@@ -37,7 +38,7 @@ import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjection
   @input @hint("Production question and speech flow") interrogation:RoomscriptInterrogationController;
   @ui.group_end
   storyMoments:RoomscriptStoryMoments;
-  caseBoard:RoomscriptCaseBoard;
+  caseBoard:RoomscriptCaseBoard;wren:RoomscriptWrenHints;
   storm:RoomscriptWindowStorm;
   threads:RoomscriptEvidenceThreads;
   replays:RoomscriptObjectReplay;
@@ -62,6 +63,7 @@ import {RoomscriptSpatialObjectionController} from "./RoomscriptSpatialObjection
     this.audio.onNarrationSubtitle.add(({speaker,text})=>{if(!this.interrogation.diagnostics().busy)this.interrogation.subtitles.set(speaker,text);});
     this.audio.onNarrationSubtitleAligned.add(({speaker,text,fullText})=>{if(this.interrogation.diagnostics().busy)return;const subtitles=this.interrogation.subtitles;if(subtitles.fullText()!==fullText)subtitles.set(speaker,fullText);subtitles.reveal(text);});
     this.storm=new RoomscriptWindowStorm(this,this.engine,this.audio);
+    this.wren=new RoomscriptWrenHints(this,this.engine,(cue,at)=>{if(at)this.audio.playAt(cue,at);else this.audio.play(cue);});
     this.caseBoard=new RoomscriptCaseBoard(this,this.engine,this.interrogation,(cue,at)=>{if(at)this.audio.playAt(cue,at);else this.audio.play(cue);});
     const roomBinding=this.engine.roomRoot.getComponent(RoomscriptRoomBinding.getTypeName()) as RoomscriptRoomBinding;
     if(roomBinding)this.replays=new RoomscriptObjectReplay(this,this.engine,this.interrogation,roomBinding,(cue,at)=>this.audio.playAt(cue,at));

@@ -1,3 +1,4 @@
+import {RoomscriptWrenHints} from "./RoomscriptWrenHints";
 import {RoomscriptCaseBoard} from "./RoomscriptCaseBoard";
 import {ghostArt,ghostRect,GHOST_TINT,hasFrame,GhostArt} from "./RoomscriptGhostArt";
 import {chalkSpot} from "./Content/ChalkSpots";
@@ -121,6 +122,8 @@ const RIG_CONTROLS=["Accused suspect","Accused room","Accused weapon","File dedu
     // carry everything; the title shows only when time is up. Reconstruction and details turn them back on.
     this.title.text=state.verdict==="timeout"?"TIME IS UP — ONE ACCUSATION":"FINAL ACCUSATION";this.title.getSceneObject().enabled=state.verdict==="timeout";this.body.getSceneObject().enabled=false;
     if(this.fileWord)this.fileWord.text="Proof "+state.arguments.length+"/"+graph.requiredDeductions.length;
+    {const wren=RoomscriptWrenHints.current;if(wren&&this.panel.enabled&&this.phase==="idle"){wren.later("W9",1.5,()=>this.phase==="idle"&&this.panel.enabled);
+      if(this.complete())wren.later("W10",4,()=>this.phase==="idle"&&this.panel.enabled&&this.complete()&&this.heldAt<0);}}
     this.labels[0].text=graph.cast.suspects.find(s=>s.id===this.picked.who)!.name.split(" ").slice(-1)[0];this.labels[1].text=graph.room.zones.find(z=>z.id===this.picked.where)?.clueName||"?";this.labels[2].text=graph.room.objects.find(o=>o.id===this.picked.what)?.label.split(/\s+/).slice(-1)[0]||"?";if(this.heldAt<0)this.sealLabel.text=this.sealPrompt();
     this.body.text=state.arguments.length+" / "+graph.requiredDeductions.length+" proof filed · point · hold the seal";
   }

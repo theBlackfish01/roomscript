@@ -59,3 +59,7 @@ Running log and memory across context compaction. Newest checkpoint at the botto
 - No doubled opening line; the accusation is tokens + seal (no stacked title/summary); real door tape (`docs/captures/2026-11-07-run9-door-tape-v2.jpg`).
 - LEAF strict: closing wrong PASS 52.8 s.
 - Run 10 note: the door-latch highlight (O8) floats mid-door, about 45 cm from the real handle; moving it changes an engine position (tapes), so it waits.
+
+### 05:34 PKT — followability (phase 5, part 1)
+- Wren hints W3–W12, W14 wired once each; the Preview controls hint. LEAF strict naive-player PASS 117.3 s: 28 actions (limit 40), first answer at 39.4 s, verdict correct; hints fired once each: W14, W5, W3, W4, W9, W10 (W8 not needed: the file was pulled at once); the controls hint is gone after the pull.
+- Still to do in phase 5: the glow on the next useful object; a fresh-eyes pass.

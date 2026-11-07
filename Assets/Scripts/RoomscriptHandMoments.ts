@@ -1,3 +1,4 @@
+import {RoomscriptWrenHints} from "./RoomscriptWrenHints";
 import {HandInputData} from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/HandInputData";
 import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
 import {RoomscriptEngineBridge} from "./RoomscriptEngineBridge";
@@ -16,7 +17,7 @@ import {lineTubes,circleEdges,polyline,tinted,Segment} from "./RoomscriptLineArt
  */
 const VIOLET=new vec4(.62,.42,1,.9);
 export class RoomscriptHandMoments {
-  private line:Material;private hands:HandInputData|null=null;private dust=new Map<string,{progress:number;hovering:boolean;prints:SceneObject;done:boolean;revealed:boolean}>();private known=new Set<string>();private verdict=false;
+  private line:Material;private hands:HandInputData|null=null;private dust=new Map<string,{progress:number;hovering:boolean;prints:SceneObject;done:boolean;revealed:boolean}>();private known=new Set<string>();private nextDustCheck=0;private verdict=false;
   private cone:SceneObject;private pool:SceneObject;private uv:SceneObject|null=null;private whispered=new Set<string>();private readyAt=0;
   constructor(owner:BaseScriptComponent,private engine:RoomscriptEngineBridge,private flow:RoomscriptInterrogationController,private room:RoomscriptRoomBinding,private objection:RoomscriptSpatialObjectionController|null,private isBlackout:()=>boolean,private board:()=>vec3|null,private sound:(cue:string,at?:vec3)=>void){
     this.line=requireAsset("../Materials/RoomscriptCyan.mat") as Material;try{this.hands=HandInputData.getInstance();}catch{this.hands=null;}
@@ -25,7 +26,7 @@ export class RoomscriptHandMoments {
     // Object Interactables are created by the objection controller after this starts, and again on each case change.
     const later=()=>{const d=owner.createEvent("DelayedCallbackEvent");d.bind(()=>{this.bindDusting();owner.removeEvent(d);});d.reset(.6);};engine.onCaseChanged.add(later);later(); // each timer is removed after firing (review item 9)
     // Cached engine state: no snapshot() per frame (rule 13).
-    const cache=(state:{knowledge:{evidenceIds:string[]};verdict:any})=>{this.known=new Set(state.knowledge.evidenceIds);this.verdict=!!state.verdict;this.markCollected();};
+    const cache=(state:{knowledge:{evidenceIds:string[]};verdict:any})=>{if(this.known.size===0&&state.knowledge.evidenceIds.length>0)RoomscriptWrenHints.current?.later("W3",12,()=>!this.verdict);this.known=new Set(state.knowledge.evidenceIds);this.verdict=!!state.verdict;this.markCollected();};
     engine.initialize();cache(engine.snapshot());engine.onState.add(cache);
     owner.createEvent("LateUpdateEvent").bind(()=>this.update());
   }
@@ -55,7 +56,11 @@ export class RoomscriptHandMoments {
       if(d.progress>=1.4&&dustingAction(this.engine.graphRef(),id)){d.revealed=true;d.hovering=false;d.prints.getTransform().setLocalScale(vec3.one());
         this.sound("PrintReveal",d.prints.getTransform().getWorldPosition());console.log("DUSTED|"+id);}});
     // UV flashlight during the blackout beat.
-    const blackout=this.isBlackout();this.cone.enabled=blackout;this.pool.enabled=blackout;
+    const blackout=this.isBlackout();this.cone.enabled=blackout;this.pool.enabled=blackout;if(blackout)RoomscriptWrenHints.current?.say("W11");
+    // Run 9: standing near prints you have not dusted for a few seconds brings Wren's dusting hint (W12), once.
+    if(getTime()>=this.nextDustCheck&&this.engine.investigationEnabled&&!this.verdict){this.nextDustCheck=getTime()+.5;const eye=this.flow.actor.camera.getTransform().getWorldPosition();
+      this.dust.forEach((d,id)=>{if(d.done||d.revealed||isNull(d.prints))return;const near=()=>!d.revealed&&!d.done&&d.prints.getParent().getTransform().getWorldPosition().distance(this.flow.actor.camera.getTransform().getWorldPosition())<130;
+        if(d.prints.getParent().getTransform().getWorldPosition().distance(eye)<130)RoomscriptWrenHints.current?.later("W12",4,near);});}
     if(blackout){const camera=this.flow.actor.camera.getTransform();let origin=camera.getWorldPosition().add(camera.getWorldRotation().multiplyVec3(new vec3(-14,-26,-18))),dir=camera.getWorldRotation().multiplyVec3(new vec3(0,-.55,-1)).normalize();
       if(this.hands){const left=this.hands.getHand("left");if(left&&left.isTracked()){const palm=left.getPalmCenter();if(palm){origin=palm;dir=camera.getWorldRotation().multiplyVec3(new vec3(0,-.6,-1)).normalize();}}}
       this.cone.getTransform().setWorldPosition(origin);this.cone.getTransform().setWorldRotation(quat.lookAt(dir.uniformScale(-1),vec3.up()));this.cone.getTransform().setWorldScale(new vec3(1,1,60));
