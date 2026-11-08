@@ -328,3 +328,7 @@ Wadood signed off the illustrated cast. `CHARACTER_ART` and the "line" mode are 
 - N10_DEBT repeated native stalls in the final long Windows Preview session. Preserve the exact full take as a44.1kHz mono16-bit PCM WAV, verified byte-for-byte against the decoded/resampled MP3, and wire that derivative for native playback.338766bytes,3.840s,no API cost. Focused audio regression now explicitly plays the note.
 
 - Final acceptance used an explicit Preview refresh and RUN10_AUDIO_BUILD marker. The marked revision passed both focused audio and full native play (879caption samples,zero overlaps/mismatches/premature ends). Earlier failed long-session attempts remain documented; no claim that audiodg growth itself is fixed.
+
+### Run 10 documentation audit — Nov 8, 13:12 PKT
+- Preserve all filming tags and the verified game while export identity remains unavailable. The build goal is blocked, not complete; generated-case deferral remains the user's authorized fallback. Do not invent a package ID or substitute raw asset bytes for an actual export measurement.
+- Record the final secret scan against its exact checkpoint (`4c0935b`, 124 commits, zero findings), with its binary-content exclusion explicit. A documentation update does not extend that receipt's coverage automatically.

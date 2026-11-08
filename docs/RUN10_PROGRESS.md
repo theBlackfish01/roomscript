@@ -129,3 +129,10 @@
 ### Report closeout
 - Full reachable-history scan at pushed639d501:123commits,7497blobs,33scene versions,196085081bytes,zero findings,15.813s. Updated committed receipt and report. Final report-HEAD scan will be saved to ignored run10-history-final.local.json to avoid a self-referential audit commit.
 - All requested tags pushed:run9-end,run10-fixes,run10-loop. No m3-case because actual export remains blocked by packageId. Run10 report is complete; generated-case deferral and certificate support fallback are explicit.
+
+### Documentation audit — Nov 8, 13:12 PKT
+- Rechecked the clean repository at `4c0935b`, saved final Preview records, 655-test and full-fuzz logs, and all three local checkpoint tags. No game changes, new Preview session, Lens restart or generation spend.
+- Final report-HEAD history receipt is complete and passed at `4c0935b`: 124 commits, 7,503 blobs, 33 scene versions, 196,278,147 bytes, zero findings in 15.059 seconds. `Tooling/results/run10-history-final.local.json` is deliberately local/ignored. The scan checks text contents and all pathnames; binary contents are excluded. Later documentation commits are outside that receipt's recorded scope.
+- `RoomScriptF.esproj` still has an empty `packageId`. The same export blocker was confirmed on three consecutive goal turns; the goal is marked blocked, not complete. No `m3-case` tag was created. Configure an owned package ID, rerun packaging and resolve any additional reported prerequisites, then measure the actual export against 25 MB before awarding the gate.
+- Updated PROGRESS and RUN10_REPORT to distinguish completed hero work, authorized generated-case deferral, and the unresolved export gate. Film `run10-loop` at `639d501`; keep `run10-fixes` as fallback. The continuous video is planned, not recorded.
+- Costs remain 609 ElevenLabs credits, $0 OpenAI images, $0 Claude API. No new third-party material; NOTICE is unchanged. Four graceful restarts remain the total used.

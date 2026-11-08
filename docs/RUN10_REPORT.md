@@ -1,5 +1,7 @@
 # Run 10 report — find, ask, catch
 
+Documentation audit: **Nov 8, 2026, 13:12 PKT**. This update checked the current repository, package metadata and saved verification records; it did not rerun Preview or change the game. The build goal is **blocked on the remaining export gate**. Six of the seven numbered acceptance criteria are verified; generated cases use the explicitly permitted deferral.
+
 The redesigned hero game is implemented and verified in Preview. **Film the run10-loop checkpoint** for the new game; run10-fixes remains the earlier fallback. The remaining acceptance blocker is the actual exported-size measurement: Lens packaging requires a package ID that this project does not yet have. **m3-case is not awarded.** The code checkpoint **639d501** and all three requested tags are pushed.
 
 ## Work order
@@ -74,10 +76,13 @@ Final-gate list:
 - [x] Integrated fail-fast full-loop, audio, row, interrogation and boundary coverage.
 - [x] New exact-graph hero tape and replay validation.
 - [x] Seven accepted visual views and updated continuous-video plan.
-- [x] Code checkpoint639d501 and run10-loop pushed. Full reachable-history scan:123commits,7497blobs,33scene versions,196085081bytes,zero findings in15.813s. Committed receipt:Tooling/results/run10-history-secret-audit.json. A final report-HEAD receipt is retained locally as Tooling/results/run10-history-final.local.json.
+- [x] Code checkpoint **639d501** and **run10-loop** pushed. Its full reachable-history scan passed: 123 commits, 7,497 blobs, 33 scene versions, zero findings. Committed receipt: `Tooling/results/run10-history-secret-audit.json`.
+- [x] Final report checkpoint **4c0935b** also passed a complete reachable-history scan: **124 commits, 7,503 blobs, 33 scene versions, 196,278,147 bytes, zero findings in 15.059 seconds**. Receipt: `Tooling/results/run10-history-final.local.json` (local, ignored). These counts apply to that checkpoint; later documentation commits are not implicitly included. Binary pathnames were checked, but binary contents were excluded from the secret scan.
 - [ ] Actual exported lens measured below 25 MB.
 - [ ] m3-case only after the remaining gate passes.
 
 ## Needs Wadood
 
-The project needs an owned package ID before the actual size export can run. CLAD [specs-publish](C:/Users/wadoo/.codex/plugins/cache/ls-extensions/ls-clad/local/skills/specs-publish/SKILL.md) specifies, for a blank package ID, **“set a package ID they own.”** Its production package script therefore stops before export. No package identity, signing key or publication was invented for this check. After project metadata is supplied, rerun packaging, measure the artifact against 25 MB, and complete the remaining final gate.
+The project needs an owned package ID before the actual size export can run. The field remains empty in `RoomScriptF.esproj`, rechecked Nov 8 at 13:12 PKT. CLAD [specs-publish](C:/Users/wadoo/.codex/plugins/cache/ls-extensions/ls-clad/local/skills/specs-publish/SKILL.md) specifies, for a blank package ID, **“set a package ID they own.”** Its production package script therefore stops before export. No package identity, signing key or publication was invented for this check.
+
+Resume sequence: configure the owned package ID; rerun packaging and handle any further reported prerequisites; measure the actual exported artifact against 25 MB; update this report with the size and receipt; award `m3-case` only if every remaining gate passes. A raw asset-size estimate does not satisfy this gate. Preserve the existing filming tags. The four-restart allowance is exhausted; this documentation update did not start another Preview session.

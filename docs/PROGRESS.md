@@ -1,12 +1,18 @@
 # Run 10 verified redesign — Nov 8, Codex
 
-Report: [RUN10_REPORT.md](RUN10_REPORT.md). Running evidence: [RUN10_PROGRESS.md](RUN10_PROGRESS.md). Find/ask/catch hero loop verified:25pinches; final full native play879caption samples,zero mismatches/overlaps/early ends;655unit tests and5000-case fuzz pass. All seven Director views accepted. Filming checkpoint:run10-loop at639d501 (pushed); prior fallback:run10-fixes.
+Last documentation audit: **Nov 8, 2026, 13:12 PKT**. Report: [RUN10_REPORT.md](RUN10_REPORT.md). Running evidence: [RUN10_PROGRESS.md](RUN10_PROGRESS.md).
+
+The hero redesign is implemented and Preview-verified: **25 pinches**, no drags or holds; **879 caption samples**, zero mismatches, overlaps or premature line endings. **655 tests** and the **5,000-case fuzz** passed. All seven Director views are accepted. Film **run10-loop at 639d501** (pushed); **run10-fixes** is the earlier fallback. **run9-end** is also pushed.
+
+The final report checkpoint **4c0935b** passed a reachable-history secret scan: **124 commits, 7,503 blobs, 33 scene versions, zero findings**. The receipt is `Tooling/results/run10-history-final.local.json`; its scope is that checkpoint, not later documentation commits. The overall build goal is **blocked on export verification**, not marked complete.
 
 ## Needs Wadood (current)
-- Actual export size remains blocked by empty packageId. Supply an owned package ID, package and measure against25MB; m3-case withheld.
-- Generated cases deliberately deferred behind Another case? with Replay Harlow.
 
-Preview paused;4/4 graceful restarts used. ElevenLabs609credits, OpenAIimages$0, Claude$0. Older sections below are historical.
+- Actual export size remains blocked by empty `packageId` (rechecked in `RoomScriptF.esproj` on Nov 8 at 13:12 PKT). Once an owned ID is configured, rerun packaging, resolve any further reported prerequisites, and measure the artifact against 25 MB. **m3-case is withheld.**
+
+Generated cases are deliberately deferred as authorized, behind **Another case?** with **Replay Harlow**.
+
+Preview was left paused at the verified closeout; this documentation audit did not resume it or run Lens tools. **4/4 graceful restarts** were used. Costs remain **609 ElevenLabs credits, $0 OpenAI images, $0 Claude API**. No new assets or costs in this update. Older sections below are historical.
 
 ---
 
