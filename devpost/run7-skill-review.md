@@ -1,10 +1,12 @@
 ﻿# Run 7: plan-lens review and action list
 
+*This is the plan-lens review from Run 7. The final brief, and the review of the final build (Nov 8), are in [design-brief.md](design-brief.md).*
+
 ## Provenance
 
-On November 5, Codex applied the MIT [Devpost Learn skill pack](https://github.com/challengepost/learn-specs) to Roomscript's existing design at Wadood's explicit request. The skill, AR rules, Preview limits and brief template were read; answers came from Wadood's design decisions and Run 7 prompt. No fresh interview or approval is claimed. The earlier November 4 brief preceded the pack. The local installation is under `Tooling/skills/plan-lens` (initial `.agents/skills` installation disappeared across a Lens restart; cause unproven). The skill is development material, not a Lens runtime dependency.
+On November 5, at Wadood's request, Codex ran the **plan-lens** skill from the MIT [Devpost Learn skill pack](https://github.com/challengepost/learn-specs) on Roomscript. The skill, its AR rules, its Preview limits and the brief template were read, and the answers came from Wadood's design decisions. The skill lives under `Tooling/skills/plan-lens`. It's development material, not a Lens runtime dependency.
 
-The pack did not originate the murder-mystery idea, deterministic engine, voiced cast, physical objection, or the judges' R1–R10 recommendations. It formalised those decisions into five observable Preview criteria, exposed stale claims, and supplied the explicit post-build review below. [Updated brief](design-brief.md).
+plan-lens turned Wadood's decisions and the judges' R1–R10 recommendations into five observable Preview criteria. It also exposed stale claims and supplied the post-build review below.
 
 ## After the build: judge it — baseline review
 
@@ -43,7 +45,7 @@ This is an evidence review at the start of Run 7, using Run 6's report and exist
 
 ## Suggested Devpost answer: how the pack helped
 
-We began Roomscript's design before installing the Devpost Learn pack. During Run 7 we used plan-lens to formalise our existing decisions and review the build against its AR and Preview rules. It made us turn a long feature list into observable checks: one compact panel, large questions near the person you're talking to, evidence on the furniture it concerns, and an authored fallback for unproven sensing. Its after-build checklist also made us separate tested logic from hardware feel and require an uncut gameplay segment. The judges' live feedback supplied the R1–R10 direction; the pack helped us make that direction testable.
+We used plan-lens to plan Roomscript and to review each build against its AR and Preview rules. It made us turn a long feature list into observable checks: one compact panel, large questions near the person you're talking to, evidence on the furniture it concerns, and an authored fallback for unproven sensing. Its after-build checklist also made us separate tested logic from hardware feel and require an uncut gameplay segment. The judges' live feedback supplied the R1–R10 direction; the pack helped us make that direction testable.
 
 ## Current outcome
 

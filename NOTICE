@@ -74,10 +74,13 @@ Generated audio and AI services
   VOICES ARE AI-GENERATED. They are not recordings of, clones of, or deliberate
   impersonations of real people. Generated audio is governed by ElevenLabs terms
   and is excluded from the MIT grant. It is not offered as a stock-audio library.
-- ElevenLabs music was generated through the API. The owner's actual account
-  plan and the hackathon's music-use rules still require confirmation before
-  publication. Successful generation is not evidence of licensing eligibility.
-  Reference recorded by the pipeline: https://elevenlabs.io/music-terms
+- ElevenLabs music was generated through the API on Nov 3, 2026. The owner
+  holds an ElevenLabs Pro plan, an individual paid self-serve plan. The Eleven
+  Music terms (checked Nov 8, 2026) permit all online and offline commercial
+  use on paid self-serve plans, with no attribution required, except film, TV,
+  radio and "Studio Games". A Studio Game is one that is monetized and is not
+  an Indie Game. Roomscript is free and unmonetized, so it isn't one.
+  Terms: https://elevenlabs.io/music-terms
 - Runtime Gemini and OpenAI language/speech services are accessed through Snap's
   Remote Service Gateway. Their models are not redistributed. OpenAI speech is
   synthetic and is disclosed as such in the project. Offline Stage mode makes
@@ -110,7 +113,7 @@ names are used to identify platforms or explain inspiration. No affiliation or
 endorsement is implied. No Clue or L.A. Noire logos, footage, music or source code
 are included.
 
-Devpost Learn skill pack (Run 7)
+Devpost Learn skill pack (plan-lens)
 - challengepost/learn-specs, Copyright (c) 2026 Devpost, MIT.
   Source: https://github.com/challengepost/learn-specs
   Project-local development skill at Tooling/skills/plan-lens; not shipped in

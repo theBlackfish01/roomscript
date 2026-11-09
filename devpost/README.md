@@ -1,37 +1,23 @@
-# Roomscript submission workspace
+# Roomscript: planning and submission
 
-Roomscript stages a fair murder mystery in your room on Snap Specs. Its deterministic engine decides the truth; synthetic characters perform validated accounts. Wadood directs the project; coding agents implement it with CLAD and the Lens Studio MCP.
+Roomscript is a murder mystery in your own room on Snap Spectacles. Four suspects answer in their own voices, and a deterministic rules engine keeps the case fair. This folder holds the planning behind it and the submission material.
 
-**Submission state, November 5: logic proven / feel unproven.** The repository remains private. The final integrated Preview gate, video, hardware evaluation and public submission are pending. Run 6's earlier-cast hero passed; new Vale playback passed, but its hero registration failed. This folder is a reviewable publication package, not evidence that submission has happened. [Current build state](../docs/PROGRESS.md).
+The design was planned with the Devpost Learn **plan-lens** skill (installed at `../Tooling/skills/plan-lens`). The final build is tag `run10-loop`, verified in Lens Studio Preview on Nov 8: see the [Run 10 report](../docs/RUN10_REPORT.md).
 
 | File | Purpose |
 |---|---|
-| [design-brief.md](design-brief.md) | Spatial moment, audience, input, staging, acceptance and build evaluation |
-| [clad-log.md](clad-log.md) | Chronological summary and attribution of CLAD/MCP work |
-| [clad-log-raw.md](clad-log-raw.md) | Preserved contemporaneous log, unchanged |
-| [clad-log-run5.md](clad-log-run5.md) | Current run's separate incremental record |
-| [drafts/video-plan.md](drafts/video-plan.md) | 2:50 shot plan and voiceover; must be reconciled with actual captures |
-| [drafts/devpost-description-draft.md](drafts/devpost-description-draft.md) | Historical form-copy draft; old counts and claims must not be pasted unreviewed |
-| [../README.md](../README.md) | Current project pitch, setup, measured evidence and limits |
+| [design-brief.md](design-brief.md) | **The plan-lens design brief:** the spatial moment, placement, input, timing, done criteria, and how we judged the final build |
+| [run7-skill-review.md](run7-skill-review.md) | An earlier plan-lens "judge it" review, and the changes it led to |
+| [clad-log.md](clad-log.md) | How CLAD and the Lens Studio MCP were used, run by run |
+| [clad-log-raw.md](clad-log-raw.md), [clad-log-run5.md](clad-log-run5.md) | The original contemporaneous logs, unchanged |
+| [drafts/devpost-description-draft.md](drafts/devpost-description-draft.md) | Paste-ready text for the Devpost form |
+| [drafts/video-plan.md](drafts/video-plan.md) | The shot plan for the demo video |
+| [run7-publication-checklist.md](run7-publication-checklist.md) | Historical claim checklist from Run 7 (superseded by the Run 10 report) |
 
-## Description for the form
+## Submission checklist
+- [ ] Demo video under 3 minutes, recorded in Lens Studio Preview, uploaded to YouTube as **Public**.
+- [ ] Repository public on GitHub, with the Lens Studio project and this folder.
+- [ ] Devpost form filled from [the description draft](drafts/devpost-description-draft.md), with the video and repo links and four captures.
+- [ ] Submitted before **Mon Nov 9, 5:00 pm US Eastern (Tue Nov 10, 03:00 PKT)**.
 
-**Pitch:** A murder mystery staged in your room on Snap Specs. Four suspects perform their accounts; a deterministic engine decides what is true. Break a lie by joining its statement to contradictory evidence.
-
-**Audience:** Mystery, escape-room and board-game players who enjoy observing a character, testing a story and assembling proof.
-
-**What we learned:** AR deduction needs clear spatial staging: keep a face visible, put evidence where it can be inspected, reserve brightness for the next action, and use a sound to direct attention. AI needs a narrower job: perform a permitted account, while deterministic rules keep the mystery fair and replayable. Preview verification and physical comfort are different kinds of evidence.
-
-**Build:** Codex applied CLAD procedures inline, used VirtualScene for scene changes and Lens Studio MCP for compilation, logs, LEAF and inspection. Parallel workers built disjoint pure-engine, audio, art and documentation packages. Claude Code contributed planning/reviews; local Claude API work produced adversarial corpora and judged performance-bank candidates. See the log for actual results and failed attempts.
-
-**Disclosure:** Development captures are Lens Studio Preview with a simulated room. Placement is manual. Voices are AI-generated fictional performances (ElevenLabs offline, OpenAI for optional live speech). Hardware testing has not happened. A future live-AI video beat must be labelled and captured live; do not present a taped or banked answer as a live call.
-
-## Release actions still owned by Wadood
-
-- Confirm the actual Devpost rules, resources, updates and submission form, plus the account's ElevenLabs music eligibility. Earlier automatic access to the rules returned HTTP 403.
-- Review the cast (Vale now uses selected S2-1), the labelled offline art composites and the readable Stage route. Harlow's preserved voicemail splice needs listening review.
-- Finish the final 2:50 public video and capture credits. Add the video URL only when it exists.
-- Make the existing private repository public on November 8 after the final secret/history scan and LFS archive check. Preserve real history.
-- Check all links and submit. Target submission is November 9 at 21:00 PKT; the recorded deadline is November 10 at 03:00 PKT. Feature freeze remains November 7 at 21:00 PKT.
-
-MIT covers Roomscript-authored code and procedural art. Snap packages and ElevenLabs output retain separate terms; see [NOTICE](../NOTICE). No release tag or public upload is claimed by this document.
+MIT covers Roomscript's own code and procedural art. Snap packages, the plan-lens skill and generated art and audio keep their own terms; see [NOTICE](../NOTICE).
