@@ -1,4 +1,5 @@
 import {admittedFreeSpeech,speechStillAdmitted} from "./Engine/ai/LiveSpeechAdmission";
+import {SpeechPlayback,SPEECH_OUTPUT_DRAIN_MS} from "./Engine/perf/SpeechPlayback";
 import {synthesizeAdmittedSpeech} from "./RoomscriptLiveSpeech";
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import {OpenAI} from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
@@ -28,9 +29,19 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
   readonly onSubtitle=new Event<string>();
   readonly onSubtitleAligned=new Event<string>();
   private audio:AudioComponent;private cache=new Map<string,AudioTrackAsset>();private source:CancellationSource;
-  private earlyEnds=0;private finishedClips=0;private nativeFinishes=0;
-  playbackAudit(){return {earlyEnds:this.earlyEnds,finishedClips:this.finishedClips};}
-  private async waitForAudio(end:number,token:CancellationToken):Promise<void>{const start=this.client.clock.nowMs(),finishAt=this.nativeFinishes;let observed=false,maxPosition=0;while(true){token.throwIfCancelled();const playing=this.audio.isPlaying(),at=this.audio.position;observed=observed||playing;maxPosition=Math.max(maxPosition,at);if(observed&&(this.nativeFinishes>finishAt||at>=end-.025||!playing)){if(!playing&&maxPosition<end-.12&&this.nativeFinishes===finishAt){await delay(100,this.client.clock,token);token.throwIfCancelled();if(this.nativeFinishes===finishAt){this.earlyEnds++;throw new LlmError("timeout");}}break;}if(this.client.clock.nowMs()-start>(observed?60000:3000)){this.earlyEnds++;throw new LlmError("timeout");}await delay(25,this.client.clock,token);}token.throwIfCancelled();this.finishedClips++;console.log("SPEECH_CLIP_END|"+JSON.stringify({speaker:this.actor.suspect,position:this.audio.position,end}));}
+  private earlyEnds=0;private finishedClips=0;private nativeFinishes=0;private lastClipSeconds=0;private lastClipDuration=0;
+  playbackAudit(){return {earlyEnds:this.earlyEnds,finishedClips:this.finishedClips,lastClipSeconds:this.lastClipSeconds,lastClipDuration:this.lastClipDuration};}
+  private async waitForAudio(end:number,token:CancellationToken,finishAt:number):Promise<void>{
+    const start=this.client.clock.nowMs(),playback=new SpeechPlayback();
+    while(true){token.throwIfCancelled();const status=playback.observe(this.audio.isPlaying(),this.nativeFinishes>finishAt,this.client.clock.nowMs()-start,this.audio.duration*1000,this.audio.position*1000);
+      if(status==="completed")break;
+      if(status==="timeout"){this.earlyEnds++;console.log("SPEECH_NATIVE_TIMEOUT|"+JSON.stringify({end,position:this.audio.position,duration:this.audio.duration,playing:this.audio.isPlaying(),finishAt,finishes:this.nativeFinishes}));throw new LlmError("timeout");}
+      await delay(25,this.client.clock,token);
+    }
+    await delay(SPEECH_OUTPUT_DRAIN_MS,this.client.clock,token);token.throwIfCancelled();this.finishedClips++;
+    this.lastClipSeconds=(this.client.clock.nowMs()-start)/1000;this.lastClipDuration=this.audio.duration;
+    console.log("SPEECH_CLIP_END|"+JSON.stringify({speaker:this.actor.suspect,position:this.audio.position,end,elapsedMs:this.client.clock.nowMs()-start,nativeFinished:this.nativeFinishes>finishAt}));
+  }
   private played=0;private fallback=0;private hit=0;private liveAttempts=0;private livePlayed=0;
   private caption:SubtitleCue[]=[];private captionIndex=0;private captionOffset=0;private captionText="";
   private static phrases:Map<string,VoiceRecord>;
@@ -74,7 +85,7 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
     if(cached){this.cache.delete(key);this.cache.set(key,cached);this.hit++;return cached;}
     const track=await withDeadline(token=>this.client.scheduler.submit(priority,async()=>{
       if(this.client.isOffline()||!this.client.hasCredentials("openai"))throw new LlmError("unavailable");
-      try{return await OpenAI.speech({model:"gpt-4o-mini-tts",voice:voice as any,input:sentence,instructions:"A restrained theatrical suspect. Clear diction, quiet tension.",response_format:"mp3"});}
+      try{return await OpenAI.speech({model:"gpt-4o-mini-tts",voice:voice as any,input:sentence,instructions:"A restrained theatrical suspect. Clear diction, quiet tension.",response_format:"wav"});}
       catch(error){throw providerError(error);}
     },token).promise,budgetMs,this.client.clock,parent);
     parent?.throwIfCancelled();this.cache.set(key,track);if(this.cache.size>60)this.cache.delete(this.cache.keys().next().value);
@@ -98,31 +109,31 @@ import {accumulatedPhraseCues,phraseVoiceKey,resolvePhrasePlayback} from "./Engi
         const at=line.indexOf(clip.record.text,captionCursor);captionCursor=at<0?captionCursor:at+clip.record.text.length;
         return {...clip,raw:clip.record.text,prefix:at<0?"":line.slice(0,at)};
       });
-      if(bundled){let lastAligned=false;for(const clip of bundled){source.token.throwIfCancelled();const record=clip.record;this.audio.audioTrack=clip.track;this.audio.play(1); // Complete per-line file; avoid Windows MP3 seek/position race.
+      if(bundled){let lastAligned=false;for(const clip of bundled){source.token.throwIfCancelled();const record=clip.record;this.audio.audioTrack=clip.track;const finishAt=this.nativeFinishes;this.audio.play(1); // Capture completion before native play or synchronous UI callbacks can finish the clip.
         this.caption=accumulatedPhraseCues(clip.raw,clip.prefix,record);lastAligned=this.caption.length>0;this.captionIndex=0;this.captionOffset=record.startSeconds||0;this.captionText=clip.prefix+clip.raw;if(this.caption.length)this.onSubtitleAligned.invoke(clip.prefix);else this.onSubtitle.invoke(line);
         this.played++;this.hit++;first=false;this.actor.setVoice(clip.track);this.actor.setAlignment(record.alignment,()=>this.audio.position-(record.startSeconds||0));
         const duration=(record.endSeconds??this.audio.duration)-(record.startSeconds||0);
         this.onAudioStarted.invoke({text:record.text,latencyMs:this.client.clock.nowMs()-began,voice:"bundle:"+record.speaker+":"+record.take,durationMs:duration*1000});
-        await this.waitForAudio((record.startSeconds||0)+duration,source.token);source.token.throwIfCancelled();if(this.caption.length)this.onSubtitleAligned.invoke(clip.prefix+clip.raw);this.caption=[];if(this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);
+        await this.waitForAudio((record.startSeconds||0)+duration,source.token,finishAt);source.token.throwIfCancelled();if(this.caption.length)this.onSubtitleAligned.invoke(clip.prefix+clip.raw);this.caption=[];if(this.audio.isPlaying())this.audio.stop(false);this.actor.setVoice(null);
       }if(lastAligned)this.onSubtitleAligned.invoke(line);return true;}
       if(scope==="free"){
         const engine=this.actor.engine,graph=engine.graphRef(),ticket=admittedFreeSpeech(engine.snapshot(),this.actor.suspect,line,"free");
         if(!ticket)throw new LlmError("invalid_response");
         const allowed=()=>this.source===source&&engine.graphRef()===graph&&speechStillAdmitted(engine.snapshot(),ticket);
         this.liveAttempts++;const track=await synthesizeAdmittedSpeech(this.client,ticket,selectedVoice,allowed,source.token);
-        source.token.throwIfCancelled();this.audio.audioTrack=track;this.audio.play(1);this.played++;this.livePlayed++;this.actor.setVoice(track);
+        source.token.throwIfCancelled();this.audio.audioTrack=track;const finishAt=this.nativeFinishes;this.audio.play(1);this.played++;this.livePlayed++;this.actor.setVoice(track);
         const duration=(track.control as FileAudioTrackProvider).duration;this.onSubtitle.invoke(line);
         this.onAudioStarted.invoke({text:line,latencyMs:this.client.clock.nowMs()-began,voice:selectedVoice,durationMs:duration*1000});
-        await this.waitForAudio(Number.isFinite(duration)?duration:this.audio.duration,source.token);return true;
+        await this.waitForAudio(Number.isFinite(duration)?duration:this.audio.duration,source.token,finishAt);return true;
       }
       const clips=prepareSpeech(line,(sentence,index)=>this.synthesize(sentence,selectedVoice,"live",audioBudgetMs(began,this.client.clock.nowMs(),index),source.token));
       for(const clip of clips) {
         const prepared=await clip.ready;source.token.throwIfCancelled();if(prepared.ok===false)throw prepared.error;
         if(first&&this.client.clock.nowMs()-began>DEADLINES.answerMs)throw new LlmError("timeout");
-        first=false;this.audio.audioTrack=prepared.track;this.audio.play(1);this.played++;this.actor.setVoice(prepared.track);
+        first=false;this.audio.audioTrack=prepared.track;const finishAt=this.nativeFinishes;this.audio.play(1);this.played++;this.actor.setVoice(prepared.track);
         const duration=(prepared.track.control as FileAudioTrackProvider).duration;
         this.onAudioStarted.invoke({text:clip.sentence,latencyMs:this.client.clock.nowMs()-began,voice:selectedVoice,durationMs:duration*1000});
-        await this.waitForAudio(Number.isFinite(duration)?duration:this.audio.duration,source.token);
+        await this.waitForAudio(Number.isFinite(duration)?duration:this.audio.duration,source.token,finishAt);
         this.actor.setVoice(null);
       }
       return !first;

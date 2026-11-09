@@ -1,3 +1,11 @@
+# Nov 9 — Preview voice repair
+
+Wadood confirmed **Preview-only testing and demo; no glasses**. Repaired fast/high-pitched compressed playback and premature speech completion without changing words or game truth. [Voice repair report](VOICE_FIX_2026-11-09.md) records the native format comparison, changed files, byte-size tradeoff and limitations.
+
+Verified: Lens compilation/startup; 660-test full suite plus 13 focused tests after the final EOF regression (661 total tests now); native duration checks on all 26 Run 10 clips; four-suspect bundled-voice LEAF; audio-overlap LEAF with real item pinches during speech, zero early ends/overlaps/caption mismatches. Final clean Lens session handshake: **Nov 9, 21:24 PKT**. No voice generation spend. Existing local scene edits are preserved outside the voice commit. Device export size is still unverified and is not this Preview-only patch's acceptance target.
+
+---
+
 # Run 10 verified redesign — Nov 8, Codex
 
 Last documentation audit: **Nov 8, 2026, 13:12 PKT**. Report: [RUN10_REPORT.md](RUN10_REPORT.md). Running evidence: [RUN10_PROGRESS.md](RUN10_PROGRESS.md).

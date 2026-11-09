@@ -1,4 +1,5 @@
 import {RUN10_VOICE_MANIFEST} from "./Content/Run10VoiceManifest";
+import {SpeechPlayback,SPEECH_OUTPUT_DRAIN_MS} from "./Engine/perf/SpeechPlayback";
 import {ROOMScriptRun10VoiceAssets} from "./RoomscriptRun10VoiceAssets";
 import {SpeechArbiter,SpeechEvent} from "./Engine/perf/SpeechArbiter";
 import {CancellationToken} from "./Engine/ai/LlmPort";
@@ -173,15 +174,15 @@ type SpeechJob={mood?:string;position?:vec3;live?:LiveNarration;kind:"voice"|"di
   private beginObservation(speaker:string,text:string):void {this.endObservation(false);const key=speaker+"|"+text;let proof=this.narrationProof.get(key);if(!proof){if(this.narrationProof.size>=128)this.narrationProof.delete(this.narrationProof.keys().next().value);proof={attempted:0,observed:0,completed:0};this.narrationProof.set(key,proof);}proof.attempted++;this.observationKey=key;this.observationPosition=this.narration.position;this.observationSeen=false;this.sampleObservation();}
   private sampleObservation():void {if(!this.observationKey||!this.narration?.audioTrack)return;const at=this.narration.position,observed=this.narration.isPlaying()||at>this.observationPosition+.001;this.observationPosition=at;if(observed&&!this.observationSeen){this.observationSeen=true;this.narrationProof.get(this.observationKey)!.observed++;}}
   private endObservation(completed:boolean):void {if(!this.observationKey)return;this.sampleObservation();if(completed)this.narrationProof.get(this.observationKey)!.completed++;this.observationKey="";}
-  private async waitForNarration(end:number,revision:number):Promise<void> {
-    const started=getTime(),finishAt=this.nativeFinishes;let observed=false,maxPosition=0;
+  private async waitForNarration(end:number,revision:number,finishAt:number):Promise<void> {
+    const started=getTime(),playback=new SpeechPlayback();let maxPosition=0;
     while(!this.destroyed&&revision===this.narrationRevision){this.sampleObservation();
       // The arbiter owns this channel until the line ends; a queued answer never pauses narration.
       if(this.narration.isPaused())this.narration.resume();
-      const playing=this.narration.isPlaying();observed=observed||playing;maxPosition=Math.max(maxPosition,this.narration.position);
-      if(observed&&(this.nativeFinishes>finishAt||this.narration.position>=end-.025||!playing)){if(!playing&&maxPosition<end-.12&&this.nativeFinishes===finishAt){await this.wait(.1,true);if(revision!==this.narrationRevision)return;if(this.nativeFinishes===finishAt){this.nativeEarlyEnds++;throw new Error("Narration stopped without native completion");}}console.log("NARRATION_CLIP_END|"+JSON.stringify({position:this.narration.position,maxPosition,end,nativeFinished:this.nativeFinishes>finishAt,duration:this.narration.duration,playing,elapsed:getTime()-started}));return;}
-      if(!observed&&getTime()-started>3)throw new Error("Narration never began native playback");
-      if(getTime()-started>60){console.log("NARRATION_NATIVE_TIMEOUT|"+JSON.stringify({end,position:this.narration.position,maxPosition,playing,nativeFinished:this.nativeFinishes>finishAt}));throw new Error("Narration native completion timeout");}
+      const playing=this.narration.isPlaying();maxPosition=Math.max(maxPosition,this.narration.position);
+      const status=playback.observe(playing,this.nativeFinishes>finishAt,(getTime()-started)*1000,this.narration.duration*1000,this.narration.position*1000);
+      if(status==="completed"){await this.wait(SPEECH_OUTPUT_DRAIN_MS/1000,true);console.log("NARRATION_CLIP_END|"+JSON.stringify({position:this.narration.position,maxPosition,end,nativeFinished:this.nativeFinishes>finishAt,duration:this.narration.duration,playing,elapsed:getTime()-started}));return;}
+      if(status==="timeout"){this.nativeEarlyEnds++;throw new Error("Narration native completion timeout");}
       await this.wait(.05,true);
     }
   }
@@ -195,8 +196,8 @@ type SpeechJob={mood?:string;position?:vec3;live?:LiveNarration;kind:"voice"|"di
         const track=await synthesizeAdmittedSpeech(live.client,live.ticket,"sage",()=>revision===this.narrationRevision&&live.allowed(),source.token);
         if(revision!==this.narrationRevision||!live.allowed())return false;
         this.narratorDucking=true;this.updateDuck();this.caption=[];this.onNarrationSubtitle.invoke({speaker,text});
-        this.narration.audioTrack=track;this.applyVolume(this.narration,this.muted?0:.9,"narration");this.narration.play(1);this.livePlayed++;
-        await this.waitForNarration(Math.max(.1,this.narration.duration),revision);if(revision!==this.narrationRevision)return false;
+        this.narration.audioTrack=track;this.applyVolume(this.narration,this.muted?0:.9,"narration");const finishAt=this.nativeFinishes;this.narration.play(1);this.livePlayed++;
+        await this.waitForNarration(Math.max(.1,this.narration.duration),revision,finishAt);if(revision!==this.narrationRevision)return false;
         this.narration.stop(false);this.playedNarrations++;return true;
       }catch{if(revision!==this.narrationRevision||!live.allowed())return false;this.liveFallback++;console.log("WREN_LIVE_SPEECH|caption_fallback");}
       finally{if(this.liveSource===source)this.liveSource=undefined;if(revision===this.narrationRevision){this.narratorDucking=false;this.updateDuck();}}
@@ -205,9 +206,9 @@ type SpeechJob={mood?:string;position?:vec3;live?:LiveNarration;kind:"voice"|"di
     const revision=++this.narrationRevision,captionPlan=narrationCaptionPlan(text,clips.map(clip=>clip.record));this.narratorDucking=true;this.updateDuck();this.captionFullText=text;this.onNarrationSubtitle.invoke({speaker,text});let clipIndex=0;
     try{for(const clip of clips){if(this.destroyed||revision!==this.narrationRevision)return false;this.narration.audioTrack=clip.track;this.applyVolume(this.narration,this.muted?0:.9,"narration");// Each bundled record is its own complete file. Preserve its leading silence;
         // seeking immediately after play can leave Windows MP3 position stalled.
-        this.narration.play(1);this.beginObservation(speaker,text);
+        const finishAt=this.nativeFinishes;this.narration.play(1);this.beginObservation(speaker,text);
       const seconds=(clip.record.endSeconds??this.narration.duration)-(clip.record.startSeconds||0);this.caption=captionPlan?.[clipIndex].cues||[];this.captionIndex=0;this.captionOffset=clip.record.startSeconds||0;this.captionSpeaker=speaker;
-      if(captionPlan)this.onNarrationSubtitleAligned.invoke({speaker,text:captionPlan[clipIndex].prefix,fullText:text});await this.waitForNarration((clip.record.startSeconds||0)+Math.max(.1,seconds),revision);if(revision!==this.narrationRevision)return false;this.endObservation(true);this.narration.stop(false);this.caption=[];if(captionPlan)this.onNarrationSubtitleAligned.invoke({speaker,text:captionPlan[clipIndex].end,fullText:text});clipIndex++;
+      if(captionPlan)this.onNarrationSubtitleAligned.invoke({speaker,text:captionPlan[clipIndex].prefix,fullText:text});await this.waitForNarration((clip.record.startSeconds||0)+Math.max(.1,seconds),revision,finishAt);if(revision!==this.narrationRevision)return false;this.endObservation(true);this.narration.stop(false);this.caption=[];if(captionPlan)this.onNarrationSubtitleAligned.invoke({speaker,text:captionPlan[clipIndex].end,fullText:text});clipIndex++;
     }if(captionPlan)this.onNarrationSubtitleAligned.invoke({speaker,text,fullText:text});this.playedNarrations++;return true;}finally{this.endObservation(false);if(revision===this.narrationRevision){this.caption=[];this.narratorDucking=false;this.updateDuck();}}
   }
   private playOn(audio:AudioComponent,name:string,volume:number):void {if(/^W[0-9]+$/.test(name)||this.muted||!audio||!this.clips[name])return;if(audio.audioTrack&&audio.isPlaying())this.nativeAudio("cue.stop:"+name,()=>audio.stop(false));this.bindTrack(audio,this.clips[name],"cue.track:"+name);this.applyVolume(audio,volume*this.duck,name);this.nativeAudio("cue.play:"+name,()=>audio.play(1));this.cueStarts++;if(name==="ClockTick"){this.tickStarts++;this.tickStartedAt=getTime();this.tickDuration=audio.duration;}}

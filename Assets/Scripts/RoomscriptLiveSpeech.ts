@@ -9,7 +9,7 @@ export async function synthesizeAdmittedSpeech(client:RoomscriptLlmClient,ticket
   if(!allowed()||!ticket.text.trim()||!allowModelTransport("free",client.stageMode,client.forceOffline)||!client.hasCredentials("openai"))throw new LlmError("unavailable");
   const track=await withDeadline(token=>client.scheduler.submit("live",async()=>{
     token.throwIfCancelled();if(!allowed()||client.forceOffline)throw new LlmError("cancelled");
-    return OpenAI.speech({model:"gpt-4o-mini-tts",voice:voice as any,input:ticket.text,instructions:ticket.scope==="wren"?"A calm detective companion. Read only the supplied words, clearly and concisely.":"A restrained theatrical suspect. Read only the supplied words with quiet tension.",response_format:"mp3"});
+    return OpenAI.speech({model:"gpt-4o-mini-tts",voice:voice as any,input:ticket.text,instructions:ticket.scope==="wren"?"A calm detective companion. Read only the supplied words, clearly and concisely.":"A restrained theatrical suspect. Read only the supplied words with quiet tension.",response_format:"wav"});
   },token).promise,8000,client.clock,parent);
   parent?.throwIfCancelled();if(!allowed()||client.forceOffline)throw new LlmError("cancelled");return track;
 }

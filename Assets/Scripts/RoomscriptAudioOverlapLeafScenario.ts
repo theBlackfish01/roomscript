@@ -5,6 +5,8 @@ import {findSceneObjectByName,sleep} from "Leaf.lspkg/Utils/common/Utils";
 import {RoomscriptInterrogationController} from "./RoomscriptInterrogationController";
 import {RoomscriptAudio} from "./RoomscriptAudio";
 import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
+import {findInteractablesByName} from "Leaf.lspkg/Interactors/InteractableUtils";
+import {DefaultLeafInteractor} from "Leaf.lspkg/Interactors/interactor/DefaultLeafInteractor";
 /** Real bundled speech, caption ownership, deferred selection, and native overlap. */
 @component export class RoomscriptAudioOverlapLeafScenario extends Scenario {
   async run():Promise<void>{await enterCase();await sleep(600);
@@ -19,11 +21,18 @@ import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
     while(Date.now()<deadline){await sleep(50);const active=audio.speechDiagnostics().active;
       if(active){samples++;if(active.text&&flow.subtitles.fullText()!==active.text){captionMismatch++;console.log("CAPTION_MISMATCH|"+JSON.stringify({active:active.text,caption:flow.subtitles.fullText()}));}
         expect(flow.row.diagnostics().visible).toBe(false);
-        if(active.role==="suspect"&&!requested){requested=true;eye.getTransform().setWorldPosition(eye.getTransform().getWorldPosition().add(new vec3(0,0,800)));opening.cast.clearPreviewFocus();flow.selectSuspect("S1");expect(flow.diagnostics().suspect).toBe("S2");void audio.narrate("NARRATOR","Tonight, this room is Harlow's study.");}}
+        if(active.role==="suspect"&&!requested){requested=true;
+          // Real item pinches during an answer must queue observations without ending the speaker.
+          const hand=new DefaultLeafInteractor();
+          for(const id of ["O1","O13"]){const target=findInteractablesByName("RoomscriptObject_"+id,undefined,true);expect(target.length).toBe(1);await hand.trigger(target[0]);}
+          eye.getTransform().setWorldPosition(eye.getTransform().getWorldPosition().add(new vec3(0,0,800)));opening.cast.clearPreviewFocus();flow.selectSuspect("S1");expect(flow.diagnostics().suspect).toBe("S2");void audio.narrate("NARRATOR","Tonight, this room is Harlow's study.");}}
       if(requested&&!flow.diagnostics().busy&&!active&&audio.speechDiagnostics().queued===0)break;
     }
     await answer;await sleep(200);expect(requested).toBe(true);expect(samples).toBeGreaterThan(0);expect(captionMismatch).toBe(0);
     expect(flow.diagnostics().suspect).toBe("S1");expect(audio.speechDiagnostics().nativeOverlapFrames).toBe(0);expect(flow.tts.playbackAudit().earlyEnds).toBe(0);expect(flow.tts.playbackAudit().finishedClips).toBeGreaterThan(clips);
+    expect(flow.tts.playbackAudit().lastClipSeconds>=flow.tts.playbackAudit().lastClipDuration-.45).toBe(true);
+    expect(audio.narrationEvidence("NARRATOR","Collar fibres, caught in the braid. I don't like that.").completed).toBeGreaterThan(0);
+    expect(audio.narrationEvidence("NARRATOR","Harlow was going to expose Vale's forged accounts.").completed).toBeGreaterThan(0);
     actors.forEach((a,i)=>a.camera=cameras[i]);
     // Wren uses the same caption channel; dialogue advances one aligned speaker at a time.
     const wren=audio.hint("What did Harlow leave us?",new vec3(0,0,70));

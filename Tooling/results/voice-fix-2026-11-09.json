@@ -1,0 +1,936 @@
+﻿[
+    {
+        "log":  "LensStudioLog-2026-11-09-21-24-15-997-bc801.txt",
+        "kind":  "SUSPECT_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "S1",
+                     "earlyEnds":  0,
+                     "finishedClips":  1,
+                     "lastClipSeconds":  4.341640599999664,
+                     "lastClipDuration":  2.8995001316070557
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-24-15-997-bc801.txt",
+        "kind":  "SUSPECT_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "S2",
+                     "earlyEnds":  0,
+                     "finishedClips":  2,
+                     "lastClipSeconds":  7.159741400000257,
+                     "lastClipDuration":  5.433374881744385
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-24-15-997-bc801.txt",
+        "kind":  "SUSPECT_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "S3",
+                     "earlyEnds":  0,
+                     "finishedClips":  3,
+                     "lastClipSeconds":  4.923538799999733,
+                     "lastClipDuration":  3.2913124561309814
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-24-15-997-bc801.txt",
+        "kind":  "SUSPECT_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "S4",
+                     "earlyEnds":  0,
+                     "finishedClips":  4,
+                     "lastClipSeconds":  5.752121299999999,
+                     "lastClipDuration":  3.9966249465942383
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-24-15-997-bc801.txt",
+        "kind":  "SUSPECT_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "S1",
+                     "earlyEnds":  0,
+                     "finishedClips":  1,
+                     "lastClipSeconds":  5.047620700000152,
+                     "lastClipDuration":  3.5525624752044678
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-24-15-997-bc801.txt",
+        "kind":  "SUSPECT_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "S2",
+                     "earlyEnds":  0,
+                     "finishedClips":  2,
+                     "lastClipSeconds":  7.207915599999978,
+                     "lastClipDuration":  5.433374881744385
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-24-15-997-bc801.txt",
+        "kind":  "SUSPECT_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "S3",
+                     "earlyEnds":  0,
+                     "finishedClips":  3,
+                     "lastClipSeconds":  4.928619499999968,
+                     "lastClipDuration":  3.2913124561309814
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-24-15-997-bc801.txt",
+        "kind":  "SUSPECT_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "S4",
+                     "earlyEnds":  0,
+                     "finishedClips":  4,
+                     "lastClipSeconds":  5.7980405000002975,
+                     "lastClipDuration":  3.9966249465942383
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-24-15-997-bc801.txt",
+        "kind":  "BUNDLED_VOICE_CHECK",
+        "data":  {
+                     "lines":  4,
+                     "peak":  0.8,
+                     "maxStart":  0,
+                     "calls":  0,
+                     "fallback":  0
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-24-15-997-bc801.txt",
+        "kind":  "AUDIO_OVERLAP_CHECK",
+        "data":  {
+                     "samples":  195,
+                     "captionMismatch":  0,
+                     "nativeOverlapFrames":  0,
+                     "earlyEnds":  0,
+                     "events":  [
+                                    {
+                                        "type":  "start",
+                                        "id":  "suspect-2",
+                                        "role":  "suspect",
+                                        "speaker":  "S2",
+                                        "text":  "If you must know, I was in the Kitchen making tea at 22:30.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "suspect-2",
+                                        "role":  "suspect",
+                                        "speaker":  "S2",
+                                        "text":  "If you must know, I was in the Kitchen making tea at 22:30.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "narration-3",
+                                        "role":  "narrator",
+                                        "speaker":  "NARRATOR",
+                                        "text":  "Collar fibres, caught in the braid. I don\u0027t like that.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "narration-3",
+                                        "role":  "narrator",
+                                        "speaker":  "NARRATOR",
+                                        "text":  "Collar fibres, caught in the braid. I don\u0027t like that.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "narration-4",
+                                        "role":  "narrator",
+                                        "speaker":  "NARRATOR",
+                                        "text":  "Harlow was going to expose Vale\u0027s forged accounts.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "narration-4",
+                                        "role":  "narrator",
+                                        "speaker":  "NARRATOR",
+                                        "text":  "Harlow was going to expose Vale\u0027s forged accounts.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "narration-5",
+                                        "role":  "narrator",
+                                        "speaker":  "NARRATOR",
+                                        "text":  "Tonight, this room is Harlow\u0027s study.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "narration-5",
+                                        "role":  "narrator",
+                                        "speaker":  "NARRATOR",
+                                        "text":  "Tonight, this room is Harlow\u0027s study.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "narration-6",
+                                        "role":  "wren",
+                                        "speaker":  "WREN",
+                                        "text":  "What did Harlow leave us?",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "narration-6",
+                                        "role":  "wren",
+                                        "speaker":  "WREN",
+                                        "text":  "What did Harlow leave us?",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "narration-7",
+                                        "role":  "suspect",
+                                        "speaker":  "S2",
+                                        "text":  "Good evening, Detective.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "narration-7",
+                                        "role":  "suspect",
+                                        "speaker":  "S2",
+                                        "text":  "Good evening, Detective.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "narration-8",
+                                        "role":  "suspect",
+                                        "speaker":  "S1",
+                                        "text":  "Quite an entrance, Detective.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "narration-8",
+                                        "role":  "suspect",
+                                        "speaker":  "S1",
+                                        "text":  "Quite an entrance, Detective.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "narration-9",
+                                        "role":  "suspect",
+                                        "speaker":  "S3",
+                                        "text":  "Please be precise.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "narration-9",
+                                        "role":  "suspect",
+                                        "speaker":  "S3",
+                                        "text":  "Please be precise.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "narration-10",
+                                        "role":  "suspect",
+                                        "speaker":  "S4",
+                                        "text":  "Easy, Detective.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "narration-10",
+                                        "role":  "suspect",
+                                        "speaker":  "S4",
+                                        "text":  "Easy, Detective.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "narration-11",
+                                        "role":  "wren",
+                                        "speaker":  "WREN",
+                                        "text":  "What caught those fibres?",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "narration-11",
+                                        "role":  "wren",
+                                        "speaker":  "WREN",
+                                        "text":  "What caught those fibres?",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "suspect-12",
+                                        "role":  "suspect",
+                                        "speaker":  "S2",
+                                        "text":  "Really, now. I was in the Kitchen making tea at 22:30.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "suspect-12",
+                                        "role":  "suspect",
+                                        "speaker":  "S2",
+                                        "text":  "Really, now. I was in the Kitchen making tea at 22:30.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "suspect-13",
+                                        "role":  "suspect",
+                                        "speaker":  "S2",
+                                        "text":  "Well. I reached the Study at 22:30. Harlow was already dead.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "suspect-13",
+                                        "role":  "suspect",
+                                        "speaker":  "S2",
+                                        "text":  "Well. I reached the Study at 22:30. Harlow was already dead.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "suspect-14",
+                                        "role":  "suspect",
+                                        "speaker":  "S2",
+                                        "text":  "Forgive me. I reached the Study at 22:30. Harlow was already dead.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "suspect-14",
+                                        "role":  "suspect",
+                                        "speaker":  "S2",
+                                        "text":  "Forgive me. I reached the Study at 22:30. Harlow was already dead.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    },
+                                    {
+                                        "type":  "start",
+                                        "id":  "narration-15",
+                                        "role":  "narrator",
+                                        "speaker":  "NARRATOR",
+                                        "text":  "Imran\u0027s signature. This came from Harlow\u0027s coat.",
+                                        "revision":  1
+                                    },
+                                    {
+                                        "type":  "end",
+                                        "id":  "narration-15",
+                                        "role":  "narrator",
+                                        "speaker":  "NARRATOR",
+                                        "text":  "Imran\u0027s signature. This came from Harlow\u0027s coat.",
+                                        "revision":  1,
+                                        "reason":  "completed"
+                                    }
+                                ]
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "mp3",
+                     "mode":  "latency",
+                     "seconds":  1.964,
+                     "duration":  3.7485713958740234,
+                     "maxPosition":  1.8074792623519897,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "pcm",
+                     "mode":  "latency",
+                     "seconds":  3.718,
+                     "duration":  3.8400001525878906,
+                     "maxPosition":  3.5783958435058594,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "mp3",
+                     "mode":  "latency",
+                     "seconds":  1.979,
+                     "duration":  3.7485713958740234,
+                     "maxPosition":  1.7975833415985107,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "pcm",
+                     "mode":  "latency",
+                     "seconds":  3.694,
+                     "duration":  3.8400001525878906,
+                     "maxPosition":  3.5567500591278076,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "mp3",
+                     "mode":  "power",
+                     "seconds":  2.022,
+                     "duration":  3.7485713958740234,
+                     "maxPosition":  1.8184791803359985,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "pcm",
+                     "mode":  "power",
+                     "seconds":  3.74,
+                     "duration":  3.8400001525878906,
+                     "maxPosition":  3.5730416774749756,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "mp3",
+                     "mode":  "power",
+                     "seconds":  2.065,
+                     "duration":  3.7485713958740234,
+                     "maxPosition":  1.8432917594909668,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "pcm",
+                     "mode":  "power",
+                     "seconds":  3.739,
+                     "duration":  3.8400001525878906,
+                     "maxPosition":  3.5678958892822266,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "mp3",
+                     "mode":  "latency",
+                     "seconds":  2.087,
+                     "duration":  3.7485713958740234,
+                     "maxPosition":  1.8194375038146973,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "44100",
+                     "mode":  "latency",
+                     "seconds":  3.208,
+                     "duration":  3.8919999599456787,
+                     "maxPosition":  2.935908317565918,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "pcm",
+                     "mode":  "latency",
+                     "seconds":  3.785,
+                     "duration":  3.8400001525878906,
+                     "maxPosition":  3.572645902633667,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "44100",
+                     "mode":  "latency",
+                     "seconds":  3.194,
+                     "duration":  3.8919999599456787,
+                     "maxPosition":  2.9147417545318604,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "mp3",
+                     "mode":  "latency",
+                     "seconds":  2.15,
+                     "duration":  3.7485713958740234,
+                     "maxPosition":  1.823479175567627,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "128-stereo",
+                     "mode":  "latency",
+                     "seconds":  3.721,
+                     "duration":  3.892125129699707,
+                     "maxPosition":  3.363471746444702,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "pcm24",
+                     "mode":  "latency",
+                     "seconds":  3.784,
+                     "duration":  3.8400001525878906,
+                     "maxPosition":  3.5439584255218506,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "pcm",
+                     "mode":  "latency",
+                     "seconds":  3.816,
+                     "duration":  3.8400001525878906,
+                     "maxPosition":  3.5735833644866943,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "128-stereo",
+                     "mode":  "latency",
+                     "seconds":  3.727,
+                     "duration":  3.892125129699707,
+                     "maxPosition":  3.339200973510742,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "128-stereo",
+                     "mode":  "latency",
+                     "seconds":  3.274,
+                     "duration":  3.8919999599456787,
+                     "maxPosition":  2.913804292678833,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "pcm24",
+                     "mode":  "latency",
+                     "seconds":  3.795,
+                     "duration":  3.8400001525878906,
+                     "maxPosition":  3.5402917861938477,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "pcm",
+                     "mode":  "latency",
+                     "seconds":  3.817,
+                     "duration":  3.8400001525878906,
+                     "maxPosition":  3.5648958683013916,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_DECODER_PROBE",
+        "data":  {
+                     "format":  "128-stereo",
+                     "mode":  "latency",
+                     "seconds":  3.268,
+                     "duration":  3.8919999599456787,
+                     "maxPosition":  2.9092416763305664,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_OPEN_1",
+                     "seconds":  2.652,
+                     "duration":  2.5338125228881836,
+                     "maxPosition":  2.2697842121124268,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_OPEN_2",
+                     "seconds":  5.368,
+                     "duration":  5.511750221252441,
+                     "maxPosition":  5.321638584136963,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_KETTLE",
+                     "seconds":  3.196,
+                     "duration":  3.343562602996826,
+                     "maxPosition":  2.81280517578125,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_RECORDER",
+                     "seconds":  3.227,
+                     "duration":  3.343562602996826,
+                     "maxPosition":  2.7945759296417236,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_CABLE",
+                     "seconds":  4.275,
+                     "duration":  4.074999809265137,
+                     "maxPosition":  3.7885758876800537,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_LETTER",
+                     "seconds":  3.847,
+                     "duration":  3.657062530517578,
+                     "maxPosition":  3.3419718742370605,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_DEBT",
+                     "seconds":  3.96,
+                     "duration":  3.8400001525878906,
+                     "maxPosition":  3.559687614440918,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_MEDICINE",
+                     "seconds":  3.77,
+                     "duration":  3.892125129699707,
+                     "maxPosition":  3.3245344161987305,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_CERTIFICATE",
+                     "seconds":  4.269,
+                     "duration":  4.074999809265137,
+                     "maxPosition":  3.773617744445801,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_END_CORRECT",
+                     "seconds":  3.799,
+                     "duration":  3.7354376316070557,
+                     "maxPosition":  3.3474509716033936,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_END_WRONG",
+                     "seconds":  4.232,
+                     "duration":  4.388500213623047,
+                     "maxPosition":  3.797992706298828,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "N10_END_TIMEOUT",
+                     "seconds":  2.759,
+                     "duration":  2.5338125228881836,
+                     "maxPosition":  2.248805046081543,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "W10_CASE",
+                     "seconds":  1.801,
+                     "duration":  1.8285000324249268,
+                     "maxPosition":  1.2895551919937134,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "W10_GUESTS",
+                     "seconds":  2.296,
+                     "duration":  2.455437421798706,
+                     "maxPosition":  1.8119717836380005,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "W10_KETTLE",
+                     "seconds":  2.684,
+                     "duration":  2.7166249752044678,
+                     "maxPosition":  2.2434511184692383,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "W10_RECORDER",
+                     "seconds":  2.679,
+                     "duration":  2.7950000762939453,
+                     "maxPosition":  2.2493467330932617,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "W10_CABLE",
+                     "seconds":  1.823,
+                     "duration":  1.9068750143051147,
+                     "maxPosition":  1.2787219285964966,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "W10_READY",
+                     "seconds":  3.25,
+                     "duration":  3.2651875019073486,
+                     "maxPosition":  2.8171801567077637,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "V10_OPEN",
+                     "seconds":  4.764,
+                     "duration":  4.701937675476074,
+                     "maxPosition":  4.321784019470215,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "D10_EDMUND",
+                     "seconds":  1.743,
+                     "duration":  1.6717500686645508,
+                     "maxPosition":  1.3052635192871094,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "D10_HARLOW",
+                     "seconds":  3.699,
+                     "duration":  3.5786874294281006,
+                     "maxPosition":  3.2405967712402344,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "D10_ESCAPE",
+                     "seconds":  1.717,
+                     "duration":  1.5149999856948853,
+                     "maxPosition":  1.285534381866455,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "D10_DISMISS_S1",
+                     "seconds":  1.743,
+                     "duration":  1.5149999856948853,
+                     "maxPosition":  1.2810969352722168,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "D10_DISMISS_S2",
+                     "seconds":  2.257,
+                     "duration":  2.0635626316070557,
+                     "maxPosition":  1.82103431224823,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "D10_DISMISS_S3",
+                     "seconds":  1.339,
+                     "duration":  1.4366250038146973,
+                     "maxPosition":  0.8550344109535217,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    },
+    {
+        "log":  "LensStudioLog-2026-11-09-21-02-38-475-39347.txt",
+        "kind":  "VOICE_PLAYBACK_CHECK",
+        "data":  {
+                     "id":  "D10_DISMISS_S4",
+                     "seconds":  1.308,
+                     "duration":  1.4366250038146973,
+                     "maxPosition":  0.8597427010536194,
+                     "finished":  true,
+                     "playing":  false
+                 }
+    }
+]
