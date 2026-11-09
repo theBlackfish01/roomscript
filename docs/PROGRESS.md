@@ -1,3 +1,11 @@
+# Nov 9 ? Preview polish follow-up
+
+Implemented final-word protection across 916 speech clips, easier full-person selection and larger stable Ask / Show / Accuse controls, concise Ask labels, direct answers with varied repeat takes, and two clearer narrator lines. Report: [PREVIEW_POLISH_2026-11-09.md](PREVIEW_POLISH_2026-11-09.md).
+
+Verified: 665 automated tests; clean Lens compilation/startup; Preview row-stability, audio-overlap, all 26 native Run 10 voice timings, four-suspect bundled voices, and Director row / Ask / Show. Captures reviewed and retained. Graceful restart handshake: Nov 9, 22:07 PKT. New voice cost: 74 ElevenLabs credits, header-ledgered. No device testing; this remains the owner's Preview-only demo build. Existing local scene edits stay outside the commit.
+
+---
+
 # Nov 9 — Preview voice repair
 
 Wadood confirmed **Preview-only testing and demo; no glasses**. Repaired fast/high-pitched compressed playback and premature speech completion without changing words or game truth. [Voice repair report](VOICE_FIX_2026-11-09.md) records the native format comparison, changed files, byte-size tradeoff and limitations.
@@ -507,3 +515,5 @@ Run7 02:34 PKT verified checkpoint: strict roomscript-actor-pose-capture passed1
 Run9 checkpoint d1b2dbc/run9-end pushed. Phase1 compile + fail-fast audio-overlap, row-stability and new-row interrogation passed; row v4 capture accepted. run10-fixes is the fallback filming checkpoint. Restarts2/4; Preview paused during loop implementation. Run10 cost557 ElevenLabs credits; images/Claude$0. Follow docs/RUN10_PROGRESS.md for active status.
 
 Run10 size gate remains blocked: package.ts cannot export a SnapOS Package without a registered project packageId. Needs Wadood: supply/register the Lens package ID before size/publish acceptance. No generated metadata was assigned.
+
+Final typed interrogation LEAF passed after the concise-label change. Final runtime refresh had no errors; Preview reset and paused, project saved.

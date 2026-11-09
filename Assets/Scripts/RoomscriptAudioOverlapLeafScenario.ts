@@ -20,7 +20,7 @@ import {DefaultLeafInteractor} from "Leaf.lspkg/Interactors/interactor/DefaultLe
     const answer=flow.askChip("where@22:30");let requested=false,samples=0;const deadline=Date.now()+90000;let captionMismatch=0;
     while(Date.now()<deadline){await sleep(50);const active=audio.speechDiagnostics().active;
       if(active){samples++;if(active.text&&flow.subtitles.fullText()!==active.text){captionMismatch++;console.log("CAPTION_MISMATCH|"+JSON.stringify({active:active.text,caption:flow.subtitles.fullText()}));}
-        expect(flow.row.diagnostics().visible).toBe(false);
+        expect(flow.row.diagnostics().blocked).toBe(true);
         if(active.role==="suspect"&&!requested){requested=true;
           // Real item pinches during an answer must queue observations without ending the speaker.
           const hand=new DefaultLeafInteractor();

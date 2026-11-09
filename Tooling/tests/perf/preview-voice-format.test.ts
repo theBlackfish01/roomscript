@@ -4,6 +4,13 @@ import {resolve} from "node:path";
 import {createHash} from "node:crypto";
 
 describe("bundled Preview voice encoding",()=>{
+  it("protects every speech tail while leaving cue/music timing alone",()=>{
+    const root=resolve(".."),receipt=JSON.parse(readFileSync("audio/preview-voice-format.json","utf8"));
+    const speech=new Set(["RoomscriptVoiceAssets.ts","RoomscriptRun7VoiceAssets.ts","RoomscriptRun10VoiceAssets.ts"].flatMap(name=>[...readFileSync(resolve(root,"Assets/Scripts",name),"utf8").split("];")[0].matchAll(/requireAsset\("\.\.\/(Audio\/[^"\n]+\.(?:mp3|wav))"\)/g)].map(m=>"Assets/"+m[1])));
+    const rows=[...receipt.files,...receipt.pcmFiles];
+    expect(new Set(rows.filter(r=>r.tailSeconds===.6).map(r=>r.path))).toEqual(speech);
+    for(const row of receipt.pcmFiles)expect(createHash("sha256").update(readFileSync(resolve(root,row.path))).digest("hex")).toBe(row.outputSha256);
+  });
   it("ships every referenced MP3 in the verified 44.1 kHz stereo 128 kbps format",()=>{
     const root=resolve(".."),receipt=JSON.parse(readFileSync("audio/preview-voice-format.json","utf8"));
     const paths=new Set(["RoomscriptVoiceAssets.ts","RoomscriptRun7VoiceAssets.ts","RoomscriptRun10VoiceAssets.ts"].flatMap(name=>[...readFileSync(resolve(root,"Assets/Scripts",name),"utf8").matchAll(/requireAsset\("\.\.\/(Audio\/[^"\n]+\.mp3)"\)/g)].map(m=>"Assets/"+m[1])));

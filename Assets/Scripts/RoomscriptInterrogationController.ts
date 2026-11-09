@@ -28,7 +28,7 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
   row:RoomscriptConversationRow;readonly onAccuseRequested=new Event<void>();private selectionRequest=0;private intents:Promise<void>=Promise.resolve();
   private async waitForSpeech():Promise<void>{while(this.busy)await new Promise<void>(resolve=>{const e=this.createEvent("DelayedCallbackEvent");e.bind(()=>{this.removeEvent(e);resolve();});e.reset(.05);});await RoomscriptAudio.active?.speech.idle();}
   showRow(value:boolean):void {this.row?.show(value&&(!this.controlsBlocked||this.modalRow)&&this.engine.investigationEnabled);}
-  private openAsk():void {if(this.busy||RoomscriptAudio.active?.speechBusy())return;this.row.choices("ask",this.choices().filter(c=>c.topic!=="free").slice(0,4).concat([{topic:"free",label:"Ask your own…",question:""}]).map(c=>({id:"Ask "+c.topic,label:c.topic==="free"?c.label:c.question,choose:()=>{if(c.topic==="free")this.reviewQuestion("");else void this.askChip(c.topic);}})));}
+  private openAsk():void {if(this.busy||RoomscriptAudio.active?.speechBusy())return;this.row.choices("ask",this.choices().filter(c=>c.topic!=="free").slice(0,4).concat([{topic:"free",label:"Ask your own…",question:""}]).map(c=>({id:"Ask "+c.topic,label:c.label,choose:()=>{if(c.topic==="free")this.reviewQuestion("");else void this.askChip(c.topic);}})));}
   private openShow():void {const state=this.engine.snapshot(),graph=this.engine.graphRef();const ids=[...new Set(graph.evidence.filter(e=>state.knowledge.evidenceIds.includes(e.id)).map(e=>e.holder))];this.row.choices("show",ids.map(id=>({id:"Show "+id,label:itemLabel(id),picture:itemPicture(id),choose:()=>{void this.presentObjectTo(this.selected,id);}})));}
   @input @hint("Deterministic case owner") engine:RoomscriptEngineBridge;
   @input @hint("Gateway transport") client:RoomscriptLlmClient;
@@ -50,7 +50,7 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
   initialize():void {
     if(this.pipeline)return;this.engine.initialize();this.subtitles.build();this.questions.build();
     this.row=new RoomscriptConversationRow(this,this.getSceneObject(),()=>this.openAsk(),()=>this.openShow(),()=>this.onAccuseRequested.invoke());
-    this.createEvent("UpdateEvent").bind(()=>{this.row.speaking(this.busy||!!RoomscriptAudio.active?.speechBusy());if((this.controlsBlocked&&!this.modalRow)||!this.engine.investigationEnabled)this.row.show(false);this.subtitles.setSuppressed(this.row.diagnostics().visible);});
+    this.createEvent("UpdateEvent").bind(()=>{this.row.speaking(this.busy||!!RoomscriptAudio.active?.speechBusy());if((this.controlsBlocked&&!this.modalRow)||!this.engine.investigationEnabled)this.row.show(false);this.subtitles.setSuppressed(this.row.diagnostics().visible&&!this.row.diagnostics().blocked);});
     this.rebuildPipeline();
     this.engine.onCaseChanged.add(()=>{this.warming?.cancel();this.cancel(true);this.last=null;this.lastAudioMs=null;this.questions.show(false);this.subtitles.set("NARRATOR","");this.modalRow=false;this.controlsBlocked=false;this.rebuildPipeline();this.selectSuspect(this.selected);});
     this.questions.onDraft.add(text=>this.reviewQuestion(text));

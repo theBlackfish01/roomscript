@@ -335,3 +335,7 @@ Wadood signed off the illustrated cast. `CHARACTER_ART` and the "line" mode are 
 
 ### Nov 9 — Preview-only voice playback repair
 Wadood confirmed no glasses are available and the demo/test target is Lens Studio Preview. Use the measured 44.1 kHz stereo 128 kbps encoding for existing imported MP3 performances; lower-bitrate MP3s completed too early in native A/B checks. Preserve existing words, voice identities and engine truth. Wait for native completion/full native EOF plus elapsed playback time and a 250 ms output drain; never stop at caption/manifest endpoints. Request WAV for live TTS. The referenced MP3 footprint increases by 34,367,159 bytes; this prioritizes the explicitly selected Preview demo and makes no device-export claim. Evidence and caveats: VOICE_FIX_2026-11-09.md. No generation spend.
+
+## Nov 9 ? Preview dialogue and control polish
+
+Use preserved recordings with a 600 ms silent tail to protect the native EOF boundary, keep the verified 44.1 kHz stereo encoding, and leave music/cues alone. Prefer direct validated answers on new subjects and vary existing recorded openers for repeat questions. Larger UIKit action targets and full-figure click bounds address Preview pointing; menu retention and a visible disabled speech state remove disappearing targets. Two existing-voice narrator replacements clarify the premise and accusation goal (74 ElevenLabs credits). Case truth and the cast stay unchanged. See PREVIEW_POLISH_2026-11-09.md.

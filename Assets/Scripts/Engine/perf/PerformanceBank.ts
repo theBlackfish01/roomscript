@@ -38,10 +38,16 @@ export function composePerformance(graph:CaseGraph,sheet:FactSheet,topic:string,
   const line=[opener,variant.text,tail].filter(Boolean).join(" ");if(line.length>220)return undefined;
   return {topic,cites:[variant.ref],line,emotion:choice.emotion};
 }
+/** Compare delivery tics, never edit a recorded line or its factual content. */
+export function performanceOpener(line:string):string {
+  return (line.toLowerCase().match(/^[a-z]+(?:\s+[a-z]+){0,2}/)?.[0]||"").replace(/^if you must.*/,"if you must");
+}
 export function selectPerformance(graph:CaseGraph,sheet:FactSheet,topic:string,mode:AnswerMode,seq:number):Answer|undefined {
   const variants=variantOptions(graph,sheet,topic,mode);if(!variants.length)return undefined;
   const fresh=variants.filter(v=>!sheet.recentLines.some(line=>line.includes(v.text)));
-  const candidates=fresh.length?fresh:variants;
+  const recent=new Set(sheet.recentLines.map(performanceOpener));
+  const varied=(fresh.length?fresh:variants).filter(v=>!recent.has(performanceOpener(v.text)));
+  const candidates=varied.length?varied:fresh.length?fresh:variants;
   const mood=candidates.filter(v=>v.emotion===sheet.mood.emotion);
   const v=new Prng(graph.caseId,"performance:"+seq+":"+sheet.suspect+":"+topic).pick(mood.length?mood:candidates);
   return v.text.length<=220?{topic,cites:[v.ref],line:v.text,emotion:v.emotion}:undefined;

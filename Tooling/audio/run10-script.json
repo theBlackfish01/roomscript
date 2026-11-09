@@ -1,8 +1,8 @@
 {
   "version": 1,
   "lines": [
-    {"id":"N10_OPEN_1","speaker":"NARRATOR","text":"By the time I arrived, Harlow was dead."},
-    {"id":"N10_OPEN_2","speaker":"NARRATOR","text":"Four guests. Rain at the glass. Nobody eager to leave."},
+    {"id":"N10_OPEN_1","speaker":"NARRATOR","text":"Harlow was dead when I arrived. Someone in this room knew why."},
+    {"id":"N10_OPEN_2","speaker":"NARRATOR","text":"Four guests. Four stories. I had to find the killer, the room, and the weapon."},
     {"id":"N10_KETTLE","speaker":"NARRATOR","text":"Stone cold. Nobody made tea tonight."},
     {"id":"N10_RECORDER","speaker":"NARRATOR","text":"That's Harlow answering Vale. He was still alive."},
     {"id":"N10_CABLE","speaker":"NARRATOR","text":"Collar fibres, caught in the braid. I don't like that."},

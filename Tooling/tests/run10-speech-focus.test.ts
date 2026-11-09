@@ -1,6 +1,6 @@
 import {describe,expect,it} from "vitest";
 import {SpeechArbiter,SpeechEvent} from "../../Assets/Scripts/Engine/perf/SpeechArbiter";
-import {ConversationFocus,CONVERSATION_FOCUS} from "../../Assets/Scripts/Engine/perf/ConversationFocus";
+import {ConversationFocus,CONVERSATION_FOCUS,PREVIEW_CONVERSATION_FOCUS} from "../../Assets/Scripts/Engine/perf/ConversationFocus";
 
 const deferred=()=>{let resolve!:(value:boolean)=>void;const promise=new Promise<boolean>(r=>resolve=r);return {promise,resolve};};
 
@@ -53,6 +53,12 @@ describe("Run 10 speech channel",()=>{
 
 describe("Run 10 conversation focus",()=>{
   const person=(distanceCm=140,dot=1,id="S2")=>({id,distanceCm,dot});
+  it("acquires the person looked at across the Preview room and tolerates moving toward their buttons",()=>{
+    const focus=new ConversationFocus(PREVIEW_CONVERSATION_FOCUS),samples=[person(450,1),person(120,.8,"S1")];
+    expect(focus.update(0,samples)).toBeNull();expect(focus.update(.15,samples)).toBe("S2");
+    expect(focus.update(.3,[person(620,.4)])).toBe("S2");
+    expect(focus.update(.5,[person(700,.2)])).toBe("S2");expect(focus.update(1.5,[person(700,.2)])).toBeNull();
+  });
   it("requires continuous entry dwell and retains focus throughout distance/angle jitter",()=>{
     const focus=new ConversationFocus();expect(focus.update(0,[person()])).toBeNull();expect(focus.update(.2,[person()])).toBeNull();
     expect(focus.update(.25,[person(201)])).toBeNull();expect(focus.update(.3,[person()])).toBeNull();expect(focus.update(.59,[person()])).toBeNull();

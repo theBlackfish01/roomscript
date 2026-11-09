@@ -65,7 +65,7 @@ try{
     const bytes=Buffer.from(data.audio_base64||'','base64');if(bytes.length<128)throw Error('PROVIDER_EMPTY_AUDIO_'+row.id);
     const raw=resolve(cache,identity+'.mp3'),path='Assets/Audio/Run10/'+row.speaker+'/'+row.id+'.mp3',dest=resolve(stage,path);
     writeFileSync(raw,bytes);mkdirSync(dirname(dest),{recursive:true});
-    execFileSync(ff,['-v','error','-y','-i',raw,'-af','loudnorm=I=-16:TP=-1.5:LRA=11','-ac','1','-ar','24000','-b:a','32k',dest],{timeout:60000,windowsHide:true,stdio:'pipe'});
+    execFileSync(ff,['-v','error','-y','-i',raw,'-af','loudnorm=I=-16:TP=-1.5:LRA=11','-ac','2','-ar','44100','-b:a','128k',dest],{timeout:60000,windowsHide:true,stdio:'pipe'});
     const pcm=execFileSync(ff,['-v','error','-i',dest,'-f','s16le','-ac','1','-ar','24000','pipe:1'],{timeout:20000,windowsHide:true,maxBuffer:4000000});
     const seconds=pcm.length/48000,alignment=cleanAlignment(data.normalized_alignment||data.alignment);
     const normalize=s=>s.replace(/[^\p{L}\p{N}]/gu,'').toLowerCase();

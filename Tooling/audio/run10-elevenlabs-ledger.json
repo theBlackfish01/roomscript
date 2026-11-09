@@ -227,7 +227,25 @@
       "credits": 13,
       "estimate": false,
       "at": "2026-11-07T21:01:57.775Z"
+    },
+    {
+      "id": "974786df566e6470c55c57265d9e7686b6804f3edefcd940bf978e979aa0c443",
+      "label": "run10:NARRATOR:N10_OPEN_1",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 33,
+      "estimate": false,
+      "at": "2026-11-09T17:02:17.351Z"
+    },
+    {
+      "id": "fbe92b70e7f8c9208feaf14cbd7702018d7cf30eafb380607bab0894d81386b9",
+      "label": "run10:NARRATOR:N10_OPEN_2",
+      "segment": "run10-2026-11-08",
+      "status": "complete",
+      "credits": 41,
+      "estimate": false,
+      "at": "2026-11-09T17:02:22.005Z"
     }
   ],
-  "totalCredits": 609
+  "totalCredits": 683
 }

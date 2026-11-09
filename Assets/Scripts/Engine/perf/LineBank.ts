@@ -8,7 +8,10 @@ export interface LineQuery {suspect: string; topic: string; layer: number; mode:
 export function lookupLine(entries: readonly LineBankEntry[], query: LineQuery, sheet: FactSheet, graph: CaseGraph): Answer | undefined {
   if (query.suspect !== sheet.suspect || query.mode === "confession") return undefined;
   const performance=selectPerformance(graph,sheet,query.topic,query.mode,query.seq??0);
-  if(performance&&validateLine(performance,sheet,graph,query.mode).ok)return performance;
+  // Start a new subject with its direct authored answer. Repeated questions can
+  // use a varied performance; all paths still pass the same truth validator.
+  const alreadyAnswered=sheet.recentLines.some(line=>line.includes(sheet.account.find(r=>r.topic===query.topic)?.text||"\u0000"));
+  if(alreadyAnswered&&performance&&validateLine(performance,sheet,graph,query.mode).ok)return performance;
   const neutral = query.mode === "deflect" || query.mode === "lawyered" || query.mode === "filler";
   const candidates = entries.filter(entry => entry.suspect === query.suspect && entry.mode === query.mode
     && entry.layer <= query.layer && (entry.topic === query.topic || (neutral && entry.topic === "unclear")))
@@ -17,7 +20,7 @@ export function lookupLine(entries: readonly LineBankEntry[], query: LineQuery, 
     const result = validateLine(entry.answer, sheet, graph, query.mode);
     if (result.ok) return result.answer;
   }
-  return undefined;
+  return performance&&validateLine(performance,sheet,graph,query.mode).ok?performance:undefined;
 }
 
 /** Last deterministic floor. Overlong canonical claims produce a neutral deflection, never a truncated claim. */
