@@ -15,6 +15,7 @@ import {routeSample} from "./Engine/game/RouteReplay";
 import {GameState} from "./Engine/core/Types";
 import {localBridgeAvailable,localBridgePost} from "./RoomscriptLocalBridge";
 import {withDeadline} from "./Engine/ai/Deadlines";
+import {RoomscriptRoomMap} from "./RoomscriptRoomMap";
 /** Wiring for find, ask, catch. Engine actions own every observed fact and verdict. */
 @component export class RoomscriptMain extends BaseScriptComponent {
  @input audio:RoomscriptAudio;
@@ -38,6 +39,7 @@ import {withDeadline} from "./Engine/ai/Deadlines";
    this.wren=new RoomscriptWrenHints(this,this.engine,(text,at)=>this.audio.hint(text,at));
    this.replays=new RoomscriptObjectReplay(this,this.engine,this.interrogation,room,(cue,at)=>this.audio.playAt(cue,at));
    this.findItems=new RoomscriptFindItems(this.engine,this.interrogation,room);
+   new RoomscriptRoomMap(this,RoomscriptOpeningController.current.cast);
    this.storyMoments=new RoomscriptStoryMoments(this,this.engine,this.interrogation,this.audio);
    this.nextGlow=new RoomscriptNextGlow(this,this.engine,this.interrogation);
    this.nextGlow.blocked=()=>RoomscriptOpeningController.current?.filmMode?"film":RoomscriptClosingController.current?.diagnostics().opened?"accusation":this.audio.speechBusy()?"speech":"";

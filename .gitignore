@@ -68,3 +68,5 @@ Tooling/results/run10-stage/
 Tooling/results/*-message.txt
 Tooling/results/run10-import-audio.ts
 Tooling/results/*.local.json
+# Ephemeral reply delivered to the current Preview session; archived requests/replies stay reviewable.
+Tooling/results/room-cast/live.json

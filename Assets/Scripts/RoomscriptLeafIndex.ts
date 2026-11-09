@@ -1,4 +1,5 @@
 import {RoomscriptVoicePlaybackLeafScenario} from "./RoomscriptVoicePlaybackLeafScenario";
+import {RoomscriptRoomCastLeafScenario} from "./RoomscriptRoomCastLeafScenario";
 import {RoomscriptStoryPolishLeafScenario} from "./RoomscriptStoryPolishLeafScenario";
 import {RoomscriptRun10DirectorLeafScenario} from "./RoomscriptRun10DirectorLeafScenario";
 import {RoomscriptRun10BoundaryLeafScenario} from "./RoomscriptRun10BoundaryLeafScenario";
@@ -33,6 +34,7 @@ import {RoomscriptLiveAiBeatLeafScenario} from "./RoomscriptLiveAiBeatLeafScenar
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
+    {id:"roomscript-room-cast",typename:RoomscriptRoomCastLeafScenario.getTypeName(),parameters:{mode:"live"}},
     {id:"roomscript-story-polish",typename:RoomscriptStoryPolishLeafScenario.getTypeName(),parameters:{mode:"flow"}},
       {id:"roomscript-voice-playback",typename:RoomscriptVoicePlaybackLeafScenario.getTypeName(),parameters:{mode:"latency"}},
     {id:"roomscript-run10-boundaries",typename:RoomscriptRun10BoundaryLeafScenario.getTypeName()},

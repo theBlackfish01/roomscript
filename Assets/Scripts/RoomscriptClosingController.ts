@@ -14,6 +14,7 @@ import {paperTexture} from "./RoomscriptPaper";
 import {itemPicture,itemLabel} from "./RoomscriptItemPictures";
 import {glyphButton} from "./RoomscriptGlyphUI";
 import {propDrawing} from "./RoomscriptPropArt";
+import {RoomscriptRoomMap} from "./RoomscriptRoomMap";
 /** The row selects who, where and what. Only the reducer decides the verdict. */
 @component export class RoomscriptClosingController extends BaseScriptComponent {
  static current:RoomscriptClosingController|null=null;@input cast:RoomscriptCastController;
@@ -82,9 +83,10 @@ import {propDrawing} from "./RoomscriptPropArt";
   const another=glyphButton(this.newspaper.root,"Another case","Another case?".length+16,6,()=>this.another());another.set(paperTexture("FolderCover"),"Another case?");another.root.getTransform().setLocalPosition(new vec3(0,-21,.5));
  }
  private another():void{
-  // The generated-case physical-evidence compiler is deliberately deferred behind this ending.
   const root=this.newspaper.root;for(let i=0;i<root.getChildrenCount();i++){const c=root.getChild(i);if(c.name==="Another case")c.enabled=false;}
-  const note=flatText(root,"More cases note","New cases are still being prepared.",1.4,new vec4(1,.94,.84,1),"body",44,4);note.getSceneObject().getTransform().setLocalPosition(new vec3(0,-21,1));
+  if(global.deviceInfoSystem.isEditor()){
+   const mapped=glyphButton(root,"Play Harlow in this room",48,7,()=>{if(RoomscriptRoomMap.current){root.enabled=false;void RoomscriptRoomMap.current.start();}});mapped.set(paperTexture("FolderCover"),"Play Harlow in this room");mapped.root.getTransform().setLocalPosition(new vec3(0,-21,.5));
+  }
   const again=glyphButton(root,"Replay Harlow","Replay Harlow".length+16,6,()=>{this.cast.flow.engine.configurePreset();});again.set(paperTexture("FolderCover"),"Replay Harlow");again.root.getTransform().setLocalPosition(new vec3(0,-28,.5));
  }
  private update():void{

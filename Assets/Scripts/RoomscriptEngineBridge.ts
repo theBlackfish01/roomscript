@@ -1,5 +1,7 @@
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import {createRun10HeroCase} from "./Content/Run10HeroCase";
+import {mapHarlowLayout} from "./Content/HarlowRoomLayout";
+import {checkHarlowRoomCast,RoomCastScan} from "./Engine/room/HarlowRoomCast";
 import {verifyCase} from "./Engine/case/Solver";
 import {ActionPayload,CaseGraph,GameState,LineBankEntry,RoomObject} from "./Engine/core/Types";
 import {createGameState} from "./Engine/game/GameState";
@@ -33,14 +35,23 @@ export interface RoomscriptCaseChange {mode:RoomscriptCaseMode;graph:CaseGraph;s
     this.install(graph,"preset",heroLineBank,[],graph.room.zones.map(z=>z.id),notify);
     console.log("Roomscript solver: unique ✓; checks=8; hypotheses="+report.hypotheses.length+"; minRoute="+report.minRouteMinutes);
   }
-  private install(graph:CaseGraph,mode:RoomscriptCaseMode,bank:readonly LineBankEntry[],scenery:RoomObject[],activeZoneIds:string[],notify:boolean):void {
+  private install(graph:CaseGraph,mode:RoomscriptCaseMode,bank:readonly LineBankEntry[],scenery:RoomObject[],activeZoneIds:string[],notify:boolean,receipt?:ActionPayload):void {
     this.graph=this.freeze(graph);this.caseMode=mode;this.bank=this.freeze(bank);this.state=createGameState(graph);
+    if(receipt)this.state=reduceGame(graph,this.state,{...receipt,seq:1,by:"room-cast"});
     this.cachedSeq=-1;this.phrases.clear();this.investigationEnabled=true;
-    // Subscribers see the new graph and seq=0 before any setup or presentation reset.
+    // Subscribers see the new graph and its optional model receipt before any setup or presentation reset.
     if(notify)this.onCaseChanged.invoke({mode,graph:this.graph,scenery:this.freeze(scenery),activeZoneIds:this.freeze(activeZoneIds)});
     this.onState.invoke(this.snapshot());
   }
   configurePreset():void {this.installPreset(true);}
+  configureRoomMapped(scan:RoomCastScan,reply:unknown,model:string,detection?:unknown):{mapped:boolean;reason?:string} {
+    const checked=checkHarlowRoomCast(reply,scan),source=createRun10HeroCase();let graph=source,reason="";
+    if(checked.ok===true){try{graph=mapHarlowLayout(source,checked.value);const verified=verifyCase(graph);if(!verified.ok)throw Error("case_verification_failed");graph.solver=verified;}catch(e){graph=source;reason=String(e);}}
+    else reason=checked.reason;
+    const receipt:ActionPayload={type:"LlmOutput",key:"room-cast:"+scan.id,occurrence:0,source:"live",response:{content:JSON.stringify({scan,reply,detection,accepted:!reason,reason}),model},latencyMs:0,at:0};
+    this.install(graph,"preset",heroLineBank,[],graph.room.zones.map(z=>z.id),true,receipt);
+    console.log("ROOM_CAST_APPLY|"+JSON.stringify({mapped:!reason,reason,caseId:graph.caseId,envelope:graph.envelope}));return {mapped:!reason,reason};
+  }
   configureDynamic(seed:number,room:RoomInput):DynamicCaseResult {
     const result=prepareDynamicCase(seed,room);
     if(result.ok&&result.graph)this.install(result.graph,"dynamic",result.lineBank,result.scenery||[],result.activeZoneIds||[],true);
@@ -52,7 +63,7 @@ export interface RoomscriptCaseChange {mode:RoomscriptCaseMode;graph:CaseGraph;s
     this.initialize();const key=speaker+"|"+text;let plan=this.phrases.get(key);
     if(!plan){plan=this.freeze(phrasePlan(this.graph,speaker,text));this.phrases.set(key,plan);}return plan;
   }
-  configurePose():void {this.initialize();if(this.state.lastSeq!==0)return;const inverse=this.roomRoot.getTransform().getInvertedWorldTransform(),origin=inverse.multiplyPoint(this.player.getTransform().getWorldPosition()),forward=inverse.multiplyDirection(this.player.getTransform().getWorldRotation().multiplyVec3(vec3.back()));this.dispatch({type:"SetupCase",origin:[origin.x,0,origin.z],forward:[forward.x,0,forward.z]});}
+  configurePose():void {this.initialize();if(this.state.log.some(a=>a.type!=="LlmOutput"))return;const inverse=this.roomRoot.getTransform().getInvertedWorldTransform(),origin=inverse.multiplyPoint(this.player.getTransform().getWorldPosition()),forward=inverse.multiplyDirection(this.player.getTransform().getWorldRotation().multiplyVec3(vec3.back()));this.dispatch({type:"SetupCase",origin:[origin.x,0,origin.z],forward:[forward.x,0,forward.z]});}
   caseGraph():CaseGraph {return JSON.parse(JSON.stringify(this.graph)) as CaseGraph;}
   /** Immutable shared graph for presentation; caseGraph remains an explicit editable copy. */
   graphRef():CaseGraph {return this.graph;}

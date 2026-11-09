@@ -1,5 +1,13 @@
 # Preview model bridge
 
+## Harlow room mapping
+
+Once per Lens Studio session, run `ExecuteEditorCode` through Lens MCP with `path` set to the absolute path of `Tooling/room-bridge/install-editor-handoff.ts`. Then run `node Tooling/room-bridge/server.mjs --watch-cast` from the project root. The ending's **Play Harlow in this room** action captures the current view, measures surfaces, validates Claude Opus's placement proposal, shows four casting toasts and restarts the same authored case. Include floor and furniture in the view. The server session lasts just under ten minutes; restart it for a later demo.
+
+This uses a retained editor timer to deliver local JSON through Preview messages. It does not refresh Preview between stages or expose a public relay. If the bridge/helper is absent or the scan/proposal fails validation, the original layout is replayed. No new case facts or voice lines are generated. Requests, replies and scan images are saved under `Tooling/results/room-cast/`; `live.json` is an ignored, short-lived handoff. See `docs/ROOM_MAPPED_HARLOW.md` for verification and limitations.
+
+## Earlier scan and typed-question tooling
+
 Provider keys are loaded only from `Tooling/.env`. Never copy them into Assets, scene inputs or captures.
 
 The saved Evening Room scan was produced from real Preview CameraModule frames, strict Claude Opus JSON and World Query surface hits. Raw captures, camera poses, model responses and placement evidence live in `Tooling/results/run7-room-scan`. The Preset uses that recorded scan. Dynamic now has separate live-file runtime evidence: strict source=file seeds 7, 1041 and 2026 each reached a correct verdict with exact replay and zero binding errors at checkpoint 338b0db. These gates reused one completed live six-object scan, not three fresh scans. See Tooling/results/run7-file-seed{7,1041,2026}.json.

@@ -53,6 +53,7 @@ export interface SolverReport {
   minRouteMinutes: number; minRoute: Id[]; clockMinutes: number; slack: number;
 }
 export interface CaseGraph {
+  roomMapping?: {scanId:string;floorY:number;zoneOffsets:Record<string,Vec3>;castingLines:{zone:string;text:string}[]};
   schema: 1; caseId: string; seed: number; pitchHash: string; compilerVersion: string;
   room: RoomScan; slots: string[]; murderSlot: number; bodyFound: string;
   envelope: Hypothesis; cast: {victim: {id: Id; name: string}; suspects: Suspect[]};

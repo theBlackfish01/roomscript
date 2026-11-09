@@ -1,7 +1,7 @@
 /** Preview-only file handoff. Reads Lens logs, never calls Lens Studio HTTP. */
 import fs from 'node:fs';
 import path from 'node:path';
-export function scanRequests(log){
+export function scanRequests(log,minFrames=3){
   const frames=new Map();
   for(const line of log.split(/\r?\n/)){
     let i=line.indexOf('ROOM_SCAN_META|');if(i>=0){try{const meta=JSON.parse(line.slice(i+15));if(meta.bridgeRequest)frames.set(meta.id,{...meta,chunks:new Map()});}catch{}}
@@ -13,7 +13,7 @@ export function scanRequests(log){
     if(!valid||!frame.length||jpeg.length!==frame.length)continue;
     const {chunks,length,...meta}=frame;const group=groups.get(meta.bridgeRequest)||[];group.push({...meta,jpeg});groups.set(meta.bridgeRequest,group);
   }
-  return [...groups].filter(([,frames])=>frames.length>=3).map(([id,frames])=>({id,frames:frames.slice(0,3)}));
+  return [...groups].filter(([,frames])=>frames.length>=minFrames).map(([id,frames])=>({id,frames:frames.slice(0,minFrames)}));
 }
 export function watchPreview({detect,root}){
   const directory=path.join(process.env.LOCALAPPDATA,'Snap/Lens Studio/logs');const handled=new Set();let busy=false;

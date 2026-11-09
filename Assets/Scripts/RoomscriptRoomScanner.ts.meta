@@ -45,5 +45,5 @@
     -
       {}
   InputLines:
-    - '// @input Component.Camera camera {"hint":"Tracked view used for ray projection"}'
+    - '// @input Component.Camera camera {"hint":"Tracked view used for ray projection; assigned by the Preview room mapper"}'
     - '// @input bool previewBridge = true {"hint":"Enable local Tooling bridge only in Lens Studio Preview"}'

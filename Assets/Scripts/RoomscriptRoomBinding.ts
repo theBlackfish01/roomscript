@@ -28,7 +28,7 @@ import {propDrawing} from "./RoomscriptPropArt";
     this.legacyProps.forEach((enabled,object)=>{if(!isNull(object))object.enabled=enabled;});this.legacyProps.clear();this.replacedProps=[];
     this.generated.forEach(o=>{if(!isNull(o))o.destroy();});this.generated=[];this.objects.clear();this.zones.clear();
     const preset=this.engine.mode()==="preset";this.authoredObjects.forEach(o=>o.enabled=preset);this.authoredZones.forEach(o=>o.enabled=preset);
-    if(preset){this.getTransform().setWorldPosition(new vec3(0,EVENING_ROOM_FLOOR_Y,0));this.getTransform().setWorldRotation(quat.quatIdentity());this.objects=new Map(this.authoredObjects);this.zones=new Map(this.authoredZones);
+    if(preset){this.getTransform().setWorldPosition(new vec3(0,graph.roomMapping?.floorY??EVENING_ROOM_FLOOR_Y,0));this.getTransform().setWorldRotation(quat.quatIdentity());this.objects=new Map(this.authoredObjects);this.zones=new Map(this.authoredZones);
       graph.room.objects.forEach(o=>{if(!this.objects.has(o.id)){const anchor=global.scene.createSceneObject("RoomscriptObject_"+o.id);anchor.setParent(root);this.objects.set(o.id,anchor);this.generated.push(anchor);}this.objects.get(o.id)!.getTransform().setLocalPosition(new vec3(...o.pos));});
       graph.room.zones.forEach(z=>this.zones.get(z.id)?.getTransform().setLocalPosition(new vec3(z.anchor[0],z.anchor[1],z.anchor[2])));
     }

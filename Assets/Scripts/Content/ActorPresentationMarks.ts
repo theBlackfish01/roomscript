@@ -1,5 +1,6 @@
 import {CaseGraph,Vec3} from "../Engine/core/Types";
 import {refuterMarks} from "../Engine/game/CluePresentation";
+import {translate} from "./HarlowRoomLayout";
 
 /** Actor artwork is staging, not testimony. The case's zone/clockwise marks stay intact.
  * Only the current recorded Preview layout uses these marks; historical tapes and
@@ -27,6 +28,12 @@ export const PRESET_CONVERSATION_SPOTS:Record<string,Vec3>={
 export function conversationSpot(id:string):Vec3 {return (PRESET_CONVERSATION_SPOTS[id]||[0,0,-40]).slice() as Vec3;}
 export function actorPresentationMarks(graph:CaseGraph,mode:"preset"|"dynamic"):Record<string,Vec3> {
   const marks=refuterMarks(graph);
+  if(graph.roomMapping){
+    // Presentation homes are the nearest authored floor zones, not claims of an alibi.
+    const homes:Record<string,string>={S1:"Z5",S2:"Z3",S3:"Z3",S4:"Z5"};
+    for(const id of Object.keys(PRESET_FREE_FLOOR_MARKS))marks[id]=translate(PRESET_FREE_FLOOR_MARKS[id],graph.roomMapping.zoneOffsets[homes[id]]);
+    return marks;
+  }
   if(mode==="preset"&&graph.caseId.startsWith("HARLOW-1041@")&&/:evening-v[23](?::run10)?$/.test(graph.room.roomId))
     for(const id of Object.keys(PRESET_FREE_FLOOR_MARKS))if(marks[id])marks[id]=PRESET_FREE_FLOOR_MARKS[id].slice() as Vec3;
   return marks;

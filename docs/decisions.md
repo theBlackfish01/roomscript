@@ -344,3 +344,9 @@ Use preserved recordings with a 600 ms silent tail to protect the native EOF bou
 ## Nov 9 — Harlow dialogue and story follow-up
 
 Replace dry canonical delivery with 22 reviewed accounts and 32 full recordings using the existing cast (ElevenLabs v3, 1,491 credits). Keep the murder facts, secret gates and truth validator; bind every performance to its current account. Put the complete bank in the production case factory so Lens startup cannot overwrite it. Four public background answers explain the guests' relationships to Harlow without revealing later admissions. Retire Pike's unrelated flight timer. Protect freshly opened menus from the opening release, expand the knife target to cover the model, narrow transparent character side margins, and give repeated inspections audible feedback without extra time. See STORY_POLISH_2026-11-09.md.
+
+## Nov 10 — Harlow room mapping
+
+Keep the authored case as the only source of truth. The model chooses four zone hit IDs, six evidence-surface hit IDs and four short silent casting lines; the pure validator checks IDs, geometry and wording, then the existing solver checks the translated case. Preserve every fact, lie, recording and the Vale / Study / charger-cable envelope. The existing Conservatory follows Kitchen's translation so the fifth authored area adds no model slot. Guest offsets are supplied as placement context and remain deterministic.
+
+The Preview bridge uses an editor-message handoff installed once per Lens Studio session through ExecuteEditorCode. TypeScript/JSON asset refreshes were unreliable; a packaged helper stalled imports and was removed. Retaining the editor timer is required. No new plugin dependency, public relay, device gateway path, dynamic case generation or voice generation is shipped. Missing helpers and invalid scans fall back to the original case. The demo must include visible floor in the scan.
