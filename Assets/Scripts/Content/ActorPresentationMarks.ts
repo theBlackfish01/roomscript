@@ -1,6 +1,7 @@
 import {CaseGraph,Vec3} from "../Engine/core/Types";
 import {refuterMarks} from "../Engine/game/CluePresentation";
 import {translate} from "./HarlowRoomLayout";
+import {PRESET_EVENING_V3} from "./PresetEveningRoom";
 
 /** Actor artwork is staging, not testimony. The case's zone/clockwise marks stay intact.
  * Only the current recorded Preview layout uses these marks; historical tapes and
@@ -16,6 +17,12 @@ export const PRESET_FREE_FLOOR_MARKS:Record<string,Vec3>={
   S1:[120,0,-270], // Qadir: right pocket, clear of the table and woven chair.
   S4:[165,0,-185]  // Pike: right, by the window.
 };
+/** Trusted placement constraints, derived from the unchanged authored staging. */
+export function harlowGuestOffsets():Record<string,Vec3[]> {
+ const homes:Record<string,string>={S1:"Z4",S2:"Z3",S3:"Z3",S4:"Z4"},result:Record<string,Vec3[]>={Z1:[],Z2:[],Z3:[],Z4:[]};
+ for(const id of Object.keys(homes)){const zone=homes[id];result[zone].push(PRESET_FREE_FLOOR_MARKS[id].map((n,i)=>n-PRESET_EVENING_V3.zones[zone][i]) as Vec3);}
+ return result;
+}
 /** Where the player stands to talk: about 1.4 m from each suspect, on measured free floor
  * (the straight line from the Preview start would cross the sofa for Qadir and Okafor). */
 export const CONVERSATION_DISTANCE_CM=140;

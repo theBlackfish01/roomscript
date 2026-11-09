@@ -2,15 +2,22 @@ import {describe,it,expect} from "vitest";
 import {checkHarlowRoomCast,HARLOW_ZONE_SLOTS,HARLOW_ITEM_SLOTS,RoomCastScan} from "../../../Assets/Scripts/Engine/room/HarlowRoomCast";
 import {mapHarlowLayout} from "../../../Assets/Scripts/Content/HarlowRoomLayout";
 import {createRun10HeroCase} from "../../../Assets/Scripts/Content/Run10HeroCase";
-import {actorPresentationMarks} from "../../../Assets/Scripts/Content/ActorPresentationMarks";
+import {actorPresentationMarks,harlowGuestOffsets} from "../../../Assets/Scripts/Content/ActorPresentationMarks";
 import {chalkSpot} from "../../../Assets/Scripts/Content/ChalkSpots";
 import {verifyCase} from "../../../Assets/Scripts/Engine/case/Solver";
 const clone=<T>(x:T):T=>JSON.parse(JSON.stringify(x));
 const scan:RoomCastScan={id:"roomcast-1",floorY:-176,hits:[
- ...[[-100,-300],[100,-300],[-100,-100],[100,-100]].map((p,i)=>({id:"F"+i,position:[p[0],-176,p[1]] as [number,number,number],normal:[0,1,0] as [number,number,number],kind:"floor" as const,label:"floor"})),
+ ...[[-100,-300],[100,-300],[-100,-100],[100,-100]].map((p,i)=>({id:"F"+i,position:[p[0],-176,p[1]] as [number,number,number],normal:[0,1,0] as [number,number,number],kind:"floor" as const,label:"floor",guestZones:["Z1","Z2","Z3","Z4"]})),
  ...HARLOW_ITEM_SLOTS.map((s,i)=>({id:"T"+i,position:[i*40,-100,-240] as [number,number,number],normal:[0,1,0] as [number,number,number],kind:"surface" as const,label:"table"}))]};
 const reply=()=>({zones:HARLOW_ZONE_SLOTS.map((z,i)=>({id:z.id,hitId:"F"+i,line:"Tonight, this corner becomes Harlow's "+z.name+"."})),items:HARLOW_ITEM_SLOTS.map((s,i)=>({id:s.id,hitId:"T"+i}))});
 describe("authored Harlow room placement",()=>{
+ it("rejects floor noise as a prop top and preserves clearance between authored guests",()=>{
+  const blocked=clone(scan);blocked.hits[2].guestZones=[];expect(checkHarlowRoomCast(reply(),blocked,harlowGuestOffsets())).toEqual({ok:false,reason:"unsupported_guest_offset"});
+  const low=clone(scan);low.hits[4].position[1]=scan.floorY+15;expect(checkHarlowRoomCast(reply(),low).ok).toBe(false);
+  expect(checkHarlowRoomCast(reply(),scan,harlowGuestOffsets()).ok).toBe(true);
+  const crowded=clone(scan);crowded.hits[3].position=[-210,-176,-180];
+  expect(checkHarlowRoomCast(reply(),crowded,harlowGuestOffsets())).toEqual({ok:false,reason:"guests_too_close"});
+ });
  it("accepts a complete reply and preserves every case fact, lie, voice and sealed answer",()=>{
   const checked=checkHarlowRoomCast(reply(),scan);expect(checked.ok).toBe(true);if(!checked.ok)throw Error("fixture");
   const original=createRun10HeroCase(),before=clone(original),mapped=mapHarlowLayout(original,checked.value);

@@ -1,5 +1,6 @@
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import {createRun10HeroCase} from "./Content/Run10HeroCase";
+import {harlowGuestOffsets} from "./Content/ActorPresentationMarks";
 import {mapHarlowLayout} from "./Content/HarlowRoomLayout";
 import {checkHarlowRoomCast,RoomCastScan} from "./Engine/room/HarlowRoomCast";
 import {verifyCase} from "./Engine/case/Solver";
@@ -45,7 +46,7 @@ export interface RoomscriptCaseChange {mode:RoomscriptCaseMode;graph:CaseGraph;s
   }
   configurePreset():void {this.installPreset(true);}
   configureRoomMapped(scan:RoomCastScan,reply:unknown,model:string,detection?:unknown):{mapped:boolean;reason?:string} {
-    const checked=checkHarlowRoomCast(reply,scan),source=createRun10HeroCase();let graph=source,reason="";
+    const checked=checkHarlowRoomCast(reply,scan,harlowGuestOffsets()),source=createRun10HeroCase();let graph=source,reason="";
     if(checked.ok===true){try{graph=mapHarlowLayout(source,checked.value);const verified=verifyCase(graph);if(!verified.ok)throw Error("case_verification_failed");graph.solver=verified;}catch(e){graph=source;reason=String(e);}}
     else reason=checked.reason;
     const receipt:ActionPayload={type:"LlmOutput",key:"room-cast:"+scan.id,occurrence:0,source:"live",response:{content:JSON.stringify({scan,reply,detection,accepted:!reason,reason}),model},latencyMs:0,at:0};

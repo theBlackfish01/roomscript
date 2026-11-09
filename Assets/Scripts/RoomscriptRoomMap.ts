@@ -5,8 +5,8 @@ import {RoomscriptOpeningController} from "./RoomscriptOpeningController";
 import {RoomscriptAudio} from "./RoomscriptAudio";
 import {HARLOW_ZONE_SLOTS,HARLOW_ITEM_SLOTS} from "./Engine/room/HarlowRoomCast";
 import {pendingRoomCast,ROOM_CAST_PENDING_KEY} from "./RoomscriptRoomCastSession";
-import {PRESET_FREE_FLOOR_MARKS} from "./Content/ActorPresentationMarks";
-import {PRESET_EVENING_V3} from "./Content/PresetEveningRoom";
+import {harlowGuestOffsets} from "./Content/ActorPresentationMarks";
+
 /** Preview's local log/file bridge delivers proposals through an editor message. Placement only. */
 export class RoomscriptRoomMap {
  static current:RoomscriptRoomMap|null=null;
@@ -39,10 +39,9 @@ export class RoomscriptRoomMap {
   if(reply.stage==="failed"){await this.fallback(reply.error||"bridge_unavailable");return;}
   if(reply.stage==="detected"){
    this.status("Checking the room's surfaces…","locate");
-   try{const located=await this.scanner.scanAndLocate(reply.detection),scan=await this.scanner.placementHits(located);
+   try{const located=await this.scanner.scanAndLocate(reply.detection),scan=await this.scanner.placementHits(located,harlowGuestOffsets());
     if(scan.hits.filter(h=>h.kind==="floor").length<4||scan.hits.filter(h=>h.kind==="surface").length<6)throw Error("insufficient_measured_surfaces");
-    const homes:Record<string,string>={S1:"Z4",S2:"Z3",S3:"Z3",S4:"Z4"};
-    const zones=HARLOW_ZONE_SLOTS.map(z=>({...z,guestOffsets:Object.keys(homes).filter(s=>homes[s]===z.id).map(s=>PRESET_FREE_FLOOR_MARKS[s].map((n,i)=>n-PRESET_EVENING_V3.zones[z.id][i]))}));
+    const offsets=harlowGuestOffsets(),zones=HARLOW_ZONE_SLOTS.map(z=>({...z,guestOffsets:offsets[z.id]}));
     console.log("ROOM_CAST_REQUEST|"+JSON.stringify({id,scan,located:located.located,slots:{zones,items:HARLOW_ITEM_SLOTS}}));
     this.status("Casting Harlow's rooms…","cast");await this.awaitReply(id,"detected");
    }catch(e){await this.fallback(String(e));}return;

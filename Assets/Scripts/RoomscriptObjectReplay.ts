@@ -19,7 +19,7 @@ export class RoomscriptObjectReplay {
    if(!this.pending.length||getTime()<this.readyAt||this.flow.diagnostics().busy||RoomscriptAudio.active?.speechBusy())return;
    const replay=this.pending.shift()!,graph=this.engine.graphRef(),spot=chalkSpot(graph,replay.zone,this.engine.mode()),art=ghostArt(replay.actor,"neutral");if(!art)return;
    const root=global.scene.createSceneObject("RoomscriptCaughtGhost_"+replay.actor);root.setParent(this.room.getSceneObject());root.createComponent("Component.Canvas");
-   root.getTransform().setLocalPosition(new vec3(spot.center[0]+(spot.radius>40?spot.radius+12:0),0,spot.center[2]));ghostImage(root,"Truth ghost",art,GHOST_TINT.replay);this.active=root;this.until=getTime()+replay.durationSeconds;
+   root.getTransform().setLocalPosition(new vec3(spot.center[0]+(spot.radius>40?spot.radius+12:0),spot.center[1],spot.center[2]));ghostImage(root,"Truth ghost",art,GHOST_TINT.replay);this.active=root;this.until=getTime()+replay.durationSeconds;
    this.sound("GhostWhoosh",root.getTransform().getWorldPosition());console.log("CAUGHT_REPLAY|"+JSON.stringify(replay));
  }
  holdFor(seconds:number):void{this.holdUntil=getTime()+seconds;}

@@ -50,21 +50,37 @@ export class RoomscriptRoomScanner extends BaseScriptComponent {
     return this.locateResponse(detected||await this.capture(true),!detected);
   }
   /** More than a centre hit: measured horizontal tops and floor points for placement choices. */
-  async placementHits(result:any):Promise<{id:string;floorY:number;hits:import("./Engine/room/HarlowRoomCast").RoomCastHit[]}>{
+  async placementHits(result:any,guestOffsets:Record<string,number[][]>={}):Promise<{id:string;floorY:number;hits:import("./Engine/room/HarlowRoomCast").RoomCastHit[]}>{
     const f=result.frame,v=(p:number[])=>new vec3(p[0],p[1],p[2]),start=v(f.position),base=v(f.rays[0]),dx=v(f.rays[1]).sub(base),dy=v(f.rays[2]).sub(base);
     const probes:{start:vec3;end:vec3;label:string}[]=[];
     for(const o of result.objects){const b=o.box;for(const u of [.2,.5,.8])for(const v of [.2,.5,.8])probes.push({start,end:start.add(base).add(dx.uniformScale(b[0]+(b[2]-b[0])*u)).add(dy.uniformScale(b[1]+(b[3]-b[1])*v)),label:o.label});}
     const forward=base.add(dx.uniformScale(.5)).add(dy.uniformScale(.5));forward.y=0;const fw=forward.normalize(),right=new vec3(-fw.z,0,fw.x);
-    for(let z=100;z<=500;z+=50)for(let x=-200;x<=200;x+=50){const p=start.add(fw.uniformScale(z)).add(right.uniformScale(x));probes.push({start:p.add(new vec3(0,50,0)),end:p.add(new vec3(0,-600,0)),label:"measured horizontal surface"});}
+    for(let z=100;z<=1000;z+=50)for(let x=-300;x<=300;x+=50){const p=start.add(fw.uniformScale(z)).add(right.uniformScale(x));probes.push({start:p.add(new vec3(0,50,0)),end:p.add(new vec3(0,-600,0)),label:"measured horizontal surface"});}
     const measured:{position:number[];normal:number[];label:string}[]=[];
     for(const p of probes){const hit=await this.hitRay(p.start,p.end);if(hit&&hit.normal[1]>=.8)measured.push({...hit,label:p.label});}
     if(!measured.length)throw Error("no_room_surfaces");const floorY=Math.min(...measured.map(h=>h.position[1]));
     const hits:import("./Engine/room/HarlowRoomCast").RoomCastHit[]=[];
     for(const h of measured){if(hits.some(p=>Math.hypot(...p.position.map((n,i)=>n-h.position[i]))<12))continue;const floor=Math.abs(h.position[1]-floorY)<8;
-      if(!floor&&(h.position[1]<floorY+10||h.position[1]>floorY+180))continue;
+      if(!floor&&(h.position[1]<floorY+25||h.position[1]>floorY+180))continue;
       hits.push({id:"H"+hits.length,position:h.position as [number,number,number],normal:h.normal as [number,number,number],kind:floor?"floor":"surface",label:floor?"floor":h.label});
     }
-    console.log("ROOM_CAST_HITS|"+JSON.stringify({floorY,floor:hits.filter(h=>h.kind==="floor").length,surfaces:hits.filter(h=>h.kind==="surface").length}));return {id:result.id,floorY,hits};
+    // Check the authored footprints, not just their anchor: a translated guest must not stand in furniture.
+    for(const h of hits.filter(h=>h.kind==="floor")){
+      h.guestZones=[];
+      for(const zone of Object.keys(guestOffsets)){
+        let clear=true;
+        for(const offset of guestOffsets[zone]){
+          for(const edge of [[0,0]]){
+            const p=new vec3(h.position[0]+offset[0]+edge[0],start.y+50,h.position[2]+offset[2]+edge[1]);
+            const hit=await this.hitRay(p,new vec3(p.x,floorY-30,p.z));
+            if(!hit||hit.normal[1]<.8||Math.abs(hit.position[1]-h.position[1])>8){clear=false;break;}
+          }
+          if(!clear)break;
+        }
+        if(clear)h.guestZones.push(zone);
+      }
+    }
+    console.log("ROOM_CAST_HITS|"+JSON.stringify({floorY,floor:hits.filter(h=>h.kind==="floor").length,surfaces:hits.filter(h=>h.kind==="surface").length,guestAnchors:hits.filter(h=>h.guestZones?.some(z=>guestOffsets[z]?.length)).map(h=>({id:h.id,zones:h.guestZones}))}));return {id:result.id,floorY,hits};
   }
   async locateResponse(result:any,save=false):Promise<any>{
     const located=[];

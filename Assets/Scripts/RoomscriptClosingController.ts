@@ -70,7 +70,7 @@ import {RoomscriptRoomMap} from "./RoomscriptRoomMap";
    const victim=figure.suspect===graph.cast.victim.id,culprit=figure.suspect===graph.envelope.who,frame=victim?"staggering":culprit&&hasFrame(figure.suspect,"tableau")?"tableau":"neutral",art=ghostArt(figure.suspect,frame);if(!art)continue;
    const ghost=uiObject(this.tableau,"RoomscriptReconstruction_"+figure.suspect);ghost.createComponent("Component.Canvas");
    const offset=zoneId===t.zone?(victim?32:-32):index*64;
-   ghost.getTransform().setLocalPosition(new vec3(spot.center[0]+offset+(spot.radius>40?spot.radius+12:0),0,spot.center[2]));ghostImage(ghost,"Frozen truth",art,victim?GHOST_TINT.victim:culprit?GHOST_TINT.culprit:GHOST_TINT.truth);this.ghosts.push(ghost);
+   ghost.getTransform().setLocalPosition(new vec3(spot.center[0]+offset+(spot.radius>40?spot.radius+12:0),spot.center[1],spot.center[2]));ghostImage(ghost,"Frozen truth",art,victim?GHOST_TINT.victim:culprit?GHOST_TINT.culprit:GHOST_TINT.truth);this.ghosts.push(ghost);
    if(figure.holding){this.hideResting(figure.holding);const object=graph.room.objects.find(o=>o.id===figure.holding);if(object&&frame!=="tableau"){const held=uiObject(ghost,"Held weapon");held.getTransform().setLocalPosition(new vec3(art.hand?.x||0,art.hand?.y||82,14));propDrawing(held,object.id,object.type,true);}}
   }
   for(const item of t.suspended){const object=graph.room.objects.find(o=>o.id===item.object);if(!object)continue;this.hideResting(object.id);const holder=uiObject(this.tableau,"Suspended "+object.id);holder.getTransform().setLocalPosition(new vec3(...item.position));propDrawing(holder,object.id,object.type,false);}

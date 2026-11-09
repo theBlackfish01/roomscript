@@ -1,3 +1,12 @@
+# Nov 10 - Harlow room mapping branch
+
+Work is on `room-mapped-harlow`, based on master `913d699`. Added the Preview ending action, local Claude Opus placement route, pure validation, unchanged-case mapping, casting toasts and authored fallback. Master remains untouched. Report: [ROOM_MAPPED_HARLOW.md](ROOM_MAPPED_HARLOW.md).
+
+Verified: 676 tests in 90 files, 3 Node transport tests, clean Lens compile/startup and fallback. Initial end-to-end mapping passed but failed visual review; final safety checks reject incomplete floor coverage for the fixed Kitchen guest offsets. Normal naive-player LEAF passed: 25 actions, correct verdict, exact replay, no caption mismatches, overlapping speech or early endings. No new art or voices; provider keys stay local and no scene changes are staged.
+
+Final editor restart handshake: Nov 10, 01:53 PKT (launch 01:52:49); three restarts used. The local editor handoff must be installed once per Lens Studio session. Final mapping is not visually accepted, so this is not ready for master. Continue scan coverage work only after the deadline branch checkpoint.
+
+---
 # Nov 9 — Harlow story and dialogue repair
 
 Rewrote 22 accounts and recorded 32 natural performances with distinct delivery, public character backgrounds and clearer admissions. Fixed menu release protection and the knife's targeting/inspection feedback; removed Pike's unrelated door timer. The production factory now preserves the complete dialogue bank.
