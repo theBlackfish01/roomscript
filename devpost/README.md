@@ -15,7 +15,7 @@ The design was planned with the Devpost Learn **plan-lens** skill (installed at 
 | [run7-publication-checklist.md](run7-publication-checklist.md) | Historical claim checklist from Run 7 (superseded by the Run 10 report) |
 
 ## Submission checklist
-- [ ] Demo video under 3 minutes, recorded in Lens Studio Preview, uploaded to YouTube as **Public**.
+- [x] Demo video under 3 minutes, recorded in Lens Studio Preview, uploaded to YouTube as **Public**: https://youtu.be/Lyoo6iMqbLQ
 - [ ] Repository public on GitHub, with the Lens Studio project and this folder.
 - [ ] Devpost form filled from [the description draft](drafts/devpost-description-draft.md), with the video and repo links and four captures.
 - [ ] Submitted before **Mon Nov 9, 5:00 pm US Eastern (Tue Nov 10, 03:00 PKT)**.

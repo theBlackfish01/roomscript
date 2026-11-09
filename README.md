@@ -6,7 +6,7 @@ The suspects are performed by AI voices, but they can't make things up. A determ
 
 Built for *Learn AR with SPECS*: planned with the Devpost Learn `plan-lens` skill, and built by coding agents through CLAD and the Lens Studio MCP.
 
-**Demo video:** _add the YouTube link here_ · **Design brief:** [devpost/design-brief.md](devpost/design-brief.md)
+**Demo video:** [youtu.be/Lyoo6iMqbLQ](https://youtu.be/Lyoo6iMqbLQ) · **Design brief:** [devpost/design-brief.md](devpost/design-brief.md)
 
 ![Vale, with the Ask · Show · Accuse row beside her](docs/captures/2026-11-08-run10-row-final.jpg)
 

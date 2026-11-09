@@ -1,12 +1,12 @@
 # Devpost submission text (final, Nov 8)
 
-Paste-ready for the Devpost form. Add the YouTube link where marked.
+Paste-ready for the Devpost form.
 
 **Project name:** Roomscript
 
 **Elevator pitch:** A murder mystery in your own room on Snap Spectacles. Question four suspects in their own voices, show them what you find and catch the lie. AI performs; a rules engine keeps it fair.
 
-**Video:** _YouTube link_
+**Video:** https://youtu.be/Lyoo6iMqbLQ
 
 **Repository:** https://github.com/theBlackfish01/roomscript
 
