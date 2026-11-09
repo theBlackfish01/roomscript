@@ -27,3 +27,11 @@ TypeScript and JSON asset handoffs did not update the running Preview reliably. 
 Visual review of the first accepted scan exposed guest overlap and low floor-noise points selected as surfaces. The final checker requires 90 cm guest separation, measured clear footprints at their unchanged offsets, and evidence tops at least 25 cm above the floor. A later narrow scan correctly fell back with zones_too_close. Before images are retained alongside the final capture.
 
 The final scan (roomcast-1794259157445) found 15 floor points and 18 raised surfaces, with four eligible Hall anchors but no eligible Kitchen anchor for its two fixed guest offsets. Missing depth coverage is rejected rather than guessed. The remaining work is to obtain sufficient floor coverage while keeping those authored offsets. The bridge restart race (an old cast overwriting a newer detection) was also fixed and regression-tested.
+
+## Final acceptance - 02:28 PKT
+
+The 25 cm scan grid resolved the missing-anchor problem: 67 floor points and 26 raised surfaces, with valid placements for both guest groups. Final live run `roomcast-1794259647968` passed scan, Claude cast, pure checks, restart, four toasts, binding audit and unchanged envelope (`S2 / Z1 / O1`). The model response allowance is 3,600 tokens; raw responses are saved before parsing so malformed replies remain diagnosable. The previous cast error was not diagnosed conclusively.
+
+Final captures were inspected: [mapped room](captures/room-mapped-harlow-final.png) and [side view](captures/room-mapped-harlow-final-side.png). Guests retain their measured floor positions and props use raised surfaces. The illustrated guests can occlude one another along a sight line; moving the Preview camera changes that view, as with the authored staging. Earlier failed captures and fallbacks above are retained as development evidence.
+
+All requested gates passed before 02:30 PKT: 676 Vitest tests, 3 bridge tests, clean Lens compile/startup, initial ending-button integration, final live mapped replay and capture, and the unchanged naive-player playthrough (25 actions, correct verdict, exact replay, 2,328 caption samples, zero mismatches/overlaps/early endings). README updated for the Preview-only availability. No new voice lines or case truth. Existing local Scene.scene changes are excluded from commits.

@@ -55,7 +55,7 @@ export class RoomscriptRoomScanner extends BaseScriptComponent {
     const probes:{start:vec3;end:vec3;label:string}[]=[];
     for(const o of result.objects){const b=o.box;for(const u of [.2,.5,.8])for(const v of [.2,.5,.8])probes.push({start,end:start.add(base).add(dx.uniformScale(b[0]+(b[2]-b[0])*u)).add(dy.uniformScale(b[1]+(b[3]-b[1])*v)),label:o.label});}
     const forward=base.add(dx.uniformScale(.5)).add(dy.uniformScale(.5));forward.y=0;const fw=forward.normalize(),right=new vec3(-fw.z,0,fw.x);
-    for(let z=100;z<=1000;z+=50)for(let x=-300;x<=300;x+=50){const p=start.add(fw.uniformScale(z)).add(right.uniformScale(x));probes.push({start:p.add(new vec3(0,50,0)),end:p.add(new vec3(0,-600,0)),label:"measured horizontal surface"});}
+    for(let z=100;z<=1000;z+=25)for(let x=-300;x<=300;x+=25){const p=start.add(fw.uniformScale(z)).add(right.uniformScale(x));probes.push({start:p.add(new vec3(0,50,0)),end:p.add(new vec3(0,-600,0)),label:"measured horizontal surface"});}
     const measured:{position:number[];normal:number[];label:string}[]=[];
     for(const p of probes){const hit=await this.hitRay(p.start,p.end);if(hit&&hit.normal[1]>=.8)measured.push({...hit,label:p.label});}
     if(!measured.length)throw Error("no_room_surfaces");const floorY=Math.min(...measured.map(h=>h.position[1]));

@@ -4,7 +4,7 @@
 
 The suspects are performed by AI voices, but they can't make things up. A deterministic rules engine owns every fact, lie and verdict, so the case is always fair and always solvable.
 
-Cases are built to adapt to your environment. A mystery keeps its fixed story as a template, and the engine maps it onto a room's layout and furniture, then proves the result is still solvable. This version plays the hand-placed Harlow case; see [Limits](#limits).
+Cases are built to adapt to your environment. A mystery keeps its fixed story as a template, and the engine maps it onto a room's layout and furniture, then proves the result is still solvable. In Lens Studio Preview, **Play Harlow in this room** now maps the authored case onto the scanned room using Claude Opus through a local bridge; it is not available on Spectacles yet (see [setup](docs/ROOM_MAPPED_HARLOW.md#running-locally)).
 
 Built for *Learn AR with SPECS*: planned with the Devpost Learn `plan-lens` skill, and built by coding agents through CLAD and the Lens Studio MCP.
 
@@ -103,7 +103,7 @@ Details: [Run 10 report](docs/RUN10_REPORT.md).
 
 ## Limits
 - Tested in Lens Studio's Preview with a simulated room, not on Spectacles hardware. Comfort, hand tracking and brightness are unproven until it's worn.
-- The case is placed by hand in the Evening Room. Mapping a case onto a scan of your own room works in the engine, but it isn't in the Lens yet.
+- **Play Harlow in this room** maps the case onto a scanned room in Lens Studio Preview using Claude Opus through a local bridge. It is not available on Spectacles yet; rejected scans replay the authored layout.
 - No voice input; every question is a button or typed.
 
 ## Repository

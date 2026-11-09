@@ -1,10 +1,10 @@
 # Nov 10 - Harlow room mapping branch
 
-Work is on `room-mapped-harlow`, based on master `913d699`. Added the Preview ending action, local Claude Opus placement route, pure validation, unchanged-case mapping, casting toasts and authored fallback. Master remains untouched. Report: [ROOM_MAPPED_HARLOW.md](ROOM_MAPPED_HARLOW.md).
+Work is on `room-mapped-harlow`, based on master `913d699`. Added the Preview ending action, local Claude Opus placement route, pure validation, unchanged-case mapping, casting toasts and authored fallback. Final acceptance passed at 02:28 PKT; merge authorized by the deadline rule. Report: [ROOM_MAPPED_HARLOW.md](ROOM_MAPPED_HARLOW.md).
 
 Verified: 676 tests in 90 files, 3 Node transport tests, clean Lens compile/startup and fallback. Initial end-to-end mapping passed but failed visual review; final safety checks reject incomplete floor coverage for the fixed Kitchen guest offsets. Normal naive-player LEAF passed: 25 actions, correct verdict, exact replay, no caption mismatches, overlapping speech or early endings. No new art or voices; provider keys stay local and no scene changes are staged.
 
-Final editor restart handshake: Nov 10, 01:53 PKT (launch 01:52:49); three restarts used. The local editor handoff must be installed once per Lens Studio session. Final mapping is not visually accepted, so this is not ready for master. Continue scan coverage work only after the deadline branch checkpoint.
+Final editor restart handshake: Nov 10, 01:53 PKT (launch 01:52:49); three restarts used. The local editor handoff must be installed once per Lens Studio session. The final 25 cm scan grid found 67 floor points and 26 surfaces; roomcast-1794259647968 passed mapping and capture review at 02:28 PKT. All requested gates passed before the cutoff. Preview paused after verification.
 
 ---
 # Nov 9 — Harlow story and dialogue repair

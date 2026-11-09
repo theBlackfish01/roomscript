@@ -1,3 +1,387 @@
 {
-
+    "FULLPLAY_AUDIO_CHECK":  {
+                                 "samples":  2328,
+                                 "captionMismatch":  0,
+                                 "overlap":  0,
+                                 "earlyEnds":  0,
+                                 "narratorEarlyEnds":  0,
+                                 "events":  [
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-1",
+                                                    "role":  "narrator",
+                                                    "speaker":  "V",
+                                                    "text":  "Detective. Edmund Harlow. Come tonight. There is something I need you to hear.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-1",
+                                                    "role":  "narrator",
+                                                    "speaker":  "V",
+                                                    "text":  "Detective. Edmund Harlow. Come tonight. There is something I need you to hear.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-2",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Harlow was dead when I arrived. Someone in this room knew why.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-2",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Harlow was dead when I arrived. Someone in this room knew why.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-3",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Four guests. Four stories. I had to find the killer, the room, and the weapon.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-3",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Four guests. Four stories. I had to find the killer, the room, and the weapon.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "suspect-4",
+                                                    "role":  "suspect",
+                                                    "speaker":  "S2",
+                                                    "text":  "Tea, Detective. I was making tea in the kitchen. Surely that isn\u0027t so difficult to believe.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "suspect-4",
+                                                    "role":  "suspect",
+                                                    "speaker":  "S2",
+                                                    "text":  "Tea, Detective. I was making tea in the kitchen. Surely that isn\u0027t so difficult to believe.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-5",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Stone cold. Nobody made tea tonight.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-5",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Stone cold. Nobody made tea tonight.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "suspect-6",
+                                                    "role":  "suspect",
+                                                    "speaker":  "S2",
+                                                    "text":  "All right, I went into the study. But Edmund was already dead when I got there.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "suspect-6",
+                                                    "role":  "suspect",
+                                                    "speaker":  "S2",
+                                                    "text":  "All right, I went into the study. But Edmund was already dead when I got there.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-7",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "That\u0027s Harlow answering Vale. He was still alive.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-7",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "That\u0027s Harlow answering Vale. He was still alive.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "suspect-8",
+                                                    "role":  "suspect",
+                                                    "speaker":  "S2",
+                                                    "text":  "Edmund and I were in the study. The cable was in my hands. I can\u0027t make that sound any better.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "suspect-8",
+                                                    "role":  "suspect",
+                                                    "speaker":  "S2",
+                                                    "text":  "Edmund and I were in the study. The cable was in my hands. I can\u0027t make that sound any better.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-9",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Collar fibres, caught in the braid. I don\u0027t like that.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-9",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Collar fibres, caught in the braid. I don\u0027t like that.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-10",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "A brass candlestick in the lounge. Heavy enough to make me pause.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-10",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "A brass candlestick in the lounge. Heavy enough to make me pause.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-11",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "A letter knife, laid out in the hall. Worth a closer look.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-11",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "A letter knife, laid out in the hall. Worth a closer look.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-12",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Okafor\u0027s handwriting. A bottle she never logged.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-12",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Okafor\u0027s handwriting. A bottle she never logged.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-13",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "A marble bookend in the conservatory. Another possibility to account for.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-13",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "A marble bookend in the conservatory. Another possibility to account for.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-14",
+                                                    "role":  "suspect",
+                                                    "speaker":  "S2",
+                                                    "text":  "Edmund?",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-14",
+                                                    "role":  "suspect",
+                                                    "speaker":  "S2",
+                                                    "text":  "Edmund?",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-15",
+                                                    "role":  "narrator",
+                                                    "speaker":  "V",
+                                                    "text":  "Vale. I intend to expose your forged trust accounts.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-15",
+                                                    "role":  "narrator",
+                                                    "speaker":  "V",
+                                                    "text":  "Vale. I intend to expose your forged trust accounts.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-16",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Harlow was going to expose Vale\u0027s forged accounts.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-16",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Harlow was going to expose Vale\u0027s forged accounts.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-17",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Imran\u0027s signature. This came from Harlow\u0027s coat.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-17",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Imran\u0027s signature. This came from Harlow\u0027s coat.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-18",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Pike\u0027s certificate. Rain-spotted, and forged.",
+                                                    "revision":  1
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-18",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "Pike\u0027s certificate. Rain-spotted, and forged.",
+                                                    "revision":  1,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-19",
+                                                    "role":  "suspect",
+                                                    "speaker":  "S2",
+                                                    "text":  "I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts.",
+                                                    "revision":  2
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-19",
+                                                    "role":  "suspect",
+                                                    "speaker":  "S2",
+                                                    "text":  "I killed Edmund Harlow in the Study with the cable. He was going to expose my forged trust accounts.",
+                                                    "revision":  2,
+                                                    "reason":  "completed"
+                                                },
+                                                {
+                                                    "type":  "start",
+                                                    "id":  "narration-20",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "I came for the truth. Harlow finally has it.",
+                                                    "revision":  2
+                                                },
+                                                {
+                                                    "type":  "end",
+                                                    "id":  "narration-20",
+                                                    "role":  "narrator",
+                                                    "speaker":  "NARRATOR",
+                                                    "text":  "I came for the truth. Harlow finally has it.",
+                                                    "revision":  2,
+                                                    "reason":  "completed"
+                                                }
+                                            ]
+                             },
+    "NAIVE_PLAYER_CHECK":  {
+                               "actions":  25,
+                               "limit":  40,
+                               "firstAnswerSeconds":  22.6355169999988,
+                               "verdict":  "correct",
+                               "minutes":  105,
+                               "route":  [
+                                             "Open case file",
+                                             "Question S2",
+                                             "Ask",
+                                             "Ask where@22:30",
+                                             "RoomscriptObject_O11",
+                                             "Question S2",
+                                             "Show",
+                                             "Show O11",
+                                             "RoomscriptObject_O12",
+                                             "Question S2",
+                                             "Show",
+                                             "Show O12",
+                                             "RoomscriptObject_O1",
+                                             "RoomscriptObject_O2",
+                                             "RoomscriptObject_O3",
+                                             "RoomscriptObject_O4",
+                                             "RoomscriptObject_O5",
+                                             "RoomscriptObject_O13",
+                                             "RoomscriptObject_O14",
+                                             "RoomscriptObject_O15",
+                                             "Question S2",
+                                             "Accuse",
+                                             "Where Z1",
+                                             "Weapon O1",
+                                             "Break seal"
+                                         ],
+                               "drags":  0,
+                               "holds":  0
+                           }
 }
