@@ -4,7 +4,9 @@ import {presentedQuestions,PresentedQuestion} from "../Engine/perf/QuestionPrese
 /** Natural prompts for existing engine topics; no extra answer, assertion or model authority. */
 export function run10Questions(graph:CaseGraph,state:GameState,suspect:string):PresentedQuestion[]{
   const questions=presentedQuestions(graph,state,suspect).filter(q=>!q.topic.startsWith("baseline:")&&q.topic!=="unclear");
-  return questions.slice(0,4).map(q=>{
+  const ordered=questions.filter(q=>q.topic.startsWith("where@")||q.topic==="whereabouts").concat(questions.filter(q=>q.topic==="background"),questions.filter(q=>!q.topic.startsWith("where@")&&q.topic!=="whereabouts"&&q.topic!=="background"));
+  return ordered.slice(0,4).map(q=>{
+    if(q.topic==="background")return {...q,label:"You and Harlow",question:"How did you know Harlow?"};
     if(q.topic.startsWith("where@"))return {...q,label:graph.slots[graph.murderSlot]+" alibi",question:"Where were you at "+graph.slots[graph.murderSlot]+"?"};
     if(q.topic==="about:V")return {...q,label:"Harlow alive?",question:"Did you hear Harlow that night?"};
     if(q.topic==="motive:S2")return {...q,label:"Harlow and Vale",question:"What was between Harlow and Vale?"};

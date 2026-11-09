@@ -141,7 +141,7 @@ import {presentObject,presentGuest} from "./Engine/perf/PresentEvidence";
       const person=state.suspects[suspect],take=person.layer>=2||person.composure<=0?"broken":person.layer>0||person.composure/person.composureMax<.7?"rattled":"steady";
       const spoke=await this.tts.speak(chosen.answer.line,undefined,task.token,began,take,!!tellCue(graph,state,state.lastSeq,suspect,chosen.mode),kind==="free"?"free":"standard");
       if(!spoke&&isCurrent()&&this.speaking){this.onSpeaking.invoke(this.speaking);this.speaking=null;}
-      console.log("INTERROGATION|"+JSON.stringify({origin:chosen.origin,textMs:chosen.latencyMs,audioMs:this.lastAudioMs,rejections:chosen.rejectionCount,mode:chosen.mode}));
+      console.log("INTERROGATION|"+JSON.stringify({suspect,topic,statement:state.activeStatement,origin:chosen.origin,textMs:chosen.latencyMs,audioMs:this.lastAudioMs,rejections:chosen.rejectionCount,mode:chosen.mode}));
     } catch(error) {if(!(error instanceof LlmError)||error.code!=="cancelled")console.log("INTERROGATION|safe_fallback");}
     finally {if(revision===this.revision){this.busy=false;this.speaking=null;}}
   }

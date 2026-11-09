@@ -1,0 +1,240 @@
+﻿{
+    "target":  "Lens Studio Preview",
+    "date":  "2026-11-09",
+    "vitestTests":  668,
+    "vitestFiles":  89,
+    "nativeNewVoices":  [
+                            {
+                                "id":  "HN_C_S1_BACKGROUND_text",
+                                "seconds":  8.824,
+                                "duration":  8.515812873840332
+                            },
+                            {
+                                "id":  "HN_C_S2_BACKGROUND_text",
+                                "seconds":  10.303,
+                                "duration":  9.95256233215332
+                            },
+                            {
+                                "id":  "HN_C_S3_BACKGROUND_text",
+                                "seconds":  9.366,
+                                "duration":  9.299500465393066
+                            },
+                            {
+                                "id":  "HN_C_S4_BACKGROUND_text",
+                                "seconds":  8.412,
+                                "duration":  8.437438011169434
+                            },
+                            {
+                                "id":  "HN_C_S1_ALIBI_0_text",
+                                "seconds":  8.416,
+                                "duration":  8.176250457763672
+                            },
+                            {
+                                "id":  "HN_C_S1_ALIBI_0_alternate",
+                                "seconds":  5.352,
+                                "duration":  5.302750110626221
+                            },
+                            {
+                                "id":  "HN_C_S1_ALIBI_1_text",
+                                "seconds":  9.825,
+                                "duration":  9.456250190734863
+                            },
+                            {
+                                "id":  "HN_C_VALE_ALIBI_0_text",
+                                "seconds":  6.329,
+                                "duration":  6.42606258392334
+                            },
+                            {
+                                "id":  "HN_C_VALE_ALIBI_0_alternate",
+                                "seconds":  6.464,
+                                "duration":  6.0341877937316895
+                            },
+                            {
+                                "id":  "HN_C_VALE_ALIBI_0_press",
+                                "seconds":  6.319,
+                                "duration":  6.112562656402588
+                            },
+                            {
+                                "id":  "HN_C_VALE_ALIBI_1_text",
+                                "seconds":  6.448,
+                                "duration":  6.0341877937316895
+                            },
+                            {
+                                "id":  "HN_C_VALE_ALIBI_1_press",
+                                "seconds":  4.906,
+                                "duration":  4.910937786102295
+                            },
+                            {
+                                "id":  "HN_C_VALE_ALIBI_2_text",
+                                "seconds":  7.325,
+                                "duration":  7.157437801361084
+                            },
+                            {
+                                "id":  "HN_C_VALE_ALIBI_2_press",
+                                "seconds":  5.927,
+                                "duration":  5.955812454223633
+                            },
+                            {
+                                "id":  "HN_C_S3_ALIBI_0_text",
+                                "seconds":  5.908,
+                                "duration":  5.955812454223633
+                            },
+                            {
+                                "id":  "HN_C_S3_ALIBI_0_alternate",
+                                "seconds":  5.349,
+                                "duration":  5.302750110626221
+                            },
+                            {
+                                "id":  "HN_C_S3_ALIBI_1_text",
+                                "seconds":  8.299,
+                                "duration":  8.019499778747559
+                            },
+                            {
+                                "id":  "HN_C_S4_ALIBI_0_text",
+                                "seconds":  6.881,
+                                "duration":  6.739500045776367
+                            },
+                            {
+                                "id":  "HN_C_S4_ALIBI_0_alternate",
+                                "seconds":  5.946,
+                                "duration":  5.877437591552734
+                            },
+                            {
+                                "id":  "HN_C_S4_ALIBI_1_text",
+                                "seconds":  9.925,
+                                "duration":  9.534625053405762
+                            },
+                            {
+                                "id":  "HN_C_OKAFOR_REPLY_text",
+                                "seconds":  7.293,
+                                "duration":  6.974625110626221
+                            },
+                            {
+                                "id":  "HN_C_PIKE_TRUST_text",
+                                "seconds":  8.362,
+                                "duration":  8.25462532043457
+                            },
+                            {
+                                "id":  "HN_C_SEES_S1_text",
+                                "seconds":  5.894,
+                                "duration":  5.537875175476074
+                            },
+                            {
+                                "id":  "HN_C_SEES_S3_text",
+                                "seconds":  5.87,
+                                "duration":  5.877437591552734
+                            },
+                            {
+                                "id":  "HN_C_SEES_S4_text",
+                                "seconds":  5.932,
+                                "duration":  5.537875175476074
+                            },
+                            {
+                                "id":  "HN_C_SEES_O2_text",
+                                "seconds":  7.374,
+                                "duration":  6.974625110626221
+                            },
+                            {
+                                "id":  "HN_C_SEES_O3_text",
+                                "seconds":  8.354,
+                                "duration":  8.019499778747559
+                            },
+                            {
+                                "id":  "HN_C_SEES_O4_text",
+                                "seconds":  6.29,
+                                "duration":  6.42606258392334
+                            },
+                            {
+                                "id":  "HN_C_SEES_O5_text",
+                                "seconds":  6.316,
+                                "duration":  6.42606258392334
+                            },
+                            {
+                                "id":  "HN_O3",
+                                "seconds":  4.912,
+                                "duration":  4.675812721252441
+                            },
+                            {
+                                "id":  "HN_O2",
+                                "seconds":  5.917,
+                                "duration":  5.773000240325928
+                            },
+                            {
+                                "id":  "HN_O5",
+                                "seconds":  6.34,
+                                "duration":  6.347687721252441
+                            }
+                        ],
+    "alibiSelections":  [
+                            {
+                                "suspect":  "S1",
+                                "statement":  "C_S1_ALIBI_0",
+                                "line":  "The lounge. Half past ten, yes. I know how this sounds, but that\u0027s where I was."
+                            },
+                            {
+                                "suspect":  "S4",
+                                "statement":  "C_S4_ALIBI_0",
+                                "line":  "At that hour? The hall. I don\u0027t see what\u0027s so remarkable about that."
+                            },
+                            {
+                                "suspect":  "S3",
+                                "statement":  "C_S3_ALIBI_0",
+                                "line":  "The conservatory. Half past ten, yes. That\u0027s my answer."
+                            },
+                            {
+                                "suspect":  "S2",
+                                "statement":  "C_VALE_ALIBI_0",
+                                "line":  "Tea, Detective. I was making tea in the kitchen. Surely that isn\u0027t so difficult to believe."
+                            },
+                            {
+                                "suspect":  "S1",
+                                "statement":  "C_S1_ALIBI_0",
+                                "line":  "I was in the lounge when it happened. You don\u0027t have to like the answer, Detective."
+                            }
+                        ],
+    "storyFlowPassed":  true,
+    "silentTailFiles":  948,
+    "fullPlay":  {
+                     "actions":  25,
+                     "limit":  40,
+                     "firstAnswerSeconds":  24.310585999999603,
+                     "verdict":  "correct",
+                     "minutes":  105,
+                     "route":  [
+                                   "Open case file",
+                                   "Question S2",
+                                   "Ask",
+                                   "Ask where@22:30",
+                                   "RoomscriptObject_O11",
+                                   "Question S2",
+                                   "Show",
+                                   "Show O11",
+                                   "RoomscriptObject_O12",
+                                   "Question S2",
+                                   "Show",
+                                   "Show O12",
+                                   "RoomscriptObject_O1",
+                                   "RoomscriptObject_O2",
+                                   "RoomscriptObject_O3",
+                                   "RoomscriptObject_O4",
+                                   "RoomscriptObject_O5",
+                                   "RoomscriptObject_O13",
+                                   "RoomscriptObject_O14",
+                                   "RoomscriptObject_O15",
+                                   "Question S2",
+                                   "Accuse",
+                                   "Where Z1",
+                                   "Weapon O1",
+                                   "Break seal"
+                               ],
+                     "drags":  0,
+                     "holds":  0
+                 },
+    "audioAudit":  {
+                       "samples":  2770,
+                       "captionMismatch":  0,
+                       "overlap":  0,
+                       "earlyEnds":  0,
+                       "narratorEarlyEnds":  0
+                   }
+}

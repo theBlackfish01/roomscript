@@ -40,6 +40,262 @@
       "outputBytes": 24285
     },
     {
+      "path": "Assets/Audio/HarlowNatural/NARRATOR/HN_O2.mp3",
+      "sourceSha256": "44019d2b6f6148b6eb37e3d0489417ec86455392be85a25b95afc044c39774b4",
+      "outputSha256": "bf2afa0e9ac85d017551a51dc5f55af929ee7f1c74a3019c95c5d9d08964a156",
+      "sourceBytes": 82799,
+      "outputBytes": 92413,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/NARRATOR/HN_O3.mp3",
+      "sourceSha256": "08e9a6d6d89f814f92964b6111eedf9f8bb844b93cdc3bf399abc753b8c0358c",
+      "outputSha256": "796d0dc26de3214add056202f43c283d9eccdba051acfc9c25c3c9b0b71271c6",
+      "sourceBytes": 65245,
+      "outputBytes": 74858,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/NARRATOR/HN_O5.mp3",
+      "sourceSha256": "2df22230c2abcbf29d381746ce71f46dfd1172b22f0ebcc09e352bc3509027e2",
+      "outputSha256": "8c799c3bef0db9d6abe5e8db76358b4027ba281391246368dbeec279aec33b51",
+      "sourceBytes": 91995,
+      "outputBytes": 101608,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S1/HN_C_S1_ALIBI_0_alternate.mp3",
+      "sourceSha256": "1ef353b4c2a6808fea03d0e417abc2da7b9e7b1ab21915877f78f50c23367b2f",
+      "outputSha256": "fa7d9120ff8b776c112c64fc3cd425b422133bc78f3ac78feeefef3b1ba43aa5",
+      "sourceBytes": 75276,
+      "outputBytes": 84889,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S1/HN_C_S1_ALIBI_0_text.mp3",
+      "sourceSha256": "e2f5cde9353c4be0dcdb3a519776711a8e922510c0962ec868eb79e0c8bd4032",
+      "outputSha256": "eb230ea63b7feb373273988ec31d9915c80fc9d73082f35e89cdc6a4268f6cf4",
+      "sourceBytes": 121252,
+      "outputBytes": 130865,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S1/HN_C_S1_ALIBI_1_text.mp3",
+      "sourceSha256": "aa7f8b8433181a3ccfa164f8cfb031b3bd24480beb025c83e2cf603ec27fce01",
+      "outputSha256": "bc34a55bf3e37559f114c16ab10d011013323376478ac0bf6afcd3def1a45e9a",
+      "sourceBytes": 141732,
+      "outputBytes": 151345,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S1/HN_C_S1_BACKGROUND_text.mp3",
+      "sourceSha256": "f85fdd68edee033c83192249ce69df871b8454ab37176c3006411d30ae2ed065",
+      "outputSha256": "d6869ceab64acb4416efc45f8f19ecad5b787cae46373a30fc22fbf5d262b492",
+      "sourceBytes": 126685,
+      "outputBytes": 136298,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S1/HN_C_SEES_O3_text.mp3",
+      "sourceSha256": "c17be437ac6989dc7074d0d0e7414c699731574c5c6d26980f069a55f55d1fbc",
+      "outputSha256": "bea528176bd3c96eabc45eb10a5800e8dc1b374924b40e051fe96bf25a8df340",
+      "sourceBytes": 118744,
+      "outputBytes": 128357,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S1/HN_C_SEES_S4_text.mp3",
+      "sourceSha256": "a228a753fa62c09d12c342093eca0a9276a8f567b903aebf78d6c0bb81501bd7",
+      "outputSha256": "d7a2d46e2f4be5f4ca6481a66fa43edb95e607c46903120311779b79459cc523",
+      "sourceBytes": 79038,
+      "outputBytes": 88651,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S2/HN_C_S2_BACKGROUND_text.mp3",
+      "sourceSha256": "789f092eb282e1b78adaa74be64e8295a9cddc7f489f077b525ce719a38c4abc",
+      "outputSha256": "1cccdd7307c1cead57f1f8e6340c37b6d7a84db68371d34f1d53a3ab710bf4a0",
+      "sourceBytes": 149673,
+      "outputBytes": 159286,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S2/HN_C_SEES_O5_text.mp3",
+      "sourceSha256": "1c11509b0b74a38f03054b610fdf0de2a1561abed3ac80645932b78ce5f1125d",
+      "outputSha256": "9c323207a58b0d77ff0ff811c74d3f158151e900c9c86e08eb7d2db53b4c4df8",
+      "sourceBytes": 93248,
+      "outputBytes": 102862,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S2/HN_C_VALE_ALIBI_0_alternate.mp3",
+      "sourceSha256": "1cef6c5926fb2c466643a8f39a8cb5036e8c3ff1014305bd0a2258480e5fc4b7",
+      "outputSha256": "934e3f6fc9d0089568777aab2efbefa8a6eb90e0b1dbae31ed0b635fd723fe3e",
+      "sourceBytes": 86979,
+      "outputBytes": 96592,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S2/HN_C_VALE_ALIBI_0_press.mp3",
+      "sourceSha256": "69932c6be3aa9f9a84777d8bcc99d9d2959972243d8bec0c4c998a6a598422aa",
+      "outputSha256": "089255c4dc315440091c08aab2c78c946dc8e0ba30942c55d7ac0fb9cd7105a9",
+      "sourceBytes": 88233,
+      "outputBytes": 97846,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S2/HN_C_VALE_ALIBI_0_text.mp3",
+      "sourceSha256": "24d82d50314f038a9a0593ebf0f684e02b6feed23f99a6e24438a8fc149373a2",
+      "outputSha256": "b9b50a3ba1ca411e9c59c0ed5b79dcb24f93088ccd5a26c2d50118a3e1b44ef2",
+      "sourceBytes": 93248,
+      "outputBytes": 102862,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S2/HN_C_VALE_ALIBI_1_press.mp3",
+      "sourceSha256": "a1e8eb8b88e18bdc6e5b1da1978d6df3a5e0b4ef2707b62b6b8204af318de821",
+      "outputSha256": "a0945650a38af4a828086bdc51f380dcce2c54e1c620e3eff425061efaf64f76",
+      "sourceBytes": 69007,
+      "outputBytes": 78620,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S2/HN_C_VALE_ALIBI_1_text.mp3",
+      "sourceSha256": "c384383dac246ac5877b22607ffd044a4607e7bd45f31cddf9f7b5151b4ae305",
+      "outputSha256": "0489674dee7dedbd642af151b0381a09fd9ff0ab71de724339d8c85591b0d9f9",
+      "sourceBytes": 86979,
+      "outputBytes": 96592,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S2/HN_C_VALE_ALIBI_2_press.mp3",
+      "sourceSha256": "14558962170579057f4025af4989a53c446380fc5c6fa48ff294bb51a0b067ee",
+      "outputSha256": "e8f1a66c90c227b99e09d2083cc923600a03399360574144ab86483b277156a8",
+      "sourceBytes": 85725,
+      "outputBytes": 95338,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S2/HN_C_VALE_ALIBI_2_text.mp3",
+      "sourceSha256": "243af762b1b1bea750a67dd1a18952cc9030fa0298c4cd1f8ee26e37ed1a3fb8",
+      "outputSha256": "bd78c008d7f2b5ea49a5fca57cacdf25e17fdd4e51b94eabc7430f16137a31a0",
+      "sourceBytes": 104951,
+      "outputBytes": 114564,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S3/HN_C_OKAFOR_REPLY_text.mp3",
+      "sourceSha256": "b7c0de1dc1103ef504e6b4784de21ce5114076766a0cc5bf777bd3814f192064",
+      "outputSha256": "8378d7d4c50295fc1ef424f5f263887c41045e9923b88ea6265768802fd6e1c8",
+      "sourceBytes": 102026,
+      "outputBytes": 111639,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S3/HN_C_S3_ALIBI_0_alternate.mp3",
+      "sourceSha256": "3af9c457a3c6bff92b641ee172212107e204ac34f49159fdd22118e95a1c3dbe",
+      "outputSha256": "1d859c920436de46d217774d230bc696b52f48cc2a66f85b4f2811791039567c",
+      "sourceBytes": 75276,
+      "outputBytes": 84889,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S3/HN_C_S3_ALIBI_0_text.mp3",
+      "sourceSha256": "7c4eea639181881552d7f20246ecefe08618997bd4cbaf7703422119949ea85e",
+      "outputSha256": "931fdd5816d1a220cdda0ebc7d73d07be440e93fb2ce8523dd1d35eee125b4e0",
+      "sourceBytes": 85725,
+      "outputBytes": 95338,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S3/HN_C_S3_ALIBI_1_text.mp3",
+      "sourceSha256": "08b04cb1a373e55f432a9dd9632c9022a3ef0e86368d862bcc581e6ba335d336",
+      "outputSha256": "d143dda0f31ea8a9dd1c62b1d88f65661103c6c5f3fa949ae64eb3fff8f5944c",
+      "sourceBytes": 118744,
+      "outputBytes": 128357,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S3/HN_C_S3_BACKGROUND_text.mp3",
+      "sourceSha256": "9c27f772f1c22fe5718c02977a808de83b643af246d33d13465e073db5be844c",
+      "outputSha256": "2c0cfaa7488cb2051716a6a474688d4e31efc814f161e84cf71207f8f7ae7693",
+      "sourceBytes": 139224,
+      "outputBytes": 148837,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S3/HN_C_SEES_O4_text.mp3",
+      "sourceSha256": "dbaaeaaae13c1c194e4b3fabac3e3212f93796fe020a8e1af1882e5ef49137f4",
+      "outputSha256": "c301b2ef42d79e4994564e08b8a3eda63a570842774759cebac5602ffedb44b6",
+      "sourceBytes": 93248,
+      "outputBytes": 102862,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S3/HN_C_SEES_S1_text.mp3",
+      "sourceSha256": "e953c15aa7590742843843947f035b05988941db9a1d49a7b25a62ea5d041355",
+      "outputSha256": "27d65beaf8f201b4b6ee62ff34e6cec0eca295321eab5352a25ff4af9120a51c",
+      "sourceBytes": 79038,
+      "outputBytes": 88651,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S4/HN_C_PIKE_TRUST_text.mp3",
+      "sourceSha256": "2eb2590794af8aeeb873535fc7e14435cf2eece98d7c75218ab618a332218571",
+      "outputSha256": "50555ae30fe52740a0bf157224ea4faffac2cee2f2de21f9a93a3059c2dd61a0",
+      "sourceBytes": 122506,
+      "outputBytes": 132119,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S4/HN_C_S4_ALIBI_0_alternate.mp3",
+      "sourceSha256": "c095e67ae5f259efc7d5503800f54cc5ac56dfad85431288474d2be3f848cbc4",
+      "outputSha256": "9b25779128dab6f382aabe1842caf5748193036b99bb6ede958f8bbd4d4e5d96",
+      "sourceBytes": 84471,
+      "outputBytes": 94084,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S4/HN_C_S4_ALIBI_0_text.mp3",
+      "sourceSha256": "841a1e7c601455aec81e87674eecd610233d684f5551d89b7867ef015296fb5c",
+      "outputSha256": "0178a6a7644447fe4edb5a5ed29a4868dcc14b66bd9d455c42c1c40fa22796c1",
+      "sourceBytes": 98264,
+      "outputBytes": 107877,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S4/HN_C_S4_ALIBI_1_text.mp3",
+      "sourceSha256": "be8a277ccc2ed55de0cc91835db9e8a5ee3b742cde809db2c9034f0b75137b78",
+      "outputSha256": "7d6134f6b95ae6e93a09faeff652edb2f2946ef5d8d332c5f363245468c6a95e",
+      "sourceBytes": 142986,
+      "outputBytes": 152599,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S4/HN_C_S4_BACKGROUND_text.mp3",
+      "sourceSha256": "5e2ac971813c1021bcdae64cb47f82eb104ea6f134095d04e4fe6f7a79048f38",
+      "outputSha256": "5271918f0779beab43acc8cd6820733fde47b51f7ea38887b93414194c0bfb56",
+      "sourceBytes": 125431,
+      "outputBytes": 135044,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S4/HN_C_SEES_O2_text.mp3",
+      "sourceSha256": "3f67fd0dfa9263272660b2220e7dd605005c8316797e04418a95deef02503cdc",
+      "outputSha256": "52f853b88680b694fd50652d22fb02c97b373632dc945c3003aca3f88beb479b",
+      "sourceBytes": 102026,
+      "outputBytes": 111639,
+      "tailSeconds": 0.6
+    },
+    {
+      "path": "Assets/Audio/HarlowNatural/S4/HN_C_SEES_S3_text.mp3",
+      "sourceSha256": "6cbed625cb20490a50a1e3d0a8598443506fa59634c8753293eeee403d516c76",
+      "outputSha256": "ea23e2accb941de1f7d1b4388613d57bef6059f24d67bb46d366b639c1de911d",
+      "sourceBytes": 84471,
+      "outputBytes": 94084,
+      "tailSeconds": 0.6
+    },
+    {
       "path": "Assets/Audio/Music/BlackoutDrone.mp3",
       "sourceSha256": "f00cbea31ccebf4b13ff1d4da7e7564c0455b2a3100c9ee65a521a6e0a4aeadc",
       "outputSha256": "95ce3f5c9cd32423d651a57994002ff0a8089f8270fab321abd875c088c2f1f3",

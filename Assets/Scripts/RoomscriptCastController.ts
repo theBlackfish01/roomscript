@@ -18,7 +18,9 @@ import {actorPresentationMarks} from "./Content/ActorPresentationMarks";
    const graph=this.flow.engine.graphRef(),marks=actorPresentationMarks(graph,this.flow.engine.mode());
    for(const actor of this.cast){this.flow.registerActor(actor);actor.getTransform().setWorldPosition(this.room.toWorld(marks[actor.suspect]));actor.getSceneObject().enabled=true;
      const target=global.scene.createSceneObject("Question "+actor.suspect);target.setParent(actor.getSceneObject());const h=actor.heights();target.getTransform().setLocalPosition(new vec3(0,h.top*.52,8));
-     const shape=Shape.createBoxShape();shape.size=new vec3(h.width+8,h.top*1.04,18);const collider=target.createComponent("Physics.ColliderComponent");collider.shape=shape;
+     // Cover head-to-feet, but not the illustration's transparent side margins:
+     // those were stealing clicks meant for the visible props behind a person.
+     const shape=Shape.createBoxShape();shape.size=new vec3(Math.min(52,h.width*.6),h.top*1.04,18);const collider=target.createComponent("Physics.ColliderComponent");collider.shape=shape;
      const pinch=target.createComponent(Interactable.getTypeName()) as Interactable;pinch.targetingMode=3;pinch.onTriggerEnd.add(()=>{if(this.flow.controlsBlocked||!this.flow.engine.investigationEnabled)return;this.previewFocusUntil=global.deviceInfoSystem.isEditor()?getTime()+3:0;this.focus(actor.suspect);});this.targets.push(target);
    }
    this.automatic=true;this.flow.selectSuspect("S2");this.automatic=false;

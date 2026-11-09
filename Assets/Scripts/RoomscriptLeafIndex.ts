@@ -1,4 +1,5 @@
 import {RoomscriptVoicePlaybackLeafScenario} from "./RoomscriptVoicePlaybackLeafScenario";
+import {RoomscriptStoryPolishLeafScenario} from "./RoomscriptStoryPolishLeafScenario";
 import {RoomscriptRun10DirectorLeafScenario} from "./RoomscriptRun10DirectorLeafScenario";
 import {RoomscriptRun10BoundaryLeafScenario} from "./RoomscriptRun10BoundaryLeafScenario";
 import {RoomscriptAudioOverlapLeafScenario} from "./RoomscriptAudioOverlapLeafScenario";
@@ -32,7 +33,8 @@ import {RoomscriptLiveAiBeatLeafScenario} from "./RoomscriptLiveAiBeatLeafScenar
 export class RoomscriptLeafIndex extends BaseScriptComponent {
   @scenariosIndex
   static scenariosIndex: ScenarioMetadata[] = [
-    {id:"roomscript-voice-playback",typename:RoomscriptVoicePlaybackLeafScenario.getTypeName(),parameters:{mode:"latency"}},
+    {id:"roomscript-story-polish",typename:RoomscriptStoryPolishLeafScenario.getTypeName(),parameters:{mode:"flow"}},
+      {id:"roomscript-voice-playback",typename:RoomscriptVoicePlaybackLeafScenario.getTypeName(),parameters:{mode:"latency"}},
     {id:"roomscript-run10-boundaries",typename:RoomscriptRun10BoundaryLeafScenario.getTypeName()},
     {id:"roomscript-run10-director",typename:RoomscriptRun10DirectorLeafScenario.getTypeName(),parameters:{beat:"row",hold:"15",suspect:"S2"}},
     {id:"roomscript-audio-overlap",typename:RoomscriptAudioOverlapLeafScenario.getTypeName()},

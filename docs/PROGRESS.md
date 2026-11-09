@@ -1,3 +1,11 @@
+# Nov 9 — Harlow story and dialogue repair
+
+Rewrote 22 accounts and recorded 32 natural performances with distinct delivery, public character backgrounds and clearer admissions. Fixed menu release protection and the knife's targeting/inspection feedback; removed Pike's unrelated door timer. The production factory now preserves the complete dialogue bank.
+
+Verified: 668 tests in 89 files; clean Lens compile/startup; story-flow LEAF; all 32 native recording timings; complete 25-click case with correct verdict, 2,770 caption samples and zero mismatches/overlaps/early ends. All 948 speech files retain silent tails. Report: [STORY_POLISH_2026-11-09.md](STORY_POLISH_2026-11-09.md). Cost: 1,491 ElevenLabs credits. Preview-only; no glasses. Restart handshake: 22:54 PKT. Existing scene edits remain outside the commit.
+
+---
+
 # Nov 9 ? Preview polish follow-up
 
 Implemented final-word protection across 916 speech clips, easier full-person selection and larger stable Ask / Show / Accuse controls, concise Ask labels, direct answers with varied repeat takes, and two clearer narrator lines. Report: [PREVIEW_POLISH_2026-11-09.md](PREVIEW_POLISH_2026-11-09.md).

@@ -11,7 +11,7 @@ import {fuzzPlayers} from "../../scripts/fuzz-players";
 describe("Run 10 physical hero remap",()=>{
   it("preserves every truth, statement, breaker and sealed answer while changing graph identity",()=>{
     const old=createHeroCase(),graph=createRun10HeroCase();
-    expect(graph.facts).toEqual(old.facts);expect(graph.statements).toEqual(old.statements);
+    expect(graph.facts.filter(f=>!f.id.endsWith("_BACKGROUND"))).toEqual(old.facts);expect(graph.statements.filter(s=>s.topic!=="background")).toEqual(old.statements);
     expect(graph.envelope).toEqual(old.envelope);expect(graph.requiredDeductions).toEqual(old.requiredDeductions);
     expect(graph.caseId).toMatch(/:evening-v3:run10$/);expect(graph.pitchHash).not.toBe(old.pitchHash);
     expect(applyRun10HeroCase(graph)).toEqual(graph);
@@ -22,7 +22,7 @@ describe("Run 10 physical hero remap",()=>{
     expect(holder("E_TRUST_NOTE")).toBe("O13");expect(holder("E_LETTER")).toBe("O13");
     expect(graph.room.objects.filter(o=>o.label==="Harlow's letter")).toHaveLength(1);
     expect(Object.keys(RUN10_PAPERS)).toEqual(["O13","O14","O15"]);
-    expect(graph.beats.map(b=>b.id)).toEqual(["B_VOICEMAIL","B_FLIGHT"]);
+    expect(graph.beats.map(b=>b.id)).toEqual(["B_VOICEMAIL"]);
     expect(graph.evidence.some(e=>e.id==="E_UV_DRAG")).toBe(false);
     const state=reduceGame(graph,createGameState(graph),{type:"PinchObject",object:"O13",seq:1,by:"test"});
     expect(state.knowledge.evidenceIds).toEqual(expect.arrayContaining(["E_TRUST_NOTE","E_LETTER"]));

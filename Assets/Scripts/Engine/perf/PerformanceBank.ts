@@ -42,8 +42,10 @@ export function composePerformance(graph:CaseGraph,sheet:FactSheet,topic:string,
 export function performanceOpener(line:string):string {
   return (line.toLowerCase().match(/^[a-z]+(?:\s+[a-z]+){0,2}/)?.[0]||"").replace(/^if you must.*/,"if you must");
 }
-export function selectPerformance(graph:CaseGraph,sheet:FactSheet,topic:string,mode:AnswerMode,seq:number):Answer|undefined {
-  const variants=variantOptions(graph,sheet,topic,mode);if(!variants.length)return undefined;
+export function selectPerformance(graph:CaseGraph,sheet:FactSheet,topic:string,mode:AnswerMode,seq:number,authoredOnly=false):Answer|undefined {
+  const variants=variantOptions(graph,sheet,topic,mode).filter(v=>!authoredOnly||v.authored);if(!variants.length)return undefined;
+  // An authored opening is intentional; use alternatives only after that account has been heard.
+  if(authoredOnly&&!sheet.recentLines.some(line=>variants.some(v=>v.text===line))){const v=variants[0];return {topic,cites:[v.ref],line:v.text,emotion:v.emotion};}
   const fresh=variants.filter(v=>!sheet.recentLines.some(line=>line.includes(v.text)));
   const recent=new Set(sheet.recentLines.map(performanceOpener));
   const varied=(fresh.length?fresh:variants).filter(v=>!recent.has(performanceOpener(v.text)));

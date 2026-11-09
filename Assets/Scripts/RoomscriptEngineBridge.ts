@@ -8,8 +8,6 @@ import {RoomInput} from "./Engine/room/RoomModel";
 import {DynamicCaseResult,prepareDynamicCase} from "./Content/DynamicCase";
 import {heroLineBank} from "./Content/HeroLineBank";
 import {phrasePlan,PhrasePlan} from "./Engine/perf/GeneratedPerformance";
-import {HERO_VARIANTS} from "./Content/HeroVariantBank";
-import {HERO_REGISTER} from "./Content/HeroRegisterBank";
 export type RoomscriptCaseMode="preset"|"dynamic";
 export interface RoomscriptCaseChange {mode:RoomscriptCaseMode;graph:CaseGraph;scenery:readonly RoomObject[];activeZoneIds:readonly string[];}
 
@@ -31,7 +29,7 @@ export interface RoomscriptCaseChange {mode:RoomscriptCaseMode;graph:CaseGraph;s
   private installPreset(notify:boolean):void {
     const graph=createRun10HeroCase();const report=verifyCase(graph);
     if(!report.ok)throw new Error("Roomscript solver rejected hero: "+report.issues.map(i=>i.code).join(","));
-    graph.solver=report;graph.performances={variants:HERO_VARIANTS,register:HERO_REGISTER};
+    graph.solver=report;
     this.install(graph,"preset",heroLineBank,[],graph.room.zones.map(z=>z.id),notify);
     console.log("Roomscript solver: unique ✓; checks=8; hypotheses="+report.hypotheses.length+"; minRoute="+report.minRouteMinutes);
   }

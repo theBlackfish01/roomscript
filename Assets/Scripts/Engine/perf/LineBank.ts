@@ -7,6 +7,8 @@ export interface LineQuery {suspect: string; topic: string; layer: number; mode:
 /** Validation disambiguates same-layer replacements; stale or hidden refs never become fallback speech. */
 export function lookupLine(entries: readonly LineBankEntry[], query: LineQuery, sheet: FactSheet, graph: CaseGraph): Answer | undefined {
   if (query.suspect !== sheet.suspect || query.mode === "confession") return undefined;
+  const authored=selectPerformance(graph,sheet,query.topic,query.mode,query.seq??0,true);
+  if(authored&&validateLine(authored,sheet,graph,query.mode).ok)return authored;
   const performance=selectPerformance(graph,sheet,query.topic,query.mode,query.seq??0);
   // Start a new subject with its direct authored answer. Repeated questions can
   // use a varied performance; all paths still pass the same truth validator.

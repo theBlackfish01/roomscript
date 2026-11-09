@@ -339,3 +339,8 @@ Wadood confirmed no glasses are available and the demo/test target is Lens Studi
 ## Nov 9 ? Preview dialogue and control polish
 
 Use preserved recordings with a 600 ms silent tail to protect the native EOF boundary, keep the verified 44.1 kHz stereo encoding, and leave music/cues alone. Prefer direct validated answers on new subjects and vary existing recorded openers for repeat questions. Larger UIKit action targets and full-figure click bounds address Preview pointing; menu retention and a visible disabled speech state remove disappearing targets. Two existing-voice narrator replacements clarify the premise and accusation goal (74 ElevenLabs credits). Case truth and the cast stay unchanged. See PREVIEW_POLISH_2026-11-09.md.
+
+
+## Nov 9 — Harlow dialogue and story follow-up
+
+Replace dry canonical delivery with 22 reviewed accounts and 32 full recordings using the existing cast (ElevenLabs v3, 1,491 credits). Keep the murder facts, secret gates and truth validator; bind every performance to its current account. Put the complete bank in the production case factory so Lens startup cannot overwrite it. Four public background answers explain the guests' relationships to Harlow without revealing later admissions. Retire Pike's unrelated flight timer. Protect freshly opened menus from the opening release, expand the knife target to cover the model, narrow transparent character side margins, and give repeated inspections audible feedback without extra time. See STORY_POLISH_2026-11-09.md.

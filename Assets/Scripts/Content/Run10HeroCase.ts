@@ -2,6 +2,9 @@ import {CaseGraph,RoomObject,Vec3} from "../Engine/core/Types";
 import {hashHex} from "../Engine/core/Hash";
 import {createHeroCase} from "./HeroCaseHarlow1041";
 import {applyPresetEveningRoom,PRESET_CONSOLE_TOP} from "./PresetEveningRoom";
+import {addHarlowDialogue} from "./HarlowDialogue";
+import {HERO_VARIANTS} from "./HeroVariantBank";
+import {HERO_REGISTER} from "./HeroRegisterBank";
 
 /** The retained historical graph is for tapes and engine regression fixtures. This is the wearer build. */
 export const RUN10_FIND_OBJECTS:readonly string[]=["O1","O2","O3","O4","O5","O11","O12","O13","O14","O15"];
@@ -48,11 +51,13 @@ export function applyRun10HeroCase(source:CaseGraph):CaseGraph {
     if(/^E_O[2-5]_LOCATION$/.test(evidence.id))evidence.canonical=evidence.canonical.replace(" remembers remaining"," remained");
   }
   // The letter is found physically; the blackout/UV reward is retired. Its truth fact remains in the graph.
-  graph.beats=graph.beats.filter(b=>b.id!=="B_LETTER"&&b.id!=="B_BLACKOUT");
+  graph.beats=graph.beats.filter(b=>!["B_LETTER","B_BLACKOUT","B_FLIGHT"].includes(b.id));
   graph.evidence=graph.evidence.filter(e=>e.id!=="E_UV_DRAG");
   graph.witnessing=graph.evidence.filter(e=>e.kind==="object_memory").flatMap(e=>e.proves.map(fact=>({witness:e.holder,fact,channel:"record" as const})));
   graph.room.roomId+=":run10";graph.caseId="HARLOW-1041@"+graph.room.roomId;
-  graph.pitchHash=hashHex(source.pitchHash+":find-ask-catch-v1");
+  graph.performances={variants:HERO_VARIANTS,register:HERO_REGISTER};
+  addHarlowDialogue(graph);
+  graph.pitchHash=hashHex(source.pitchHash+":find-ask-catch-dialogue-v2");
   delete graph.solver;
   return graph;
 }

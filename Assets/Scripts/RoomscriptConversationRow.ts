@@ -10,7 +10,7 @@ type Menu={root:SceneObject;buttons:GlyphButton[];items:ConversationChoice[];bac
 export class RoomscriptConversationRow {
  readonly root:SceneObject;private content:SceneObject;private actions:SceneObject;private showButton:GlyphButton;
  private menus=new Map<string,Menu>();private mode="row";private wanted=false;private blocked=false;private showAvailable=false;private buttons:GlyphButton[]=[];
- private all:ConversationChoice[]=[];private page=0;private back:()=>void;
+ private all:ConversationChoice[]=[];private page=0;private back:()=>void;private choicesReadyAt=0;
  constructor(private owner:BaseScriptComponent,parent:SceneObject,ask:()=>void,show:()=>void,accuse:()=>void){
   this.root=uiObject(parent,"RoomscriptConversationRow");this.root.createComponent("Component.Canvas");this.actions=this.container("Actions",true,41,8);
   this.add(this.actions,"Ask","Ask",13,8,ask);this.showButton=this.add(this.actions,"Show","Show",13,8,show);this.add(this.actions,"Accuse","Accuse",13,8,accuse);this.sync();
@@ -20,13 +20,16 @@ export class RoomscriptConversationRow {
   layout.autoDiscoverItemsOnStart=false;layout.onInitialized.add(()=>{layout.width=width;layout.height=height;layout.direction=row?FlexDirection.Row:FlexDirection.Column;layout.alignItems=FlexAlign.Center;layout.justifyContent=FlexJustify.Center;layout.columnGap=1;layout.rowGap=.8;});return root;
  }
  private add(parent:SceneObject,id:string,value:string,w:number,h:number,choose:()=>void,picture?:Texture):GlyphButton{
-  const b=glyphButton(parent,id,w,h,()=>{if(!this.blocked&&(id!=="Show"||this.showAvailable))choose();},IVORY);b.set(picture||glyphTexture("ask"),value);this.buttons.push(b);
+  const b=glyphButton(parent,id,w,h,()=>{if(!this.blocked&&b.root.isEnabledInHierarchy&&(parent===this.actions||getTime()>=this.choicesReadyAt)&&(id!=="Show"||this.showAvailable))choose();},IVORY);b.set(picture||glyphTexture("ask"),value);this.buttons.push(b);
   for(let i=0;i<b.root.getChildrenCount();i++){const c=b.root.getChild(i);if(c.name==="Glyph icon")c.enabled=!!picture;}
   if(!picture){b.word.layoutRect=Rect.create(-w/2+.5,w/2-.5,-h*.3,h*.3);b.word.getSceneObject().getTransform().setLocalPosition(new vec3(0,0,.7));b.word.horizontalAlignment=HorizontalAlignment.Center;b.word.sizeToFit=true;b.word.size=28;}
   const item=b.root.createComponent(FlexItem.getTypeName()) as FlexItem;item.overrideWidth=w;item.overrideHeight=h;item.flexGrow=0;item.flexShrink=0;(parent.getComponent(FlexLayout.getTypeName()) as FlexLayout).addItems([item]);return b;
  }
  choices(mode:string,items:ConversationChoice[],onBack?:()=>void):void{this.close();this.mode=mode;this.all=items;this.page=0;this.back=onBack||(()=>{});this.renderChoices();}
  private renderChoices():void{
+  // A mouse release that opens/rebinds the menu must not also choose the item
+  // that appears beneath it (Imran's knife question occupies the old Ask spot).
+  this.choicesReadyAt=getTime()+.3;
   if(this.content)this.content.enabled=false;this.actions.enabled=false;
   const pictures=this.all.some(i=>!!i.picture),pageSize=pictures?3:5,items=this.all.slice(this.page*pageSize,(this.page+1)*pageSize),key=this.mode+":"+items.length;let m=this.menus.get(key);
   if(!m){

@@ -11445,9 +11445,297 @@
       "credits": 41,
       "estimate": false,
       "at": "2026-11-09T17:02:22.005Z"
+    },
+    {
+      "id": "d94c32851d3e29620841ec6f77e7ec2686b8cf729d5b14f9374275e52e3fe804",
+      "label": "harlow-natural:HN_C_S1_BACKGROUND_text",
+      "status": "complete",
+      "credits": 59,
+      "estimate": false,
+      "at": "2026-11-09T17:47:10.411Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "2d495440741071418615c0805f845ed2705a79b0d0434e664730db50c59c8757",
+      "label": "harlow-natural:HN_C_S2_BACKGROUND_text",
+      "status": "complete",
+      "credits": 62,
+      "estimate": false,
+      "at": "2026-11-09T17:47:17.316Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "850f988106a5600f9fc1812a3812f1bfced320438b3fda28dfeb2987d881efee",
+      "label": "harlow-natural:HN_C_S3_BACKGROUND_text",
+      "status": "complete",
+      "credits": 63,
+      "estimate": false,
+      "at": "2026-11-09T17:47:24.121Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "231b90ec387f69349c096dfb7ab243a7ebf78716ee0dc5e3fa3c478da94e1a59",
+      "label": "harlow-natural:HN_C_S4_BACKGROUND_text",
+      "status": "complete",
+      "credits": 64,
+      "estimate": false,
+      "at": "2026-11-09T17:47:29.861Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "3fb56acf3bb82638ba73989f2b561690df50e935ed968d110302bd576ce57f43",
+      "label": "harlow-natural:HN_C_S1_ALIBI_0_text",
+      "status": "complete",
+      "credits": 44,
+      "estimate": false,
+      "at": "2026-11-09T17:47:35.803Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "4eaa84d54b588860c539772ed025b62c7dd84e50b44ca4eb775eb9099cc92964",
+      "label": "harlow-natural:HN_C_S1_ALIBI_0_alternate",
+      "status": "complete",
+      "credits": 46,
+      "estimate": false,
+      "at": "2026-11-09T17:47:41.060Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "07f6e173e202054729cd77f7bf48efc29559827ef1c70a182db4f4e67823f446",
+      "label": "harlow-natural:HN_C_S1_ALIBI_1_text",
+      "status": "complete",
+      "credits": 64,
+      "estimate": false,
+      "at": "2026-11-09T17:47:44.666Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "081a4ddbaa8cd842ea4ae8925974676f0e98fb7908d953f84dcc2e9df728e84c",
+      "label": "harlow-natural:HN_C_VALE_ALIBI_0_text",
+      "status": "complete",
+      "credits": 48,
+      "estimate": false,
+      "at": "2026-11-09T17:47:50.526Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "131f201f3651a1556030d5f026c06142b937e97a9447294447773902a40fdfb4",
+      "label": "harlow-natural:HN_C_VALE_ALIBI_0_alternate",
+      "status": "complete",
+      "credits": 37,
+      "estimate": false,
+      "at": "2026-11-09T17:47:54.762Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "7b2ae7564941e1f0c95436b05eba1ca4a9fff16ea2ee5462923eed0d87c24529",
+      "label": "harlow-natural:HN_C_VALE_ALIBI_0_press",
+      "status": "complete",
+      "credits": 43,
+      "estimate": false,
+      "at": "2026-11-09T17:47:58.865Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "2b56daf11ba02e260f43022469053ce99b50cf42a809e512f035f973df67c41c",
+      "label": "harlow-natural:HN_C_VALE_ALIBI_1_text",
+      "status": "complete",
+      "credits": 45,
+      "estimate": false,
+      "at": "2026-11-09T17:48:02.635Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "e7dca53e4643f4c8d208133e8c44c58dd68acc2b64b82bb5d388e8c0c979e1b3",
+      "label": "harlow-natural:HN_C_VALE_ALIBI_1_press",
+      "status": "complete",
+      "credits": 43,
+      "estimate": false,
+      "at": "2026-11-09T17:48:06.509Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "9453ed8d52009ece3f78b1e18651e740f355c2788bc679cfc73f400751f6b8c3",
+      "label": "harlow-natural:HN_C_VALE_ALIBI_2_text",
+      "status": "complete",
+      "credits": 49,
+      "estimate": false,
+      "at": "2026-11-09T17:48:09.772Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "af6f092df6b8135804232c93da94ba83ca334fe2ff6e3386ed53dad32083f9a6",
+      "label": "harlow-natural:HN_C_VALE_ALIBI_2_press",
+      "status": "complete",
+      "credits": 38,
+      "estimate": false,
+      "at": "2026-11-09T17:48:15.183Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "884fb089b34d0997bc9e9db77546283ec358b1a3ee94a8f477a480e4165923e6",
+      "label": "harlow-natural:HN_C_S3_ALIBI_0_text",
+      "status": "complete",
+      "credits": 31,
+      "estimate": false,
+      "at": "2026-11-09T17:48:19.151Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "e9400f4ae6cf0344778cf1585ffcbd25964599e1663e61b3c2e65a8cda692deb",
+      "label": "harlow-natural:HN_C_S3_ALIBI_0_alternate",
+      "status": "complete",
+      "credits": 35,
+      "estimate": false,
+      "at": "2026-11-09T17:48:22.784Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "4c95c2500382578eab42badfa948892c050b0f61dfe155dbe99f37b92318130f",
+      "label": "harlow-natural:HN_C_S3_ALIBI_1_text",
+      "status": "complete",
+      "credits": 52,
+      "estimate": false,
+      "at": "2026-11-09T17:48:26.114Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "f98e776ef97ce4e5b69e93f024638c931db353520b5c05009bc0ec566514c60d",
+      "label": "harlow-natural:HN_C_S4_ALIBI_0_text",
+      "status": "complete",
+      "credits": 37,
+      "estimate": false,
+      "at": "2026-11-09T17:48:30.644Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "44fa46aaba83bb3096e59241dde839ff95edcac90d1b70f6807275a6912134d7",
+      "label": "harlow-natural:HN_C_S4_ALIBI_0_alternate",
+      "status": "complete",
+      "credits": 41,
+      "estimate": false,
+      "at": "2026-11-09T17:48:35.127Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "77625a147cc92f59b52f7c150a263dda47fb624c6b64a2895fe866936fefa0a4",
+      "label": "harlow-natural:HN_C_S4_ALIBI_1_text",
+      "status": "complete",
+      "credits": 57,
+      "estimate": false,
+      "at": "2026-11-09T17:48:38.583Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "cc850b8e8cecd13cc1cf040eec48c960f63d81981f8f126284da59f6a627cefa",
+      "label": "harlow-natural:HN_C_OKAFOR_REPLY_text",
+      "status": "complete",
+      "credits": 48,
+      "estimate": false,
+      "at": "2026-11-09T17:48:43.211Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "c82e71289fda07367c07d3c8240cfe6f4d0c9859809c9ca02e318d26d7485df6",
+      "label": "harlow-natural:HN_C_PIKE_TRUST_text",
+      "status": "complete",
+      "credits": 52,
+      "estimate": false,
+      "at": "2026-11-09T17:48:46.637Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "1ae98f43394a50c4fd76f23f34906272916ec0087ce5cd7aca99ecfc6b6acc76",
+      "label": "harlow-natural:HN_C_SEES_S1_text",
+      "status": "complete",
+      "credits": 34,
+      "estimate": false,
+      "at": "2026-11-09T17:48:51.420Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "856dc08b5e43b56fd56594213ac301815b2f931b09469564d02a937001bf06aa",
+      "label": "harlow-natural:HN_C_SEES_S3_text",
+      "status": "complete",
+      "credits": 43,
+      "estimate": false,
+      "at": "2026-11-09T17:48:54.685Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "c57e7aae3d98d61159c0b6255ec8f882ef42584b50635753974f87af9f3e5c34",
+      "label": "harlow-natural:HN_C_SEES_S4_text",
+      "status": "complete",
+      "credits": 47,
+      "estimate": false,
+      "at": "2026-11-09T17:48:58.083Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "3343a668054e893c6e54ef82e3be03b0474515d3c7a5c9f7adf578eaad1d6272",
+      "label": "harlow-natural:HN_C_SEES_O2_text",
+      "status": "complete",
+      "credits": 48,
+      "estimate": false,
+      "at": "2026-11-09T17:49:01.998Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "791198926dbb2b4b859d33017db9f2fc955d4f1c84ecc00d99cccae53155896e",
+      "label": "harlow-natural:HN_C_SEES_O3_text",
+      "status": "complete",
+      "credits": 52,
+      "estimate": false,
+      "at": "2026-11-09T17:49:05.173Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "f4fe77aebe21eccd88c46c5d38dc967df11d38f1f588a264c1dd40460a6203f2",
+      "label": "harlow-natural:HN_C_SEES_O4_text",
+      "status": "complete",
+      "credits": 49,
+      "estimate": false,
+      "at": "2026-11-09T17:49:10.018Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "acdcb7de80e62ce7c30eeb6283e61defa8aa7d42a320dc2f6f66b4ae90983672",
+      "label": "harlow-natural:HN_C_SEES_O5_text",
+      "status": "complete",
+      "credits": 46,
+      "estimate": false,
+      "at": "2026-11-09T17:49:13.213Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "f15c6c0ac2aadf7dcbacb5955406ab12258c319c18733f4ea528028b8f9d23ef",
+      "label": "harlow-natural:HN_O3",
+      "status": "complete",
+      "credits": 34,
+      "estimate": false,
+      "at": "2026-11-09T17:49:15.921Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "784523336dac4e0f05848ed6fcc061e646689490fc9e69ba59fa6d1529749a0a",
+      "label": "harlow-natural:HN_O2",
+      "status": "complete",
+      "credits": 38,
+      "estimate": false,
+      "at": "2026-11-09T17:49:17.960Z",
+      "segment": "run10-2026-11-08"
+    },
+    {
+      "id": "a2f94197ab7146b2afe2f87dee61721342d2d353182d3afb260b2f74b0beb512",
+      "label": "harlow-natural:HN_O5",
+      "status": "complete",
+      "credits": 42,
+      "estimate": false,
+      "at": "2026-11-09T17:49:20.907Z",
+      "segment": "run10-2026-11-08"
     }
   ],
-  "totalCredits": 92415,
+  "totalCredits": 93906,
   "segments": [
     {
       "id": "run5-2026-11-04",

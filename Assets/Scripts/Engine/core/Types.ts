@@ -76,7 +76,7 @@ export interface FactSheet {
   guarded: string[]; saidSoFar: string[]; recentLines: string[]; safeEntities: Id[];
   topicToRef: Record<string, string>;
 }
-export interface VariantEntry {id:string;suspect:Id;ref:string;mode:AnswerMode;text:string;emotion:Emotion;}
+export interface VariantEntry {id:string;suspect:Id;ref:string;mode:AnswerMode;text:string;emotion:Emotion;authored?:boolean;}
 export interface RegisterEntry {id:string;suspect:Id;kind:"opener"|"tail"|"filler"|"deflect"|"lawyered";text:string;}
 export interface LineBankEntry { suspect: Id; topic: string; layer: number; mode: AnswerMode; answer: Answer; variant?:string;emotionTag?:Emotion;segments?:string[]; }
 export interface MemoryRef { id: Id; text: string; entities: Id[]; source: string; }
